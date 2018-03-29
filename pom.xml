@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>optum</groupId>
-    <artifactId>automation</artifactId>
+    <artifactId>acceptance-testing</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
