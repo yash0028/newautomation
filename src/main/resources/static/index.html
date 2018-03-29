@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Kafka Demo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/js/data.js"></script>
+
+
+    <link href="/css/normalize.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+<!-- Add your site or application content here -->
+
+<div class="formDiv">
+    <img src="/img/UHG_White.png">
+    <br /> <br /> <br />
+    <div align="center" class="white-bold">Enter employee information below.</div>
+
+    <!--<form method="post" modelAttribute="employee" action="submit.html">-->
+
+    <form id="empData">
+        <table class="auto_margin">
+            <tr>
+                <td class="white-bold">First Name:</td>
+                <td><input id="firstname" name="firstname" /></td>
+            </tr>
+            <tr>
+                <td class="white-bold">Last Name:</td>
+                <td><input id="lastname" name="lastname" /></td>
+            </tr>
+            <tr>
+                <td class="white-bold">Title:</td>
+                <td><input id="title" name="title" /></td>
+            </tr>
+            <tr>
+                <td class="white-bold">Location:</td>
+                <td><input id="location" name="location" /></td>
+            </tr>
+        </table><br/>
+        <input style="margin-left: 42%;" name="submit" type="submit" value="Submit" onclick="return createEmp();" /><br/>
+
+
+        <p style="text-align: center;">
+            <input type="button" value="click " onclick="getEmployees();">
+            <a href="http://localhost:8080/list.html" style="color: white;" onclick="getEmployees();">List All Employees</a>
+        </p>
+
+
+    </form>
+
+</div>
