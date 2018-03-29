@@ -1,1 +1,0 @@
-This is where the subtree for the CLM-Automation-Testing repository will go
