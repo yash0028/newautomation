@@ -33,7 +33,7 @@ public class ProducerSteps {
         jsonBody.addProperty("location", location);
         jsonBody.addProperty("organization", org);
 
-        response = when().post(url, jsonBody);
+        response = when().post(url, jsonBody.getAsString());
     }
 
     @Then("^response code (\\d+) should be received$")
