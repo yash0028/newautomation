@@ -2,7 +2,7 @@
 
 This is the main project for CLM acceptance testing automation. It uses the Cucumber testing framework to test acceptance tests written in CA Agile Central.
 
-RC-Bridge will pull any acceptance criteria from Agile Central and place any created Feature files inthe the src/test/features folder.
+RC-Bridge will pull any acceptance criteria from Agile Central and place any created Feature files into the src/test/features folder.
 
 This project should be nested as a subtree inside of any repository that will have acceptance tests run against it.
 
