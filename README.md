@@ -23,11 +23,22 @@ To nest this as a subtree into another repository, do the following:
     
 ## Pulling Subtree Changes
 
-Whenever this project is updated, you will need to pull the changes from the parent project.
+Whenever the root project is updated, you will need to pull the changes from the parent project.
 
 1. Change into the parent project's directory
 
 2. Type the following command: 
     ```git
     git subtree pull --prefix=src/acceptance-test https://github.optum.com/Contract-Lifecycle-Management/acceptance-testing.git master --squash
+    ```
+
+## Pushing Subtree Changes
+
+Changes to the subtree can be pushed to the root subtree branch by doing the following:
+
+1. Change into the parent project's directory
+
+2. Type the following command:
+    ```git
+    git subtree push --prefix=src/acceptance-test https://github.optum.com/Contract-Lifecycle-Management/acceptance-testing.git master
     ```
