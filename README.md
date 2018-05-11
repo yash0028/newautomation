@@ -36,9 +36,11 @@ Whenever the root project is updated, you will need to pull the changes from the
 
 Changes to the subtree can be pushed to the root subtree branch by doing the following:
 
-1. Change into the parent project's directory
+1. Commit any changes made 
 
-2. Type the following command:
+2. Change into the parent project's directory
+
+3. Type the following command:
     ```git
     git subtree push --prefix=src/acceptance-test https://github.optum.com/Contract-Lifecycle-Management/acceptance-testing.git master
     ```
