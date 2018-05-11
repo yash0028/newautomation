@@ -1,0 +1,42 @@
+# Last updated on 2018-05-07T13:25:14.583Z
+@MVP
+@PI02_Top3
+@Domain_Microservice
+Feature: F183241 - Domain Microservice Optum - Create Provider Contract Query API (Inquiry)
+
+  @2018.PI02
+  @2018.PI02.02
+  Scenario: US1096246::0
+    Given A contract inquiry request from PIC or Examiner
+    When A REST Service call is made
+    Then The contract data is sent back to PIC or Examiner
+
+  @2018.PI02
+  @2018.PI02.02
+  Scenario: US1096246::1
+    Given A contract inquiry request from PIC or Examiner
+    When A REST Service call is made with invalid data
+    Then The service will return an error
+
+  @2018.PI02
+  @2018.PI02.02
+  Scenario: US1096246::2
+    Given A contract request from PIC or Examiner
+    When The REST service is unavailable
+    Then An server error will be returned
+
+  @2018.PI02
+  @2018.PI02.01
+  Scenario: US1098621
+    Given information is needed by Examiner
+    When the information needed is stored in Exari
+    Then documentation exists that outlines Examiner needs for input and outputs
+
+  @#MVP
+  @2018.PI02
+  @2018.PI02.01
+  Scenario: US1098623
+    Given PIC needs information stored in Exari
+    When PIC initiates the inquiry request
+    Then documentation exists to successfully initiate and respond
+
