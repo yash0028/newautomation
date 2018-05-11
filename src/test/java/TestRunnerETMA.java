@@ -14,6 +14,5 @@ import cucumber.api.CucumberOptions;
         "junit:target/test-report.xml"},
         features="src/test/features",
         glue={"StepDefinitions"},
-        tags = {"not @ignore", "@producer"})
-public class TestRunnerProducer {}
-
+        tags = {"not @ignore", "@etma", "@2018.PI02.01"})
+public class TestRunnerETMA {}

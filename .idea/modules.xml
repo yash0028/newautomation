@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CLM-Automation.iml" filepath="$PROJECT_DIR$/CLM-Automation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/acceptance-testing.iml" filepath="$PROJECT_DIR$/acceptance-testing.iml" />
     </modules>
   </component>
 </project>
