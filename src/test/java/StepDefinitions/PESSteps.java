@@ -18,6 +18,15 @@ public class PESSteps {
     private RequestSpecification request;
     private Response response;
     private JsonObject commonSearchParams;
+    private String baseUri = "http://demographics-api-clm-dev.ose-ctc-dmz.optum.com/counterparties/search";
+
+    public PESSteps(){
+        this.commonSearchParams = new JsonObject();
+
+        commonSearchParams.addProperty("mpin", "30");
+        commonSearchParams.addProperty("tin", "381359063");
+        commonSearchParams.addProperty("npi", "1396717450");
+    }
 
 //F137899
 
@@ -26,20 +35,7 @@ public class PESSteps {
     @Given("^the Exari Interview is built with the search parameters \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
     public void theExariInterviewIsBuiltWithTheSearchParameters(String mpin, String tin, String npi, String fn, String ln, String city, String zip, String state) throws Throwable {
 
-        JsonObject jsonBody = new JsonObject();
-
-        jsonBody.addProperty(mpin, "");
-        jsonBody.addProperty(tin, "");
-        jsonBody.addProperty(npi, "");
-        jsonBody.addProperty(fn, "");
-        jsonBody.addProperty(ln, "");
-        jsonBody.addProperty(city, "");
-        jsonBody.addProperty(zip, "");
-        jsonBody.addProperty(state, "");
-
-        commonSearchParams = jsonBody;
-
-        request = given().baseUri("").header("Content-Type", "application/json").body(jsonBody.toString());
+        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(commonSearchParams.toString());
 
     }
 
@@ -55,10 +51,12 @@ public class PESSteps {
 
         ResponseBody raResponse = response.getBody();
         boolean result = true;
-        String[] matches = new String[] {"mpin", "tin", "npi"};
+        String[] matches = new String[] {"mpin", "tin", "address"};
+
+        //System.out.println(raResponse.asString());
 
         for(String field: matches){
-            if(!raResponse.asString().contains(field)) { result = false; }
+            if(!raResponse.asString().toLowerCase().contains(field)) { result = false; }
         }
 
         assertTrue(result);
@@ -82,9 +80,8 @@ public class PESSteps {
     @Given("^a user has searched for provider$")
     public void aUserHasSearchedForProvider() throws Throwable {
 
-        request = given().baseUri("").header("Content-Type", "application/json").body(commonSearchParams.toString());
+        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(commonSearchParams.toString());
 
-        //This will be true if the scenario theExariInterviewIsBuiltWithTheSearchParameters has ran, showing a user has searched for provider
         assertTrue(commonSearchParams != null);
 
     }
@@ -93,20 +90,86 @@ public class PESSteps {
     public void thereAreMultipleResults() throws Throwable {
 
         response = request.post();
-        throw new PendingException();
+        ResponseBody raResponse = response.getBody();
+
+        assertTrue(response != null);
     }
 
     @Then("^I see a list of those results\\.$")
     public void iSeeAListOfThoseResults() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+        ResponseBody raResponse = response.getBody();
+        assertTrue(raResponse.asString() != null);
     }
 
     @Then("^And I can select one to read more details\\.$")
     public void andICanSelectOneToReadMoreDetails() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        // noop
     }
 
-    //
+    //US1093992
+
+    @Given("^a user needs to call PES$")
+    public void aUserNeedsToCallPES() throws Throwable {
+
+        request = given().baseUri(baseUri).header("Content-Type", "application/json");
+
+    }
+
+
+    @When("^a user incorrectly inputs data$")
+    public void aUserIncorrectlyInputsData() throws Throwable {
+        JsonObject badJsonBody = new JsonObject();
+
+        badJsonBody.addProperty("baddata1", "badvalue");
+        badJsonBody.addProperty("baddata2", "badvalue");
+        badJsonBody.addProperty("baddata3", "badvalue");
+        badJsonBody.addProperty("baddata4", "badvalue");
+
+        request.body(badJsonBody.toString());
+
+        response = request.post();
+    }
+
+    @Then("^the user receives a bad input error message$")
+    public void theUserReceivesABadInputErrorMessage() throws Throwable {
+
+        ResponseBody raResponse = response.getBody();
+//        System.out.println(raResponse.asString());
+
+        assertTrue(raResponse.asString().contains("error"));
+
+    }
+
+    @When("^the system goes down$")
+    public void theSystemGoesDown() throws Throwable {
+
+        request.baseUri(baseUri+"asdf");
+        response = request.post();
+
+    }
+
+    @Then("^the user receives a system error message$")
+    public void theUserReceivesASystemErrorMessage() throws Throwable {
+
+        ResponseBody raResponse = response.getBody();
+        assertTrue(raResponse.asString().contains("error"));
+
+    }
+
+    @When("^a catastrophic error occurs$")
+    public void aCatastrophicErrorOccurs() throws Throwable {
+
+        request.baseUri(baseUri+"asdf");
+        response = request.post();
+
+    }
+
+    @Then("^a service ticket will need to be created\\.$")
+    public void aServiceTicketWillNeedToBeCreated() throws Throwable {
+
+        ResponseBody raResponse = response.getBody();
+        assertTrue(raResponse.asString().contains("error"));
+
+    }
 }
