@@ -6,7 +6,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
-
 import static org.junit.Assert.assertEquals;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
@@ -17,20 +16,23 @@ import static io.restassured.RestAssured.when;
 public class ETMASteps {
     private Response response;
     private ResponseBody body;
-    private String url;
+    private String baseUri = "http://localhost:8080/api/1/markets"; //Need to change to DEV URL once deployed to dev
+
+//F182490
+
+    //US1100261
 
     @Given("^the connection details$")
     public void theConnectionDetails() throws Throwable {
 
-        // Testing locally until pushed to Dev env -- need to update this when deployed
-        url = "http://localhost:8080/api/1/markets";
+        // noop -- connection details declared above
 
     }
 
     @When("^the micro service calls the ETMA tables$")
     public void theMicroServiceCallsTheETMATables() throws Throwable {
 
-        response = when().get(url);
+        response = when().get(baseUri);
 
     }
 
@@ -40,4 +42,5 @@ public class ETMASteps {
         assertEquals(200, response.getStatusCode());
 
     }
+
 }
