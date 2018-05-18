@@ -1,7 +1,8 @@
-# Last updated on 2018-05-10T15:20:21.412Z
+# Last updated on 2018-05-16T19:38:46.054Z
 @MVP
 @Domain_Microservice
-Feature: F183260 - Domain MS Optum - Create Provider contract pointer payload for Search and Directory
+@Parity
+Feature: F183260 - Dup of F182837 DOMAIN MS Optum - Create Provider contract pointer payload for Search and Directory
 
   @2018.PI02
   Scenario: US1089452

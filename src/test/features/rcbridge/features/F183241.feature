@@ -1,8 +1,9 @@
-# Last updated on 2018-05-07T13:25:14.583Z
+# Last updated on 2018-05-17T15:13:31.416Z
 @MVP
 @PI02_Top3
 @Domain_Microservice
-Feature: F183241 - Domain Microservice Optum - Create Provider Contract Query API (Inquiry)
+@Parity
+Feature: F183241 - DOMAIN MS Optum - Create Provider Contract Query API (Inquiry)
 
   @2018.PI02
   @2018.PI02.02

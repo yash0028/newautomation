@@ -1,6 +1,8 @@
-# Last updated on 2018-05-08T15:59:15.941Z
+# Last updated on 2018-05-17T18:12:16.995Z
 @MVP
 @PI02_Top3
+@Plus
+@Parity
 Feature: F172080 - Exari>COSMOS - Physician Payload -  CF Team
 
   Scenario: US1091459
@@ -9,7 +11,7 @@ Feature: F172080 - Exari>COSMOS - Physician Payload -  CF Team
     Then the COSMOS CF team will be able to complete their analysis successfully
 
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.02
   Scenario: US1090871
     Given the COSMOS team completes the Layer 7 Certification Process
     When COSMOS creates the API to ingest Exari Integration layer data

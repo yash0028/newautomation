@@ -1,5 +1,6 @@
-# Last updated on 2018-05-10T15:29:46.560Z
+# Last updated on 2018-05-11T18:56:12.622Z
 @MVP
+@Parity
 Feature: F166602 - Manage Final Application Stability and Health
 
   @2018.PI03

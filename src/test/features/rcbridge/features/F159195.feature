@@ -1,5 +1,6 @@
-# Last updated on 2018-05-08T15:59:26.400Z
+# Last updated on 2018-05-17T20:41:26.813Z
 @MVP
+@Plus
 Feature: F159195 - Exari>COSMOS - Facility Payload - CF Team
 
   Scenario: US1070406

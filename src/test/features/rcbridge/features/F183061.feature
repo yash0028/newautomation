@@ -1,6 +1,7 @@
-# Last updated on 2018-05-11T13:35:04.119Z
+# Last updated on 2018-05-18T10:33:48.640Z
 @MVP
 @PI02_Top3
+@Parity
 Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
 
   @2018.PI02
@@ -39,7 +40,7 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     Then I will find a reference to the pertinent detailed functionality from each User Story
 
   @2018.PI02
-  @2018.PI01.02
+  @2018.PI02.02
   Scenario: US1096650
     Given the Sprint is complete and I review the User Stories detailed in the Sprint
     When I review the migration documentation
