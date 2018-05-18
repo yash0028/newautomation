@@ -1,6 +1,8 @@
-# Last updated on 2018-05-08T21:06:45.410Z
+# Last updated on 2018-05-18T12:59:19.351Z
 @MVP
 @PI02_Top3
+@Plus
+@Parity
 Feature: F175417 - Distributed transaction mechanism (Part 2)
 
   @2018.PI02
@@ -89,14 +91,14 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then a standardized schema exists and is applied
 
   @2018.PI02
-  @2018.PI02.02
+  @2018.PI02.03
   Scenario: US1077963::0
     Given A transaction is in progress
     When a transaction status event is received
     Then Write the updates to the database
 
   @2018.PI02
-  @2018.PI02.02
+  @2018.PI02.03
   Scenario: US1077963::1
     Given A transaction is in progress
     When a transaction status event is received
@@ -104,7 +106,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then Write a message to an error log
 
   @2018.PI02
-  @2018.PI02.02
+  @2018.PI02.03
   Scenario: US1077963::2
     Given A transaction is in progress
     When a transaction status event is received but the database is unavailable
@@ -141,7 +143,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then a returned event transaction state
 
   @2018.PI02
-  @2018.PI02.02
+  @2018.PI02.03
   Scenario: US1077928::0
     Given No transaction is open
     When The status is queried
@@ -149,7 +151,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then A not found error is returned
 
   @2018.PI02
-  @2018.PI02.02
+  @2018.PI02.03
   Scenario: US1077928::1
     Given Transaction is open
     When The status is queried
@@ -157,7 +159,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then Then transaction status is returned
 
   @2018.PI02
-  @2018.PI02.02
+  @2018.PI02.03
   Scenario: US1077928::2
     Given Transaction is open
     When The status is queried
@@ -183,14 +185,14 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then there is a library available that standardizes how to publish
 
   @2018.PI02
-  @2018.PI02.01
+  @2018.PI02.03
   Scenario: US1055907::0
     Given a message is produced
     When the processing fails
     Then the processing is retried
 
   @2018.PI02
-  @2018.PI02.01
+  @2018.PI02.03
   Scenario: US1055907::1
     Given a message is retried
     When the retry attempts exhaust limit threshold is met

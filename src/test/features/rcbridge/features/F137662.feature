@@ -1,5 +1,6 @@
-# Last updated on 2018-04-27T19:03:19.740Z
+# Last updated on 2018-05-11T15:59:51.145Z
 @MVP
+@Plus
 Feature: F137662 - Create and Maintain Entity Supplemental Detail
 
   Scenario: US858626

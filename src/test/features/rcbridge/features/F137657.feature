@@ -1,5 +1,6 @@
-# Last updated on 2018-05-11T13:12:31.837Z
+# Last updated on 2018-05-14T19:47:58.775Z
 @MVP
+@Plus
 Feature: F137657 - Add Entity
 
   Scenario: US858598

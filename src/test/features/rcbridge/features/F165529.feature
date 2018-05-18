@@ -1,5 +1,6 @@
-# Last updated on 2018-05-10T15:12:42.769Z
+# Last updated on 2018-05-16T12:17:45.038Z
 @MVP
+@Plus
 Feature: F165529 - Setup Facility Workflow
 
   Scenario: US1041122

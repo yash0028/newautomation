@@ -1,6 +1,7 @@
-# Last updated on 2018-05-09T13:33:26.659Z
+# Last updated on 2018-05-11T18:56:11.717Z
 @MVP
 @PI02_Top3
+@Parity
 Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS Products (Part 2)
 
   @2018.PI02
@@ -39,7 +40,7 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     When the team analysis business and technical needsThen an approach document for applying edits and handling error messages and status is created
 
   @2018.PI02
-  @2018.PI02.01
+  @2018.PI02.02
   Scenario: US1105361
     Given the need to know contact payload data elementsThen an data payload document is created/updated
 

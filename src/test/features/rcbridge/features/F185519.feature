@@ -1,5 +1,6 @@
-# Last updated on 2018-05-02T19:48:00.898Z
+# Last updated on 2018-05-17T17:12:26.693Z
 @MVP
+@Parity
 Feature: F185519 - Obtain approval of a Mass Action Project
 
   Scenario: US1100537

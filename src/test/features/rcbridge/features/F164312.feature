@@ -1,6 +1,7 @@
-# Last updated on 2018-05-10T21:27:46.130Z
+# Last updated on 2018-05-16T15:09:55.948Z
 @MVP
 @PI02_Top3
+@Plus
 @CLM_Exari
 @Exari_Microservice
 Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Optum

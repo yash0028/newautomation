@@ -1,16 +1,16 @@
-# Last updated on 2018-05-11T13:12:31.839Z
+# Last updated on 2018-05-17T21:02:24.787Z
 @MVP
 @PI02_Top3
 @CLM_Exari
 @Exari_Microservice
+@Parity
 Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (Demographic) - Optum
 
   @Provider_Demograhics
   @PES
   @2018.PI02
-  @2018.PI02.01
   Scenario: US861016
-    Given the Exari Interview is built with these search Parameters
+    Given the Exari Interview is built with the search parameters "mpin", "tin", "npi", "provider first name", "provider last name", "city", "zip", "state"
     When the user completes the search parameters for Demographic data needs
     Then the API should use the parameters to obtain the Demographic data from the source system (PES)
 
@@ -30,13 +30,6 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     Given I as a user have populated the Exari Provider Roster with MPIN, TAX ID, Provider Full Name (First, Last), and NPI
     When Exari reaches out to PES with the parameters that PES will validate against including MPIN, TAX ID, Provider Full Name (First, Last), and NPI
     Then the results will be returned to me as matched or provide me with a list of providers that were not found.
-
-  @2018.PI02
-  @2018.PI02.02
-  Scenario: US1094026
-    Given UHC will need to provide Exari with PES data
-    When the Exari calls PES
-    Then an external data query will return the requested data.
 
   @PES
   @2018.PI02
@@ -81,7 +74,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
   Scenario: US1095936::2
     Given a user needs to call PES
     When a catastrophic error occurs
-    Then a service ticket will need to be created.
+    Then an error code will be logged.
 
   @PES
   @2018.PI02

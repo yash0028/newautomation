@@ -1,5 +1,6 @@
-# Last updated on 2018-04-26T05:31:17.353Z
+# Last updated on 2018-05-17T15:39:36.465Z
 @MVP
+@Plus
 Feature: F137659 - Import Data
 
   Scenario: US858608
@@ -13,4 +14,12 @@ Feature: F137659 - Import Data
     When I want to load an Entity structure in template form into the Entity Management solution
     Then I can import the Entity structure into the Entity Management solution
     Then And the Entity structure enters the approval process workflow
+
+  Scenario: US858609
+    Given I am the Entity Management solution
+    When A User imports Entity Structure or Entity Relationships from a template
+    Then I capture Entity Name
+    Then And I capture Entity ID
+    Then And I capture the User who imported data
+    Then And I capture the time and date when User imported data
 

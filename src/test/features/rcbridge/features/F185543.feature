@@ -1,5 +1,6 @@
-# Last updated on 2018-05-02T19:48:00.696Z
+# Last updated on 2018-05-17T20:12:41.664Z
 @MVP
+@Parity
 Feature: F185543 - Refine the details of a Mass Action Project
 
   Scenario: US1098385

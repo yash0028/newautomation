@@ -1,5 +1,6 @@
-# Last updated on 2018-04-28T05:31:19.657Z
+# Last updated on 2018-05-11T15:59:50.834Z
 @MVP
+@Plus
 Feature: F154296 - Perform Basic Search
 
   @EXARI-10530

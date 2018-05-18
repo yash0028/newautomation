@@ -1,6 +1,8 @@
-# Last updated on 2018-05-04T15:30:51.551Z
+# Last updated on 2018-05-15T15:42:49.771Z
 @PI02_Top3
-Feature: F186037 - Domain MS - Roster Update business event and payload
+@Plus
+@Parity
+Feature: F186037 - DOMAIN MS - Roster Update business event and payload
 
   @2018.PI02
   @2018.PI02.02

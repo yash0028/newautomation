@@ -1,6 +1,7 @@
-# Last updated on 2018-05-09T13:28:40.359Z
+# Last updated on 2018-05-18T11:45:38.267Z
 @MVP
 @PI02_Top3
+@Parity
 Feature: F171708 - Exari>NDB/COSMOS Physician Contracting Payload - CF Team
 
   @2018.PI02

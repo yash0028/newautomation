@@ -1,5 +1,6 @@
-# Last updated on 2018-04-26T05:31:19.981Z
+# Last updated on 2018-05-11T15:59:51.096Z
 @MVP
+@Plus
 Feature: F137661 - Create and Maintain Entity Characteristics
 
   Scenario: US912897

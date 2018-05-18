@@ -1,7 +1,15 @@
-# Last updated on 2018-05-07T09:16:30.230Z
+# Last updated on 2018-05-17T11:46:36.838Z
 @MVP
 @PI02_Top3
+@Parity
 Feature: F174970 - Create Pre-Migration reporting process to account for all contracts by Pilot Market Number(s)
+
+  @2018.PI02
+  @2018.PI02.01
+  Scenario: US1123626
+    Given the Market Number(s) are provided for the next set of markets going live in the release
+    When I run the Pre-Migration Market Number report
+    Then I receive all contracts that reside in Emptoris for the given Market Number(s), with the columns populated as applicable
 
   @2018.PI02
   @2018.PI02.01

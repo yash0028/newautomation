@@ -1,6 +1,7 @@
-# Last updated on 2018-05-08T15:58:51.099Z
+# Last updated on 2018-05-18T11:04:50.452Z
 @MVP
 @PI02_Top3
+@Parity
 Feature: F182742 - Exari>NDB Physician Contracting Loading - PI02 - CF Team
 
   @2018.PI02

@@ -1,5 +1,6 @@
-# Last updated on 2018-04-25T17:17:17.661Z
+# Last updated on 2018-05-11T15:59:50.686Z
 @MVP
+@Plus
 Feature: F152967 - Inactivate Entity
 
   Scenario: US1089321

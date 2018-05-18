@@ -1,5 +1,6 @@
-# Last updated on 2018-05-10T15:12:42.666Z
+# Last updated on 2018-05-15T19:47:12.345Z
 @MVP
+@Plus
 Feature: F165532 - Setup Chargemaster Workflow
 
   Scenario: US1034211

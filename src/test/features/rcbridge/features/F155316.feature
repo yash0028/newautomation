@@ -1,5 +1,6 @@
-# Last updated on 2018-04-28T05:31:20.169Z
+# Last updated on 2018-05-11T15:59:51.196Z
 @MVP
+@Plus
 Feature: F155316 - Inactivate and Void Identifier
 
   Scenario: US1094021
