@@ -1,4 +1,4 @@
-# Last updated on 2018-05-17T20:42:37.096Z
+# Last updated on 2018-05-18T19:33:15.614Z
 @MVP
 @PI02_Top3
 @Plus
@@ -7,17 +7,26 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
 
   @2018.PI02
   @2018.PI02.02
+  Scenario: US1096916
+    Given the provider's specialty code is known and paper type is known
+    When finding the specialty code in ETMA
+    When And the Paper type does not equal one of the appropriate values
+    Then service will return that the corresponding providers paper type does not match the paper type in the ETMA table
+    Then And the return message will indicate which paper type was found in ETMA instead
+
+  @2018.PI02
+  @2018.PI02.02
   Scenario: US1096954
     Given the provider's specialty code is known and contract type is known
     When finding the specialty code in ETMA
-    Then the contract class must equal one of the appropriate values.
+    Then service will return that the corresponding providers paper type matches the paper type in the ETMA table
 
   @2018.PI02
   @2018.PI02.02
   Scenario: US1103709
-    Given the Specilty code is known and contract type is not known
+    Given the Specialty code is known and contract type is not known
     When finding the Specialty in ETMA
-    Then the Contract Paper type is returned to the user
+    Then the Paper type is returned to the user
 
   @2018.PI02
   @2018.PI02.03
@@ -46,22 +55,23 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   Scenario: US1097030
     Given the Org Type code is known and contract type is known
     When finding the Org Type in ETMA
-    Then the Contract Paper must equal one of the appropriate values
+    Then service will return that the corresponding providers paper type matches the paper type in the ETMA table
 
   @2018.PI02
   @2018.PI02.02
   Scenario: US1103710
     Given the Org Type code is known and contract type is not known
     When finding the Org Type in ETMA
-    Then the Contract Paper type is returned to the user
+    Then the Paper type is returned to the user
 
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.02
   Scenario: US1097032
-    Given the provider's Org Type is known and contract type is known
+    Given the provider's Org Type is known and paper type is known
     When finding the Org Type in ETMA
-    When And the Contract Paper does not equal one of the appropriate values
-    Then the user sees an error message "The provider is not valid for this paper type." What error is shown today? Do we like that message? If yes, we should keep it the same as users understand what it means.
+    When And the Paper type does not equal one of the appropriate values
+    Then service will return that the corresponding providers paper type does not match the paper type in the ETMA table
+    Then And the return message will indicate which paper type was found in ETMA instead
 
   @2018.PI02
   @2018.PI02.02

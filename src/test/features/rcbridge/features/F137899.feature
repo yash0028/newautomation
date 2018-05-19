@@ -1,4 +1,4 @@
-# Last updated on 2018-05-17T21:02:24.787Z
+# Last updated on 2018-05-18T19:38:03.741Z
 @MVP
 @PI02_Top3
 @CLM_Exari
@@ -25,7 +25,6 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
   @PI02_Top3
   @CLM_Exari
   @2018.PI02
-  @2018.PI02.02
   Scenario: US1100727
     Given I as a user have populated the Exari Provider Roster with MPIN, TAX ID, Provider Full Name (First, Last), and NPI
     When Exari reaches out to PES with the parameters that PES will validate against including MPIN, TAX ID, Provider Full Name (First, Last), and NPI
@@ -56,21 +55,18 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     Then a service ticket will need to be created.
 
   @2018.PI02
-  @2018.PI02.02
   Scenario: US1095936::0
     Given a user needs to call PES
     When a user incorrectly inputs data
     Then the user receives a bad input error message
 
   @2018.PI02
-  @2018.PI02.02
   Scenario: US1095936::1
     Given a user needs to call PES
     When the system goes down
     Then the user receives a system error message
 
   @2018.PI02
-  @2018.PI02.02
   Scenario: US1095936::2
     Given a user needs to call PES
     When a catastrophic error occurs
