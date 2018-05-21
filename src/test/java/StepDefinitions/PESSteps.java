@@ -172,4 +172,12 @@ public class PESSteps {
         assertTrue(raResponse.asString().contains("error"));
 
     }
+
+    @Then("^an error code will be logged\\.$")
+    public void anErrorCodeWillBeLogged() throws Throwable {
+
+        ResponseBody raResponse = response.getBody();
+        assertTrue(raResponse.asString().contains("error"));
+
+    }
 }
