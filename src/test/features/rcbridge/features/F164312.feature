@@ -1,4 +1,4 @@
-# Last updated on 2018-05-16T15:09:55.948Z
+# Last updated on 2018-05-21T23:59:31.372Z
 @MVP
 @PI02_Top3
 @Plus
@@ -46,12 +46,6 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
     Given a user needs to call RFP grid
     When a catastrophic error occurs
     Then a service ticket will need to be created.
-
-  @2018.PI02
-  @2018.PI02.03
-  Scenario: US1082297
-    Given Exari will need to call our API
-    Then a web client will need to be created.
 
   @2018.PI02
   @2018.PI02.03
