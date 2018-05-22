@@ -1,4 +1,4 @@
-# Last updated on 2018-05-17T15:39:36.466Z
+# Last updated on 2018-05-22T15:39:13.580Z
 @MVP
 @Plus
 Feature: F184552 - Migrate BIC / TIN Aggregation / Umbrella Entities

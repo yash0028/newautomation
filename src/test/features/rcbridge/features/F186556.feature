@@ -1,4 +1,4 @@
-# Last updated on 2018-05-11T20:42:58.798Z
+# Last updated on 2018-05-22T15:38:56.557Z
 @MVP
 @Plus
 Feature: F186556 - Synchronize Contract Assignments
