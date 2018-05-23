@@ -1,4 +1,4 @@
-# Last updated on 2018-05-18T10:33:48.640Z
+# Last updated on 2018-05-23T11:41:01.105Z
 @MVP
 @PI02_Top3
 @Parity
@@ -12,7 +12,6 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     Then all applicable metadata files and attachments are successfully generated and there are no errors due to no contract language file
 
   @2018.PI02
-  @2018.PI02.02
   Scenario: US1088342
     Given when I am populating the Terms Table during the migration process
     When I reference a Term that is listed in the Term Driver Table
@@ -54,6 +53,13 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     Then I am able to provide metrics that identify the success/failure rate of all contracts, for a given Market Number, into Exari
 
   @2018.PI02
+  @2018.PI02.03
+  Scenario: US1134952
+    Given when I run the Physician, Facility, Ancillary, FQHC/PHO or Exeption migration process for one/more market numbers
+    When I read the contracts in order of Contract Class as defined in the Contract Class Order excel document
+    Then I am able to build the metadata files and attachments, and write to the Base Driver Table, in the order specified
+
+  @2018.PI02
   @2018.PI02.01
   Scenario: US1096631
     Given when am populating the Base Driver Table
@@ -68,7 +74,13 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     Then I am able to populate the data into the same column format as the Exari roster
 
   @2018.PI02
-  @2018.PI02.02
+  @2018.PI02.03
+  Scenario: US1134949
+    Given when I run the Physician, Facility, Ancillary, FQHC/PHO or Exeption migration process for one/more market numbers
+    When I read the contracts in order of Contract Class as defined in the Contract Class Order excel document
+    Then I am able to build the metadata files and attachments, and write to the Base Driver Table, in the order specified
+
+  @2018.PI02
   Scenario: US1088315
     Given I am populating the Term Table during the migration process
     When I refer to a metadata term that is on the Contracts table
