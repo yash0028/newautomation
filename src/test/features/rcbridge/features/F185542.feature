@@ -3,6 +3,7 @@
 @Parity
 Feature: F185542 - Create a Mass Action Project
 
+  @EXARI-11501
   Scenario: US1098379
     Given I am a user with access to the Mass Actions UI
     When I want to add amendments to existing contracts
