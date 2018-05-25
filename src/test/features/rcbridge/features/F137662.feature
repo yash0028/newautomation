@@ -1,4 +1,4 @@
-# Last updated on 2018-05-11T15:59:51.145Z
+# Last updated on 2018-05-24T17:39:08.098Z
 @MVP
 @Plus
 Feature: F137662 - Create and Maintain Entity Supplemental Detail

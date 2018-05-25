@@ -46,9 +46,6 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   @2018.PI02
   @2018.PI02.02
   Scenario: US1103709::0
-    Given the Specialty code is known and contract type is not known
-    When finding the Specialty in ETMA
-    Then the Paper type is returned to the user
 
   @ETMA
   @2018.PI02

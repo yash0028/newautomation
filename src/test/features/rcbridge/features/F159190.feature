@@ -1,10 +1,10 @@
-# Last updated on 2018-05-23T14:18:28.941Z
+# Last updated on 2018-05-24T11:24:10.159Z
 @MVP
 @Parity
 Feature: F159190 - Exari>NDB Physician Medical Necessity Payload - CF
 
   @2018.PI02
-  @2018.PI02.04
+  @2018.PI02.05
   Scenario: US1135364
     Given Medical necessity applies to the Physician Contract
     When Exari contractors update the value of Medical Necessity information the Payload would be created

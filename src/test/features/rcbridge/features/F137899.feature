@@ -1,4 +1,4 @@
-# Last updated on 2018-05-21T18:06:22.074Z
+# Last updated on 2018-05-24T16:33:23.012Z
 @MVP
 @PI02_Top3
 @CLM_Exari
@@ -6,29 +6,12 @@
 @Parity
 Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (Demographic) - Optum
 
-  @Provider_Demograhics
-  @PES
-  @2018.PI02
-  Scenario: US861016
-    Given the Exari Interview is built with the search parameters "mpin", "tin", "npi", "provider first name", "provider last name", "city", "zip", "state"
-    When the user completes the search parameters for Demographic data needs
-    Then the API should use the parameters to obtain the Demographic data from the source system (PES)
-
   @PES
   @2018.PI02
   @2018.PI02.01
   Scenario: US1089376
     Given many API's Exist
     Then the developer needs to understand the different APIs in order to use the correct one.
-
-  @MVP
-  @PI02_Top3
-  @CLM_Exari
-  @2018.PI02
-  Scenario: US1100727
-    Given I as a user have populated the Exari Provider Roster with MPIN, TAX ID, Provider Full Name (First, Last), and NPI
-    When Exari reaches out to PES with the parameters that PES will validate against including MPIN, TAX ID, Provider Full Name (First, Last), and NPI
-    Then the results will be returned to me as matched or provide me with a list of providers that were not found.
 
   @PES
   @2018.PI02
@@ -83,6 +66,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
 
   @MVP
   @PI02_Top3
+  @PES
   @CLM_Exari
   @2018.PI02
   @2018.PI02.02

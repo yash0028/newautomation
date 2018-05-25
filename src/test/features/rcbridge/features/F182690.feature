@@ -1,6 +1,6 @@
-# Last updated on 2018-05-11T20:13:00.699Z
+# Last updated on 2018-05-24T15:44:14.690Z
 @MVP
-Feature: F182690 - Add Exari's PowerAuthor, Exari's Development & Alfresco to AppStore
+Feature: F182690 - Add Exari's PowerAuthor to AppStore
 
   Scenario: US1085951
     Given a person is in the AppStore
