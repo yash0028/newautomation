@@ -11,9 +11,9 @@ import cucumber.api.CucumberOptions;
 @CucumberOptions(features="src/test/features",
 		 glue={"StepDefinitions"},
 		 plugin = {"pretty",
-			   "html:target/test-report",
-			   "json:target/test-report.json",
-			   "junit:target/test-report.xml",
-        		   "com.cucumber.listener.ExtentCucumberFormatter:target/ETMA-report.html"},
-		 tags = {"~@ignore", "@ETMA", "@2018.PI02.01"})
+				   "html:target/test-report-plain-ETMA",
+			       "json:target/test-report-plain-ETMA.json",
+			       "junit:target/test-report-plain-ETMA.xml",
+			       "com.cucumber.listener.ExtentCucumberFormatter:target/ETMA-report.html"},
+		 tags = {"~@ignore", "@ETMA", "@2018.PI02.02"})
 public class TestRunnerETMA {}
