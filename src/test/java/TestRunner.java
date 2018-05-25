@@ -10,9 +10,9 @@ import cucumber.api.junit.*;
 @RunWith(Cucumber.class)
 @CucumberOptions(features="src/test/features",
         	 glue={"StepDefinitions"},
-        	 pluin = {"pretty", "html:target/test-report",
-        	          "json:target/test-report.json",
-        	          "junit:target/test-report.xml",
-                          "com.cucumber.listener.ExtentCucumberFormatter:target/extent-report.html"},
-        	 tags = {"~@ignore","@2018.PI02.01", "@PES,@ETMA"})
+        	 plugin = {"pretty", "html:target/test-report",
+        	           "json:target/test-report.json",
+        	           "junit:target/test-report.xml",
+                       "com.cucumber.listener.ExtentCucumberFormatter:target/extent-report.html"},
+        	 tags = {"~@ignore","@2018.PI02.02", "@PES,@ETMA"})
 public class TestRunner {}
