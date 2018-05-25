@@ -8,6 +8,8 @@ This project should be nested as a subtree inside of any repository that will ha
 
 All Feature files and Step Definition files should be written in this project, then pulled down from any parent repository when needed.
 
+There can be any number of TestRunner classes created as needed. They can be created for different projects tests are being run against, for different scrum teams to use, or for any need that specifies a set of tests that will be run.
+
 ## Creating a Subtree
 
 To nest this as a subtree into another repository, do the following: 
