@@ -27,7 +27,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   @2018.PI02
   @2018.PI02.02
   Scenario: US1096954::1
-    Given the provider's specialty indicator is "2" and contract type is "MGA"
+    Given the provider's specialty indicator is "002" and contract type is "MGA"
     When finding the Specialty in ETMA
     When And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
     Then the service will return a "True" value
@@ -36,11 +36,10 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   @2018.PI02
   @2018.PI02.02
   Scenario: US1096954::2
-    Given the provider's specialty indicator is "2" and contract type is "ANC_Facility Participation"
+    Given the provider's specialty indicator is "002" and contract type is "ANC_Facility Participation"
     When finding the Specialty in ETMA
     When And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
-    Then the service will NOT return a "True" value
-    Then And the service will return "False, the correct value options are IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
+    Then the service will return a "False" value
 
   @ETMA
   @2018.PI02
@@ -51,17 +50,17 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   @2018.PI02
   @2018.PI02.02
   Scenario: US1103709::1
-    Given the provider's specialty indicator is "2" and contract type is not known
+    Given the provider's specialty indicator is "002" and contract type is not known
     When finding the Specialty in ETMA
-    Then service will return paper type "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
+    Then And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
 
   @ETMA
   @2018.PI02
   @2018.PI02.02
   Scenario: US1103709::2
-    Given the provider's specialty indicator is "2" and contract type is not known
+    Given the provider's specialty indicator is "002" and contract type is not known
     When finding the Specialty in ETMA
-    Then service will NOT return paper type "ANC_Facility Participation" from the ETMA table
+    Then service will NOT return paper types "ANC_Facility Participation" from the ETMA table
 
   @ETMA
   @2018.PI02
@@ -126,17 +125,17 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   @2018.PI02
   @2018.PI02.02
   Scenario: US1103710::1
-    Given the provider's organization type is "12" and contract type is not known
+    Given the provider's organization type is "012" and contract type is not known
     When finding the Org Type in ETMA
-    Then the service will return paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
+    Then And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
 
   @ETMA
   @2018.PI02
   @2018.PI02.02
   Scenario: US1103710::2
-    Given the provider's organization type is "12" and contract type is not known
+    Given the provider's organization type is "012" and contract type is not known
     When finding the Org Type in ETMA
-    Then the service will NOT return paper types "SMGA, SMGA, SPAT, MGA" as matched in ETMA table
+    Then service will NOT return paper types "SMGA, SMGA, SPAT, MGA" from the ETMA table
 
   @ETMA
   @2018.PI02
