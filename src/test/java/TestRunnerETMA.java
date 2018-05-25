@@ -8,11 +8,12 @@ import cucumber.api.junit.*;
 import cucumber.api.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(format={"pretty",
-        "html:target/test-report",
-        "json:target/test-report.json",
-        "junit:target/test-report.xml"},
-        features="src/test/features",
-        glue={"StepDefinitions"},
-        tags = {"not @ignore and @ETMA and @2018.PI02.01"})
+@CucumberOptions(features="src/test/features",
+				glue={"StepDefinitions"},
+				plugin = {"pretty",
+						"html:target/test-report",
+						"json:target/test-report.json",
+						"junit:target/test-report.xml",
+        				"com.cucumber.listener.ExtentCucumberFormatter:target/ETMA-report.html"},
+				tags = {"~@ignore", "@ETMA", "@2018.PI02.01"})
 public class TestRunnerETMA {}
