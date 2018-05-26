@@ -15,11 +15,14 @@ Feature: F137678 - View Entity
     When I want to view an Entity summary
     Then I can search for an Entity
     Then And I can view Entity Umbrella Name
+    Then And I can view Entity ID
+    Then And I can view Entity Type
+    Then And I can view the Entity Owner
     Then And I can view the primary Entity Address
     Then And I can view the number of Contracts associated with the Entity
     Then And I can view the number of Alternative Names associated with the Entity
     Then And I can view the number of Identifiers associated with the Entity
-    Then And I can view the number of Organizational Units associated with the Entity
+    Then And I can view the number of Relationships associated with the Entity
     Then And I can view the number of Providers associated with the Entity
 
   Scenario: US858722

@@ -1,4 +1,4 @@
-# Last updated on 2018-05-24T12:04:18.436Z
+# Last updated on 2018-05-25T12:36:38.109Z
 @MVP
 @PI02_Top3
 @Parity
@@ -65,13 +65,6 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     Given when am populating the Base Driver Table
     When the contract is identified as processing an Exception contract
     Then a Yes is populated into the Base_Exception column
-
-  @2018.PI02
-  @2018.PI02.02
-  Scenario: US1096651
-    Given I am processing the a contract's Lines tab during the migration process
-    When I reference the defined columns for the new Exari roster
-    Then I am able to populate the data into the same column format as the Exari roster
 
   @2018.PI02
   @2018.PI02.03
