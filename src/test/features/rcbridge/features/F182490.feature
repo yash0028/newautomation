@@ -85,20 +85,20 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   @2018.PI02
   @2018.PI02.02
   Scenario: US1097030::1
-    Given the provider's organization type is "12" and contract type is "PHO"
+    Given the provider's organization type is "012" and contract type is "PHO"
     When finding the Org Type in ETMA
-    When And the service will return paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
-    Then the service will return a message of "TRUE"
+    When And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
+    Then the service will return a "True" value
 
   @ETMA
   @2018.PI02
   @2018.PI02.02
   Scenario: US1097030::2
-    Given the provider's organization type is "12" and contract type is MGA
+    Given the provider's organization type is "012" and contract type is "MGA"
     When finding the Org Type in ETMA
-    When And the service will return paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
-    Then the service will NOT return a "True" value
-    Then And the service will return "False, the correct value options are PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
+    When And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
+    Then the service will return a "False" value
+#    Then And the service will return "False, the correct value options are PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
 
   @ETMA
   @2018.PI02
@@ -106,7 +106,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   Scenario: US1103710::0
     Given the provider's organization type is "012" and contract type is not known
     When finding the Org Type in ETMA
-    Then the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
+    Then And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
 
   @ETMA
   @2018.PI02

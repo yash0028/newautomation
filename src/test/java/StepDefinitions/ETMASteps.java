@@ -26,7 +26,7 @@ public class ETMASteps {
     private static String paperTypeUri = "/api/1/paper_types/search";
     private static String contractValidationUri = "/api/1/contract_validations";
     private String contractType = "";
-    JsonObject requestBody = new JsonObject();
+    private JsonObject requestBody = new JsonObject();
 
 //F182490
 
@@ -60,7 +60,6 @@ public class ETMASteps {
         this.contractType = contractType;
 
         requestBody.addProperty("specialtyIndicator", specialtyIndicator);
-        //requestBody.addProperty("organizationType", "");
 
         request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
     }
@@ -84,7 +83,7 @@ public class ETMASteps {
             }
         }
 
-//        System.out.println(response.asString());
+        System.out.println(response.asString());
         assertTrue(match);
     }
 
@@ -138,4 +137,16 @@ public class ETMASteps {
     public void findingTheOrgTypeInETMA() throws Throwable {
         response = request.post(paperTypeUri);
     }
+
+    //US1097030
+
+    @Given("^the provider's organization type is \"([^\"]*)\" and contract type is \"([^\"]*)\"$")
+    public void theProviderSOrganizationTypeIsAndContractTypeIs(String orgType, String contractType) throws Throwable {
+        requestBody.addProperty("organizationType", orgType);
+        this.contractType = contractType;
+
+        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
+    }
+
+
 }
