@@ -83,7 +83,7 @@ public class ETMASteps {
             }
         }
 
-        System.out.println(response.asString());
+//        System.out.println(response.asString());
         assertTrue(match);
     }
 
@@ -148,5 +148,19 @@ public class ETMASteps {
         request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
     }
 
+    //US1097065
 
+    @Given("^the provider's Specialty Code \"([^\"]*)\" is passed to the service$")
+    public void theProviderSSpecialtyCodeIsPassedToTheService(String specialtyIndicator) throws Throwable {
+        requestBody.addProperty("specialtyIndicator", specialtyIndicator);
+
+        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
+    }
+
+    @Given("^the provider's Org Type \"([^\"]*)\" is passed to the service$")
+    public void theProviderSOrgTypeIsPassedToTheService(String orgType) throws Throwable {
+        requestBody.addProperty("organizationType", orgType);
+
+        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
+    }
 }
