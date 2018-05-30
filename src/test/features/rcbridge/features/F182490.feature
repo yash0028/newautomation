@@ -109,6 +109,22 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   @ETMA
   @2018.PI02
   @2018.PI02.02
+  Scenario: US1129434::0
+    Given the providers Specialty codes "53ABC, 54ABC, 55ABC" and paper types "MGA, ABC123, SPA" are passed to the service
+    When the Specialty Codes are not found in ETMA
+    Then service will return a a "False" value for each specialty code and paper type combination
+
+  @ETMA
+  @2018.PI02
+  @2018.PI02.02
+  Scenario: US1129434::1
+    Given the providers Org Types "53ABC, 54ABC, 55ABC" and paper types "MGA, ABC123, SPA" are passed to the service
+    When the Org Types are not found in ETMA
+    Then service will return a a "False" value for each org type and paper type combination
+
+  @ETMA
+  @2018.PI02
+  @2018.PI02.02
   Scenario: US1103710::0
     Given the provider's organization type is "012" and contract type is not known
     When finding the Org Type in ETMA
