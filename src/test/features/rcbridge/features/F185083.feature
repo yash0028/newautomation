@@ -1,25 +1,25 @@
-# Last updated on 2018-05-21T18:18:57.095Z
+# Last updated on 2018-05-30T13:45:23.482Z
 @MVP
 @PI02_Top3
 @Parity
 Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS Products (Part 2)
 
   @2018.PI02
-  @2018.PI02.02
+  @2018.PI02.03
   Scenario: US1103353::0
     Given the NDB connector microservice has received a roster update event
     When all of the NDB edits are successful
     Then the NDB microservices are ready to update NDB
 
   @2018.PI02
-  @2018.PI02.02
+  @2018.PI02.03
   Scenario: US1103353::1
     Given the NDB connector microservice has received a roster update event
     When all of the NDB edits are not successful
     Then the NDB microservices creates an error message
 
   @2018.PI02
-  @2018.PI02.02
+  @2018.PI02.03
   Scenario: US1103353::2
     Given The event MS processed NDB edits sucessfully
     When NDB completes the update / action successfully
@@ -32,6 +32,28 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     Given NDB needs to subscribe to the domain Update Roster event
     When NDB subscribes to the event
     Then NDB successfully receives the event notificaiton
+
+  @2018.PI02
+  @2018.PI02.02
+  Scenario: US1144455::0
+    Given the NDB connector microservice has received a roster update event
+    When all of the NDB edits are successful
+    Then the NDB microservices are ready to update NDB
+
+  @2018.PI02
+  @2018.PI02.02
+  Scenario: US1144455::1
+    Given the NDB connector microservice has received a roster update event
+    When all of the NDB edits are not successful
+    Then the NDB microservices creates an error message
+
+  @2018.PI02
+  @2018.PI02.02
+  Scenario: US1144455::2
+    Given The event MS processed NDB edits sucessfully
+    When NDB completes the update / action successfully
+    Then NDB initiates an event outcome message to the transaction state service
+    Then And a transaction state service call indicating successful processing was made
 
   @2018.PI02
   @2018.PI02.02

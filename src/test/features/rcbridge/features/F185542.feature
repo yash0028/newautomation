@@ -1,9 +1,11 @@
-# Last updated on 2018-05-17T20:12:41.665Z
+# Last updated on 2018-05-30T16:51:38.754Z
 @MVP
 @Parity
 Feature: F185542 - Create a Mass Action Project
 
   @EXARI-11501
+  @2018.PI02
+  @2018.PI02.03
   Scenario: US1098379
     Given I am a user with access to the Mass Actions UI
     When I want to add amendments to existing contracts

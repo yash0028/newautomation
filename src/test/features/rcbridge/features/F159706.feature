@@ -46,7 +46,7 @@ Feature: F159706 - Establish Contract Provider Coverage and Maintenance Function
     Then I'm able to paste 1 to many providers into the Exari Provider Roster format from excel
 
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.02
   Scenario: US1129180
     Given I am logged into Exari as an end user
     When I am processing through an interview
