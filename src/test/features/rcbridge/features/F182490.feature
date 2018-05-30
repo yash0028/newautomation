@@ -54,7 +54,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   Scenario: US1103709::0
     Given the provider's specialty indicator is "002" and contract type is not known
     When finding the Specialty in ETMA
-    Then And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
+    Then the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
 
   @ETMA
   @2018.PI02
@@ -83,7 +83,6 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   @ETMA
   @2018.PI02
   @2018.PI02.02
-  @ignore
   Scenario: US1103666
     Given I have entered an effective start date on the provider roster of equal to or less than today's date
     When the date is populated
@@ -113,7 +112,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   Scenario: US1103710::0
     Given the provider's organization type is "012" and contract type is not known
     When finding the Org Type in ETMA
-    Then And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
+    Then the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
 
   @ETMA
   @2018.PI02
@@ -135,7 +134,6 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   @ETMA
   @2018.PI02
   @2018.PI02.02
-  @ignore
   Scenario: US1103648
     Given I have entered an effective start date of equal to or less than today's date
     When the date is populated
