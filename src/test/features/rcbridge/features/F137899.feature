@@ -69,7 +69,6 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
   @PES
   @CLM_Exari
   @2018.PI02
-  @2018.PI02.02
   Scenario: US1100359
     Given as a user I have populated one or many of the field options (MPIN, TIN, City, Zip Code, Provider Name, State or UNET Market Number or NPI)
     When Exari reaches out to PES with the selected criteria above
