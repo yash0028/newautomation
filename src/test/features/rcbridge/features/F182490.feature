@@ -82,7 +82,6 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
 
   @ETMA
   @2018.PI02
-  @2018.PI02.02
   Scenario: US1103666
     Given I have entered an effective start date on the provider roster of equal to or less than today's date
     When the date is populated
@@ -149,7 +148,6 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
 
   @ETMA
   @2018.PI02
-  @2018.PI02.02
   Scenario: US1103648
     Given I have entered an effective start date of equal to or less than today's date
     When the date is populated
