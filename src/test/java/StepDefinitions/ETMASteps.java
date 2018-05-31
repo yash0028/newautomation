@@ -1,10 +1,13 @@
 package StepDefinitions;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import gherkin.deps.com.google.gson.JsonObject;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
@@ -21,12 +24,13 @@ public class ETMASteps {
     private RequestSpecification request;
     private Response response;
     private ResponseBody body;
-    private static String baseUri = "http://localhost:8080"; //Need to change to DEV URL once deployed to dev
-    private static String marketsUri = "/api/1/markets";
-    private static String paperTypeUri = "/api/1/paper_types/search";
-    private static String contractValidationUri = "/api/1/contract_validations";
-    private String contractType = "";
-    private JsonObject requestBody = new JsonObject();
+    private static String baseUri                  = "http://localhost:8080"; //Need to change to DEV URL once deployed to dev
+    private static String marketsUri               = "/api/1/markets";
+    private static String paperTypeUri             = "/api/1/paper_types/search";
+    private static String contractValidationUri    = "/api/1/contract_validations";
+    private static String allContractValidationUri = "/api/1/contract_validations/all";
+    private String contractType                    = "";
+    private JsonObject requestBody                 = new JsonObject();
 
 //F182490
 
@@ -69,11 +73,11 @@ public class ETMASteps {
         response = request.post(paperTypeUri);
     }
 
-    @When("^And the service returns paper types \"([^\"]*)\" as matched in ETMA table$")
+    @When("^(?:And the|the) service returns paper types \"([^\"]*)\" as matched in ETMA table$")
     public void andTheServiceReturnsPaperTypesAsMatchedInETMATable(String paperTypes) throws Throwable {
         String[] validPaperTypes = paperTypes.split(",");
-        boolean match = true;
-        String responseString = response.asString().toLowerCase();
+        boolean match            = true;
+        String responseString    = response.asString().toLowerCase();
 
         for(String type: validPaperTypes){
             type = type.trim();
@@ -110,8 +114,8 @@ public class ETMASteps {
     @Then("^service will NOT return paper types \"([^\"]*)\" from the ETMA table$")
     public void serviceWillNOTReturnPaperTypeFromTheETMATable(String paperTypes) throws Throwable {
         String[] invalidPaperTypes = paperTypes.split(",");
-        boolean match = false;
-        String responseString = response.asString().toLowerCase();
+        boolean match              = false;
+        String responseString      = response.asString().toLowerCase();
 
         for(String type: invalidPaperTypes){
             type = type.trim();
@@ -163,4 +167,60 @@ public class ETMASteps {
 
         request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
     }
+
+    //US1129434
+
+    @Given("^the providers (Specialty codes|Org Types) \"([^\"]*)\" and paper types \"([^\"]*)\" are passed to the service$")
+    public void theProvidersSpecialtyCodesAndPaperTypesArePassedToTheService(String parameterType, String properties, String paperTypes) throws Throwable {
+        String[] propertiesArray   = properties.split(",");
+        String[] paperTypesArray   = paperTypes.split(",");
+        JsonArray requestBodyArray = new JsonArray();
+        JsonObject tmp;
+        String propertyName;
+
+        //Change request property value to whatever is mentioned in feature file (for 'Specialty code' or 'Org Types')
+        if(parameterType.equalsIgnoreCase("Specialty codes")){
+            propertyName = "specialtyIndicator";
+        } else {
+            propertyName = "organizationType";
+        }
+
+        for(int i = 0; i < propertiesArray.length; i++){
+            tmp = new JsonObject();
+            tmp.addProperty(propertyName, propertiesArray[i].trim());
+            tmp.addProperty("paperType", paperTypesArray[i].trim());
+            requestBodyArray.add(tmp);
+        }
+
+//        System.out.println(requestBodyArray.toString());
+        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBodyArray.toString());
+    }
+
+    //Same step for specialty codes and org types
+    @When("^the (?:Specialty Codes|Org Types) are not found in ETMA$")
+    public void theSpecialtyCodesAreNotFoundInETMA() throws Throwable {
+        response = request.post(allContractValidationUri);
+    }
+
+    //Same step for specialty codes and org types
+    @Then("^service will return a a \"([^\"]*)\" value for each (?:specialty code|org type) and paper type combination$")
+    public void serviceWillReturnAAValueForEachSpecialtyCodeAndPaperTypeCombination(String value) throws Throwable {
+        String responseString    = response.asString().toLowerCase();
+        JsonParser parser = new JsonParser();
+        JsonArray resultArray = new JsonArray();
+        boolean allFalseResults = true;
+
+        resultArray.addAll(parser.parse(responseString).getAsJsonArray());
+
+        for(JsonElement result: resultArray){
+            JsonObject resObject = result.getAsJsonObject();
+            boolean trueResult = resObject.get("valid").getAsBoolean();
+
+            if(trueResult){
+                allFalseResults = false;
+            }
+        }
+        assertTrue(allFalseResults);
+    }
+
 }
