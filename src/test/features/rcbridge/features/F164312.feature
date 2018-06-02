@@ -1,4 +1,4 @@
-# Last updated on 2018-05-21T23:59:31.372Z
+# Last updated on 2018-06-01T18:35:25.485Z
 @MVP
 @PI02_Top3
 @Plus
@@ -12,13 +12,6 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
     Given requested data isn't found in RFP
     When the Exari Interview requests that from RFP
     Then the correct error message will be passed to Exari.
-
-  @2018.PI02
-  @2018.PI02.03
-  Scenario: US1020936
-    Given the contract type is physician
-    When the results from PES contain the provider's ORG type and Specialty
-    Then the RFP database tells the user if they are able to be accepted.
 
   @2018.PI02
   @2018.PI02.03

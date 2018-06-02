@@ -1,4 +1,4 @@
-# Last updated on 2018-05-22T20:56:54.787Z
+# Last updated on 2018-06-01T13:33:02.614Z
 @MVP
 @PI02_Top3
 @Parity
@@ -6,6 +6,13 @@ Feature: F182742 - Exari>NDB Physician Contracting Loading - PI02 - CF Team
 
   @2018.PI02
   @2018.PI02.02
+  Scenario: US1148674
+    Given The Physician contract is complete and correct within Exari
+    When The contract is included in the Exari Physician Contract micro-service to NDB
+    Then NDB should load the contract to the 'E' PNC contract screen successfully within NDB
+
+  @2018.PI02
+  @2018.PI02.03
   Scenario: US1108392
     Given The Physician contract is complete and correct within Exari
     When The contract is included in the Exari Physician Contract micro-service to NDB

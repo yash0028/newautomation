@@ -1,4 +1,4 @@
-# Last updated on 2018-05-11T15:59:51.245Z
+# Last updated on 2018-06-01T16:11:38.080Z
 @MVP
 @Plus
 Feature: F137675 - Administer Business Rules
@@ -26,6 +26,11 @@ Feature: F137675 - Administer Business Rules
     Given I am the Entity Management Solution
     When a User is adding an Owner to a TIN
     Then the Owner must be the Legal Owner responsible for reporting to the government
+
+  Scenario: US1149316
+    Given I am the Entity Management Solution
+    When a User is selecting an Entity Type
+    Then the User is not allowed to select both Health Organization Umbrella and Organizational Unit for the same Entity
 
   Scenario: US858702
     Given I am an Administrative User
