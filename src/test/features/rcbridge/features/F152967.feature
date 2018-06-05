@@ -1,4 +1,4 @@
-# Last updated on 2018-05-11T15:59:50.686Z
+# Last updated on 2018-06-05T15:33:30.870Z
 @MVP
 @Plus
 Feature: F152967 - Inactivate Entity

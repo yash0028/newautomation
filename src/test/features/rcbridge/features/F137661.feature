@@ -1,4 +1,4 @@
-# Last updated on 2018-05-11T15:59:51.096Z
+# Last updated on 2018-06-05T15:33:31.691Z
 @MVP
 @Plus
 Feature: F137661 - Create and Maintain Entity Characteristics

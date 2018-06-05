@@ -14,12 +14,6 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
     Then the correct error message will be passed to Exari.
 
   @2018.PI02
-  @2018.PI02.03
-  Scenario: US1082300
-    Given the CLM micro service system will need data from the RFP grid,
-    Then a microservice will need to be created to expose that data.
-
-  @2018.PI02
   @2018.PI02.04
   Scenario: US1095910::0
     Given a user needs to call RFP grid
@@ -40,6 +34,7 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
     When a catastrophic error occurs
     Then a service ticket will need to be created.
 
+  @RFP
   @2018.PI02
   @2018.PI02.03
   Scenario: US1035921

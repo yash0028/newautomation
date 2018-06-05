@@ -1,4 +1,4 @@
-# Last updated on 2018-05-14T19:35:29.656Z
+# Last updated on 2018-06-05T15:33:32.514Z
 @MVP
 @Plus
 Feature: F137676 - Search by Attributes

@@ -1,4 +1,4 @@
-# Last updated on 2018-06-01T19:47:30.853Z
+# Last updated on 2018-06-05T14:54:27.348Z
 @MVP
 @PI02_Top3
 @Plus
@@ -86,6 +86,14 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     Given I have entered an effective start date on the provider roster of equal to or less than today's date
     When the date is populated
     Then I will be prompted to select the correct Retro Reason Code
+
+  @ETMA
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1097073
+    Given a user is attempting to validate org type or specialty code
+    When the ETMA table is not reachable
+    Then display an error message "ETMA table is down and try again later. If problem persists, please contact Help Desk."
 
   @ETMA
   @2018.PI02

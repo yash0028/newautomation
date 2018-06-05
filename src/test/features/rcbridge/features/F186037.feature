@@ -5,7 +5,7 @@
 Feature: F186037 - DOMAIN MS - Roster Update business event and payload
 
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.04
   Scenario: US1103076
     Given the need to support the Update Roster event at the Domain Service level
     When validation of the payload and event occurs

@@ -1,4 +1,4 @@
-# Last updated on 2018-06-01T16:11:38.080Z
+# Last updated on 2018-06-05T15:33:32.403Z
 @MVP
 @Plus
 Feature: F137675 - Administer Business Rules
@@ -66,4 +66,9 @@ Feature: F137675 - Administer Business Rules
     Then one Entity must be the Parent
     Then And one Entity must be the Child
     Then And both Entities can not be the Child
+
+  Scenario: US1152174
+    Given I am the Entity Management Solution
+    When a User is selecting an Entity Type
+    Then the User is not allowed to select both PHO and IPA for the same Entity
 

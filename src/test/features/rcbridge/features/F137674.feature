@@ -1,4 +1,4 @@
-# Last updated on 2018-05-11T19:50:12.148Z
+# Last updated on 2018-06-05T15:33:30.380Z
 @MVP
 @Plus
 Feature: F137674 - Administer Global Entity Attributes
