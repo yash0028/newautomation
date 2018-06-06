@@ -13,6 +13,5 @@ import cucumber.api.junit.*;
         	 plugin = {"pretty", "html:target/test-report",
         	           "json:target/test-report.json",
         	           "junit:target/test-report.xml",
-                       "com.cucumber.listener.ExtentCucumberFormatter:target/extent-report.html"},
-        	 tags = {"~@ignore","@2018.PI02.02", "@PES,@ETMA"})
+                       "com.cucumber.listener.ExtentCucumberFormatter:target/extent-report.html"})
 public class TestRunner {}
