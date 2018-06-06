@@ -14,5 +14,5 @@ import cucumber.api.junit.*;
         	           "json:target/test-report.json",
         	           "junit:target/test-report.xml",
                        "com.cucumber.listener.ExtentCucumberFormatter:target/extent-report.html"},
-        	 tags = {"~@ignore","@2018.PI02.02", "@PES,@ETMA"})
+        	 tags = {"~@ignore","@2018.PI02.01", "@PES,@ETMA"}) //Should be specified in run configuration
 public class TestRunner {}
