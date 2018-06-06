@@ -1,17 +1,10 @@
-# Last updated on 2018-06-01T18:35:25.485Z
+# Last updated on 2018-06-05T19:22:01.099Z
 @MVP
 @PI02_Top3
 @Plus
 @CLM_Exari
 @Exari_Microservice
 Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Optum
-
-  @2018.PI02
-  @2018.PI02.04
-  Scenario: US1035923
-    Given requested data isn't found in RFP
-    When the Exari Interview requests that from RFP
-    Then the correct error message will be passed to Exari.
 
   @2018.PI02
   @2018.PI02.04
