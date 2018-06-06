@@ -1,4 +1,4 @@
-
+package Runner;
 /**
  * Created by jwacker on 3/22/2018.
  */
@@ -13,5 +13,6 @@ import cucumber.api.junit.*;
         	 plugin = {"pretty", "html:target/test-report",
         	           "json:target/test-report.json",
         	           "junit:target/test-report.xml",
-                       "com.cucumber.listener.ExtentCucumberFormatter:target/extent-report.html"})
+                       "com.cucumber.listener.ExtentCucumberFormatter:target/extent-report.html"},
+        	 tags = {"~@ignore","@2018.PI02.01", "@PES,@ETMA"}) //Should be specified in run configuration
 public class TestRunner {}
