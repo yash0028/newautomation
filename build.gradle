@@ -18,6 +18,7 @@ targetCompatibility = 1.5
 sonarqube {
     properties {
         property 'sonar.host.url', 'http://sonar.optum.com'
+        property 'sonar.login', '826de5590c75919a8317fdfb2148206eebe7ebbc'
     }
 }
 
