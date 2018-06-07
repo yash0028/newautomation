@@ -1,5 +1,6 @@
-# Last updated on 2018-06-05T15:33:28.577Z
+# Last updated on 2018-06-07T05:25:58.660Z
 @MVP
+@Priority_1
 @Parity
 Feature: F185547 - Create the project documents for a Mass Action Project
 

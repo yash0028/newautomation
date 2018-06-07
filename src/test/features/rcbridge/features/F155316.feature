@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T15:33:32.074Z
+# Last updated on 2018-06-07T05:26:01.271Z
 @MVP
 @Plus
+@Priority_1
 Feature: F155316 - Inactivate and Void Identifier
 
   Scenario: US1094021

@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T15:33:32.403Z
+# Last updated on 2018-06-07T05:26:01.474Z
 @MVP
 @Plus
+@Priority_1
 Feature: F137675 - Administer Business Rules
 
   Scenario: US1114661

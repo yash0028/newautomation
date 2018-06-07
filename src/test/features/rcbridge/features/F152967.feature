@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T15:33:30.870Z
+# Last updated on 2018-06-07T05:26:00.410Z
 @MVP
 @Plus
+@Priority_1
 Feature: F152967 - Inactivate Entity
 
   Scenario: US1089321

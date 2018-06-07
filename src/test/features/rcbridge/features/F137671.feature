@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T15:33:31.420Z
+# Last updated on 2018-06-07T05:26:00.753Z
 @MVP
 @Plus
+@Priority_1
 Feature: F137671 - Add and Remove Entity to Entity Relationships
 
   Scenario: US858664

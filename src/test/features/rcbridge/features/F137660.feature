@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T15:33:31.131Z
+# Last updated on 2018-06-07T05:26:00.582Z
 @MVP
 @Plus
+@Priority_1
 Feature: F137660 - Create and Maintain Entity Identifiers
 
   Scenario: US858618

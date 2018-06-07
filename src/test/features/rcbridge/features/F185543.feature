@@ -1,5 +1,6 @@
-# Last updated on 2018-06-05T15:33:28.450Z
+# Last updated on 2018-06-07T05:25:58.580Z
 @MVP
+@Priority_1
 @Parity
 Feature: F185543 - Refine the details of a Mass Action Project
 

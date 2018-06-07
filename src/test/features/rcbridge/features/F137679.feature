@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T15:33:32.953Z
+# Last updated on 2018-06-07T05:26:02.001Z
 @MVP
 @Plus
+@Priority_1
 Feature: F137679 - View Provider
 
   Scenario: US858730

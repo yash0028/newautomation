@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T15:33:32.727Z
+# Last updated on 2018-06-07T05:26:01.743Z
 @MVP
 @Plus
+@Priority_1
 Feature: F137658 - Approve Entity Modifications
 
   Scenario: US1094099

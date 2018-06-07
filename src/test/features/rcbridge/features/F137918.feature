@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T15:33:33.852Z
+# Last updated on 2018-06-07T05:26:02.327Z
 @MVP
 @Plus
+@Priority_1
 Feature: F137918 - Migrate Entity Data
 
   Scenario: US861076

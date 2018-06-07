@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T15:33:32.619Z
+# Last updated on 2018-06-07T05:26:01.656Z
 @MVP
 @Plus
+@Priority_1
 Feature: F137677 - Filter Results
 
   Scenario: US858720

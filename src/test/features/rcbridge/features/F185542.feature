@@ -1,5 +1,6 @@
-# Last updated on 2018-06-05T15:33:28.104Z
+# Last updated on 2018-06-07T05:25:58.500Z
 @MVP
+@Priority_1
 @Parity
 Feature: F185542 - Create a Mass Action Project
 

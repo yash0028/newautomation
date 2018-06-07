@@ -1,4 +1,4 @@
-# Last updated on 2018-05-17T20:51:54.296Z
+# Last updated on 2018-06-06T19:40:15.706Z
 @MVP
 @Plus
 Feature: F177330 - Exari >COSMOS/NDB - Common Pricing Solution CPS
