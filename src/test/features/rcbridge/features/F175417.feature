@@ -1,4 +1,4 @@
-# Last updated on 2018-06-04T14:20:09.640Z
+# Last updated on 2018-06-06T21:14:07.973Z
 @MVP
 @PI02_Top3
 @Plus
@@ -85,6 +85,8 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then Demonstrate that the utility can generate the correct sequence of Kafka events
 
   @#MVP
+  @2018.PI02
+  @2018.PI02.04
   Scenario: US1103097
     Given the need to support multiple event transactions within a Update Roster event at the Domain Service level
     When creating the services needed to support each event

@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T15:33:33.173Z
+# Last updated on 2018-06-07T05:26:02.092Z
 @MVP
 @Plus
+@Priority_1
 Feature: F137840 - Provision Users to Entities
 
   Scenario: US860747

@@ -1,6 +1,7 @@
-# Last updated on 2018-05-22T15:39:07.482Z
+# Last updated on 2018-06-07T05:26:01.920Z
 @MVP
 @Plus
+@Priority_1
 Feature: F188964 - View Entity History
 
   @EXARI-11273

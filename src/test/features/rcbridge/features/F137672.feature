@@ -1,6 +1,7 @@
-# Last updated on 2018-05-11T15:59:50.939Z
+# Last updated on 2018-06-07T05:26:00.841Z
 @MVP
 @Plus
+@Priority_1
 Feature: F137672 - Add and Remove Provider to Entity Relationship
 
   Scenario: US980944

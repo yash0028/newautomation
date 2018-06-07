@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T15:33:30.380Z
+# Last updated on 2018-06-07T05:26:00.070Z
 @MVP
 @Plus
+@Priority_1
 Feature: F137674 - Administer Global Entity Attributes
 
   Scenario: US1116731

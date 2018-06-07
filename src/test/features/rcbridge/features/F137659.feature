@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T15:33:31.549Z
+# Last updated on 2018-06-07T05:26:00.934Z
 @MVP
 @Plus
+@Priority_1
 Feature: F137659 - Import Data
 
   Scenario: US858608

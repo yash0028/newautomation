@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T21:10:48.214Z
+# Last updated on 2018-06-07T05:25:58.825Z
 @MVP
 @Plus
+@Priority_1
 Feature: F171127 - Exari> NDB Facility/Ancillary Contracting Payloads -  CF Team
 
   Scenario: US1030465

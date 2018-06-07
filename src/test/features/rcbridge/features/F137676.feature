@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T15:33:32.514Z
+# Last updated on 2018-06-07T05:26:01.572Z
 @MVP
 @Plus
+@Priority_1
 Feature: F137676 - Search by Attributes
 
   Scenario: US920675

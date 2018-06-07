@@ -1,6 +1,7 @@
-# Last updated on 2018-06-05T15:33:30.752Z
+# Last updated on 2018-06-07T05:26:00.330Z
 @MVP
 @Plus
+@Priority_1
 Feature: F183266 - Update Entity
 
   Scenario: US1089488

@@ -1,4 +1,4 @@
-# Last updated on 2018-06-01T14:03:53.284Z
+# Last updated on 2018-06-06T21:01:42.532Z
 @MVP
 @PI02_Top3
 @Parity
@@ -72,6 +72,7 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     Given the need to know contact payload data elementsThen an data payload document is created/updated
 
   @2018.PI02
+  @2018.PI02.04
   Scenario: US1030143
     Given The Physician contract is complete and correct within Exari
     When The contract is included in the Exari Physician Contract ETL to NDB at the product level
