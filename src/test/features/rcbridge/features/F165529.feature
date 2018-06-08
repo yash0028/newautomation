@@ -1,5 +1,6 @@
-# Last updated on 2018-06-05T15:33:29.871Z
+# Last updated on 2018-06-07T05:45:11.117Z
 @MVP
+@PI04
 @Plus
 Feature: F165529 - Setup Facility Workflow
 

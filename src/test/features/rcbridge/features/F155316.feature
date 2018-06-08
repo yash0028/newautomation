@@ -4,6 +4,7 @@
 @Priority_1
 Feature: F155316 - Inactivate and Void Identifier
 
+  @2018.PI03
   Scenario: US1094021
     Given I am the Entity Management Solution
     When a User inactivates an Identifier
@@ -11,6 +12,7 @@ Feature: F155316 - Inactivate and Void Identifier
     Then I capture the User who performed the change
     Then And I capture the date and time of when the User inactivated or voided the Identifier
 
+  @2018.PI03
   Scenario: US944896
     Given I am a User with access to maintain Entity information
     Given And all Entity relationships associated to the Identifier are reassigned or marked inactive
@@ -24,6 +26,7 @@ Feature: F155316 - Inactivate and Void Identifier
     Then And all inactivated relationships associated to the Identifier are retained (not orphaned)
     Then And the inactivated Identifier enters the approval process workflow
 
+  @2018.PI03
   Scenario: US950012
     Given I am a User with access to maintain Entity information
     Given And all Entity relationships associated to the Identifier are reassigned or marked inactive
@@ -37,6 +40,7 @@ Feature: F155316 - Inactivate and Void Identifier
     Then And all voided relationships associated to the Identifier are retained (not orphaned)
     Then And the voided Identifier enters the approval process workflow
 
+  @2018.PI03
   Scenario: US1094038
     Given I am a User with access to maintain Entity information
     When I am inactivating or voiding an Identifier

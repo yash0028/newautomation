@@ -4,12 +4,14 @@
 @Priority_1
 Feature: F137661 - Create and Maintain Entity Characteristics
 
+  @2018.PI03
   Scenario: US912897
     Given I am a User with access to maintain Entities
     When I want to add characteristic information to an Entity
     Then I can add Entity characteristic information to the Entity
     Then And the added Entity characteristic information enters the approval process workflow
 
+  @2018.PI03
   Scenario: US858624
     Given I am the Entity Management Solution
     When a User adds demographic information to an Entity
@@ -23,30 +25,35 @@ Feature: F137661 - Create and Maintain Entity Characteristics
     Then And I capture the User who performed the change
     Then And I capture the date and time when the User performed the change
 
+  @2018.PI03
   Scenario: US922850
     Given I am a User with access to maintain Entities
     When I want to inactivate characteristic information on an Entity
     Then I can inactivate Entity characteristic information on the Entity
     Then And the inactivated Entity characteristic information enters the approval process workflow
 
+  @2018.PI03
   Scenario: US912898
     Given I am a User with access to maintain Entities
     When I want to update characteristic information to an Entity
     Then I can update Entity characteristic information on the Entity
     Then And the updated Entity characteristic information enters the approval process workflow
 
+  @2018.PI03
   Scenario: US858621
     Given I am a User with access to maintain Entities
     When I want to add demographic information to an Entity
     Then I can add Entity demographic information to the Entity
     Then And the added Entity demographic information enters the approval process workflow
 
+  @2018.PI03
   Scenario: US922831
     Given I am a User with access to maintain Entity information
     When I want to inactivate demographic information on an Entity
     Then I can inactivate Entity demographic information on the Entity
     Then And the inactivated Entity demographic information enters the approval process workflow
 
+  @2018.PI03
   Scenario: US858622
     Given I am a User with access to maintain Entity information
     When I want to update demographic information on an Entity

@@ -1,6 +1,8 @@
-# Last updated on 2018-06-05T15:33:34.734Z
+# Last updated on 2018-06-07T16:59:09.606Z
 @MVP
 @Plus
+@PI03
+@Priority_1
 Feature: F137934 - Export Entity Data
 
   Scenario: US861135

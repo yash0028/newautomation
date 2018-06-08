@@ -1,4 +1,4 @@
-# Last updated on 2018-06-07T05:25:58.500Z
+# Last updated on 2018-06-07T18:06:22.111Z
 @MVP
 @Priority_1
 @Parity
@@ -19,6 +19,7 @@ Feature: F185542 - Create a Mass Action Project
   @EXARI-11577
   @EXARI-11503
   @Parity
+  @2018.PI03
   Scenario: US1098380
     Given the user has initiated a Mass Action project
     When they have selected a transaction type
@@ -28,6 +29,7 @@ Feature: F185542 - Create a Mass Action Project
   @MVP
   @EXARI-11515
   @Parity
+  @2018.PI03
   Scenario: US1098395
     Given a User has initiated a Mass Actions Project
     When the Project requirements cannot be completed within a single work session
@@ -38,6 +40,7 @@ Feature: F185542 - Create a Mass Action Project
   @MVP
   @EXARI-11507
   @Parity
+  @2018.PI03
   Scenario: US1098392
     Given the User has identified target providers
     When a Mass Action Project is in progress
@@ -46,6 +49,7 @@ Feature: F185542 - Create a Mass Action Project
 
   @MVP
   @Parity
+  @2018.PI03
   Scenario: US1098393
     Given the User has identified target providers
     When a Mass Action Project is in progress

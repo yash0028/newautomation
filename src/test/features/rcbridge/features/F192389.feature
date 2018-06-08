@@ -1,4 +1,4 @@
-# Last updated on 2018-06-05T15:33:28.317Z
+# Last updated on 2018-06-07T18:06:22.262Z
 @MVP
 @CLM_Exari
 Feature: F192389 - Define Mass Actions
@@ -28,6 +28,7 @@ Feature: F192389 - Define Mass Actions
   @MVP
   @EXARI-11456
   @CLM_Exari
+  @2018.PI03
   Scenario: US1138071
     Given I am a Mass Actions Administrator
     When I access the Mass Actions UI

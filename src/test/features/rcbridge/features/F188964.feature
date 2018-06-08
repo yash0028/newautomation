@@ -5,6 +5,7 @@
 Feature: F188964 - View Entity History
 
   @EXARI-11273
+  @2018.PI03
   Scenario: US858611
     Given I am a User with access to view and maintain Entity information
     When I want to view Entity import history
@@ -12,6 +13,7 @@ Feature: F188964 - View Entity History
     Then And the time and date on which the User imported the Entity data
 
   @EXARI-11273
+  @2018.PI03
   Scenario: US858699
     Given I am a User with access to view and maintain Entity information
     When I want to view time lining history for Entity Characteristics
@@ -21,6 +23,7 @@ Feature: F188964 - View Entity History
     Then And I can view the date and time of when the User performed the change
 
   @EXARI-11273
+  @2018.PI03
   Scenario: US922849
     Given I am a User with access to view and maintain Entity information
     When I want to view address history for an Entity
@@ -30,6 +33,7 @@ Feature: F188964 - View Entity History
     Then And I can view the time and date on which the User performed the address change
 
   @EXARI-11273
+  @2018.PI03
   Scenario: US858632
     Given I am a User with access to view and maintain Entity information
     When I want to audit supplemental detail associated with an Entity
@@ -40,6 +44,7 @@ Feature: F188964 - View Entity History
     Then And I can view the date and time of when the User performed the action
 
   @EXARI-11273
+  @2018.PI03
   Scenario: US927842
     Given I am a User with access to view and maintain Entity information
     When I want to view relationship time line history between a Provider and an Entity
@@ -49,6 +54,7 @@ Feature: F188964 - View Entity History
     Then And I can view the date and time of when the User entered each date
 
   @EXARI-11273
+  @2018.PI03
   Scenario: US858600
     Given I am a User with access to view and maintain Entity information
     When I want to view the history of events and modifications for an Entity
@@ -59,6 +65,7 @@ Feature: F188964 - View Entity History
     Then And I can view Entity update dates with Users who performed the changes
 
   @EXARI-11273
+  @2018.PI03
   Scenario: US858625
     Given I am a User with access to view and maintain Entity information
     When I want to view historical changes to demographic information on an Entity
@@ -68,6 +75,7 @@ Feature: F188964 - View Entity History
     Then And I can view the time and date the User performed the demographic information value change
 
   @EXARI-11271
+  @2018.PI03
   Scenario: US858606
     Given I am a User with access to view and maintain Entity information
     When I want to view approvals for modifications made to Entities
@@ -76,6 +84,7 @@ Feature: F188964 - View Entity History
     Then And I can view the User who performed the change
     Then And I can view the User with Approval Authority who approved the change
 
+  @2018.PI03
   Scenario: US858706
     Given I am a User with access to view and maintain Entity information
     When I want to view time lining history for Business Rules
@@ -85,6 +94,7 @@ Feature: F188964 - View Entity History
     Then And I can view the date and time of when the User performed the change
 
   @EXARI-11273
+  @2018.PI03
   Scenario: US922855
     Given I am a User with access to view and maintain Entity information
     When I want to view the time lining history of Alternate Name/Alias/DBA changes on an Entity
@@ -94,6 +104,7 @@ Feature: F188964 - View Entity History
     Then And I can view the time and date the User performed the change to the Alternate Name/Alias/DBA field
 
   @EXARI-11273
+  @2018.PI03
   Scenario: US858619
     Given I am a User with access to view and maintain Entity information
     When I want to view history of identifier additions to an Entity
@@ -104,6 +115,7 @@ Feature: F188964 - View Entity History
     Then And I can view the time and date on which the User performed the value change
 
   @EXARI-11273
+  @2018.PI03
   Scenario: US922853
     Given I am a User with access to view and maintain Entity information
     When I want to view characteristic change history on an Entity
@@ -113,6 +125,7 @@ Feature: F188964 - View Entity History
     Then And I can view the time and date the User performed the characteristic information value change
 
   @EXARI-11273
+  @2018.PI03
   Scenario: US858670
     Given I am a User with access to view and maintain Entity information
     When I want to view relationship time lining history between two Entities

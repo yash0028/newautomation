@@ -4,6 +4,7 @@
 @Priority_1
 Feature: F137678 - View Entity
 
+  @2018.PI03
   Scenario: US858723
     Given I am a User with access to view and maintain Entity information
     When I want to view only Entity components of a specified Relationship Type
@@ -11,6 +12,7 @@ Feature: F137678 - View Entity
     Then And the system displays the Entity components with my specified Relationship Type
 
   @EXARI-10529
+  @2018.PI03
   Scenario: US858725
     Given I am a User with access to view and maintain Entity information
     When I want to view an Entity summary
@@ -26,12 +28,14 @@ Feature: F137678 - View Entity
     Then And I can view the number of Relationships associated with the Entity
     Then And I can view the number of Providers associated with the Entity
 
+  @2018.PI03
   Scenario: US858722
     Given I am a User with access to view and maintain Entity information
     When I want to view an entire Entity structure
     Then I can view all components of an Entity
     Then And I can view all relationships that connect Entity components
 
+  @2018.PI03
   Scenario: US1120329
     Given I am a User with access to view and maintain Entity information
     When I want to view only Entity components of a specified Relationship Role
@@ -39,6 +43,7 @@ Feature: F137678 - View Entity
     Then And the system displays the Entity components with my specified Relationship Role
 
   @EXARI-10529
+  @2018.PI03
   Scenario: US858724
     Given I am a User with access to view and maintain Entity information
     When I want to view a Entity details
@@ -52,12 +57,14 @@ Feature: F137678 - View Entity
     Then And I can view all Provider Identifiers associated with the Entity
 
   @EXARI-10529
+  @2018.PI03
   Scenario: US858727
     Given I am a User with access to view and maintain Entity information
     When I want to view all Entity relationships
     Then I can search for an Entity
     Then And I can view all relationships associated to that Entity
 
+  @2018.PI03
   Scenario: US858726
     Given I am a User with access to view and maintain Entity information
     When I want to compare two Entities

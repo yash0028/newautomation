@@ -1,5 +1,6 @@
-# Last updated on 2018-06-06T16:31:09.233Z
+# Last updated on 2018-06-07T05:45:11.559Z
 @MVP
+@PI04
 @Plus
 Feature: F165532 - Setup Chargemaster Workflow
 
