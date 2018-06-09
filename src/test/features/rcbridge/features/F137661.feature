@@ -4,6 +4,8 @@
 @Priority_1
 Feature: F137661 - Create and Maintain Entity Characteristics
 
+  @MVP
+  @EXARI-11249
   @2018.PI03
   Scenario: US912897
     Given I am a User with access to maintain Entities
@@ -11,6 +13,8 @@ Feature: F137661 - Create and Maintain Entity Characteristics
     Then I can add Entity characteristic information to the Entity
     Then And the added Entity characteristic information enters the approval process workflow
 
+  @MVP
+  @EXARI-11273
   @2018.PI03
   Scenario: US858624
     Given I am the Entity Management Solution
@@ -25,6 +29,7 @@ Feature: F137661 - Create and Maintain Entity Characteristics
     Then And I capture the User who performed the change
     Then And I capture the date and time when the User performed the change
 
+  @MVP
   @2018.PI03
   Scenario: US922850
     Given I am a User with access to maintain Entities
@@ -32,6 +37,8 @@ Feature: F137661 - Create and Maintain Entity Characteristics
     Then I can inactivate Entity characteristic information on the Entity
     Then And the inactivated Entity characteristic information enters the approval process workflow
 
+  @MVP
+  @EXARI-11249
   @2018.PI03
   Scenario: US912898
     Given I am a User with access to maintain Entities
@@ -39,6 +46,8 @@ Feature: F137661 - Create and Maintain Entity Characteristics
     Then I can update Entity characteristic information on the Entity
     Then And the updated Entity characteristic information enters the approval process workflow
 
+  @MVP
+  @EXARI-11249
   @2018.PI03
   Scenario: US858621
     Given I am a User with access to maintain Entities
@@ -46,6 +55,7 @@ Feature: F137661 - Create and Maintain Entity Characteristics
     Then I can add Entity demographic information to the Entity
     Then And the added Entity demographic information enters the approval process workflow
 
+  @MVP
   @2018.PI03
   Scenario: US922831
     Given I am a User with access to maintain Entity information
@@ -53,6 +63,8 @@ Feature: F137661 - Create and Maintain Entity Characteristics
     Then I can inactivate Entity demographic information on the Entity
     Then And the inactivated Entity demographic information enters the approval process workflow
 
+  @MVP
+  @EXARI-11249
   @2018.PI03
   Scenario: US858622
     Given I am a User with access to maintain Entity information

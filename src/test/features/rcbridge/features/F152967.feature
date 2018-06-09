@@ -4,6 +4,7 @@
 @Priority_1
 Feature: F152967 - Inactivate Entity
 
+  @MVP
   @2018.PI03
   Scenario: US1089321
     Given I am a User with access to maintain Entities
@@ -13,6 +14,9 @@ Feature: F152967 - Inactivate Entity
     Then And I am not able to assign new Entity relationships to the Entity
     Then And I am not able to assign new Identifiers to the Entity
 
+  @MVP
+  @EXARI-11249
+  @EXARI-11267
   @2018.PI03
   Scenario: US858594
     Given I am a User who has access to maintain an Entity
@@ -25,6 +29,8 @@ Feature: F152967 - Inactivate Entity
     Then And all inactivated relationships associated to the Entity are retained (not orphaned)
     Then And the updated Entity enters the approval process workflow
 
+  @MVP
+  @EXARI-11273
   @2018.PI03
   Scenario: US944246
     Given I am the Entity Management Solution
@@ -32,6 +38,9 @@ Feature: F152967 - Inactivate Entity
     Then I capture the User who performed the change
     Then And I capture the date and time of when the User inactivated the Entity
 
+  @MVP
+  @EXARI-11249
+  @EXARI-11267
   @2018.PI03
   Scenario: US944247
     Given I am a User

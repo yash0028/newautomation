@@ -1,8 +1,18 @@
-# Last updated on 2018-06-07T05:26:01.920Z
+# Last updated on 2018-06-08T18:30:26.249Z
 @MVP
 @Plus
 @Priority_1
 Feature: F188964 - View Entity History
+
+  @EXARI-11273
+  @2018.PI03
+  Scenario: US927842
+    Given I am a User with access to view and maintain Entity information
+    When I want to view relationship time line history between a Provider and an Entity
+    Then I can view the relationship effective date
+    Then And I can view the relationship end date
+    Then And I can view the User who entered each date
+    Then And I can view the date and time of when the User entered each date
 
   @EXARI-11273
   @2018.PI03
@@ -21,37 +31,6 @@ Feature: F188964 - View Entity History
     Then And I can view the Entity Characteristic end dates
     Then And I can view the User who added or removed an Entity Characteristic
     Then And I can view the date and time of when the User performed the change
-
-  @EXARI-11273
-  @2018.PI03
-  Scenario: US922849
-    Given I am a User with access to view and maintain Entity information
-    When I want to view address history for an Entity
-    Then I can view previous addresses
-    Then And I can view the current addresses
-    Then And I can view the User who performed each address change
-    Then And I can view the time and date on which the User performed the address change
-
-  @EXARI-11273
-  @2018.PI03
-  Scenario: US858632
-    Given I am a User with access to view and maintain Entity information
-    When I want to audit supplemental detail associated with an Entity
-    Then I can view documents associated to the Entity
-    Then And I can view notes associated to the Entity
-    Then And I can view the User who uploaded the document
-    Then And I can view the User who entered the note
-    Then And I can view the date and time of when the User performed the action
-
-  @EXARI-11273
-  @2018.PI03
-  Scenario: US927842
-    Given I am a User with access to view and maintain Entity information
-    When I want to view relationship time line history between a Provider and an Entity
-    Then I can view the relationship effective date
-    Then And I can view the relationship end date
-    Then And I can view the User who entered each date
-    Then And I can view the date and time of when the User entered each date
 
   @EXARI-11273
   @2018.PI03
@@ -74,7 +53,7 @@ Feature: F188964 - View Entity History
     Then And I can view the User who performed the demographic information value change
     Then And I can view the time and date the User performed the demographic information value change
 
-  @EXARI-11271
+  @EXARI-11273
   @2018.PI03
   Scenario: US858606
     Given I am a User with access to view and maintain Entity information
@@ -123,6 +102,17 @@ Feature: F188964 - View Entity History
     Then And I can view the current characteristic information value
     Then And I can view the User who performed the characteristic information value change
     Then And I can view the time and date the User performed the characteristic information value change
+
+  @EXARI-11273
+  @2018.PI03
+  Scenario: US858632
+    Given I am a User with access to view and maintain Entity information
+    When I want to audit supplemental detail associated with an Entity
+    Then I can view documents associated to the Entity
+    Then And I can view notes associated to the Entity
+    Then And I can view the User who uploaded the document
+    Then And I can view the User who entered the note
+    Then And I can view the date and time of when the User performed the action
 
   @EXARI-11273
   @2018.PI03

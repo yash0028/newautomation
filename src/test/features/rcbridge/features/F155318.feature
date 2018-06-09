@@ -4,12 +4,14 @@
 @Priority_1
 Feature: F155318 - Inactivate and Void Identifier Relationship with an Entity
 
+  @MVP
   @2018.PI03
   Scenario: US950017
     Given I am a User with access to maintain Entity information
     When I need to void the relationship between an Identifier and an Entity
     Then I can enter an end date to terminate the relationship between the Identifier and the Entity
 
+  @MVP
   @2018.PI03
   Scenario: US1090067
     Given I am a User with access to maintain Entity information

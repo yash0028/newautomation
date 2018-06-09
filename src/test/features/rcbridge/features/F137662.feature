@@ -4,6 +4,8 @@
 @Priority_1
 Feature: F137662 - Create and Maintain Entity Supplemental Detail
 
+  @MVP
+  @EXARI-11698
   @2018.PI03
   Scenario: US858626
     Given I am a User with access to maintain Entity information
@@ -13,6 +15,8 @@ Feature: F137662 - Create and Maintain Entity Supplemental Detail
     Then And the date and time is systematically added to the note
     Then And my user credentials are systematically added to the note
 
+  @MVP
+  @EXARI-11273
   @2018.PI03
   Scenario: US858631
     Given I am the Entity Management Solution
@@ -25,6 +29,8 @@ Feature: F137662 - Create and Maintain Entity Supplemental Detail
     Then And I capture the User who performed the change
     Then And I capture the date and time of when the User performed the change
 
+  @MVP
+  @EXARI-11698
   @2018.PI03
   Scenario: US858628
     Given I am a User with access to maintain Entity information
@@ -34,6 +40,8 @@ Feature: F137662 - Create and Maintain Entity Supplemental Detail
     Then And the date and time is systematically added to the note
     Then And my user credentials are systematically added to the note
 
+  @MVP
+  @EXARI-11643
   @2018.PI03
   Scenario: US858627
     Given I am a User with access to maintain Entity information
@@ -43,6 +51,8 @@ Feature: F137662 - Create and Maintain Entity Supplemental Detail
     Then And the date and time is systematically logged with my attachment
     Then And my user credentials are systematically logged with my attachment
 
+  @MVP
+  @EXARI-11643
   @2018.PI03
   Scenario: US858630
     Given I am a User with access to maintain Entity information

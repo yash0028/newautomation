@@ -1,9 +1,10 @@
-# Last updated on 2018-06-07T05:26:02.001Z
+# Last updated on 2018-06-08T18:30:06.053Z
 @MVP
 @Plus
 @Priority_1
 Feature: F137679 - View Provider
 
+  @EXARI-10529
   @2018.PI03
   Scenario: US858730
     Given I am a User with access to view and maintain Entity information
@@ -11,6 +12,7 @@ Feature: F137679 - View Provider
     Then I can see all Identifiers on the Provider record
     Then And I can see all demographic information on the Provider record
 
+  @EXARI-10713
   @2018.PI03
   Scenario: US1131278
     Given I am a User with access to view or modify Entity information
@@ -18,6 +20,7 @@ Feature: F137679 - View Provider
     Then I can see all Contracts associated to the Provider
     Then And I can see all Interviews associated to the Provider
 
+  @EXARI-10529
   @2018.PI03
   Scenario: US858729
     Given I am a User with access to view and maintain Entity information

@@ -4,12 +4,15 @@
 @Priority_1
 Feature: F137672 - Add and Remove Provider to Entity Relationship
 
+  @MVP
+  @EXARI-11249
   @2018.PI03
   Scenario: US980944
     Given I am a User with access to maintain Entity information
     When I am adding a relationship between a Provider and an Entity
     Then I can define the Relationship Role the Provider has in relation to the Entity
 
+  @MVP
   @2018.PI03
   Scenario: US927841
     Given I am the Entity Management Solution
@@ -21,12 +24,14 @@ Feature: F137672 - Add and Remove Provider to Entity Relationship
     Then And I capture the User who performed the change
     Then And I capture the time and date of when the User performed the change
 
+  @MVP
   @2018.PI03
   Scenario: US980966
     Given I am a User with access to maintain Entity information
     When I am adding a relationship between a Provider and an Entity
     Then I can select a Relationship Type to further define the relationship between the Provider and the Entity
 
+  @MVP
   @2018.PI03
   Scenario: US1105127
     Given I am the Entity Management Solution
@@ -35,6 +40,7 @@ Feature: F137672 - Add and Remove Provider to Entity Relationship
     Then the Provider is tagged with "New Provider" in the Entity Management Solution
     Then And the Provider enters a workflow so a User can define the Provider/TIN Relationship Role and Type
 
+  @MVP
   @2018.PI03
   Scenario: US858675
     Given I am a User with access to maintain Entity information
@@ -42,6 +48,7 @@ Feature: F137672 - Add and Remove Provider to Entity Relationship
     Then I can select a new Relationship Role for a Provider in the relationship
     Then And I can select a new Relationship Type for a Provider in the relationship
 
+  @MVP
   @2018.PI03
   Scenario: US858677
     Given I am a User with access to maintain Entity information

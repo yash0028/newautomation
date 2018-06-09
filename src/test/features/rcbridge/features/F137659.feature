@@ -4,6 +4,8 @@
 @Priority_1
 Feature: F137659 - Import Data
 
+  @MVP
+  @EXARI-11399
   @2018.PI03
   Scenario: US858608
     Given I am a User with access to maintain Entities
@@ -11,6 +13,8 @@ Feature: F137659 - Import Data
     Then I can import Entity relationships listed in template form into the Entity Management solution
     Then And the Entity relationships enter the approval process workflow
 
+  @MVP
+  @EXARI-11399
   @2018.PI03
   Scenario: US858607
     Given I am a User with access to maintain Entities
@@ -18,6 +22,8 @@ Feature: F137659 - Import Data
     Then I can import the Entity structure into the Entity Management solution
     Then And the Entity structure enters the approval process workflow
 
+  @MVP
+  @EXARI-11273
   @2018.PI03
   Scenario: US858609
     Given I am the Entity Management solution

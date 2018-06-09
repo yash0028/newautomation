@@ -1,9 +1,11 @@
-# Last updated on 2018-06-07T16:28:23.213Z
+# Last updated on 2018-06-08T17:36:42.509Z
 @MVP
 @Plus
 @Priority_1
 Feature: F137840 - Provision Users to Entities
 
+  @MVP
+  @EXARI-10879
   @2018.PI03
   Scenario: US860747
     Given I am an Administrative User of the Entity Management Solution

@@ -4,6 +4,7 @@
 @Priority_1
 Feature: F137676 - Search by Attributes
 
+  @EXARI-11274
   @2018.PI03
   Scenario: US920675
     Given I am a User with access to view and maintain Entity information
@@ -11,6 +12,7 @@ Feature: F137676 - Search by Attributes
     Then I can limit my Entity search to include only Inactive Entities
     Then And the system returns only Inactive Entities
 
+  @EXARI-11274
   @2018.PI03
   Scenario: US858713
     Given I am a User with access to view and maintain Entity information
@@ -19,6 +21,7 @@ Feature: F137676 - Search by Attributes
     Then I can search for an Entity using attributes of that Entity
     Then And the system displays a list of Entities matching my search criteria
 
+  @EXARI-11274
   @2018.PI03
   Scenario: US920674
     Given I am a User with access to view and maintain Entity information
@@ -26,6 +29,7 @@ Feature: F137676 - Search by Attributes
     Then I can limit my Entity search to include only Active Entities
     Then And the system returns only Active Entities
 
+  @EXARI-11274
   @2018.PI03
   Scenario: US858715
     Given I am a User with access to view and maintain Entity information
@@ -33,6 +37,7 @@ Feature: F137676 - Search by Attributes
     Then I can search by Provider ID
     Then And the system displays all Entities related to that Provider
 
+  @EXARI-11274
   @2018.PI03
   Scenario: US1119871
     Given I am a User with access to view and maintain Entity information
@@ -40,6 +45,7 @@ Feature: F137676 - Search by Attributes
     Then I can search within an Entity by relationship role
     Then And the system displays Organizational Units within the Entity matching that relationship role
 
+  @EXARI-11274
   @2018.PI03
   Scenario: US858714
     Given I am a User with access to view and maintain Entity information

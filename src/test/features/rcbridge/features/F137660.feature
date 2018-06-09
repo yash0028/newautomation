@@ -4,6 +4,8 @@
 @Priority_1
 Feature: F137660 - Create and Maintain Entity Identifiers
 
+  @MVP
+  @EXARI-11273
   @2018.PI03
   Scenario: US858618
     Given I am the Entity Management solution
@@ -14,6 +16,7 @@ Feature: F137660 - Create and Maintain Entity Identifiers
     Then And I capture User who performed the value change
     Then And I capture the date and time on which the User performed the value change
 
+  @MVP
   @2018.PI03
   Scenario: US955716
     Given I am a User with access to maintain Entity information
@@ -24,6 +27,9 @@ Feature: F137660 - Create and Maintain Entity Identifiers
     Then And Standard field validation rules apply
     Then And I must select a new Owner
 
+  @MVP
+  @EXARI-11249
+  @EXARI-11267
   @2018.PI03
   Scenario: US1089942
     Given I am a User with access to maintain Entity information
@@ -33,6 +39,8 @@ Feature: F137660 - Create and Maintain Entity Identifiers
     Then And Effective date can be in the future or retroactive
     Then And the updated Entity enters the approval process workflow
 
+  @MVP
+  @EXARI-11274
   @2018.PI03
   Scenario: US1089628
     Given I am the Entity Management Solution
@@ -42,6 +50,7 @@ Feature: F137660 - Create and Maintain Entity Identifiers
     Then And if Identifier does not exist, the User is allowed to proceed and create new
     Then And the User is required to assign an Owner to the Identifier
 
+  @MVP
   @2018.PI03
   Scenario: US1089924
     Given I am the Entity Management Solution
@@ -50,6 +59,8 @@ Feature: F137660 - Create and Maintain Entity Identifiers
     Then And I display Owner associated to the Identifier
     Then And the User must select the existing Owner for the Identifier or assign new Owner if not present
 
+  @MVP
+  @EXARI-11249
   @2018.PI03
   Scenario: US1089668
     Given I am the Entity Management Solution
@@ -57,6 +68,8 @@ Feature: F137660 - Create and Maintain Entity Identifiers
     Then I perform field validation to ensure the Identifier was entered in the correct format based on Identifier Type selected
     Then And I must perform a duplicate check on the Identifier
 
+  @MVP
+  @EXARI-11274
   @2018.PI03
   Scenario: US1089625
     Given I am the Entity Management Solution
@@ -67,6 +80,8 @@ Feature: F137660 - Create and Maintain Entity Identifiers
     Then And if Identifier does not exist, the User is allowed to proceed and create new
     Then And the User is required to assign an Owner to the Identifier
 
+  @MVP
+  @EXARI-11267
   @2018.PI03
   Scenario: US955775
     Given I am a User with access to manage Entity information
@@ -75,6 +90,9 @@ Feature: F137660 - Create and Maintain Entity Identifiers
     Then And I can update an Identifier
     Then And I can update Identifier Type
 
+  @MVP
+  @EXARI-11249
+  @EXARI-11267
   @2018.PI03
   Scenario: US1089944
     Given I am a User with access to maintain Entity information
@@ -84,6 +102,8 @@ Feature: F137660 - Create and Maintain Entity Identifiers
     Then And Effective date can be in the future or retroactive
     Then And the updated Entity enters the approval process workflow
 
+  @MVP
+  @EXARI-11249
   @2018.PI03
   Scenario: US1089624
     Given I am the Entity Management Solution
@@ -91,6 +111,7 @@ Feature: F137660 - Create and Maintain Entity Identifiers
     Then I perform field validation to ensure the Identifier was entered in the correct format based on Identifier Type selected
     Then And I perform a duplicate check on the new Identifier
 
+  @MVP
   @2018.PI03
   Scenario: US1089630
     Given I am the Entity Management Solution
@@ -99,6 +120,9 @@ Feature: F137660 - Create and Maintain Entity Identifiers
     Then And I display Owner associated to the Identifier
     Then And the User must select the existing Owner for the Identifier or assign new Owner if not present
 
+  @MVP
+  @EXARI-11249
+  @EXARI-11267
   @2018.PI03
   Scenario: US858616
     Given I am a User with access to manage Entity information
@@ -107,6 +131,7 @@ Feature: F137660 - Create and Maintain Entity Identifiers
     Then And I must select an Identifier Type to define the type of Identifier I am adding
     Then And I can enter an Identifier
 
+  @MVP
   @2018.PI03
   Scenario: US1089633
     Given I am a User with access to maintain Entity information
