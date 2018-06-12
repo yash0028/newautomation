@@ -1,4 +1,4 @@
-# Last updated on 2018-05-30T20:06:12.632Z
+# Last updated on 2018-06-11T17:16:16.932Z
 @MVP
 @PI02_Top3
 @CLM_Exari
@@ -38,18 +38,21 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     Then a service ticket will need to be created.
 
   @2018.PI02
+  @2018.PI02.04
   Scenario: US1095936::0
     Given a user needs to call PES
     When a user incorrectly inputs data
     Then the user receives a bad input error message
 
   @2018.PI02
+  @2018.PI02.04
   Scenario: US1095936::1
     Given a user needs to call PES
     When the system goes down
     Then the user receives a system error message
 
   @2018.PI02
+  @2018.PI02.04
   Scenario: US1095936::2
     Given a user needs to call PES
     When a catastrophic error occurs

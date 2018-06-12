@@ -1,5 +1,6 @@
-# Last updated on 2018-06-06T23:08:55.868Z
+# Last updated on 2018-06-11T15:38:51.790Z
 @MVP
+@PI02_Top3
 @Plus
 @Parity
 Feature: F177197 - Create NDB to Exari Migration Logic for Facility - Active (Product Differential Restructure)

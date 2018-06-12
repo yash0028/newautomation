@@ -1,5 +1,6 @@
-# Last updated on 2018-06-07T12:24:12.919Z
+# Last updated on 2018-06-11T14:25:39.870Z
 @MVP
+@PI02_Top3
 @Parity
 Feature: F177194 - Create NDB to Exari Migration Logic for Physician - Active (Contract Master Restructure)
 

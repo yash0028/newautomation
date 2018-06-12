@@ -1,4 +1,4 @@
-# Last updated on 2018-05-24T15:44:14.690Z
+# Last updated on 2018-06-11T17:42:36.684Z
 @MVP
 Feature: F182690 - Add Exari's PowerAuthor to AppStore
 

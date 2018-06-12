@@ -1,4 +1,4 @@
-# Last updated on 2018-06-08T16:08:49.977Z
+# Last updated on 2018-06-11T21:26:59.805Z
 @MVP
 @PI02_Top3
 @Parity
@@ -33,6 +33,14 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     When NDB subscribes to the event
     Then NDB successfully receives the event notificaiton
 
+  @#MVP
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1103097
+    Given the need to support multiple event transactions within a Update Roster event at the Domain Service level
+    When creating the services needed to support each event
+    Then a standardized schema exists and is applied
+
   @2018.PI02
   @2018.PI02.02
   Scenario: US1144455::0
@@ -65,6 +73,13 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
   @2018.PI02.03
   Scenario: US1145653
     Given the need to know contact payload data elementsThen an data payload document is created/updated
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1164097
+    Given the Exari system will have to update NDB
+    When the API for the NDB web service is called
+    Then the update to NDB will be processed.
 
   @2018.PI02
   @2018.PI02.02
