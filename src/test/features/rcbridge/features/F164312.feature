@@ -34,5 +34,5 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
     Given an Org type or specialty
     When It is not found in the RFP Grid
     Then the user sees an error.
-    Then And the error should be: the org type or specialty isn't found on the RFP Grid.
+    Then And the error should be "the org type or specialty isn't found on the RFP Grid"
 

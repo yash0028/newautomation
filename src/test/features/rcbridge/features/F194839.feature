@@ -1,6 +1,6 @@
-# Last updated on 2018-06-11T19:38:20.852Z
+# Last updated on 2018-06-12T15:26:31.821Z
 
-Feature: F194839 - CLM DevOps
+Feature: F194839 - CLM DevOps PI0.2
 
   @2018.PI03
   Scenario: US1080317
@@ -17,9 +17,9 @@ Feature: F194839 - CLM DevOps
 
   @2018.PI03
   Scenario: US1078496
-    Given Dynatrace is not deployed to the environment
-    When The Dynatrace image is deployed
-    Then Dynatrace is configured and available in the environment
+    Given I am a developer,
+    When I kick off a pipeline build for a service with Dynatrace needed,
+    Then my docker image is built with a Dynatrace layer that can forward data to nonprod Dynatrace environment
 
   @2018.PI02
   Scenario: US1161432
@@ -32,6 +32,18 @@ Feature: F194839 - CLM DevOps
     Given A service capable of publishing metrics is deployed
     When The service performs an operation, it sends statics to Splunk
     Then The metrics are recorded and aggregated, available In a dashboard for visualization
+
+  @2018.PI02
+  Scenario: US1159428::0
+    Given that the job is running
+    When there is an old replication controller
+    Then the job will delete it within a 1 hour window
+
+  @2018.PI02
+  Scenario: US1159428::1
+    Given that the job is running
+    When there is an old failed pod
+    Then the job will delete it within a 1 hour window
 
   @2018.PI03
   Scenario: US1078501
