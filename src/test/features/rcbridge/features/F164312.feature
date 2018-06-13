@@ -75,7 +75,7 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
   @2018.PI02
   @2018.PI02.03
   Scenario: US1035921::0
-    Given the provider's Specialty "abc123" is passed to the service
+    Given the provider's Specialty "abc123" is passed to the RFP service
     When finding the Specialty in RFP
     Then the RFP service will return a "False" value
 
@@ -83,7 +83,7 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
   @2018.PI02
   @2018.PI02.03
   Scenario: US1035921::1
-    Given the provider's Org Type "abc123" is passed to the service
+    Given the provider's Org Type "abc123" is passed to the RFP service
     When finding the Org Type in RFP
     Then the RFP service will return a "False" value
 
