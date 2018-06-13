@@ -9,16 +9,33 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
   @RFP
   @2018.PI02
   @2018.PI02.03
-  Scenario: US1082300
+  Scenario: US1082300::0
     Given a request with the following fields:
-      | field                          |
-      | Place of Service               |
-      | Line of Business               |
-      | Specialty or Organization Type |
+      | Place of Service |
+      | Line of Business |
+      | Specialty Type   |
 
     When the request is made to the RFP service
     Then the following fields should be returned:
-      | field                            |
+      | Credentialing Required           |
+      | Super Script                     |
+      | Credentialing Entity             |
+      | Accepting Applications (E&amp;I) |
+      | Accepting Applications (C&amp;S) |
+      | Accepting Applications (M&amp;V) |
+
+
+  @RFP
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1082300::1
+    Given a request with the following fields:
+      | Place of Service  |
+      | Line of Business  |
+      | Organization Type |
+
+    When the request is made to the RFP service
+    Then the following fields should be returned:
       | Credentialing Required           |
       | Super Script                     |
       | Credentialing Entity             |
@@ -60,7 +77,7 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
   Scenario: US1035921::0
     Given the provider's Specialty "abc123" is passed to the service
     When finding the Specialty in RFP
-    Then the service will return a "False" value
+    Then the RFP service will return a "False" value
 
   @RFP
   @2018.PI02
@@ -68,5 +85,5 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
   Scenario: US1035921::1
     Given the provider's Org Type "abc123" is passed to the service
     When finding the Org Type in RFP
-    Then the service will return a "False" value
+    Then the RFP service will return a "False" value
 

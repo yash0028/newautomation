@@ -59,7 +59,6 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     Given UHC will need to provide Exari with PES data
     When Exari calls PES with MPIN and TIN
     Then an external data query will return a list of responses with the following populated fields if the result is a physician:
-      | field            |
       | mpin             |
       | tin              |
       | firstName        |
@@ -76,7 +75,6 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
       | phoneNumbers     |
 
     And an external data query will return a list of responses with the following populated fields if the result is a facility:
-      | field            |
       | mpin             |
       | tin              |
       | facilityName     |
