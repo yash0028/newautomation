@@ -30,9 +30,16 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
   @RFP
   @2018.PI02
   @2018.PI02.03
-  Scenario: US1035921
-    Given an Org type or specialty
-    When It is not found in the RFP Grid
-    Then the user sees an error.
-    Then And the error should be "the org type or specialty isn't found on the RFP Grid"
+  Scenario: US1035921::0
+    Given the provider's Specialty "abc123" is passed to the service
+    When finding the Specialty in RFP
+    Then the service will return a "False" value
+
+  @RFP
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1035921::1
+    Given the provider's Org Type "abc123" is passed to the service
+    When finding the Org Type in RFP
+    Then the service will return a "False" value
 

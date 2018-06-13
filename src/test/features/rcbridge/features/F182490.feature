@@ -93,7 +93,8 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   Scenario: US1097073
     Given a user is attempting to validate org type or specialty code
     When the ETMA table is not reachable
-    Then display an error message "ETMA table is down and try again later. If problem persists, please contact Help Desk."
+    When And the service should return an status code. "503 service is unavailable".
+    Then the error message is return to the user.
 
   @ETMA
   @2018.PI02
