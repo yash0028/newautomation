@@ -11,9 +11,9 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Given A business event is submitted
     When A transaction is initialized
     Then A new transaction id is generated
-    Then And The completion criteria is looked up from the configuration and included in the event data
-    Then And The go/no go criteria is looked up from the configuration and included in the event data
-    Then And A transaction initialization message is published to the transaction log topic
+    And The completion criteria is looked up from the configuration and included in the event data
+    And The go/no go criteria is looked up from the configuration and included in the event data
+    And A transaction initialization message is published to the transaction log topic
 
   @2018.PI02
   @2018.PI02.02
@@ -21,7 +21,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Given A business event is submitted
     When A transaction is initialized and the configuration lookup fails
     Then The REST api returns an internal server error
-    Then And An error is logged to the logfile
+    And An error is logged to the logfile
 
   @2018.PI02
   @2018.PI02.02
@@ -36,7 +36,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Given A transaction is in progress
     When A transaction state change is submitted with an invalid transaction id
     Then The REST api returns a not found error
-    Then And An error is logged to the logfile
+    And An error is logged to the logfile
 
   @2018.PI02
   @2018.PI02.02
@@ -44,7 +44,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Given A transaction is in progress
     When A transaction state change is submitted and the transaction state message cannot be published to Kafka
     Then The REST api returns an internal server error
-    Then And An error is logged to the logfile
+    And An error is logged to the logfile
 
   @2018.PI02
   @2018.PI02.01
@@ -58,16 +58,16 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
   Scenario: US1095937::0
     Given A transaction is in progress
     When The business data is received
-    When And All Domain microservices send a successful result
+    And All Domain microservices send a successful result
     Then The result is checked for errors
-    Then And The data is sent to the downstream updaters
+    And The data is sent to the downstream updaters
 
   @2018.PI02
   @2018.PI02.01
   Scenario: US1095937::1
     Given A transaction is in progress
     When The business data is received
-    When And One or more domain services send an error
+    And One or more domain services send an error
     Then The transaction is aborted with an error sent to the transaction log
 
   @2018.PI02
@@ -75,7 +75,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
   Scenario: US1095937::2
     Given A transaction is in progress
     When The business data is received
-    When And One or more domain services does not acknowledge the business event
+    And One or more domain services does not acknowledge the business event
     Then The transaction is aborted with a time-out error sent to the transaction log
 
   @2018.PI02
@@ -96,7 +96,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
   Scenario: US1077963::1
     Given A transaction is in progress
     When a transaction status event is received
-    When And The transaction data is corrupted
+    And The transaction data is corrupted
     Then Write a message to an error log
 
   @2018.PI02
@@ -105,6 +105,62 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Given A transaction is in progress
     When a transaction status event is received but the database is unavailable
     Then Write a message to an error log
+
+  @2018.PI02
+  @2018.PI02.01
+  Scenario: US1077918::0
+    Given A business event is submitted
+    When A transaction is initialized
+    Then A new transaction id is generated
+    And A transaction initialization message is published to the transaction log topic
+
+  @2018.PI02
+  @2018.PI02.01
+  Scenario: US1077918::1
+    Given A transaction is in progress
+    When A transaction state change is submitted
+    Then A transaction state change message is published to the transaction log topic
+
+  @2018.PI02
+  @2018.PI02.01
+  Scenario: US1077918::2
+    Given A transaction is in progress
+    When A transaction state change is submitted with an invalid transaction id
+    Then The REST api returns a not found error
+    And An error is logged to the logfile
+
+  @2018.PI02
+  @2018.PI02.01
+  Scenario: US1077918::3
+    Given A transaction is in progress
+    When A transaction state change is submitted and the transaction state message cannot be published to Kafka
+    Then The REST api returns an internal server error
+    And An error is logged to the logfile
+    # An interface specification is defined for the service API
+
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1128296::0
+    Given the transaction state micro service is created,
+    When I send a payload to the micro service,
+    Then I will see the latency of the response,
+    And I will see how the consumer micro service performs.
+
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1128296::1
+    Given the transaction coordinator micro service is created,
+    When I send a payload to the micro service,
+    Then I will see the latency of the response,
+    And I will see how the consumer micro service performs.
+
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1128296::2
+    Given the approval coordinator micro service is created,
+    When I send a payload to the micro service,
+    Then I will see the latency of the response,
+    And I will see how the consumer micro service performs.
 
   @#MVP
   @2018.PI02
@@ -141,7 +197,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
   Scenario: US1077928::0
     Given No transaction is open
     When The status is queried
-    When And A given transaction id is not found
+    And A given transaction id is not found
     Then A not found error is returned
 
   @2018.PI02
@@ -149,7 +205,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
   Scenario: US1077928::1
     Given Transaction is open
     When The status is queried
-    When And A given transaction id is found
+    And A given transaction id is found
     Then Then transaction status is returned
 
   @2018.PI02
@@ -157,7 +213,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
   Scenario: US1077928::2
     Given Transaction is open
     When The status is queried
-    When And A database is not available
+    And A database is not available
     Then An error message is returned
 
   @2018.PI02

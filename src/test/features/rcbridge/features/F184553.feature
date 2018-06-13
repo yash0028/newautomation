@@ -6,7 +6,7 @@ Feature: F184553 - Migrate ACO
     Given I am a User with access to maintain Entity information
     When I need to maintain an MPIN that was located in the Examiner system
     Then I maintain the MPIN in the Entity Management Solution
-    Then And the appropriate timelines for the MPIN are in the Entity Management Solution
+    And the appropriate timelines for the MPIN are in the Entity Management Solution
 
   Scenario: US1098133
     Given I am a User with access to maintain Entity information

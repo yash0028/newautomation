@@ -11,8 +11,8 @@ Feature: F154296 - Perform Basic Search
     Given I am a User with access to view or maintain Entity information
     When I want to find an Entity to view or maintain
     Then I can search by Entity Type
-    Then And The solution displays Entity records matching my search criteria
-    Then And Results display with best match presented first
+    And The solution displays Entity records matching my search criteria
+    And Results display with best match presented first
 
   @MVP
   @EXARI-11274
@@ -21,8 +21,8 @@ Feature: F154296 - Perform Basic Search
     Given I am a User with access to view or maintain Entity information
     When I want to find an Entity to view or maintain
     Then I can search by Entity Name
-    Then And The solution displays Entity records matching my search criteria
-    Then And Results display with best match presented first
+    And The solution displays Entity records matching my search criteria
+    And Results display with best match presented first
 
   @MVP
   @EXARI-11274
@@ -31,8 +31,8 @@ Feature: F154296 - Perform Basic Search
     Given I am a User with access to view or maintain Entity information
     When I want to find an Entity to view or maintain
     Then I can search by Alternate Name
-    Then And The solution displays Entity records matching my search criteria
-    Then And Results display with best match presented first
+    And The solution displays Entity records matching my search criteria
+    And Results display with best match presented first
 
   @MVP
   @2018.PI03
@@ -40,8 +40,8 @@ Feature: F154296 - Perform Basic Search
     Given I am a User with access to view or maintain Entity information
     When I want to find an Entity to view or maintain
     Then I can search using multiple data points
-    Then And The solution displays Entity records matching my search criteria
-    Then And Results display with best match presented first
+    And The solution displays Entity records matching my search criteria
+    And Results display with best match presented first
 
   @MVP
   @EXARI-11274
@@ -50,6 +50,6 @@ Feature: F154296 - Perform Basic Search
     Given I am a User with access to view or maintain Entity information
     When I want to find an Entity to view or maintain
     Then I can search by Identifier
-    Then And The solution displays Entity records matching my search criteria
-    Then And Results display with best match presented first
+    And The solution displays Entity records matching my search criteria
+    And Results display with best match presented first
 

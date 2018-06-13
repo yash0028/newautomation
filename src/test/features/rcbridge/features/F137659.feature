@@ -11,7 +11,7 @@ Feature: F137659 - Import Data
     Given I am a User with access to maintain Entities
     When I want to load Entity relationships in template form into the Entity Management solution
     Then I can import Entity relationships listed in template form into the Entity Management solution
-    Then And the Entity relationships enter the approval process workflow
+    And the Entity relationships enter the approval process workflow
 
   @MVP
   @EXARI-11399
@@ -20,7 +20,7 @@ Feature: F137659 - Import Data
     Given I am a User with access to maintain Entities
     When I want to load an Entity structure in template form into the Entity Management solution
     Then I can import the Entity structure into the Entity Management solution
-    Then And the Entity structure enters the approval process workflow
+    And the Entity structure enters the approval process workflow
 
   @MVP
   @EXARI-11273
@@ -29,7 +29,7 @@ Feature: F137659 - Import Data
     Given I am the Entity Management solution
     When A User imports Entity Structure or Entity Relationships from a template
     Then I capture Entity Name
-    Then And I capture Entity ID
-    Then And I capture the User who imported data
-    Then And I capture the time and date when User imported data
+    And I capture Entity ID
+    And I capture the User who imported data
+    And I capture the time and date when User imported data
 

@@ -11,7 +11,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   Scenario: US1096916
     Given the provider's specialty indicator is "002" and contract type is "ANC_Facility Participation"
     When finding the Specialty in ETMA
-    When And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
+    And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
     Then the service will return a "False" value
 
   @ETMA
@@ -20,7 +20,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   Scenario: US1096954::0
     Given the provider's specialty indicator is "002" and contract type is "MGA"
     When finding the Specialty in ETMA
-    When And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
+    And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
     Then the service will return a "True" value
 
   @ETMA
@@ -29,7 +29,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   Scenario: US1096954::1
     Given the provider's specialty indicator is "002" and contract type is "ANC_Facility Participation"
     When finding the Specialty in ETMA
-    When And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
+    And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
     Then the service will return a "False" value
 
   @ETMA
@@ -93,7 +93,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   Scenario: US1097073
     Given a user is attempting to validate org type or specialty code
     When the ETMA table is not reachable
-    When And the service should return an status code. "503 service is unavailable".
+    And the service should return an status code. "503 service is unavailable".
     Then the error message is return to the user.
 
   @ETMA
@@ -102,7 +102,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   Scenario: US1097030::0
     Given the provider's organization type is "012" and contract type is "PHO"
     When finding the Org Type in ETMA
-    When And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
+    And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
     Then the service will return a "True" value
 
   @ETMA
@@ -111,7 +111,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   Scenario: US1097030::1
     Given the provider's organization type is "012" and contract type is "MGA"
     When finding the Org Type in ETMA
-    When And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
+    And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
     Then the service will return a "False" value
 
   @ETMA
@@ -152,7 +152,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
   Scenario: US1097032
     Given the provider's organization type is "012" and contract type is "MGA"
     When finding the Org Type in ETMA
-    When And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
+    And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
     Then the service will return a "False" value
 
   @ETMA

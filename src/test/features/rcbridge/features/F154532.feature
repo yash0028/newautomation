@@ -46,8 +46,8 @@ Feature: F154532 - Setup Optum Dev and Training Environment - Optum
     Given that code needs to be moved to dev environment
     When dev pushes code to release branch on Github
     Then it auto initiates the Jenkins job to create a maven build,
-    Then And s2i build
-    Then And a deployment to OpenShift
+    And s2i build
+    And a deployment to OpenShift
 
   @MVP
   @CLM_Exari

@@ -6,6 +6,33 @@
 @Exari_Microservice
 Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Optum
 
+  @RFP
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1082300
+    Given a request with the following fields:
+      | field                          |
+      | Place of Service               |
+      | Line of Business               |
+      | Specialty or Organization Type |
+
+    When the request is made to the RFP service
+    Then the following fields should be returned:
+      | field                            |
+      | Credentialing Required           |
+      | Super Script                     |
+      | Credentialing Entity             |
+      | Accepting Applications (E&amp;I) |
+      | Accepting Applications (C&amp;S) |
+      | Accepting Applications (M&amp;V) |
+
+    #Notes:
+    #
+    #- Specialty is for physicians and Org Type is for facilities, but there may be cases where a provider has both.
+    #- Logically, the accepting new applications apply to the county level but the table can only be queried by state.
+    #- How often is the super script updated?
+    #- the accepting new applications fields do not always return simple booleans.
+
   @2018.PI02
   @2018.PI02.04
   Scenario: US1095910::0

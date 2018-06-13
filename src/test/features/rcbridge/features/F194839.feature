@@ -7,7 +7,7 @@ Feature: F194839 - CLM DevOps PI0.2
     Given A service is deployed
     When A log message is written
     Then The log message is send to the central log aggregation
-    Then And The log message is available in the log dashboard
+    And The log message is available in the log dashboard
 
   @2018.PI02
   Scenario: US1151078

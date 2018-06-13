@@ -11,5 +11,5 @@ Feature: F137840 - Provision Users to Entities
     Given I am an Administrative User of the Entity Management Solution
     When I want to grant access to Entity information
     Then I can grant Users View permissions
-    Then And I can grant Users Edit permissions
+    And I can grant Users Edit permissions
 

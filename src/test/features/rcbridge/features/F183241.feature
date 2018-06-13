@@ -27,6 +27,14 @@ Feature: F183241 - DOMAIN MS Optum - Create Provider Contract Query API (Inquiry
     Then An server error will be returned
 
   @2018.PI02
+  @2018.PI02.02
+  Scenario: US1089539
+    Given an API exists for use
+    When all Common data fields have been identified
+    Then an API interface specification is created and available
+    # API Interface Specification is need to define API request/response
+
+  @2018.PI02
   @2018.PI02.03
   Scenario: US1148895::0
     Given A contract inquiry request from PIC or Examiner

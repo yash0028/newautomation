@@ -8,8 +8,8 @@ Feature: F165531 - Setup Rate Escalator Workflow
     Given a contract with an escalator and chargemaster
     When I view the escalator summary
     Then I see Rate Escalator Type
-    Then And I see the Inpatient Escalator Percent
-    Then And I see the Outpatient Escalator Percent
+    And I see the Inpatient Escalator Percent
+    And I see the Outpatient Escalator Percent
 
   Scenario: US1164616::1
     Given a contract with chargemaster is identified

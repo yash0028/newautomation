@@ -17,5 +17,5 @@ Feature: F137677 - Filter Results
     Given I am a User with access to view and maintain Entity information
     When I want to refine my search results
     Then I can amend my current search criteria with more filtering options
-    Then And I do not have to rebuild my entire query from scratch
+    And I do not have to rebuild my entire query from scratch
 

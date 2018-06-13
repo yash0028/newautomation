@@ -13,6 +13,6 @@ Feature: F165532 - Setup Chargemaster Workflow
     Given a contract with a chargemaster is identified
     When the contractor associated to the contracts views their dashboard
     Then the contractor should see the name of the provider
-    Then And the date of the last chargemaster event
-    Then And the Contract ID
+    And the date of the last chargemaster event
+    And the Contract ID
 

@@ -12,8 +12,8 @@ Feature: F196022 - Feature for Exari Sprint #3 (Mass Actions)
     Given I am a Mass Actions Administrator
     When a new Mass Action Definition is needed
     Then I can create a new Mass Action Definition
-    Then And associate the applicable templates
-    Then And input definition details
+    And associate the applicable templates
+    And input definition details
 
   @MVP
   @Plus
@@ -23,7 +23,7 @@ Feature: F196022 - Feature for Exari Sprint #3 (Mass Actions)
   Scenario: US1156989
     Given I have created a Mass Action project
     Then I can select a Definition from the provided listing
-    Then And additional details will be viewable
+    And additional details will be viewable
 
   @MVP
   @EXARI-11470

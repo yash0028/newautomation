@@ -18,7 +18,7 @@ Feature: F186037 - DOMAIN MS - Roster Update business event and payload
     Given The Physician contract is complete and sourced from within Exari
     When a business event to add/remove a physician from an existing contract
     Then the domain service creates a event and associated payload
-    Then And the payload is valid, accurate and complete
+    And the payload is valid, accurate and complete
 
   @#MVP
   @2018.PI02
@@ -27,7 +27,7 @@ Feature: F186037 - DOMAIN MS - Roster Update business event and payload
     Given The Physician contract is complete and sourced from within Exari
     When a business event to add/remove a physician from an existing contract
     Then the service creates an invalid event and payload
-    Then And sends error message to the transaction status topic
+    And sends error message to the transaction status topic
 
   @2018.PI02
   @2018.PI02.02

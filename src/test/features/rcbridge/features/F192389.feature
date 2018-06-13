@@ -22,8 +22,8 @@ Feature: F192389 - Define Mass Actions
     Given I am a Mass Action Administrator
     When a new Mas Action Definition is identified
     Then I will be able to create a new Mass Action definition
-    Then And I will be able to input a Mass Action definition name
-    Then And I will be able to input a Mass Action definition description
+    And I will be able to input a Mass Action definition name
+    And I will be able to input a Mass Action definition description
 
   @MVP
   @EXARI-11456

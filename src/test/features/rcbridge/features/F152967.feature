@@ -10,9 +10,9 @@ Feature: F152967 - Inactivate Entity
     Given I am a User with access to maintain Entities
     When I want to modify an Entity that is currently inactive
     Then I am not able to write new contracts to the Entity
-    Then And I am not able to assign new provider relationships to the Entity
-    Then And I am not able to assign new Entity relationships to the Entity
-    Then And I am not able to assign new Identifiers to the Entity
+    And I am not able to assign new provider relationships to the Entity
+    And I am not able to assign new Entity relationships to the Entity
+    And I am not able to assign new Identifiers to the Entity
 
   @MVP
   @EXARI-11249
@@ -20,14 +20,14 @@ Feature: F152967 - Inactivate Entity
   @2018.PI03
   Scenario: US858594
     Given I am a User who has access to maintain an Entity
-    Given And all contracts associated to the Entity are reassigned or marked inactive
-    Given And all provider relationships associated to the Entity are reassigned or marked inactive
-    Given And all Entity relationships associated to the Entity are reassigned or marked inactive
-    Given And all Identifiers associated to the Entity are reassigned or marked inactive
+    And all contracts associated to the Entity are reassigned or marked inactive
+    And all provider relationships associated to the Entity are reassigned or marked inactive
+    And all Entity relationships associated to the Entity are reassigned or marked inactive
+    And all Identifiers associated to the Entity are reassigned or marked inactive
     When I want to deactivate an Entity
     Then I have the ability to indicate that the Entity is no longer active
-    Then And all inactivated relationships associated to the Entity are retained (not orphaned)
-    Then And the updated Entity enters the approval process workflow
+    And all inactivated relationships associated to the Entity are retained (not orphaned)
+    And the updated Entity enters the approval process workflow
 
   @MVP
   @EXARI-11273
@@ -36,7 +36,7 @@ Feature: F152967 - Inactivate Entity
     Given I am the Entity Management Solution
     When A User inactivates an Entity
     Then I capture the User who performed the change
-    Then And I capture the date and time of when the User inactivated the Entity
+    And I capture the date and time of when the User inactivated the Entity
 
   @MVP
   @EXARI-11249
