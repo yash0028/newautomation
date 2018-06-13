@@ -8,8 +8,8 @@ Feature: F172080 - Exari>COSMOS - Physician Payload -  CF Team
   @2018.PI02
   @2018.PI02.04
   Scenario: US1069574
-    Given COSMOS edits the Exari&gt;COSMOS Physician Panel data
-    When the Exari&gt;COSMOS data errors
+    Given COSMOS edits the Exari>COSMOS Physician Panel data
+    When the Exari>COSMOS data errors
     Then COSMOS will return the error (s) to Exari around the Physician Panel failures
 
   @2018.PI02
@@ -34,8 +34,8 @@ Feature: F172080 - Exari>COSMOS - Physician Payload -  CF Team
   @2018.PI02
   @2018.PI02.05
   Scenario: US1090672
-    Given COSMOS edits the Exari&gt;COSMOS Physician Panel data
-    When the Exari&gt;COSMOS data errors
+    Given COSMOS edits the Exari>COSMOS Physician Panel data
+    When the Exari>COSMOS data errors
     Then COSMOS will return the error to Exari around the Physician Panel failures
 
   Scenario: US1090659

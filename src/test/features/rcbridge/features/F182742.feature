@@ -44,5 +44,5 @@ Feature: F182742 - Exari>NDB Physician Contracting Loading - PI02 - CF Team
   Scenario: US1086921
     Given the Layer 7 Certification process is followed
     When the Layer 7 Certification team approves the API
-    Then the Exari&gt;NDB API for the Physician payload will be an allowable API
+    Then the Exari>NDB API for the Physician payload will be an allowable API
 

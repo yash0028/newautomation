@@ -28,14 +28,14 @@ Feature: F171708 - Exari>NDB/COSMOS Physician Contracting Payload - CF Team
   @2018.PI02
   @2018.PI02.03
   Scenario: US1082278
-    Given the Exari&gt;NDB/COSMOS Physician Panel is complete and correct within Exari
+    Given the Exari>NDB/COSMOS Physician Panel is complete and correct within Exari
     When the contract is included in the Exari Physician Contract Payload to NDB
     Then NDB should load the Panel to the NDB/COSMOS Panel screen successfully
 
   @2018.PI02
   @2018.PI02.02
   Scenario: US1148672
-    Given the Exari&gt;NDB/COSMOS Physician Panel is complete and correct within Exari
+    Given the Exari>NDB/COSMOS Physician Panel is complete and correct within Exari
     When the contract is included in the Exari Physician Contract Payload to NDB
     Then NDB should load the Panel to the NDB/COSMOS Panel screen successfully
 
