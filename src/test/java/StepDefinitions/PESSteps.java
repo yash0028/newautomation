@@ -18,7 +18,7 @@ public class PESSteps {
     private RequestSpecification request;
     private Response response;
     private JsonObject commonSearchParams;
-    private String baseUri = "http://demographics-api-clm-dev.ose-ctc-dmz.optum.com/counterparties/search";
+    private static String baseUri = "http://demographics-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com/counterparties/search";
 
     public PESSteps(){
         this.commonSearchParams = new JsonObject();
@@ -135,7 +135,7 @@ public class PESSteps {
     public void theUserReceivesABadInputErrorMessage() throws Throwable {
 
         ResponseBody raResponse = response.getBody();
-//        System.out.println(raResponse.asString());
+//        System.out.println("RESPONSE: " + raResponse.asString());
 
         assertTrue(raResponse.asString().contains("error"));
 
