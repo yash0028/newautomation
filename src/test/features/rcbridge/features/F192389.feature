@@ -1,4 +1,4 @@
-# Last updated on 2018-06-07T18:06:22.262Z
+# Last updated on 2018-06-14T13:25:39.577Z
 @MVP
 @CLM_Exari
 Feature: F192389 - Define Mass Actions

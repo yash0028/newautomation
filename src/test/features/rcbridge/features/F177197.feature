@@ -1,11 +1,10 @@
-# Last updated on 2018-06-13T15:47:30.729Z
+# Last updated on 2018-06-14T14:41:13.988Z
 @MVP
 @PI02_Top3
 @Plus
 @Parity
 Feature: F177197 - Create NDB to Exari Migration Logic for Facility - Active (Product Differential Restructure)
 
-  @2018.PI02
   Scenario: US1138848
     Given I am processing the a contract's Lines tab during the migration process
     When I reference the defined columns for the new Exari roster

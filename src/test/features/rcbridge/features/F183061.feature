@@ -1,4 +1,4 @@
-# Last updated on 2018-06-13T12:06:57.461Z
+# Last updated on 2018-06-14T14:22:23.063Z
 @MVP
 @PI02_Top3
 @Parity
@@ -10,12 +10,6 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     Given I run the migration process
     When I process a Filed contract as a base agreement
     Then all applicable metadata files and attachments are successfully generated and there are no errors due to no contract language file
-
-  @2018.PI02
-  Scenario: US1088342
-    Given when I am populating the Terms Table during the migration process
-    When I reference a Term that is listed in the Term Driver Table
-    Then I will not populate that Term in the Term Table
 
   @2018.PI02
   @2018.PI02.02
@@ -72,12 +66,6 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     Given when I run the Physician, Facility, Ancillary, FQHC/PHO or Exeption migration process for one/more market numbers
     When I read the contracts in order of Contract Class as defined in the Contract Class Order excel document
     Then I am able to build the metadata files and attachments, and write to the Base Driver Table, in the order specified
-
-  @2018.PI02
-  Scenario: US1088315
-    Given I am populating the Term Table during the migration process
-    When I refer to a metadata term that is on the Contracts table
-    Then I use the Contracts table to populate the Term Table
 
   @2018.PI02
   @2018.PI02.02

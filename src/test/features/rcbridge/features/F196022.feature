@@ -1,4 +1,4 @@
-# Last updated on 2018-06-07T18:28:23.016Z
+# Last updated on 2018-06-14T13:25:45.771Z
 @MVP
 @Parity
 Feature: F196022 - Feature for Exari Sprint #3 (Mass Actions)

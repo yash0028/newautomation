@@ -1,4 +1,4 @@
-# Last updated on 2018-06-13T21:14:30.122Z
+# Last updated on 2018-06-14T15:11:37.143Z
 @MVP
 @PI02_Top3
 @Parity
@@ -62,6 +62,15 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     When NDB completes the update / action successfully
     Then NDB initiates an event outcome message to the transaction state service
     And a transaction state service call indicating successful processing was made
+
+  @#MVP
+  @Parity
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1169275
+    Given an Exari contract includes a COSMOS product priced via Common Pricing Solution (CPS)
+    When a contract business event triggers in Exari
+    Then the contract integration process accurately reflects the needed information to support CPS
 
   @2018.PI02
   @2018.PI02.02
