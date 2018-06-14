@@ -16,12 +16,12 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
 
     When the request is made to the RFP service
     Then the following fields should be returned:
-      | Credentialing Required           |
-      | Super Script                     |
-      | Credentialing Entity             |
-      | Accepting Applications (E&amp;I) |
-      | Accepting Applications (C&amp;S) |
-      | Accepting Applications (M&amp;V) |
+      | Credentialing Required       |
+      | Super Script                 |
+      | Credentialing Entity         |
+      | Accepting Applications (E&I) |
+      | Accepting Applications (C&S) |
+      | Accepting Applications (M&V) |
 
 
   @RFP
@@ -34,12 +34,12 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
 
     When the request is made to the RFP service
     Then the following fields should be returned:
-      | Credentialing Required           |
-      | Super Script                     |
-      | Credentialing Entity             |
-      | Accepting Applications (E&amp;I) |
-      | Accepting Applications (C&amp;S) |
-      | Accepting Applications (M&amp;V) |
+      | Credentialing Required       |
+      | Super Script                 |
+      | Credentialing Entity         |
+      | Accepting Applications (E&I) |
+      | Accepting Applications (C&S) |
+      | Accepting Applications (M&V) |
 
     #Notes:
     #
@@ -83,12 +83,12 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
 
     When the Exari calls RFP with Provider Specialty
     Then an external data query will return a list of fields:
-      | Credentialing Required           |
-      | Super Script                     |
-      | Credentialing Entity             |
-      | Accepting Applications (E&amp;I) |
-      | Accepting Applications (C&amp;S) |
-      | Accepting Applications (M&amp;V) |
+      | Credentialing Required       |
+      | Super Script                 |
+      | Credentialing Entity         |
+      | Accepting Applications (E&I) |
+      | Accepting Applications (C&S) |
+      | Accepting Applications (M&V) |
 
 
   @RFP
