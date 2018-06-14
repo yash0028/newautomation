@@ -1,4 +1,4 @@
-# Last updated on 2018-06-14T13:25:39.298Z
+# Last updated on 2018-06-14T17:24:18.872Z
 @MVP
 @PI02_Top3
 @Plus
@@ -82,13 +82,6 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
 
   @ETMA
   @2018.PI02
-  Scenario: US1103666
-    Given I have entered an effective start date on the provider roster of equal to or less than today's date
-    When the date is populated
-    Then I will be prompted to select the correct Retro Reason Code
-
-  @ETMA
-  @2018.PI02
   @2018.PI02.03
   Scenario: US1097073
     Given a user is attempting to validate org type or specialty code
@@ -157,8 +150,17 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
 
   @ETMA
   @2018.PI02
+  @2018.PI02.03
   Scenario: US1103648
     Given I have entered an effective start date of equal to or less than today's date
     When the date is populated
     Then I will be prompted to select the correct Retro Reason Code
+
+  @ETMA
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1169960
+    Given UHC will need to provide Exari with ETMA table data
+    When the Exari calls ETMA
+    Then an external data query will return the requested data.
 

@@ -1,6 +1,17 @@
-# Last updated on 2018-06-14T13:25:47.471Z
+# Last updated on 2018-06-14T18:10:42.138Z
 
 Feature: F198150 - Removed stories
+
+  @MVP
+  @EXARI-11271
+  @2018.PI03
+  Scenario: US1094099
+    Given I am a User with Approval Authority
+    When a User updates an Identifier and submits for approval
+    Then I can approve the Identifier updates
+    And the approved Identifier updates become active in the Entity Management Solution
+    And I can reject the Identifier updates
+    And the Identifier updates are routed back to the User for modifications
 
   @MVP
   @2018.PI03
@@ -19,6 +30,27 @@ Feature: F198150 - Removed stories
     When a User updates an Identifier on an Entity
     Then I perform field validation to ensure the Identifier was entered in the correct format based on Identifier Type selected
     And I must perform a duplicate check on the Identifier
+
+  @MVP
+  @EXARI-11271
+  @2018.PI03
+  Scenario: US1094113
+    Given I am a User with Approval Authority
+    When a User adds an Owner to an Identifier and submits for approval
+    Then I can approve the Owner assignment
+    And the approved Owner assignment becomes active in the Entity Management Solution
+    And I can reject the Owner assignment
+    And the Owner assignment is routed back to the User for updates
+
+  @MVP
+  @2018.PI03
+  Scenario: US1094101
+    Given I am a User with Approval Authority
+    When a User voids an Identifier and submits for approval
+    Then I can approve the Identifier void
+    And the Identifier is removed from the Entity Management Solution
+    And I can reject the Identifier void
+    And the Identifier remains active in the Entity Management Solution
 
   @2018.PI03
   Scenario: US1089508
@@ -118,6 +150,16 @@ Feature: F198150 - Removed stories
     When I need to inactivate an Address listed on an Entity
     Then I can inactivate the Address for an Entity
     And the updated Entity enters the approval process workflow
+
+  @MVP
+  @2018.PI03
+  Scenario: US1094114
+    Given I am a User with Approval Authority
+    When a User inactivates an Owner from an Identifier and submits for approval
+    Then I can approve the Owner assignment inactivation
+    And the Owner assignment becomes inactive in the Entity Management Solution
+    And I can reject the Owner assignment inactivation
+    And the Owner assignment inactivation is routed back to the User for updates
 
   @2018.PI03
   Scenario: US1089509

@@ -1,4 +1,4 @@
-# Last updated on 2018-06-07T05:26:01.743Z
+# Last updated on 2018-06-14T18:10:42.137Z
 @MVP
 @Plus
 @Priority_1
@@ -7,23 +7,12 @@ Feature: F137658 - Approve Entity Modifications
   @MVP
   @EXARI-11271
   @2018.PI03
-  Scenario: US1094099
-    Given I am a User with Approval Authority
-    When a User updates an Identifier and submits for approval
-    Then I can approve the Identifier updates
-    And the approved Identifier updates become active in the Entity Management Solution
-    And I can reject the Identifier updates
-    And the Identifier updates are routed back to the User for modifications
-
-  @MVP
-  @EXARI-11271
-  @2018.PI03
   Scenario: US858605
     Given I am the Entity Management solution
     When A modification flows through the approval process
-    Then I capture the date the modification was performed
+    Then I capture the date and time the modification was performed
     And I capture the User who performed the change
-    And I capture the date the approval was granted
+    And I capture the date and time the approval was granted
     And I capture the User with Approval Authority who approved the change
 
   @MVP
@@ -63,11 +52,11 @@ Feature: F137658 - Approve Entity Modifications
   @2018.PI03
   Scenario: US1094100
     Given I am a User with Approval Authority
-    When a User inactivates an Identifier and submits for approval
-    Then I can approve the Identifier inactivation
-    And the Identifier becomes inactive in the Entity Management Solution
-    And I can reject the Identifier inactivation
-    And the Identifier remains active in the Entity Management Solution
+    When a User inactivates an Identifier relationship with an Entity and submits for approval
+    Then I can approve the Identifier relationship inactivation
+    And the Identifier relationship becomes inactive in the Entity Management Solution
+    And I can reject the Identifier relationship inactivation
+    And the Identifier remains actively associated with the Entity in the Entity Management Solution
 
   @MVP
   @EXARI-11271
@@ -79,17 +68,6 @@ Feature: F137658 - Approve Entity Modifications
     And the approved Entity Characteristic information becomes active in the Entity Management Solution
     And I can reject the Entity Characteristic information updates
     And the Entity Characteristicinformation updates are routed back to the User for modifications
-
-  @MVP
-  @EXARI-11271
-  @2018.PI03
-  Scenario: US1094113
-    Given I am a User with Approval Authority
-    When a User adds an Owner to an Identifier and submits for approval
-    Then I can approve the Owner assignment
-    And the approved Owner assignment becomes active in the Entity Management Solution
-    And I can reject the Owner assignment
-    And the Owner assignment is routed back to the User for updates
 
   @MVP
   @2018.PI03
@@ -113,16 +91,6 @@ Feature: F137658 - Approve Entity Modifications
     And the Identifier is routed back to the User for updates
 
   @MVP
-  @2018.PI03
-  Scenario: US1094114
-    Given I am a User with Approval Authority
-    When a User inactivates an Owner from an Identifier and submits for approval
-    Then I can approve the Owner assignment inactivation
-    And the Owner assignment becomes inactive in the Entity Management Solution
-    And I can reject the Owner assignment inactivation
-    And the Owner assignment inactivation is routed back to the User for updates
-
-  @MVP
   @EXARI-11271
   @2018.PI03
   Scenario: US858604
@@ -131,16 +99,6 @@ Feature: F137658 - Approve Entity Modifications
     Then I can review the proposed modification
     And I can approve the proposed modification
     And The Entity record is updated with the new value(s)
-
-  @MVP
-  @2018.PI03
-  Scenario: US1094101
-    Given I am a User with Approval Authority
-    When a User voids an Identifier and submits for approval
-    Then I can approve the Identifier void
-    And the Identifier is removed from the Entity Management Solution
-    And I can reject the Identifier void
-    And the Identifier remains active in the Entity Management Solution
 
   @MVP
   @EXARI-11271
