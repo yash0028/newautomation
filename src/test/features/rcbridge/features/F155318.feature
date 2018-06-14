@@ -1,7 +1,6 @@
-# Last updated on 2018-06-07T05:26:00.492Z
+# Last updated on 2018-06-13T20:50:25.330Z
 @MVP
 @Plus
-@Priority_1
 Feature: F155318 - Inactivate and Void Identifier Relationship with an Entity
 
   @MVP

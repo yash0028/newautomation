@@ -11,7 +11,7 @@ Feature: F154296 - Perform Basic Search
     Given I am a User with access to view or maintain Entity information
     When I want to find an Entity to view or maintain
     Then I can search by Entity Type
-    And The solution displays Entity records matching my search criteria
+    And the solution displays Entity records matching my search criteria
     And Results display with best match presented first
 
   @MVP
@@ -21,7 +21,7 @@ Feature: F154296 - Perform Basic Search
     Given I am a User with access to view or maintain Entity information
     When I want to find an Entity to view or maintain
     Then I can search by Entity Name
-    And The solution displays Entity records matching my search criteria
+    And the solution displays Entity records matching my search criteria
     And Results display with best match presented first
 
   @MVP
@@ -31,7 +31,7 @@ Feature: F154296 - Perform Basic Search
     Given I am a User with access to view or maintain Entity information
     When I want to find an Entity to view or maintain
     Then I can search by Alternate Name
-    And The solution displays Entity records matching my search criteria
+    And the solution displays Entity records matching my search criteria
     And Results display with best match presented first
 
   @MVP
@@ -40,7 +40,7 @@ Feature: F154296 - Perform Basic Search
     Given I am a User with access to view or maintain Entity information
     When I want to find an Entity to view or maintain
     Then I can search using multiple data points
-    And The solution displays Entity records matching my search criteria
+    And the solution displays Entity records matching my search criteria
     And Results display with best match presented first
 
   @MVP
@@ -50,6 +50,6 @@ Feature: F154296 - Perform Basic Search
     Given I am a User with access to view or maintain Entity information
     When I want to find an Entity to view or maintain
     Then I can search by Identifier
-    And The solution displays Entity records matching my search criteria
+    And the solution displays Entity records matching my search criteria
     And Results display with best match presented first
 

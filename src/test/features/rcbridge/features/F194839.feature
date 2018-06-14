@@ -1,4 +1,4 @@
-# Last updated on 2018-06-12T18:28:25.162Z
+# Last updated on 2018-06-13T20:13:30.579Z
 
 Feature: F194839 - CLM DevOps PI0.2
 
@@ -10,9 +10,15 @@ Feature: F194839 - CLM DevOps PI0.2
     And The log message is available in the log dashboard
 
   @2018.PI02
+  Scenario: US1168431
+    Given there is a pain point,
+    When at any step in the development process,
+    Then I want to automate and streamline the process to alleviate pain points.
+
+  @2018.PI02
   Scenario: US1151078
     Given a developer wants to deploy a service
-    When the developer checks code into the master branch
+    When the developer checks code in
     Then the CICD pipeline will automatically run through desired processes
 
   @2018.PI03

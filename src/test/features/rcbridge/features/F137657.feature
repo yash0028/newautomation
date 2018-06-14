@@ -23,6 +23,8 @@ Feature: F137657 - Add Entity
     Then I store the Entity creation date
     And the User who created the Entity
 
+  @EXARI-11249
+  @EXARI-10726
   Scenario: US1167901
     Given I am a User with access to create Entities
     When I need to setup an Entity
@@ -37,6 +39,8 @@ Feature: F137657 - Add Entity
     Then I can select an Entity Type from a predefined list
     #required field
 
+  @EXARI-11249
+  @EXARI-10726
   Scenario: US1167898
     Given I am a User with access to create Entities
     When I need to setup an Entity
@@ -67,10 +71,8 @@ Feature: F137657 - Add Entity
     Given I am the Entity Management Solution
     When A User adds an Entity
     Then I perform a duplicate check on Entity Name
-    And I perform a duplicate check on Entity Identifier
     And I display duplicates
     And User has ability to override duplicate or select from the potential duplicate list for Entity Name
-    And User must select existing Entity Identifier from the duplicate list or keep current Entity Identifier if no duplicates
 
   @EXARI-11249
   @EXARI-10726

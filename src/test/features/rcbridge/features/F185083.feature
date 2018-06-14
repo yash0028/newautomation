@@ -1,4 +1,4 @@
-# Last updated on 2018-06-11T21:26:59.805Z
+# Last updated on 2018-06-13T21:14:30.122Z
 @MVP
 @PI02_Top3
 @Parity
@@ -73,13 +73,6 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
   @2018.PI02.03
   Scenario: US1145653
     Given the need to know contact payload data elementsThen an data payload document is created/updated
-
-  @2018.PI02
-  @2018.PI02.04
-  Scenario: US1164097
-    Given the Exari system will have to update NDB
-    When the API for the NDB web service is called
-    Then the update to NDB will be processed.
 
   @2018.PI02
   @2018.PI02.02

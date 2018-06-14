@@ -1,4 +1,4 @@
-# Last updated on 2018-06-11T17:16:16.932Z
+# Last updated on 2018-06-13T19:51:30.730Z
 @MVP
 @PI02_Top3
 @CLM_Exari
@@ -142,14 +142,4 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     When there are multiple results
     Then I see a list of those results.
     And I can select one to read more details.
-
-  @MVP
-  @PI02_Top3
-  @PES
-  @CLM_Exari
-  @2018.PI02
-  Scenario: US1100359
-    Given as a user I have populated one or many of the field options (MPIN, TIN, City, Zip Code, Provider Name, State or UNET Market Number or NPI)
-    When Exari reaches out to PES with the selected criteria above
-    Then I will have the option of selecting the provider that fits my criteria
 

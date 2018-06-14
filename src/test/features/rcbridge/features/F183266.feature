@@ -1,4 +1,4 @@
-# Last updated on 2018-06-07T20:38:11.406Z
+# Last updated on 2018-06-13T18:48:04.695Z
 @MVP
 @Plus
 @Priority_1
@@ -8,28 +8,31 @@ Feature: F183266 - Update Entity
   @EXARI-11267
   @2018.PI03
   Scenario: US1089506
-    Given I am a User
+    Given I am a User with access to maintain Entity information
     When I need to update an Entity Alternate Name
-    Then I have the ability to update Entity Alternate Name
-    And the updated Entity enters the approval process workflow
+    Then I have the ability to expire the current Entity Alternate Name
+    And I have the ability to enter a new Entity Alternate Name
+    And the new Entity Alternate Name enters the approval process workflow
 
   @MVP
   @EXARI-11267
   @2018.PI03
   Scenario: US1089488
-    Given I am a User
+    Given I am a User with access to maintain Entity information
     When I need to update an Entity Operating License Type
-    Then I have the ability to update Entity Operating License Type
-    And the updated Entity enters the approval process workflow
+    Then I have the ability to expire the current Entity Operating License Type
+    And I have the ability to select a new Entity Operating License Type
+    And the new Entity Operating License Type enters the approval process workflow
 
   @MVP
   @EXARI-11267
   @2018.PI03
   Scenario: US858595
-    Given I am a User
+    Given I am a User with access to maintain Entity information
     When I need to update an Entity Name
-    Then I have the ability to update Entity Name
-    And the updated Entity enters the approval process workflow
+    Then I have the ability to expire the current Entity Name
+    And I have the ability to enter a new Entity Name
+    And the new Entity Name enters the approval process workflow
 
   @MVP
   @EXARI-11274
@@ -45,10 +48,11 @@ Feature: F183266 - Update Entity
   @EXARI-11267
   @2018.PI03
   Scenario: US1089504
-    Given I am a User
+    Given I am a User with access to maintain Entity information
     When I need to update an Entity Identifier
-    Then I have the ability to update Entity Identifier
-    And the updated Entity enters the approval process workflow
+    Then I have the ability to expire the current Entity Identifier
+    And I have the ability to select a new Entity Identifier
+    And the new Entity Identifier enters the approval process workflow
 
   @MVP
   @EXARI-11273
@@ -65,18 +69,19 @@ Feature: F183266 - Update Entity
   @EXARI-11267
   @2018.PI03
   Scenario: US1089502
-    Given I am a User
+    Given I am a User with access to maintain Entity information
     When I need to update an Entity Type
-    Then I have the ability to update Entity Type
-    And the updated Entity enters the approval process workflow
+    Then I have the ability to expire the current Entity Type
+    And I have the ability to select a new Entity Type
+    And the new Entity Type enters the approval process workflow
 
   @MVP
   @EXARI-11267
   @2018.PI03
   Scenario: US1089547
     Given I am a User with access to maintain Entity information
-    When I need to inactivate an Entity Identifier listed on an Entity
-    Then I can inactivate the Entity Identifier for an Entity
+    When I need to inactivate an Entity Identifier associated with an Entity
+    Then I can inactivate the Entity Identifier associated with the Entity
     And the updated Entity enters the approval process workflow
 
   @MVP
@@ -86,6 +91,7 @@ Feature: F183266 - Update Entity
     Given I am the Entity Management Solution
     When A User updates an existing Entity
     Then I assign an Entity Workflow status to the updated Entity
+    And the updated Entity enters the workflow approval process
 
   @MVP
   @EXARI-11267
@@ -104,14 +110,4 @@ Feature: F183266 - Update Entity
     When I need to inactivate an Alternate Name listed on an Entity
     Then I can inactivate the Alternate Name for an Entity
     And the updated Entity enters the approval process workflow
-
-  @MVP
-  @EXARI-11274
-  @2018.PI03
-  Scenario: US1089525
-    Given I am the Entity Management Solution
-    When A User updates an Entity Identifier
-    Then I perform a duplicate check on Entity Identifier
-    And I display duplicates
-    And User must select existing Entity Identifier from the duplicate list or keep current Entity Identifier if no duplicates
 

@@ -1,7 +1,6 @@
-# Last updated on 2018-06-07T05:26:01.271Z
+# Last updated on 2018-06-13T20:48:32.254Z
 @MVP
 @Plus
-@Priority_1
 Feature: F155316 - Inactivate and Void Identifier
 
   @MVP

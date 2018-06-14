@@ -1,31 +1,49 @@
-# Last updated on 2018-06-11T18:42:07.090Z
+# Last updated on 2018-06-13T20:06:04.704Z
 @MVP
 @Plus
 @Priority_1
 Feature: F137660 - Create and Maintain Entity Identifiers
+
+  Scenario: US1168419
+    Given I am a User with access to maintain Entity information
+    When I need to add an Identifier to an Entity
+    Then I must access the Entity
+    And I must search for an Identifier to add to the Entity
+    And I can select the returned Identifier or request the Identifier be created in the Source of Truth
 
   @MVP
   @EXARI-11273
   @2018.PI03
   Scenario: US858618
     Given I am the Entity Management solution
-    When User adds an identifier to an Entity
-    And User updates an Identifier associated with an Entity
-    Then I capture the identifier previous value
-    And I capture the identifier current value
+    When User adds or updates an Identifier relationship to an Entity
+    Then I capture the Identifier
+    And I capture the Identifier Type
+    And I capture the Identifier Effective Date
+    And I capture the Identifier Expiration Date
     And I capture User who performed the value change
     And I capture the date and time on which the User performed the value change
 
   @MVP
+  @EXARI-11267
   @2018.PI03
-  Scenario: US955716
-    Given I am a User with access to maintain Entity information
-    When I need to change the Owner of an Identifier
-    Then I must access the Identifier
-    And I can inactivate the current Owner
+  Scenario: US955775
+    Given I am a User with access to manage Entity information
+    When I need to expire an Identifier relationship with an Entity
+    Then I must enter an expiration date for the Identifier
+    And Inactivation date applies only to the Identifier relationship with the Entity
     And Inactivation date can be in the future or retroactive
-    And Standard field validation rules apply
-    And I must select a new Owner
+    And the updated Entity enters the approval process workflow
+
+  Scenario: US1168436
+    Given I am the Entity Management Solution
+    When a User inactivates an Identifier relationship with an Entity
+    Then I check for active contracts associated to the Entity associated to that Identifier
+
+  Scenario: US1168422
+    Given I am a User with access to maintain Entity information
+    When I am adding an Identifier to an Entity
+    Then I must select an Identifier Type to define the type of Identifier I am adding
 
   @MVP
   @EXARI-11249
@@ -33,116 +51,15 @@ Feature: F137660 - Create and Maintain Entity Identifiers
   @2018.PI03
   Scenario: US1089942
     Given I am a User with access to maintain Entity information
-    When I add an Identifier to an Entity
+    When I add or update an Identifier relationship to an Entity
     Then I must enter Effective date
     And Effective date applies only to the Identifier relationship with the Entity
     And Effective date can be in the future or retroactive
     And the updated Entity enters the approval process workflow
 
-  @MVP
-  @EXARI-11274
-  @2018.PI03
-  Scenario: US1089628
+  Scenario: US1168429
     Given I am the Entity Management Solution
-    When a User updates an Identifier to an Entity
-    Then I check for duplicate Identifiers
-    And if Identifier exists, the User receives a notification to use existing Identifier
-    And if Identifier does not exist, the User is allowed to proceed and create new
-    And the User is required to assign an Owner to the Identifier
-
-  @MVP
-  @2018.PI03
-  Scenario: US1089924
-    Given I am the Entity Management Solution
-    When a User updates an Identifier to an Entity
-    Then I check the Identifier for the presence of an Owner
-    And I display Owner associated to the Identifier
-    And the User must select the existing Owner for the Identifier or assign new Owner if not present
-
-  @MVP
-  @EXARI-11249
-  @2018.PI03
-  Scenario: US1089668
-    Given I am the Entity Management Solution
-    When a User updates an Identifier on an Entity
-    Then I perform field validation to ensure the Identifier was entered in the correct format based on Identifier Type selected
-    And I must perform a duplicate check on the Identifier
-
-  @MVP
-  @EXARI-11274
-  @2018.PI03
-  Scenario: US1089625
-    Given I am the Entity Management Solution
-    When a User adds an Identifier to an Entity
-    And I have performed field validation
-    Then I check for duplicate Identifiers
-    And if Identifier exists, the User receives a notification to use existing Identifier
-    And if Identifier does not exist, the User is allowed to proceed and create new
-    And the User is required to assign an Owner to the Identifier
-
-  @MVP
-  @EXARI-11267
-  @2018.PI03
-  Scenario: US955775
-    Given I am a User with access to manage Entity information
-    When I need to update an Identifier on an Entity
-    Then I must access the Entity
-    And I can update an Identifier
-    And I can update Identifier Type
-
-  @MVP
-  @EXARI-11249
-  @EXARI-11267
-  @2018.PI03
-  Scenario: US1089944
-    Given I am a User with access to maintain Entity information
-    When I update an Identifier on an Entity
-    Then I must enter Effective date
-    And Effective date applies only to the Identifier relationship with the Entity
-    And Effective date can be in the future or retroactive
-    And the updated Entity enters the approval process workflow
-
-  @MVP
-  @EXARI-11249
-  @2018.PI03
-  Scenario: US1089624
-    Given I am the Entity Management Solution
-    When a User adds an Identifier to an Entity
-    Then I perform field validation to ensure the Identifier was entered in the correct format based on Identifier Type selected
-    And I perform a duplicate check on the new Identifier
-
-  @MVP
-  @2018.PI03
-  Scenario: US1089630
-    Given I am the Entity Management Solution
-    When a User adds an Identifier to an Entity
-    Then I check the Identifier for the presence of an Owner
-    And I display Owner associated to the Identifier
-    And the User must select the existing Owner for the Identifier or assign new Owner if not present
-
-  @MVP
-  @EXARI-11249
-  @EXARI-11267
-  @2018.PI03
-  Scenario: US858616
-    Given I am a User with access to manage Entity information
-    When I need to add an Identifier to an Entity
-    Then I must access the Entity
-    And I must select an Identifier Type to define the type of Identifier I am adding
-    And I can enter an Identifier
-
-  @MVP
-  @2018.PI03
-  Scenario: US1089633
-    Given I am a User with access to maintain Entity information
-    When I want to add an Owner to an Identifier
-    Then I can access the Identifier
-    And I can search for an Entity to establish as the new Owner
-    And Entities matching my search are displayed
-    And I can select an Entity from search results to establish as the new Owner
-    And I can enter the effective date for the new Identifier Owner
-    And Effective date can be in the future or retroactive
-    And Standard field validation rules applied
-    And An Identifier must only have one active Owner at a time
-    And the updated Identifier enters the approval process workflow
+    When an active contract is in place for an Identifier to Entity relationship that is being expired
+    Then I create a Contracting Event
+    And the Contracting Event alerts a Contracting representative that contract maintenance may be required
 
