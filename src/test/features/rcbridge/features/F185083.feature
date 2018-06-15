@@ -1,4 +1,4 @@
-# Last updated on 2018-06-14T15:11:37.143Z
+# Last updated on 2018-06-14T20:58:09.674Z
 @MVP
 @PI02_Top3
 @Parity
@@ -25,6 +25,25 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     When NDB completes the update / action successfully
     Then NDB initiates an event outcome message to the transaction state service
     And a transaction state service call indicating successful processing was made
+
+  @#MVP
+  @Parity
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1169275
+    Given an Exari contract includes a COSMOS product priced via Common Pricing Solution (CPS)
+    When a contract business event triggers in Exari
+    Then the contract integration process accurately reflects the needed information to support CPS
+
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1145653
+    Given the need to know contact payload data elementsThen an data payload document is created/updated
+
+  @2018.PI02
+  @2018.PI02.02
+  Scenario: US1105361
+    Given the need to know contact payload data elementsThen an data payload document is created/updated
 
   @2018.PI02
   @2018.PI02.02
@@ -63,15 +82,6 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     Then NDB initiates an event outcome message to the transaction state service
     And a transaction state service call indicating successful processing was made
 
-  @#MVP
-  @Parity
-  @2018.PI02
-  @2018.PI02.04
-  Scenario: US1169275
-    Given an Exari contract includes a COSMOS product priced via Common Pricing Solution (CPS)
-    When a contract business event triggers in Exari
-    Then the contract integration process accurately reflects the needed information to support CPS
-
   @2018.PI02
   @2018.PI02.02
   Scenario: US1103371
@@ -79,19 +89,14 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     When the team analysis business and technical needsThen an approach document for applying edits and handling error messages and status is created
 
   @2018.PI02
-  @2018.PI02.03
-  Scenario: US1145653
-    Given the need to know contact payload data elementsThen an data payload document is created/updated
-
-  @2018.PI02
-  @2018.PI02.02
-  Scenario: US1105361
-    Given the need to know contact payload data elementsThen an data payload document is created/updated
-
-  @2018.PI02
   @2018.PI02.04
   Scenario: US1030143
     Given The Physician contract is complete and correct within Exari
     When The contract is included in the Exari Physician Contract ETL to NDB at the product level
     Then NDB should load the contract to the 'E' PNC contract screen successfully within NDB
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1170508
+    Given the need to know contact payload data elementsThen an data payload document is created/updated
 
