@@ -1,8 +1,7 @@
-# Last updated on 2018-06-14T13:25:39.678Z
+# Last updated on 2018-06-15T14:57:25.347Z
 @MVP
-@Priority_1
 @Parity
-Feature: F185543 - Refine the details of a Mass Action Project
+Feature: F185543 - Configure - Refine the details of a Mass Action Project
 
   @2018.PI03
   Scenario: US1098385

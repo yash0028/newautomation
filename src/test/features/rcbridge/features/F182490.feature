@@ -1,4 +1,4 @@
-# Last updated on 2018-06-14T17:24:18.872Z
+# Last updated on 2018-06-15T14:46:49.162Z
 @MVP
 @PI02_Top3
 @Plus
@@ -66,7 +66,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
 
   @ETMA
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.04
   Scenario: US1097077
     Given UHC will need to provide Exari with ETMA table data
     When the Exari calls ETMA
@@ -109,6 +109,14 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
 
   @ETMA
   @2018.PI02
+  @2018.PI02.03
+  Scenario: US1171058
+    Given UHC will need to provide Exari with ETMA table data
+    When the Exari calls ETMA
+    Then an external data query will return the requested data.
+
+  @ETMA
+  @2018.PI02
   @2018.PI02.02
   Scenario: US1129434::0
     Given the providers Specialty codes "53ABC, 54ABC, 55ABC" and paper types "MGA, ABC123, SPA" are passed to the service
@@ -141,6 +149,14 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
 
   @ETMA
   @2018.PI02
+  @2018.PI02.03
+  Scenario: US1171055
+    Given UHC will need to provide Exari with ETMA table data
+    When the Exari calls ETMA
+    Then an external data query will return the requested data.
+
+  @ETMA
+  @2018.PI02
   @2018.PI02.02
   Scenario: US1097032
     Given the provider's organization type is "012" and contract type is "MGA"
@@ -158,7 +174,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
 
   @ETMA
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.04
   Scenario: US1169960
     Given UHC will need to provide Exari with ETMA table data
     When the Exari calls ETMA

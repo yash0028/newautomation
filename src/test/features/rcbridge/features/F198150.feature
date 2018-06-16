@@ -1,4 +1,4 @@
-# Last updated on 2018-06-14T18:10:42.138Z
+# Last updated on 2018-06-15T14:52:53.702Z
 
 Feature: F198150 - Removed stories
 
@@ -41,6 +41,20 @@ Feature: F198150 - Removed stories
     And the approved Owner assignment becomes active in the Entity Management Solution
     And I can reject the Owner assignment
     And the Owner assignment is routed back to the User for updates
+
+  @2018.PI03
+  Scenario: US1114661
+    Given I am the Entity Management Solution
+    When a User attempts to add a second Owner to an Organizational Unit
+    Then the User can change the Organizational Unit Owner to a different Owner
+    And the Organizational Unit can not have two active Owners at the same time
+
+  @2018.PI03
+  Scenario: US1114656
+    Given I am the Entity Management Solution
+    When a User attempts to add a second Owner to a TIN
+    Then the User can change the TIN Owner to a different Owner
+    And the TIN can not have two active Owners at the same time
 
   @MVP
   @2018.PI03
@@ -168,6 +182,12 @@ Feature: F198150 - Removed stories
     Then I have the ability to update Entity Address Type
     And the updated Entity enters the approval process workflow
 
+  @2018.PI03
+  Scenario: US1114662
+    Given I am the Entity Management Solution
+    When a User is adding an Owner to a TIN
+    Then the Owner must be the Legal Owner responsible for reporting to the government
+
   @MVP
   @EXARI-11249
   @EXARI-11267
@@ -179,6 +199,12 @@ Feature: F198150 - Removed stories
     And Effective date applies only to the Identifier relationship with the Entity
     And Effective date can be in the future or retroactive
     And the updated Entity enters the approval process workflow
+
+  @2018.PI03
+  Scenario: US1114659
+    Given I am the Entity Management Solution
+    When a TIN does not have an Owner
+    Then I require the User to add an Owner to the TIN
 
   @MVP
   @EXARI-11249

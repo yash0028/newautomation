@@ -1,4 +1,4 @@
-# Last updated on 2018-06-14T13:25:40.734Z
+# Last updated on 2018-06-15T14:58:38.415Z
 @Non_MVP
 Feature: F184554 - Migrate Delegated Credentialing
 
