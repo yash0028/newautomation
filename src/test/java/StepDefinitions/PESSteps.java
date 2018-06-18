@@ -138,7 +138,7 @@ public class PESSteps {
         ResponseBody raResponse = response.getBody();
 //        System.out.println("RESPONSE: " + raResponse.asString());
 
-        assertTrue(raResponse.asString().contains("error"));
+        assertTrue(raResponse.asString().toLowerCase().contains("error"));
 
     }
 
