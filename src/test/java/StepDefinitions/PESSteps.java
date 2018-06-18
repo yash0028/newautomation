@@ -18,7 +18,8 @@ public class PESSteps {
     private RequestSpecification request;
     private Response response;
     private JsonObject commonSearchParams;
-    private static String baseUri = "http://demographics-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com/counterparties/search";
+    private static String baseUri = "http://demographics-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static String counterPartiesUri = "/counterparties/search";
 
     public PESSteps(){
         this.commonSearchParams = new JsonObject();
@@ -42,7 +43,7 @@ public class PESSteps {
     @When("^the user completes the search parameters for Demographic data needs$")
     public void theUserCompletesTheSearchParametersForDemographicDataNeeds() throws Throwable {
 
-        response = request.post();
+        response = request.post(counterPartiesUri);
 
     }
 
@@ -89,7 +90,7 @@ public class PESSteps {
     @When("^there are multiple results$")
     public void thereAreMultipleResults() throws Throwable {
 
-        response = request.post();
+        response = request.post(counterPartiesUri);
         ResponseBody raResponse = response.getBody();
 
         assertTrue(response != null);
@@ -128,7 +129,7 @@ public class PESSteps {
 
         request.body(badJsonBody.toString());
 
-        response = request.post();
+        response = request.post(counterPartiesUri);
     }
 
     @Then("^the user receives a bad input error message$")
@@ -144,7 +145,7 @@ public class PESSteps {
     @When("^the system goes down$")
     public void theSystemGoesDown() throws Throwable {
 
-        request.baseUri(baseUri+"asdf");
+        request.baseUri(baseUri+"/asdf");
         response = request.post();
 
     }
@@ -160,7 +161,7 @@ public class PESSteps {
     @When("^a catastrophic error occurs$")
     public void aCatastrophicErrorOccurs() throws Throwable {
 
-        request.baseUri(baseUri+"asdf");
+        request.baseUri(baseUri+"/asdf");
         response = request.post();
 
     }
