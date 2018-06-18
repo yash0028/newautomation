@@ -1,4 +1,4 @@
-# Last updated on 2018-06-15T14:46:49.162Z
+# Last updated on 2018-06-18T15:13:40.980Z
 @MVP
 @PI02_Top3
 @Plus
@@ -166,11 +166,10 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
 
   @ETMA
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.04
   Scenario: US1103648
-    Given I have entered an effective start date of equal to or less than today's date
-    When the date is populated
-    Then I will be prompted to select the correct Retro Reason Code
+    When ETMA is queried for the retro reason code
+    Then all of the retro reason codes are returned
 
   @ETMA
   @2018.PI02

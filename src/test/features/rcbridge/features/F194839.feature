@@ -1,4 +1,4 @@
-# Last updated on 2018-06-14T13:25:45.325Z
+# Last updated on 2018-06-18T13:09:28.557Z
 
 Feature: F194839 - CLM DevOps PI0.2
 
@@ -8,6 +8,12 @@ Feature: F194839 - CLM DevOps PI0.2
     When A log message is written
     Then The log message is send to the central log aggregation
     And The log message is available in the log dashboard
+
+  @2018.PI02
+  Scenario: US1172701
+    Given a user wants to test a CLM service,
+    When the user hits the stage layer 7 proxy,
+    Then they will get a consistent response.
 
   @2018.PI02
   Scenario: US1168431

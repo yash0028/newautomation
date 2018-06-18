@@ -1,4 +1,4 @@
-# Last updated on 2018-06-14T20:56:16.995Z
+# Last updated on 2018-06-18T13:58:30.445Z
 @MVP
 @PI02_Top3
 @Plus
@@ -139,7 +139,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     # An interface specification is defined for the service API
 
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.04
   Scenario: US1128296::0
     Given the transaction state micro service is created,
     When I send a payload to the micro service,
@@ -147,7 +147,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     And I will see how the consumer micro service performs.
 
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.04
   Scenario: US1128296::1
     Given the transaction coordinator micro service is created,
     When I send a payload to the micro service,
@@ -155,7 +155,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     And I will see how the consumer micro service performs.
 
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.04
   Scenario: US1128296::2
     Given the approval coordinator micro service is created,
     When I send a payload to the micro service,
@@ -177,6 +177,30 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Given an event processes an update request event
     When the scenario simulates an update has aborted
     Then a returned event transaction state
+
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1172942::0
+    Given the transaction state micro service is created,
+    When I send a payload to the micro service,
+    Then I will see the latency of the response,
+    And I will see how the consumer micro service performs.
+
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1172942::1
+    Given the transaction coordinator micro service is created,
+    When I send a payload to the micro service,
+    Then I will see the latency of the response,
+    And I will see how the consumer micro service performs.
+
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1172942::2
+    Given the approval coordinator micro service is created,
+    When I send a payload to the micro service,
+    Then I will see the latency of the response,
+    And I will see how the consumer micro service performs.
 
   @2018.PI02
   @2018.PI02.01

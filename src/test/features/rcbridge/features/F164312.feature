@@ -1,4 +1,4 @@
-# Last updated on 2018-06-15T15:08:36.636Z
+# Last updated on 2018-06-18T14:46:07.414Z
 @MVP
 @PI02_Top3
 @Plus
@@ -48,6 +48,23 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
     #- How often is the super script updated?
     #- the accepting new applications fields do not always return simple booleans.
 
+  @RFP
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1173268::0
+    Given the provider's Specialty "abc123" is passed to the RFP service
+    When finding the Specialty in RFP
+    Then the RFP service will return a "False" value
+
+  @RFP
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1173268::1
+    Given the provider's Org Type "abc123" is passed to the RFP service
+    When finding the Org Type in RFP
+    Then the RFP service will return a "False" value
+
+  @RFP
   @2018.PI02
   @2018.PI02.04
   Scenario: US1095910::0
@@ -55,6 +72,7 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
     When a user incorrectly inputs data
     Then the user receives a bad input error message
 
+  @RFP
   @2018.PI02
   @2018.PI02.04
   Scenario: US1095910::1
@@ -62,6 +80,7 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
     When the system goes down
     Then the user receives a system error message
 
+  @RFP
   @2018.PI02
   @2018.PI02.04
   Scenario: US1095910::2
@@ -69,12 +88,14 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
     When a catastrophic error occurs
     Then a service ticket will need to be created.
 
+  @RFP
   @2018.PI02
   @2018.PI02.04
   Scenario: US1082297::0
     Given Exari will need to call our API
     Then a web client will need to be created.
 
+  @RFP
   @2018.PI02
   @2018.PI02.04
   Scenario: US1082297::1
@@ -96,7 +117,7 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
 
   @RFP
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.04
   Scenario: US1035921::0
     Given the provider's Specialty "abc123" is passed to the RFP service
     When finding the Specialty in RFP
@@ -104,7 +125,7 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
 
   @RFP
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.04
   Scenario: US1035921::1
     Given the provider's Org Type "abc123" is passed to the RFP service
     When finding the Org Type in RFP

@@ -1,4 +1,4 @@
-# Last updated on 2018-06-14T14:22:23.063Z
+# Last updated on 2018-06-18T10:34:50.281Z
 @MVP
 @PI02_Top3
 @Parity
@@ -73,4 +73,11 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     Given I process a contract through the migration process and lock it in Emptoris
     When I attempt to open the contract in the Emptoris application
     Then I receive a contract is locked message in the Emptoris application
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1172552
+    Given A BAse Driver report from Migration Extract
+    When the Migration extract for a market has completed
+    Then the report should have Base Contract status and Related Contract Status
 

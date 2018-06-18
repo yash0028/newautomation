@@ -1,26 +1,48 @@
-# Last updated on 2018-06-14T20:58:09.674Z
+# Last updated on 2018-06-18T13:57:11.354Z
 @MVP
 @PI02_Top3
 @Parity
 Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS Products (Part 2)
 
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.04
   Scenario: US1103353::0
     Given the NDB connector microservice has received a roster update event
     When all of the NDB edits are successful
     Then the NDB microservices are ready to update NDB
 
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.04
   Scenario: US1103353::1
     Given the NDB connector microservice has received a roster update event
     When all of the NDB edits are not successful
     Then the NDB microservices creates an error message
 
   @2018.PI02
-  @2018.PI02.03
+  @2018.PI02.04
   Scenario: US1103353::2
+    Given The event MS processed NDB edits sucessfully
+    When NDB completes the update / action successfully
+    Then NDB initiates an event outcome message to the transaction state service
+    And a transaction state service call indicating successful processing was made
+
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1172975::0
+    Given the NDB connector microservice has received a roster update event
+    When all of the NDB edits are successful
+    Then the NDB microservices are ready to update NDB
+
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1172975::1
+    Given the NDB connector microservice has received a roster update event
+    When all of the NDB edits are not successful
+    Then the NDB microservices creates an error message
+
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1172975::2
     Given The event MS processed NDB edits sucessfully
     When NDB completes the update / action successfully
     Then NDB initiates an event outcome message to the transaction state service
