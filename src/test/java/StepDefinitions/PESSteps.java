@@ -102,7 +102,7 @@ public class PESSteps {
         assertTrue(raResponse.asString() != null);
     }
 
-    @Then("^And I can select one to read more details\\.$")
+    @Then("^I can select one to read more details\\.$")
     public void andICanSelectOneToReadMoreDetails() throws Throwable {
         // noop
     }
