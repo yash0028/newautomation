@@ -1,6 +1,7 @@
 package StepDefinitions;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -180,5 +181,31 @@ public class PESSteps {
         ResponseBody raResponse = response.getBody();
         assertTrue(raResponse.asString().contains("error"));
 
+    }
+
+    //US1094026
+    
+    @Given("^UHC will need to provide Exari with PES data$")
+    public void uhcWillNeedToProvideExariWithPESData() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^Exari calls PES with MPIN and TIN$")
+    public void exariCallsPESWithMPINAndTIN() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^an external data query will return a list of responses with the following populated fields if the result is a physician:$")
+    public void anExternalDataQueryWillReturnAListOfResponsesWithTheFollowingPopulatedFieldsIfTheResultIsAPhysician() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^an external data query will return a list of responses with the following populated fields if the result is a facility:$")
+    public void anExternalDataQueryWillReturnAListOfResponsesWithTheFollowingPopulatedFieldsIfTheResultIsAFacility() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }
