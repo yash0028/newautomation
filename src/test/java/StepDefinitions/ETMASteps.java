@@ -29,6 +29,7 @@ public class ETMASteps {
     private static String paperTypeUri             = "/api/1/paper_types/search";
     private static String contractValidationUri    = "/api/1/contract_validations";
     private static String allContractValidationUri = "/api/1/contract_validations/all";
+    private static String retroActiveReasonCodeUri = "/api/1/retro_reason_codes";
     private String contractType                    = "";
     private JsonObject requestBody                 = new JsonObject();
 
@@ -223,4 +224,17 @@ public class ETMASteps {
         assertTrue(allFalseResults);
     }
 
+    //US1103648
+
+    @When("^ETMA is queried for the retro reason code$")
+    public void etmaIsQueriedForTheRetroReasonCode() throws Throwable {
+        request = given().baseUri(baseUri);
+        response = request.get(retroActiveReasonCodeUri);
+    }
+
+    @Then("^all of the retro reason codes are returned$")
+    public void allOfTheRetroReasonCodesAreReturned() throws Throwable {
+        String responseString = response.asString();
+        assertTrue(responseString.contains("retroactiveReasonCode"));
+    }
 }
