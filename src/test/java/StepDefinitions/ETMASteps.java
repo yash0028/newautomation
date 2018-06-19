@@ -25,11 +25,11 @@ public class ETMASteps {
     private Response response;
     private ResponseBody body;
     private static String baseUri                  = "http://localhost:8080"; //Need to change to DEV URL once deployed to dev
-    private static String marketsUri               = "/api/1/markets";
-    private static String paperTypeUri             = "/api/1/paper_types/search";
-    private static String contractValidationUri    = "/api/1/contract_validations";
-    private static String allContractValidationUri = "/api/1/contract_validations/all";
-    private static String retroActiveReasonCodeUri = "/api/1/retro_reason_codes";
+    private static String marketsUri               = "/v1.0/markets";
+    private static String paperTypeUri             = "/v1.0/paper_types/search";
+    private static String contractValidationUri    = "/v1.0/contract_validations";
+    private static String allContractValidationUri = "/v1.0/contract_validations/all";
+    private static String retroActiveReasonCodeUri = "/v1.0/retro_reason_codes";
     private String contractType                    = "";
     private JsonObject requestBody                 = new JsonObject();
 
