@@ -1,4 +1,4 @@
-# Last updated on 2018-06-15T14:52:53.702Z
+# Last updated on 2018-06-18T17:57:35.918Z
 
 Feature: F198150 - Removed stories
 
@@ -12,6 +12,17 @@ Feature: F198150 - Removed stories
     And the approved Identifier updates become active in the Entity Management Solution
     And I can reject the Identifier updates
     And the Identifier updates are routed back to the User for modifications
+
+  @MVP
+  @EXARI-11271
+  @2018.PI03
+  Scenario: US1094105
+    Given I am a User with Approval Authority
+    When a User adds a Entity Demographic information and submits for approval
+    Then I can approve the Entity Demographic information
+    And the approved Entity Demographic information becomes active in the Entity Management Solution
+    And I can reject the Entity Demographic information
+    And the Entity Demographic information is routed back to the User for updates
 
   @MVP
   @2018.PI03
@@ -41,6 +52,32 @@ Feature: F198150 - Removed stories
     And the approved Owner assignment becomes active in the Entity Management Solution
     And I can reject the Owner assignment
     And the Owner assignment is routed back to the User for updates
+
+  @MVP
+  @EXARI-11249
+  @2018.PI03
+  Scenario: US858621
+    Given I am a User with access to maintain Entities
+    When I want to add demographic information to an Entity
+    Then I can add Entity demographic information to the Entity
+    And the added Entity demographic information enters the approval process workflow
+
+  @MVP
+  @2018.PI03
+  Scenario: US922831
+    Given I am a User with access to maintain Entity information
+    When I want to inactivate demographic information on an Entity
+    Then I can inactivate Entity demographic information on the Entity
+    And the inactivated Entity demographic information enters the approval process workflow
+
+  @MVP
+  @EXARI-11249
+  @2018.PI03
+  Scenario: US858622
+    Given I am a User with access to maintain Entity information
+    When I want to update demographic information on an Entity
+    Then I can update Entity demographic information on the Entity
+    And the updated Entity demographic information enters the approval process workflow
 
   @2018.PI03
   Scenario: US1114661
@@ -126,6 +163,13 @@ Feature: F198150 - Removed stories
 
   @MVP
   @2018.PI03
+  Scenario: US950017
+    Given I am a User with access to maintain Entity information
+    When I need to void the relationship between an Identifier and an Entity
+    Then I can enter an end date to terminate the relationship between the Identifier and the Entity
+
+  @MVP
+  @2018.PI03
   Scenario: US955716
     Given I am a User with access to maintain Entity information
     When I need to change the Owner of an Identifier
@@ -182,6 +226,17 @@ Feature: F198150 - Removed stories
     Then I have the ability to update Entity Address Type
     And the updated Entity enters the approval process workflow
 
+  @MVP
+  @EXARI-11271
+  @2018.PI03
+  Scenario: US1094106
+    Given I am a User with Approval Authority
+    When a User updates a Entity Demographic information and submits for approval
+    Then I can approve the updated Entity Demographic information
+    And the approved Entity Demographic information becomes active in the Entity Management Solution
+    And I can reject the Entity Demographic information updates
+    And the Entity Demographic informationupdates are routed back to the User for modifications
+
   @2018.PI03
   Scenario: US1114662
     Given I am the Entity Management Solution
@@ -205,6 +260,16 @@ Feature: F198150 - Removed stories
     Given I am the Entity Management Solution
     When a TIN does not have an Owner
     Then I require the User to add an Owner to the TIN
+
+  @MVP
+  @2018.PI03
+  Scenario: US1094107
+    Given I am a User with Approval Authority
+    When a User inactivates Entity Demographic information and submits for approval
+    Then I can approve the Entity Demographic information inactivation
+    And the Entity Demographic information becomes inactive in the Entity Management Solution
+    And I can reject the Entity Demographic information inactivation
+    And the Entity Demographic information remains active in the Entity Management Solution
 
   @MVP
   @EXARI-11249

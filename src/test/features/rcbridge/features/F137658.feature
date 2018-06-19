@@ -1,4 +1,4 @@
-# Last updated on 2018-06-15T14:11:48.290Z
+# Last updated on 2018-06-18T17:57:35.916Z
 @MVP
 @Plus
 @Priority_1
@@ -25,17 +25,6 @@ Feature: F137658 - Approve Entity Modifications
     And the approved Entity updates become active in the Entity Management Solution
     And I can reject the Entity updates
     And the Entity updates are routed back to the User for modifications
-
-  @MVP
-  @EXARI-11271
-  @2018.PI03
-  Scenario: US1094105
-    Given I am a User with Approval Authority
-    When a User adds a Entity Demographic information and submits for approval
-    Then I can approve the Entity Demographic information
-    And the approved Entity Demographic information becomes active in the Entity Management Solution
-    And I can reject the Entity Demographic information
-    And the Entity Demographic information is routed back to the User for updates
 
   @MVP
   @EXARI-11271
@@ -112,17 +101,6 @@ Feature: F137658 - Approve Entity Modifications
     And the Entity is routed back to the User for updates
 
   @MVP
-  @EXARI-11271
-  @2018.PI03
-  Scenario: US1094106
-    Given I am a User with Approval Authority
-    When a User updates a Entity Demographic information and submits for approval
-    Then I can approve the updated Entity Demographic information
-    And the approved Entity Demographic information becomes active in the Entity Management Solution
-    And I can reject the Entity Demographic information updates
-    And the Entity Demographic informationupdates are routed back to the User for modifications
-
-  @MVP
   @2018.PI03
   Scenario: US1094112
     Given I am a User with Approval Authority
@@ -131,16 +109,6 @@ Feature: F137658 - Approve Entity Modifications
     And the Entity Characteristic information becomes inactive in the Entity Management Solution
     And I can reject the Entity Characteristic information inactivation
     And the Entity Characteristic information remains active in the Entity Management Solution
-
-  @MVP
-  @2018.PI03
-  Scenario: US1094107
-    Given I am a User with Approval Authority
-    When a User inactivates Entity Demographic information and submits for approval
-    Then I can approve the Entity Demographic information inactivation
-    And the Entity Demographic information becomes inactive in the Entity Management Solution
-    And I can reject the Entity Demographic information inactivation
-    And the Entity Demographic information remains active in the Entity Management Solution
 
   @MVP
   @EXARI-11271

@@ -1,5 +1,6 @@
-# Last updated on 2018-06-15T17:47:37.796Z
-
+# Last updated on 2018-06-18T17:51:24.042Z
+@MVP
+@Priority_2
 Feature: F198810 - Import Tax ID Verification Data
 
   Scenario: US1171452

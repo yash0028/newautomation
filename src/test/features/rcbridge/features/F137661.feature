@@ -1,4 +1,4 @@
-# Last updated on 2018-06-14T14:42:09.431Z
+# Last updated on 2018-06-18T17:56:11.718Z
 @MVP
 @Plus
 @Priority_1
@@ -45,30 +45,4 @@ Feature: F137661 - Create and Maintain Entity Characteristics
     When I want to update characteristic information to an Entity
     Then I can update Entity characteristic information on the Entity
     And the updated Entity characteristic information enters the approval process workflow
-
-  @MVP
-  @EXARI-11249
-  @2018.PI03
-  Scenario: US858621
-    Given I am a User with access to maintain Entities
-    When I want to add demographic information to an Entity
-    Then I can add Entity demographic information to the Entity
-    And the added Entity demographic information enters the approval process workflow
-
-  @MVP
-  @2018.PI03
-  Scenario: US922831
-    Given I am a User with access to maintain Entity information
-    When I want to inactivate demographic information on an Entity
-    Then I can inactivate Entity demographic information on the Entity
-    And the inactivated Entity demographic information enters the approval process workflow
-
-  @MVP
-  @EXARI-11249
-  @2018.PI03
-  Scenario: US858622
-    Given I am a User with access to maintain Entity information
-    When I want to update demographic information on an Entity
-    Then I can update Entity demographic information on the Entity
-    And the updated Entity demographic information enters the approval process workflow
 
