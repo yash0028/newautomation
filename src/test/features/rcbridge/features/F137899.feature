@@ -1,10 +1,30 @@
-# Last updated on 2018-06-19T17:10:37.902Z
+# Last updated on 2018-06-20T19:30:08.803Z
 @MVP
 @PI02_Top3
 @CLM_Exari
 @Exari_Microservice
 @Parity
 Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (Demographic) - Optum
+
+  @Provider_Demograhics
+  @PES
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US861016
+    Given I am a User with access to add a Counterparty to an Interview
+    When I search for a Counterparty using MPIN of "30"
+    Then PES returns the following information:
+      | address          |
+      | mpin             |
+      | tin              |
+      | firstName        |
+      | lastName         |
+      | facilityName     |
+      | specialtyCode    |
+      | providerTypeCode |
+      | phoneNumbers     |
+
+    #And the system displays results with the best match first (Need to clarify this)
 
   @2018.PI02
   Scenario: US1131742

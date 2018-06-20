@@ -1,4 +1,4 @@
-# Last updated on 2018-06-06T14:05:05.112Z
+# Last updated on 2018-06-20T13:18:58.464Z
 @MVP
 @Plus
 Feature: F178659 - Exari>NDB  Contract Lock-down Physician and Facility - CF Team
@@ -9,6 +9,13 @@ Feature: F178659 - Exari>NDB  Contract Lock-down Physician and Facility - CF Tea
     Given the contract was sent to NDB via the Exari payload process
     When a user attempts manual update or mass update from any other program asside Exari
     Then the contract will edit that the contract is NOT available for update
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1178095
+    Given the contract was sent to NDB via the Exari payload process
+    When a user attempts manual update or mass update from any other program aside Exari
+    Then the contract will be editable for update
 
   @2018.PI02
   @2018.PI02.01

@@ -6,6 +6,7 @@ Feature: F181492 - Maintain Identity Keys
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US1086978
     Given a Provider exists in Entity Management
@@ -14,6 +15,7 @@ Feature: F181492 - Maintain Identity Keys
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US1086983
     Given a Provider exists in Entity Management

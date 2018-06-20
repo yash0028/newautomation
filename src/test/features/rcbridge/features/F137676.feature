@@ -4,6 +4,8 @@
 @Priority_1
 Feature: F137676 - Search by Attributes
 
+  @MVP
+  @CLM_UAT
   @EXARI-11274
   @2018.PI03
   Scenario: US920675
@@ -12,6 +14,8 @@ Feature: F137676 - Search by Attributes
     Then I can limit my Entity search to include only Inactive Entities
     And the system returns only Inactive Entities
 
+  @MVP
+  @CLM_UAT
   @EXARI-11274
   @2018.PI03
   Scenario: US858713
@@ -21,6 +25,8 @@ Feature: F137676 - Search by Attributes
     Then I can search for an Entity using attributes of that Entity
     And the system displays a list of Entities matching my search criteria
 
+  @MVP
+  @CLM_UAT
   @EXARI-11274
   @2018.PI03
   Scenario: US920674
@@ -29,6 +35,8 @@ Feature: F137676 - Search by Attributes
     Then I can limit my Entity search to include only Active Entities
     And the system returns only Active Entities
 
+  @MVP
+  @CLM_UAT
   @EXARI-11274
   @2018.PI03
   Scenario: US858715
@@ -37,6 +45,8 @@ Feature: F137676 - Search by Attributes
     Then I can search by Provider ID
     And the system displays all Entities related to that Provider
 
+  @MVP
+  @CLM_UAT
   @EXARI-11274
   @2018.PI03
   Scenario: US1119871
@@ -45,6 +55,8 @@ Feature: F137676 - Search by Attributes
     Then I can search within an Entity by relationship role
     And the system displays Organizational Units within the Entity matching that relationship role
 
+  @MVP
+  @CLM_UAT
   @EXARI-11274
   @2018.PI03
   Scenario: US858714

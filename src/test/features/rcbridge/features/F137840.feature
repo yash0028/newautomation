@@ -5,6 +5,7 @@
 Feature: F137840 - Provision Users to Entities
 
   @MVP
+  @CLM_UAT
   @EXARI-10879
   @2018.PI03
   Scenario: US860747

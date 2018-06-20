@@ -6,6 +6,7 @@ Feature: F137661 - Create and Maintain Entity Characteristics
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US912897
     Given I am a User with access to maintain Entities
@@ -30,6 +31,7 @@ Feature: F137661 - Create and Maintain Entity Characteristics
     And I capture the date and time when the User performed the change
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US922850
     Given I am a User with access to maintain Entities
@@ -39,6 +41,7 @@ Feature: F137661 - Create and Maintain Entity Characteristics
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US912898
     Given I am a User with access to maintain Entities

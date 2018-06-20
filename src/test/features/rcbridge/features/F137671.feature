@@ -5,6 +5,7 @@
 Feature: F137671 - Add and Remove Entity to Entity Relationships
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US858664
     Given I am a User with access to maintain Entity information
@@ -13,6 +14,7 @@ Feature: F137671 - Add and Remove Entity to Entity Relationships
 
   @MVP
   @EXARI-11267
+  @CLM_UAT
   @2018.PI03
   Scenario: US858667
     Given I am a User with access to maintain Entity information
@@ -34,6 +36,7 @@ Feature: F137671 - Add and Remove Entity to Entity Relationships
 
   @MVP
   @EXARI-11267
+  @CLM_UAT
   @2018.PI03
   Scenario: US858666
     Given I am a User with access to maintain Entity information
@@ -43,6 +46,7 @@ Feature: F137671 - Add and Remove Entity to Entity Relationships
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US858665
     Given I am a User with access to maintain Entity information

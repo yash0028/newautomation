@@ -5,6 +5,7 @@
 Feature: F137674 - Administer Global Entity Attributes
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1116731
     Given I am an Administrative User
@@ -16,6 +17,7 @@ Feature: F137674 - Administer Global Entity Attributes
     And all records using that Identifier Type retain the historical value
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1116723
     Given I am an Administrative User
@@ -41,6 +43,7 @@ Feature: F137674 - Administer Global Entity Attributes
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US929394
     Given I am an Administrative User
@@ -51,6 +54,7 @@ Feature: F137674 - Administer Global Entity Attributes
     And I have the ability to cascade update to all records using that Entity Type
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1116715
     Given I am an Administrative User
@@ -63,6 +67,7 @@ Feature: F137674 - Administer Global Entity Attributes
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US858693
     Given I am an Administrative User
@@ -70,6 +75,7 @@ Feature: F137674 - Administer Global Entity Attributes
     Then I can add a definition to the Entity Type
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US949956
     Given I am an Administrative User
@@ -78,6 +84,7 @@ Feature: F137674 - Administer Global Entity Attributes
     And Users can select that Identifier Relationship Type to define an Entity relationship
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US948984
     Given I am an Administrative User
@@ -89,6 +96,7 @@ Feature: F137674 - Administer Global Entity Attributes
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US929399
     Given I am an Administrative User
@@ -99,6 +107,7 @@ Feature: F137674 - Administer Global Entity Attributes
     And I have the ability to cascade update to all records using that Identifier Type
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US858694
     Given I am an Administrative User
@@ -107,6 +116,7 @@ Feature: F137674 - Administer Global Entity Attributes
     And Users can select that Relationship Type to define an Entity relationship
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1116738
     Given I am an Administrative User
@@ -119,6 +129,7 @@ Feature: F137674 - Administer Global Entity Attributes
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US929398
     Given I am an Administrative User
@@ -129,6 +140,7 @@ Feature: F137674 - Administer Global Entity Attributes
     And I have the ability to cascade update to all records using that Entity Characteristic Type
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US948983
     Given I am an Administrative User
@@ -138,6 +150,7 @@ Feature: F137674 - Administer Global Entity Attributes
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US949936
     Given I am an Administrative User
@@ -146,6 +159,7 @@ Feature: F137674 - Administer Global Entity Attributes
     And Users can select that Account Type to define an Entity
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US949958
     Given I am an Administrative User
@@ -157,6 +171,7 @@ Feature: F137674 - Administer Global Entity Attributes
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US949962
     Given I am an Administrative User
@@ -167,6 +182,7 @@ Feature: F137674 - Administer Global Entity Attributes
     And I have the ability to cascade update to all records using that Account Type
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1116722
     Given I am an Administrative User
@@ -179,6 +195,7 @@ Feature: F137674 - Administer Global Entity Attributes
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US858697
     Given I am an Administrative User
@@ -188,6 +205,7 @@ Feature: F137674 - Administer Global Entity Attributes
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US929395
     Given I am an Administrative User
@@ -198,6 +216,7 @@ Feature: F137674 - Administer Global Entity Attributes
     And I have the ability to cascade update to all records using that Entity Type Definition
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US929397
     Given I am an Administrative User
@@ -209,6 +228,7 @@ Feature: F137674 - Administer Global Entity Attributes
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US858695
     Given I am an Administrative User
@@ -217,6 +237,7 @@ Feature: F137674 - Administer Global Entity Attributes
     And Users can select that Characteristic Type to define an Entity detail
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1116732
     Given I am an Administrative User
@@ -229,6 +250,7 @@ Feature: F137674 - Administer Global Entity Attributes
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US858692
     Given I am an Administrative User
@@ -238,6 +260,7 @@ Feature: F137674 - Administer Global Entity Attributes
 
   @MVP
   @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US1116730
     Given I am an Administrative User

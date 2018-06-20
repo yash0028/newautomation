@@ -1,9 +1,11 @@
-# Last updated on 2018-06-14T13:25:40.175Z
+# Last updated on 2018-06-20T18:37:48.151Z
 @MVP
 @Plus
 @Priority_1
 Feature: F188964 - View Entity History
 
+  @MVP
+  @CLM_UAT
   @EXARI-11273
   @2018.PI03
   Scenario: US927842
@@ -14,6 +16,8 @@ Feature: F188964 - View Entity History
     And I can view the User who entered each date
     And I can view the date and time of when the User entered each date
 
+  @MVP
+  @CLM_UAT
   @EXARI-11273
   @2018.PI03
   Scenario: US858611
@@ -22,6 +26,8 @@ Feature: F188964 - View Entity History
     Then I can view the User who imported the Entity data
     And the time and date on which the User imported the Entity data
 
+  @MVP
+  @CLM_UAT
   @EXARI-11273
   @2018.PI03
   Scenario: US858699
@@ -32,6 +38,8 @@ Feature: F188964 - View Entity History
     And I can view the User who added or removed an Entity Characteristic
     And I can view the date and time of when the User performed the change
 
+  @MVP
+  @CLM_UAT
   @EXARI-11273
   @2018.PI03
   Scenario: US858600
@@ -43,16 +51,8 @@ Feature: F188964 - View Entity History
     And I can view Entity Type update dates with Users who performed the changes
     And I can view Entity update dates with Users who performed the changes
 
-  @EXARI-11273
-  @2018.PI03
-  Scenario: US858625
-    Given I am a User with access to view and maintain Entity information
-    When I want to view historical changes to demographic information on an Entity
-    Then I can view the previous demographic information value
-    And I can view the current demographic information value
-    And I can view the User who performed the demographic information value change
-    And I can view the time and date the User performed the demographic information value change
-
+  @MVP
+  @CLM_UAT
   @EXARI-11273
   @2018.PI03
   Scenario: US858606
@@ -63,6 +63,8 @@ Feature: F188964 - View Entity History
     And I can view the User who performed the change
     And I can view the User with Approval Authority who approved the change
 
+  @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US858706
     Given I am a User with access to view and maintain Entity information
@@ -72,6 +74,8 @@ Feature: F188964 - View Entity History
     And I can view the User who added or removed a Business Rule
     And I can view the date and time of when the User performed the change
 
+  @MVP
+  @CLM_UAT
   @EXARI-11273
   @2018.PI03
   Scenario: US922855
@@ -82,6 +86,8 @@ Feature: F188964 - View Entity History
     And I can view the User who performed the change to the Alternate Name/Alias/DBA field
     And I can view the time and date the User performed the change to the Alternate Name/Alias/DBA field
 
+  @MVP
+  @CLM_UAT
   @EXARI-11273
   @2018.PI03
   Scenario: US858619
@@ -93,6 +99,8 @@ Feature: F188964 - View Entity History
     And I can view the User who performed the value change
     And I can view the time and date on which the User performed the value change
 
+  @MVP
+  @CLM_UAT
   @EXARI-11273
   @2018.PI03
   Scenario: US922853
@@ -103,6 +111,8 @@ Feature: F188964 - View Entity History
     And I can view the User who performed the characteristic information value change
     And I can view the time and date the User performed the characteristic information value change
 
+  @MVP
+  @CLM_UAT
   @EXARI-11273
   @2018.PI03
   Scenario: US858632
@@ -114,6 +124,8 @@ Feature: F188964 - View Entity History
     And I can view the User who entered the note
     And I can view the date and time of when the User performed the action
 
+  @MVP
+  @CLM_UAT
   @EXARI-11273
   @2018.PI03
   Scenario: US858670

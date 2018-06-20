@@ -4,7 +4,9 @@
 @Priority_1
 Feature: F137679 - View Provider
 
+  @MVP
   @EXARI-10529
+  @CLM_UAT
   @2018.PI03
   Scenario: US858730
     Given I am a User with access to view and maintain Entity information
@@ -12,6 +14,8 @@ Feature: F137679 - View Provider
     Then I can see all Identifiers on the Provider record
     And I can see all demographic information on the Provider record
 
+  @MVP
+  @CLM_UAT
   @EXARI-10713
   @2018.PI03
   Scenario: US1131278
@@ -20,7 +24,9 @@ Feature: F137679 - View Provider
     Then I can see all Contracts associated to the Provider
     And I can see all Interviews associated to the Provider
 
+  @MVP
   @EXARI-10529
+  @CLM_UAT
   @2018.PI03
   Scenario: US858729
     Given I am a User with access to view and maintain Entity information

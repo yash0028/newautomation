@@ -6,6 +6,7 @@ Feature: F183266 - Update Entity
 
   @MVP
   @EXARI-11267
+  @CLM_UAT
   @2018.PI03
   Scenario: US1089506
     Given I am a User with access to maintain Entity information
@@ -16,6 +17,7 @@ Feature: F183266 - Update Entity
 
   @MVP
   @EXARI-11267
+  @CLM_UAT
   @2018.PI03
   Scenario: US1089488
     Given I am a User with access to maintain Entity information
@@ -26,6 +28,7 @@ Feature: F183266 - Update Entity
 
   @MVP
   @EXARI-11267
+  @CLM_UAT
   @2018.PI03
   Scenario: US858595
     Given I am a User with access to maintain Entity information
@@ -35,6 +38,7 @@ Feature: F183266 - Update Entity
     And the new Entity Name enters the approval process workflow
 
   @MVP
+  @CLM_UAT
   @EXARI-11274
   @2018.PI03
   Scenario: US1080995
@@ -46,6 +50,7 @@ Feature: F183266 - Update Entity
 
   @MVP
   @EXARI-11267
+  @CLM_UAT
   @2018.PI03
   Scenario: US1089504
     Given I am a User with access to maintain Entity information
@@ -67,6 +72,7 @@ Feature: F183266 - Update Entity
 
   @MVP
   @EXARI-11267
+  @CLM_UAT
   @2018.PI03
   Scenario: US1089502
     Given I am a User with access to maintain Entity information
@@ -77,6 +83,7 @@ Feature: F183266 - Update Entity
 
   @MVP
   @EXARI-11267
+  @CLM_UAT
   @2018.PI03
   Scenario: US1089547
     Given I am a User with access to maintain Entity information
@@ -85,6 +92,7 @@ Feature: F183266 - Update Entity
     And the updated Entity enters the approval process workflow
 
   @MVP
+  @CLM_UAT
   @EXARI-8603
   @2018.PI03
   Scenario: US950780
@@ -95,6 +103,7 @@ Feature: F183266 - Update Entity
 
   @MVP
   @EXARI-11267
+  @CLM_UAT
   @2018.PI03
   Scenario: US1089541
     Given I am a User with access to maintain Entity information
@@ -104,6 +113,7 @@ Feature: F183266 - Update Entity
 
   @MVP
   @EXARI-11267
+  @CLM_UAT
   @2018.PI03
   Scenario: US912901
     Given I am a User with access to maintain Entity information

@@ -5,8 +5,9 @@
 Feature: F152967 - Inactivate Entity
 
   @MVP
-  @EXARI-11249
   @EXARI-11267
+  @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US1089321
     Given I am a User with access to maintain Entities
@@ -17,8 +18,9 @@ Feature: F152967 - Inactivate Entity
     And I am not able to assign new Identifiers to the Entity
 
   @MVP
-  @EXARI-11249
   @EXARI-11267
+  @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US858594
     Given I am a User who has access to maintain an Entity
@@ -41,8 +43,9 @@ Feature: F152967 - Inactivate Entity
     And I capture the date and time of when the User inactivated the Entity
 
   @MVP
-  @EXARI-11249
   @EXARI-11267
+  @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US944247
     Given I am a User

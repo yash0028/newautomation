@@ -16,6 +16,7 @@ Feature: F137658 - Approve Entity Modifications
     And I capture the User with Approval Authority who approved the change
 
   @MVP
+  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US1094095
@@ -27,6 +28,7 @@ Feature: F137658 - Approve Entity Modifications
     And the Entity updates are routed back to the User for modifications
 
   @MVP
+  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US1094104
@@ -38,6 +40,7 @@ Feature: F137658 - Approve Entity Modifications
     And the Entity relationships are not added to the Entity Management Solution
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1094100
     Given I am a User with Approval Authority
@@ -48,6 +51,7 @@ Feature: F137658 - Approve Entity Modifications
     And the Identifier remains actively associated with the Entity in the Entity Management Solution
 
   @MVP
+  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US1094111
@@ -59,6 +63,7 @@ Feature: F137658 - Approve Entity Modifications
     And the Entity Characteristicinformation updates are routed back to the User for modifications
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1094096
     Given I am a User with Approval Authority
@@ -69,6 +74,7 @@ Feature: F137658 - Approve Entity Modifications
     And the Entity remains active in the Entity Management Solution
 
   @MVP
+  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US1094097
@@ -80,6 +86,7 @@ Feature: F137658 - Approve Entity Modifications
     And the Identifier is routed back to the User for updates
 
   @MVP
+  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US858604
@@ -90,6 +97,7 @@ Feature: F137658 - Approve Entity Modifications
     And The Entity record is updated with the new value(s)
 
   @MVP
+  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US1094094
@@ -101,6 +109,7 @@ Feature: F137658 - Approve Entity Modifications
     And the Entity is routed back to the User for updates
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1094112
     Given I am a User with Approval Authority
@@ -111,6 +120,7 @@ Feature: F137658 - Approve Entity Modifications
     And the Entity Characteristic information remains active in the Entity Management Solution
 
   @MVP
+  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US858603
@@ -119,6 +129,7 @@ Feature: F137658 - Approve Entity Modifications
     Then the change flows through an approval process
 
   @MVP
+  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US1094102
@@ -130,6 +141,7 @@ Feature: F137658 - Approve Entity Modifications
     And the Entity is not added to the Entity Management Solution
 
   @MVP
+  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US1094109

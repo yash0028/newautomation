@@ -5,6 +5,7 @@
 Feature: F137659 - Import Data
 
   @MVP
+  @CLM_UAT
   @EXARI-11399
   @2018.PI03
   Scenario: US858608
@@ -14,6 +15,7 @@ Feature: F137659 - Import Data
     And the Entity relationships enter the approval process workflow
 
   @MVP
+  @CLM_UAT
   @EXARI-11399
   @2018.PI03
   Scenario: US858607

@@ -4,7 +4,9 @@
 @Priority_1
 Feature: F137678 - View Entity
 
+  @MVP
   @EXARI-10529
+  @CLM_UAT
   @2018.PI03
   Scenario: US858723
     Given I am a User with access to view and maintain Entity information
@@ -12,7 +14,9 @@ Feature: F137678 - View Entity
     Then I can customize my view to only show Entity components with the specified Relationship Type
     And the system displays the Entity components with my specified Relationship Type
 
+  @MVP
   @EXARI-10529
+  @CLM_UAT
   @2018.PI03
   Scenario: US858725
     Given I am a User with access to view and maintain Entity information
@@ -29,7 +33,9 @@ Feature: F137678 - View Entity
     And I can view the number of Relationships associated with the Entity
     And I can view the number of Providers associated with the Entity
 
+  @MVP
   @EXARI-10529
+  @CLM_UAT
   @2018.PI03
   Scenario: US858722
     Given I am a User with access to view and maintain Entity information
@@ -37,7 +43,9 @@ Feature: F137678 - View Entity
     Then I can view all components of an Entity
     And I can view all relationships that connect Entity components
 
+  @MVP
   @EXARI-10529
+  @CLM_UAT
   @2018.PI03
   Scenario: US1120329
     Given I am a User with access to view and maintain Entity information
@@ -45,7 +53,9 @@ Feature: F137678 - View Entity
     Then I can customize my view to only show Entity components with the specified Relationship Role
     And the system displays the Entity components with my specified Relationship Role
 
+  @MVP
   @EXARI-10529
+  @CLM_UAT
   @2018.PI03
   Scenario: US858724
     Given I am a User with access to view and maintain Entity information
@@ -59,7 +69,9 @@ Feature: F137678 - View Entity
     And I can view all Organizational Units associated with the Entity
     And I can view all Provider Identifiers associated with the Entity
 
+  @MVP
   @EXARI-10529
+  @CLM_UAT
   @2018.PI03
   Scenario: US858727
     Given I am a User with access to view and maintain Entity information
@@ -67,6 +79,8 @@ Feature: F137678 - View Entity
     Then I can search for an Entity
     And I can view all relationships associated to that Entity
 
+  @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US858726
     Given I am a User with access to view and maintain Entity information

@@ -1,4 +1,4 @@
-# Last updated on 2018-06-18T13:58:30.445Z
+# Last updated on 2018-06-20T19:38:43.350Z
 @MVP
 @PI02_Top3
 @Plus
@@ -178,6 +178,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     When the scenario simulates an update has aborted
     Then a returned event transaction state
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1172942::0
@@ -186,6 +187,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then I will see the latency of the response,
     And I will see how the consumer micro service performs.
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1172942::1
@@ -194,6 +196,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then I will see the latency of the response,
     And I will see how the consumer micro service performs.
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1172942::2

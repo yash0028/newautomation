@@ -1,9 +1,19 @@
-# Last updated on 2018-06-15T14:52:53.704Z
+# Last updated on 2018-06-20T19:27:49.200Z
 @MVP
 @Plus
 @Priority_1
 Feature: F137675 - Administer Business Rules
 
+  @MVP
+  @CLM_UAT
+  Scenario: US1179398
+    Given I am a User
+    When I create a relationship between an Entity and a Messenger Model IPA
+    Then I can select Affiliated Relationship Type
+    And I can not select Owned Relationship Type
+
+  @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US858701
     Given I am an Administrative User
@@ -12,12 +22,16 @@ Feature: F137675 - Administer Business Rules
     Then I can create a new business rule for an Entity
     And I can update an existing business rule for an Entity
 
+  @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1149316
     Given I am the Entity Management Solution
     When a User is selecting an Entity Type
     Then the User is not allowed to select both Health Organization Umbrella and Organizational Unit for the same Entity
 
+  @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US858702
     Given I am an Administrative User
@@ -26,6 +40,7 @@ Feature: F137675 - Administer Business Rules
     Then I can create a new Entity relationship rule for an Entity
     And I can update an existing Entity relationship rule for an Entity
 
+  @MVP
   @2018.PI03
   Scenario: US858704
     Given I am the Entity Management Solution
@@ -36,6 +51,8 @@ Feature: F137675 - Administer Business Rules
     And I capture the User who performed the change
     And I capture the time and date of when the User performed the change
 
+  @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1114664
     Given I am the Entity Management Solution
@@ -44,6 +61,8 @@ Feature: F137675 - Administer Business Rules
     And one Entity must be the Child
     And both Entities can not be the Parent
 
+  @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1114667
     Given I am the Entity Management Solution
@@ -52,6 +71,8 @@ Feature: F137675 - Administer Business Rules
     And one Entity must be the Child
     And both Entities can not be the Child
 
+  @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1152174
     Given I am the Entity Management Solution

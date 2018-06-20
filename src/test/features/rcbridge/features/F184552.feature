@@ -5,6 +5,7 @@
 Feature: F184552 - Migrate BIC / TIN Aggregation / Umbrella Entities
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1096155
     Given I am a User with access to maintain Entity information
@@ -19,6 +20,7 @@ Feature: F184552 - Migrate BIC / TIN Aggregation / Umbrella Entities
     Then I must use the official Legal name of the Entity
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1096151
     Given I am a User with access to maintain Entity information
@@ -26,6 +28,7 @@ Feature: F184552 - Migrate BIC / TIN Aggregation / Umbrella Entities
     Then all Organizational Unit Entities from BIC roll up to the correct Umbrella Entity in the Entity Management Solution
 
   @MVP
+  @CLM_UAT
   @EXARI-11399
   @2018.PI03
   Scenario: US1096149
@@ -34,6 +37,7 @@ Feature: F184552 - Migrate BIC / TIN Aggregation / Umbrella Entities
     Then I maintain the BIC Owned TIN in the Entity Management Solution
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1096156
     Given I am a User with access to maintain Entity information
@@ -41,6 +45,7 @@ Feature: F184552 - Migrate BIC / TIN Aggregation / Umbrella Entities
     Then I can validate in the Entity Management Solution according to a Validation Schedule
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1096153
     Given I am a User with access to maintain Entity information
@@ -48,6 +53,7 @@ Feature: F184552 - Migrate BIC / TIN Aggregation / Umbrella Entities
     Then I can view the Reporting Entity in the Entity Management Solution
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1096158
     Given I am a User with access to maintain Entity information
@@ -55,6 +61,7 @@ Feature: F184552 - Migrate BIC / TIN Aggregation / Umbrella Entities
     Then I can view and maintain aggregated TINs in the Entity Management Solution
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1096161
     Given I am a User with access to maintain Entity information

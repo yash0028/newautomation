@@ -5,6 +5,7 @@
 Feature: F137662 - Create and Maintain Entity Supplemental Detail
 
   @MVP
+  @CLM_UAT
   @EXARI-11698
   @2018.PI03
   Scenario: US858626
@@ -31,6 +32,7 @@ Feature: F137662 - Create and Maintain Entity Supplemental Detail
 
   @MVP
   @EXARI-11643
+  @CLM_UAT
   @2018.PI03
   Scenario: US858627
     Given I am a User with access to maintain Entity information

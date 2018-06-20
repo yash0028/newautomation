@@ -4,6 +4,8 @@
 @Priority_1
 Feature: F137677 - Filter Results
 
+  @MVP
+  @CLM_UAT
   @EXARI-11274
   @2018.PI03
   Scenario: US858720
@@ -11,6 +13,8 @@ Feature: F137677 - Filter Results
     When I navigate into an item from a search results list
     Then I can return to my original search results list without rebuilding the query
 
+  @MVP
+  @CLM_UAT
   @EXARI-11274
   @2018.PI03
   Scenario: US858719

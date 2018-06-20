@@ -4,6 +4,8 @@
 @Priority_1
 Feature: F137660 - Maintain Entity Identifiers
 
+  @MVP
+  @CLM_UAT
   Scenario: US1168419
     Given I am a User with access to maintain Entity information
     When I need to add an Identifier to an Entity
@@ -26,6 +28,7 @@ Feature: F137660 - Maintain Entity Identifiers
 
   @MVP
   @EXARI-11267
+  @CLM_UAT
   @2018.PI03
   Scenario: US955775
     Given I am a User with access to manage Entity information
@@ -37,19 +40,23 @@ Feature: F137660 - Maintain Entity Identifiers
     And the Entity retains the effective and end dates for when it was in an active relationship with the Identifier
     And the Identifier retains the effective and end dates for when it was in an active relationship with the Entity
 
+  @MVP
   Scenario: US1168436
     Given I am the Entity Management Solution
     When a User inactivates an Identifier relationship with an Entity
     Then I check for active contracts associated to the Entity associated to that Identifier
 
+  @MVP
+  @CLM_UAT
   Scenario: US1168422
     Given I am a User with access to maintain Entity information
     When I am adding an Identifier to an Entity
     Then I must select an Identifier Type to define the type of Identifier I am adding
 
   @MVP
-  @EXARI-11249
   @EXARI-11267
+  @EXARI-11249
+  @CLM_UAT
   @2018.PI03
   Scenario: US1089942
     Given I am a User with access to maintain Entity information
@@ -59,6 +66,8 @@ Feature: F137660 - Maintain Entity Identifiers
     And Effective date can be in the future or retroactive
     And the updated Entity enters the approval process workflow
 
+  @MVP
+  @CLM_UAT
   Scenario: US1168429
     Given I am the Entity Management Solution
     When an active contract is in place for an Identifier to Entity relationship that is being expired

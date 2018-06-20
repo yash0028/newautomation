@@ -1,4 +1,4 @@
-# Last updated on 2018-06-14T15:11:56.619Z
+# Last updated on 2018-06-20T19:47:10.081Z
 @MVP
 @PI02_Top3
 @Domain_Microservice
@@ -56,6 +56,27 @@ Feature: F183241 - DOMAIN MS Optum - Create Provider Contract Query API (Inquiry
     Then An server error will be returned
 
   @2018.PI02
+  @2018.PI02.04
+  Scenario: US1179423::0
+    Given A contract inquiry request from PIC or Examiner
+    When A REST Service call is made
+    Then The contract data is sent back to PIC or Examiner
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1179423::1
+    Given A contract inquiry request from PIC or Examiner
+    When A REST Service call is made with invalid data
+    Then The service will return an error
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1179423::2
+    Given A contract request from PIC or Examiner
+    When The REST service is unavailable
+    Then An server error will be returned
+
+  @2018.PI02
   @2018.PI02.03
   Scenario: US1148878::0
     Given A contract inquiry request from PIC or Examiner
@@ -90,4 +111,25 @@ Feature: F183241 - DOMAIN MS Optum - Create Provider Contract Query API (Inquiry
     Given PIC needs information stored in Exari
     When PIC initiates the inquiry request
     Then documentation exists to successfully initiate and respond
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1179431::0
+    Given A contract inquiry request from PIC or Examiner
+    When A REST Service call is made
+    Then The contract data is sent back to PIC or Examiner
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1179431::1
+    Given A contract inquiry request from PIC or Examiner
+    When A REST Service call is made with invalid data
+    Then The service will return an error
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1179431::2
+    Given A contract request from PIC or Examiner
+    When The REST service is unavailable
+    Then An server error will be returned
 

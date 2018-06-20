@@ -5,6 +5,7 @@
 Feature: F154296 - Perform Basic Search
 
   @MVP
+  @CLM_UAT
   @EXARI-11274
   @2018.PI03
   Scenario: US1093314
@@ -15,6 +16,7 @@ Feature: F154296 - Perform Basic Search
     And Results display with best match presented first
 
   @MVP
+  @CLM_UAT
   @EXARI-11274
   @2018.PI03
   Scenario: US1093312
@@ -25,6 +27,7 @@ Feature: F154296 - Perform Basic Search
     And Results display with best match presented first
 
   @MVP
+  @CLM_UAT
   @EXARI-11274
   @2018.PI03
   Scenario: US1093318
@@ -35,6 +38,7 @@ Feature: F154296 - Perform Basic Search
     And Results display with best match presented first
 
   @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US948350
     Given I am a User with access to view or maintain Entity information
@@ -44,6 +48,7 @@ Feature: F154296 - Perform Basic Search
     And Results display with best match presented first
 
   @MVP
+  @CLM_UAT
   @EXARI-11274
   @2018.PI03
   Scenario: US1093316

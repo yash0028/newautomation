@@ -1,4 +1,4 @@
-# Last updated on 2018-06-18T20:20:51.877Z
+# Last updated on 2018-06-20T19:40:26.844Z
 @MVP
 @PI02_Top3
 @Parity
@@ -26,6 +26,7 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     Then NDB initiates an event outcome message to the transaction state service
     And a transaction state service call indicating successful processing was made
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1172975::0
@@ -33,6 +34,7 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     When all of the NDB edits are successful
     Then the NDB microservices are ready to update NDB
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1172975::1
@@ -40,6 +42,7 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     When all of the NDB edits are not successful
     Then the NDB microservices creates an error message
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1172975::2
@@ -61,6 +64,28 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
   @2018.PI02.03
   Scenario: US1145653
     Given the need to know contact payload data elementsThen an data payload document is created/updated
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1179408::0
+    Given the NDB connector microservice has received a roster update event
+    When all of the NDB edits are successful
+    Then the NDB microservices are ready to update NDB
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1179408::1
+    Given the NDB connector microservice has received a roster update event
+    When all of the NDB edits are not successful
+    Then the NDB microservices creates an error message
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1179408::2
+    Given The event MS processed NDB edits sucessfully
+    When NDB completes the update / action successfully
+    Then NDB initiates an event outcome message to the transaction state service
+    And a transaction state service call indicating successful processing was made
 
   @2018.PI02
   @2018.PI02.02
