@@ -27,7 +27,7 @@ public class RFPSteps {
     private Response response;
     private Map<String, String> requestParams = new HashMap<String, String>();
     private static String baseUri  = "http://request-for-part-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static String endPoint = "/api/v1.0/participation_requests";
+    private static String endPoint = "/v1.0/participation_requests";
     private Map<String, String> fieldMap = new HashMap<String, String>();
     private Map<String, String> sampleValueMap = new HashMap<String, String>();
     private static String samplePlaceOfService = "AL";
