@@ -8,6 +8,7 @@ Feature: F154532 - Setup Optum Dev and Training Environment - Optum
     Given that the RC Bridge pulls in data from Rally to be sent to Cucumber
     Then the QA team needs to develop and refine the RC Bridge
 
+  @CLM_UAT
   @2018.PI01
   @2018.PI01.03
   Scenario: US1033247
@@ -65,6 +66,7 @@ Feature: F154532 - Setup Optum Dev and Training Environment - Optum
     Given spring based Jenkins file already has all the steps required in our pipeline
     Then a developer will configure the docker plugin to enable pushing docker images to Optum's docker hub.
 
+  @CLM_UAT
   @2018.PI01
   @2018.PI01.04
   Scenario: US1055237
@@ -86,6 +88,7 @@ Feature: F154532 - Setup Optum Dev and Training Environment - Optum
     When the report is available on Jenkins
     Then Rally is updated with the results
 
+  @CLM_UAT
   @2018.PI01
   @2018.PI01.04
   Scenario: US1055871

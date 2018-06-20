@@ -1,4 +1,4 @@
-# Last updated on 2018-06-18T22:57:55.946Z
+# Last updated on 2018-06-19T17:10:37.902Z
 @MVP
 @PI02_Top3
 @CLM_Exari
@@ -112,6 +112,13 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     Given a user needs to call PES
     When a catastrophic error occurs
     Then a service ticket will need to be created.
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1176533
+    Given I want to search for the sample MPIN provided from PES,
+    When I hit the CLM demographic API,
+    Then I see the fields required by the counterparty call, which were mapped from the new PES API stub
 
   @PES
   @2018.PI02

@@ -1,4 +1,4 @@
-# Last updated on 2018-06-18T20:35:29.195Z
+# Last updated on 2018-06-19T19:17:19.804Z
 
 Feature: F194839 - CLM DevOps PI0.2
 
@@ -10,7 +10,6 @@ Feature: F194839 - CLM DevOps PI0.2
     And The log message is available in the log dashboard
 
   @2018.PI02
-  @2018.PI02.04
   Scenario: US1172701
     Given a user wants to test a CLM service,
     When the user hits the stage layer 7 proxy,
