@@ -4,6 +4,7 @@
 Feature: F150724 - Setup Exari Dev Environment
 
   @MVP
+  @CLM_UAT
   @2018.PI01
   @2018.PI01.01
   Scenario: US948771

@@ -1,7 +1,10 @@
-# Last updated on 2018-06-18T17:44:47.475Z
-
+# Last updated on 2018-06-19T17:24:01.056Z
+@MVP
+@Plus
+@Priority_1
 Feature: F198722 - Reactivate Entity
 
+  @EXARI-11273
   Scenario: US1170984
     Given I am the Entity Management Solution
     When a User reactivates an Entity
@@ -14,6 +17,8 @@ Feature: F198722 - Reactivate Entity
     Then all relationships previously associated with that Entity are visible
     And all relationships remain inactive until updated by a User
 
+  @EXARI-11249
+  @EXARI-11267
   Scenario: US1170981
     Given I am a User with access to maintain Entity information
     When I want to reactivate an inactive Entity

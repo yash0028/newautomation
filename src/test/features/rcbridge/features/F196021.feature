@@ -1,11 +1,13 @@
-# Last updated on 2018-06-14T13:25:45.679Z
+# Last updated on 2018-06-19T18:28:07.707Z
 @MVP
 @Parity
+@7.5_Release
 Feature: F196021 - Feature for Exari Sprint #2 (Mass Actions)
 
   @MVP
   @EXARI-11455
   @Parity
+  @7.5_Release
   @2018.PI02
   @2018.PI02.02
   Scenario: US1156610
@@ -16,6 +18,7 @@ Feature: F196021 - Feature for Exari Sprint #2 (Mass Actions)
   @MVP
   @EXARI-11380
   @Parity
+  @7.5_Release
   @2018.PI02
   @2018.PI02.02
   Scenario: US1156597

@@ -1,4 +1,4 @@
-# Last updated on 2018-06-18T17:48:57.982Z
+# Last updated on 2018-06-19T14:26:26.251Z
 @MVP
 @Plus
 @Priority_1
@@ -34,20 +34,13 @@ Feature: F137660 - Maintain Entity Identifiers
     And Inactivation date applies only to the Identifier relationship with the Entity
     And Inactivation date can be in the future or retroactive
     And the updated Entity enters the approval process workflow
+    And the Entity retains the effective and end dates for when it was in an active relationship with the Identifier
+    And the Identifier retains the effective and end dates for when it was in an active relationship with the Entity
 
   Scenario: US1168436
     Given I am the Entity Management Solution
     When a User inactivates an Identifier relationship with an Entity
     Then I check for active contracts associated to the Entity associated to that Identifier
-
-  @MVP
-  @2018.PI03
-  Scenario: US1090067
-    Given I am a User with access to maintain Entity information
-    When I need to inactivate the relationship between an Identifier and an Entity
-    Then I can enter an end date to terminate the active relationship between the Identifier and the Entity
-    And the Entity retains the effective and end dates for when it was in an active relationship with the Identifier
-    And the Identifier retains the effective and end dates for when it was in an active relationship with the Entity
 
   Scenario: US1168422
     Given I am a User with access to maintain Entity information

@@ -1,4 +1,4 @@
-# Last updated on 2018-06-18T17:57:35.918Z
+# Last updated on 2018-06-19T14:50:54.713Z
 
 Feature: F198150 - Removed stories
 
@@ -26,6 +26,15 @@ Feature: F198150 - Removed stories
 
   @MVP
   @2018.PI03
+  Scenario: US1090067
+    Given I am a User with access to maintain Entity information
+    When I need to inactivate the relationship between an Identifier and an Entity
+    Then I can enter an end date to terminate the active relationship between the Identifier and the Entity
+    And the Entity retains the effective and end dates for when it was in an active relationship with the Identifier
+    And the Identifier retains the effective and end dates for when it was in an active relationship with the Entity
+
+  @MVP
+  @2018.PI03
   Scenario: US1089924
     Given I am the Entity Management Solution
     When a User updates an Identifier to an Entity
@@ -41,6 +50,17 @@ Feature: F198150 - Removed stories
     When a User updates an Identifier on an Entity
     Then I perform field validation to ensure the Identifier was entered in the correct format based on Identifier Type selected
     And I must perform a duplicate check on the Identifier
+
+  @MVP
+  @EXARI-11643
+  @Non_MVP
+  @2018.PI03
+  Scenario: US858630
+    Given I am a User with access to maintain Entity information
+    When I need to archive an existing attachment on an Entity that is no longer valid
+    Then I can enter an inactivation date for an attachment on the Entity
+    And the Entity Management Solution archives the attachment
+    And my User credentials are logged with the action
 
   @MVP
   @EXARI-11271
@@ -178,6 +198,17 @@ Feature: F198150 - Removed stories
     And Inactivation date can be in the future or retroactive
     And Standard field validation rules apply
     And I must select a new Owner
+
+  @MVP
+  @EXARI-11698
+  @2018.PI03
+  Scenario: US858628
+    Given I am a User with access to maintain Entity information
+    When I want to update a note on an Entity
+    Then I can update a note on the Entity
+    And the updated note is saved to the Entity record
+    And the date and time is systematically added to the note
+    And my user credentials are systematically added to the note
 
   @MVP
   @EXARI-11274

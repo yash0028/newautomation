@@ -4,6 +4,7 @@
 Feature: F137841 - Setup Contract Template and Interview for SPA/PAT
 
   @MVP
+  @CLM_UAT
   @2018.PI01
   @2018.PI01.03
   Scenario: US1038287

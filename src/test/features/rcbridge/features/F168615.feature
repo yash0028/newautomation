@@ -1,4 +1,4 @@
-# Last updated on 2018-06-18T20:34:12.679Z
+# Last updated on 2018-06-19T05:31:13.585Z
 @MVP
 Feature: F168615 - Integrate Exari with one central UHG location (Part 1)
 
