@@ -39,5 +39,25 @@ dependencies {
 }
 
 test {
-  systemProperty "cucumber.options", System.properties.getProperty("cucumber.options")
+
+
+  systemProperty "cucumber.options", System.properties.getProperty("cucumber.options") + serviceMap(System.properties.getProperty("tags"))
+}
+
+def serviceMap(serviceName){
+    def result
+    switch(serviceName){
+        case 'exari-table-maint-api':
+            result = ' -t @ETMA'
+            break
+        case 'demographics-api':
+            result = ' -t @PES'
+            break
+        case 'request-for-part-api':
+            result = ' -t @RFP'
+            break
+        default:
+            result = ''
+            break
+    }
 }
