@@ -27,8 +27,8 @@ Feature: F200575 - Feature for Exari Sprint #4 (Mass Actions)
     Then I can create the Mass Action via a User Interface
 
   @MVP
-  @EXARI-11590
   @7.5_Release
+  @EXARI-11590
   @2018.PI02
   @2018.PI02.04
   Scenario: US1156996

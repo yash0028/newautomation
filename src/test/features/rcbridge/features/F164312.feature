@@ -119,6 +119,22 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
       | Accepting Applications (M&V) |
 
 
+  @RFP
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1035921::0
+    Given the provider's Specialty "abc123" is passed to the RFP service #specialty code that doesn't exist
+    When finding the Specialty in RFP
+    Then the RFP service will return a blank list
+
+  @RFP
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1035921::1
+    Given the provider's Org Type "abc123" is passed to the RFP service #org type that doesn't exist
+    When finding the Org Type in RFP
+    Then the RFP service will return a blank list
+
   @2018.PI02
   @2018.PI02.04
   Scenario: US1177013
