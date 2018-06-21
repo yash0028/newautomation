@@ -1,5 +1,6 @@
 package StepDefinitions;
 
+import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -9,6 +10,9 @@ import gherkin.deps.com.google.gson.JsonObject;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
+
+import java.util.List;
+
 import static org.junit.Assert.assertTrue;
 import static io.restassured.RestAssured.given;
 
@@ -20,7 +24,7 @@ public class PESSteps {
     private Response response;
     private JsonObject commonSearchParams;
     private static String baseUri = "http://demographics-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static String counterPartiesUri = "/counterparties/search";
+    private static String counterPartiesUri = "/v1.0/counterparties/search";
 
     public PESSteps(){
         this.commonSearchParams = new JsonObject();
@@ -207,5 +211,42 @@ public class PESSteps {
     public void anExternalDataQueryWillReturnAListOfResponsesWithTheFollowingPopulatedFieldsIfTheResultIsAFacility() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
+    }
+
+    //US861016
+
+    @Given("^I am a User with access to add a Counterparty to an Interview$")
+    public void iAmAUserWithAccessToAddACounterpartyToAnInterview() throws Throwable {
+        //noop - assuming access
+    }
+
+    @When("^I search for a Counterparty using MPIN of \"([^\"]*)\"$")
+    public void iSearchForACounterpartyUsingMPINOf(String mpin) throws Throwable {
+        JsonObject jsonBody = new JsonObject();
+
+        jsonBody.addProperty("mpin", mpin);
+
+        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(jsonBody.toString());
+    }
+
+    @Then("^PES returns the following information:$")
+    public void pesReturnsTheFollowingInformation(DataTable fieldsDT) throws Throwable {
+        boolean match         = true;
+        List<String> fields   = fieldsDT.asList(String.class);
+
+        response              = request.post(counterPartiesUri);
+        String responseString = response.asString().toLowerCase();
+
+//        System.out.println("RESPONSE: " + responseString);
+
+        for(String field: fields){
+            field = field.trim();
+
+            if(!responseString.contains(field.toLowerCase())){
+                match = false;
+//               System.out.println("-----FAILED FIELD: " + field);
+            }
+        }
+        assertTrue(match);
     }
 }
