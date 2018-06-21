@@ -1,4 +1,4 @@
-# Last updated on 2018-06-19T18:28:07.505Z
+# Last updated on 2018-06-21T16:04:54.921Z
 @MVP
 @Parity
 @7.5_Release
@@ -18,6 +18,17 @@ Feature: F196022 - Feature for Exari Sprint #3 (Mass Actions)
     And input definition details
 
   @MVP
+  @7.5_Release
+  @2018.PI02
+  @2018.PI02.03
+  Scenario: US1156991
+    Given I am a Mass Action Administrator
+    When a Mass Action Definition is found to be unnecessary
+    Then I can delete the Mass Action Definition
+    And any Mass Action with the deleted Definition will retain the Definition
+    And the Definition will be retained in history
+
+  @MVP
   @Parity
   @EXARI-11545
   @7.5_Release
@@ -29,17 +40,6 @@ Feature: F196022 - Feature for Exari Sprint #3 (Mass Actions)
     Then I should see the active projects within my access/permissions
     And I should see the closed/completed projects within my access/permissions
     And I should see an overall project status (draft, in progress, complete)
-
-  @MVP
-  @Plus
-  @EXARI-11504
-  @7.5_Release
-  @2018.PI02
-  @2018.PI02.03
-  Scenario: US1156989
-    Given I have created a Mass Action project
-    Then I can select a Definition from the provided listing
-    And additional details will be viewable
 
   @MVP
   @EXARI-11470

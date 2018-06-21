@@ -5,6 +5,7 @@
 @Parity
 Feature: F183241 - DOMAIN MS Optum - Create Provider Contract Query API (Inquiry)
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.02
   Scenario: US1096246::0
@@ -12,6 +13,7 @@ Feature: F183241 - DOMAIN MS Optum - Create Provider Contract Query API (Inquiry
     When A REST Service call is made
     Then The contract data is sent back to PIC or Examiner
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.02
   Scenario: US1096246::1
@@ -19,6 +21,7 @@ Feature: F183241 - DOMAIN MS Optum - Create Provider Contract Query API (Inquiry
     When A REST Service call is made with invalid data
     Then The service will return an error
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.02
   Scenario: US1096246::2
@@ -34,6 +37,7 @@ Feature: F183241 - DOMAIN MS Optum - Create Provider Contract Query API (Inquiry
     Then an API interface specification is created and available
     # API Interface Specification is need to define API request/response
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1148895::0
@@ -41,6 +45,7 @@ Feature: F183241 - DOMAIN MS Optum - Create Provider Contract Query API (Inquiry
     When A REST Service call is made
     Then The contract data is sent back to PIC or Examiner
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1148895::1
@@ -48,6 +53,7 @@ Feature: F183241 - DOMAIN MS Optum - Create Provider Contract Query API (Inquiry
     When A REST Service call is made with invalid data
     Then The service will return an error
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1148895::2
@@ -76,6 +82,7 @@ Feature: F183241 - DOMAIN MS Optum - Create Provider Contract Query API (Inquiry
     When The REST service is unavailable
     Then An server error will be returned
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1148878::0
@@ -83,6 +90,7 @@ Feature: F183241 - DOMAIN MS Optum - Create Provider Contract Query API (Inquiry
     When A REST Service call is made
     Then The contract data is sent back to PIC or Examiner
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1148878::1
@@ -90,6 +98,7 @@ Feature: F183241 - DOMAIN MS Optum - Create Provider Contract Query API (Inquiry
     When A REST Service call is made with invalid data
     Then The service will return an error
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1148878::2

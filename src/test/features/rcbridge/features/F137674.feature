@@ -10,9 +10,7 @@ Feature: F137674 - Administer Global Entity Attributes
   Scenario: US1116731
     Given I am an Administrative User
     When I need to expire an Identifier Type
-    Then I can view all active and inactive existing Identifier Types
-    And Active and Inactive Identifier Types are visibly differentiated
-    And I can expire an existing Identifier Type
+    Then I can expire an existing Identifier Type
     And Users can no longer select that Identifier Type to define an Identifier
     And all records using that Identifier Type retain the historical value
 
@@ -22,9 +20,7 @@ Feature: F137674 - Administer Global Entity Attributes
   Scenario: US1116723
     Given I am an Administrative User
     When I need to expire a Relationship Role
-    Then I can view all active and inactive existing Relationship Roles
-    And Active and Inactive Relationship Roles are visibly differentiated
-    And I can expire an existing Relationship Role
+    Then I can expire an existing Relationship Role
     And Users can no longer select that Relationship Role to define an Entity relationship
     And all records using that Relationship Role retain the historical value
 
@@ -54,14 +50,13 @@ Feature: F137674 - Administer Global Entity Attributes
     And I have the ability to cascade update to all records using that Entity Type
 
   @MVP
+  @EXARI-11249
   @CLM_UAT
   @2018.PI03
   Scenario: US1116715
     Given I am an Administrative User
     When I need to expire an Entity Type
-    Then I can view all active and inactive existing Entity Types
-    And Active and Inactive Entity Types are visibly differentiated
-    And I can expire an existing Entity Type
+    Then I can expire an existing Entity Type
     And Users can no longer select that Entity Type to define an Entity
     And all records using that Entity Type retain the historical value
 
@@ -121,13 +116,12 @@ Feature: F137674 - Administer Global Entity Attributes
   Scenario: US1116738
     Given I am an Administrative User
     When I need to expire an Identifier Relationship Type
-    Then I can view all active and inactive existing Identifier Relationship Types
-    And Active and Inactive Identifier Relationship Types are visibly differentiated
-    And I can expire an existing Identifier Relationship Type
+    Then I can expire an existing Identifier Relationship Type
     And Users can no longer select that Identifier Relationship Type to define an Identifier
     And all records using that Identifier Relationship Type retain the historical value
 
   @MVP
+  @EXARI-11792
   @EXARI-11249
   @CLM_UAT
   @2018.PI03
@@ -149,6 +143,7 @@ Feature: F137674 - Administer Global Entity Attributes
     And Users can select that Relationship Role to define an Entity relationship
 
   @MVP
+  @EXARI-11792
   @EXARI-11249
   @CLM_UAT
   @2018.PI03
@@ -170,15 +165,14 @@ Feature: F137674 - Administer Global Entity Attributes
     And I have the ability to cascade update to all records using that Identifier Relationship Type
 
   @MVP
+  @EXARI-11792
   @EXARI-11249
   @CLM_UAT
   @2018.PI03
   Scenario: US949962
     Given I am an Administrative User
     When I need to update an existing Account Type
-    Then I can view all active and inactive existing Account Types
-    And Active and Inactive Account Types are visibly differentiated
-    And I can update an existing Account Type
+    Then I can update an existing Account Type
     And I have the ability to cascade update to all records using that Account Type
 
   @MVP
@@ -187,9 +181,7 @@ Feature: F137674 - Administer Global Entity Attributes
   Scenario: US1116722
     Given I am an Administrative User
     When I need to expire a Relationship Type
-    Then I can view all active and inactive existing Relationship Types
-    And Active and Inactive Relationship Types are visibly differentiated
-    And I can expire an existing Relationship Type
+    Then I can expire an existing Relationship Type
     And Users can no longer select that Relationship Type to define an Entity relationship
     And all records using that Relationship Type retain the historical value
 
@@ -227,6 +219,7 @@ Feature: F137674 - Administer Global Entity Attributes
     And I have the ability to cascade update to all records using that Relationship Type
 
   @MVP
+  @EXARI-11792
   @EXARI-11249
   @CLM_UAT
   @2018.PI03
@@ -242,9 +235,7 @@ Feature: F137674 - Administer Global Entity Attributes
   Scenario: US1116732
     Given I am an Administrative User
     When I need to expire an AccountType
-    Then I can view all active and inactive existing Account Types
-    And Active and Inactive Account Types are visibly differentiated
-    And I can expire an existing Account Type
+    Then I can expire an existing Account Type
     And Users can no longer select that Account Type to define an Entity
     And all records using that Account Type retain the historical value
 
@@ -259,15 +250,14 @@ Feature: F137674 - Administer Global Entity Attributes
     And Users can select that Entity Type to define an Entity
 
   @MVP
+  @EXARI-11792
   @EXARI-11249
   @CLM_UAT
   @2018.PI03
   Scenario: US1116730
     Given I am an Administrative User
     When I need to expire an Entity Characteristic Type
-    Then I can view all active and inactive existing Entity Characteristic Types
-    And Active and Inactive Entity Characteristic Types are visibly differentiated
-    And I can expire an existing Entity Characteristic Type
+    Then I can expire an existing Entity Characteristic Type
     And Users can no longer select that Entity Characteristic Type to define an Entity
     And all records using that Entity Characteristic Type retain the historical value
 

@@ -1,4 +1,4 @@
-# Last updated on 2018-06-15T14:17:41.931Z
+# Last updated on 2018-06-21T16:10:53.023Z
 @MVP
 @Plus
 @Priority_1
@@ -6,6 +6,7 @@ Feature: F137671 - Add and Remove Entity to Entity Relationships
 
   @MVP
   @CLM_UAT
+  @EXARI-11696
   @2018.PI03
   Scenario: US858664
     Given I am a User with access to maintain Entity information
@@ -13,8 +14,8 @@ Feature: F137671 - Add and Remove Entity to Entity Relationships
     Then I can define the Entity Relationship Role of each Entity in the relationship
 
   @MVP
-  @EXARI-11267
   @CLM_UAT
+  @EXARI-11696
   @2018.PI03
   Scenario: US858667
     Given I am a User with access to maintain Entity information
@@ -35,8 +36,8 @@ Feature: F137671 - Add and Remove Entity to Entity Relationships
     And I capture the time and date of when the User performed the change
 
   @MVP
-  @EXARI-11267
   @CLM_UAT
+  @EXARI-11696
   @2018.PI03
   Scenario: US858666
     Given I am a User with access to maintain Entity information
@@ -45,8 +46,8 @@ Feature: F137671 - Add and Remove Entity to Entity Relationships
     And I can select a new Relationship Type for an Entity in the relationship
 
   @MVP
-  @EXARI-11249
   @CLM_UAT
+  @EXARI-11696
   @2018.PI03
   Scenario: US858665
     Given I am a User with access to maintain Entity information

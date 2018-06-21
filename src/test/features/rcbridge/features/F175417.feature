@@ -145,6 +145,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     And An error is logged to the logfile
     # An interface specification is defined for the service API
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.04
   Scenario: US1128296::0
@@ -153,6 +154,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then I will see the latency of the response,
     And I will see how the consumer micro service performs.
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.04
   Scenario: US1128296::1
@@ -161,6 +163,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then I will see the latency of the response,
     And I will see how the consumer micro service performs.
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.04
   Scenario: US1128296::2

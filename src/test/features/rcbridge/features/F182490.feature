@@ -1,10 +1,11 @@
-# Last updated on 2018-06-20T20:28:55.137Z
+# Last updated on 2018-06-21T16:37:12.342Z
 @MVP
 @PI02_Top3
 @Plus
 @Parity
 Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's - Optum
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.02
@@ -14,6 +15,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
     Then the service will return a "False" value
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.02
@@ -23,6 +25,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
     Then the service will return a "True" value
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.02
@@ -32,6 +35,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
     Then the service will return a "False" value
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.02
@@ -40,6 +44,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     When finding the Specialty in ETMA
     Then the service will return a "False" value
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.02
@@ -48,6 +53,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     When finding the Org Type in ETMA
     Then the service will return a "False" value
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.02
@@ -56,6 +62,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     When finding the Specialty in ETMA
     Then the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.02
@@ -64,6 +71,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     When finding the Specialty in ETMA
     Then service will NOT return paper types "ANC_Facility Participation" from the ETMA table
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.04
@@ -90,6 +98,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     And the service should return an status code. "503 service is unavailable".
     Then the error message is return to the user.
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.02
@@ -99,6 +108,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
     Then the service will return a "True" value
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.02
@@ -108,6 +118,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
     Then the service will return a "False" value
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.03
@@ -116,6 +127,24 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     When the Exari calls ETMA
     Then an external data query will return the requested data.
 
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1180657
+    Given issues on Sonar dashboard that must be fixed
+    When Sonar is used on our services
+    Then any issues must be fixed
+    And we must move to the next quality gate our services for Counter Party, ETMA, RFP, and External Data Query Library
+    #High and Critical reported issues on Sonar dashboard must be fixed and we must move to next quality gate on all the below micro services:
+    #
+    #1. Counter Party
+    #
+    #2. ETMA
+    #
+    #3. RFP
+    #
+    #4. External data query library
+
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.02
@@ -124,6 +153,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     When the Specialty Codes are not found in ETMA
     Then service will return a a "False" value for each specialty code and paper type combination
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.02
@@ -132,6 +162,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     When the Org Types are not found in ETMA
     Then service will return a a "False" value for each org type and paper type combination
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.02
@@ -140,6 +171,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     When finding the Org Type in ETMA
     Then the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.02
@@ -148,6 +180,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     When finding the Org Type in ETMA
     Then service will NOT return paper types "SMGA, SMGA, SPAT, MGA" from the ETMA table
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.03
@@ -156,6 +189,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     When the Exari calls ETMA
     Then an external data query will return the requested data.
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.02
@@ -165,6 +199,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
     Then the service will return a "False" value
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.04
@@ -172,6 +207,16 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     When ETMA is queried for the retro reason code
     Then all of the retro reason codes are returned
 
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1180600
+    Given a need for documentation on connection to our services
+    When visiting the swagger page for our service
+    Then you can view the documentation
+    And you can execute the services
+    And you can validate the responses for given input parameters
+
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.04

@@ -1,4 +1,4 @@
-# Last updated on 2018-06-20T19:30:08.803Z
+# Last updated on 2018-06-21T14:05:44.528Z
 @MVP
 @PI02_Top3
 @CLM_Exari
@@ -11,21 +11,36 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
   @PES
   @2018.PI02
   @2018.PI02.04
-  Scenario: US861016
+  Scenario: US861016::0
     Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "30"
+    When I search for a Counterparty using MPIN of "30" #for Physician
     Then PES returns the following information:
       | address          |
       | mpin             |
       | tin              |
       | firstName        |
       | lastName         |
-      | facilityName     |
       | specialties      |
       | providerTypeCode |
       | phoneNumbers     |
 
     #And the system displays results with the best match first (Need to clarify this)
+
+  @CLM_UAT
+  @Provider_Demograhics
+  @PES
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US861016::1
+    Given I am a User with access to add a Counterparty to an Interview
+    When I search for a Counterparty using MPIN of "6177192" #for Facility
+    Then PES returns the following information:
+      | facilityName     |
+      | address          |
+      | mpin             |
+      | tin              |
+      | providerTypeCode |
+
 
   @2018.PI02
   Scenario: US1131742
@@ -138,6 +153,13 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     Given a user needs to call PES
     When a catastrophic error occurs
     Then a service ticket will need to be created.
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1178363
+    When a user calls the service and service is unable to fulfill the request
+    Then it must respond back with appropriate error code
+    And client must show the error details with sufficient information to guide them in order to take an action to resolve the error situation
 
   @2018.PI02
   @2018.PI02.04

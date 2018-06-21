@@ -1,8 +1,8 @@
-# Last updated on 2018-06-19T21:48:51.838Z
+# Last updated on 2018-06-21T16:18:44.162Z
 @MVP
 @Parity
 @7.5_Release
-Feature: F199771 - Unscheduled for 7.5 Release
+Feature: F199771 - Unscheduled for 7.5 Release (Mass Actions)
 
   @MVP
   @EXARI-10227

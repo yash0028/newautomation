@@ -1,4 +1,4 @@
-# Last updated on 2018-06-19T20:01:02.707Z
+# Last updated on 2018-06-21T14:05:29.538Z
 @MVP
 @PI02_Top3
 @Plus
@@ -119,19 +119,19 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
       | Accepting Applications (M&V) |
 
 
-  @RFP
   @2018.PI02
   @2018.PI02.04
-  Scenario: US1035921::0
-    Given the provider's Specialty "abc123" is passed to the RFP service
-    When finding the Specialty in RFP
-    Then the RFP service will return a "False" value
-
-  @RFP
-  @2018.PI02
-  @2018.PI02.04
-  Scenario: US1035921::1
-    Given the provider's Org Type "abc123" is passed to the RFP service
-    When finding the Org Type in RFP
-    Then the RFP service will return a "False" value
+  Scenario: US1177013
+    Given a need to improve the RFP microservice
+    Then the service must have 90 percent or greater test coverage with sonar
+    And extensive logging statements for info and debug
+    And more thorough documentation expanded on the default swagger config
+    And an improved upload.html
+    #90+% test coverage/ build with sonar
+    #
+    #Extensive logging(info and debug) statements
+    #
+    #More thorough documentation (expand on the default swagger config)
+    #
+    #Improve upload.html
 
