@@ -40,6 +40,5 @@ dependencies {
 
 test {
 
-
-  systemProperty "cucumber.options", System.properties.getProperty("cucumber.options") + System.properties.getProperty(System.properties.getProperty("tags"))
+  systemProperty "cucumber.options", System.properties.getProperty("cucumber.options")
 }
