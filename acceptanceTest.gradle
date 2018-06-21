@@ -60,4 +60,5 @@ def serviceMap(serviceName){
             result = ''
             break
     }
+    result
 }
