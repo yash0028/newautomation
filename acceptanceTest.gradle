@@ -41,7 +41,7 @@ dependencies {
 test {
 
 
-  systemProperty "cucumber.options", System.properties.getProperty("cucumber.options") + serviceMap(System.properties.getProperty("tags"))
+  systemProperty "cucumber.options", System.properties.getProperty("cucumber.options") + serviceMap("exari-table-maint-api")
 }
 
 def serviceMap(serviceName){
