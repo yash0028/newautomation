@@ -60,5 +60,6 @@ def serviceMap(serviceName){
             result = ''
             break
     }
+    print('SERVICE MAP RESULT: ' + result)
     result
 }
