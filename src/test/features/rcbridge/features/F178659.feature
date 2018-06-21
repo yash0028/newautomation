@@ -3,6 +3,7 @@
 @Plus
 Feature: F178659 - Exari>NDB  Contract Lock-down Physician and Facility - CF Team
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1065276
@@ -24,6 +25,7 @@ Feature: F178659 - Exari>NDB  Contract Lock-down Physician and Facility - CF Tea
     When a user attempts manual update or mass update from any other program asside Exari
     Then the contract will edit that the contract is NOT available for update
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.02
   Scenario: US1148671

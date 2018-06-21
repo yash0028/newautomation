@@ -4,6 +4,7 @@
 @Parity
 Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1093329
@@ -11,6 +12,7 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     When I process a Filed contract as a base agreement
     Then all applicable metadata files and attachments are successfully generated and there are no errors due to no contract language file
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.02
   Scenario: US1088438
@@ -18,6 +20,7 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     When I read the contracts in order of Contract Class as defined in the Contract Class Order excel document
     Then I am able to build the metadata files and attachments, and write to the Base Driver Table, in the order specified
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.02
   Scenario: US1088519
@@ -39,6 +42,7 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     When I review the migration documentation
     Then I will find a reference to the pertinent detailed functionality from each User Story
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1100068
@@ -46,6 +50,7 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     When I read the Exari Loading Status column
     Then I am able to provide metrics that identify the success/failure rate of all contracts, for a given Market Number, into Exari
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1134952
@@ -53,6 +58,7 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     When I read the contracts in order of Contract Class as defined in the Contract Class Order excel document
     Then I am able to build the metadata files and attachments, and write to the Base Driver Table, in the order specified
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1096631
@@ -60,6 +66,7 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     When the contract is identified as processing an Exception contract
     Then a Yes is populated into the Base_Exception column
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1134949
@@ -67,6 +74,7 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     When I read the contracts in order of Contract Class as defined in the Contract Class Order excel document
     Then I am able to build the metadata files and attachments, and write to the Base Driver Table, in the order specified
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.02
   Scenario: US1096678
@@ -74,6 +82,7 @@ Feature: F183061 - Enhance Migration Logic from Emptoris to Exari
     When I attempt to open the contract in the Emptoris application
     Then I receive a contract is locked message in the Emptoris application
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.04
   Scenario: US1172552

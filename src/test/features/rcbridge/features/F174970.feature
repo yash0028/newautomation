@@ -4,6 +4,7 @@
 @Parity
 Feature: F174970 - Create Pre-Migration reporting process to account for all contracts by Pilot Market Number(s)
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1123626
@@ -11,6 +12,7 @@ Feature: F174970 - Create Pre-Migration reporting process to account for all con
     When I run the Pre-Migration Market Number report
     Then I receive all contracts that reside in Emptoris for the given Market Number(s), with the columns populated as applicable
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1101219
@@ -18,6 +20,7 @@ Feature: F174970 - Create Pre-Migration reporting process to account for all con
     When I run the Pre-Migration Market Number report
     Then I receive all contracts that reside in Emptoris for the given Market Number(s), with the columns populated as applicable
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1093136

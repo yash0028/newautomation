@@ -1,4 +1,4 @@
-# Last updated on 2018-06-19T19:43:26.002Z
+# Last updated on 2018-06-20T20:28:55.137Z
 @MVP
 @PI02_Top3
 @Plus
@@ -72,6 +72,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     When the Exari calls ETMA
     Then an external data query will return the requested data.
 
+  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.01

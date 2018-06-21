@@ -53,6 +53,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     When the team analysis business and technical needs
     Then an approach document for handling error messages and status is created
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1095937::0
@@ -62,6 +63,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then The result is checked for errors
     And The data is sent to the downstream updaters
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1095937::1
@@ -70,6 +72,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     And One or more domain services send an error
     Then The transaction is aborted with an error sent to the transaction log
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1095937::2
@@ -106,6 +109,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     When a transaction status event is received but the database is unavailable
     Then Write a message to an error log
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1077918::0
@@ -114,6 +118,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then A new transaction id is generated
     And A transaction initialization message is published to the transaction log topic
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1077918::1
@@ -121,6 +126,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     When A transaction state change is submitted
     Then A transaction state change message is published to the transaction log topic
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1077918::2
@@ -129,6 +135,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then The REST api returns a not found error
     And An error is logged to the logfile
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1077918::3
@@ -205,6 +212,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then I will see the latency of the response,
     And I will see how the consumer micro service performs.
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1100194::0
@@ -212,6 +220,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     When the scenario simulates an update is successful
     Then a returned event transaction state
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.01
   Scenario: US1100194::1

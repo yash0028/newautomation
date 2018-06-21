@@ -6,6 +6,7 @@
 @Parity
 Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (Demographic) - Optum
 
+  @CLM_UAT
   @Provider_Demograhics
   @PES
   @2018.PI02
@@ -20,7 +21,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
       | firstName        |
       | lastName         |
       | facilityName     |
-      | specialtyCode    |
+      | specialties      |
       | providerTypeCode |
       | phoneNumbers     |
 
@@ -41,6 +42,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     And the Exari Provider Roster indicates which Providers had a match
     And the Exari Provider Roster indicates which Providers were not found
 
+  @CLM_UAT
   @PES
   @2018.PI02
   @2018.PI02.01
@@ -72,6 +74,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
 
     And the system displays results with the best match first
 
+  @CLM_UAT
   @PES
   @2018.PI02
   @2018.PI02.03
@@ -109,6 +112,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
       | providerTypeCode |
 
 
+  @CLM_UAT
   @PES
   @2018.PI02
   @2018.PI02.01
@@ -117,6 +121,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     When a user incorrectly inputs data
     Then the user receives a bad input error message
 
+  @CLM_UAT
   @PES
   @2018.PI02
   @2018.PI02.01
@@ -125,6 +130,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     When the system goes down
     Then the user receives a system error message
 
+  @CLM_UAT
   @PES
   @2018.PI02
   @2018.PI02.01

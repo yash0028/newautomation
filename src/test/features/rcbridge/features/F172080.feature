@@ -24,6 +24,7 @@ Feature: F172080 - Exari>COSMOS - Physician Payload -  CF Team
     When COSMOS received all necessary information from business project and Exari teams
     Then the COSMOS CF team will be able to complete their analysis successfully
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.04
   Scenario: US1090871
@@ -43,6 +44,7 @@ Feature: F172080 - Exari>COSMOS - Physician Payload -  CF Team
     When COSMOS received all necessary information from business project and Exari teams
     Then the COSMOS CF team will be able to complete their analysis successfully
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.02
   Scenario: US1147465

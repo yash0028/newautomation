@@ -4,6 +4,7 @@
 @Parity
 Feature: F182721 - Exari>NDB/COSMOS Physician - NDB Demographic update/Panel update - Analysis
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.04
   Scenario: US1086310

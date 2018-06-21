@@ -107,6 +107,7 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     When creating the services needed to support each event
     Then a standardized schema exists and is applied
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.02
   Scenario: US1144455::0
@@ -114,6 +115,7 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     When all of the NDB edits are successful
     Then the NDB microservices are ready to update NDB
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.02
   Scenario: US1144455::1
@@ -121,6 +123,7 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     When all of the NDB edits are not successful
     Then the NDB microservices creates an error message
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.02
   Scenario: US1144455::2

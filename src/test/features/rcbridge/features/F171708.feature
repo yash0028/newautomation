@@ -11,6 +11,7 @@ Feature: F171708 - Exari>NDB/COSMOS Physician Contracting Payload - CF Team
     When the NDB/COSMOS panel data is received, NDB will load the Cosmos panel
     Then same panel data shouldn't feed to Cosmos
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.03
   Scenario: US1169110
@@ -39,6 +40,7 @@ Feature: F171708 - Exari>NDB/COSMOS Physician Contracting Payload - CF Team
     When the contract is included in the Exari Physician Contract Payload to NDB
     Then NDB should load the Panel to the NDB/COSMOS Panel screen successfully
 
+  @CLM_UAT
   @2018.PI02
   @2018.PI02.02
   Scenario: US1148672

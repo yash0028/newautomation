@@ -6,6 +6,7 @@
 @Exari_Microservice
 Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Optum
 
+  @CLM_UAT
   @RFP
   @2018.PI02
   @2018.PI02.03
@@ -24,6 +25,7 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
       | Accepting Applications (M&V) |
 
 
+  @CLM_UAT
   @RFP
   @2018.PI02
   @2018.PI02.03
@@ -88,6 +90,7 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
     When a catastrophic error occurs
     Then a service ticket will need to be created.
 
+  @CLM_UAT
   @RFP
   @2018.PI02
   @2018.PI02.04
@@ -95,6 +98,7 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
     Given Exari will need to call our API
     Then a web client will need to be created.
 
+  @CLM_UAT
   @RFP
   @2018.PI02
   @2018.PI02.04

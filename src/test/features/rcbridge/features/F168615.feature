@@ -2,6 +2,7 @@
 @MVP
 Feature: F168615 - Integrate Exari with one central UHG location (Part 1)
 
+  @CLM_UAT
   @2018.PI01
   @2018.PI01.05
   Scenario: US1072917
