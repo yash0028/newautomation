@@ -1,4 +1,4 @@
-# Last updated on 2018-06-15T13:51:17.708Z
+# Last updated on 2018-06-21T20:25:55.025Z
 @MVP
 @Plus
 @Priority_1
@@ -28,6 +28,7 @@ Feature: F137657 - Add Entity
   @EXARI-11249
   @CLM_UAT
   @EXARI-10726
+  @2018.PI03
   Scenario: US1167901
     Given I am a User with access to create Entities
     When I need to setup an Entity
@@ -38,6 +39,7 @@ Feature: F137657 - Add Entity
   @EXARI-11249
   @CLM_UAT
   @EXARI-10726
+  @2018.PI03
   Scenario: US1167899
     Given I am a User with access to create Entities
     When I need to setup an Entity
@@ -48,20 +50,12 @@ Feature: F137657 - Add Entity
   @EXARI-11249
   @CLM_UAT
   @EXARI-10726
+  @2018.PI03
   Scenario: US1167898
     Given I am a User with access to create Entities
     When I need to setup an Entity
     Then I can add an Alternate Name
     #optional field
-
-  @MVP
-  @CLM_UAT
-  @EXARI-8603
-  @2018.PI03
-  Scenario: US950779
-    Given I am the Entity Management Solution
-    When A User sets up a new Entity
-    Then I assign an Entity Workflow status to the new Entity
 
   @MVP
   @EXARI-11249
@@ -88,6 +82,7 @@ Feature: F137657 - Add Entity
   @EXARI-11249
   @CLM_UAT
   @EXARI-10726
+  @2018.PI03
   Scenario: US1167891
     Given I am a User with access to create Entities
     When I need to setup an Entity

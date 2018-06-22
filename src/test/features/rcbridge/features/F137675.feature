@@ -6,6 +6,7 @@ Feature: F137675 - Administer Business Rules
 
   @MVP
   @CLM_UAT
+  @2018.PI03
   Scenario: US1179398
     Given I am a User
     When I create a relationship between an Entity and a Messenger Model IPA

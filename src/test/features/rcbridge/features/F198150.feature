@@ -3,7 +3,6 @@
 Feature: F198150 - Removed stories
 
   @EXARI-11271
-  @2018.PI03
   Scenario: US1094099
     Given I am a User with Approval Authority
     When a User updates an Identifier and submits for approval
@@ -13,7 +12,6 @@ Feature: F198150 - Removed stories
     And the Identifier updates are routed back to the User for modifications
 
   @EXARI-11271
-  @2018.PI03
   Scenario: US1094105
     Given I am a User with Approval Authority
     When a User adds a Entity Demographic information and submits for approval
@@ -22,7 +20,6 @@ Feature: F198150 - Removed stories
     And I can reject the Entity Demographic information
     And the Entity Demographic information is routed back to the User for updates
 
-  @2018.PI03
   Scenario: US1090067
     Given I am a User with access to maintain Entity information
     When I need to inactivate the relationship between an Identifier and an Entity
@@ -30,7 +27,6 @@ Feature: F198150 - Removed stories
     And the Entity retains the effective and end dates for when it was in an active relationship with the Identifier
     And the Identifier retains the effective and end dates for when it was in an active relationship with the Entity
 
-  @2018.PI03
   Scenario: US1089924
     Given I am the Entity Management Solution
     When a User updates an Identifier to an Entity
@@ -39,7 +35,6 @@ Feature: F198150 - Removed stories
     And the User must select the existing Owner for the Identifier or assign new Owner if not present
 
   @EXARI-11249
-  @2018.PI03
   Scenario: US1089668
     Given I am the Entity Management Solution
     When a User updates an Identifier on an Entity
@@ -48,7 +43,6 @@ Feature: F198150 - Removed stories
 
   @EXARI-11643
   @Non_MVP
-  @2018.PI03
   Scenario: US858630
     Given I am a User with access to maintain Entity information
     When I need to archive an existing attachment on an Entity that is no longer valid
@@ -57,7 +51,6 @@ Feature: F198150 - Removed stories
     And my User credentials are logged with the action
 
   @EXARI-11271
-  @2018.PI03
   Scenario: US1094113
     Given I am a User with Approval Authority
     When a User adds an Owner to an Identifier and submits for approval
@@ -67,14 +60,12 @@ Feature: F198150 - Removed stories
     And the Owner assignment is routed back to the User for updates
 
   @EXARI-11249
-  @2018.PI03
   Scenario: US858621
     Given I am a User with access to maintain Entities
     When I want to add demographic information to an Entity
     Then I can add Entity demographic information to the Entity
     And the added Entity demographic information enters the approval process workflow
 
-  @2018.PI03
   Scenario: US922831
     Given I am a User with access to maintain Entity information
     When I want to inactivate demographic information on an Entity
@@ -82,14 +73,12 @@ Feature: F198150 - Removed stories
     And the inactivated Entity demographic information enters the approval process workflow
 
   @EXARI-11249
-  @2018.PI03
   Scenario: US858622
     Given I am a User with access to maintain Entity information
     When I want to update demographic information on an Entity
     Then I can update Entity demographic information on the Entity
     And the updated Entity demographic information enters the approval process workflow
 
-  @2018.PI03
   Scenario: US1114661
     Given I am the Entity Management Solution
     When a User attempts to add a second Owner to an Organizational Unit
@@ -97,7 +86,6 @@ Feature: F198150 - Removed stories
     And the Organizational Unit can not have two active Owners at the same time
 
   @EXARI-11273
-  @2018.PI03
   Scenario: US858625
     Given I am a User with access to view and maintain Entity information
     When I want to view historical changes to demographic information on an Entity
@@ -106,14 +94,12 @@ Feature: F198150 - Removed stories
     And I can view the User who performed the demographic information value change
     And I can view the time and date the User performed the demographic information value change
 
-  @2018.PI03
   Scenario: US1114656
     Given I am the Entity Management Solution
     When a User attempts to add a second Owner to a TIN
     Then the User can change the TIN Owner to a different Owner
     And the TIN can not have two active Owners at the same time
 
-  @2018.PI03
   Scenario: US1094101
     Given I am a User with Approval Authority
     When a User voids an Identifier and submits for approval
@@ -122,14 +108,12 @@ Feature: F198150 - Removed stories
     And I can reject the Identifier void
     And the Identifier remains active in the Entity Management Solution
 
-  @2018.PI03
   Scenario: US1089508
     Given I am a User
     When I need to update an Entity Address
     Then I have the ability to update Entity Address
     And the updated Entity enters the approval process workflow
 
-  @2018.PI03
   Scenario: US1089526
     Given I am the Entity Management Solution
     When A User updates an Entity Address
@@ -138,14 +122,12 @@ Feature: F198150 - Removed stories
     And User has ability to override duplicate or select from the potential duplicate list
 
   @EXARI-11249
-  @2018.PI03
   Scenario: US1089624
     Given I am the Entity Management Solution
     When a User adds an Identifier to an Entity
     Then I perform field validation to ensure the Identifier was entered in the correct format based on Identifier Type selected
     And I perform a duplicate check on the new Identifier
 
-  @2018.PI03
   Scenario: US1089630
     Given I am the Entity Management Solution
     When a User adds an Identifier to an Entity
@@ -153,7 +135,6 @@ Feature: F198150 - Removed stories
     And I display Owner associated to the Identifier
     And the User must select the existing Owner for the Identifier or assign new Owner if not present
 
-  @2018.PI03
   Scenario: US1089633
     Given I am a User with access to maintain Entity information
     When I want to add an Owner to an Identifier
@@ -168,7 +149,6 @@ Feature: F198150 - Removed stories
     And the updated Identifier enters the approval process workflow
 
   @EXARI-11274
-  @2018.PI03
   Scenario: US1089525
     Given I am the Entity Management Solution
     When A User updates an Entity Identifier
@@ -176,13 +156,11 @@ Feature: F198150 - Removed stories
     And I display duplicates
     And User must select existing Entity Identifier from the duplicate list or keep current Entity Identifier if no duplicates
 
-  @2018.PI03
   Scenario: US950017
     Given I am a User with access to maintain Entity information
     When I need to void the relationship between an Identifier and an Entity
     Then I can enter an end date to terminate the relationship between the Identifier and the Entity
 
-  @2018.PI03
   Scenario: US955716
     Given I am a User with access to maintain Entity information
     When I need to change the Owner of an Identifier
@@ -193,7 +171,6 @@ Feature: F198150 - Removed stories
     And I must select a new Owner
 
   @EXARI-11698
-  @2018.PI03
   Scenario: US858628
     Given I am a User with access to maintain Entity information
     When I want to update a note on an Entity
@@ -203,7 +180,6 @@ Feature: F198150 - Removed stories
     And my user credentials are systematically added to the note
 
   @EXARI-11274
-  @2018.PI03
   Scenario: US1089628
     Given I am the Entity Management Solution
     When a User updates an Identifier to an Entity
@@ -213,7 +189,6 @@ Feature: F198150 - Removed stories
     And the User is required to assign an Owner to the Identifier
 
   @EXARI-11274
-  @2018.PI03
   Scenario: US1089625
     Given I am the Entity Management Solution
     When a User adds an Identifier to an Entity
@@ -223,14 +198,12 @@ Feature: F198150 - Removed stories
     And if Identifier does not exist, the User is allowed to proceed and create new
     And the User is required to assign an Owner to the Identifier
 
-  @2018.PI03
   Scenario: US922827
     Given I am a User with access to maintain Entity information
     When I need to inactivate an Address listed on an Entity
     Then I can inactivate the Address for an Entity
     And the updated Entity enters the approval process workflow
 
-  @2018.PI03
   Scenario: US1094114
     Given I am a User with Approval Authority
     When a User inactivates an Owner from an Identifier and submits for approval
@@ -239,7 +212,6 @@ Feature: F198150 - Removed stories
     And I can reject the Owner assignment inactivation
     And the Owner assignment inactivation is routed back to the User for updates
 
-  @2018.PI03
   Scenario: US1089509
     Given I am a User
     When I need to update an Entity Address Type
@@ -247,7 +219,6 @@ Feature: F198150 - Removed stories
     And the updated Entity enters the approval process workflow
 
   @EXARI-11271
-  @2018.PI03
   Scenario: US1094106
     Given I am a User with Approval Authority
     When a User updates a Entity Demographic information and submits for approval
@@ -256,7 +227,6 @@ Feature: F198150 - Removed stories
     And I can reject the Entity Demographic information updates
     And the Entity Demographic informationupdates are routed back to the User for modifications
 
-  @2018.PI03
   Scenario: US1114662
     Given I am the Entity Management Solution
     When a User is adding an Owner to a TIN
@@ -264,7 +234,6 @@ Feature: F198150 - Removed stories
 
   @EXARI-11249
   @EXARI-11267
-  @2018.PI03
   Scenario: US1089944
     Given I am a User with access to maintain Entity information
     When I update an Identifier on an Entity
@@ -273,13 +242,11 @@ Feature: F198150 - Removed stories
     And Effective date can be in the future or retroactive
     And the updated Entity enters the approval process workflow
 
-  @2018.PI03
   Scenario: US1114659
     Given I am the Entity Management Solution
     When a TIN does not have an Owner
     Then I require the User to add an Owner to the TIN
 
-  @2018.PI03
   Scenario: US1094107
     Given I am a User with Approval Authority
     When a User inactivates Entity Demographic information and submits for approval
@@ -290,7 +257,6 @@ Feature: F198150 - Removed stories
 
   @EXARI-11249
   @EXARI-11267
-  @2018.PI03
   Scenario: US858616
     Given I am a User with access to maintain Entity information
     When I add an Identifier to an Entity

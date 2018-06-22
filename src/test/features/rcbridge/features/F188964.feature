@@ -1,4 +1,4 @@
-# Last updated on 2018-06-20T18:37:48.151Z
+# Last updated on 2018-06-21T20:39:17.729Z
 @MVP
 @Plus
 @Priority_1
@@ -50,18 +50,6 @@ Feature: F188964 - View Entity History
     And I can view Entity inactivation dates with Users who performed the changes
     And I can view Entity Type update dates with Users who performed the changes
     And I can view Entity update dates with Users who performed the changes
-
-  @MVP
-  @CLM_UAT
-  @EXARI-11273
-  @2018.PI03
-  Scenario: US858606
-    Given I am a User with access to view and maintain Entity information
-    When I want to view approvals for modifications made to Entities
-    Then I can view the time and date the modification was made
-    And I can view the time and date the approval was granted
-    And I can view the User who performed the change
-    And I can view the User with Approval Authority who approved the change
 
   @MVP
   @CLM_UAT

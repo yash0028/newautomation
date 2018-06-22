@@ -31,7 +31,6 @@ Feature: F152967 - Inactivate Entity
     When I want to deactivate an Entity
     Then I have the ability to indicate that the Entity is no longer active
     And all inactivated relationships associated to the Entity are retained (not orphaned)
-    And the updated Entity enters the approval process workflow
 
   @MVP
   @EXARI-11273

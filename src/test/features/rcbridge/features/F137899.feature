@@ -6,14 +6,14 @@
 @Parity
 Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (Demographic) - Optum
 
-  @CLM_UAT
   @Provider_Demograhics
   @PES
   @2018.PI02
   @2018.PI02.04
   Scenario: US861016::0
+    #for Physician
     Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "30" #for Physician
+    When I search for a Counterparty using MPIN of "30"
     Then PES returns the following information:
       | address          |
       | mpin             |
@@ -26,12 +26,12 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
 
     #And the system displays results with the best match first (Need to clarify this)
 
-  @CLM_UAT
   @Provider_Demograhics
   @PES
   @2018.PI02
   @2018.PI02.04
   Scenario: US861016::1
+    #for Facility
     Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "6177192" #for Facility
     Then PES returns the following information:

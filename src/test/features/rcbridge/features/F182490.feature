@@ -199,7 +199,6 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     And the service returns paper types "PHO, ANC_AmeriChoice_Facility Participation, FPA, ANC_Facility Participation, ANC_Appendix, COM, GOV, Amendment FPA, Empire ANC Appendix, Empire Ancillary Agreement" as matched in ETMA table
     Then the service will return a "False" value
 
-  @CLM_UAT
   @ETMA
   @2018.PI02
   @2018.PI02.04

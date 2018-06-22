@@ -1,10 +1,7 @@
-# Last updated on 2018-06-18T17:57:35.916Z
-@MVP
-@Plus
-@Priority_1
+# Last updated on 2018-06-21T20:30:16.428Z
+
 Feature: F137658 - Approve Entity Modifications
 
-  @MVP
   @EXARI-11271
   @2018.PI03
   Scenario: US858605
@@ -15,8 +12,6 @@ Feature: F137658 - Approve Entity Modifications
     And I capture the date and time the approval was granted
     And I capture the User with Approval Authority who approved the change
 
-  @MVP
-  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US1094095
@@ -27,8 +22,6 @@ Feature: F137658 - Approve Entity Modifications
     And I can reject the Entity updates
     And the Entity updates are routed back to the User for modifications
 
-  @MVP
-  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US1094104
@@ -39,8 +32,6 @@ Feature: F137658 - Approve Entity Modifications
     And I can reject the Entity relationship import
     And the Entity relationships are not added to the Entity Management Solution
 
-  @MVP
-  @CLM_UAT
   @2018.PI03
   Scenario: US1094100
     Given I am a User with Approval Authority
@@ -50,8 +41,6 @@ Feature: F137658 - Approve Entity Modifications
     And I can reject the Identifier relationship inactivation
     And the Identifier remains actively associated with the Entity in the Entity Management Solution
 
-  @MVP
-  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US1094111
@@ -62,8 +51,6 @@ Feature: F137658 - Approve Entity Modifications
     And I can reject the Entity Characteristic information updates
     And the Entity Characteristicinformation updates are routed back to the User for modifications
 
-  @MVP
-  @CLM_UAT
   @2018.PI03
   Scenario: US1094096
     Given I am a User with Approval Authority
@@ -73,8 +60,6 @@ Feature: F137658 - Approve Entity Modifications
     And I can reject the Entity inactivation
     And the Entity remains active in the Entity Management Solution
 
-  @MVP
-  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US1094097
@@ -85,8 +70,6 @@ Feature: F137658 - Approve Entity Modifications
     And I can reject the Identifier
     And the Identifier is routed back to the User for updates
 
-  @MVP
-  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US858604
@@ -96,8 +79,6 @@ Feature: F137658 - Approve Entity Modifications
     And I can approve the proposed modification
     And The Entity record is updated with the new value(s)
 
-  @MVP
-  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US1094094
@@ -108,8 +89,6 @@ Feature: F137658 - Approve Entity Modifications
     And I can reject the Entity
     And the Entity is routed back to the User for updates
 
-  @MVP
-  @CLM_UAT
   @2018.PI03
   Scenario: US1094112
     Given I am a User with Approval Authority
@@ -119,8 +98,6 @@ Feature: F137658 - Approve Entity Modifications
     And I can reject the Entity Characteristic information inactivation
     And the Entity Characteristic information remains active in the Entity Management Solution
 
-  @MVP
-  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US858603
@@ -128,8 +105,6 @@ Feature: F137658 - Approve Entity Modifications
     When I make a change that requires approval
     Then the change flows through an approval process
 
-  @MVP
-  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US1094102
@@ -140,8 +115,6 @@ Feature: F137658 - Approve Entity Modifications
     And I can reject the Entity structure import
     And the Entity is not added to the Entity Management Solution
 
-  @MVP
-  @CLM_UAT
   @EXARI-11271
   @2018.PI03
   Scenario: US1094109

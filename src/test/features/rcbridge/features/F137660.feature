@@ -6,6 +6,7 @@ Feature: F137660 - Maintain Entity Identifiers
 
   @MVP
   @CLM_UAT
+  @2018.PI03
   Scenario: US1168419
     Given I am a User with access to maintain Entity information
     When I need to add an Identifier to an Entity
@@ -36,11 +37,11 @@ Feature: F137660 - Maintain Entity Identifiers
     Then I must enter an expiration date for the Identifier
     And Inactivation date applies only to the Identifier relationship with the Entity
     And Inactivation date can be in the future or retroactive
-    And the updated Entity enters the approval process workflow
     And the Entity retains the effective and end dates for when it was in an active relationship with the Identifier
     And the Identifier retains the effective and end dates for when it was in an active relationship with the Entity
 
   @MVP
+  @2018.PI03
   Scenario: US1168436
     Given I am the Entity Management Solution
     When a User inactivates an Identifier relationship with an Entity
@@ -48,6 +49,7 @@ Feature: F137660 - Maintain Entity Identifiers
 
   @MVP
   @CLM_UAT
+  @2018.PI03
   Scenario: US1168422
     Given I am a User with access to maintain Entity information
     When I am adding an Identifier to an Entity
@@ -64,10 +66,10 @@ Feature: F137660 - Maintain Entity Identifiers
     Then I must enter Effective date
     And Effective date applies only to the Identifier relationship with the Entity
     And Effective date can be in the future or retroactive
-    And the updated Entity enters the approval process workflow
 
   @MVP
   @CLM_UAT
+  @2018.PI03
   Scenario: US1168429
     Given I am the Entity Management Solution
     When an active contract is in place for an Identifier to Entity relationship that is being expired

@@ -1,10 +1,11 @@
-# Last updated on 2018-06-19T17:24:16.027Z
+# Last updated on 2018-06-21T19:07:28.649Z
 @MVP
 @Plus
 @Priority_2
 Feature: F198810 - Import Tax ID Verification Data
 
   @MVP
+  @2018.PI03
   Scenario: US1171452
     Given I am the Entity Management Solution
     When a User uploads a file of validated Tax IDs
@@ -12,6 +13,7 @@ Feature: F198810 - Import Tax ID Verification Data
 
   @MVP
   @CLM_UAT
+  @2018.PI03
   Scenario: US1171480
     Given I am the Entity Management Solution
     When a Tax ID on the Tax ID Validation File was not found in the Entity Management Solution
@@ -21,6 +23,7 @@ Feature: F198810 - Import Tax ID Verification Data
 
   @MVP
   @CLM_UAT
+  @2018.PI03
   Scenario: US1171453
     Given I am the Entity Management Solution
     When a User uploads a Tax ID Validation File
@@ -28,6 +31,7 @@ Feature: F198810 - Import Tax ID Verification Data
 
   @MVP
   @CLM_UAT
+  @2018.PI03
   Scenario: US1171454
     Given I am the Entity Management Solution
     When a User uploads a Tax ID Validation File
@@ -35,6 +39,7 @@ Feature: F198810 - Import Tax ID Verification Data
 
   @MVP
   @CLM_UAT
+  @2018.PI03
   Scenario: US1171451
     Given I am a User with access to maintain Entity information
     When I want to validate Tax ID information for multiple Tax IDs
@@ -42,6 +47,7 @@ Feature: F198810 - Import Tax ID Verification Data
     And the Entity Management Solution updates Tax ID validation information
 
   @MVP
+  @2018.PI03
   Scenario: US1171457
     Given I am the Entity Management Solution
     When a User uploads a Tax ID Validation File

@@ -12,17 +12,13 @@ Feature: F137661 - Create and Maintain Entity Characteristics
     Given I am a User with access to maintain Entities
     When I want to add characteristic information to an Entity
     Then I can add Entity characteristic information to the Entity
-    And the added Entity characteristic information enters the approval process workflow
 
   @MVP
   @EXARI-11273
   @2018.PI03
   Scenario: US858624
     Given I am the Entity Management Solution
-    When a User adds demographic information to an Entity
-    And a User updates demographic information on an Entity
-    And a User inactivates demographic information on an Entity
-    And a User adds characteristic detail to an Entity
+    When a User adds characteristic detail to an Entity
     And a User updates characteristic detail on an Entity
     And a User inactivates characteristic detail on an Entity
     Then I capture the previous value
@@ -37,7 +33,6 @@ Feature: F137661 - Create and Maintain Entity Characteristics
     Given I am a User with access to maintain Entities
     When I want to inactivate characteristic information on an Entity
     Then I can inactivate Entity characteristic information on the Entity
-    And the inactivated Entity characteristic information enters the approval process workflow
 
   @MVP
   @EXARI-11249
@@ -47,5 +42,4 @@ Feature: F137661 - Create and Maintain Entity Characteristics
     Given I am a User with access to maintain Entities
     When I want to update characteristic information to an Entity
     Then I can update Entity characteristic information on the Entity
-    And the updated Entity characteristic information enters the approval process workflow
 
