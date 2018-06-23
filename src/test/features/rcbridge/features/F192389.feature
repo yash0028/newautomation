@@ -1,6 +1,6 @@
-# Last updated on 2018-06-15T14:57:30.428Z
+# Last updated on 2018-06-22T14:38:19.782Z
 @MVP
-Feature: F192389 - Configure - Define Mass Actions
+Feature: F192389 - Define Mass Actions
 
   @MVP
   @EXARI-11455

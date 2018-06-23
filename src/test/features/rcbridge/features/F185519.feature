@@ -1,7 +1,7 @@
-# Last updated on 2018-06-15T14:57:17.884Z
+# Last updated on 2018-06-22T14:38:38.865Z
 @MVP
 @Parity
-Feature: F185519 - Configure - Obtain approval of a Mass Action Project
+Feature: F185519 - Obtain approval of a Mass Action Project
 
   @2018.PI03
   Scenario: US1100537

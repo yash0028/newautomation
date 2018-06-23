@@ -1,7 +1,7 @@
-# Last updated on 2018-06-15T14:57:39.278Z
+# Last updated on 2018-06-22T14:38:14.282Z
 @MVP
 @Parity
-Feature: F185542 - Configure - Create a Mass Action Project
+Feature: F185542 - Create a Mass Action Project
 
   @MVP
   @Parity

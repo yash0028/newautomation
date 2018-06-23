@@ -1,7 +1,7 @@
-# Last updated on 2018-06-15T14:57:22.044Z
+# Last updated on 2018-06-22T14:38:32.852Z
 @MVP
 @Parity
-Feature: F185547 - Configure - Create the project documents for a Mass Action Project
+Feature: F185547 - Create the project documents for a Mass Action Project
 
   @2018.PI03
   Scenario: US1098423

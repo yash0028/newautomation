@@ -21,7 +21,7 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
   @2018.PI02
   @2018.PI02.04
   Scenario: US1103353::2
-    Given The event MS processed NDB edits sucessfully
+    Given The event MS processed NDB edits successfully
     When NDB completes the update / action successfully
     Then NDB initiates an event outcome message to the transaction state service
     And a transaction state service call indicating successful processing was made

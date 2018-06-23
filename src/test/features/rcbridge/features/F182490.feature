@@ -1,4 +1,4 @@
-# Last updated on 2018-06-21T16:37:12.342Z
+# Last updated on 2018-06-22T16:34:23.952Z
 @MVP
 @PI02_Top3
 @Plus
@@ -126,23 +126,6 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     Given UHC will need to provide Exari with ETMA table data
     When the Exari calls ETMA
     Then an external data query will return the requested data.
-
-  @2018.PI02
-  @2018.PI02.04
-  Scenario: US1180657
-    Given issues on Sonar dashboard that must be fixed
-    When Sonar is used on our services
-    Then any issues must be fixed
-    And we must move to the next quality gate our services for Counter Party, ETMA, RFP, and External Data Query Library
-    #High and Critical reported issues on Sonar dashboard must be fixed and we must move to next quality gate on all the below micro services:
-    #
-    #1. Counter Party
-    #
-    #2. ETMA
-    #
-    #3. RFP
-    #
-    #4. External data query library
 
   @CLM_UAT
   @ETMA
