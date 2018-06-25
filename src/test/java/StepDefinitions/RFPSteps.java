@@ -127,4 +127,10 @@ public class RFPSteps {
         assertTrue(response.asString().toLowerCase().contains(value.toLowerCase()));
 
     }
+
+    @Then("^the RFP service will return a blank list$")
+    public void theRFPServiceWillReturnABlankList() throws Throwable {
+
+        assertTrue(response.asString().equals("[]"));
+    }
 }
