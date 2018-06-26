@@ -13,5 +13,5 @@ import cucumber.api.junit.*;
         	 plugin = {"pretty", "json:target/json-reports/json-report.json",
         	           "junit:target/xml-reports/xml-report.xml",
                        "com.cucumber.listener.ExtentCucumberFormatter:target/html-reports/html-report.html"},
-        	 tags = {"~@ignore","@2018.PI02.01", "@PES,@ETMA"}) //Should be specified in run configuration
+        	 tags = {"~@ignore","@KAFKA"}) //Should be specified in run configuration
 public class TestRunner {}
