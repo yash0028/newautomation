@@ -1,4 +1,4 @@
-# Last updated on 2018-06-25T19:46:14.073Z
+# Last updated on 2018-06-26T19:24:50.946Z
 @MVP
 @PI02_Top3
 @CLM_Exari
@@ -128,7 +128,21 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
   Scenario: US1176533
     Given I want to search for the sample MPIN provided from PES,
     When I hit the CLM demographic API,
-    Then I see the fields required by the counterparty call, which were mapped from the new PES API stub
+    Then I see the fields required by the counterparty call, which were mapped from the new PES API stub:
+      | mpin             |
+      | tin              |
+      | firstName        |
+      | middleName       |
+      | lastName         |
+      | facilityName     |
+      | address          |
+      | organization     |
+      | specialties      |
+      | providerTypeCode |
+      | npi              |
+      | phoneNumbers     |
+      | faxNumbers       |
+
 
   @PES
   @2018.PI02
