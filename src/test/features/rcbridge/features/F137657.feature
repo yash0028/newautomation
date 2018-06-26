@@ -1,8 +1,13 @@
-# Last updated on 2018-06-21T20:25:55.025Z
+# Last updated on 2018-06-25T16:58:05.536Z
 @MVP
 @Plus
 @Priority_1
 Feature: F137657 - Add Entity
+
+  Scenario: US1185970
+    Given I am a User with access to maintain Entity information
+    When I am creating an Entity
+    Then I can select a Relationship Type to relate the Entity to another Entity, Provider, or Identifier
 
   @MVP
   @EXARI-11249
@@ -15,6 +20,16 @@ Feature: F137657 - Add Entity
     Then I can add an Entity Name
     #required field
 
+  Scenario: US1185973
+    Given I am a User with access to maintain Entity information
+    When I am creating an Entity
+    Then I can select a Characteristic Type to add a defining trait to the Entity
+
+  Scenario: US1185971
+    Given I am a User with access to maintain Entity information
+    When I am creating an Entity
+    Then I can select a Relationship Role to relate the Entity to another Entity, Provider, or Identifier
+
   @MVP
   @EXARI-11273
   @2018.PI03
@@ -23,6 +38,11 @@ Feature: F137657 - Add Entity
     When A User creates an Entity
     Then I store the Entity creation date
     And the User who created the Entity
+
+  Scenario: US1185963
+    Given I am a User with access to maintain Entity information
+    When I am adding an Identifier to an Entity
+    Then I must select an Identifier Type
 
   @MVP
   @EXARI-11249

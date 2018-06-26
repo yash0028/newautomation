@@ -1,4 +1,4 @@
-# Last updated on 2018-06-21T14:05:44.528Z
+# Last updated on 2018-06-25T19:46:14.073Z
 @MVP
 @PI02_Top3
 @CLM_Exari
@@ -42,21 +42,6 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
       | providerTypeCode |
 
 
-  @2018.PI02
-  Scenario: US1131742
-    Given I am a User with access to maintain Interview information
-    When I populate an Exari Provider Roster with one or more of the following data points
-      | MPIN                | #optional           |
-      | TAX ID              | #optional           |
-      | Provider First Name | #optional           |
-      | Provider Last Name  | #optional           |
-      | NPI                 | #optional           |
-
-    Then Exari validates the populated data points against PES
-    And the system updates the Exari Provider Roster
-    And the Exari Provider Roster indicates which Providers had a match
-    And the Exari Provider Roster indicates which Providers were not found
-
   @CLM_UAT
   @PES
   @2018.PI02
@@ -64,30 +49,6 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
   Scenario: US1089376
     Given many API's Exist
     Then the developer needs to understand the different APIs in order to use the correct one.
-
-  @MVP
-  @PI02_Top3
-  @CLM_Exari
-  @2018.PI02
-  Scenario: US1100727
-    Given I as a user have populated the Exari Provider Roster with MPIN, TAX ID, Provider Full Name (First, Last), and NPI
-    When Exari reaches out to PES with the parameters that PES will validate against including MPIN, TAX ID, Provider Full Name (First, Last), and NPI
-    Then PES returns the following information to me as matched or provide me with a list of providers that were not found.
-      | MPIN                 |
-      | TAX ID               |
-      | Provider First Name  |
-      | Provider Middle Name |
-      | Provider Last Name   |
-      | Provider Degree      | #MD DO PA NP         |
-      | Facility Name        |
-      | NPI                  |
-      | Provider Type Code   |
-      | Specialty Indicator  |
-      | Org Type             |
-      | Medicare ID          |
-      | Credentialing Status |
-
-    And the system displays results with the best match first
 
   @CLM_UAT
   @PES
@@ -161,6 +122,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     Then it must respond back with appropriate error code
     And client must show the error details with sufficient information to guide them in order to take an action to resolve the error situation
 
+  @PES
   @2018.PI02
   @2018.PI02.04
   Scenario: US1176533

@@ -1,4 +1,4 @@
-# Last updated on 2018-06-07T05:26:01.572Z
+# Last updated on 2018-06-25T18:23:02.214Z
 @MVP
 @Plus
 @Priority_1
@@ -53,7 +53,17 @@ Feature: F137676 - Search by Attributes
     Given I am a User with access to view and maintain Entity information
     When I want to Entity sub-parts based on relationship role
     Then I can search within an Entity by relationship role
-    And the system displays Organizational Units within the Entity matching that relationship role
+    And the system displays related child entities within the Entity matching that relationship role
+
+  @MVP
+  @CLM_UAT
+  @EXARI-11274
+  @2018.PI03
+  Scenario: US1186271
+    Given I am a User with access to view and maintain Entity information
+    When I want to find an Entity
+    Then I can search for both Active and Inactive Entities simultaneously
+    And the system returns Active and Inactive Entities in the same list
 
   @MVP
   @CLM_UAT
@@ -63,5 +73,5 @@ Feature: F137676 - Search by Attributes
     Given I am a User with access to view and maintain Entity information
     When I want to Entity sub-parts based on relationship type
     Then I can search within an Entity by relationship type
-    And the system displays Organizational Units within the Entity matching that relationship type
+    And the system displays related child entities within the Entity matching that relationship type
 

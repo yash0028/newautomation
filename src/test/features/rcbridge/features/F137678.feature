@@ -1,4 +1,4 @@
-# Last updated on 2018-06-07T05:26:01.836Z
+# Last updated on 2018-06-25T18:37:36.666Z
 @MVP
 @Plus
 @Priority_1
@@ -25,13 +25,13 @@ Feature: F137678 - View Entity
     And I can view Entity Umbrella Name
     And I can view Entity ID
     And I can view Entity Type
-    And I can view the Entity Owner
-    And I can view the primary Entity Address
     And I can view the number of Contracts associated with the Entity
     And I can view the number of Alternative Names associated with the Entity
     And I can view the number of Identifiers associated with the Entity
-    And I can view the number of Relationships associated with the Entity
+    And I can view the number of Entity Relationships associated with the Entity
     And I can view the number of Providers associated with the Entity
+    And I can view the number of related Entities by Relationship Type associated with the Entity
+    And I can view the number of related Entities by Relationship Role associated with the Entity
 
   @MVP
   @EXARI-10529
@@ -62,11 +62,10 @@ Feature: F137678 - View Entity
     When I want to view a Entity details
     Then I can search for an Entity
     And I can view Entity Umbrella Name
-    And I can view all Entity Addresses
     And I can view all Contract numbers associated with the Entity
     And I can view all Alternative Names associated with the Entity
     And I can view all Identifiers associated with the Entity
-    And I can view all Organizational Units associated with the Entity
+    And I can view all Related Entities associated with the Entity
     And I can view all Provider Identifiers associated with the Entity
 
   @MVP

@@ -1,4 +1,4 @@
-# Last updated on 2018-06-07T05:26:00.070Z
+# Last updated on 2018-06-25T19:06:04.608Z
 @MVP
 @Plus
 @Priority_1
@@ -44,9 +44,7 @@ Feature: F137674 - Administer Global Entity Attributes
   Scenario: US929394
     Given I am an Administrative User
     When I need to update an existing Entity Type
-    Then I can view all active and inactive existing Entity Types
-    And Active and Inactive Entity Types are visibly differentiated
-    And I can update an existing Entity Type
+    Then I can update an existing Entity Type
     And I have the ability to cascade update to all records using that Entity Type
 
   @MVP
@@ -72,21 +70,10 @@ Feature: F137674 - Administer Global Entity Attributes
   @MVP
   @CLM_UAT
   @2018.PI03
-  Scenario: US949956
-    Given I am an Administrative User
-    When I want to setup a new Identifier Relationship Type
-    Then I can setup an Identifier Relationship Type
-    And Users can select that Identifier Relationship Type to define an Entity relationship
-
-  @MVP
-  @CLM_UAT
-  @2018.PI03
   Scenario: US948984
     Given I am an Administrative User
     When I need to update an existing Relationship Role
-    Then I can view all active and inactive existing Relationship Roles
-    And Active and Inactive Relationship Roles are visibly differentiated
-    And I can update an existing Relationship Role
+    Then I can update an existing Relationship Role
     And I have the ability to cascade update to all records using that Relationship Role
 
   @MVP
@@ -96,9 +83,7 @@ Feature: F137674 - Administer Global Entity Attributes
   Scenario: US929399
     Given I am an Administrative User
     When I need to update an existing Identifier Type
-    Then I can view all active and inactive existing Identifier Types
-    And Active and Inactive Identifier Types are visibly differentiated
-    And I can update an existing Identifier Type
+    Then I can update an existing Identifier Type
     And I have the ability to cascade update to all records using that Identifier Type
 
   @MVP
@@ -111,16 +96,6 @@ Feature: F137674 - Administer Global Entity Attributes
     And Users can select that Relationship Type to define an Entity relationship
 
   @MVP
-  @CLM_UAT
-  @2018.PI03
-  Scenario: US1116738
-    Given I am an Administrative User
-    When I need to expire an Identifier Relationship Type
-    Then I can expire an existing Identifier Relationship Type
-    And Users can no longer select that Identifier Relationship Type to define an Identifier
-    And all records using that Identifier Relationship Type retain the historical value
-
-  @MVP
   @EXARI-11792
   @EXARI-11249
   @CLM_UAT
@@ -128,9 +103,7 @@ Feature: F137674 - Administer Global Entity Attributes
   Scenario: US929398
     Given I am an Administrative User
     When I need to update an existing Entity Characteristic Type
-    Then I can view all active and inactive existing Entity Characteristic Types
-    And Active and Inactive Entity Characteristic Types are visibly differentiated
-    And I can update an existing Entity Characteristic Type
+    Then I can update an existing Entity Characteristic Type
     And I have the ability to cascade update to all records using that Entity Characteristic Type
 
   @MVP
@@ -152,17 +125,6 @@ Feature: F137674 - Administer Global Entity Attributes
     When I want to setup a new Account Type
     Then I can setup an Account Type
     And Users can select that Account Type to define an Entity
-
-  @MVP
-  @CLM_UAT
-  @2018.PI03
-  Scenario: US949958
-    Given I am an Administrative User
-    When I need to update an existing Identifier Relationship Type
-    Then I can view all active and inactive existing Identifier Relationship Types
-    And Active and Inactive Identifier Relationship Types are visibly differentiated
-    And I can update an existing Identifier Relationship Type
-    And I have the ability to cascade update to all records using that Identifier Relationship Type
 
   @MVP
   @EXARI-11792
@@ -213,9 +175,7 @@ Feature: F137674 - Administer Global Entity Attributes
   Scenario: US929397
     Given I am an Administrative User
     When I need to update an existing Relationship Type
-    Then I can view all active and inactive existing Relationship Types
-    And Active and Inactive Relationship Types are visibly differentiated
-    And I can update an existing Relationship Type
+    Then I can update an existing Relationship Type
     And I have the ability to cascade update to all records using that Relationship Type
 
   @MVP

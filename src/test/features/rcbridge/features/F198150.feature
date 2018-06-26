@@ -1,4 +1,4 @@
-# Last updated on 2018-06-20T18:37:48.146Z
+# Last updated on 2018-06-25T19:10:36.801Z
 
 Feature: F198150 - Removed stories
 
@@ -107,6 +107,12 @@ Feature: F198150 - Removed stories
     And the Identifier is removed from the Entity Management Solution
     And I can reject the Identifier void
     And the Identifier remains active in the Entity Management Solution
+
+  @2018.PI03
+  Scenario: US861137
+    Given I am the Entity Management Solution
+    When an external recipient with no User access needs to receive Entity information
+    Then I can provide Entity data to the recipients
 
   Scenario: US1089508
     Given I am a User

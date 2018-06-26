@@ -1,4 +1,4 @@
-# Last updated on 2018-06-21T20:39:17.729Z
+# Last updated on 2018-06-25T18:40:50.616Z
 @MVP
 @Plus
 @Priority_1
@@ -86,18 +86,6 @@ Feature: F188964 - View Entity History
     And I can view the identifier current value
     And I can view the User who performed the value change
     And I can view the time and date on which the User performed the value change
-
-  @MVP
-  @CLM_UAT
-  @EXARI-11273
-  @2018.PI03
-  Scenario: US922853
-    Given I am a User with access to view and maintain Entity information
-    When I want to view characteristic change history on an Entity
-    Then I can view the previous characteristic information value
-    And I can view the current characteristic information value
-    And I can view the User who performed the characteristic information value change
-    And I can view the time and date the User performed the characteristic information value change
 
   @MVP
   @CLM_UAT
