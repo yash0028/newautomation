@@ -33,7 +33,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
   Scenario: US861016::1
     #for Facility
     Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "6177192" #for Facility
+    When I search for a Counterparty using MPIN of "6177192"
     Then PES returns the following information:
       | facilityName     |
       | address          |
@@ -125,16 +125,15 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
   @PES
   @2018.PI02
   @2018.PI02.04
-  Scenario: US1176533
-    Given I want to search for the sample MPIN provided from PES,
-    When I hit the CLM demographic API,
-    Then I see the fields required by the counterparty call, which were mapped from the new PES API stub:
+  Scenario: US1176533::0
+    #For Physician MPINGiven I am a User with access to add a Counterparty to an Interview
+    When I search for a Counterparty using MPIN of "30"
+    Then PES returns the following information:
       | mpin             |
       | tin              |
       | firstName        |
       | middleName       |
       | lastName         |
-      | facilityName     |
       | address          |
       | organization     |
       | specialties      |
@@ -142,6 +141,24 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
       | npi              |
       | phoneNumbers     |
       | faxNumbers       |
+
+
+  @PES
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1176533::1
+    #For Facility MPINGiven I am a User with access to add a Counterparty to an Interview
+    When I search for a Counterparty using MPIN of "6177192"
+    Then PES returns the following information:
+      | mpin             |
+      | tin              |
+      | facilityName     |
+      | address          |
+      | organization     |
+      | specialties      |
+      | providerTypeCode |
+      | npi              |
+      | phoneNumbers     |
 
 
   @PES
