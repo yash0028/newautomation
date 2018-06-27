@@ -126,7 +126,8 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
   @2018.PI02
   @2018.PI02.04
   Scenario: US1176533::0
-    #For Physician MPINGiven I am a User with access to add a Counterparty to an Interview
+    #For Physician MPIN
+    Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "30"
     Then PES returns the following information:
       | mpin             |
@@ -147,7 +148,8 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
   @2018.PI02
   @2018.PI02.04
   Scenario: US1176533::1
-    #For Facility MPINGiven I am a User with access to add a Counterparty to an Interview
+    #For Facility MPIN
+    Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "6177192"
     Then PES returns the following information:
       | mpin             |
