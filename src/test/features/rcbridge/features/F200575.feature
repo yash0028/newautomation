@@ -38,6 +38,7 @@ Feature: F200575 - Feature for Exari Sprint #4 (Mass Actions)
 
   @MVP
   @EXARI-11501
+  @Confirmed
   @Parity
   @7.5_Release
   @2018.PI02

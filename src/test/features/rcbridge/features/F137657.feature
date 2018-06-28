@@ -4,6 +4,7 @@
 @Priority_1
 Feature: F137657 - Add Entity
 
+  @2018.PI03
   Scenario: US1185970
     Given I am a User with access to maintain Entity information
     When I am creating an Entity
@@ -20,11 +21,13 @@ Feature: F137657 - Add Entity
     Then I can add an Entity Name
     #required field
 
+  @2018.PI03
   Scenario: US1185973
     Given I am a User with access to maintain Entity information
     When I am creating an Entity
     Then I can select a Characteristic Type to add a defining trait to the Entity
 
+  @2018.PI03
   Scenario: US1185971
     Given I am a User with access to maintain Entity information
     When I am creating an Entity
@@ -39,6 +42,7 @@ Feature: F137657 - Add Entity
     Then I store the Entity creation date
     And the User who created the Entity
 
+  @2018.PI03
   Scenario: US1185963
     Given I am a User with access to maintain Entity information
     When I am adding an Identifier to an Entity

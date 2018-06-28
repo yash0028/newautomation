@@ -14,6 +14,7 @@ Feature: F183266 - Update Entity
     Then I have the ability to expire the current Entity Operating License Type
     And I have the ability to select a new Entity Operating License Type
 
+  @2018.PI03
   Scenario: US1185991
     Given I am a User with access to maintain Entity information
     When I need to update a Account Type
@@ -41,6 +42,7 @@ Feature: F183266 - Update Entity
     And the User who performed update
     And the Date and time when User performed update
 
+  @2018.PI03
   Scenario: US1185985
     Given I am a User with access to maintain Entity information
     When I need to update an Identifier Type
@@ -67,12 +69,14 @@ Feature: F183266 - Update Entity
     Then I can inactivate the Entity Identifier associated with the Entity
     And the updated Entity enters the approval process workflow
 
+  @2018.PI03
   Scenario: US1185987
     Given I am a User with access to maintain Entity information
     When I need to update a Relationship Type
     Then I have the ability to expire the current Relationship Type
     And I have the ability to select a new Relationship Type
 
+  @2018.PI03
   Scenario: US1185990
     Given I am a User with access to maintain Entity information
     When I need to update a Characteristic Type
@@ -120,6 +124,7 @@ Feature: F183266 - Update Entity
     And I display duplicates
     And User has ability to override duplicate or select from the potential duplicate list
 
+  @2018.PI03
   Scenario: US1185989
     Given I am a User with access to maintain Entity information
     When I need to update a Relationship Role
