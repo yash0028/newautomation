@@ -1,4 +1,4 @@
-# Last updated on 2018-06-25T18:23:02.214Z
+# Last updated on 2018-06-28T16:45:31.295Z
 @MVP
 @Plus
 @Priority_1
@@ -47,7 +47,7 @@ Feature: F137676 - Search by Attributes
 
   @MVP
   @CLM_UAT
-  @EXARI-11274
+  @EXARI-11765
   @2018.PI03
   Scenario: US1119871
     Given I am a User with access to view and maintain Entity information
@@ -67,7 +67,7 @@ Feature: F137676 - Search by Attributes
 
   @MVP
   @CLM_UAT
-  @EXARI-11274
+  @EXARI-11765
   @2018.PI03
   Scenario: US858714
     Given I am a User with access to view and maintain Entity information

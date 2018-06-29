@@ -1,4 +1,4 @@
-# Last updated on 2018-06-21T16:44:21.223Z
+# Last updated on 2018-06-28T17:44:16.158Z
 @MVP
 @PI02_Top3
 @Plus
@@ -33,7 +33,6 @@ Feature: F172080 - Exari>COSMOS - Physician Payload -  CF Team
     Then the COSMOS will be able to use the API successfully
 
   @2018.PI02
-  @2018.PI02.05
   Scenario: US1090672
     Given COSMOS edits the Exari>COSMOS Physician Panel data
     When the Exari>COSMOS data errors

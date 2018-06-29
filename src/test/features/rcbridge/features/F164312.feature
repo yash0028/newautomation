@@ -1,4 +1,4 @@
-# Last updated on 2018-06-25T16:01:26.106Z
+# Last updated on 2018-06-28T21:41:03.716Z
 @MVP
 @PI02_Top3
 @Plus
@@ -136,7 +136,7 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
     Then the RFP service will return a blank list
 
   @2018.PI02
-  @2018.PI02.04
+  @2018.PI02.05
   Scenario: US1177013
     Given a need to improve the RFP microservice
     Then the service must have 90 percent or greater test coverage with sonar

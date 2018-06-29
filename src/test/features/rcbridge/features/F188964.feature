@@ -1,4 +1,4 @@
-# Last updated on 2018-06-25T18:40:50.616Z
+# Last updated on 2018-06-28T16:45:31.742Z
 @MVP
 @Plus
 @Priority_1
@@ -50,17 +50,6 @@ Feature: F188964 - View Entity History
     And I can view Entity inactivation dates with Users who performed the changes
     And I can view Entity Type update dates with Users who performed the changes
     And I can view Entity update dates with Users who performed the changes
-
-  @MVP
-  @CLM_UAT
-  @2018.PI03
-  Scenario: US858706
-    Given I am a User with access to view and maintain Entity information
-    When I want to view time lining history for Business Rules
-    Then I can view Business Rule effective dates
-    And I can view the Business Rule end dates
-    And I can view the User who added or removed a Business Rule
-    And I can view the date and time of when the User performed the change
 
   @MVP
   @CLM_UAT

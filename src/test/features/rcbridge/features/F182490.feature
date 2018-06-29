@@ -1,4 +1,4 @@
-# Last updated on 2018-06-27T16:15:53.860Z
+# Last updated on 2018-06-28T21:42:54.234Z
 @MVP
 @PI02_Top3
 @Plus
@@ -190,7 +190,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     Then all of the retro reason codes are returned
 
   @2018.PI02
-  @2018.PI02.04
+  @2018.PI02.05
   Scenario: US1180600
     Given a need for documentation on connection to our services
     When visiting the swagger page for our service

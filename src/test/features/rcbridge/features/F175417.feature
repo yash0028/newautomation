@@ -1,4 +1,4 @@
-# Last updated on 2018-06-25T15:11:32.361Z
+# Last updated on 2018-06-28T21:27:14.644Z
 @MVP
 @PI02_Top3
 @Plus
@@ -81,6 +81,33 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     And One or more domain services does not acknowledge the business event
     Then The transaction is aborted with a time-out error sent to the transaction log
 
+  @CLM_UAT
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1194528::0
+    Given the transaction state micro service is created,
+    When I send a payload to the micro service,
+    Then I will see the latency of the response,
+    And I will see how the consumer micro service performs.
+
+  @CLM_UAT
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1194528::1
+    Given the transaction coordinator micro service is created,
+    When I send a payload to the micro service,
+    Then I will see the latency of the response,
+    And I will see how the consumer micro service performs.
+
+  @CLM_UAT
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1194528::2
+    Given the approval coordinator micro service is created,
+    When I send a payload to the micro service,
+    Then I will see the latency of the response,
+    And I will see how the consumer micro service performs.
+
   @2018.PI02
   @2018.PI02.01
   Scenario: US1094296
@@ -147,7 +174,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
 
   @CLM_UAT
   @2018.PI02
-  @2018.PI02.04
+  @2018.PI02.05
   Scenario: US1128296::0
     Given the transaction state micro service is created,
     When I send a payload to the micro service,
@@ -156,7 +183,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
 
   @CLM_UAT
   @2018.PI02
-  @2018.PI02.04
+  @2018.PI02.05
   Scenario: US1128296::1
     Given the transaction coordinator micro service is created,
     When I send a payload to the micro service,
@@ -165,7 +192,7 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
 
   @CLM_UAT
   @2018.PI02
-  @2018.PI02.04
+  @2018.PI02.05
   Scenario: US1128296::2
     Given the approval coordinator micro service is created,
     When I send a payload to the micro service,

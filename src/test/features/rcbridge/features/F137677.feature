@@ -1,4 +1,4 @@
-# Last updated on 2018-06-25T18:25:42.480Z
+# Last updated on 2018-06-28T16:45:31.371Z
 @MVP
 @Plus
 @Priority_1
@@ -6,7 +6,7 @@ Feature: F137677 - Filter Results
 
   @MVP
   @CLM_UAT
-  @EXARI-11274
+  @EXARI-11530
   @2018.PI03
   Scenario: US858720
     Given I am a User with access to view and maintain Entity information
@@ -15,7 +15,7 @@ Feature: F137677 - Filter Results
 
   @MVP
   @CLM_UAT
-  @EXARI-11274
+  @EXARI-10530
   @2018.PI03
   Scenario: US858719
     Given I am a User with access to view and maintain Entity information

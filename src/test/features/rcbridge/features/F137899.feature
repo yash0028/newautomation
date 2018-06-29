@@ -1,4 +1,4 @@
-# Last updated on 2018-06-26T19:24:50.946Z
+# Last updated on 2018-06-28T21:49:17.379Z
 @MVP
 @PI02_Top3
 @CLM_Exari
@@ -116,7 +116,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     Then a service ticket will need to be created.
 
   @2018.PI02
-  @2018.PI02.04
+  @2018.PI02.05
   Scenario: US1178363
     When a user calls the service and service is unable to fulfill the request
     Then it must respond back with appropriate error code

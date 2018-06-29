@@ -1,4 +1,4 @@
-# Last updated on 2018-06-18T13:33:59.041Z
+# Last updated on 2018-06-28T14:07:19.214Z
 @MVP
 @PI02_Top3
 @Parity
@@ -20,7 +20,7 @@ Feature: F171708 - Exari>NDB/COSMOS Physician Contracting Payload - CF Team
     Then NDB should load both the NDB/COSMOS panel and the corresponding NDB/UNET Y line
 
   @2018.PI02
-  @2018.PI02.04
+  @2018.PI02.05
   Scenario: US1030787
     Given the NDB Process to load a corresponding UNET Y line when an NDB/COSMOS Physician Panel is loaded
     When the NDB/COSMOS panel data is received, NDB will also require the corresponding UNET Y line data
@@ -47,4 +47,11 @@ Feature: F171708 - Exari>NDB/COSMOS Physician Contracting Payload - CF Team
     Given the Exari>NDB/COSMOS Physician Panel is complete and correct within Exari
     When the contract is included in the Exari Physician Contract Payload to NDB
     Then NDB should load the Panel to the NDB/COSMOS Panel screen successfully
+
+  @2018.PI02
+  @2018.PI02.04
+  Scenario: US1193225
+    Given the NDB Process to load a corresponding UNET Y line when an NDB/COSMOS Physician Panel is loaded
+    When the NDB/COSMOS panel data is received, NDB will also require the corresponding UNET Y line data
+    Then NDB should load both the NDB/COSMOS panel and the corresponding NDB/UNET Y line
 

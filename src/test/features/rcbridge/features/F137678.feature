@@ -1,4 +1,4 @@
-# Last updated on 2018-06-25T18:37:36.666Z
+# Last updated on 2018-06-28T16:45:31.523Z
 @MVP
 @Plus
 @Priority_1
@@ -13,25 +13,6 @@ Feature: F137678 - View Entity
     When I want to view only Entity components of a specified Relationship Type
     Then I can customize my view to only show Entity components with the specified Relationship Type
     And the system displays the Entity components with my specified Relationship Type
-
-  @MVP
-  @EXARI-10529
-  @CLM_UAT
-  @2018.PI03
-  Scenario: US858725
-    Given I am a User with access to view and maintain Entity information
-    When I want to view an Entity summary
-    Then I can search for an Entity
-    And I can view Entity Umbrella Name
-    And I can view Entity ID
-    And I can view Entity Type
-    And I can view the number of Contracts associated with the Entity
-    And I can view the number of Alternative Names associated with the Entity
-    And I can view the number of Identifiers associated with the Entity
-    And I can view the number of Entity Relationships associated with the Entity
-    And I can view the number of Providers associated with the Entity
-    And I can view the number of related Entities by Relationship Type associated with the Entity
-    And I can view the number of related Entities by Relationship Role associated with the Entity
 
   @MVP
   @EXARI-10529
@@ -79,6 +60,7 @@ Feature: F137678 - View Entity
     And I can view all relationships associated to that Entity
 
   @MVP
+  @EXARI-10529
   @CLM_UAT
   @2018.PI03
   Scenario: US858726

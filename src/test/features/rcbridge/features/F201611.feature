@@ -1,4 +1,4 @@
-# Last updated on 2018-06-25T19:42:49.923Z
+# Last updated on 2018-06-28T21:48:30.326Z
 @MVP
 @PI02_Top3
 @CLM_Exari
@@ -29,4 +29,43 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
       | Credentialing Status |
 
     And the system displays results with the best match first
+
+  @PES
+  @2018.PI03
+  Scenario: US1194560::0
+    #For Physician MPIN
+    Given I am a User with access to add a Counterparty to an Interview
+    When I search for a Counterparty using MPIN of "30"
+    Then PES returns the following information:
+      | mpin             |
+      | tin              |
+      | firstName        |
+      | middleName       |
+      | lastName         |
+      | address          |
+      | organization     |
+      | specialties      |
+      | providerTypeCode |
+      | npi              |
+      | phoneNumbers     |
+      | faxNumbers       |
+
+
+  @PES
+  @2018.PI03
+  Scenario: US1194560::1
+    #For Facility MPIN
+    Given I am a User with access to add a Counterparty to an Interview
+    When I search for a Counterparty using MPIN of "6177192"
+    Then PES returns the following information:
+      | mpin             |
+      | tin              |
+      | facilityName     |
+      | address          |
+      | organization     |
+      | specialties      |
+      | providerTypeCode |
+      | npi              |
+      | phoneNumbers     |
+
 

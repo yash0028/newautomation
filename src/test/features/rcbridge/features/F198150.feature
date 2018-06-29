@@ -1,15 +1,6 @@
-# Last updated on 2018-06-26T18:32:37.753Z
+# Last updated on 2018-06-28T16:17:13.913Z
 
 Feature: F198150 - Removed stories
-
-  @EXARI-11271
-  Scenario: US1094099
-    Given I am a User with Approval Authority
-    When a User updates an Identifier and submits for approval
-    Then I can approve the Identifier updates
-    And the approved Identifier updates become active in the Entity Management Solution
-    And I can reject the Identifier updates
-    And the Identifier updates are routed back to the User for modifications
 
   @EXARI-11271
   Scenario: US1094105
@@ -26,45 +17,6 @@ Feature: F198150 - Removed stories
     Then I can enter an end date to terminate the active relationship between the Identifier and the Entity
     And the Entity retains the effective and end dates for when it was in an active relationship with the Identifier
     And the Identifier retains the effective and end dates for when it was in an active relationship with the Entity
-
-  Scenario: US1089924
-    Given I am the Entity Management Solution
-    When a User updates an Identifier to an Entity
-    Then I check the Identifier for the presence of an Owner
-    And I display Owner associated to the Identifier
-    And the User must select the existing Owner for the Identifier or assign new Owner if not present
-
-  @EXARI-11249
-  Scenario: US1089668
-    Given I am the Entity Management Solution
-    When a User updates an Identifier on an Entity
-    Then I perform field validation to ensure the Identifier was entered in the correct format based on Identifier Type selected
-    And I must perform a duplicate check on the Identifier
-
-  @EXARI-11643
-  @Non_MVP
-  Scenario: US858630
-    Given I am a User with access to maintain Entity information
-    When I need to archive an existing attachment on an Entity that is no longer valid
-    Then I can enter an inactivation date for an attachment on the Entity
-    And the Entity Management Solution archives the attachment
-    And my User credentials are logged with the action
-
-  @EXARI-11271
-  Scenario: US1094113
-    Given I am a User with Approval Authority
-    When a User adds an Owner to an Identifier and submits for approval
-    Then I can approve the Owner assignment
-    And the approved Owner assignment becomes active in the Entity Management Solution
-    And I can reject the Owner assignment
-    And the Owner assignment is routed back to the User for updates
-
-  @EXARI-11249
-  Scenario: US858621
-    Given I am a User with access to maintain Entities
-    When I want to add demographic information to an Entity
-    Then I can add Entity demographic information to the Entity
-    And the added Entity demographic information enters the approval process workflow
 
   Scenario: US922831
     Given I am a User with access to maintain Entity information
@@ -85,15 +37,6 @@ Feature: F198150 - Removed stories
     Then the User can change the Organizational Unit Owner to a different Owner
     And the Organizational Unit can not have two active Owners at the same time
 
-  @EXARI-11273
-  Scenario: US858625
-    Given I am a User with access to view and maintain Entity information
-    When I want to view historical changes to demographic information on an Entity
-    Then I can view the previous demographic information value
-    And I can view the current demographic information value
-    And I can view the User who performed the demographic information value change
-    And I can view the time and date the User performed the demographic information value change
-
   Scenario: US1114656
     Given I am the Entity Management Solution
     When a User attempts to add a second Owner to a TIN
@@ -107,12 +50,6 @@ Feature: F198150 - Removed stories
     And the Identifier is removed from the Entity Management Solution
     And I can reject the Identifier void
     And the Identifier remains active in the Entity Management Solution
-
-  @2018.PI03
-  Scenario: US861137
-    Given I am the Entity Management Solution
-    When an external recipient with no User access needs to receive Entity information
-    Then I can provide Entity data to the recipients
 
   Scenario: US1089508
     Given I am a User
@@ -134,13 +71,6 @@ Feature: F198150 - Removed stories
     Then I perform field validation to ensure the Identifier was entered in the correct format based on Identifier Type selected
     And I perform a duplicate check on the new Identifier
 
-  Scenario: US1089630
-    Given I am the Entity Management Solution
-    When a User adds an Identifier to an Entity
-    Then I check the Identifier for the presence of an Owner
-    And I display Owner associated to the Identifier
-    And the User must select the existing Owner for the Identifier or assign new Owner if not present
-
   Scenario: US1089633
     Given I am a User with access to maintain Entity information
     When I want to add an Owner to an Identifier
@@ -154,27 +84,31 @@ Feature: F198150 - Removed stories
     And An Identifier must only have one active Owner at a time
     And the updated Identifier enters the approval process workflow
 
-  @EXARI-11274
-  Scenario: US1089525
-    Given I am the Entity Management Solution
-    When A User updates an Entity Identifier
-    Then I perform a duplicate check on Entity Identifier
-    And I display duplicates
-    And User must select existing Entity Identifier from the duplicate list or keep current Entity Identifier if no duplicates
+  @2018.PI03
+  Scenario: US1179398
+    Given I am a User
+    When I create a relationship between an Entity and a Messenger Model IPA
+    Then I can select Affiliated Relationship Type
+    And I can not select Owned Relationship Type
 
-  Scenario: US950017
-    Given I am a User with access to maintain Entity information
-    When I need to void the relationship between an Identifier and an Entity
-    Then I can enter an end date to terminate the relationship between the Identifier and the Entity
-
-  Scenario: US955716
-    Given I am a User with access to maintain Entity information
-    When I need to change the Owner of an Identifier
-    Then I must access the Identifier
-    And I can inactivate the current Owner
-    And Inactivation date can be in the future or retroactive
-    And Standard field validation rules apply
-    And I must select a new Owner
+  @MVP
+  @EXARI-10529
+  @CLM_UAT
+  @2018.PI03
+  Scenario: US858725
+    Given I am a User with access to view and maintain Entity information
+    When I want to view an Entity summary
+    Then I can search for an Entity
+    And I can view Entity Umbrella Name
+    And I can view Entity ID
+    And I can view Entity Type
+    And I can view the number of Contracts associated with the Entity
+    And I can view the number of Alternative Names associated with the Entity
+    And I can view the number of Identifiers associated with the Entity
+    And I can view the number of Entity Relationships associated with the Entity
+    And I can view the number of Providers associated with the Entity
+    And I can view the number of related Entities by Relationship Type associated with the Entity
+    And I can view the number of related Entities by Relationship Role associated with the Entity
 
   @EXARI-11698
   Scenario: US858628
@@ -185,14 +119,13 @@ Feature: F198150 - Removed stories
     And the date and time is systematically added to the note
     And my user credentials are systematically added to the note
 
-  @EXARI-11274
-  Scenario: US1089628
+  @MVP
+  @CLM_UAT
+  @2018.PI03
+  Scenario: US1149316
     Given I am the Entity Management Solution
-    When a User updates an Identifier to an Entity
-    Then I check for duplicate Identifiers
-    And if Identifier exists, the User receives a notification to use existing Identifier
-    And if Identifier does not exist, the User is allowed to proceed and create new
-    And the User is required to assign an Owner to the Identifier
+    When a User is selecting an Entity Type
+    Then the User is not allowed to select both Health Organization Umbrella and Organizational Unit for the same Entity
 
   @EXARI-11274
   Scenario: US1089625
@@ -233,10 +166,146 @@ Feature: F198150 - Removed stories
     And I can reject the Entity Demographic information updates
     And the Entity Demographic informationupdates are routed back to the User for modifications
 
+  Scenario: US1094107
+    Given I am a User with Approval Authority
+    When a User inactivates Entity Demographic information and submits for approval
+    Then I can approve the Entity Demographic information inactivation
+    And the Entity Demographic information becomes inactive in the Entity Management Solution
+    And I can reject the Entity Demographic information inactivation
+    And the Entity Demographic information remains active in the Entity Management Solution
+
+  @EXARI-11271
+  Scenario: US1094099
+    Given I am a User with Approval Authority
+    When a User updates an Identifier and submits for approval
+    Then I can approve the Identifier updates
+    And the approved Identifier updates become active in the Entity Management Solution
+    And I can reject the Identifier updates
+    And the Identifier updates are routed back to the User for modifications
+
+  Scenario: US1089924
+    Given I am the Entity Management Solution
+    When a User updates an Identifier to an Entity
+    Then I check the Identifier for the presence of an Owner
+    And I display Owner associated to the Identifier
+    And the User must select the existing Owner for the Identifier or assign new Owner if not present
+
+  @EXARI-11249
+  Scenario: US1089668
+    Given I am the Entity Management Solution
+    When a User updates an Identifier on an Entity
+    Then I perform field validation to ensure the Identifier was entered in the correct format based on Identifier Type selected
+    And I must perform a duplicate check on the Identifier
+
+  @EXARI-11643
+  @Non_MVP
+  Scenario: US858630
+    Given I am a User with access to maintain Entity information
+    When I need to archive an existing attachment on an Entity that is no longer valid
+    Then I can enter an inactivation date for an attachment on the Entity
+    And the Entity Management Solution archives the attachment
+    And my User credentials are logged with the action
+
+  @EXARI-11271
+  Scenario: US1094113
+    Given I am a User with Approval Authority
+    When a User adds an Owner to an Identifier and submits for approval
+    Then I can approve the Owner assignment
+    And the approved Owner assignment becomes active in the Entity Management Solution
+    And I can reject the Owner assignment
+    And the Owner assignment is routed back to the User for updates
+
+  @EXARI-11249
+  Scenario: US858621
+    Given I am a User with access to maintain Entities
+    When I want to add demographic information to an Entity
+    Then I can add Entity demographic information to the Entity
+    And the added Entity demographic information enters the approval process workflow
+
+  @MVP
+  @CLM_UAT
+  @2018.PI03
+  Scenario: US861135
+    Given I am a User with access to view and maintain Entity information
+    When I want to view Entity Summary data outside of the Entity Management Solution
+    Then I have the ability to export Entity Summary data
+
+  @EXARI-11273
+  Scenario: US858625
+    Given I am a User with access to view and maintain Entity information
+    When I want to view historical changes to demographic information on an Entity
+    Then I can view the previous demographic information value
+    And I can view the current demographic information value
+    And I can view the User who performed the demographic information value change
+    And I can view the time and date the User performed the demographic information value change
+
+  @2018.PI03
+  Scenario: US861137
+    Given I am the Entity Management Solution
+    When an external recipient with no User access needs to receive Entity information
+    Then I can provide Entity data to the recipients
+
+  @2018.PI03
+  Scenario: US858702
+    Given I am an Administrative User
+    When I want to create a new Entity relationship rule for an Entity
+    And I want to update an existing Entity relationship rule for an Entity
+    Then I can create a new Entity relationship rule for an Entity
+    And I can update an existing Entity relationship rule for an Entity
+
+  Scenario: US1089630
+    Given I am the Entity Management Solution
+    When a User adds an Identifier to an Entity
+    Then I check the Identifier for the presence of an Owner
+    And I display Owner associated to the Identifier
+    And the User must select the existing Owner for the Identifier or assign new Owner if not present
+
+  @EXARI-11274
+  Scenario: US1089525
+    Given I am the Entity Management Solution
+    When A User updates an Entity Identifier
+    Then I perform a duplicate check on Entity Identifier
+    And I display duplicates
+    And User must select existing Entity Identifier from the duplicate list or keep current Entity Identifier if no duplicates
+
+  Scenario: US950017
+    Given I am a User with access to maintain Entity information
+    When I need to void the relationship between an Identifier and an Entity
+    Then I can enter an end date to terminate the relationship between the Identifier and the Entity
+
+  Scenario: US955716
+    Given I am a User with access to maintain Entity information
+    When I need to change the Owner of an Identifier
+    Then I must access the Identifier
+    And I can inactivate the current Owner
+    And Inactivation date can be in the future or retroactive
+    And Standard field validation rules apply
+    And I must select a new Owner
+
+  @EXARI-11274
+  Scenario: US1089628
+    Given I am the Entity Management Solution
+    When a User updates an Identifier to an Entity
+    Then I check for duplicate Identifiers
+    And if Identifier exists, the User receives a notification to use existing Identifier
+    And if Identifier does not exist, the User is allowed to proceed and create new
+    And the User is required to assign an Owner to the Identifier
+
   Scenario: US1114662
     Given I am the Entity Management Solution
     When a User is adding an Owner to a TIN
     Then the Owner must be the Legal Owner responsible for reporting to the government
+
+  @MVP
+  @CLM_UAT
+  @2018.PI03
+  Scenario: US858706
+    Given I am a User with access to view and maintain Entity information
+    When I want to view time lining history for Business Rules
+    Then I can view Business Rule effective dates
+    And I can view the Business Rule end dates
+    And I can view the User who added or removed a Business Rule
+    And I can view the date and time of when the User performed the change
 
   @EXARI-11249
   @EXARI-11267
@@ -252,14 +321,6 @@ Feature: F198150 - Removed stories
     Given I am the Entity Management Solution
     When a TIN does not have an Owner
     Then I require the User to add an Owner to the TIN
-
-  Scenario: US1094107
-    Given I am a User with Approval Authority
-    When a User inactivates Entity Demographic information and submits for approval
-    Then I can approve the Entity Demographic information inactivation
-    And the Entity Demographic information becomes inactive in the Entity Management Solution
-    And I can reject the Entity Demographic information inactivation
-    And the Entity Demographic information remains active in the Entity Management Solution
 
   @EXARI-11249
   @EXARI-11267

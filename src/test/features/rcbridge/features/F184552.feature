@@ -1,4 +1,4 @@
-# Last updated on 2018-06-21T19:15:24.353Z
+# Last updated on 2018-06-28T16:45:32.125Z
 @MVP
 @Plus
 @Priority_1
@@ -38,6 +38,7 @@ Feature: F184552 - Migrate BIC / TIN Aggregation / Umbrella Entities
 
   @MVP
   @CLM_UAT
+  @EXARI-11266
   @2018.PI03
   Scenario: US1096156
     Given I am a User with access to maintain Entity information

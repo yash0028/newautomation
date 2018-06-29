@@ -1,8 +1,18 @@
-# Last updated on 2018-06-21T20:26:40.607Z
+# Last updated on 2018-06-28T16:45:29.560Z
 @MVP
 @Plus
 @Priority_1
 Feature: F198722 - Reactivate Entity
+
+  @MVP
+  @EXARI-11267
+  @EXARI-11249
+  @CLM_UAT
+  @2018.PI03
+  Scenario: US1193286
+    Given I am a User
+    When I am reactivating an Entity
+    Then I am required to provide a reason for reactivating the Entity prior to completing the reactivation
 
   @MVP
   @EXARI-11273
