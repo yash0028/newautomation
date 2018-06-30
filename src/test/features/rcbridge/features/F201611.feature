@@ -1,6 +1,7 @@
-# Last updated on 2018-06-28T21:48:30.326Z
+# Last updated on 2018-06-29T19:55:45.029Z
 @MVP
 @PI02_Top3
+@Priority_1
 @CLM_Exari
 @Exari_Microservice
 @Parity

@@ -1,4 +1,4 @@
-# Last updated on 2018-06-28T21:49:17.379Z
+# Last updated on 2018-06-29T19:55:44.459Z
 @MVP
 @PI02_Top3
 @CLM_Exari
@@ -115,6 +115,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     When a catastrophic error occurs
     Then a service ticket will need to be created.
 
+  @PES
   @2018.PI02
   @2018.PI02.05
   Scenario: US1178363

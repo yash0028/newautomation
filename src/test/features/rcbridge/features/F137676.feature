@@ -1,4 +1,4 @@
-# Last updated on 2018-06-28T16:45:31.295Z
+# Last updated on 2018-06-29T17:11:26.017Z
 @MVP
 @Plus
 @Priority_1
@@ -73,5 +73,5 @@ Feature: F137676 - Search by Attributes
     Given I am a User with access to view and maintain Entity information
     When I want to Entity sub-parts based on relationship type
     Then I can search within an Entity by relationship type
-    And the system displays related child entities within the Entity matching that relationship type
+    And the system displays related entities within the Entity matching that relationship type
 
