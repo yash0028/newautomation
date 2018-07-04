@@ -6,6 +6,7 @@
 @Parity
 Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (Demographic) - Optum
 
+  @CLM_UAT
   @Provider_Demograhics
   @PES
   @2018.PI02
@@ -26,6 +27,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
 
     #And the system displays results with the best match first (Need to clarify this)
 
+  @CLM_UAT
   @Provider_Demograhics
   @PES
   @2018.PI02

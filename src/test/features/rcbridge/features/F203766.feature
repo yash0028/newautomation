@@ -1,6 +1,7 @@
-# Last updated on 2018-07-02T21:20:41.245Z
+# Last updated on 2018-07-03T13:42:05.427Z
 @MVP
 @Plus
+@Priority_1
 @Parity
 Feature: F203766 - Exari/ CLM >NDB Lookup API's - CF Team
 

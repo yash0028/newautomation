@@ -1,11 +1,11 @@
-# Last updated on 2018-06-29T19:55:45.029Z
+# Last updated on 2018-07-03T15:49:55.126Z
 @MVP
 @PI02_Top3
 @Priority_1
 @CLM_Exari
 @Exari_Microservice
 @Parity
-Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (Demographic) - Optum (Part 2)
+Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (Demographic) - Optum (Carryover Items from PI2)
 
   @MVP
   @PI02_Top3

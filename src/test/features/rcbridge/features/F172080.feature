@@ -32,7 +32,6 @@ Feature: F172080 - Exari>COSMOS - Physician Payload -  CF Team
     When COSMOS creates the API to ingest Exari Integration layer data
     Then the COSMOS will be able to use the API successfully
 
-  @2018.PI02
   Scenario: US1090672
     Given COSMOS edits the Exari>COSMOS Physician Panel data
     When the Exari>COSMOS data errors
