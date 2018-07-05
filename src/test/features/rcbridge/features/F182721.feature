@@ -1,12 +1,13 @@
-# Last updated on 2018-06-20T17:50:45.146Z
+# Last updated on 2018-07-04T15:11:00.521Z
 @MVP
 @Plus
+@Priority_2
 @Parity
 Feature: F182721 - Exari>NDB/COSMOS Physician - NDB Demographic update/Panel update - Analysis
 
   @CLM_UAT
-  @2018.PI02
-  @2018.PI02.05
+  @2018.PI03
+  @2018.PI03.03
   Scenario: US1086310
     Given the NDB COSMOS panel was created by Exari
     When an updated is attempted in NDB on the Panel through what NDB business considers a demographic update
