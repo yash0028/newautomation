@@ -1,7 +1,8 @@
-# Last updated on 2018-07-03T05:31:42.862Z
+# Last updated on 2018-07-05T16:11:54.313Z
 @MVP
+@Priority_1
 @Parity
-Feature: F191486 - Create Product Roster (2nd to Provider Roster)
+Feature: F191486 - Create Product Level Screen(s) (2nd to Provider Roster)
 
   @2018.PI03
   Scenario: US1197983

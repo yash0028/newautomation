@@ -1,4 +1,4 @@
-# Last updated on 2018-06-28T16:17:13.913Z
+# Last updated on 2018-07-05T18:17:59.613Z
 
 Feature: F198150 - Removed stories
 
@@ -290,6 +290,17 @@ Feature: F198150 - Removed stories
     And if Identifier exists, the User receives a notification to use existing Identifier
     And if Identifier does not exist, the User is allowed to proceed and create new
     And the User is required to assign an Owner to the Identifier
+
+  @MVP
+  @CLM_UAT
+  @EXARI-11274
+  @2018.PI03
+  Scenario: US949053
+    Given I am the Entity Management Solution
+    When A User adds an Entity
+    Then I perform a duplicate check on Entity Name
+    And I display duplicates
+    And User has ability to override duplicate or select from the potential duplicate list for Entity Name
 
   Scenario: US1114662
     Given I am the Entity Management Solution

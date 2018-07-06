@@ -25,6 +25,7 @@ Feature: F198722 - Reactivate Entity
 
   @MVP
   @CLM_UAT
+  @EXARI-11270
   @2018.PI03
   Scenario: US1170982
     Given I am the Entity Management Solution

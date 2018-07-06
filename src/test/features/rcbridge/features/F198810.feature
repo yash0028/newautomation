@@ -1,4 +1,4 @@
-# Last updated on 2018-06-29T15:40:40.064Z
+# Last updated on 2018-07-05T18:00:23.125Z
 @MVP
 @Plus
 @Priority_2
@@ -10,6 +10,17 @@ Feature: F198810 - Import Tax ID Verification Data
     Given I am the Entity Management Solution
     When a User uploads a file of validated Tax IDs
     Then I find matching Tax IDs stored in the Entity Management Solution
+
+  @MVP
+  @CLM_UAT
+  Scenario: US1202994
+    Given I am a User with access to maintain Entity information
+    When I want to export a list of Tax IDs
+    Then I can export Tax IDs by one or more Markets
+    And I can export Tax IDs by one or more Entities
+    And I can export by one or more Regions
+    And I can export by one or more States
+    And I can export by one or more Countries
 
   @MVP
   @CLM_UAT
@@ -27,7 +38,7 @@ Feature: F198810 - Import Tax ID Verification Data
   Scenario: US1171453
     Given I am the Entity Management Solution
     When a User uploads a Tax ID Validation File
-    Then I update the Date Verified field associated with the Tax ID with the current date/date provided in the Tax ID Validation File
+    Then I update the Date Verified field associated with the Tax ID with the date provided in the Tax ID Validation File
 
   @MVP
   @CLM_UAT

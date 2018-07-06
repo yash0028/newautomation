@@ -1,4 +1,4 @@
-# Last updated on 2018-06-29T15:08:04.720Z
+# Last updated on 2018-07-05T18:17:59.613Z
 @MVP
 @Plus
 @Priority_1
@@ -90,17 +90,6 @@ Feature: F137657 - Add Entity
     When A User sets up a new Entity
     Then I generate a unique Entity ID
     And I assign the unique Entity ID to the new Entity
-
-  @MVP
-  @CLM_UAT
-  @EXARI-11274
-  @2018.PI03
-  Scenario: US949053
-    Given I am the Entity Management Solution
-    When A User adds an Entity
-    Then I perform a duplicate check on Entity Name
-    And I display duplicates
-    And User has ability to override duplicate or select from the potential duplicate list for Entity Name
 
   @MVP
   @EXARI-11249
