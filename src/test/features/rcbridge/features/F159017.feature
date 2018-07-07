@@ -1,4 +1,4 @@
-# Last updated on 2018-07-05T17:04:36.221Z
+# Last updated on 2018-07-06T18:13:52.589Z
 @MVP
 @Plus
 @Priority_1
@@ -14,6 +14,7 @@ Feature: F159017 - Exari Microservice Establish Integration of CLM with MSPS - O
   @CLM_UAT
   @MSPS
   @2018.PI03
+  @2018.PI03.01
   Scenario: US1009530
     Given during the interview process when the MSPS fee schedule is requested
     When the user inputs certain parameters (From Padma's Excel Doc)

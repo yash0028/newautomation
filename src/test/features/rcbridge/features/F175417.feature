@@ -1,4 +1,4 @@
-# Last updated on 2018-06-28T21:27:14.644Z
+# Last updated on 2018-07-06T20:24:47.796Z
 @MVP
 @PI02_Top3
 @Plus
@@ -171,33 +171,6 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     Then The REST api returns an internal server error
     And An error is logged to the logfile
     # An interface specification is defined for the service API
-
-  @CLM_UAT
-  @2018.PI02
-  @2018.PI02.05
-  Scenario: US1128296::0
-    Given the transaction state micro service is created,
-    When I send a payload to the micro service,
-    Then I will see the latency of the response,
-    And I will see how the consumer micro service performs.
-
-  @CLM_UAT
-  @2018.PI02
-  @2018.PI02.05
-  Scenario: US1128296::1
-    Given the transaction coordinator micro service is created,
-    When I send a payload to the micro service,
-    Then I will see the latency of the response,
-    And I will see how the consumer micro service performs.
-
-  @CLM_UAT
-  @2018.PI02
-  @2018.PI02.05
-  Scenario: US1128296::2
-    Given the approval coordinator micro service is created,
-    When I send a payload to the micro service,
-    Then I will see the latency of the response,
-    And I will see how the consumer micro service performs.
 
   @#MVP
   @2018.PI02

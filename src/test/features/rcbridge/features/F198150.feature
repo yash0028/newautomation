@@ -1,4 +1,4 @@
-# Last updated on 2018-07-05T18:17:59.613Z
+# Last updated on 2018-07-06T17:40:42.997Z
 
 Feature: F198150 - Removed stories
 

@@ -1,8 +1,14 @@
-# Last updated on 2018-07-03T12:49:10.269Z
+# Last updated on 2018-07-06T14:26:02.467Z
 @MVP
 @Plus
 @Parity
 Feature: F183530 - Downstream Microservice Exari>COSMOS - (Physician Payload Direct load to Cosmos)
+
+  @2018.PI03
+  Scenario: US1059062
+    Given the COSMOS CPS PL is built with the correct data
+    When the PPC Contract loads to COSMOS for CPS
+    Then the CPS Contract will load successfully to COSMOS
 
   @2018.PI03
   Scenario: US1064673
