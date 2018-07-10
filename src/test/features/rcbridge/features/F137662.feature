@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:27:42.206Z
+# Last updated on 2018-07-09T14:48:59.095Z
 @MVP
 @Plus
 @Priority_1
-Feature: F137662 - Create and Maintain Entity Supplemental Detail
+Feature: F137662 - Exari EM - Create and Maintain Entity Supplemental Detail
 
   @MVP
   @CLM_UAT

@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:29:13.780Z
+# Last updated on 2018-07-09T14:49:31.203Z
 @MVP
 @Plus
 @Priority_1
-Feature: F137671 - Add and Remove Entity to Entity Relationships
+Feature: F137671 - Exari EM - Add and Remove Entity to Entity Relationships
 
   @MVP
   @CLM_UAT

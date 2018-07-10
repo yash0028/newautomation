@@ -1,7 +1,7 @@
-# Last updated on 2018-06-21T19:17:53.875Z
+# Last updated on 2018-07-09T14:51:21.245Z
 @Plus
 @Priority_1
-Feature: F137918 - Migrate Entity Data
+Feature: F137918 - Exari EM - Migrate Entity Data
 
   Scenario: US861076
     Given I am the Entity Management Solution

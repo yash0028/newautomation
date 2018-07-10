@@ -1,8 +1,8 @@
-# Last updated on 2018-06-29T15:08:07.439Z
+# Last updated on 2018-07-09T14:50:39.713Z
 @MVP
 @Plus
 @Priority_1
-Feature: F184552 - Migrate BIC / TIN Aggregation / Umbrella Entities
+Feature: F184552 - Exari EM - Migrate BIC / TIN Aggregation / Umbrella Entities
 
   @MVP
   @CLM_UAT

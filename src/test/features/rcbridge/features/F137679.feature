@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:29:14.582Z
+# Last updated on 2018-07-09T14:50:18.870Z
 @MVP
 @Plus
 @Priority_1
-Feature: F137679 - View Provider
+Feature: F137679 - Exari EM - View Provider
 
   @MVP
   @EXARI-10529

@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:27:41.362Z
+# Last updated on 2018-07-09T14:48:26.880Z
 @MVP
 @Plus
 @Priority_1
-Feature: F183266 - Update Entity
+Feature: F183266 - Exari EM - Update Entity
 
   @MVP
   @EXARI-11267

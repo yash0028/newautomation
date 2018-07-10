@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:27:41.894Z
+# Last updated on 2018-07-09T14:48:42.398Z
 @MVP
 @Plus
 @Priority_1
-Feature: F137659 - Import Data
+Feature: F137659 - Exari EM - Import Data
 
   @MVP
   @CLM_UAT

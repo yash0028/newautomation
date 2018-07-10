@@ -1,6 +1,6 @@
-# Last updated on 2018-06-15T14:58:20.337Z
+# Last updated on 2018-07-09T14:51:25.644Z
 @Non_MVP
-Feature: F184553 - Migrate ACO
+Feature: F184553 - Exari EM - Migrate ACO
 
   Scenario: US1098130
     Given I am a User with access to maintain Entity information

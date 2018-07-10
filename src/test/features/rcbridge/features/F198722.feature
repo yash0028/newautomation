@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T17:40:42.999Z
+# Last updated on 2018-07-09T14:48:35.646Z
 @MVP
 @Plus
 @Priority_1
-Feature: F198722 - Reactivate Entity
+Feature: F198722 - Exari EM - Reactivate Entity
 
   @MVP
   @EXARI-11267

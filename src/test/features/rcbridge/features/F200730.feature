@@ -1,6 +1,6 @@
-# Last updated on 2018-06-29T15:40:40.332Z
+# Last updated on 2018-07-09T14:51:46.303Z
 
-Feature: F200730 - Approval Process
+Feature: F200730 - Exari EM - Approval Process
 
   @EXARI-11273
   @2018.PI03

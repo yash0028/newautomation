@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:29:14.380Z
+# Last updated on 2018-07-09T14:50:12.966Z
 @MVP
 @Plus
 @Priority_1
-Feature: F137678 - View Entity
+Feature: F137678 - Exari EM - View Entity
 
   @MVP
   @EXARI-10529

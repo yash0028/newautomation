@@ -1,9 +1,9 @@
-# Last updated on 2018-07-06T13:29:14.672Z
+# Last updated on 2018-07-09T14:50:20.542Z
 @MVP
 @Plus
 @PI03
 @Priority_1
-Feature: F137934 - Export Entity Data
+Feature: F137934 - Exari EM - Export Entity Data
 
   @MVP
   @CLM_UAT

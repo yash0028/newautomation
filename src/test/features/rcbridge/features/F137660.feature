@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:27:41.710Z
+# Last updated on 2018-07-09T14:48:37.589Z
 @MVP
 @Plus
 @Priority_1
-Feature: F137660 - Maintain Entity Identifiers
+Feature: F137660 - Exari EM - Maintain Entity Identifiers
 
   @MVP
   @CLM_UAT

@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:29:37.022Z
+# Last updated on 2018-07-09T14:49:17.895Z
 @MVP
 @Plus
 @Priority_1
-Feature: F181492 - Maintain Identity Keys
+Feature: F181492 - Exari EM - Maintain Identity Keys
 
   @MVP
   @EXARI-11249

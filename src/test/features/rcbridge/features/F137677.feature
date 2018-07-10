@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:29:14.282Z
+# Last updated on 2018-07-09T14:50:09.766Z
 @MVP
 @Plus
 @Priority_1
-Feature: F137677 - Filter Results
+Feature: F137677 - Exari EM - Filter Results
 
   @MVP
   @CLM_UAT

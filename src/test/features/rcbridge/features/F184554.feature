@@ -1,6 +1,6 @@
-# Last updated on 2018-06-15T14:58:38.415Z
+# Last updated on 2018-07-09T14:51:29.888Z
 @Non_MVP
-Feature: F184554 - Migrate Delegated Credentialing
+Feature: F184554 - Exari EM - Migrate Delegated Credentialing
 
   Scenario: US1098237
     Given I am the Entity Management Solution

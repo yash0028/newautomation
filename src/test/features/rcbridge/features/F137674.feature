@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:29:13.962Z
+# Last updated on 2018-07-09T14:49:49.599Z
 @MVP
 @Plus
 @Priority_1
-Feature: F137674 - Administer Global Entity Attributes
+Feature: F137674 - Exari EM - Administer Global Entity Attributes
 
   @MVP
   @CLM_UAT

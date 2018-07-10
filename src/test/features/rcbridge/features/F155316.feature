@@ -1,6 +1,6 @@
-# Last updated on 2018-06-21T19:17:21.068Z
+# Last updated on 2018-07-09T14:51:16.071Z
 @Plus
-Feature: F155316 - Inactivate and Void Identifier
+Feature: F155316 - Exari EM - Inactivate and Void Identifier
 
   Scenario: US1094021
     Given I am the Entity Management Solution

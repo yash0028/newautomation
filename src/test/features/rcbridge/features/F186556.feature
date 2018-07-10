@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:27:42.616Z
+# Last updated on 2018-07-09T14:49:22.798Z
 @MVP
 @Plus
 @Priority_1
-Feature: F186556 - Synchronize Contract Assignments
+Feature: F186556 - Exari EM - Synchronize Contract Assignments
 
   @MVP
   @CLM_UAT

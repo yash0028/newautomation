@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:29:14.071Z
+# Last updated on 2018-07-09T14:50:04.548Z
 @MVP
 @Plus
 @Priority_1
-Feature: F137675 - Administer Business Rules
+Feature: F137675 - Exari EM - Administer Business Rules
 
   @MVP
   @CLM_UAT

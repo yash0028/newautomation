@@ -1,6 +1,6 @@
-# Last updated on 2018-07-06T17:40:42.997Z
+# Last updated on 2018-07-09T16:03:10.410Z
 
-Feature: F198150 - Removed stories
+Feature: F198150 - Exari EM - Removed stories
 
   @EXARI-11271
   Scenario: US1094105

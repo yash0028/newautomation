@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:27:42.413Z
+# Last updated on 2018-07-09T14:49:07.214Z
 @MVP
 @Plus
 @Priority_1
-Feature: F137903 - Provide Entity Data
+Feature: F137903 - Exari EM - Provide Entity Data
 
   @MVP
   @EXARI-11271

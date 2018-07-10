@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:29:14.179Z
+# Last updated on 2018-07-09T14:50:07.608Z
 @MVP
 @Plus
 @Priority_1
-Feature: F137676 - Search by Attributes
+Feature: F137676 - Exari EM - Search by Attributes
 
   @MVP
   @CLM_UAT

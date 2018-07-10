@@ -1,6 +1,6 @@
-# Last updated on 2018-06-25T13:26:46.299Z
+# Last updated on 2018-07-09T14:51:39.049Z
 
-Feature: F196735 - Search fields
+Feature: F196735 - Exari EM - Search fields
 
   @EXARI-11274
   Scenario: US1093362

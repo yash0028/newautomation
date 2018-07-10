@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:27:42.311Z
+# Last updated on 2018-07-09T14:49:04.061Z
 @MVP
 @Plus
 @Priority_1
-Feature: F137840 - Provision Users to Entities
+Feature: F137840 - Exari EM - Provision Users to Entities
 
   @MVP
   @CLM_UAT

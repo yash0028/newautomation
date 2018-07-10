@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:27:41.137Z
+# Last updated on 2018-07-09T14:48:24.395Z
 @MVP
 @Plus
 @Priority_1
-Feature: F137657 - Add Entity
+Feature: F137657 - Exari EM - Add Entity
 
   @2018.PI03
   Scenario: US1185970

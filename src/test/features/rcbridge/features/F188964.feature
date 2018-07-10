@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:29:14.487Z
+# Last updated on 2018-07-09T14:50:15.549Z
 @MVP
 @Plus
 @Priority_1
-Feature: F188964 - View Entity History
+Feature: F188964 - Exari EM - View Entity History
 
   @MVP
   @CLM_UAT

@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:27:41.805Z
+# Last updated on 2018-07-09T14:48:40.093Z
 @MVP
 @Plus
 @Priority_1
-Feature: F154296 - Perform Basic Search
+Feature: F154296 - Exari EM - Perform Basic Search
 
   @MVP
   @CLM_UAT

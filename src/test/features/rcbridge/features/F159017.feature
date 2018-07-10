@@ -1,4 +1,4 @@
-# Last updated on 2018-07-06T18:13:52.589Z
+# Last updated on 2018-07-09T14:34:45.031Z
 @MVP
 @Plus
 @Priority_1
@@ -6,6 +6,7 @@
 Feature: F159017 - Exari Microservice Establish Integration of CLM with MSPS - Optum
 
   @2018.PI03
+  @2018.PI03.02
   Scenario: US1009534
     Given a contractor will need to be able to retrieve the MSPS fee schedule
     When at this step in the interview process to retrieve a fee schedule

@@ -1,6 +1,6 @@
-# Last updated on 2018-06-26T18:21:31.824Z
+# Last updated on 2018-07-09T14:51:18.284Z
 @Plus
-Feature: F137658 - Approve Entity Modifications
+Feature: F137658 - Exari EM - Approve Entity Modifications
 
   @EXARI-11271
   @2018.PI03

@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:27:42.113Z
+# Last updated on 2018-07-09T14:48:53.614Z
 @MVP
 @Plus
 @Priority_1
-Feature: F137661 - Create and Maintain Entity Characteristics
+Feature: F137661 - Exari EM - Create and Maintain Entity Characteristics
 
   @MVP
   @EXARI-11249

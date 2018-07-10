@@ -1,7 +1,7 @@
-# Last updated on 2018-06-21T19:16:17.659Z
+# Last updated on 2018-07-09T14:51:13.101Z
 @Plus
 @Priority_1
-Feature: F137672 - Add and Remove Provider to Entity Relationship
+Feature: F137672 - Exari EM - Add and Remove Provider to Entity Relationship
 
   @EXARI-11249
   Scenario: US980944

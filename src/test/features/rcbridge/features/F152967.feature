@@ -1,8 +1,8 @@
-# Last updated on 2018-07-06T13:27:41.488Z
+# Last updated on 2018-07-09T14:48:30.574Z
 @MVP
 @Plus
 @Priority_1
-Feature: F152967 - Inactivate Entity
+Feature: F152967 - Exari EM - Inactivate Entity
 
   @MVP
   @EXARI-11267
