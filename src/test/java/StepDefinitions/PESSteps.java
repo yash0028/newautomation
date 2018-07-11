@@ -127,6 +127,7 @@ public class PESSteps {
     public void aUserIncorrectlyInputsData() throws Throwable {
         JsonObject badJsonBody = new JsonObject();
 
+        badJsonBody.addProperty("mpin", "abcd1234");
         badJsonBody.addProperty("baddata1", "badvalue");
         badJsonBody.addProperty("baddata2", "badvalue");
         badJsonBody.addProperty("baddata3", "badvalue");
@@ -143,7 +144,7 @@ public class PESSteps {
         ResponseBody raResponse = response.getBody();
 //        System.out.println("RESPONSE: " + raResponse.asString());
 
-        assertTrue(raResponse.asString().toLowerCase().contains("error"));
+        assertTrue(raResponse.asString().toLowerCase().contains("[]"));
 
     }
 
@@ -185,32 +186,6 @@ public class PESSteps {
         ResponseBody raResponse = response.getBody();
         assertTrue(raResponse.asString().contains("error"));
 
-    }
-
-    //US1094026
-    
-    @Given("^UHC will need to provide Exari with PES data$")
-    public void uhcWillNeedToProvideExariWithPESData() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @When("^Exari calls PES with MPIN and TIN$")
-    public void exariCallsPESWithMPINAndTIN() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("^an external data query will return a list of responses with the following populated fields if the result is a physician:$")
-    public void anExternalDataQueryWillReturnAListOfResponsesWithTheFollowingPopulatedFieldsIfTheResultIsAPhysician() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @And("^an external data query will return a list of responses with the following populated fields if the result is a facility:$")
-    public void anExternalDataQueryWillReturnAListOfResponsesWithTheFollowingPopulatedFieldsIfTheResultIsAFacility() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
     }
 
     //US861016
