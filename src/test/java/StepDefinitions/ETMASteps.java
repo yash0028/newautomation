@@ -24,7 +24,7 @@ public class ETMASteps {
     private RequestSpecification request;
     private Response response;
     private ResponseBody body;
-    private static String baseUri                  = "http://exari-table-maint-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
+    private static String baseUri                  = "http://exari-table-maint-api-clm-stage.ocp-ctc-core-nonprod.optum.com";
     private static String marketsUri               = "/v1.0/markets";
     private static String paperTypeUri             = "/v1.0/paper_types/search";
     private static String contractValidationUri    = "/v1.0/contract_validations";
