@@ -7,10 +7,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.RestAssured;
-import io.restassured.config.DecoderConfig;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.apache.http.entity.ContentType;
 
 import java.util.HashMap;
 import java.util.List;
@@ -26,7 +24,7 @@ public class RFPSteps {
     private RequestSpecification request;
     private Response response;
     private Map<String, String> requestParams = new HashMap<String, String>();
-    private static String baseUri  = "http://request-for-part-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static String baseUri  = "http://request-for-part-api-clm-stage.ocp-ctc-dmz-nonprod.optum.com";
     private static String endPoint = "/v1.0/participation_requests";
     private Map<String, String> fieldMap = new HashMap<String, String>();
     private Map<String, String> sampleValueMap = new HashMap<String, String>();
@@ -117,14 +115,7 @@ public class RFPSteps {
     public void findingTheSpecialtyInRFP() throws Throwable {
 
         response = request.get(endPoint);
-        System.out.println("RESPONSE: " + response.asString());
-
-    }
-
-    @Then("^the RFP service will return a \"([^\"]*)\" value$")
-    public void theRFPServiceWillReturnAValue(String value) throws Throwable {
-
-        assertTrue(response.asString().toLowerCase().contains(value.toLowerCase()));
+//        System.out.println("RESPONSE: " + response.asString());
 
     }
 
