@@ -1,4 +1,4 @@
-# Last updated on 2018-07-09T14:57:52.637Z
+# Last updated on 2018-07-10T19:39:01.588Z
 @MVP
 @Plus
 @Priority_1
@@ -8,6 +8,7 @@ Feature: F180705 - Exari Microservice Complete Integration of CLM with MSG - Opt
 
   @CLM_UAT
   @2018.PI03
+  @2018.PI03.02
   Scenario: US1009573
     When the MSG microservice is called
     Then a valid response is returned

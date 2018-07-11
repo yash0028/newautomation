@@ -4,6 +4,7 @@
 @Plus
 Feature: F165534 - Setup Retro Approval
 
+  @2018.PI04
   Scenario: US1039748
     Given a contract has an effective date in the past
     When it is being executed

@@ -1,4 +1,4 @@
-# Last updated on 2018-07-09T12:52:56.512Z
+# Last updated on 2018-07-11T02:46:04.363Z
 @MVP
 @Priority_1
 @Parity
@@ -68,4 +68,10 @@ Feature: F177202 - Distributed transaction mechanism (Part 3)
     And The transaction is not approved by the approval-coordinator
     Then The transaction is aborted with an error result.
     And The error result is written to the transaction-status database.
+
+  Scenario: US1210707
+    Given A transaction has been initiated
+    And A resource was stored in the kv-store during the transaction
+    When The transaction ends (transaction status event with status "ENDED" is received)
+    Then All resources related to that transaction are deleted
 

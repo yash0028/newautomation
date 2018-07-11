@@ -1,9 +1,9 @@
-# Last updated on 2018-06-19T19:08:16.548Z
+# Last updated on 2018-07-10T17:14:04.762Z
 @MVP
 @PI02_Top3
 @CLM_Exari
 @Parity
-Feature: F159706 - Establish Contract Provider Coverage and Maintenance Functionality (Roster)
+Feature: F159706 - (Continued in PI.03) Establish Contract Provider Coverage and Maintenance Functionality (Roster)
 
   @2018.PI02
   @2018.PI02.02

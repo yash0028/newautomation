@@ -1,4 +1,4 @@
-# Last updated on 2018-07-09T15:05:28.758Z
+# Last updated on 2018-07-10T19:51:28.817Z
 @MVP
 @PI02_Top3
 @Priority_1
@@ -11,6 +11,7 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
   @PI02_Top3
   @CLM_Exari
   @2018.PI03
+  @2018.PI03.04
   Scenario: US1100727
     Given I as a user have populated the Exari Provider Roster with MPIN, TAX ID, Provider Full Name (First, Last), and NPI
     When Exari reaches out to PES with the parameters that PES will validate against including MPIN, TAX ID, Provider Full Name (First, Last), and NPI
@@ -29,10 +30,10 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
       | Medicare ID          |
       | Credentialing Status |
 
-    And the system displays results with the best match first
 
   @PES
   @2018.PI03
+  @2018.PI03.03
   Scenario: US1194560::0
     #For Physician MPIN
     Given I am a User with access to add a Counterparty to an Interview
@@ -54,6 +55,7 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
 
   @PES
   @2018.PI03
+  @2018.PI03.03
   Scenario: US1194560::1
     #For Facility MPIN
     Given I am a User with access to add a Counterparty to an Interview

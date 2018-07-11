@@ -1,10 +1,16 @@
-# Last updated on 2018-06-25T20:30:45.784Z
+# Last updated on 2018-07-10T15:36:14.458Z
 @MVP
 @Parity
+@Non-Deliverable
+@7.5_Release
 Feature: F185542 - Create a Mass Action Project
 
+  @Non-Deliverable
+  @7.5_Release
   @MVP
   @Plus
+  @EXARI-11651
+  @EXARI-11843
   @CLM_Exari
   Scenario: US1185931
     Given I have access to a Mass Action Project
@@ -16,6 +22,7 @@ Feature: F185542 - Create a Mass Action Project
   @EXARI-11501
   @CLM_Exari
   @Parity
+  @Non-Deliverable
   @7.5_Release
   Scenario: US1098379
     Given I am a user with access to the Mass Actions UI
@@ -30,6 +37,7 @@ Feature: F185542 - Create a Mass Action Project
   @EXARI-11548
   @CLM_Exari
   @Parity
+  @Non-Deliverable
   @7.5_Release
   Scenario: US1098395
     Given a User has initiated a Mass Actions Project
@@ -38,6 +46,9 @@ Feature: F185542 - Create a Mass Action Project
     And the in-progress project will be listed on the User's Activity Manager queue
     And the in-progress project can be restarted from the User's queue
 
+  @EXARI-11614
+  @Non-Deliverable
+  @7.5_Release
   @MVP
   @Plus
   @CLM_Exari
@@ -51,6 +62,8 @@ Feature: F185542 - Create a Mass Action Project
 
   @MVP
   @Plus
+  @CLM_Exari
+  @Non-Deliverable
   Scenario: US1186294
     Given I have searched for a provider
     When the provider is a part of a Mass Action Project
@@ -60,6 +73,7 @@ Feature: F185542 - Create a Mass Action Project
   @EXARI-11507
   @CLM_Exari
   @Parity
+  @Non-Deliverable
   @7.5_Release
   Scenario: US1098392
     Given the User has identified target providers
@@ -67,6 +81,12 @@ Feature: F185542 - Create a Mass Action Project
     Then Exari will logically derive status of the Project
     And project-level status will be reportable
 
+  @MVP
+  @CLM_Exari
+  @Parity
+  @Non-Deliverable
+  @EXARI-11545
+  @7.5_Release
   Scenario: US1185895
     Given I have access to an active Mass Action Project
     When I select to view the project status
@@ -74,6 +94,9 @@ Feature: F185542 - Create a Mass Action Project
     And I can see the status as described above
     And I can "drill down" to a contract-level status
 
+  @EXARI-11614
+  @Non-Deliverable
+  @7.5_Release
   @MVP
   @Plus
   @CLM_Exari
@@ -88,6 +111,7 @@ Feature: F185542 - Create a Mass Action Project
   @Plus
   @CLM_Exari
   @Parity
+  @Non-Deliverable
   Scenario: US1098393
     Given the User has identified target providers
     When a Mass Action Project is in progress

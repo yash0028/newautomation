@@ -1,4 +1,4 @@
-# Last updated on 2018-07-09T12:45:05.331Z
+# Last updated on 2018-07-10T21:08:27.553Z
 @MVP
 @Plus
 @Priority_1
@@ -7,14 +7,20 @@ Feature: F204954 - Integration Services - NDB UNET/COSMOS Contract Master API's
 
   @MVP+1
   @2018.PI03
-  @2018.PI03.01
+  @2018.PI03.02
   Scenario: US1204285
     Given the Exari / CLM>NDB contract master Lookup API payload data is correct
     When NDB receives the Search parameter data
     Then NDB will search and return back the valid contract master data for the search parameters requested.
 
+  @MVP+1
   @2018.PI03
-  @2018.PI03.01
+  Scenario: US1209973
+    Given the Exari / CLM>NDB contract master Lookup API payload data is correct
+    When NDB receives the Search parameter data
+    Then NDB will search and return back the valid contract master data for the search parameters requested.
+
+  @2018.PI03
   Scenario: US1204297
     Given the Exari / CLM>NDB CPS Lookup API payload data is correct
     When NDB receives the Search parameter data

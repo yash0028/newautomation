@@ -4,6 +4,7 @@
 @Plus
 Feature: F165531 - Setup Rate Escalator Workflow
 
+  @2018.PI04
   Scenario: US1183620
     Given a contract with an escalator is identified
     When the contractor associated to the contracts views their dashboard
@@ -15,6 +16,7 @@ Feature: F165531 - Setup Rate Escalator Workflow
     And the workflow status
     And the date of the next escalatorevent
 
+  @2018.PI04
   Scenario: US1183610
     Given an executed or active agreement
     When it has a
