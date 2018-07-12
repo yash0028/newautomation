@@ -237,4 +237,24 @@ public class ETMASteps {
         String responseString = response.asString();
         assertTrue(responseString.contains("retroactiveReasonCode"));
     }
+
+    //US1097077
+    
+    @Given("^UHC will need to provide Exari with ETMA table data$")
+    public void uhcWillNeedToProvideExariWithETMATableData() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^the Exari calls ETMA$")
+    public void theExariCallsETMA() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^an external data query will return the requested data\\.$")
+    public void anExternalDataQueryWillReturnTheRequestedData() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }
