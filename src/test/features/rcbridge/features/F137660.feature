@@ -1,4 +1,4 @@
-# Last updated on 2018-07-09T14:48:37.589Z
+# Last updated on 2018-07-11T19:34:23.409Z
 @MVP
 @Plus
 @Priority_1
@@ -28,19 +28,6 @@ Feature: F137660 - Exari EM - Maintain Entity Identifiers
     And I capture the date and time on which the User performed the value change
 
   @MVP
-  @EXARI-11267
-  @CLM_UAT
-  @2018.PI03
-  Scenario: US955775
-    Given I am a User with access to manage Entity information
-    When I need to expire an Identifier relationship with an Entity
-    Then I must enter an expiration date for the Identifier
-    And Inactivation date applies only to the Identifier relationship with the Entity
-    And Inactivation date can be in the future or retroactive
-    And the Entity retains the effective and end dates for when it was in an active relationship with the Identifier
-    And the Identifier retains the effective and end dates for when it was in an active relationship with the Entity
-
-  @MVP
   @2018.PI03
   Scenario: US1168436
     Given I am the Entity Management Solution
@@ -54,25 +41,4 @@ Feature: F137660 - Exari EM - Maintain Entity Identifiers
     Given I am a User with access to maintain Entity information
     When I am adding an Identifier to an Entity
     Then I must select an Identifier Type to define the type of Identifier I am adding
-
-  @MVP
-  @EXARI-11267
-  @EXARI-11249
-  @CLM_UAT
-  @2018.PI03
-  Scenario: US1089942
-    Given I am a User with access to maintain Entity information
-    When I add or update an Identifier relationship to an Entity
-    Then I must enter Effective date
-    And Effective date applies only to the Identifier relationship with the Entity
-    And Effective date can be in the future or retroactive
-
-  @MVP
-  @CLM_UAT
-  @2018.PI03
-  Scenario: US1168429
-    Given I am the Entity Management Solution
-    When an active contract is in place for an Identifier to Entity relationship that is being expired
-    Then I create a Contracting Event
-    And the Contracting Event alerts a Contracting representative that contract maintenance may be required
 

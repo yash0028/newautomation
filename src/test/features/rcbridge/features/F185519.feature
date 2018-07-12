@@ -1,4 +1,4 @@
-# Last updated on 2018-07-10T15:36:14.363Z
+# Last updated on 2018-07-11T20:33:21.005Z
 @MVP
 @Parity
 Feature: F185519 - Obtain approval of a Mass Action Project

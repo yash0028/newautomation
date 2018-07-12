@@ -1,4 +1,4 @@
-# Last updated on 2018-07-10T15:36:13.773Z
+# Last updated on 2018-07-11T19:26:07.870Z
 @MVP
 @Plus
 @Priority_1
@@ -112,17 +112,6 @@ Feature: F183266 - Exari EM - Update Entity
     When I need to update an Entity Name
     Then I have the ability to expire the current Entity Name
     And I have the ability to enter a new Entity Name
-
-  @MVP
-  @CLM_UAT
-  @EXARI-11274
-  @2018.PI03
-  Scenario: US1080995
-    Given I am the Entity Management Solution
-    When A User updates an Entity Name
-    Then I perform a duplicate check on Entity Name
-    And I display duplicates
-    And User has ability to override duplicate or select from the potential duplicate list
 
   @2018.PI03
   Scenario: US1185989
