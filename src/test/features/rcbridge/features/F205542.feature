@@ -1,4 +1,4 @@
-# Last updated on 2018-07-10T16:12:03.290Z
+# Last updated on 2018-07-11T05:31:24.983Z
 @MVP
 @PI03
 Feature: F205542 - Exari Contract Event processing using Alfresco
@@ -14,6 +14,13 @@ Feature: F205542 - Exari Contract Event processing using Alfresco
     And then push the event to Optum Contract API in order to process the event within Optum System
     And then receive the transaction id after successful event processing
     And then update the contract along with transaction id so that it can be used to retrieve the contract status later using transaction id.
+
+  @2018.PI03
+  @2018.PI03.01
+  Scenario: US1208675
+    Given there exists all the training material and credentials for Alfresco training
+    And as a developer I must be able to go through all the trainings and understand the over all Alfresco activity manager
+    Then at the end of the training I must have a good understanding of the Alfresco activity manager and must be able to write the scripts to capture different event types
 
   @2018.PI03
   @2018.PI03.03

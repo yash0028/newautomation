@@ -4,6 +4,8 @@
 @Priority_1
 Feature: F137657 - Exari EM - Add Entity
 
+  @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1185970
     Given I am a User with access to maintain Entity information
@@ -27,6 +29,8 @@ Feature: F137657 - Exari EM - Add Entity
     When I am creating an Entity
     Then I can select a Characteristic Type to add a defining trait to the Entity
 
+  @MVP
+  @CLM_UAT
   @2018.PI03
   Scenario: US1185971
     Given I am a User with access to maintain Entity information

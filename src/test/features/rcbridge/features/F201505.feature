@@ -1,6 +1,11 @@
-# Last updated on 2018-07-10T15:36:18.287Z
+# Last updated on 2018-07-11T16:50:40.435Z
 
 Feature: F201505 - CLM DevOps PI 03
+
+  @2018.PI03
+  Scenario: US1181927
+    Given the need for acceptance testing in the pipeline
+    Then we need to implement acceptance testing into the pipeline
 
   @2018.PI03
   Scenario: US1168431

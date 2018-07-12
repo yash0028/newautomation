@@ -1,4 +1,4 @@
-# Last updated on 2018-07-10T15:37:13.606Z
+# Last updated on 2018-07-11T19:40:53.688Z
 
 Feature: F198150 - Exari EM - Removed stories
 
@@ -36,6 +36,19 @@ Feature: F198150 - Exari EM - Removed stories
     When a User attempts to add a second Owner to an Organizational Unit
     Then the User can change the Organizational Unit Owner to a different Owner
     And the Organizational Unit can not have two active Owners at the same time
+
+  @MVP
+  @EXARI-11267
+  @CLM_UAT
+  @2018.PI03
+  Scenario: US955775
+    Given I am a User with access to manage Entity information
+    When I need to expire an Identifier relationship with an Entity
+    Then I must enter an expiration date for the Identifier
+    And Inactivation date applies only to the Identifier relationship with the Entity
+    And Inactivation date can be in the future or retroactive
+    And the Entity retains the effective and end dates for when it was in an active relationship with the Identifier
+    And the Identifier retains the effective and end dates for when it was in an active relationship with the Entity
 
   Scenario: US1114656
     Given I am the Entity Management Solution
@@ -118,6 +131,18 @@ Feature: F198150 - Exari EM - Removed stories
     And the updated note is saved to the Entity record
     And the date and time is systematically added to the note
     And my user credentials are systematically added to the note
+
+  @MVP
+  @EXARI-11267
+  @EXARI-11249
+  @CLM_UAT
+  @2018.PI03
+  Scenario: US1089942
+    Given I am a User with access to maintain Entity information
+    When I add or update an Identifier relationship to an Entity
+    Then I must enter Effective date
+    And Effective date applies only to the Identifier relationship with the Entity
+    And Effective date can be in the future or retroactive
 
   @MVP
   @CLM_UAT
@@ -239,6 +264,14 @@ Feature: F198150 - Exari EM - Removed stories
     And I can view the User who performed the demographic information value change
     And I can view the time and date the User performed the demographic information value change
 
+  @MVP
+  @CLM_UAT
+  @2018.PI03
+  Scenario: US922850
+    Given I am a User with access to maintain Entities
+    When I want to inactivate characteristic information on an Entity
+    Then I can inactivate Entity characteristic information on the Entity
+
   @2018.PI03
   Scenario: US861137
     Given I am the Entity Management Solution
@@ -259,6 +292,15 @@ Feature: F198150 - Exari EM - Removed stories
     Then I check the Identifier for the presence of an Owner
     And I display Owner associated to the Identifier
     And the User must select the existing Owner for the Identifier or assign new Owner if not present
+
+  @MVP
+  @CLM_UAT
+  @2018.PI03
+  Scenario: US1168429
+    Given I am the Entity Management Solution
+    When an active contract is in place for an Identifier to Entity relationship that is being expired
+    Then I create a Contracting Event
+    And the Contracting Event alerts a Contracting representative that contract maintenance may be required
 
   @EXARI-11274
   Scenario: US1089525
@@ -301,6 +343,17 @@ Feature: F198150 - Exari EM - Removed stories
     Then I perform a duplicate check on Entity Name
     And I display duplicates
     And User has ability to override duplicate or select from the potential duplicate list for Entity Name
+
+  @MVP
+  @CLM_UAT
+  @EXARI-11274
+  @2018.PI03
+  Scenario: US1080995
+    Given I am the Entity Management Solution
+    When A User updates an Entity Name
+    Then I perform a duplicate check on Entity Name
+    And I display duplicates
+    And User has ability to override duplicate or select from the potential duplicate list
 
   Scenario: US1114662
     Given I am the Entity Management Solution

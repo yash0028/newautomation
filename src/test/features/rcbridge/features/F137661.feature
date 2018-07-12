@@ -1,4 +1,4 @@
-# Last updated on 2018-07-09T14:48:53.614Z
+# Last updated on 2018-07-11T19:41:43.307Z
 @MVP
 @Plus
 @Priority_1
@@ -25,14 +25,6 @@ Feature: F137661 - Exari EM - Create and Maintain Entity Characteristics
     And I capture the current value
     And I capture the User who performed the change
     And I capture the date and time when the User performed the change
-
-  @MVP
-  @CLM_UAT
-  @2018.PI03
-  Scenario: US922850
-    Given I am a User with access to maintain Entities
-    When I want to inactivate characteristic information on an Entity
-    Then I can inactivate Entity characteristic information on the Entity
 
   @MVP
   @EXARI-11249
