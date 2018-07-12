@@ -1,4 +1,4 @@
-# Last updated on 2018-07-11T15:16:29.389Z
+# Last updated on 2018-07-12T14:02:12.683Z
 @MVP
 @Priority_1
 Feature: F201371 - Integration Services - Product Description Crosswalk

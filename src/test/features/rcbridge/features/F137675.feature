@@ -55,5 +55,7 @@ Feature: F137675 - Exari EM - Administer Business Rules
   Scenario: US1152174
     Given I am the Entity Management Solution
     When a User is selecting an Entity Type
-    Then the User is not allowed to select both PHO and IPA for the same Entity
+    Then the parent Entity can be either IPA or PHO but not both
+    And a PHO parent could have multiple IPA children
+    And an IPA parent generally would not have PHO as a child
 
