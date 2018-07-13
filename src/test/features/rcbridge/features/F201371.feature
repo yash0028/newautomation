@@ -1,4 +1,4 @@
-# Last updated on 2018-07-12T14:02:12.683Z
+# Last updated on 2018-07-12T20:38:20.444Z
 @MVP
 @Priority_1
 Feature: F201371 - Integration Services - Product Description Crosswalk
@@ -80,6 +80,13 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
     Given an update to the current version of the crosswalk table is needed
     When an administrator downloads a copy of the crosswalk template
     Then the product crosswalk template is made available to the administrator
+
+  @MVP
+  @2018.PI03
+  @2018.PI03.01
+  Scenario: US1208966
+    Given Exari will need SSO to access UHG Resources
+    Then a developer will need to research the SSO capabilities.
 
   @MVP
   @Priority

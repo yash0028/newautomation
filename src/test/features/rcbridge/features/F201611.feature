@@ -1,4 +1,4 @@
-# Last updated on 2018-07-10T19:51:28.817Z
+# Last updated on 2018-07-12T20:39:59.512Z
 @MVP
 @PI02_Top3
 @Priority_1
@@ -47,4 +47,10 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
       | npi              |
       | phoneNumbers     |
 
+
+  @2018.PI03
+  @2018.PI03.01
+  Scenario: US1210131
+    Given That PES needs to provide Exari with Bulk Provider Extract
+    Then a developer will research how to provide Exari with the bulk provider extract.
 

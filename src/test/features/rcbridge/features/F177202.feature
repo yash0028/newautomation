@@ -69,6 +69,12 @@ Feature: F177202 - Distributed transaction mechanism (Part 3)
     Then The transaction is aborted with an error result.
     And The error result is written to the transaction-status database.
 
+  @2018.PI03
+  @2018.PI03.01
+  Scenario: US1199538
+    Given the Event Gateway API is needed
+    Then the developer will research further functionality of the API.
+
   Scenario: US1210707
     Given A transaction has been initiated
     And A resource was stored in the kv-store during the transaction
