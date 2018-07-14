@@ -1,4 +1,4 @@
-# Last updated on 2018-07-11T16:50:40.435Z
+# Last updated on 2018-07-13T14:09:05.963Z
 
 Feature: F201505 - CLM DevOps PI 03
 
@@ -18,10 +18,4 @@ Feature: F201505 - CLM DevOps PI 03
     Given a developer wants to deploy a service
     When the developer checks code in
     Then the CICD pipeline will automatically run through desired processes
-
-  @2018.PI03
-  Scenario: US1161432
-    Given I am a developer,
-    When I kick off a pipeline build for a service with splunk needed,
-    Then my docker image is built with a splunk layer that can forward data to specificed splunk environment
 

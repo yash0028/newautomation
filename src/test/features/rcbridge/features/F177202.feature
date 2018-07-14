@@ -31,18 +31,24 @@ Feature: F177202 - Distributed transaction mechanism (Part 3)
     Then I will see the latency of the response,
     And I will see how the consumer micro service performs.
 
+  @2018.PI03
+  @2018.PI03.02
   Scenario: US1189840::0
     Given The transaction system accepts new transactions
     When A new transaction is initialized
     And Writing the initial transaction status to the database was successful
     Then The initial transaction status can queried via the transaction-status service by the time the transaction id is returned to the caller
 
+  @2018.PI03
+  @2018.PI03.02
   Scenario: US1189840::1
     Given The transaction system accepts new transactions
     When A new transaction is initialized
     And Writing the initial transaction status to the database fails
     Then The error is logged and the transaction status can queried via the transaction-status service once the transaction system has processed the transaction
 
+  @2018.PI03
+  @2018.PI03.02
   Scenario: US1189840::2
     Given The transaction system accepts new transactions
     When A new transaction is initialized
@@ -50,6 +56,8 @@ Feature: F177202 - Distributed transaction mechanism (Part 3)
     And Writing the initial transaction status to the database was successful
     Then The initial transaction status is deleted from the database
 
+  @2018.PI03
+  @2018.PI03.02
   Scenario: US1189840::3
     Given The transaction system accepts new transactions
     When A new transaction is initialized
