@@ -14,7 +14,6 @@ Feature: F137903 - Exari EM - Provide Entity Data
     Then I made the updated Entity structure information available to consuming applications
 
   @MVP
-  @EXARI-8724
   @2018.PI03
   Scenario: US861056
     Given I am the Entity Management Solution

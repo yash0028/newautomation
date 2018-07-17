@@ -1,4 +1,4 @@
-# Last updated on 2018-07-10T15:37:07.499Z
+# Last updated on 2018-07-16T13:28:47.424Z
 @MVP
 @Plus
 @PI03
@@ -30,4 +30,22 @@ Feature: F205509 - Contracts API
     Then The event gateway API will initiate a transaction
     And will publish a new event to the Kafka message broker containing the event type, the payload, and the transaction id
     And the transaction id is returned
+
+  @2018.PI03
+  @2018.PI03.02
+  Scenario: US1207989::0
+    Given there exists a contract containing valid data
+    When a contract is received from Exari
+    Then the validation service will validate the contract data
+    And the contract is valid
+    And the service will respond that the contract is valid
+
+  @2018.PI03
+  @2018.PI03.02
+  Scenario: US1207989::1
+    Given there exists a contract containing missing required fields
+    When a contract is received from Exari
+    Then the validation service will validate the contract data
+    And the contract is not valid
+    And the service will respond that the contract is not valid
 
