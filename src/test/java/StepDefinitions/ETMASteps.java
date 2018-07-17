@@ -26,7 +26,7 @@ public class ETMASteps {
     private ResponseBody body;
     private static String baseUri                  = "http://exari-table-maint-api-clm-stage.ocp-ctc-core-nonprod.optum.com";
     private static String marketsUri               = "/v1.0/markets";
-    private static String paperTypeUri             = "/v1.0/paper_types/search";
+    private static String paperTypeUri             = "/v1.0/contract_classes/search";
     private static String contractValidationUri    = "/v1.0/contract_validations";
     private static String allContractValidationUri = "/v1.0/contract_validations/all";
     private static String retroActiveReasonCodeUri = "/v1.0/retro_reason_codes";
@@ -95,7 +95,7 @@ public class ETMASteps {
     @Then("^the service will return a \"([^\"]*)\" value$")
     public void theServiceWillReturnAValue(String value) throws Throwable {
 
-        requestBody.addProperty("paperType", contractType);
+        requestBody.addProperty("contractClass", contractType);
 
         request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
         response = request.post(contractValidationUri);
@@ -189,7 +189,7 @@ public class ETMASteps {
         for(int i = 0; i < propertiesArray.length; i++){
             tmp = new JsonObject();
             tmp.addProperty(propertyName, propertiesArray[i].trim());
-            tmp.addProperty("paperType", paperTypesArray[i].trim());
+            tmp.addProperty("contractClass", paperTypesArray[i].trim());
             requestBodyArray.add(tmp);
         }
 
