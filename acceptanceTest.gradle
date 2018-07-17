@@ -53,7 +53,7 @@ task cucumber() {
     doLast {
         javaexec {
             main = "cucumber.api.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            classpath = configurations.testRuntimeClasspath + sourceSets.main.output + sourceSets.test.output
             args = ['--plugin', 'pretty', '--glue', 'StepDefinitions', '--tags', '"@ETMA"', 'src/test/features']
         }
     }
