@@ -1,4 +1,4 @@
-# Last updated on 2018-07-09T12:45:48.558Z
+# Last updated on 2018-07-16T14:20:13.757Z
 @MVP
 @Plus
 @Parity
@@ -23,6 +23,7 @@ Feature: F183530 - Downstream Microservice Exari>COSMOS - (Physician Payload Dir
     Then the COSMOS Physician Cancel Panel should populate the PPC table and screens in COSMOS for Cancel the one Panel record without error
 
   @2018.PI03
+  @2018.PI03.01
   Scenario: US1064272
     Given the Exari payload extracts and maps the correct data fields in the Exari>COSMOS payload
     When COSMOS uploads the Physician Panel record into COSMOS
