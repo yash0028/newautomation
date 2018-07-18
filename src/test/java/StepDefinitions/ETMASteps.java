@@ -206,7 +206,7 @@ public class ETMASteps {
     //Same step for specialty codes and org types
     @Then("^service will return a a \"([^\"]*)\" value for each (?:specialty code|org type) and paper type combination$")
     public void serviceWillReturnAAValueForEachSpecialtyCodeAndPaperTypeCombination(String value) throws Throwable {
-        String responseString    = response.asString().toLowerCase();
+        String responseString    = response.asString().toLowerCase().trim();
         JsonParser parser = new JsonParser();
         JsonArray resultArray = new JsonArray();
         boolean allFalseResults = true;
