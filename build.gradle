@@ -23,7 +23,7 @@ sonarqube {
 
 repositories {
     maven { url 'http://repo1.uhc.com/artifactory/repo' }
-    mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
