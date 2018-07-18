@@ -1,8 +1,13 @@
-# Last updated on 2018-07-09T14:48:59.095Z
+# Last updated on 2018-07-17T15:37:37.807Z
 @MVP
 @Plus
 @Priority_1
 Feature: F137662 - Exari EM - Create and Maintain Entity Supplemental Detail
+
+  Scenario: US1221388
+    Given I am a User with access to maintain Entity information
+    When I am uploading an attachment to an Entity
+    Then I must select an Attachment Type to define that attachment prior to uploading
 
   @MVP
   @CLM_UAT

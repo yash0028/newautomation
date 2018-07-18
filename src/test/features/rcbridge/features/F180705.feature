@@ -1,4 +1,4 @@
-# Last updated on 2018-07-12T18:23:08.903Z
+# Last updated on 2018-07-17T19:31:26.751Z
 @MVP
 @Plus
 @Priority_1
@@ -20,6 +20,14 @@ Feature: F180705 - Exari Microservice Complete Integration of CLM with MSG - Opt
   Scenario: US1050707
     # As a consumer of MSG data
     Given I have the ability to read the MS Access DB
-    When I make a request to the microservice to read a record
-    Then I receive data that I would get from reading MS Access directly
+    When I make a request to the microservice to read a record using the following fields:
+      | providerSpecialtyIndicator |
+      | state        |
+      | county       |
+      | marketNumber |
+
+    Then I receive data that I would get from reading MS Access directly including fields:
+      | need to fill |
+      | need to fill |
+
 

@@ -1,4 +1,4 @@
-# Last updated on 2018-07-12T14:31:25.831Z
+# Last updated on 2018-07-17T19:33:27.628Z
 @MVP
 @PI03
 Feature: F205542 - Exari Contract Event processing using Alfresco
