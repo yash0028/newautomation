@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -254,6 +255,64 @@ public class ETMASteps {
 
     @Then("^an external data query will return the requested data\\.$")
     public void anExternalDataQueryWillReturnTheRequestedData() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    //US1097073
+    
+    @Given("^a user is attempting to validate org type or specialty code$")
+    public void aUserIsAttemptingToValidateOrgTypeOrSpecialtyCode() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^the ETMA table is not reachable$")
+    public void theETMATableIsNotReachable() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^the service should return an status code\\. \"([^\"]*)\"\\.$")
+    public void theServiceShouldReturnAnStatusCode(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^the error message is return to the user\\.$")
+    public void theErrorMessageIsReturnToTheUser() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    //US1180600
+    
+    @Given("^a need for documentation on connection to our services$")
+    public void aNeedForDocumentationOnConnectionToOurServices() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^visiting the swagger page for our service$")
+    public void visitingTheSwaggerPageForOurService() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^you can view the documentation$")
+    public void youCanViewTheDocumentation() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^you can execute the services$")
+    public void youCanExecuteTheServices() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^you can validate the responses for given input parameters$")
+    public void youCanValidateTheResponsesForGivenInputParameters() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
