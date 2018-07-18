@@ -5,8 +5,7 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'maven'
 
-group = 'AcceptanceTesting-CLM'
-version = '1.0-SNAPSHOT'
+group = 'com.optum.clm'
 
 description = """"""
 
