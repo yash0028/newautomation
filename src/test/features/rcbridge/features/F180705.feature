@@ -21,8 +21,10 @@ Feature: F180705 - Exari Microservice Complete Integration of CLM with MSG - Opt
     # As a consumer of MSG data
     Given I have the ability to read the MS Access DB
     When I make a request to the microservice to read a record using the following fields:
-      | specialty_type_indicators | state   | county  | marketNumber |
-      | PCP     | AK      | Haines  | 0054405 |
+      | specialty_type_indicators | PCP          |
+      | state        | AK           |
+      | county       | Haines       |
+      | marketNumber | 0054405      |
 
     Then I receive all products that fit this criteria
 
