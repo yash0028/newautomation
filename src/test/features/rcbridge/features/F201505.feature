@@ -1,4 +1,4 @@
-# Last updated on 2018-07-13T14:09:05.963Z
+# Last updated on 2018-07-18T13:42:22.447Z
 
 Feature: F201505 - CLM DevOps PI 03
 
@@ -18,4 +18,21 @@ Feature: F201505 - CLM DevOps PI 03
     Given a developer wants to deploy a service
     When the developer checks code in
     Then the CICD pipeline will automatically run through desired processes
+
+  @2018.PI03
+  Scenario: US1176975::0
+    # Enhance Test Case Link
+    Given a user story artifact with 2 valid acceptance criteria
+    And that user story does not have test cases
+    When rcbridge runs
+    Then 2 test cases are created
+    And the first test case is called RCLink 1
+    And the second test case is called RCLink 2
+
+  @2018.PI03
+  Scenario: US1176975::1
+    Given a user story artifact with 2 valid acceptance criteria
+    And that user story has 2 outdated RCLink test cases
+    When rcbridge runs
+    Then the RCLink test cases are updated
 

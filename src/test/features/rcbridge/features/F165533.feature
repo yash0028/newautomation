@@ -1,8 +1,8 @@
-# Last updated on 2018-07-17T18:57:52.614Z
+# Last updated on 2018-07-18T19:24:21.701Z
 @MVP
 @PI04
 @Plus
-Feature: F165533 - Setup Rate Update Workflow
+Feature: F165533 - Setup Rate Update/Change Workflow
 
   @2018.PI04
   Scenario: US1221993

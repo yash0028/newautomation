@@ -1,9 +1,9 @@
-# Last updated on 2018-07-09T18:17:29.210Z
+# Last updated on 2018-07-19T14:10:13.638Z
 @MVP
 @Plus
 @Priority_1
 @Parity
-Feature: F179578 - Exari>NDB Facility Medical Necessity Payload
+Feature: F179578 - Exari>NDB Facility Medical Necessity Payload - CF Team
 
   @2018.PI03
   Scenario: US1030520

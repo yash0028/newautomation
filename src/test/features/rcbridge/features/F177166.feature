@@ -1,4 +1,4 @@
-# Last updated on 2018-07-13T09:09:20.347Z
+# Last updated on 2018-07-19T13:08:10.567Z
 @MVP
 @Priority_1
 @Parity
@@ -8,6 +8,18 @@ Feature: F177166 - Establish Corporate User Access and Security - Optum
   @2018.PI03
   @2018.PI03.02
   Scenario: US860744
+    # Given I am an individual who needs to gain access to the Exari Dev Application environment
+    # When I log into Secure
+    # Then I can request access to the Exari Dev Application environment and the appropriate Role(s) that I need
+    # And my Secure request is submitted through the appropriate approval chain
+    # And based on the approval decisions, it will be approved or declined
+    # And if approved, then I can successfully log into the Exari Dev Application environment
+    # And I have access to the Role(s) I requested in Secure
+
+  @MVP
+  @2018.PI03
+  @2018.PI03.03
+  Scenario: US1225809
     # Given I am an individual who needs to gain access to the Exari Dev Application environment
     # When I log into Secure
     # Then I can request access to the Exari Dev Application environment and the appropriate Role(s) that I need
