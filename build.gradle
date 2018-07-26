@@ -40,15 +40,29 @@ dependencies {
 }
 
 test {
+    println("CUCUMBER OPTIONS: " + cucumberOptions())
     options {
+        /*
         jvmArgs '-Dcucumber.options=' +
             '--plugin pretty' +
             ' --plugin json:build/json-reports/json-report.json' +
             ' --plugin junit:build/xml-reports/xml-report.xml' +
-            ' --tags @ETMA' +
-            ' --tags ~@ignore'
+            '${cucumberTags}'
+            */
+
+        jvmArgs cucumberOptions()
     }
 
     // show standard out and standard error of the test JVM(s) on the console
     testLogging.showStandardStreams = true
+}
+
+
+def String cucumberOptions() {
+    return '-Dcucumber.options=' +
+            '--plugin pretty' +
+            ' --plugin json:build/json-reports/json-report.json' +
+            ' --plugin junit:build/xml-reports/xml-report.xml'
+            .concat(hasProperty("cucumberTags") ? " --tags '" + getProperty("cucumberTags").toString() + "'" : '')
+
 }
