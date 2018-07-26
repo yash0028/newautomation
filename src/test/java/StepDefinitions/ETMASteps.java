@@ -13,6 +13,8 @@ import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
@@ -27,7 +29,7 @@ public class ETMASteps {
     private ResponseBody body;
     private static String baseUri                  = "http://exari-table-maint-api-clm-stage.ocp-ctc-core-nonprod.optum.com";
     private static String marketsUri               = "/v1.0/markets";
-    private static String paperTypeUri             = "/v1.0/contract_classes/search";
+    private static String contractClassesUri       = "/v1.0/contract_classes/search";
     private static String contractValidationUri    = "/v1.0/contract_validations";
     private static String allContractValidationUri = "/v1.0/contract_validations/all";
     private static String retroActiveReasonCodeUri = "/v1.0/retro_reason_codes";
@@ -72,12 +74,13 @@ public class ETMASteps {
 
     @When("^finding the Specialty in ETMA$")
     public void findingTheSpecialtyInETMA() throws Throwable {
-        response = request.post(paperTypeUri);
+        response = request.post(contractClassesUri);
     }
 
     @When("^(?:And the|the) service returns paper types \"([^\"]*)\" as matched in ETMA table$")
     public void andTheServiceReturnsPaperTypesAsMatchedInETMATable(String paperTypes) throws Throwable {
         String[] validPaperTypes = paperTypes.split(",");
+
         boolean match            = true;
         String responseString    = response.asString().toLowerCase();
 
@@ -141,7 +144,7 @@ public class ETMASteps {
 
     @When("^finding the Org Type in ETMA$")
     public void findingTheOrgTypeInETMA() throws Throwable {
-        response = request.post(paperTypeUri);
+        response = request.post(contractClassesUri);
     }
 
     //US1097030
