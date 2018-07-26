@@ -1,6 +1,6 @@
-package StepDefinitions;
+package step_definitions;
 
-import Utils.RestHelper;
+import utils.RestHelper;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
