@@ -1,4 +1,4 @@
-package StepDefinitions;
+package step_definitions;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

@@ -1,10 +1,9 @@
-package StepDefinitions;
+package step_definitions;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
