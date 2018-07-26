@@ -1,5 +1,6 @@
 package StepDefinitions;
 
+import Utils.RestHelper;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -25,8 +26,8 @@ import static org.junit.Assert.assertTrue;
  * Created by jwacker on 7/18/2018.
  */
 public class MSGSteps {
-    private static String baseUri      = "http://market-strategy-grid-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static String goOutRatesEndpoint = "/v1.0/go_out_rates/product_search";
+    private static String baseUri      = "http://market-strategy-grid-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
+    private static String goOutRatesEndpoint = "/v1.0/products";
     private RequestSpecification request;
     private Response response;
     private JsonObject requestBody = new JsonObject();
@@ -45,15 +46,7 @@ public class MSGSteps {
         //Get the DataTable as a Map of the fields and values for the request
         Map<String,String> requestParams = requestParamsDT.asMap(String.class, String.class);
 
-        //Iterate through the list and add to the JSON request body the field and it's sample value
-        /*
-        for(String key: requestParams.keySet()){
-            requestBody.addProperty(key, requestParams.get(key));
-        }
-        */
-
-        //System.out.println("REQUEST BODY: " + requestBody.toString());
-        //System.out.println("request params: " + requestParams.toString());
+//        System.out.println("request params: " + requestParams.toString());
 
         //Build out the request and add the request body
         request = given().baseUri(baseUri).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
@@ -62,12 +55,13 @@ public class MSGSteps {
     @Then("^I receive all products that fit this criteria$")
     public void iReceiveAllProductsThatFitThisCriteria() throws Throwable {
         response = request.get(goOutRatesEndpoint);
-        String responseString = response.asString();
+//        String responseString = response.asString();
 
-        System.out.println("RESPONSE: " + responseString);
+        JsonObject responseJson = RestHelper.getInstance().parseJsonResponse(response);
 
-        //TODO: based on the response, change this assert so that it can validate a valid response received from MSG Service (should be JSON containing rows from the MSG Grid)
+ //       System.out.println("RESPONSE: " + responseString);
+
         assertEquals(200, response.getStatusCode());
-        //assertTrue(response.asString().contains("Products"));
+        assertTrue(!responseJson.get("content").toString().equals("[]"));
     }
 }
