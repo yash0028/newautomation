@@ -27,10 +27,9 @@ import static org.junit.Assert.assertTrue;
  */
 public class MSGSteps {
     private static String baseUri      = "http://market-strategy-grid-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
-    private static String goOutRatesEndpoint = "/v1.0/products";
+    private static String productsEndpoint = "/v1.0/products";
     private RequestSpecification request;
     private Response response;
-    private JsonObject requestBody = new JsonObject();
 
 //F180705
 
@@ -54,14 +53,27 @@ public class MSGSteps {
 
     @Then("^I receive all products that fit this criteria$")
     public void iReceiveAllProductsThatFitThisCriteria() throws Throwable {
-        response = request.get(goOutRatesEndpoint);
+        response = request.get(productsEndpoint);
 //        String responseString = response.asString();
 
         JsonObject responseJson = RestHelper.getInstance().parseJsonResponse(response);
 
- //       System.out.println("RESPONSE: " + responseString);
+//        System.out.println("RESPONSE: " + responseString);
 
         assertEquals(200, response.getStatusCode());
         assertTrue(!responseJson.get("content").toString().equals("[]"));
+    }
+
+    @Then("^I receive a response with empty content$")
+    public void iReceiveAResponseWithEmptyContent() throws Throwable {
+        response = request.get(productsEndpoint);
+        String responseString = response.asString();
+
+        JsonObject responseJson = RestHelper.getInstance().parseJsonResponse(response);
+
+        System.out.println("RESPONSE: " + responseString);
+
+        assertEquals(200, response.getStatusCode());
+        assertTrue(responseJson.get("content").toString().equals("[]"));
     }
 }
