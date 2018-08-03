@@ -44,7 +44,7 @@ public class MEGSteps {
         }
 
         //Build out the request and add the request body
-        request = given().baseUri(baseUri).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
+        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestParams);
     }
 
     @Then("^I receive data that I would get from reading SQL db directly including the fields:$")
