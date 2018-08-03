@@ -1,6 +1,6 @@
-# Last updated on 2018-07-13T16:56:34.759Z
+# Last updated on 2018-08-03T13:20:35.982Z
 
-Feature: F207069 - Enable Business Rules
+Feature: F207069 - Exari EM - Enable Business Rules
 
   Scenario: US1114661
     Given I am the Entity Management Solution

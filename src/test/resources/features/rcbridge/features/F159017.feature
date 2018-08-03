@@ -1,7 +1,6 @@
-# Last updated on 2018-07-26T14:04:09.319Z
+# Last updated on 2018-08-02T19:18:27.239Z
 @MVP
 @Plus
-@10/1_Physician
 @Priority_1
 @Exari_Microservice
 Feature: F159017 - Exari Microservice Establish Integration of CLM with MSPS Physician Fee Schedule - Optum

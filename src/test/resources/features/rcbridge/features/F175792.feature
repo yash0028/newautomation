@@ -1,6 +1,5 @@
-# Last updated on 2018-07-26T15:32:11.751Z
+# Last updated on 2018-08-01T16:17:27.049Z
 @MVP
-@10/1_Physician
 @Priority_1
 @Parity
 Feature: F175792 - Create and Extract - Providers

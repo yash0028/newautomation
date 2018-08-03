@@ -7,6 +7,7 @@
 Feature: F180705 - Exari Microservice Complete Integration of CLM with MSG - Optum and Exari
 
   @CLM_UAT
+  @MSG
   @2018.PI03
   @2018.PI03.02
   Scenario: US1009573

@@ -1,4 +1,4 @@
-# Last updated on 2018-07-24T19:44:16.376Z
+# Last updated on 2018-08-02T07:35:33.554Z
 @MVP
 @Priority_1
 @10/1_Physician
@@ -134,7 +134,7 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
   @MVP
   @Priority
   @2018.PI03
-  @2018.PI03.03
+  @2018.PI03.02
   Scenario: US1185585
     Given a product description to product code crosswalk exists
     When exchanging information about the products included or excluded from an Exari contract

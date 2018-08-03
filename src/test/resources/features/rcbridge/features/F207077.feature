@@ -1,6 +1,6 @@
-# Last updated on 2018-07-13T17:03:12.688Z
+# Last updated on 2018-08-03T13:20:36.071Z
 
-Feature: F207077 - Identifier Maintenance
+Feature: F207077 - Exari EM - Identifier Maintenance
 
   Scenario: US950017
     Given I am a User with access to maintain Entity information

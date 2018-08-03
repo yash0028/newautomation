@@ -1,4 +1,4 @@
-# Last updated on 2018-07-19T20:40:14.658Z
+# Last updated on 2018-08-03T13:20:35.709Z
 
 Feature: F207049 - Exari EM - Removed Stories
 
@@ -9,6 +9,12 @@ Feature: F207049 - Exari EM - Removed Stories
     Given I am the Entity Management Solution
     When the Interview process is cancelled with a Provider
     Then I need the Contract ID to be removed from the Provider record in the Entity Management Solution
+
+  Scenario: US1107624
+    Given I am the Entity Management Solution
+    When the Interview process is cancelled with a Counterparty
+    Then I need the Contract ID status to change to an "Inactive" status
+    And the Contract ID has an inactivation date
 
   @MVP
   @CLM_UAT
@@ -26,4 +32,10 @@ Feature: F207049 - Exari EM - Removed Stories
     And the updated note is saved to the Entity record
     And the date and time is systematically added to the note
     And my user credentials are systematically added to the note
+
+  Scenario: US1107622
+    Given I am Entity Management Solution
+    When a Counterparty enters the Interview process
+    Then the Contract ID is visible on the Counterparty record in "Draft" status in the Entity Management Solution
+    And the Contract ID has an effective date
 

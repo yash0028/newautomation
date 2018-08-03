@@ -29,9 +29,9 @@ Feature: F205218 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
   @2018.PI03
   @2018.PI03.02
   Scenario: US1233995
-    Given the exari will need to connect to NDB through layer 7
-    When exari calls NDB though layer 7
-    Then a valid response will be received.
+    Given Exari needs to connect to NDB through layer 7
+    When Exari calls NDB through layer 7
+    Then a valid response is received by NDB
 
   @#MVP
   @2018.PI03

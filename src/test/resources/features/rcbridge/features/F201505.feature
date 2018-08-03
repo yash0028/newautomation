@@ -1,11 +1,13 @@
-# Last updated on 2018-07-26T14:53:13.394Z
+# Last updated on 2018-08-02T20:58:16.441Z
 
-Feature: F201505 - CLM DevOps PI 03
+Feature: F201505 - CLM DevOps PI03
 
   @2018.PI03
-  Scenario: US1181927
-    Given the need for acceptance testing in the pipeline
-    Then we need to implement acceptance testing into the pipeline
+  Scenario: US1080317
+    Given A service is deployed
+    When A log message is written
+    Then The log message is send to the central log aggregation
+    And The log message is available in the log dashboard
 
   @2018.PI03
   Scenario: US1168431
@@ -25,6 +27,7 @@ Feature: F201505 - CLM DevOps PI 03
     When multiple requests come into that service,
     Then the requests are spread out between ELR and CTC datacenters
 
+  @RCBridge
   @2018.PI03
   Scenario: US1176975::0
     # Enhance Test Case Link
@@ -35,10 +38,28 @@ Feature: F201505 - CLM DevOps PI 03
     And the first test case is called RCLink 1
     And the second test case is called RCLink 2
 
+  @RCBridge
   @2018.PI03
   Scenario: US1176975::1
     Given a user story artifact with 2 valid acceptance criteria
     And that user story has 2 outdated RCLink test cases
     When rcbridge runs
     Then the RCLink test cases are updated
+
+  @2018.PI03
+  Scenario: US1080320
+    Given A service capable of publishing metrics is deployed
+    When The service performs an operation, it sends statics to Splunk
+    Then The metrics are recorded and aggregated, available In a dashboard for visualization
+
+  @2018.PI03
+  Scenario: US1181927
+    Given the need for acceptance testing in the pipeline
+    Then we need to implement acceptance testing into the pipeline
+
+  @2018.PI03
+  Scenario: US1078501
+    Given Kafka is running
+    When Kafka is updating it's JMX metrics
+    Then The metrics are sent to Splunk for metrics aggregation and available in the metrics dashboard
 

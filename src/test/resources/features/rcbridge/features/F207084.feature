@@ -1,6 +1,6 @@
-# Last updated on 2018-07-13T17:12:49.847Z
+# Last updated on 2018-08-03T13:20:36.255Z
 
-Feature: F207084 - View Summary and Reporting
+Feature: F207084 - Exari EM - View Summary and Reporting
 
   @MVP
   @CLM_UAT

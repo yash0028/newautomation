@@ -5,6 +5,7 @@
 @Exari_Microservice
 Feature: F175776 - Exari Microservice Establish Integration of CLM with Facility Fee Schedule - Optum
 
+  @MSPS
   @2018.PI03
   @2018.PI03.02
   Scenario: US1165661

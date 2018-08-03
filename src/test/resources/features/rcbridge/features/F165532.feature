@@ -1,16 +1,16 @@
-# Last updated on 2018-07-09T15:33:39.989Z
+# Last updated on 2018-07-30T18:26:57.996Z
 @MVP
 @PI04
 @Plus
 Feature: F165532 - Setup Chargemaster Workflow
 
-  @2018.PI04
+  @Configuration_for_12/1/18
   Scenario: US1034211
     Given an executed or active agreement
     When it has a Percentage of Payment Rate (PPR) payment method
     Then it is identified as having a chargemaster componentAnd it is 120 days before the anticipated chargemaster date.
 
-  @2018.PI04
+  @Configuration_for_12/1/18
   Scenario: US1034167
     Given a contract with chargemaster is identified
     When I click on 'Chargemaster Summary"
@@ -24,7 +24,7 @@ Feature: F165532 - Setup Chargemaster Workflow
     And "Lessor of" language
     And any non-standard language
 
-  @2018.PI04
+  @Configuration_for_12/1/18
   Scenario: US1031489
     Given a contract with a chargemaster is identified
     When the contractor associated to the contracts views their dashboard

@@ -1,6 +1,6 @@
-# Last updated on 2018-07-13T16:42:26.026Z
+# Last updated on 2018-08-03T13:20:35.808Z
 
-Feature: F207050 - Check for Duplicates
+Feature: F207050 - Exari EM - Check for Duplicates
 
   @MVP
   @CLM_UAT

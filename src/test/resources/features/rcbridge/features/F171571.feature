@@ -6,17 +6,17 @@ Feature: F171571 - Provide contract details to Examiner
 
   @2018.PI03
   @2018.PI03.02
-  Scenario: US1234077
-    Given a business event is received from Exari
-    When additional contract details are queried from Exari
-    Then the Exari contract model is received.
+  Scenario: US1234077::0
+    Given the Domain Service has received a business event from Exari
+    When the Domain Service queries for additional contract details from Exari
+    Then the Domain Service receives the Exari contract model
 
   @2018.PI03
   @2018.PI03.02
-  Scenario: US1234010
-    Given an application wants to search contracts by any fields
-    When the search API is called
-    Then a list of contracts will be returned that matches the search criteria.
+  Scenario: US1234077::1
+    Given the Domain Service has received a business event from Exari
+    When the Domain Service queries for invalid contract details from Exari
+    Then the Domain Service returns a service error
 
   @MVP
   @2018.PI03
