@@ -19,8 +19,8 @@ import static org.junit.Assert.assertTrue;
  */
 public class MEGSteps {
 
-    //private static String baseUri = "http://market-exception-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static String baseUri = "http://localhost:8080";
+    private static String baseUri = "http://market-exception-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    //private static String baseUri = "http://localhost:8080";
     private static String endpoint = "/marketGridRulesMaster";
     private JsonObject requestBody = new JsonObject();
     private RequestSpecification request;
