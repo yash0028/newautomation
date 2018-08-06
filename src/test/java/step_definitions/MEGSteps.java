@@ -19,8 +19,9 @@ import static org.junit.Assert.assertTrue;
  */
 public class MEGSteps {
 
-    private static String baseUri = "http://market-exception-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
-    private static String endpoint = "";
+    //private static String baseUri = "http://market-exception-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static String baseUri = "http://localhost:8080";
+    private static String endpoint = "/marketGridRulesMaster";
     private JsonObject requestBody = new JsonObject();
     private RequestSpecification request;
     private Response response;
@@ -40,17 +41,20 @@ public class MEGSteps {
 
         //Add each key:value pair
         for(String key: requestParams.keySet()){
-            requestBody.addProperty(key, requestParams.getOrDefault(key, ""));
+            //requestBody.addProperty(key, requestParams.getOrDefault(key, ""));
+            endpoint += "/" + key + "/" + requestParams.getOrDefault(key, "") + "/";
         }
 
         //Build out the request and add the request body
-        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestParams);
+        //request = given().baseUri(baseUri).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
+        request = given().baseUri(baseUri).header("Content-Type", "application/json");
+
     }
 
     @Then("^I receive data that I would get from reading SQL db directly including the fields:$")
     public void iReceiveDataThatIWouldGetFromReadingSQLDbDirectlyIncludingTheFields(DataTable responseFieldsDT) throws Throwable {
         //Get the response
-        response = request.post(endpoint);
+        response = request.get(endpoint);
         //Get the response fields from the data table as a list
         List<String> responseFields = responseFieldsDT.asList();
         boolean allMatch = true;
