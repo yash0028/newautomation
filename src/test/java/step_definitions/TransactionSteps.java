@@ -45,4 +45,22 @@ public class TransactionSteps {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
+
+    @Given("^A business event is received by the event gateway that requires an update to COSMOS$")
+    public void aBusinessEventIsReceivedByTheEventGatewayThatRequiresAnUpdateToCOSMOS() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^the associated contract data is valid for the COSMOS update$")
+    public void theAssociatedContractDataIsValidForTheCOSMOSUpdate() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^It is validated and approved by the cosmos-validator service$")
+    public void itIsValidatedAndApprovedByTheCosmosValidatorService() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }
