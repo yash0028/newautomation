@@ -1,4 +1,4 @@
-# Last updated on 2018-08-02T07:35:33.554Z
+# Last updated on 2018-08-07T15:37:53.283Z
 @MVP
 @Priority_1
 @10/1_Physician
@@ -88,6 +88,7 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
     And a message(s) is returned to the user of all errors and notification that the process failed
 
   @2018.PI03
+  @2018.PI03.03
   Scenario: US1199568::0
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
@@ -97,6 +98,7 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
     And The database is updated to indicate that the spreadsheet was processed successfully
 
   @2018.PI03
+  @2018.PI03.03
   Scenario: US1199568::1
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database

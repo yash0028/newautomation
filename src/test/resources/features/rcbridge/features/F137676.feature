@@ -1,4 +1,4 @@
-# Last updated on 2018-07-19T18:46:49.855Z
+# Last updated on 2018-08-06T17:02:53.860Z
 @MVP
 @Plus
 @Priority_1
@@ -64,6 +64,12 @@ Feature: F137676 - Exari EM - Search by Attributes
     When I want to find an Entity
     Then I can search for both Active and Inactive Entities simultaneously
     And the system returns Active and Inactive Entities in the same list
+
+  Scenario: US1257574
+    Given I am a User with access to maintain Entity information
+    When I create a search query
+    Then I can save that search query
+    And I can create a custom name for that search query
 
   @MVP
   @CLM_UAT

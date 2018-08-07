@@ -1,4 +1,4 @@
-# Last updated on 2018-08-03T13:20:36.255Z
+# Last updated on 2018-08-06T18:33:41.926Z
 
 Feature: F207084 - Exari EM - View Summary and Reporting
 
