@@ -1,6 +1,5 @@
-# Last updated on 2018-07-30T14:58:03.447Z
+# Last updated on 2018-08-07T14:44:12.188Z
 @Priority_1
-@10/1_Physician
 @CMD
 Feature: F210044 - Contract Meta Data (CMD) Category Set values - TIN or Provider Network
 

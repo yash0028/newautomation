@@ -21,13 +21,13 @@ Feature: F196394 - Integration of Exari with Market Exception Grid (MEG)
     When I make a request to the microservice to read a record with fields:
       | state     | ALABAMA   |
       | market    | 1403      |
-      | taskType  | Execution |
+      | task      | Execution |
 
     Then I receive data that I would get from reading SQL db directly including the fields:
-      | ruleName     |
-      | description  |
-      | references   |
-      | revisionDate |
+      | Rule_Name    |
+      | Description  |
+      | Links        |
+      | DATE_UPDATED |
 
 
   @2018.PI03

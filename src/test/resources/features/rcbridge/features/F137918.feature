@@ -1,4 +1,4 @@
-# Last updated on 2018-07-19T18:49:38.433Z
+# Last updated on 2018-08-06T18:31:14.952Z
 @Plus
 @Priority_1
 Feature: F137918 - Exari EM - Migrate Entity Data

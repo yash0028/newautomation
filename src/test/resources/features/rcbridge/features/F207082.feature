@@ -1,4 +1,4 @@
-# Last updated on 2018-08-03T13:20:36.159Z
+# Last updated on 2018-08-06T18:33:34.600Z
 
 Feature: F207082 - Exari EM - Create and Maintain Demographic and Characteristic Info
 
