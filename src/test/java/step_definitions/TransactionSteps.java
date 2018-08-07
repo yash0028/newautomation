@@ -33,4 +33,16 @@ public class TransactionSteps {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
+
+    @And("^the associated contract data is incomplete$")
+    public void theAssociatedContractDataIsIncomplete() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^It is validated by the ndb-validator service and an error is reported to the transaction system$")
+    public void itIsValidatedByTheNdbValidatorServiceAndAnErrorIsReportedToTheTransactionSystem() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }
