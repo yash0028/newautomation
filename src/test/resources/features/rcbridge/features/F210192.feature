@@ -1,4 +1,4 @@
-# Last updated on 2018-08-07T15:07:10.110Z
+# Last updated on 2018-08-07T16:20:19.574Z
 @Priority_1
 Feature: F210192 - Contract Meta Data (CMD) - Template Model
 
