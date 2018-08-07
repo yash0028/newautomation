@@ -63,4 +63,16 @@ public class TransactionSteps {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
+
+    @And("^the associated contract data is invalid for the COSMOS update$")
+    public void theAssociatedContractDataIsInvalidForTheCOSMOSUpdate() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^It is validated by the cosmos-validator service and an error is reported to the transaction system$")
+    public void itIsValidatedByTheCosmosValidatorServiceAndAnErrorIsReportedToTheTransactionSystem() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }
