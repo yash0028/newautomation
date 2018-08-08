@@ -1,4 +1,4 @@
-# Last updated on 2018-08-07T15:59:22.208Z
+# Last updated on 2018-08-08T10:08:27.630Z
 @MVP
 @Priority_1
 @Parity
@@ -50,6 +50,13 @@ Feature: F177211 - Receive Exari Status Acknowledgements and run Status Reports 
   @2018.PI03
   @2018.PI03.01
   Scenario: US1170944
+    Given a the Contract Status table is populated during the Migration process
+    When it is completed
+    Then I can identify all contracts that were in scope to be migrated, but fell out of the Migration process (either have a fallout status, or were identified to be migrated but were not due to error)
+
+  @2018.PI03
+  @2018.PI03.03
+  Scenario: US1261628
     Given a the Contract Status table is populated during the Migration process
     When it is completed
     Then I can identify all contracts that were in scope to be migrated, but fell out of the Migration process (either have a fallout status, or were identified to be migrated but were not due to error)

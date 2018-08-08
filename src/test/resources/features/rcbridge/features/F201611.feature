@@ -1,4 +1,4 @@
-# Last updated on 2018-08-07T19:23:11.195Z
+# Last updated on 2018-08-08T14:31:58.283Z
 @PI02_Top3
 @Exari_Microservice
 @MVP
@@ -50,12 +50,13 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
 
 
   @Andrew_B
+  @PES
   @2018.PI03
   @2018.PI03.03
   Scenario: US1253705
-    Given a counterparty with a corporate MPIN is chosen,
-    When the service is given a corp MPIN,
-    Then all of the names, addresses, and TINs under that corp MPIN are returned from the service
+    Given a counterparty with a corporate MPIN is chosen
+    When the service is given a corporate MPIN
+    Then all of the names, addresses, and TINs under that corporate MPIN are returned from the service
 
   @2018.PI03
   @2018.PI03.01

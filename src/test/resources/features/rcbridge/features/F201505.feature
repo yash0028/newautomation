@@ -27,6 +27,30 @@ Feature: F201505 - CLM DevOps PI03
     When multiple requests come into that service,
     Then the requests are spread out between ELR and CTC datacenters
 
+  @RCBridge
+  @2018.PI03
+  Scenario: US1176975::0
+    # Enhance Test Case Link
+    Given a user story artifact with 2 valid acceptance criteria
+    And that user story does not have test cases
+    When rcbridge runs
+    Then 2 test cases are created
+    And the first test case is called RCLink 1
+    And the second test case is called RCLink 2
+
+  @RCBridge
+  @2018.PI03
+  Scenario: US1176975::1
+    Given a user story artifact with 2 valid acceptance criteria
+    And that user story has 2 outdated RCLink test cases
+    When rcbridge runs
+    Then the RCLink test cases are updated
+    Examples:
+      | data A | data B |
+      | A  | B  |
+      | AA | BB |
+
+
   @2018.PI03
   Scenario: US1080320
     Given A service capable of publishing metrics is deployed
