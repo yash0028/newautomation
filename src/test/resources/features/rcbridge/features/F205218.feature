@@ -33,7 +33,7 @@ Feature: F205218 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     When Exari calls NDB through layer 7
     Then a valid response is received by NDB
 
-  @#MVP
+  @MVP
   @2018.PI03
   @2018.PI03.03
   Scenario: US1103097

@@ -50,6 +50,7 @@ Feature: F196394 - Integration of Exari with Market Exception Grid (MEG)
 
 
   @kumar,_Sachin
+  @MEG
   @2018.PI03
   @2018.PI03.03
   Scenario: US1210025
