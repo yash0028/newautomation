@@ -27,6 +27,7 @@ Feature: F205218 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     And a transaction state service call indicating successful processing was made
 
   @2018.PI03
+  @US1233995
   @2018.PI03.02
   Scenario: US1233995
     Given Exari needs to connect to NDB through layer 7
@@ -34,6 +35,7 @@ Feature: F205218 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     Then a valid response is received by NDB
 
   @#MVP
+  @US1103097
   @2018.PI03
   @2018.PI03.03
   Scenario: US1103097
