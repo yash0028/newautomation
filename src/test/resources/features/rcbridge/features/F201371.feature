@@ -1,4 +1,4 @@
-# Last updated on 2018-08-07T15:37:53.283Z
+# Last updated on 2018-08-07T20:28:00.940Z
 @MVP
 @Priority_1
 @10/1_Physician
@@ -10,6 +10,15 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
     Given the existence of a web UI
     When an authorized user access the URL
     Then the web UI for up/download is available
+
+  @MVP
+  @Priority
+  @2018.PI03
+  @2018.PI03.02
+  Scenario: US1260991
+    Given a product description to product code crosswalk exists
+    When exchanging information about the products included or excluded from an Exari contract
+    Then the crosswalk provides the product code identifier
 
   @MVP
   @2018.PI03
@@ -28,6 +37,20 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
   @2018.PI03
   @2018.PI03.01
   Scenario: US1234925::1
+    Given an update to the current version of the crosswalk table is needed
+    When an administrator downloads a copy of the crosswalk template
+    Then the product crosswalk template is made available to the administrator
+
+  @2018.PI03
+  @2018.PI03.02
+  Scenario: US1260997::0
+    Given more than one product description crosswalk record exists in the database
+    When access to a previous record version is needed
+    Then the previous record versions are available
+
+  @2018.PI03
+  @2018.PI03.02
+  Scenario: US1260997::1
     Given an update to the current version of the crosswalk table is needed
     When an administrator downloads a copy of the crosswalk template
     Then the product crosswalk template is made available to the administrator
@@ -114,14 +137,14 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
     Then the web UI for up/download is available
 
   @2018.PI03
-  @2018.PI03.02
+  @2018.PI03.03
   Scenario: US1207219::0
     Given more than one product description crosswalk record exists in the database
     When access to a previous record version is needed
     Then the previous record versions are available
 
   @2018.PI03
-  @2018.PI03.02
+  @2018.PI03.03
   Scenario: US1207219::1
     Given an update to the current version of the crosswalk table is needed
     When an administrator downloads a copy of the crosswalk template
@@ -136,7 +159,7 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
   @MVP
   @Priority
   @2018.PI03
-  @2018.PI03.02
+  @2018.PI03.03
   Scenario: US1185585
     Given a product description to product code crosswalk exists
     When exchanging information about the products included or excluded from an Exari contract

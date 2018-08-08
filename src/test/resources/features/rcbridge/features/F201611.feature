@@ -1,4 +1,4 @@
-# Last updated on 2018-08-02T20:18:50.771Z
+# Last updated on 2018-08-07T19:23:11.195Z
 @PI02_Top3
 @Exari_Microservice
 @MVP
@@ -10,7 +10,7 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
 
   @PES
   @2018.PI03
-  @2018.PI03.03
+  @2018.PI03.04
   Scenario: US1194560::0
     #For Physician MPIN
     Given I am a User with access to add a Counterparty to an Interview
@@ -32,7 +32,7 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
 
   @PES
   @2018.PI03
-  @2018.PI03.03
+  @2018.PI03.04
   Scenario: US1194560::1
     #For Facility MPIN
     Given I am a User with access to add a Counterparty to an Interview
@@ -48,6 +48,14 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
       | npi              |
       | phoneNumbers     |
 
+
+  @Andrew_B
+  @2018.PI03
+  @2018.PI03.03
+  Scenario: US1253705
+    Given a counterparty with a corporate MPIN is chosen,
+    When the service is given a corp MPIN,
+    Then all of the names, addresses, and TINs under that corp MPIN are returned from the service
 
   @2018.PI03
   @2018.PI03.01

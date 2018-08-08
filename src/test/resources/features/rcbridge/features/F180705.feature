@@ -1,4 +1,4 @@
-# Last updated on 2018-08-07T14:43:02.526Z
+# Last updated on 2018-08-07T20:31:04.952Z
 @MVP
 @Plus
 @Priority_1
@@ -9,7 +9,7 @@ Feature: F180705 - Exari Microservice Complete Integration of CLM with MSG - Opt
   @CLM_UAT
   @MSG
   @2018.PI03
-  @2018.PI03.02
+  @2018.PI03.03
   Scenario: US1009573
     When the MSG microservice is called
     Then a valid response is returned
@@ -43,4 +43,12 @@ Feature: F180705 - Exari Microservice Complete Integration of CLM with MSG - Opt
       | market | 99999  |
 
     Then I receive a response with empty content
+
+  @CLM_UAT
+  @MSG
+  @2018.PI03
+  @2018.PI03.02
+  Scenario: US1261008
+    When the MSG microservice is called
+    Then a valid response is returned
 
