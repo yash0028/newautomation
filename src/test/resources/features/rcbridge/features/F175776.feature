@@ -22,7 +22,7 @@ Feature: F175776 - Exari Microservice Establish Integration of CLM with Facility
   @MSPS
   @2018.PI03
   @2018.PI03.01
-  Scenario: US1165644
+  Scenario Outline: US1165644
     When the Exari interview calls for the facility fee schedules with Facility "<feeScheduleNumber>"
     Then the microservice will return the requested fee schedules in a zip file
     Examples:

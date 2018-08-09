@@ -17,8 +17,9 @@ Feature: F159017 - Exari Microservice Establish Integration of CLM with MSPS Phy
   @MSPS
   @2018.PI03
   @2018.PI03.02
-  Scenario: US1231695::0
-    #Happy PathWhen the Exari interview calls for the facility fee schedules with Physician "<feeScheduleNumber>"
+  Scenario Outline: US1231695::0
+    #Happy Path
+    When the Exari interview calls for the facility fee schedules with Physician "<feeScheduleNumber>"
     Then the microservice will return the requested fee schedules in a pdf file
     Examples:
       | feeScheduleNumber |
@@ -31,7 +32,7 @@ Feature: F159017 - Exari Microservice Establish Integration of CLM with MSPS Phy
   @MSPS
   @2018.PI03
   @2018.PI03.02
-  Scenario: US1231695::1
+  Scenario Outline: US1231695::1
     #Bad Path
     When the Exari interview calls for the facility fee schedules with Physician "<feeScheduleNumber>"
     Then the microservice will return a "404" error message

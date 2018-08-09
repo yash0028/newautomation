@@ -40,7 +40,7 @@ Feature: F201505 - CLM DevOps PI03
 
   @RCBridge
   @2018.PI03
-  Scenario: US1176975::1
+  Scenario Outline: US1176975::1
     Given a user story artifact with 2 valid acceptance criteria
     And that user story has 2 outdated RCLink test cases
     When rcbridge runs
