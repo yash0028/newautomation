@@ -1,6 +1,5 @@
 package step_definitions;
 
-import com.google.gson.JsonObject;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -19,11 +18,11 @@ import static org.junit.Assert.assertTrue;
  * Created by jwacker on 6/13/2018.
  */
 public class RFPSteps {
+    private static final String BASE_URI = "http://request-for-part-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
+    private static final String END_POINT = "/v1.0/participation_requests";
     private RequestSpecification request;
     private Response response;
     private Map<String, String> requestParams = new HashMap<String, String>();
-    private static String baseUri  = "http://request-for-part-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
-    private static String endPoint = "/v1.0/participation_requests";
     private Map<String, String> fieldMap = new HashMap<String, String>();
     private Map<String, String> sampleValueMap = new HashMap<String, String>();
     private static String samplePlaceOfService = "AL";
@@ -65,7 +64,7 @@ public class RFPSteps {
     @When("^the request is made to the RFP service$")
     public void theRequestIsMadeToTheRFPService() throws Throwable {
 
-        request = given().baseUri(baseUri).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
 
     }
 
@@ -74,7 +73,7 @@ public class RFPSteps {
         boolean match         = true;
         List<String> fields   = fieldsDT.asList(String.class);
 
-        response              = request.get(endPoint);
+        response              = request.get(END_POINT);
         String responseString = response.asString().toLowerCase();
 
 //        System.out.println("RESPONSE: " + responseString);
@@ -106,13 +105,13 @@ public class RFPSteps {
         requestParams.put(propertyName, value);
         requestParams.put(fieldMap.get("Place of Service"), sampleValueMap.get("Place of Service"));
 
-        request = given().baseUri(baseUri).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
     }
 
     @When("^finding the (?:Specialty|Org Type) in RFP$")
     public void findingTheSpecialtyInRFP() throws Throwable {
 
-        response = request.get(endPoint);
+        response = request.get(END_POINT);
 //        System.out.println("RESPONSE: " + response.asString());
 
     }

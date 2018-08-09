@@ -1,6 +1,5 @@
 package step_definitions;
 
-import cucumber.api.PendingException;
 import utils.FileHelper;
 import utils.RestHelper;
 import com.google.gson.JsonObject;
@@ -11,9 +10,6 @@ import io.restassured.specification.RequestSpecification;
 
 import java.io.*;
 import java.util.Base64;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
-import java.util.zip.ZipInputStream;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
@@ -23,9 +19,9 @@ import static io.restassured.RestAssured.given;
  * Created by jwacker on 7/19/2018.
  */
 public class MSPSSteps {
-    private static String baseUri = "http://fee-schedule-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
-    private static String facilityEndpoint = "/v1.0/facility_fee_schedules/search";
-    private static String professionalEndpoint = "/v1.0/professional_fee_schedules/search";
+    private static final String BASE_URI = "http://fee-schedule-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
+    private static final String FACILITY_ENDPOINT = "/v1.0/facility_fee_schedules/search";
+    private static final String PROFESSIONAL_ENDPOINT = "/v1.0/professional_fee_schedules/search";
     private JsonObject requestBody = new JsonObject();
     private RequestSpecification request;
     private Response response;
@@ -40,13 +36,13 @@ public class MSPSSteps {
         requestBody.addProperty("feeScheduleNumber", feeScheduleNumber);
 
         //Build out the request and add the JSON Request Body
-        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestBody.toString());
 
         //Capture the response from a POST request to the endpoint URL (different endpoints for Facility and Physician)
         if(callType.equalsIgnoreCase("Facility")){
-            response = request.post(facilityEndpoint);
+            response = request.post(FACILITY_ENDPOINT);
         }else{
-            response = request.post(professionalEndpoint);
+            response = request.post(PROFESSIONAL_ENDPOINT);
         }
 
     }

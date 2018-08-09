@@ -1,7 +1,6 @@
 package step_definitions;
 
 import com.google.gson.JsonObject;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -19,8 +18,8 @@ import static org.junit.Assert.assertTrue;
  */
 public class MEGSteps {
 
-    private static String baseUri = "http://market-exception-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    //private static String baseUri = "http://localhost:8080";
+    private static final String BASE_URI = "http://market-exception-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    //private static String BASE_URI = "http://localhost:8080";
     private static String endpoint = "/marketGridRulesMaster";
     private JsonObject requestBody = new JsonObject();
     private RequestSpecification request;
@@ -46,8 +45,8 @@ public class MEGSteps {
         }
 
         //Build out the request and add the request body
-        //request = given().baseUri(baseUri).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
-        request = given().baseUri(baseUri).header("Content-Type", "application/json");
+        //request = given().BASE_URI(BASE_URI).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json");
 
     }
 

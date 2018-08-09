@@ -13,8 +13,6 @@ import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
 
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
@@ -24,17 +22,16 @@ import static org.junit.Assert.assertTrue;
  * Created by jwacker on 5/11/2018.
  */
 public class ETMASteps {
+    private static final String BASE_URI = "http://exari-table-maint-api-clm-stage.ocp-ctc-core-nonprod.optum.com";
+    private static final String MARKETS_ENDPOINT = "/v1.0/markets";
+    private static final String CONTRACT_CLASSES_ENDPOINT = "/v1.0/contract_classes/search";
+    private static final String CONTRACT_VALIDATION_ENDPOINT = "/v1.0/contract_validations";
+    private static final String ALL_CONTRACT_VALIDATION_ENDPOINT = "/v1.0/contract_validations/all";
+    private static final String RETRO_ACTIVE_REASON_CODE_ENDPOINT = "/v1.0/retro_reason_codes";
     private RequestSpecification request;
     private Response response;
-    private ResponseBody body;
-    private static String baseUri                  = "http://exari-table-maint-api-clm-stage.ocp-ctc-core-nonprod.optum.com";
-    private static String marketsUri               = "/v1.0/markets";
-    private static String contractClassesUri       = "/v1.0/contract_classes/search";
-    private static String contractValidationUri    = "/v1.0/contract_validations";
-    private static String allContractValidationUri = "/v1.0/contract_validations/all";
-    private static String retroActiveReasonCodeUri = "/v1.0/retro_reason_codes";
-    private String contractType                    = "";
-    private JsonObject requestBody                 = new JsonObject();
+    private String contractType     = "";
+    private JsonObject requestBody  = new JsonObject();
 
 //F182490
 
@@ -50,7 +47,7 @@ public class ETMASteps {
     @When("^the micro service calls the ETMA tables$")
     public void theMicroServiceCallsTheETMATables() throws Throwable {
 
-        response = when().get(baseUri + marketsUri);
+        response = when().get(BASE_URI + MARKETS_ENDPOINT);
 
     }
 
@@ -69,12 +66,12 @@ public class ETMASteps {
 
         requestBody.addProperty("specialtyIndicator", specialtyIndicator);
 
-        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestBody.toString());
     }
 
     @When("^finding the Specialty in ETMA$")
     public void findingTheSpecialtyInETMA() throws Throwable {
-        response = request.post(contractClassesUri);
+        response = request.post(CONTRACT_CLASSES_ENDPOINT);
     }
 
     @When("^(?:And the|the) service returns paper types \"([^\"]*)\" as matched in ETMA table$")
@@ -101,8 +98,8 @@ public class ETMASteps {
 
         requestBody.addProperty("contractClass", contractType);
 
-        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
-        response = request.post(contractValidationUri);
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestBody.toString());
+        response = request.post(CONTRACT_VALIDATION_ENDPOINT);
 
         assertTrue(response.asString().toLowerCase().contains(value.toLowerCase()));
     }
@@ -113,7 +110,7 @@ public class ETMASteps {
     public void theProviderSSpecialtyIndicatorIsAndContractTypeIsNotKnown(String specialtyIndicator) throws Throwable {
         requestBody.addProperty("specialtyIndicator", specialtyIndicator);
 
-        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestBody.toString());
     }
 
     @Then("^service will NOT return paper types \"([^\"]*)\" from the ETMA table$")
@@ -139,12 +136,12 @@ public class ETMASteps {
     public void theProviderSOrganizationTypeIsAndContractTypeIsNotKnown(String organizationType) throws Throwable {
         requestBody.addProperty("organizationType", organizationType);
 
-        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestBody.toString());
     }
 
     @When("^finding the Org Type in ETMA$")
     public void findingTheOrgTypeInETMA() throws Throwable {
-        response = request.post(contractClassesUri);
+        response = request.post(CONTRACT_CLASSES_ENDPOINT);
     }
 
     //US1097030
@@ -154,7 +151,7 @@ public class ETMASteps {
         requestBody.addProperty("organizationType", orgType);
         this.contractType = contractType;
 
-        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestBody.toString());
     }
 
     //US1097065
@@ -163,14 +160,14 @@ public class ETMASteps {
     public void theProviderSSpecialtyCodeIsPassedToTheService(String specialtyIndicator) throws Throwable {
         requestBody.addProperty("specialtyIndicator", specialtyIndicator);
 
-        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestBody.toString());
     }
 
     @Given("^the provider's Org Type \"([^\"]*)\" is passed to the service$")
     public void theProviderSOrgTypeIsPassedToTheService(String orgType) throws Throwable {
         requestBody.addProperty("organizationType", orgType);
 
-        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBody.toString());
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestBody.toString());
     }
 
     //US1129434
@@ -198,13 +195,13 @@ public class ETMASteps {
         }
 
 //        System.out.println(requestBodyArray.toString());
-        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(requestBodyArray.toString());
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestBodyArray.toString());
     }
 
     //Same step for specialty codes and org types
     @When("^the (?:Specialty Codes|Org Types) are not found in ETMA$")
     public void theSpecialtyCodesAreNotFoundInETMA() throws Throwable {
-        response = request.post(allContractValidationUri);
+        response = request.post(ALL_CONTRACT_VALIDATION_ENDPOINT);
     }
 
     //Same step for specialty codes and org types
@@ -232,8 +229,8 @@ public class ETMASteps {
 
     @When("^ETMA is queried for the retro reason code$")
     public void etmaIsQueriedForTheRetroReasonCode() throws Throwable {
-        request = given().baseUri(baseUri);
-        response = request.get(retroActiveReasonCodeUri);
+        request = given().baseUri(BASE_URI);
+        response = request.get(RETRO_ACTIVE_REASON_CODE_ENDPOINT);
     }
 
     @Then("^all of the retro reason codes are returned$")
