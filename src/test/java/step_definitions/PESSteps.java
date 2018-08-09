@@ -18,7 +18,7 @@ import static io.restassured.RestAssured.given;
  * Created by jwacker on 5/16/2018.
  */
 public class PESSteps {
-    private static final String BASE_URI = "http://demographics-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String BASE_URI = "http://demographics-api-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private static final String COUNTER_PARTIES_ENDPOINT = "/v1.0/counterparties/search";
     private RequestSpecification request;
     private Response response;
