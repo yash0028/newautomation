@@ -28,9 +28,9 @@ public class TransactionSteps {
         JsonObject jsonResponse;
         JsonObject businessEvent = new JsonObject();
         JsonObject ndbModel = new JsonObject();
-
         payload = new JsonObject();
 
+        // Add payload information to Json Objects
         businessEvent.addProperty("eventName", "ContractInstalled");
         businessEvent.addProperty("eventType", "contract-installed");
         businessEvent.addProperty("userId", "test1");
@@ -76,6 +76,7 @@ public class TransactionSteps {
         ndbModel.addProperty("reassignIpa", "001");
         ndbModel.addProperty("reassignAdrSeq", "0001");
 
+        // Add Json Objects to payload
         payload.add("businessEvent", businessEvent);
         payload.add("ndbModel", ndbModel);
 
