@@ -18,11 +18,11 @@ import static io.restassured.RestAssured.given;
  * Created by jwacker on 5/16/2018.
  */
 public class PESSteps {
+    private static final String BASE_URI = "http://demographics-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String COUNTER_PARTIES_ENDPOINT = "/v1.0/counterparties/search";
     private RequestSpecification request;
     private Response response;
     private JsonObject commonSearchParams;
-    private static String baseUri = "http://demographics-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static String counterPartiesUri = "/v1.0/counterparties/search";
 
     public PESSteps(){
         this.commonSearchParams = new JsonObject();
@@ -39,14 +39,14 @@ public class PESSteps {
     @Given("^the Exari Interview is built with the search parameters \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
     public void theExariInterviewIsBuiltWithTheSearchParameters(String mpin, String tin, String npi, String fn, String ln, String city, String zip, String state) throws Throwable {
 
-        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(commonSearchParams.toString());
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(commonSearchParams.toString());
 
     }
 
     @When("^the user completes the search parameters for Demographic data needs$")
     public void theUserCompletesTheSearchParametersForDemographicDataNeeds() throws Throwable {
 
-        response = request.post(counterPartiesUri);
+        response = request.post(COUNTER_PARTIES_ENDPOINT);
 
     }
 
@@ -84,7 +84,7 @@ public class PESSteps {
     @Given("^a user has searched for provider$")
     public void aUserHasSearchedForProvider() throws Throwable {
 
-        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(commonSearchParams.toString());
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(commonSearchParams.toString());
 
         assertTrue(commonSearchParams != null);
 
@@ -93,7 +93,7 @@ public class PESSteps {
     @When("^there are multiple results$")
     public void thereAreMultipleResults() throws Throwable {
 
-        response = request.post(counterPartiesUri);
+        response = request.post(COUNTER_PARTIES_ENDPOINT);
         ResponseBody raResponse = response.getBody();
 
         assertTrue(response != null);
@@ -116,7 +116,7 @@ public class PESSteps {
     @Given("^a user needs to call PES$")
     public void aUserNeedsToCallPES() throws Throwable {
 
-        request = given().baseUri(baseUri).header("Content-Type", "application/json");
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json");
 
     }
 
@@ -133,7 +133,7 @@ public class PESSteps {
 
         request.body(badJsonBody.toString());
 
-        response = request.post(counterPartiesUri);
+        response = request.post(COUNTER_PARTIES_ENDPOINT);
     }
 
     @Then("^the user receives a bad input error message$")
@@ -149,7 +149,7 @@ public class PESSteps {
     @When("^the system goes down$")
     public void theSystemGoesDown() throws Throwable {
 
-        request.baseUri(baseUri+"/asdf");
+        request.baseUri(BASE_URI +"/asdf");
         response = request.post();
 
     }
@@ -165,7 +165,7 @@ public class PESSteps {
     @When("^a catastrophic error occurs$")
     public void aCatastrophicErrorOccurs() throws Throwable {
 
-        request.baseUri(baseUri+"/asdf");
+        request.baseUri(BASE_URI +"/asdf");
         response = request.post();
 
     }
@@ -199,7 +199,7 @@ public class PESSteps {
 
         jsonBody.addProperty("mpin", mpin);
 
-        request = given().baseUri(baseUri).header("Content-Type", "application/json").body(jsonBody.toString());
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(jsonBody.toString());
     }
 
     @Then("^PES returns the following information:$")
@@ -207,7 +207,7 @@ public class PESSteps {
         boolean match         = true;
         List<String> fields   = fieldsDT.asList(String.class);
 
-        response              = request.post(counterPartiesUri);
+        response              = request.post(COUNTER_PARTIES_ENDPOINT);
         String responseString = response.asString().toLowerCase();
 
 //        System.out.println("RESPONSE: " + responseString);

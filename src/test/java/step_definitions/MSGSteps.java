@@ -1,11 +1,7 @@
 package step_definitions;
 
 import utils.RestHelper;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -13,9 +9,6 @@ import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -26,8 +19,8 @@ import static org.junit.Assert.assertTrue;
  * Created by jwacker on 7/18/2018.
  */
 public class MSGSteps {
-    private static String baseUri      = "http://market-strategy-grid-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
-    private static String productsEndpoint = "/v1.0/products";
+    private static final String BASE_URI          = "http://market-strategy-grid-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
+    private static final String PRODUCTS_ENDPOINT = "/v1.0/products";
     private RequestSpecification request;
     private Response response;
 
@@ -48,12 +41,12 @@ public class MSGSteps {
 //        System.out.println("request params: " + requestParams.toString());
 
         //Build out the request and add the request body
-        request = given().baseUri(baseUri).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
     }
 
     @Then("^I receive all products that fit this criteria$")
     public void iReceiveAllProductsThatFitThisCriteria() throws Throwable {
-        response = request.get(productsEndpoint);
+        response = request.get(PRODUCTS_ENDPOINT);
 //        String responseString = response.asString();
 
         JsonObject responseJson = RestHelper.getInstance().parseJsonResponse(response);
@@ -66,7 +59,7 @@ public class MSGSteps {
 
     @Then("^I receive a response with empty content$")
     public void iReceiveAResponseWithEmptyContent() throws Throwable {
-        response = request.get(productsEndpoint);
+        response = request.get(PRODUCTS_ENDPOINT);
         String responseString = response.asString();
 
         JsonObject responseJson = RestHelper.getInstance().parseJsonResponse(response);
