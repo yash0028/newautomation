@@ -1,11 +1,11 @@
-# Last updated on 2018-08-07T15:59:53.447Z
+# Last updated on 2018-08-07T18:33:13.643Z
 @MVP
 @Priority_1
 @Parity
 Feature: F175792 - Create and Extract - Providers
 
   @2018.PI03
-  @2018.PI03.03
+  @2018.PI03.05
   Scenario: US1096651
     Given I am processing the a contract's Lines tab during the migration process
     When I reference the defined columns for the new Exari roster
@@ -42,7 +42,7 @@ Feature: F175792 - Create and Extract - Providers
     Then The overall test code coverage is above 70%
 
   @2018.PI03
-  @2018.PI03.03
+  @2018.PI03.05
   Scenario: US1207395
     Given I am processing the a contract's Lines tab during the migration process
     When I reference the defined columns for the new Exari roster

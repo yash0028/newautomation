@@ -1,6 +1,6 @@
-# Last updated on 2018-08-07T14:44:12.188Z
+# Last updated on 2018-08-07T19:21:26.675Z
 @Priority_1
-@CMD
+@CMD2
 Feature: F210044 - Contract Meta Data (CMD) Category Set values - TIN or Provider Network
 
   Scenario: US1209261::0

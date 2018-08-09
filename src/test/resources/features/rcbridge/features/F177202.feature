@@ -1,4 +1,4 @@
-# Last updated on 2018-08-06T19:34:32.184Z
+# Last updated on 2018-08-07T20:28:01.476Z
 @MVP
 @10/1_Physician
 @Priority_1
@@ -7,7 +7,7 @@ Feature: F177202 - Distributed transaction mechanism (Part 3)
 
   @2018.PI03
   @2018.PI03.02
-  Scenario: US1189845::0
+  Scenario: US1260992::0
     Given A business event is received by the event gateway that requires an update to NDB
     And the associated contract data is valid for the NDB update
     When The enriched business event is sent by the contract-domain service
@@ -15,7 +15,7 @@ Feature: F177202 - Distributed transaction mechanism (Part 3)
 
   @2018.PI03
   @2018.PI03.02
-  Scenario: US1189845::1
+  Scenario: US1260992::1
     Given A business event is received by the event gateway that requires an update to NDB
     And the associated contract data is incomplete
     When The enriched business event is sent by the contract-domain service
@@ -23,7 +23,7 @@ Feature: F177202 - Distributed transaction mechanism (Part 3)
 
   @2018.PI03
   @2018.PI03.02
-  Scenario: US1189845::2
+  Scenario: US1260992::2
     Given A business event is received by the event gateway that requires an update to COSMOS
     And the associated contract data is valid for the COSMOS update
     When The enriched business event is sent by the contract-domain service
@@ -31,6 +31,38 @@ Feature: F177202 - Distributed transaction mechanism (Part 3)
 
   @2018.PI03
   @2018.PI03.02
+  Scenario: US1260992::3
+    Given A business event is received by the event gateway that requires an update to COSMOS
+    And the associated contract data is invalid for the COSMOS update
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated by the cosmos-validator service and an error is reported to the transaction system
+
+  @2018.PI03
+  @2018.PI03.03
+  Scenario: US1189845::0
+    Given A business event is received by the event gateway that requires an update to NDB
+    And the associated contract data is valid for the NDB update
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated and approved by the ndb-validator service
+
+  @2018.PI03
+  @2018.PI03.03
+  Scenario: US1189845::1
+    Given A business event is received by the event gateway that requires an update to NDB
+    And the associated contract data is incomplete
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated by the ndb-validator service and an error is reported to the transaction system
+
+  @2018.PI03
+  @2018.PI03.03
+  Scenario: US1189845::2
+    Given A business event is received by the event gateway that requires an update to COSMOS
+    And the associated contract data is valid for the COSMOS update
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated and approved by the cosmos-validator service
+
+  @2018.PI03
+  @2018.PI03.03
   Scenario: US1189845::3
     Given A business event is received by the event gateway that requires an update to COSMOS
     And the associated contract data is invalid for the COSMOS update

@@ -1,4 +1,4 @@
-# Last updated on 2018-08-07T16:08:04.261Z
+# Last updated on 2018-08-08T14:12:15.673Z
 @MVP
 @10/1_Physician
 Feature: F207419 - Integration Services - ETMA legacy data tables and code lists
@@ -64,6 +64,14 @@ Feature: F207419 - Integration Services - ETMA legacy data tables and code lists
 
   @MVP
   @2018.PI03
+  @2018.PI03.03
+  Scenario: US1243370
+    Given a contract sub type value exists
+    When a contract sub type is selected
+    Then the edit table validates the correct sub type was selected
+
+  @MVP
+  @2018.PI03
   @2018.PI03.04
   Scenario: US1229506
     Given the med nec clause language listed in the table
@@ -90,6 +98,7 @@ Feature: F207419 - Integration Services - ETMA legacy data tables and code lists
   @2018.PI03
   @2018.PI03.03
   Scenario: US1232963::1
+    # Add Codes as examples once provided
     Given a retroactive reason code value is included in the table
     When an inquiry/verification request for a specific code value is made
     Then the inquiry response/verification response returns the code and code description

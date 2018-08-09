@@ -7,7 +7,7 @@ Feature: F177166 - Establish Corporate User Access and Security - Optum
 
   @MVP
   @2018.PI03
-  @2018.PI03.03
+  @2018.PI03.04
   Scenario: US860744
     # Given I am an individual who needs to gain access to the Exari Dev Application environment
     # When I log into Secure

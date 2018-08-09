@@ -1,6 +1,7 @@
 package step_definitions;
 
 import cucumber.api.PendingException;
+import utils.FileHelper;
 import utils.RestHelper;
 import com.google.gson.JsonObject;
 import cucumber.api.java.en.Then;
@@ -62,14 +63,14 @@ public class MSPSSteps {
         byte[] decoded = Base64.getDecoder().decode(responseJson.get("feeScheduleFile").getAsString());
 
         //Write the byte array to a zip file
-        File file = writeByteArrayToFile("testFile." + extension, decoded);
+        File file = FileHelper.getInstance().writeByteArrayToFile("testFile." + extension, decoded);
 
         //Assert that the call was successful
         assertEquals(200, response.getStatusCode());
 
         //Assert that the zip contains files or that the pdf is exists and can be read
         if(extension.equalsIgnoreCase("zip")){
-            assertTrue(zipContainsFiles(file));
+            assertTrue(FileHelper.getInstance().zipContainsFiles(file));
         }
         else{
             assertTrue(file.isFile() && file.canRead());
@@ -77,39 +78,6 @@ public class MSPSSteps {
 
         //Delete the file when done
         file.delete();
-    }
-
-    private File writeByteArrayToFile(String fileName, byte[] content) throws IOException{
-        //Create the file with the given filename
-        File file = new File(fileName);
-        BufferedOutputStream writer = new BufferedOutputStream(new FileOutputStream(file));
-
-        //Write the byte[] to the file
-        writer.write(content);
-        writer.flush();
-        writer.close();
-
-        return file;
-    }
-
-    private boolean zipContainsFiles(File file){
-        ZipFile zipFile = null;
-        int size = 0;
-
-        try {
-            //Create instance of ZipFile with the given file
-            zipFile = new ZipFile(file);
-
-            //Get the size of the zip file
-            size = zipFile.size();
-            zipFile.close();
-        }
-        catch(IOException e) {
-            System.out.println("Error regarding zip file: " + e.getMessage());
-        }
-
-        //Return true if the zip file contains at least one file
-        return size > 0;
     }
 
     @Then("^the microservice will return a \"([^\"]*)\" error message$")

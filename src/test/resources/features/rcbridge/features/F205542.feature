@@ -1,11 +1,11 @@
-# Last updated on 2018-07-30T17:51:03.160Z
+# Last updated on 2018-08-07T19:52:56.306Z
 @MVP
 @PI03
 @10/1_Physician
 Feature: F205542 - Exari Contract Event processing using Alfresco
 
   @2018.PI03
-  @2018.PI03.03
+  @2018.PI03.04
   Scenario: US1208692
     Given there exists custom alfresco scripts to capture the system/user events within Exari system.
     When the event is initiated within Exari system
@@ -31,7 +31,7 @@ Feature: F205542 - Exari Contract Event processing using Alfresco
     Then at the end of the training I must have a good understanding of the Alfresco activity manager and must be able to write the scripts to capture different event types
 
   @2018.PI03
-  @2018.PI03.03
+  @2018.PI03.04
   Scenario: US1208696
     Given there exists custom alfresco scripts to capture the system/user events within Exari system.
     When the event is initiated within Exari system
@@ -43,7 +43,7 @@ Feature: F205542 - Exari Contract Event processing using Alfresco
     And then update the contract along with transaction id so that it can be used to retrieve the contract status later using transaction id.
 
   @2018.PI03
-  @2018.PI03.03
+  @2018.PI03.04
   Scenario: US1208699
     Given there exists custom alfresco scripts to capture the system/user events within Exari system.
     When the event is initiated within Exari system
@@ -67,7 +67,7 @@ Feature: F205542 - Exari Contract Event processing using Alfresco
     And then update the contract along with transaction id so that it can be used to retrieve the contract status later using transaction id.
 
   @2018.PI03
-  @2018.PI03.03
+  @2018.PI03.04
   Scenario: US1208680
     Given there exists custom alfresco scripts to capture the system/user events within Exari system.
     When the event is initiated within Exari system
@@ -79,7 +79,7 @@ Feature: F205542 - Exari Contract Event processing using Alfresco
     And then update the contract along with transaction id so that it can be used to retrieve the contract status later using transaction id.
 
   @2018.PI03
-  @2018.PI03.03
+  @2018.PI03.04
   Scenario: US1208693
     Given there exists custom alfresco scripts to capture the system/user events within Exari system.
     When the event is initiated within Exari system

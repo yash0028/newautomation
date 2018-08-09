@@ -1,10 +1,13 @@
-# Last updated on 2018-08-07T16:14:47.846Z
+# Last updated on 2018-08-08T17:28:50.209Z
 @MVP
 @10/1_Physician
 @CMD
 Feature: F213508 - Integration Services - Reference tables and code value lists
 
+  @kumar,_Sachin
+  @Alex_M
   @2018.PI03
+  @2018.PI03.03
   Scenario: US1256692
     Given the application screen is ready
     When a table file is uploaded
@@ -22,7 +25,9 @@ Feature: F213508 - Integration Services - Reference tables and code value lists
     When the query response result includes more than one record
     Then the response includes all records that matched
 
+  @kumar,_Sachin
   @2018.PI03
+  @2018.PI03.03
   Scenario: US1256687
     Given attributes and permissible code values have been gathered
     When the table administrator needs to store the information
@@ -47,7 +52,9 @@ Feature: F213508 - Integration Services - Reference tables and code value lists
     And attribute definitions, data types and permissible code values identified
     Then a table template to store a copy of the information is made available
 
+  @kumar,_Sachin
   @2018.PI03
+  @2018.PI03.03
   Scenario: US1256690::0
     Given The table service is up and running
     When A new template is uploaded and stored in the database
@@ -55,7 +62,9 @@ Feature: F213508 - Integration Services - Reference tables and code value lists
     And The content of spreadsheet is parsed and stored in a database table
     And The database is updated to indicate that the spreadsheet was processed successfully
 
+  @kumar,_Sachin
   @2018.PI03
+  @2018.PI03.03
   Scenario: US1256690::1
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
@@ -63,36 +72,52 @@ Feature: F213508 - Integration Services - Reference tables and code value lists
     Then The existing data is not deleted and not updated
     And The database is updated to indicate that the spreadsheet import failed
 
+  @Mark
+  @2018.PI03
+  @2018.PI03.03
   Scenario: US1259178::0
     Given a user needs to query the table
     When the user provides NDB SpecCd or NDB OrgTypeCd and Prov Rec Type values
     Then the query response provides the most recent record version attributes data
 
+  @Mark
+  @2018.PI03
+  @2018.PI03.03
   Scenario: US1259178::1
     Given a user needs to query the table
     When the user provides a value of P for Rec Type
     Then the user must provide NDB Spec Cd
     And Degree Code is optional
 
+  @Mark
+  @2018.PI03
+  @2018.PI03.03
   Scenario: US1259178::2
     Given a user needs to query the table
     When the user provides a value of O for Rec Type
     Then the user must provide NDB Org Type Cd
     And SpecCd is optional
 
+  @Mark
+  @2018.PI03
+  @2018.PI03.03
   Scenario: US1259178::3
     Given a user queries the table
     When the query response result includes more than one record
     Then the response includes all records that matched
 
+  @kumar,_Sachin
   @2018.PI03
+  @2018.PI03.03
   Scenario: US1256689::0
     Given a template has records populated with data
     When the template is uploaded
     Then the file and data is validated
     And a message is returned to the user that the process was successful
 
+  @kumar,_Sachin
   @2018.PI03
+  @2018.PI03.03
   Scenario: US1256689::1
     Given a template is populated with invalid data
     When the template is uploaded

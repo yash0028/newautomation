@@ -1,4 +1,4 @@
-# Last updated on 2018-07-26T19:59:42.105Z
+# Last updated on 2018-08-07T20:28:02.410Z
 @MVP
 @PI02_Top3
 @Parity
@@ -27,19 +27,24 @@ Feature: F205218 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     And a transaction state service call indicating successful processing was made
 
   @2018.PI03
-  @US1233995
-  @2018.PI03.02
+  @2018.PI03.03
   Scenario: US1233995
     Given Exari needs to connect to NDB through layer 7
     When Exari calls NDB through layer 7
     Then a valid response is received by NDB
 
-  @#MVP
-  @US1103097
+  @MVP
   @2018.PI03
   @2018.PI03.03
   Scenario: US1103097
     Given the need to support multiple event transactions within a Update Roster event at the Domain Service level
     When creating the services needed to support each event
     Then a standardized schema exists and is applied
+
+  @2018.PI03
+  @2018.PI03.02
+  Scenario: US1260999
+    Given Exari needs to connect to NDB through layer 7
+    When Exari calls NDB through layer 7
+    Then a valid response is received by NDB
 
