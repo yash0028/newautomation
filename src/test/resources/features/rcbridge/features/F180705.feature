@@ -22,10 +22,10 @@ Feature: F180705 - Exari Microservice Complete Integration of CLM with MSG - Opt
     # Happy Path
     Given I have the ability to read the MS Access DB
     When I make a request to the microservice to read a record using the following fields:
-      | specialty_type_indicators | 007     |
-      | state   | AK      |
-      | county  | Haines  |
-      | market  | 0054405 |
+      | specialties | Dermatology |
+      | state       | AK          |
+      | county      | Haines      |
+      | market      | 0054405     |
 
     Then I receive all products that fit this criteria
 
@@ -37,10 +37,10 @@ Feature: F180705 - Exari Microservice Complete Integration of CLM with MSG - Opt
     # Bad Path
     Given I have the ability to read the MS Access DB
     When I make a request to the microservice to read a record using the following fields:
-      | specialty_type_indicators | XXX    |
-      | state  | MM     |
-      | county | Abcd   |
-      | market | 99999  |
+      | specialties | XXX   |
+      | state       | MM    |
+      | county      | Abcd  |
+      | market      | 99999 |
 
     Then I receive a response with empty content
 
