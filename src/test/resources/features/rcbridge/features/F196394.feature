@@ -55,5 +55,5 @@ Feature: F196394 - Integration of Exari with Market Exception Grid (MEG)
   @2018.PI03.03
   Scenario: US1210025
     When the MEG microservice is called
-    Then a valid response is returned
+    Then a valid MEG response is returned
 
