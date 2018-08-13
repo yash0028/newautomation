@@ -28,7 +28,7 @@ public class MSPSSteps {
     private RequestSpecification request;
     private Response response;
 
-//F175776
+//F175776 and F159017
 
     //US1165644
 
@@ -52,16 +52,11 @@ public class MSPSSteps {
     @Then("^the microservice will return the requested fee schedules in a (zip|pdf) file$")
     public void theMicroserviceWillReturnTheRequestedFeeSchedulesInAZipFile(String extension) throws Throwable {
 
-        //Get the response as a JSON object
-        JsonObject responseJson = RestHelper.getInstance().parseJsonResponse(response);
+        //Get the response as a byte array
+        byte[] fileBytes = response.asByteArray();
 
-//        System.out.println(responseJson.toString());
-
-        //Decode the feeScheduleFile bytes contained in the JSON into a Byte[]
-        byte[] decoded = Base64.getDecoder().decode(responseJson.get("feeScheduleFile").getAsString());
-
-        //Write the byte array to a zip file
-        File file = FileHelper.getInstance().writeByteArrayToFile("testFile." + extension, decoded);
+        //Write the byte array to a zip or pdf file based on the extension
+        File file = FileHelper.getInstance().writeByteArrayToFile("testFile." + extension, fileBytes);
 
         //Assert that the call was successful
         assertEquals(200, response.getStatusCode());
