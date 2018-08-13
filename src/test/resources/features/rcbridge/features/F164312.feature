@@ -72,24 +72,24 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
   @2018.PI02.04
   Scenario: US1095910::0
     Given a user needs to call RFP grid
-    When a user incorrectly inputs data
-    Then the user receives a bad input error message
+    When a user incorrectly inputs RFP data
+    Then the user receives a RFP bad input error message
 
   @RFP
   @2018.PI02
   @2018.PI02.04
   Scenario: US1095910::1
     Given a user needs to call RFP grid
-    When the system goes down
-    Then the user receives a system error message
+    When the RFP system goes down
+    Then the user receives a RFP system error message
 
   @RFP
   @2018.PI02
   @2018.PI02.04
   Scenario: US1095910::2
     Given a user needs to call RFP grid
-    When a catastrophic error occurs
-    Then a service ticket will need to be created.
+    When a RFP catastrophic error occurs
+    Then a RFP service ticket will need to be created.
 
   @CLM_UAT
   @RFP
