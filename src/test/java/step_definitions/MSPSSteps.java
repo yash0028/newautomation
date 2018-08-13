@@ -79,9 +79,9 @@ public class MSPSSteps {
     }
 
     @Then("^the microservice will return a \"([^\"]*)\" error message$")
-    public void theMicroserviceWillReturnAError(String responseMessage) throws Throwable {
+    public void theMicroserviceWillReturnAError(String responseCode) throws Throwable {
         //Make sure the response contains the responseMessage
-        assertTrue(response.asString().contains(responseMessage));
+        assertTrue(responseCode.equals(response.getStatusCode() + ""));
     }
 
     //US1009534
