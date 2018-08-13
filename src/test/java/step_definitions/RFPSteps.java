@@ -144,7 +144,7 @@ public class RFPSteps {
     }
 
     @Given("^UHC will need to provide Exari with RFP data including:$")
-    public void uhcWillNeedToProvideExariWithRFPDataIncluding() throws Throwable {
+    public void uhcWillNeedToProvideExariWithRFPDataIncluding(DataTable table) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
@@ -156,7 +156,7 @@ public class RFPSteps {
     }
 
     @Then("^an external data query will return a list of fields:$")
-    public void anExternalDataQueryWillReturnAListOfFields() throws Throwable {
+    public void anExternalDataQueryWillReturnAListOfFields(DataTable table) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
@@ -199,6 +199,42 @@ public class RFPSteps {
 
     @And("^an improved upload\\.html$")
     public void anImprovedUploadHtml() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^a user incorrectly inputs RFP data$")
+    public void aUserIncorrectlyInputsRFPData() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^the user receives a RFP bad input error message$")
+    public void theUserReceivesARFPBadInputErrorMessage() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^the RFP system goes down$")
+    public void theRFPSystemGoesDown() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^the user receives a RFP system error message$")
+    public void theUserReceivesARFPSystemErrorMessage() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^a RFP catastrophic error occurs$")
+    public void aRFPCatastrophicErrorOccurs() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^a RFP service ticket will need to be created\\.$")
+    public void aRFPServiceTicketWillNeedToBeCreated() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
