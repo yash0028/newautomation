@@ -1,5 +1,7 @@
 package step_definitions;
 
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Given;
 import utils.FileHelper;
 import utils.RestHelper;
 import com.google.gson.JsonObject;
@@ -81,4 +83,44 @@ public class MSPSSteps {
         //Make sure the response contains the responseMessage
         assertTrue(response.asString().contains(responseMessage));
     }
+
+    //US1009534
+
+    @Given("^a contractor will need to be able to retrieve the MSPS fee schedule$")
+    public void aContractorWillNeedToBeAbleToRetrieveTheMSPSFeeSchedule() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^at this step in the interview process to retrieve a fee schedule$")
+    public void atThisStepInTheInterviewProcessToRetrieveAFeeSchedule() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^a fee schedule\\(s\\) are returned based on input criteria\\.$")
+    public void aFeeScheduleSAreReturnedBasedOnInputCriteria() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+//F175776
+
+    //US1261012 and US1165661
+
+    @When("^connecting to the MSPS service from Exari with a fee schedule number for a facility$")
+    public void connectingToTheMSPSServiceFromExariWithAFeeScheduleNumberForAFacility() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^I receive the needed data in a zip file from the MSPS service\\.$")
+    public void iReceiveTheNeededDataInAZipFileFromTheMSPSService() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+
+
+
 }
