@@ -1,5 +1,7 @@
 package step_definitions;
 
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -27,13 +29,13 @@ public class RFPSteps {
     private Map<String, String> sampleValueMap = new HashMap<String, String>();
     private static String samplePlaceOfService = "AL";
     private static String sampleOrgType = "021";
-    private static String sampleSpecialty = "Dentist";
+    private static String sampleSpecialty = "050";
 
     public RFPSteps(){
         //Map all the fields to the name they're reflected as in the service
         fieldMap.put("Place of Service","place_of_service");
-        fieldMap.put("Specialty Type","specialty");
-        fieldMap.put("Organization Type","org_type");
+        fieldMap.put("Specialty Type","specialty_code");
+        fieldMap.put("Organization Type","organization_code");
         fieldMap.put("Credentialing Required","credentialingRequired");
         fieldMap.put("Super Script","superscript1");
         fieldMap.put("Credentialing Entity","credentialingEntity");
@@ -120,5 +122,84 @@ public class RFPSteps {
     public void theRFPServiceWillReturnABlankList() throws Throwable {
 
         assertTrue(response.asString().equals("[]"));
+    }
+
+    @Given("^a user needs to call RFP grid$")
+    public void aUserNeedsToCallRFPGrid() throws Throwable {
+        // noop
+    }
+
+    //US1082297
+    
+    @Given("^Exari will need to call our API$")
+    public void exariWillNeedToCallOurAPI() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^a web client will need to be created\\.$")
+    public void aWebClientWillNeedToBeCreated() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Given("^UHC will need to provide Exari with RFP data including:$")
+    public void uhcWillNeedToProvideExariWithRFPDataIncluding() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^the Exari calls RFP with Provider Specialty$")
+    public void theExariCallsRFPWithProviderSpecialty() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^an external data query will return a list of fields:$")
+    public void anExternalDataQueryWillReturnAListOfFields() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Given("^the provider's Specialty \"([^\"]*)\" is passed to the RFP service #specialty code that doesn't exist$")
+    public void theProviderSSpecialtyIsPassedToTheRFPServiceSpecialtyCodeThatDoesnTExist(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Given("^the provider's Org Type \"([^\"]*)\" is passed to the RFP service #org type that doesn't exist$")
+    public void theProviderSOrgTypeIsPassedToTheRFPServiceOrgTypeThatDoesnTExist(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Given("^a need to improve the RFP microservice$")
+    public void aNeedToImproveTheRFPMicroservice() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^the service must have (\\d+) percent or greater test coverage with sonar$")
+    public void theServiceMustHavePercentOrGreaterTestCoverageWithSonar(int arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^extensive logging statements for info and debug$")
+    public void extensiveLoggingStatementsForInfoAndDebug() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^more thorough documentation expanded on the default swagger config$")
+    public void moreThoroughDocumentationExpandedOnTheDefaultSwaggerConfig() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^an improved upload\\.html$")
+    public void anImprovedUploadHtml() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }
