@@ -1,8 +1,10 @@
-# Last updated on 2018-07-09T14:11:15.032Z
+# Last updated on 
 @MVP
+@F182690
 Feature: F182690 - Add Exari's PowerAuthor to AppStore
 
-  Scenario: US1085951
+  @US1085951
+  Scenario: US1085951 - Add PowerAuthor to the Appstore
     Given a person is in the AppStore
     When they search for Exari PowerAuthor
     Then they can request to install the software

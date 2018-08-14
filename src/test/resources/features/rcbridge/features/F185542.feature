@@ -1,8 +1,9 @@
-# Last updated on 2018-08-06T15:16:35.689Z
+# Last updated on 
 @MVP
 @Parity
 @Non-Deliverable
 @7.5_Release
+@F185542
 Feature: F185542 - Create a Mass Action Project
 
   @Non-Deliverable
@@ -12,7 +13,8 @@ Feature: F185542 - Create a Mass Action Project
   @EXARI-11651
   @EXARI-11843
   @CLM_Exari
-  Scenario: US1185931
+  @US1185931
+  Scenario: US1185931 - Search for specific provider status
     Given I have access to a Mass Action Project
     When the project has started
     Then I can search for a provider within the Project
@@ -24,7 +26,8 @@ Feature: F185542 - Create a Mass Action Project
   @Parity
   @Non-Deliverable
   @7.5_Release
-  Scenario: US1098379
+  @US1098379
+  Scenario: US1098379 - Initiate Mass Action from UI
     Given I am a user with access to the Mass Actions UI
     When I want to add amendments to existing contracts
     Then I can initiate a Mass Action Project
@@ -39,7 +42,8 @@ Feature: F185542 - Create a Mass Action Project
   @Parity
   @Non-Deliverable
   @7.5_Release
-  Scenario: US1098395
+  @US1098395
+  Scenario: US1098395 - Save in Progress Projects
     Given a User has initiated a Mass Actions Project
     When the Project requirements cannot be completed within a single work session
     Then the User will be able to Save the in-progress project
@@ -53,7 +57,8 @@ Feature: F185542 - Create a Mass Action Project
   @Plus
   @CLM_Exari
   @Parity
-  Scenario: US1185914
+  @US1185914
+  Scenario: US1185914 - View contract status summary
     Given I have access to an active Mass Action Project
     When I access the contract-level status
     Then I can view a listing of the contracts associated with the Mass Action Project
@@ -64,7 +69,8 @@ Feature: F185542 - Create a Mass Action Project
   @Plus
   @CLM_Exari
   @Non-Deliverable
-  Scenario: US1186294
+  @US1186294
+  Scenario: US1186294 - Display project association during database searches
     Given I have searched for a provider
     When the provider is a part of a Mass Action Project
     Then the search results will indicate the provider's involvement with the Mass Action Project
@@ -75,7 +81,8 @@ Feature: F185542 - Create a Mass Action Project
   @Parity
   @Non-Deliverable
   @7.5_Release
-  Scenario: US1098392
+  @US1098392
+  Scenario: US1098392 - Define/derive project status
     Given the User has identified target providers
     When a Mass Action Project is in progress
     Then Exari will logically derive status of the Project
@@ -87,7 +94,8 @@ Feature: F185542 - Create a Mass Action Project
   @Non-Deliverable
   @EXARI-11545
   @7.5_Release
-  Scenario: US1185895
+  @US1185895
+  Scenario: US1185895 - View project status summary
     Given I have access to an active Mass Action Project
     When I select to view the project status
     Then I can view the project details as described above
@@ -101,7 +109,8 @@ Feature: F185542 - Create a Mass Action Project
   @Plus
   @CLM_Exari
   @Parity
-  Scenario: US1186351
+  @US1186351
+  Scenario: US1186351 - View provider status summary
     Given I have access to an active Mass Action Project
     When I access the provider-level status
     Then I can view a listing of the providers associated with the Mass Action Project
@@ -112,7 +121,8 @@ Feature: F185542 - Create a Mass Action Project
   @CLM_Exari
   @Parity
   @Non-Deliverable
-  Scenario: US1098393
+  @US1098393
+  Scenario: US1098393 - Derive status of included providers
     Given the User has identified target providers
     When a Mass Action Project is in progress
     Then Exari will logically derive status for included providers

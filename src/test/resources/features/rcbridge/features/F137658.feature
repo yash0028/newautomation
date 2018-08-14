@@ -1,9 +1,11 @@
-# Last updated on 2018-08-06T18:31:03.307Z
+# Last updated on 
 @Plus
+@F137658
 Feature: F137658 - Exari EM - Approval Process
 
   @EXARI-11271
-  Scenario: US1094099
+  @US1094099
+  Scenario: US1094099 - Approve Updated Identifier
     Given I am a User with Approval Authority
     When a User updates an Identifier and submits for approval
     Then I can approve the Identifier updates
@@ -12,8 +14,9 @@ Feature: F137658 - Exari EM - Approval Process
     And the Identifier updates are routed back to the User for modifications
 
   @EXARI-11271
+  @US858605
   @2018.PI03
-  Scenario: US858605
+  Scenario: US858605 - Capture Approval Time Lining History
     Given I am the Entity Management solution
     When A modification flows through the approval process
     Then I capture the date and time the modification was performed
@@ -22,8 +25,9 @@ Feature: F137658 - Exari EM - Approval Process
     And I capture the User with Approval Authority who approved the change
 
   @EXARI-11271
+  @US1094095
   @2018.PI03
-  Scenario: US1094095
+  Scenario: US1094095 - Approve Updated Entity
     Given I am a User with Approval Authority
     When a User updates an Entity and submits for approval
     Then I can approve the Entity updates
@@ -32,7 +36,8 @@ Feature: F137658 - Exari EM - Approval Process
     And the Entity updates are routed back to the User for modifications
 
   @EXARI-11271
-  Scenario: US1094105
+  @US1094105
+  Scenario: US1094105 - Approve Added Entity Demographic Info
     Given I am a User with Approval Authority
     When a User adds a Entity Demographic information and submits for approval
     Then I can approve the Entity Demographic information
@@ -41,8 +46,9 @@ Feature: F137658 - Exari EM - Approval Process
     And the Entity Demographic information is routed back to the User for updates
 
   @EXARI-11271
+  @US1094104
   @2018.PI03
-  Scenario: US1094104
+  Scenario: US1094104 - Approve Imported Entity Relationships
     Given I am a User with Approval Authority
     When a User imports Entity relationships and submits for approval
     Then I can approve the Entity relationship import
@@ -51,14 +57,16 @@ Feature: F137658 - Exari EM - Approval Process
     And the Entity relationships are not added to the Entity Management Solution
 
   @EXARI-8603
+  @US950779
   @2018.PI03
-  Scenario: US950779
+  Scenario: US950779 - Assign Entity Workflow Status for Added Entities
     Given I am the Entity Management Solution
     When A User sets up a new Entity
     Then I assign an Entity Workflow status to the new Entity
 
+  @US1094100
   @2018.PI03
-  Scenario: US1094100
+  Scenario: US1094100 - Approve Inactivated Identifier Relationship with Entity
     Given I am a User with Approval Authority
     When a User inactivates an Identifier relationship with an Entity and submits for approval
     Then I can approve the Identifier relationship inactivation
@@ -67,8 +75,9 @@ Feature: F137658 - Exari EM - Approval Process
     And the Identifier remains actively associated with the Entity in the Entity Management Solution
 
   @EXARI-11271
+  @US1094111
   @2018.PI03
-  Scenario: US1094111
+  Scenario: US1094111 - Approve Updated Entity Characteristic Info
     Given I am a User with Approval Authority
     When a User updates a Entity Characteristic information and submits for approval
     Then I can approve the updated Entity Characteristic information
@@ -77,7 +86,8 @@ Feature: F137658 - Exari EM - Approval Process
     And the Entity Characteristicinformation updates are routed back to the User for modifications
 
   @EXARI-11271
-  Scenario: US1094113
+  @US1094113
+  Scenario: US1094113 - Approve Identifier Owner Assignment
     Given I am a User with Approval Authority
     When a User adds an Owner to an Identifier and submits for approval
     Then I can approve the Owner assignment
@@ -85,8 +95,9 @@ Feature: F137658 - Exari EM - Approval Process
     And I can reject the Owner assignment
     And the Owner assignment is routed back to the User for updates
 
+  @US1094096
   @2018.PI03
-  Scenario: US1094096
+  Scenario: US1094096 - Approve Inactivated Entity
     Given I am a User with Approval Authority
     When a User inactivates an Entity and submits for approval
     Then I can approve the Entity inactivation
@@ -95,8 +106,9 @@ Feature: F137658 - Exari EM - Approval Process
     And the Entity remains active in the Entity Management Solution
 
   @EXARI-11271
+  @US1094097
   @2018.PI03
-  Scenario: US1094097
+  Scenario: US1094097 - Approve Added Identifier
     Given I am a User with Approval Authority
     When a User adds an Identifier and submits for approval
     Then I can approve the Identifier
@@ -104,7 +116,8 @@ Feature: F137658 - Exari EM - Approval Process
     And I can reject the Identifier
     And the Identifier is routed back to the User for updates
 
-  Scenario: US1094114
+  @US1094114
+  Scenario: US1094114 - Approve Identifier Owner Inactivation
     Given I am a User with Approval Authority
     When a User inactivates an Owner from an Identifier and submits for approval
     Then I can approve the Owner assignment inactivation
@@ -113,15 +126,17 @@ Feature: F137658 - Exari EM - Approval Process
     And the Owner assignment inactivation is routed back to the User for updates
 
   @EXARI-11271
+  @US858604
   @2018.PI03
-  Scenario: US858604
+  Scenario: US858604 - Approve Entity Updates
     Given I am a User with Approval Authority
     When I receive an Entity modification that requires my approval
     Then I can review the proposed modification
     And I can approve the proposed modification
     And The Entity record is updated with the new value(s)
 
-  Scenario: US1094101
+  @US1094101
+  Scenario: US1094101 - Approve Voided Identifier
     Given I am a User with Approval Authority
     When a User voids an Identifier and submits for approval
     Then I can approve the Identifier void
@@ -130,8 +145,9 @@ Feature: F137658 - Exari EM - Approval Process
     And the Identifier remains active in the Entity Management Solution
 
   @EXARI-11271
+  @US1094094
   @2018.PI03
-  Scenario: US1094094
+  Scenario: US1094094 - Approve Added Entity
     Given I am a User with Approval Authority
     When a User adds an Entity and submits for approval
     Then I can approve the Entity
@@ -140,7 +156,8 @@ Feature: F137658 - Exari EM - Approval Process
     And the Entity is routed back to the User for updates
 
   @EXARI-11271
-  Scenario: US1094106
+  @US1094106
+  Scenario: US1094106 - Approve Updated Entity Demographic Info
     Given I am a User with Approval Authority
     When a User updates a Entity Demographic information and submits for approval
     Then I can approve the updated Entity Demographic information
@@ -149,8 +166,9 @@ Feature: F137658 - Exari EM - Approval Process
     And the Entity Demographic informationupdates are routed back to the User for modifications
 
   @EXARI-11273
+  @US858606
   @2018.PI03
-  Scenario: US858606
+  Scenario: US858606 - View Approval Time Lining History
     Given I am a User with access to view and maintain Entity information
     When I want to view approvals for modifications made to Entities
     Then I can view the time and date the modification was made
@@ -160,15 +178,17 @@ Feature: F137658 - Exari EM - Approval Process
 
   @CLM_UAT
   @EXARI-8603
+  @US950780
   @2018.PI03
-  Scenario: US950780
+  Scenario: US950780 - Assign Entity Workflow Status for Updated Entities
     Given I am the Entity Management Solution
     When A User updates an existing Entity
     Then I assign an Entity Workflow status to the updated Entity
     And the updated Entity enters the workflow approval process
 
+  @US1094112
   @2018.PI03
-  Scenario: US1094112
+  Scenario: US1094112 - Approve Inactivated Entity Characteristic Info
     Given I am a User with Approval Authority
     When a User inactivates Entity Characteristic information and submits for approval
     Then I can approve the Entity Characteristic information inactivation
@@ -176,7 +196,8 @@ Feature: F137658 - Exari EM - Approval Process
     And I can reject the Entity Characteristic information inactivation
     And the Entity Characteristic information remains active in the Entity Management Solution
 
-  Scenario: US1094107
+  @US1094107
+  Scenario: US1094107 - Approve Inactivated Entity Demographic Info
     Given I am a User with Approval Authority
     When a User inactivates Entity Demographic information and submits for approval
     Then I can approve the Entity Demographic information inactivation
@@ -186,8 +207,9 @@ Feature: F137658 - Exari EM - Approval Process
 
   @MVP
   @CLM_UAT
+  @US1170983
   @2018.PI03
-  Scenario: US1170983
+  Scenario: US1170983 - Approve Reactivated Entity
     Given I am a User with Approval Authority
     When a User reactivates an Entity
     Then I can approve the Entity reactivation
@@ -196,15 +218,17 @@ Feature: F137658 - Exari EM - Approval Process
     And the Entity remains inactive in the Entity Management Solution
 
   @EXARI-11271
+  @US858603
   @2018.PI03
-  Scenario: US858603
+  Scenario: US858603 - Follow Approval Process
     Given I am a User with access to maintain Entity information
     When I make a change that requires approval
     Then the change flows through an approval process
 
   @EXARI-11271
+  @US1094102
   @2018.PI03
-  Scenario: US1094102
+  Scenario: US1094102 - Approve Imported Entity Structure
     Given I am a User with Approval Authority
     When a User imports an Entity structure and submits for approval
     Then I can approve the Entity structure import
@@ -213,8 +237,9 @@ Feature: F137658 - Exari EM - Approval Process
     And the Entity is not added to the Entity Management Solution
 
   @EXARI-11271
+  @US1094109
   @2018.PI03
-  Scenario: US1094109
+  Scenario: US1094109 - Approve Added Entity Characteristic Info
     Given I am a User with Approval Authority
     When a User adds a Entity Characteristic information and submits for approval
     Then I can approve the Entity Characteristic information
