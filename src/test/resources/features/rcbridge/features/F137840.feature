@@ -1,14 +1,16 @@
-# Last updated on 2018-07-09T14:49:04.061Z
+# Last updated on 
 @MVP
 @Plus
 @Priority_1
+@F137840
 Feature: F137840 - Exari EM - Provision Users to Entities
 
   @MVP
   @CLM_UAT
   @EXARI-10879
+  @US860747
   @2018.PI03
-  Scenario: US860747
+  Scenario: US860747 - Provision User Access
     Given I am an Administrative User of the Entity Management Solution
     When I want to grant and remove access to Users by Entity
     And I want to grant and remove access to Users by Market Level

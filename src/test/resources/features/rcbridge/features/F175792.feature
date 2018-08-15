@@ -1,56 +1,27 @@
-# Last updated on 2018-08-07T18:33:13.643Z
+# Last updated on 
 @MVP
 @Priority_1
 @Parity
-Feature: F175792 - Create and Extract - Providers
+@F175792
+Feature: F175792 - Extract - Physician Providers for Provider Roster (Part 1 of 2)
 
+  @US1096651
   @2018.PI03
-  @2018.PI03.05
-  Scenario: US1096651
+  Scenario: US1096651 - Populate Provider Roster Extract with Emptoris Lines tab information
     Given I am processing the a contract's Lines tab during the migration process
     When I reference the defined columns for the new Exari roster
     Then I am able to populate the data into the same column format as the Exari roster
 
+  @US1207395
   @2018.PI03
-  @2018.PI03.02
-  Scenario: US1236601::0
-    When The units are run and the code coverage is recorded for the contract-query-api service
-    Then The overall test code coverage is above 70%
-
-  @2018.PI03
-  @2018.PI03.02
-  Scenario: US1236601::1
-    When The units are run and the code coverage is recorded for the ndb-updater-service service
-    Then The overall test code coverage is above 70%
-
-  @2018.PI03
-  @2018.PI03.02
-  Scenario: US1236601::2
-    When The units are run and the code coverage is recorded for the cosmos-updater-service service
-    Then The overall test code coverage is above 70%
-
-  @2018.PI03
-  @2018.PI03.02
-  Scenario: US1236601::3
-    When The units are run and the code coverage is recorded for the contracts-domain service
-    Then The overall test code coverage is above 70%
-
-  @2018.PI03
-  @2018.PI03.02
-  Scenario: US1236601::4
-    When The units are run and the code coverage is recorded for the product-crosswalk service
-    Then The overall test code coverage is above 70%
-
-  @2018.PI03
-  @2018.PI03.05
-  Scenario: US1207395
+  Scenario: US1207395 - Part 1 - Populate Provider Roster Extract with additional Provider NDB information
     Given I am processing the a contract's Lines tab during the migration process
     When I reference the defined columns for the new Exari roster
     Then I am able to populate the data into the same column format as the Exari roster
 
+  @US1208899
   @2018.PI03
-  @2018.PI03.04
-  Scenario: US1208899
+  Scenario: US1208899 - Part 2 - Populate Provider Roster Extract with additional Provider NDB information
     Given I am processing the a contract's Lines tab during the migration process
     When I reference the defined columns for the new Exari roster
     Then I am able to populate the data into the same column format as the Exari roster
