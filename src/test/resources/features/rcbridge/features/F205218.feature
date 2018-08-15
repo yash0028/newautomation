@@ -5,28 +5,6 @@
 @F205218
 Feature: F205218 - Downstream MS - NDB Roster Update business event_UNET COSMOS Products (Part 3)
 
-  @US1103353
-  @2018.PI03
-  Scenario: US1103353::0 - [Continued] [Continued] [Continued] NDB_Send Updates for Update Roster business event
-    Given the NDB connector microservice has received a roster update event
-    When all of the NDB edits are successful
-    Then the NDB microservices are ready to update NDB
-
-  @US1103353
-  @2018.PI03
-  Scenario: US1103353::1 - [Continued] [Continued] [Continued] NDB_Send Updates for Update Roster business event
-    Given the NDB connector microservice has received a roster update event
-    When all of the NDB edits are not successful
-    Then the NDB microservices creates an error message
-
-  @US1103353
-  @2018.PI03
-  Scenario: US1103353::2 - [Continued] [Continued] [Continued] NDB_Send Updates for Update Roster business event
-    Given The event MS processed NDB edits successfully
-    When NDB completes the update / action successfully
-    Then NDB initiates an event outcome message to the transaction state service
-    And a transaction state service call indicating successful processing was made
-
   @US1233995
   @2018.PI03
   Scenario: US1233995 - [Continued] NDB Layer 7 Implementation

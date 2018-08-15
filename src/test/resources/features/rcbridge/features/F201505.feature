@@ -41,6 +41,13 @@ Feature: F201505 - CLM DevOps PI03
       | A      | B      |
       | AA     | BB     |
 
+  @US1273084
+  @2018.PI03
+  Scenario: US1273084 - Fortify Scans
+    Given that code is pushed to master,
+    When the code gets to the point in the pipeline for Fortify,
+    Then the code is scanned by Fortify and results are uploaded to SCAR
+
   @US1080320
   @2018.PI03
   Scenario: US1080320 - Metrics forwarding
