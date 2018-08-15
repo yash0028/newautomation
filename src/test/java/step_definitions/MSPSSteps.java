@@ -87,7 +87,7 @@ public class MSPSSteps {
         throw new PendingException();
     }
 
-    @When("^at this step in the interview process to retrieve a fee schedule$")
+    @When("^at this step in the interview process in Exari to retrieve a fee schedule$")
     public void atThisStepInTheInterviewProcessToRetrieveAFeeSchedule() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
