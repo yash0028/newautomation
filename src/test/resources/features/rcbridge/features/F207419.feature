@@ -1,112 +1,67 @@
-# Last updated on 2018-08-08T14:12:15.673Z
-@MVP
-@10/1_Physician
-Feature: F207419 - Integration Services - ETMA legacy data tables and code lists
+# Last updated on 
+@CMD2
+@F207419
+Feature: F207419 - Integration Services - Part 2 Metadata legacy ETMA tables and code lists
 
-  @MVP
-  @10/1_Physician
   @CMD
-  @2018.PI03
-  @2018.PI03.03
-  Scenario: US1259931::0
-    Given The table data service is up and running
-    When A new data is updated in the database
-    And The update is processed successfully
-    Then The existing data is archived
-    And The content is parsed and stored in a database table
-    And The database is updated to indicate that the spreadsheet was processed successfully
+  @US1259301
+  Scenario: US1259301::0 - Zip to Market table microservice
+    Given a user needs to query the table
+    When the user provides ZipCd
+    Then the query response provides the most recent record version attributes data
 
-  @MVP
-  @10/1_Physician
   @CMD
-  @2018.PI03
-  @2018.PI03.03
-  Scenario: US1259931::1
-    Given The table data service is up and running
-    When new data is updated in the database
-    And The update process fails
-    Then The existing data is not archived and not updated
-    And The database is updated to indicate that the spreadsheet import failed
+  @US1259301
+  Scenario: US1259301::1 - Zip to Market table microservice
+    Given a user queries the table
+    When the query response result includes more than one record
+    Then the response includes all records that matched
 
   @MVP
+  @US1243370
   @2018.PI03
-  @2018.PI03.03
-  Scenario: US1229421::0
-    Given the market number is listed in the Market UHC table
-    When a query to the table is initiated
-    Then the query response includes the market record information
-
-  @MVP
-  @2018.PI03
-  @2018.PI03.03
-  Scenario: US1229421::1
-    Given the market number is not listed in the Market UHC table
-    When a query to the table is initiated
-    Then the query response does not return the market record information
-    And a record not found message is returned
-
-  @MVP
-  @2018.PI03
-  @2018.PI03.03
-  Scenario: US1257320::0
-    Given the market number is listed in the Market UHC table
-    When a query to the table is initiated
-    Then the query response includes the market record information
-
-  @MVP
-  @2018.PI03
-  @2018.PI03.03
-  Scenario: US1257320::1
-    Given the market number is not listed in the Market UHC table
-    When a query to the table is initiated
-    Then the query response does not return the market record information
-    And a record not found message is returned
-
-  @MVP
-  @2018.PI03
-  @2018.PI03.03
-  Scenario: US1243370
+  Scenario: US1243370 - Contract Class Validation UHC table
     Given a contract sub type value exists
     When a contract sub type is selected
     Then the edit table validates the correct sub type was selected
 
   @MVP
+  @US1229506
   @2018.PI03
-  @2018.PI03.04
-  Scenario: US1229506
+  Scenario: US1229506 - Med Nec clause table - Facility
     Given the med nec clause language listed in the table
     When a clause exists in a contract
     Then the clause code is made available
 
   @MVP
+  @US1229512
   @2018.PI03
-  @2018.PI03.04
-  Scenario: US1229512
+  Scenario: US1229512 - Med Nec clause table update NDB service - Facility
     Given the med nec clause language listed in the table
     When a clause code value is created or updated
     Then the clause code information update is shared with NDB
 
   @MVP
+  @US1232963
   @2018.PI03
-  @2018.PI03.03
-  Scenario: US1232963::0
+  Scenario: US1232963::0 - Retroactive Reason Codes table
     Given a retroactive reason code value table exists
     When a request to the table to return all values is made
     Then the query response returns the list of active codes and code descriptions
 
   @MVP
+  @US1232963
   @2018.PI03
-  @2018.PI03.03
-  Scenario: US1232963::1
+  Scenario: US1232963::1 - Retroactive Reason Codes table
     # Add Codes as examples once provided
     Given a retroactive reason code value is included in the table
     When an inquiry/verification request for a specific code value is made
     Then the inquiry response/verification response returns the code and code description
 
   @MVP
+  @US1232963
   @2018.PI03
-  @2018.PI03.03
-  Scenario: US1232963::2
+  Scenario: US1232963::2 - Retroactive Reason Codes table
     Given a retroactive reason code value is not included in the table
     When an inquiry/verification request for the specific code value is made
     Then the inquiry response/verification response does not return the code and code description

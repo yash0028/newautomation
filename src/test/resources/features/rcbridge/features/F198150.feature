@@ -1,11 +1,12 @@
-# Last updated on 2018-08-06T18:33:09.655Z
-
+# Last updated on 
+@F198150
 Feature: F198150 - Exari EM - Uncategorized
 
   @MVP
   @CLM_UAT
+  @US858706
   @2018.PI03
-  Scenario: US858706
+  Scenario: US858706 - View Business Rule Time Lining History
     Given I am a User with access to view and maintain Entity information
     When I want to view time lining history for Business Rules
     Then I can view Business Rule effective dates
@@ -13,8 +14,9 @@ Feature: F198150 - Exari EM - Uncategorized
     And I can view the User who added or removed a Business Rule
     And I can view the date and time of when the User performed the change
 
+  @US858702
   @2018.PI03
-  Scenario: US858702
+  Scenario: US858702 - Create & Update Entity Relationship Rules
     Given I am an Administrative User
     When I want to create a new Entity relationship rule for an Entity
     And I want to update an existing Entity relationship rule for an Entity
@@ -23,8 +25,9 @@ Feature: F198150 - Exari EM - Uncategorized
 
   @MVP
   @CLM_UAT
+  @US1168429
   @2018.PI03
-  Scenario: US1168429
+  Scenario: US1168429 - Create Contracting Event
     Given I am the Entity Management Solution
     When an active contract is in place for an Identifier to Entity relationship that is being expired
     Then I create a Contracting Event
@@ -32,7 +35,8 @@ Feature: F198150 - Exari EM - Uncategorized
 
   @EXARI-11643
   @Non_MVP
-  Scenario: US858630
+  @US858630
+  Scenario: US858630 - Archive Attachments
     Given I am a User with access to maintain Entity information
     When I need to archive an existing attachment on an Entity that is no longer valid
     Then I can enter an inactivation date for an attachment on the Entity

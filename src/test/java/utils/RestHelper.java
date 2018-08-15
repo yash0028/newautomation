@@ -43,8 +43,7 @@ public class RestHelper {
     public JsonObject parseJsonResponse(Response response){
         String responseString    = response.asString().trim();
         JsonParser parser = new JsonParser();
-        JsonObject result = parser.parse(responseString).getAsJsonObject();
 
-        return result;
+        return parser.parse(responseString).getAsJsonObject();
     }
 }

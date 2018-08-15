@@ -1,5 +1,6 @@
 package step_definitions;
 
+import cucumber.api.PendingException;
 import utils.RestHelper;
 import com.google.gson.JsonObject;
 import cucumber.api.java.en.Given;
@@ -68,5 +69,19 @@ public class MSGSteps {
 
         assertEquals(200, response.getStatusCode());
         assertTrue(responseJson.get("content").toString().equals("[]"));
+    }
+
+    //US1009573 and US1261008
+
+    @When("^the MSG microservice is called$")
+    public void theMSGMicroserviceIsCalled() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^a valid response is returned$")
+    public void aValidResponseIsReturned() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }

@@ -1,5 +1,7 @@
 package step_definitions;
 
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -221,5 +223,51 @@ public class PESSteps {
             }
         }
         assertTrue(match);
+    }
+
+    //US1094026
+
+    @Given("^UHC will need to provide Exari with PES data$")
+    public void uhcWillNeedToProvideExariWithPESData() throws Throwable {
+        // Pending because manually tested
+        throw new PendingException();
+    }
+
+    @When("^Exari calls PES with MPIN and TIN$")
+    public void exariCallsPESWithMPINAndTIN() throws Throwable {
+        // Pending because manually tested
+        throw new PendingException();
+    }
+
+    @Then("^an external data query will return a list of responses with the following populated fields if the result is a physician:$")
+    public void anExternalDataQueryWillReturnAListOfResponsesWithTheFollowingPopulatedFieldsIfTheResultIsAPhysician(DataTable table) throws Throwable {
+        // Pending because manually tested
+        throw new PendingException();
+    }
+
+    @And("^an external data query will return a list of responses with the following populated fields if the result is a facility:$")
+    public void anExternalDataQueryWillReturnAListOfResponsesWithTheFollowingPopulatedFieldsIfTheResultIsAFacility(DataTable table) throws Throwable {
+        // Pending because manually tested
+        throw new PendingException();
+    }
+
+    //US1178363
+
+    @When("^a user calls the service and service is unable to fulfill the request$")
+    public void aUserCallsTheServiceAndServiceIsUnableToFulfillTheRequest() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^it must respond back with appropriate error code$")
+    public void itMustRespondBackWithAppropriateErrorCode() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^client must show the error details with sufficient information to guide them in order to take an action to resolve the error situation$")
+    public void clientMustShowTheErrorDetailsWithSufficientInformationToGuideThemInOrderToTakeAnActionToResolveTheErrorSituation() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }

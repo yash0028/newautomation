@@ -1,6 +1,7 @@
 package step_definitions;
 
 import com.google.gson.JsonObject;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -68,5 +69,19 @@ public class MEGSteps {
         }
         //Pass the test if allMatch remains true, showing that the response does contain all required fields
         assertTrue(allMatch);
+    }
+
+    //US1210025
+
+    @When("^the MEG microservice is called$")
+    public void theMEGMicroserviceIsCalled() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^a valid MEG response is returned$")
+    public void aValidMEGResponseIsReturned() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }
