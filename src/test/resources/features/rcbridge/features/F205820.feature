@@ -19,10 +19,6 @@ Feature: F205820 - Contract Meta Data (CMD)
     When a CMD Platform Overview inquiry request is made
     Then a CMD Platform Overview inquiry response is generated
 
-  @US1233645
-  @2018.PI03
-  Scenario: US1233645::2 - View CMD Overview
-
   @US1240232
   @2018.PI03
   Scenario: US1240232::0 - Create, Modify or Verify CMD Record
@@ -36,10 +32,6 @@ Feature: F205820 - Contract Meta Data (CMD)
     Given an CMD record exists
     When a CMD record inquiry request is made
     Then a CMD record is accessible
-
-  @US1240232
-  @2018.PI03
-  Scenario: US1240232::2 - Create, Modify or Verify CMD Record
 
   @US1236428
   @2018.PI03
@@ -63,10 +55,6 @@ Feature: F205820 - Contract Meta Data (CMD)
     When the user navigates to Exari from within the CMD contract record
     Then the user returns to Exari contract record
 
-  @US1236428
-  @2018.PI03
-  Scenario: US1236428::3 - CMD Integration with Exari
-
   @US1242726
   @2018.PI03
   Scenario: US1242726::0 - View CMD NDB Platform Model set
@@ -81,10 +69,6 @@ Feature: F205820 - Contract Meta Data (CMD)
     When a CMD record inquiry request is made
     Then a CMD record is accessible
 
-  @US1242726
-  @2018.PI03
-  Scenario: US1242726::2 - View CMD NDB Platform Model set
-
   @US1233109
   @2018.PI03
   Scenario: US1233109::0 - View CMD Status
@@ -98,8 +82,4 @@ Feature: F205820 - Contract Meta Data (CMD)
     Given an CMD record exists
     When a CMD Status inquiry request is made
     Then a CMD Status inquiry response is generated
-
-  @US1233109
-  @2018.PI03
-  Scenario: US1233109::2 - View CMD Status
 

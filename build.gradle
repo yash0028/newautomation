@@ -27,14 +27,9 @@ repositories {
 }
 
 dependencies {
-    //compile group: 'info.cukes', name: 'cucumber-java', version:'1.2.5'
     compile group: 'com.google.code.gson', name: 'gson', version:'2.8.2'
-    //compile group: 'com.vimalselvam', name: 'cucumber-extentsreport', version:'3.0.2'
-    //compile group: 'com.aventstack', name: 'extentreports', version:'3.1.2'
-    //testCompile group: 'info.cukes', name: 'cucumber-junit', version:'1.2.5'
     testCompile group: 'junit', name: 'junit', version:'4.12'
     testCompile group: 'io.rest-assured', name: 'rest-assured', version:'3.0.7'
-    //compileOnly group: 'info.cukes', name: 'cucumber-jvm-deps', version:'1.0.5'
     testCompile 'io.cucumber:cucumber-java:3.0.2'
     testCompile 'io.cucumber:cucumber-junit:3.0.2'
 }
@@ -42,15 +37,9 @@ dependencies {
 test {
     println("CUCUMBER OPTIONS: " + cucumberOptions())
     options {
-        /*
-        jvmArgs '-Dcucumber.options=' +
-            '--plugin pretty' +
-            ' --plugin json:build/json-reports/json-report.json' +
-            ' --plugin junit:build/xml-reports/xml-report.xml' +
-            '${cucumberTags}'
-            */
-
+        // add certain cucumber options and tags from the command line. Tags are supplied by the -PcucumberTags="@tag" option
         jvmArgs cucumberOptions()
+
     }
 
     // show standard out and standard error of the test JVM(s) on the console
