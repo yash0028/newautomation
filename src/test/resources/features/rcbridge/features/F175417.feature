@@ -305,20 +305,3 @@ Feature: F175417 - Distributed transaction mechanism (Part 2)
     When Transaction is received from Exari but the transaction state service is down
     Then An error is returned
 
-  @CLM_UAT
-  @US1095885
-  @2018.PI02
-  Scenario: US1095885::2 - Contract Gateway API
-    Given A business transaction
-    When Transaction is received from Exari but Kafka is down
-    Then An error is return
-    Given A business transaction
-    When Transaction is received from Exari but the api gateway service is down
-    Then An error is returned
-
-  @CLM_UAT
-  @US1095885
-  @2018.PI02
-  Scenario: US1095885::3 - Contract Gateway API
-    # An API Interface is needed for the rest API
-

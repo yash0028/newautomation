@@ -67,11 +67,6 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
     When the user provides a value of ST code
     Then the user must provide Market Network Owner cd value UHN EVC CNS
 
-  @US1267799
-  @2018.PI03
-  Scenario: US1267799::2 - UHC Market table Create Microservice to exchange information with users
-    Given a user queries the tableWhen the query response result includes more than one recordThen the response includes all records that matched
-
   @kumar,_Sachin
   @Alex_M
   @US1256692
@@ -127,16 +122,6 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
     When data attributes and permissible code values have been analyzed
     And attribute definitions, data types and permissible code values identified
     Then a table template to store a copy of the information is made available
-
-  @kumar,_Sachin
-  @US1256690
-  @2018.PI03
-  Scenario: US1256690::0 - Record Table data to Database
-    Given The table service is up and running
-    When A new template is uploaded and stored in the database
-    And The import is processed successfullyThen The existing data is deleted
-    And The content of spreadsheet is parsed and stored in a database table
-    And The database is updated to indicate that the spreadsheet was processed successfully
 
   @kumar,_Sachin
   @US1256690

@@ -76,14 +76,6 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
   @MVP
   @US1207278
   @2018.PI03
-  Scenario: US1207278::1 - Access and security management
-    Given a user requests update permissions to the crosswalk table
-    When a contract system administrator approves the request
-    The the user is authorized to perform maintenance to the crosswalk table
-
-  @MVP
-  @US1207278
-  @2018.PI03
   Scenario: US1207278::2 - Access and security management
     Given a user requests access ot the crosswalk data
     When the contract system administrator does not approve the request

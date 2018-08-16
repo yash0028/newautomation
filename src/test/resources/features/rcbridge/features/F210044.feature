@@ -41,6 +41,3 @@ Feature: F210044 - Contract Meta Data (CMD) Category Set values - TIN or Provide
     When the contract does not require a means to identify individual legal entity (TIN) or group of legal entities (TINs) in order to administer the terms of the agreement
     Then a CMD set based on TIN category is not required
 
-  @US1234062
-  Scenario: US1234062::2 - Provider TIN
-

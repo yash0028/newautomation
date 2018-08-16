@@ -54,21 +54,6 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     When Transaction is received from Exari but the transaction state service is down
     Then An error is returned
 
-  @US1194531
-  @2018.PI02
-  Scenario: US1194531::2 - [Unfinished] Exari event producer [contracts-gateway-api]
-    Given A business transaction
-    When Transaction is received from Exari but Kafka is down
-    Then An error is return
-    Given A business transaction
-    When Transaction is received from Exari but the api gateway service is down
-    Then An error is returned
-
-  @US1194531
-  @2018.PI02
-  Scenario: US1194531::3 - [Unfinished] Exari event producer [contracts-gateway-api]
-    # An API Interface is needed for the rest API
-
   @US1179408
   @2018.PI02
   Scenario: US1179408::0 - [Continued] Cosmos Integration
@@ -196,21 +181,6 @@ Feature: F185083 - Downstream MS - NDB Roster Update business event_UNET COSMOS 
     Given A business transaction
     When Transaction is received from Exari but the transaction state service is down
     Then An error is returned
-
-  @US1179417
-  @2018.PI02
-  Scenario: US1179417::2 - [Continued] Exari event producer [contracts-gateway-api]
-    Given A business transaction
-    When Transaction is received from Exari but Kafka is down
-    Then An error is return
-    Given A business transaction
-    When Transaction is received from Exari but the api gateway service is down
-    Then An error is returned
-
-  @US1179417
-  @2018.PI02
-  Scenario: US1179417::3 - [Continued] Exari event producer [contracts-gateway-api]
-    # An API Interface is needed for the rest API
 
   @US1030143
   @2018.PI02
