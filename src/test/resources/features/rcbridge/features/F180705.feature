@@ -24,9 +24,9 @@ Feature: F180705 - Exari Microservice Complete Integration of CLM with MSG - Opt
     Given I have the ability to read the MS Access DB
     When I make a request to the microservice to read a record using the following fields:
       | specialties | Dermatology |
-      | state       | AK          |
-      | county      | Haines      |
-      | market      | 0054405     |
+      | state | AK    |
+      | county | Haines |
+      | market  | 0054405 |
     Then I receive all products that fit this criteria
 
   @CLM_UAT
@@ -38,9 +38,9 @@ Feature: F180705 - Exari Microservice Complete Integration of CLM with MSG - Opt
     Given I have the ability to read the MS Access DB
     When I make a request to the microservice to read a record using the following fields:
       | specialties | XXX         |
-      | state       | MM          |
-      | county      | Abcd        |
-      | market      | 99999       |
+      | state | MM    |
+      | county | Abcd   |
+      | market | 99999  |
     Then I receive a response with empty content
 
   @CLM_UAT

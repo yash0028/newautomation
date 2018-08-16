@@ -14,14 +14,14 @@ Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data R
     Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "30"
     Then PES returns the following information:
-      | address          |
-      | mpin             |
-      | tin              |
-      | firstName        |
-      | lastName         |
-      | facilityName     |
-      | specialties      |
+      | address |
+      | mpin |
+      | tin |
+      | firstName |
+      | lastName |
+      | facilityName |
+      | specialties |
       | providerTypeCode |
-      | phoneNumbers     |
+      | phoneNumbers |
     #And the system displays results with the best match first (Need to clarify this)
 

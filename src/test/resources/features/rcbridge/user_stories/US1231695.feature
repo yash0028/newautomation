@@ -12,8 +12,8 @@ Feature: US1231695 - Create Service Providing Physician FS  Access Via Microserv
     Then the microservice will return the requested fee schedules in a zip file
     Examples:
       | feeScheduleNumber |
-      | 9596              |
-      | 13500             |
-      | 1034              |
-      | AEX               |
+      | 9596 |
+      | 13500 |
+      | 1034 |
+      | AEX |
 

@@ -91,7 +91,7 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
   @2018.PI03
   Scenario: US1259931::0 - Maintain data using table template
     Given The table data service is up and running
-    When A new data is updated in the database
+    When new data is updated in the database
     And The update is processed successfully
     Then The existing previous data is deleted
     And The database is updated to indicate that the spreadsheet was processed successfully
