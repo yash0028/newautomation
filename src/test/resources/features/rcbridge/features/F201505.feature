@@ -25,9 +25,7 @@ Feature: F201505 - CLM DevOps PI03
     Given a user story artifact with 2 valid acceptance criteria
     And that user story does not have test cases
     When rcbridge runs
-    Then 2 test cases are created
-    And the first test case is called RCLink 1
-    And the second test case is called RCLink 2
+    The 2 test cases are created
 
   @RCBridge
   @US1176975
