@@ -20,8 +20,7 @@ import static org.junit.Assert.assertTrue;
 public class MEGSteps {
 
     private static final String BASE_URI = "http://market-exception-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    //private static String BASE_URI = "http://localhost:8080";
-    private static String endpoint = "/marketGridRulesMaster";
+    private static final String ENDPOINT = "/v1.0/market_grid_rules_master/marketException/search";
     private JsonObject requestBody = new JsonObject();
     private RequestSpecification request;
     private Response response;
@@ -41,20 +40,20 @@ public class MEGSteps {
 
         //Add each key:value pair
         for(String key: requestParams.keySet()){
-            //requestBody.addProperty(key, requestParams.getOrDefault(key, ""));
-            endpoint += "/" + key + "/" + requestParams.getOrDefault(key, "") + "/";
+            requestBody.addProperty(key, requestParams.getOrDefault(key, ""));
+            //ENDPOINT += "/" + key + "/" + requestParams.getOrDefault(key, "") + "/";
         }
 
         //Build out the request and add the request body
-        //request = given().BASE_URI(BASE_URI).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
-        request = given().baseUri(BASE_URI).header("Content-Type", "application/json");
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestBody);
 
     }
 
     @Then("^I receive data that I would get from reading SQL db directly including the fields:$")
     public void iReceiveDataThatIWouldGetFromReadingSQLDbDirectlyIncludingTheFields(DataTable responseFieldsDT) throws Throwable {
         //Get the response
-        response = request.get(endpoint);
+        response = request.post(ENDPOINT);
+
         //Get the response fields from the data table as a list
         List<String> responseFields = responseFieldsDT.asList();
         boolean allMatch = true;
@@ -82,6 +81,18 @@ public class MEGSteps {
     @Then("^a valid MEG response is returned$")
     public void aValidMEGResponseIsReturned() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Given("^the Exari system will access the MEG$")
+    public void theExariSystemWillAccessTheMEG() throws Throwable {
+        // Spike story, no testing needed
+        throw new PendingException();
+    }
+
+    @Then("^a developer will have to research how to connect to the MEG backend\\.$")
+    public void aDeveloperWillHaveToResearchHowToConnectToTheMEGBackend() throws Throwable {
+        // Spike story, no testing needed
         throw new PendingException();
     }
 }
