@@ -65,7 +65,7 @@ Feature: F177211 - Receive Exari Status Acknowledgements and run Status Reports 
 
   @US1261628
   @2018.PI03
-  Scenario: US1261628 - Track UHC Follout - resolution/remediation process
+  Scenario: US1261628 - Track UHC Fallout - resolution/remediation process
     Given a the Contract Status table is populated during the Migration process
     When it is completed
     Then I can identify all contracts that were in scope to be migrated, but fell out of the Migration process (either have a fallout status, or were identified to be migrated but were not due to error)
@@ -80,7 +80,7 @@ Feature: F177211 - Receive Exari Status Acknowledgements and run Status Reports 
   @CLM_UAT
   @US1269578
   @2018.PI03
-  Scenario: US1269578 - Additional Enhancements
+  Scenario: US1269578 - Additional Migration Enhancements
     Given a Contract Extract from Emptoris is sent to Exari via ECG
     When a status file is received from Exari after the extract is loaded
     Then the status file needs to be updated in Contract Status Table for status reporting
