@@ -12,14 +12,13 @@ Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data R
   @Functional
   Scenario: TC493888 - Validate correct fields returned
     Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "30"
+    When I search for a Counterparty using MPIN of "12345"
     Then PES returns the following information:
       | address |
       | mpin |
       | tin |
       | firstName |
       | lastName |
-      | facilityName |
       | specialties |
       | providerTypeCode |
       | phoneNumbers |

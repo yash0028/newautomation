@@ -16,7 +16,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
   Scenario: US861016::0 - (Provider) Create Micro Service Providing Demographic Data Requests To PES - Counter Party lookup
     #for Physician
     Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "30"
+    When I search for a Counterparty using MPIN of "12345"
     Then PES returns the following information:
       | address |
       | mpin |
@@ -128,7 +128,7 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
   Scenario: US1176533::0 - Enhancement to use new PES combined API (Counter Party) stub API
     #For Physician MPIN
     Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "30"
+    When I search for a Counterparty using MPIN of "12345"
     Then PES returns the following information:
       | mpin |
       | tin |

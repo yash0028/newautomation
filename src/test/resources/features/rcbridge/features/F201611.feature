@@ -15,7 +15,7 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
   Scenario: US1194560::0 - PES ExternaI Data Query (Appendix 1 lookup)
     #For Physician MPIN
     Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "30"
+    When I search for a Counterparty using MPIN of "12345"
     Then PES returns the following information:
       | mpin |
       | tin |
