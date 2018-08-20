@@ -148,25 +148,21 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
   @Mark
   @US1259178
   @2018.PI03
-  Scenario: US1259178::1 - Taxonomy Grid table microservice
+  Scenario Outline: US1259178::1 - Taxonomy Grid table microservice
     Given a user needs to query the table
-    When the user provides a value of P for Rec Type
-    Then the user must provide NDB Spec Cd
-    And Degree Code is optional
+    When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
+    And the user provides the optional value <optionalValue> for <optionalField>
+    Then the query response provides the most recent record version attributes data
+    Examples:
+      | reqField      | reqValue      | ndbRecValue   | optionalField | optionalValue |
+      | "ndbSpecCD" | "21"        | "P"         | "ndbOrg"    | "21"        |
+      | "ndbOrg"    | "22"        | "O"         | "ndbSpecCD" | "22"        |
 
   @Mark
   @US1259178
   @2018.PI03
   Scenario: US1259178::2 - Taxonomy Grid table microservice
-    Given a user needs to query the table
-    When the user provides a value of O for Rec Type
-    Then the user must provide NDB Org Type Cd
-    And SpecCd is optional
-
-  @Mark
-  @US1259178
-  @2018.PI03
-  Scenario: US1259178::3 - Taxonomy Grid table microservice
+    #What values return multiple records and how do we know "all records that matched"?
     Given a user needs to query the table
     When the query response result includes more than one record
     Then the response includes all records that matched
