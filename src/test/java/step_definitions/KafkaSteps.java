@@ -149,5 +149,4 @@ public class KafkaSteps {
         result = parser.parse(response.asString()).getAsJsonObject();
     }
 
-
 }

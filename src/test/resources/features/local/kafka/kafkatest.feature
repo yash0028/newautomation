@@ -38,7 +38,7 @@ Feature: Kafka Test Bench
     When I send the payload
     And I wait 30 seconds for the result
     Then I get the result with more than "<expectedSuccess>" successful events
-    Examples:
+    Examples:clear
       | eventCount | successfulDomain | successfulDownstream | messageSize | expectedSuccess |
       | 5          | true             | true                 | 5           | 5               |
       | 10         | true             | true                 | 10          | 10              |
