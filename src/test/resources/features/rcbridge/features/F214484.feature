@@ -136,10 +136,14 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
   @Mark
   @US1259178
   @2018.PI03
-  Scenario: US1259178::0 - Taxonomy Grid table microservice
+  Scenario Outline: US1259178::0 - Taxonomy Grid table microservice
     Given a user needs to query the table
-    When the user provides NDB SpecCd or NDB OrgTypeCd and Prov Rec Type values
+    When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
     Then the query response provides the most recent record version attributes data
+    Examples:
+      | reqField    | reqValue    | ndbRecValue |
+      | "ndbSpecCD" | "21"        | "P"         |
+      | "ndbOrg" | "22"     | "O"      |
 
   @Mark
   @US1259178
@@ -163,7 +167,7 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
   @US1259178
   @2018.PI03
   Scenario: US1259178::3 - Taxonomy Grid table microservice
-    Given a user queries the table
+    Given a user needs to query the table
     When the query response result includes more than one record
     Then the response includes all records that matched
 
