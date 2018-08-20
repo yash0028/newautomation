@@ -38,3 +38,16 @@ Feature: US1259178 - Taxonomy Grid table microservice
       | "ndbSpecCD" | "21"        | "P"         |
       | "ndbOrg" | "22"     | "O"      |
 
+  @TC551313
+  @Automated
+  @Functional
+  Scenario Outline: TC551313 - Missing Attributes Validation
+    #Tests both bad paths
+    Given a user needs to query the table
+    When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
+    Then the query response returns an error
+    Examples:
+      | reqField    | reqValue    | ndbRecValue |
+      | "ndbSpecCD" | "22"        | "O"         |
+      | "ndbOrg" | "22"     | "P"      |
+
