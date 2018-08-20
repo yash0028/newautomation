@@ -16,16 +16,16 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
   Scenario: US861016::0 - (Provider) Create Micro Service Providing Demographic Data Requests To PES - Counter Party lookup
     #for Physician
     Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "30"
+    When I search for a Counterparty using MPIN of "12345"
     Then PES returns the following information:
-      | address          |
-      | mpin             |
-      | tin              |
-      | firstName        |
-      | lastName         |
-      | specialties      |
+      | address |
+      | mpin |
+      | tin |
+      | firstName |
+      | lastName |
+      | specialties |
       | providerTypeCode |
-      | phoneNumbers     |
+      | phoneNumbers |
     #And the system displays results with the best match first (Need to clarify this)
 
   @CLM_UAT
@@ -38,10 +38,10 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "6177192"
     Then PES returns the following information:
-      | facilityName     |
-      | address          |
-      | mpin             |
-      | tin              |
+      | facilityName |
+      | address |
+      | mpin |
+      | tin |
       | providerTypeCode |
 
   @CLM_UAT
@@ -60,30 +60,30 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     Given UHC will need to provide Exari with PES data
     When Exari calls PES with MPIN and TIN
     Then an external data query will return a list of responses with the following populated fields if the result is a physician:
-      | mpin             |
-      | tin              |
-      | firstName        |
-      | lastName         |
-      | address          |
-      | addressLine1     |
-      | city             |
-      | zip              |
-      | state            |
-      | specialties      |
-      | specialtyCode    |
-      | description      |
+      | mpin |
+      | tin |
+      | firstName |
+      | lastName |
+      | address |
+      | addressLine1 |
+      | city |
+      | zip |
+      | state |
+      | specialties |
+      | specialtyCode |
+      | description |
       | providerTypeCode |
-      | phoneNumbers     |
+      | phoneNumbers |
     And an external data query will return a list of responses with the following populated fields if the result is a facility:
-      | mpin             |
-      | tin              |
-      | facilityName     |
-      | address          |
-      | addressLine1     |
-      | city             |
-      | zip              |
-      | state            |
-      | organization     |
+      | mpin |
+      | tin |
+      | facilityName |
+      | address |
+      | addressLine1 |
+      | city |
+      | zip |
+      | state |
+      | organization |
       | organizationType |
       | organizationCode |
       | providerTypeCode |
@@ -128,20 +128,20 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
   Scenario: US1176533::0 - Enhancement to use new PES combined API (Counter Party) stub API
     #For Physician MPIN
     Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "30"
+    When I search for a Counterparty using MPIN of "12345"
     Then PES returns the following information:
-      | mpin             |
-      | tin              |
-      | firstName        |
-      | middleName       |
-      | lastName         |
-      | address          |
-      | organization     |
-      | specialties      |
+      | mpin |
+      | tin |
+      | firstName |
+      | middleName |
+      | lastName |
+      | address |
+      | organization |
+      | specialties |
       | providerTypeCode |
-      | npi              |
-      | phoneNumbers     |
-      | faxNumbers       |
+      | npi |
+      | phoneNumbers |
+      | faxNumbers |
 
   @PES
   @US1176533
@@ -151,15 +151,15 @@ Feature: F137899 - Exari Microservice Complete Integration of Exari with PES (De
     Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "6177192"
     Then PES returns the following information:
-      | mpin             |
-      | tin              |
-      | facilityName     |
-      | address          |
-      | organization     |
-      | specialties      |
+      | mpin |
+      | tin |
+      | facilityName |
+      | address |
+      | organization |
+      | specialties |
       | providerTypeCode |
-      | npi              |
-      | phoneNumbers     |
+      | npi |
+      | phoneNumbers |
 
   @PES
   @US1095936

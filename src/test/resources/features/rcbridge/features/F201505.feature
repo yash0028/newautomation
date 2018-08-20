@@ -27,8 +27,8 @@ Feature: F201505 - CLM DevOps PI03
     Then the RCLink test cases are updated
     Examples:
       | data A | data B |
-      | A      | B      |
-      | AA     | BB     |
+      | A | B |
+      | AA | BB |
 
   @US1273084
   @2018.PI03

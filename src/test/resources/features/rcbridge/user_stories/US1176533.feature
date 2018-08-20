@@ -10,20 +10,20 @@ Feature: US1176533 - Enhancement to use new PES combined API (Counter Party) stu
   Scenario: TC501884::0 - Verify fields returned for physician and facility
     #For Physician MPIN
     Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "30"
+    When I search for a Counterparty using MPIN of "12345"
     Then PES returns the following information:
-      | mpin             |
-      | tin              |
-      | firstName        |
-      | middleName       |
-      | lastName         |
-      | address          |
-      | organization     |
-      | specialties      |
+      | mpin |
+      | tin |
+      | firstName |
+      | middleName |
+      | lastName |
+      | address |
+      | organization |
+      | specialties |
       | providerTypeCode |
-      | npi              |
-      | phoneNumbers     |
-      | faxNumbers       |
+      | npi |
+      | phoneNumbers |
+      | faxNumbers |
 
   @TC501884
   @Automated
@@ -33,13 +33,13 @@ Feature: US1176533 - Enhancement to use new PES combined API (Counter Party) stu
     Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "6177192"
     Then PES returns the following information:
-      | mpin             |
-      | tin              |
-      | facilityName     |
-      | address          |
-      | organization     |
-      | specialties      |
+      | mpin |
+      | tin |
+      | facilityName |
+      | address |
+      | organization |
+      | specialties |
       | providerTypeCode |
-      | npi              |
-      | phoneNumbers     |
+      | npi |
+      | phoneNumbers |
 
