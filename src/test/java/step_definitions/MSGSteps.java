@@ -73,7 +73,7 @@ public class MSGSteps {
 
     //US1009573 and US1261008
 
-    @When("^the MSG microservice is called$")
+    @When("^the MSG microservice is called(?: from Exari)?$")
     public void theMSGMicroserviceIsCalled() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
