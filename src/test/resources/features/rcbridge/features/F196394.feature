@@ -24,10 +24,10 @@ Feature: F196394 - Integration of Exari with Market Exception Grid (MEG)
       | market | 1403   |
       | task      | Execution |
     Then I receive data that I would get from reading SQL db directly including the fields:
-      | Rule_Name |
-      | Description |
-      | Links |
-      | DATE_UPDATED |
+      | ruleName |
+      | description |
+      | links |
+      | dateUpdated |
 
   @CLM_UAT
   @MEG
@@ -41,10 +41,10 @@ Feature: F196394 - Integration of Exari with Market Exception Grid (MEG)
       | market | 1403   |
       | task      | Execution |
     Then I receive data that I would get from reading SQL db directly including the fields:
-      | Rule_Name |
-      | Description |
-      | Links |
-      | DATE_UPDATED |
+      | ruleName |
+      | description |
+      | links |
+      | dateUpdated |
 
   @kumar,_Sachin
   @MEG
