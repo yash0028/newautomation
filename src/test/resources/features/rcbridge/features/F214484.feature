@@ -26,7 +26,7 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
   @US1257320
   @2018.PI03
   Scenario: US1257320::0 - Markets table microservice
-    Given the market number is listed in the Market UHC table
+    Given the market number "1402" is listed in the Market UHC table
     When a query to the table is initiated
     Then the query response includes the market record information
 
@@ -34,7 +34,7 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
   @US1257320
   @2018.PI03
   Scenario: US1257320::1 - Markets table microservice
-    Given the market number is not listed in the Market UHC table
+    Given the market number "1" is not listed in the Market UHC table
     When a query to the table is initiated
     Then the query response does not return the market record information
     And a record not found message is returned
