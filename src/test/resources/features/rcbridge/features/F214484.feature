@@ -5,12 +5,68 @@
 @F214484
 Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
 
+  @MVP
+  @US1229421
+  @2018.PI03
+  Scenario: US1229421::0 - Markets table
+    Given the market number is listed in the Market UHC table
+    When a query to the table is initiated
+    Then the query response includes the market record information
+
+  @MVP
+  @US1229421
+  @2018.PI03
+  Scenario: US1229421::1 - Markets table
+    Given the market number is not listed in the Market UHC table
+    When a query to the table is initiated
+    Then the query response does not return the market record information
+    And a record not found message is returned
+
+  @MVP
+  @US1283907
+  @2018.PI03
+  Scenario Outline: US1283907::0 - Markets table microservice
+    Given the market number <marketNumber> is listed in the Market UHC table
+    When a query to the table is initiated
+    Then the query response includes the market record information
+    Examples:
+      | marketNumber |
+      | "1402" |
+      | "1403" |
+      | "1404" |
+      | "2407" |
+      | "2408" |
+      | "2409" |
+      | "3413" |
+      | "4420" |
+      | "4421" |
+      | "4422" |
+      | "4423" |
+      | "4430" |
+      | "4431" |
+
+  @MVP
+  @US1283907
+  @2018.PI03
+  Scenario: US1283907::1 - Markets table microservice
+    Given the market number "1" is not listed in the Market UHC table
+    When a query to the table is initiated
+    Then the query response does not return the market record information
+    And a record not found message is returned
+
   @US1256695
   @2018.PI03
   Scenario: US1256695 - User Interface for up and download
     Given the existence of a web UI
     When an authorized user access the URL
     Then the web UI for up/download is available
+
+  @US1256696
+  @2018.PI03
+  Scenario: US1256696 - Styling Template for Provider Taxonomy Grid UI
+    Given A UI will be created for the Provider Taxonomy Grid template
+    When accessed by a user
+    Then the UI will be made available to the user.
 
   @US1267799
   @2018.PI03
@@ -78,104 +134,6 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
     When a table file is uploaded
     Then the previous file record and audit log info is stored in the database
 
-  @US1262733
-  @2018.PI03
-  Scenario: US1262733 - Product Group process code table
-    Given a business reason exists to group products and services together
-    When a service exists to assign identifiers to the different product groupings
-    Then the administrator has a means to record the details of those groupings
-
-  @US1256686
-  @2018.PI03
-  Scenario: US1256686 - Create Provider Taxonomy Grid Table Template
-    Given data can not be sourced directly from data authority
-    When data attributes and permissible code values have been analyzed
-    And attribute definitions, data types and permissible code values identified
-    Then a table template to store a copy of the information is made available
-
-  @kumar,_Sachin
-  @US1256690
-  @2018.PI03
-  Scenario: US1256690::1 - [Continued] Record Table data to Database
-    Given The product code service is up and running
-    When A new spreadsheet is uploaded and stored in the database
-    And The import is fails
-    Then The existing data is not deleted and not updated
-    And The database is updated to indicate that the spreadsheet import failed
-
-  @MVP
-  @US1229421
-  @2018.PI03
-  Scenario: US1229421::0 - Markets table
-    Given the market number is listed in the Market UHC table
-    When a query to the table is initiated
-    Then the query response includes the market record information
-
-  @MVP
-  @US1229421
-  @2018.PI03
-  Scenario: US1229421::1 - Markets table
-    Given the market number is not listed in the Market UHC table
-    When a query to the table is initiated
-    Then the query response does not return the market record information
-    And a record not found message is returned
-
-  @MVP
-  @US1257320
-  @2018.PI03
-  Scenario Outline: US1257320::0 - [Continued] Markets table microservice
-    Given the market number <marketNumber> is listed in the Market UHC table
-    When a query to the table is initiated
-    Then the query response includes the market record information
-    Examples:
-      | marketNumber |
-      | "1402" |
-      | "1403" |
-      | "1404" |
-      | "2407" |
-      | "2408" |
-      | "2409" |
-      | "3413" |
-      | "4420" |
-      | "4421" |
-      | "4422" |
-      | "4423" |
-      | "4430" |
-      | "4431" |
-
-  @MVP
-  @US1257320
-  @2018.PI03
-  Scenario: US1257320::1 - [Continued] Markets table microservice
-    Given the market number "1" is not listed in the Market UHC table
-    When a query to the table is initiated
-    Then the query response does not return the market record information
-    And a record not found message is returned
-
-  @MVP
-  @US1283907
-  @2018.PI03
-  Scenario: US1283907::0 - [Unfinished] Markets table microservice
-    Given the market number "1402" is listed in the Market UHC table
-    When a query to the table is initiated
-    Then the query response includes the market record information
-
-  @MVP
-  @US1283907
-  @2018.PI03
-  Scenario: US1283907::1 - [Unfinished] Markets table microservice
-    Given the market number "1" is not listed in the Market UHC table
-    When a query to the table is initiated
-    Then the query response does not return the market record information
-    And a record not found message is returned
-
-  @US1256696
-  @2018.PI03
-  Scenario: US1256696 - Styling Template for Provider Taxonomy Grid UI
-    Given A UI will be created for the Provider Taxonomy Grid template
-    When accessed by a user
-    Then the UI will be made available to the user.
-
   @kumar,_Sachin
   @US1256687
   @2018.PI03
@@ -208,6 +166,21 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
     Then The existing data is not archived and not updated
     And The database is updated to indicate that the spreadsheet import failed
 
+  @US1262733
+  @2018.PI03
+  Scenario: US1262733 - Product Group process code table
+    Given a business reason exists to group products and services together
+    When a service exists to assign identifiers to the different product groupings
+    Then the administrator has a means to record the details of those groupings
+
+  @US1256686
+  @2018.PI03
+  Scenario: US1256686 - Create Provider Taxonomy Grid Table Template
+    Given data can not be sourced directly from data authority
+    When data attributes and permissible code values have been analyzed
+    And attribute definitions, data types and permissible code values identified
+    Then a table template to store a copy of the information is made available
+
   @kumar,_Sachin
   @US1283914
   @2018.PI03
@@ -225,6 +198,16 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
     When the template is uploaded
     Then the file and data is validated
     And a message(s) is returned to the user of all errors and notification that the process failed
+
+  @kumar,_Sachin
+  @US1256690
+  @2018.PI03
+  Scenario: US1256690::1 - [Continued] Record Table data to Database
+    Given The product code service is up and running
+    When A new spreadsheet is uploaded and stored in the database
+    And The import is fails
+    Then The existing data is not deleted and not updated
+    And The database is updated to indicate that the spreadsheet import failed
 
   @Mark
   @US1259178
