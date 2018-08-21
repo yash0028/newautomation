@@ -1,30 +1,31 @@
 # Last updated on 
-@US1199569
+@kumar,_Sachin
+@US1256689
 @2018.PI03
-Feature: US1199569 - Validate Data
+Feature: US1256689 - Validate Table data
 
-  @TC546823
+  @TC551939
   @Manual
   @Functional
-  Scenario: TC546823 - Validate Data_Invalid data
+  Scenario: TC551939 - Validate Data_Invalid file
     Given a template is populated with data
     When the template is uploaded
     Then the file and data is validated
     And a message is returned to the user that the process was successful
 
-  @TC546822
+  @TC551937
   @Manual
   @Functional
-  Scenario: TC546822 - Validate Data_Invalid file
+  Scenario: TC551937 - Validate Data_valid
     Given a template is populated with data
     When the template is uploaded
     Then the file and data is validated
     And a message is returned to the user that the process was successful
 
-  @TC546821
+  @TC551940
   @Manual
   @Functional
-  Scenario: TC546821 - Validate Data_valid
+  Scenario: TC551940 - (Copy of) Validate Data_Invalid data
     Given a template is populated with data
     When the template is uploaded
     Then the file and data is validated
