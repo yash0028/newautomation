@@ -177,10 +177,9 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
   @US1259178
   @2018.PI03
   Scenario: US1259178::3 - Taxonomy Grid table microservice
-    #What values return multiple records and how do we know "all records that matched"?
-    Given a user needs to query the table
-    When the query response result includes more than one record
-    Then the response includes all records that matched
+    #Test when query response result includes more than one recordGiven a user needs to query the table
+    When the user provides the value "21" for "ndbSpecCD" and "P" for "ndbRec"
+    Then the query response includes all records that matched
 
   @kumar,_Sachin
   @US1256689
