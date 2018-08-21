@@ -12,6 +12,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="acceptance-testing" target="1.8" />
+      <module name="acceptance-testing_main" target="1.8" />
+      <module name="acceptance-testing_test" target="1.8" />
       <module name="CLM-Automation" target="1.5" />
     </bytecodeTargetLevel>
   </component>
