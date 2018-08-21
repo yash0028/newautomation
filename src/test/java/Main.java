@@ -1,3 +1,4 @@
+import step_definitions.MarketTableSteps;
 import step_definitions.TaxonomyTableSteps;
 import step_definitions.TransactionSteps;
 
@@ -7,24 +8,11 @@ import step_definitions.TransactionSteps;
 public class Main {
     // The purpose of the class is used to isolate and run a single test.
     public static void main(String[] args) {
-        TransactionSteps steps = new TransactionSteps();
-        TaxonomyTableSteps taxonomySteps = new TaxonomyTableSteps();
+        MarketTableSteps marketSteps = new MarketTableSteps();
 
 
         try {
-            steps.aBusinessEventIsReceivedByTheEventGatewayThatRequiresAnUpdateToNDB();
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
-        try {
-            taxonomySteps.theUserProvidesTheValueReqValueForReqFieldAndNdbRecValueFor("22", "ndbSpecCD", "O", "ndbRec");
-            //taxonomySteps.theUserProvidesTheOptionalValueOptionalValueForOptionalField("21", "ndbSpecCD");
-            //taxonomySteps.theQueryResponseProvidesTheMostRecentRecordVersionAttributesData();
-            //taxonomySteps.theResponseIncludesAllRecordsThatMatched();
-            taxonomySteps.theQueryResponseReturnsAnError();
-
-
+            marketSteps.aQueryToTheTableIsInitiated();
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }

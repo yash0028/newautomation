@@ -74,7 +74,7 @@ Feature: F201505 - CLM DevOps PI03
 
   @US1272886
   @2018.PI03
-  Scenario: US1272886 - Investigate Production Data
+  Scenario: US1272886 - [Spike] Investigate Production Data
     Given the integrations have datasources
     When the integrations are checked for production data
     Then the production data should be identified
