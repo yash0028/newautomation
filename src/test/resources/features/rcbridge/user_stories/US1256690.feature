@@ -2,7 +2,7 @@
 @kumar,_Sachin
 @US1256690
 @2018.PI03
-Feature: US1256690 - Record Table data to Database
+Feature: US1256690 - [Continued] Record Table data to Database
 
   @TC551934
   @Manual

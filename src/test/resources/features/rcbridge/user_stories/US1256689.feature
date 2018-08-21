@@ -2,7 +2,7 @@
 @kumar,_Sachin
 @US1256689
 @2018.PI03
-Feature: US1256689 - Validate Table data
+Feature: US1256689 - [Continued] Validate Table data
 
   @TC551939
   @Manual
