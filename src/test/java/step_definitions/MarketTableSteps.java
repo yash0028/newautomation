@@ -21,43 +21,41 @@ public class MarketTableSteps {
     private final String marketResource = "/market/";
     private RequestSpecification request;
     private Response response;
+    private String marketNumber;
 
-    @Given("^the market number is listed in the Market UHC table$")
-    public void theMarketNumberIsListedInTheMarketUHCTable() throws Throwable {
-        // Assume market number is listed in table.
+    @Given("^the market number \"([^\"]*)\" is(?: not)? listed in the Market UHC table$")
+    public void setMarketNumber(String arg0) throws Throwable {
+        marketNumber = arg0;
     }
 
     @When("^a query to the table is initiated$")
-    public void aQueryToTheTableIsInitiated() throws Throwable {
+    public void initiateQuery() throws Throwable {
         request = given().baseUri(marketsTableEndpoint).header("Content-Type", "application/json");
-        response = request.get(marketResource + "1402");
-        Assert.assertEquals(response.getStatusCode(), 200);
+        response = request.get(marketResource + marketNumber);
 
         JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
         System.out.println(result);
-
     }
 
     @Then("^the query response includes the market record information$")
-    public void theQueryResponseIncludesTheMarketRecordInformation() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
+    public void verifyQueryResponseWithMarketRecord() throws Throwable {
+        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
 
-    @Given("^the market number is not listed in the Market UHC table$")
-    public void theMarketNumberIsNotListedInTheMarketUHCTable() throws Throwable {
-        // Assume market number is not listed in table.
-    }
-
-    @And("^a record not found message is returned$")
-    public void aRecordNotFoundMessageIsReturned() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        Assert.assertEquals(marketNumber,result.get("marketUhcDetails").getAsJsonObject().get("marketNumber").getAsString());
     }
 
     @Then("^the query response does not return the market record information$")
-    public void theQueryResponseDoesNotReturnTheMarketRecordInformation() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void verifyNoMarketRecord() throws Throwable {
+        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
+
+        Assert.assertTrue(result.get("marketUhcDetails").isJsonNull());
     }
+
+    @And("^a record not found message is returned$")
+    public void verifyRecordNotFound() throws Throwable {
+        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
+
+        Assert.assertEquals("No data found", result.get("errorDetails").getAsJsonObject().get("message").getAsString());
+    }
+
 }

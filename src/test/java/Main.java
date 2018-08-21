@@ -12,7 +12,8 @@ public class Main {
 
 
         try {
-            marketSteps.aQueryToTheTableIsInitiated();
+            marketSteps.setMarketNumber("1402");
+            marketSteps.initiateQuery();
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
