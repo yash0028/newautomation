@@ -137,6 +137,7 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
   @US1259178
   @2018.PI03
   Scenario Outline: US1259178::0 - Taxonomy Grid table microservice
+    #Test happy paths
     Given a user needs to query the table
     When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
     Then the query response provides the most recent record version attributes data
@@ -149,19 +150,7 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
   @US1259178
   @2018.PI03
   Scenario Outline: US1259178::1 - Taxonomy Grid table microservice
-    #Tests both bad paths
-    Given a user needs to query the table
-    When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
-    Then the query response returns an error
-    Examples:
-      | reqField    | reqValue    | ndbRecValue |
-      | "ndbSpecCD" | "22"        | "O"         |
-      | "ndbOrg" | "22"     | "P"      |
-
-  @Mark
-  @US1259178
-  @2018.PI03
-  Scenario Outline: US1259178::2 - Taxonomy Grid table microservice
+    #Test optional paths
     Given a user needs to query the table
     When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
     And the user provides the optional value <optionalValue> for <optionalField>
@@ -174,11 +163,23 @@ Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
   @Mark
   @US1259178
   @2018.PI03
-  Scenario: US1259178::3 - Taxonomy Grid table microservice
-    #What values return multiple records and how do we know "all records that matched"?
+  Scenario Outline: US1259178::2 - Taxonomy Grid table microservice
+    #Tests both bad paths
     Given a user needs to query the table
-    When the query response result includes more than one record
-    Then the response includes all records that matched
+    When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
+    Then the query response returns an error
+    Examples:
+      | reqField    | reqValue    | ndbRecValue |
+      | "ndbSpecCD" | "22"        | "O"         |
+      | "ndbOrg" | "22"     | "P"      |
+
+  @Mark
+  @US1259178
+  @2018.PI03
+  Scenario: US1259178::3 - Taxonomy Grid table microservice
+    #Test when query response result includes more than one recordGiven a user needs to query the table
+    When the user provides the value "21" for "ndbSpecCD" and "P" for "ndbRec"
+    Then the query response includes all records that matched
 
   @kumar,_Sachin
   @US1256689

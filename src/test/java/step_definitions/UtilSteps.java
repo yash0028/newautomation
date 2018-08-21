@@ -10,6 +10,14 @@ import cucumber.api.java.Before;
 public class UtilSteps {
     public static Scenario scenario;
 
+    public static void write2Scenario(String message) {
+        if(scenario != null) {
+            scenario.write(message);
+        } else {
+            System.out.println(message);
+        }
+    }
+
     @Before
     public void getScenario(Scenario scenario) {
         System.out.println("Grabbing Scenario Object and waiting for a bit...");

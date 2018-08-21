@@ -20,6 +20,13 @@ Feature: F177211 - Receive Exari Status Acknowledgements and run Status Reports 
     When I run the Market Number report
     Then I receive the latest status information on the progress from UHG and Exari on each contract for the given Market Number
 
+  @US1282243
+  @2018.PI03
+  Scenario: US1282243 - [Unfinished] Track UHC Fallout - resolution/remediation process
+    Given a the Contract Status table is populated during the Migration process
+    When it is completed
+    Then I can identify all contracts that were in scope to be migrated, but fell out of the Migration process (either have a fallout status, or were identified to be migrated but were not due to error)
+
   @US1206800
   @2018.PI03
   Scenario: US1206800 - Apply Enhancement Opportunities after Pilot (Top 6) Market Migration (all Agreement Types)
@@ -65,7 +72,7 @@ Feature: F177211 - Receive Exari Status Acknowledgements and run Status Reports 
 
   @US1261628
   @2018.PI03
-  Scenario: US1261628 - Track UHC Fallout - resolution/remediation process
+  Scenario: US1261628 - [Continued] Track UHC Fallout - resolution/remediation process
     Given a the Contract Status table is populated during the Migration process
     When it is completed
     Then I can identify all contracts that were in scope to be migrated, but fell out of the Migration process (either have a fallout status, or were identified to be migrated but were not due to error)

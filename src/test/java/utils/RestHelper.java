@@ -8,30 +8,30 @@ import java.util.List;
 
 /**
  * Created by jwacker on 7/19/2018.
- *
+ * <p>
  * This class contains helper methods for REST operations.
  */
 public class RestHelper {
     private static RestHelper ourInstance = new RestHelper();
 
+    private RestHelper() {
+    }
+
     public static RestHelper getInstance() {
         return ourInstance;
     }
 
-    private RestHelper() {
-    }
-
-    public boolean fieldsMatch(Response response, List<String> fields){
+    public boolean fieldsMatch(Response response, List<String> fields) {
 
         //Get the response as a String
         String responseString = response.asString().toLowerCase();
 
         //Iterate through each field that should be contained in the response
-        for(String field: fields){
+        for (String field : fields) {
             field = field.toLowerCase().trim();
 
             //If the field is not in the response string, return false
-            if(!responseString.contains(field)){
+            if (!responseString.contains(field)) {
                 return false;
             }
         }
@@ -40,10 +40,14 @@ public class RestHelper {
         return true;
     }
 
-    public JsonObject parseJsonResponse(Response response){
-        String responseString    = response.asString().trim();
+    public JsonObject parseJsonResponse(Response response) {
+        String responseString = response.asString().trim();
+        return parseJsonString(responseString);
+    }
+
+    public JsonObject parseJsonString(String string) {
         JsonParser parser = new JsonParser();
 
-        return parser.parse(responseString).getAsJsonObject();
+        return parser.parse(string).getAsJsonObject();
     }
 }
