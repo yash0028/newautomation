@@ -1,7 +1,7 @@
 # Last updated on 
 @US1199568
 @2018.PI03
-Feature: US1199568 - Import Data from Spreadsheet into Table
+Feature: US1199568 - [Continued] Import Data from Spreadsheet into Table
 
   @TC546801
   @Manual

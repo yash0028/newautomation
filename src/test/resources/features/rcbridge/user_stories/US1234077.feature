@@ -1,7 +1,7 @@
 # Last updated on 
 @US1234077
 @2018.PI03
-Feature: US1234077 - [Continued] Contract Query API Implementation
+Feature: US1234077 - [Continued] [Continued] Contract Query API Implementation
 
   @TC551549
   @Automated

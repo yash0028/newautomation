@@ -2,7 +2,7 @@
 @MVP
 @US1257320
 @2018.PI03
-Feature: US1257320 - Markets table microservice
+Feature: US1257320 - [Continued] Markets table microservice
 
   @TC547831
   @Automated
@@ -16,8 +16,23 @@ Feature: US1257320 - Markets table microservice
   @TC547830
   @Automated
   @Functional
-  Scenario: TC547830 - Query Market table with valid market number
-    Given the market number "1402" is listed in the Market UHC table
+  Scenario Outline: TC547830 - Query Market table with valid market number
+    Given the market number <marketNumber> is listed in the Market UHC table
     When a query to the table is initiated
     Then the query response includes the market record information
+    Examples:
+      | marketNumber |
+      | "1402" |
+      | "1403" |
+      | "1404" |
+      | "2407" |
+      | "2408" |
+      | "2409" |
+      | "3413" |
+      | "4420" |
+      | "4421" |
+      | "4422" |
+      | "4423" |
+      | "4430" |
+      | "4431" |
 
