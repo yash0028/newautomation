@@ -32,7 +32,7 @@ public class ContractQuerySteps {
             "contractDetails.contractStructure\n" +
             "contractDetails.contractTitle\n" +
             "contractDetails.contractValueCommitted\n" +
-            "contractDetails.counterpartyLegalName\n" +
+            "contractDetails.storageNode.properties.counterpartyLegalName\n" +
             "contractDetails.created\n" +
             "contractDetails.createInParentFolder\n" +
             "contractDetails.dateEffective\n" +
@@ -43,14 +43,14 @@ public class ContractQuerySteps {
             "contractDetails.hasDraft\n" +
             "contractDetails.masterAgreement\n" +
             "contractDetails.modified\n" +
-            "contractDetails.ourLegalName\n" +
+            "contractDetails.storageNode.properties.ourLegalName\n" +
             "contractDetails.parentContractID\n" +
             "contractDetails.status\n" +
             "contractDetails.storageNode\n" +
             "contractDetails.storageNode.properties.mpin_tin\n" +
-            "contractDetails.storageNode.properties.UHG_CounterpartyAddressCity\n" +
-            "contractDetails.storageNode.properties.UHG_CounterpartyAddressStreet\n" +
-            "contractDetails.storageNode.properties.UHG_CounterpartyAddressZip\n" +
+            "contractDetails.storageNode.properties.uhg_CounterpartyAddressCity\n" +
+            "contractDetails.storageNode.properties.uhg_CounterpartyAddressStreet\n" +
+            "contractDetails.storageNode.properties.uhg_CounterpartyAddressZip\n" +
             "contractDetails.storageNode.properties.uhg_Market_Number_DMCQ\n" +
             "contractDetails.superStatus\n" +
             "contractDetails.workflowInstances\n" +
@@ -212,7 +212,6 @@ public class ContractQuerySteps {
         }
 
         String errorMessage = "Missing key <" + keySet.get(index) + "> in " + traveledPath.toString();
-//        Assert.assertTrue(errorMessage, currJson.getAsJsonObject().has(keySet.get(index)));
         if (currJson.isJsonPrimitive() || currJson.isJsonNull() || currJson.isJsonArray() || !currJson.getAsJsonObject().has(keySet.get(index))) {
             UtilSteps.write2Scenario(errorMessage);
             return false;
