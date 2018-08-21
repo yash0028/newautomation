@@ -72,8 +72,8 @@ public class TaxonomyTableSteps {
 
     }
 
-    @Then("^the response includes all records that matched$")
-    public void theResponseIncludesAllRecordsThatMatched() throws Throwable {
+    @Then("^the query response includes all records that matched$")
+    public void theQueryResponseIncludesAllRecordsThatMatched() throws Throwable {
         request = given().baseUri(taxonomyTableBaseURI).header("Content-Type", "application/json").body(payload);
         response = request.post(taxonomyQueryEndpoint);
         Assert.assertEquals(response.getStatusCode(), 200);
