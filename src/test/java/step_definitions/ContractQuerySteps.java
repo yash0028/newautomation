@@ -32,7 +32,7 @@ public class ContractQuerySteps {
             "contractDetails.contractOwner\n" +
             "contractDetails.contractStructure\n" +
             "contractDetails.contractTitle\n" +
-            "contractDetails.contractValueCommitted\n" +
+            "contractDetails.storageNode.properties.contractValueCommitted\n" +
             "contractDetails.created\n" +
             "contractDetails.createInParentFolder\n" +
             "contractDetails.dateEffective\n" +
@@ -65,8 +65,8 @@ public class ContractQuerySteps {
             "supportingDocuments\n" +
             "templateDocument\n" +
             "templateDocument.storageNode\n" +
-            "type\n" +
-            "workflowInstances\n";
+            "type\n";
+//            "workflowInstances\n";
 
     //    private JsonObject payload;
     private RequestSpecification request;
@@ -91,7 +91,7 @@ public class ContractQuerySteps {
         String tempMessage = result.get("responseMessage").getAsString();
         JsonObject ecm = RestHelper.getInstance().parseJsonString(tempMessage);
 
-        System.out.println(ecm.size());
+        System.out.println(ecm.toString());
         verifyECM(ecm);
     }
 
