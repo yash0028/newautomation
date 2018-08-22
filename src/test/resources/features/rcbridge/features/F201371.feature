@@ -6,6 +6,22 @@
 @F201371
 Feature: F201371 - Integration Services - Product Description Crosswalk
 
+  @US1283896
+  @2018.PI03
+  Scenario: US1283896::0 - [Unfinished] Validate Data
+    Given a template is populated with data
+    When the template is uploaded
+    Then the file and data is validated
+    And a message is returned to the user that the process was successful
+
+  @US1283896
+  @2018.PI03
+  Scenario: US1283896::1 - [Unfinished] Validate Data
+    Given a template is populated with invalid data
+    When the template is uploaded
+    Then the file and data is validated
+    And a message(s) is returned to the user of all errors and notification that the process failed
+
   @US1207408
   @2018.PI03
   Scenario: US1207408 - [Continued] User Interface for up and download
@@ -106,9 +122,37 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
     When an administrator uploads the file record
     Then the file successfully loads to the database
 
+  @US1283892
+  @2018.PI03
+  Scenario: US1283892::0 - [Unfinished] Import Data from Spreadsheet into Table
+    Given The product code service is up and running
+    When A new spreadsheet is uploaded and stored in the database
+    And The import is processed successfully
+    Then The existing data is deleted
+    And The content of spreadsheet is parsed and stored in a database table
+    And The database is updated to indicate that the spreadsheet was processed successfully
+
+  @US1283892
+  @2018.PI03
+  Scenario: US1283892::1 - [Unfinished] Import Data from Spreadsheet into Table
+    Given The product code service is up and running
+    When A new spreadsheet is uploaded and stored in the database
+    And The import is fails
+    Then The existing data is not deleted and not updated
+    And The database is updated to indicate that the spreadsheet import failed
+
+  @MVP
+  @Priority
+  @US1283889
+  @2018.PI03
+  Scenario: US1283889 - [Unfinished] [Continued] Contract Product Description Crosswalk
+    Given a product description to product code crosswalk exists
+    When exchanging information about the products included or excluded from an Exari contract
+    Then the crosswalk provides the product code identifier
+
   @US1199569
   @2018.PI03
-  Scenario: US1199569::0 - Validate Data
+  Scenario: US1199569::0 - [Continued] Validate Data
     Given a template is populated with data
     When the template is uploaded
     Then the file and data is validated
@@ -116,7 +160,7 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
 
   @US1199569
   @2018.PI03
-  Scenario: US1199569::1 - Validate Data
+  Scenario: US1199569::1 - [Continued] Validate Data
     Given a template is populated with invalid data
     When the template is uploaded
     Then the file and data is validated
@@ -124,7 +168,7 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
 
   @US1199568
   @2018.PI03
-  Scenario: US1199568::0 - Import Data from Spreadsheet into Table
+  Scenario: US1199568::0 - [Continued] Import Data from Spreadsheet into Table
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
     And The import is processed successfully
@@ -134,7 +178,7 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
 
   @US1199568
   @2018.PI03
-  Scenario: US1199568::1 - Import Data from Spreadsheet into Table
+  Scenario: US1199568::1 - [Continued] Import Data from Spreadsheet into Table
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
     And The import is fails
@@ -172,7 +216,7 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
   @Priority
   @US1185585
   @2018.PI03
-  Scenario: US1185585 - [Continued] Contract Product Description Crosswalk
+  Scenario: US1185585 - [Continued] [Continued] Contract Product Description Crosswalk
     Given a product description to product code crosswalk exists
     When exchanging information about the products included or excluded from an Exari contract
     Then the crosswalk provides the product code identifier

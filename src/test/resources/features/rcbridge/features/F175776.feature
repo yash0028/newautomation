@@ -13,6 +13,13 @@ Feature: F175776 - Exari Microservice Establish Integration of CLM with Facility
     When connecting to the MSPS service from Exari with a fee schedule number for a facility
     Then I receive the needed data in a zip file from the MSPS service.
 
+  @US1234808
+  @2018.PI03
+  Scenario: US1234808 - Enhancement to Fee Schedule External Data Query
+    Given a fee schedule is searched
+    When the resource is streamed to Exari
+    Then the end result is an encoded string on the Exari side
+
   @MSPS
   @US1165661
   @2018.PI03

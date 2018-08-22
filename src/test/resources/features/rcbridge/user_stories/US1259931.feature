@@ -4,7 +4,7 @@
 @CMD
 @US1259931
 @2018.PI03
-Feature: US1259931 - Maintain data using table template
+Feature: US1259931 - [Continued] Maintain data using table template
 
   @TC548917
   @Automated

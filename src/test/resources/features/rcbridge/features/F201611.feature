@@ -12,7 +12,7 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
   @PES
   @US1194560
   @2018.PI03
-  Scenario: US1194560::0 - PES ExternaI Data Query (Appendix 1 lookup)
+  Scenario: US1194560::0 - PES ExternaI Data Query (Appendix 1 lookup) (on hold)
     #For Physician MPIN
     Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "12345"
@@ -33,7 +33,7 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
   @PES
   @US1194560
   @2018.PI03
-  Scenario: US1194560::1 - PES ExternaI Data Query (Appendix 1 lookup)
+  Scenario: US1194560::1 - PES ExternaI Data Query (Appendix 1 lookup) (on hold)
     #For Facility MPIN
     Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "6177192"
