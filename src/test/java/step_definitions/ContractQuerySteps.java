@@ -103,7 +103,7 @@ public class ContractQuerySteps {
     @Then("^the Domain Service returns a service error$")
     public void checkInvalidResponse() throws Throwable {
         JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
-        Assert.assertEquals("Unexpected response: should have received a service error", 500, result.get("responseCode").getAsInt());
+        Assert.assertNotEquals("Unexpected response: should have received a service error", 200, result.get("responseCode").getAsInt());
     }
 
     @Deprecated
