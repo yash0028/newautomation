@@ -3,10 +3,12 @@
 @Plus
 @10/1_Physician
 @Priority_1
+@CMD
 @Parity
 @F204954
-Feature: F204954 - Integration Services - NDB UNET/COSMOS Contract Master API's
+Feature: F204954 - Integration Services App2 - NDB UNET/COSMOS Contract Master API's
 
+  @Prateek
   @MVP+1
   @US1204285
   @2018.PI03

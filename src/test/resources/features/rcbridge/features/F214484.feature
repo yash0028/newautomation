@@ -3,7 +3,7 @@
 @10/1_Physician
 @CMD
 @F214484
-Feature: F214484 - Integration Services - Part 1 Metadata tables critical day 1
+Feature: F214484 - Integration Services App3- Part 1 Metadata tables critical day 1
 
   @MVP
   @US1229421

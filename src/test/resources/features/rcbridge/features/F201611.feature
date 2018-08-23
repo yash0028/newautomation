@@ -9,6 +9,31 @@
 @F201611
 Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (Demographic) - Optum (Carryover Items from PI2)
 
+  @MVP
+  @PI02_Top3
+  @CLM_Exari
+  @US1100727
+  @2018.PI03
+  Scenario: US1100727 - External Data Query Roster Validation
+    Given I as a user have populated the Exari Provider Roster with MPIN, TAX ID, Provider Full Name (First, Last), and NPI
+    When Exari reaches out to CLM Roster Service with parameters of:
+      | mpin |
+      | tin |
+      | firstName |
+      | lastName |
+      | npi |
+    Then CLM returns the following information from PES:
+      | MPIN |
+      | NPI |
+      | Provider Name |
+      | Degree Code |
+      | Org Type Ind |
+      | Org Type Desc |
+      | Spec Ind |
+      | Spec Desc |
+      | Provider Classification |
+      | CORP MPIN |
+
   @PES
   @US1194560
   @2018.PI03

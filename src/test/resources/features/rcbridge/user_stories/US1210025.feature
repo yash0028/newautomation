@@ -3,7 +3,7 @@
 @MEG
 @US1210025
 @2018.PI03
-Feature: US1210025 - Build External Data Query - MEG
+Feature: US1210025 - [Continued] Build External Data Query - MEG
 
   @TC543863
   @Manual

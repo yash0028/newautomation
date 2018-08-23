@@ -3,7 +3,7 @@
 @10/1_Physician
 @CMD
 @F205820
-Feature: F205820 - Contract Meta Data (CMD)
+Feature: F205820 - Contract Meta Data (CMD) App4
 
   @US1233645
   @2018.PI03

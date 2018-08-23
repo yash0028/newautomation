@@ -4,7 +4,7 @@
 @Priority_1
 @CMD
 @F201371
-Feature: F201371 - Integration Services - Product Description Crosswalk
+Feature: F201371 - Integration Services App3 - Product Description Crosswalk
 
   @US1283896
   @2018.PI03
@@ -213,6 +213,7 @@ Feature: F201371 - Integration Services - Product Description Crosswalk
     Then the UI will be available for the user.
 
   @MVP
+  @Amrutha
   @Priority
   @US1185585
   @2018.PI03
