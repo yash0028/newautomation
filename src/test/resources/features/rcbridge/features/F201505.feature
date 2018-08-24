@@ -79,6 +79,13 @@ Feature: F201505 - CLM DevOps PI03
     When the integrations are checked for production data
     Then the production data should be identified
 
+  @US1272911
+  @2018.PI03
+  Scenario: US1272911 - Fix Fortify Issues
+    Given services that are maintained by CLM Team 1
+    When Fortify reports high-end critical issues on a service
+    Then a developer needs to fix the high-end critical issues
+
   @US1078501
   @2018.PI03
   Scenario: US1078501 - JMX Trans for Kafka
