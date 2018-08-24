@@ -33,15 +33,13 @@ public class MarketTableSteps {
         request = given().baseUri(marketsTableEndpoint).header("Content-Type", "application/json");
         response = request.get(marketResource + marketNumber);
 
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
-        System.out.println(result);
     }
 
     @Then("^the query response includes the market record information$")
     public void verifyQueryResponseWithMarketRecord() throws Throwable {
         JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
 
-        Assert.assertEquals(marketNumber,result.get("marketUhcDetails").getAsJsonObject().get("marketNumber").getAsString());
+        Assert.assertEquals(marketNumber, result.get("marketUhcDetails").getAsJsonObject().get("marketNumber").getAsString());
     }
 
     @Then("^the query response does not return the market record information$")

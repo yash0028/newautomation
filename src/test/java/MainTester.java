@@ -5,7 +5,7 @@ import step_definitions.TransactionSteps;
 /**
  * Created by dtimaul on 8/8/18.
  */
-public class Main {
+public class MainTester {
     // The purpose of the class is used to isolate and run a single test.
     public static void main(String[] args) {
         MarketTableSteps marketSteps = new MarketTableSteps();
