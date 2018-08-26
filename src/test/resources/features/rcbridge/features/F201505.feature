@@ -30,6 +30,13 @@ Feature: F201505 - CLM DevOps PI03
       | A | B |
       | AA | BB |
 
+  @US1289622
+  @2018.PI03
+  Scenario: US1289622 - Initialize events from contract transaction changes in Event Trigger
+    Given An email is sent to the Optum Exari update email address
+    When the event is sent to the Event Gateway
+    Then the event has a transaction id corresponding to the contract update that initiated the email
+
   @US1273084
   @2018.PI03
   Scenario: US1273084 - Fortify Scans

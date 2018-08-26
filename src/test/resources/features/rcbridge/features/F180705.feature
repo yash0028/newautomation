@@ -10,7 +10,7 @@ Feature: F180705 - Exari Microservice Complete Integration of CLM with MSG - Opt
   @CLM_UAT
   @MSG
   @US1009573
-  @2018.PI03
+  @2018.PI04
   Scenario: US1009573 - [Continued] Create External Data Query to MSG
     When the MSG microservice is called from Exari
     Then a valid response is returned
