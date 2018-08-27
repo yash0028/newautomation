@@ -1,22 +1,22 @@
 # Last updated on 
 @MVP
-@US1257320
+@US1283907
 @2018.PI03
-Feature: US1257320 - [Continued] Markets table microservice
+Feature: US1283907 - Markets table microservice
 
-  @TC547831
+  @TC552579
   @Automated
   @Functional
-  Scenario: TC547831 - Query Markets table with invalid market number
+  Scenario: TC552579 - Invalid market number
     Given the market number "1" is not listed in the Market UHC table
     When a query to the table is initiated
     Then the query response does not return the market record information
     And a record not found message is returned
 
-  @TC547830
+  @TC552578
   @Automated
   @Functional
-  Scenario Outline: TC547830 - Query Market table with valid market number
+  Scenario Outline: TC552578 - Valid market number
     Given the market number <marketNumber> is listed in the Market UHC table
     When a query to the table is initiated
     Then the query response includes the market record information

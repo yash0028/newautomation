@@ -21,3 +21,22 @@ Feature: US1229421 - Markets table
     When a query to the table is initiated
     Then the query response includes the market record information
 
+  @CLM_UAT
+  @TC554293
+  @Manual
+  @Acceptance
+  Scenario: TC554293 - Validate the query response when a valid market number is passed
+    Given the market number is listed in the Market UHC table
+    When a query to the table is initiated
+    Then the query response includes the market record information
+
+  @CLM_UAT
+  @TC554294
+  @Manual
+  @Acceptance
+  Scenario: TC554294 - Validate the query response when invalid market number is passed
+    Given the market number is not listed in the Market UHC table
+    When a query to the table is initiated
+    Then the query response does not return the market record information
+    And a record not found message is returned
+

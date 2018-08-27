@@ -90,6 +90,14 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     When the micro service calls the ETMA tables
     Then the connection is successful
 
+  @Charlie
+  @ETMA
+  @US1270195
+  @2018.PI03
+  Scenario: US1270195 - Point to new ETMA DB
+    When CLM Etma service is updated with the new DB
+    Then all acceptance tests are re-run
+
   @ETMA
   @US1097073
   @2018.PI02

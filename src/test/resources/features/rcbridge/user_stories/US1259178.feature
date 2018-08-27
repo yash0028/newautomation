@@ -8,10 +8,9 @@ Feature: US1259178 - Taxonomy Grid table microservice
   @Automated
   @Functional
   Scenario: TC543879 - Multiple Records Validation
-    #What values return multiple records and how do we know "all records that matched"?
-    Given a user needs to query the table
-    When the query response result includes more than one record
-    Then the response includes all records that matched
+    #Test when query response result includes more than one recordGiven a user needs to query the table
+    When the user provides the value "21" for "ndbSpecCD" and "P" for "ndbRec"
+    Then the query response includes all records that matched
 
   @TC543877
   @Automated

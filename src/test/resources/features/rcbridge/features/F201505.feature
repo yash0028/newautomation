@@ -30,6 +30,13 @@ Feature: F201505 - CLM DevOps PI03
       | A | B |
       | AA | BB |
 
+  @US1289622
+  @2018.PI03
+  Scenario: US1289622 - Initialize events from contract transaction changes in Event Trigger
+    Given An email is sent to the Optum Exari update email address
+    When the event is sent to the Event Gateway
+    Then the event has a transaction id corresponding to the contract update that initiated the email
+
   @US1273084
   @2018.PI03
   Scenario: US1273084 - Fortify Scans
@@ -74,10 +81,17 @@ Feature: F201505 - CLM DevOps PI03
 
   @US1272886
   @2018.PI03
-  Scenario: US1272886 - Investigate Production Data
+  Scenario: US1272886 - [Spike] Investigate Production Data
     Given the integrations have datasources
     When the integrations are checked for production data
     Then the production data should be identified
+
+  @US1272911
+  @2018.PI03
+  Scenario: US1272911 - Fix Fortify Issues
+    Given services that are maintained by CLM Team 1
+    When Fortify reports high-end critical issues on a service
+    Then a developer needs to fix the high-end critical issues
 
   @US1078501
   @2018.PI03
