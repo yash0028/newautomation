@@ -115,7 +115,23 @@ public class MSPSSteps {
         throw new PendingException();
     }
 
+    //US1234808
 
+    @Given("^a fee schedule is searched$")
+    public void aFeeScheduleIsSearched() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 
+    @When("^the resource is streamed to Exari$")
+    public void theResourceIsStreamedToExari() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 
+    @Then("^the end result is an encoded string on the Exari side$")
+    public void theEndResultIsAnEncodedStringOnTheExariSide() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }
