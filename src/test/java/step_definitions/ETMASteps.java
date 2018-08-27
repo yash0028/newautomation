@@ -316,4 +316,18 @@ public class ETMASteps {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
+
+    //US1270195
+
+    @When("^CLM Etma service is updated with the new DB$")
+    public void clmEtmaServiceIsUpdatedWithTheNewDB() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^all acceptance tests are re-run$")
+    public void allAcceptanceTestsAreReRun() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }
