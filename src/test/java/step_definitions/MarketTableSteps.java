@@ -1,48 +1,59 @@
 package step_definitions;
 
+import com.google.gson.JsonObject;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import org.junit.Assert;
+import utils.RestHelper;
+
+import static io.restassured.RestAssured.given;
 
 /**
  * Created by dtimaul on 8/15/18.
  */
 public class MarketTableSteps {
-    @Given("^the market number is not listed in the Market UHC table$")
-    public void theMarketNumberIsNotListedInTheMarketUHCTable() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    private final String marketsTableEndpoint = "http://ndb-lookup-crosswalk-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private final String marketResource = "/market/";
+    private RequestSpecification request;
+    private Response response;
+    private String marketNumber;
+
+    @Given("^the market number \"([^\"]*)\" is(?: not)? listed in the Market UHC table$")
+    public void setMarketNumber(String arg0) throws Throwable {
+        marketNumber = arg0;
     }
 
     @When("^a query to the table is initiated$")
-    public void aQueryToTheTableIsInitiated() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
+    public void initiateQuery() throws Throwable {
+        request = given().baseUri(marketsTableEndpoint).header("Content-Type", "application/json");
+        response = request.get(marketResource + marketNumber);
 
-    @Then("^the query response does not return the market record information$")
-    public void theQueryResponseDoesNotReturnTheMarketRecordInformation() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @And("^a record not found message is returned$")
-    public void aRecordNotFoundMessageIsReturned() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Given("^the market number is listed in the Market UHC table$")
-    public void theMarketNumberIsListedInTheMarketUHCTable() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
     }
 
     @Then("^the query response includes the market record information$")
-    public void theQueryResponseIncludesTheMarketRecordInformation() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void verifyQueryResponseWithMarketRecord() throws Throwable {
+        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
+
+        Assert.assertEquals(marketNumber, result.get("marketUhcDetails").getAsJsonObject().get("marketNumber").getAsString());
     }
+
+    @Then("^the query response does not return the market record information$")
+    public void verifyNoMarketRecord() throws Throwable {
+        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
+
+        Assert.assertTrue(result.get("marketUhcDetails").isJsonNull());
+    }
+
+    @And("^a record not found message is returned$")
+    public void verifyRecordNotFound() throws Throwable {
+        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
+
+        Assert.assertEquals("No data found", result.get("errorDetails").getAsJsonObject().get("message").getAsString());
+    }
+
 }
