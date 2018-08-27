@@ -12,6 +12,14 @@ Feature: F196394 - Integration of Exari with Market Exception Grid (MEG)
     Given the Exari system will access the MEG
     Then a developer will have to research how to connect to the MEG backend.
 
+  @kumar,_Sachin
+  @MEG
+  @US1285099
+  @2018.PI03
+  Scenario: US1285099 - [Unfinished] Build External Data Query - MEG
+    When the MEG microservice is called
+    Then a valid MEG response is returned
+
   @CLM_UAT
   @MEG
   @US1261015
@@ -50,7 +58,7 @@ Feature: F196394 - Integration of Exari with Market Exception Grid (MEG)
   @MEG
   @US1210025
   @2018.PI03
-  Scenario: US1210025 - Build External Data Query - MEG
+  Scenario: US1210025 - [Continued] Build External Data Query - MEG
     When the MEG microservice is called
     Then a valid MEG response is returned
 

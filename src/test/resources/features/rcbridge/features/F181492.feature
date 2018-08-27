@@ -3,7 +3,7 @@
 @Plus
 @Priority_1
 @F181492
-Feature: F181492 - Exari EM - Maintain Identity Keys
+Feature: F181492 - Exari EM - Create Contracting Events
 
   @US1225002
   @2018.PI03

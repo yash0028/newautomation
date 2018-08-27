@@ -91,6 +91,7 @@ Feature: F182490 - Exari Microservice Establish Integration of CLM with ETMA's -
     Then the connection is successful
 
   @Charlie
+  @ETMA
   @US1270195
   @2018.PI03
   Scenario: US1270195 - Point to new ETMA DB

@@ -2,7 +2,7 @@
 @CLM_UAT
 @MSG
 @US1009573
-@2018.PI03
+@2018.PI04
 Feature: US1009573 - [Continued] Create External Data Query to MSG
 
   @TC536736

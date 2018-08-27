@@ -3,7 +3,7 @@
 @10/1_Physician
 @CMD
 @F209320
-Feature: F209320 - Integration Services - Business rules fallout and tables
+Feature: F209320 - Integration Services App3 - Business rules fallout and tables
 
   @US1256963
   @2018.PI03

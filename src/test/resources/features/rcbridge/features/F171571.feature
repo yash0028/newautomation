@@ -72,6 +72,7 @@ Feature: F171571 - Provide contract details to Examiner
     Then An server error will be returned
 
   @MVP
+  @Siraj
   @US861033
   @2018.PI03
   Scenario: US861033::0 - [Continued] Integrate CLM with Examiner (Continued)
@@ -80,6 +81,7 @@ Feature: F171571 - Provide contract details to Examiner
     Then The contract data is sent back to PIC or Examiner
 
   @MVP
+  @Siraj
   @US861033
   @2018.PI03
   Scenario: US861033::1 - [Continued] Integrate CLM with Examiner (Continued)
@@ -88,6 +90,7 @@ Feature: F171571 - Provide contract details to Examiner
     Then The service will return an error
 
   @MVP
+  @Siraj
   @US861033
   @2018.PI03
   Scenario: US861033::2 - [Continued] Integrate CLM with Examiner (Continued)
