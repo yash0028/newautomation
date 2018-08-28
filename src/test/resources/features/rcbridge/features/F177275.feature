@@ -1,8 +1,9 @@
 # Last updated on 
 @MVP
+@Priority_1
 @Parity
 @F177275
-Feature: F177275 - Choose and Send Fallout Base Agreement contract subsets for Migrations by Remaining Market Numbers
+Feature: F177275 - Choose and Send Fallout Base Agreement contract subsets for Migrations by Remaining Physician Market Numbers
 
   @US1170932
   @2018.PI04

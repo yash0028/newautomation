@@ -9,7 +9,8 @@ Feature: F183530 - Downstream Microservice Exari>COSMOS - (Physician Payload Dir
   @US1059062
   @2018.PI03
   Scenario: US1059062 - Common Pricing Solution - COSMOS Payload - Add Contract
-    Given the COSMOS CPS PL is built with the correct data
+    #Common Pricing Solution (CPS)Given the COSMOS CPS payload is built with the correct data
+    # Planned Percent Complete (PPC)
     When the PPC Contract loads to COSMOS for CPS
     Then the CPS Contract will load successfully to COSMOS
 

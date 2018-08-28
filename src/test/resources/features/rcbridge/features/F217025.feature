@@ -1,5 +1,6 @@
 # Last updated on 
 @MVP
+@Priority_2
 @Parity
 @F217025
 Feature: F217025 - Choose and Send Ancillary contract subsets for Migrations by Pilot Market Numbers - Part 2

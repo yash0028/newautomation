@@ -1,5 +1,6 @@
 # Last updated on 
 @MVP
+@Priority_2
 @Parity
 @F217027
 Feature: F217027 - Choose and Send FQHC/PHO/ACO/Filed contract subsets for Migrations by Pilot Market Numbers - Part 2

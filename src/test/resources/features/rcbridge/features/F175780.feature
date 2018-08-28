@@ -1,6 +1,6 @@
 # Last updated on 
 @MVP
-@Priority_1
+@Priority_2
 @Parity
 @F175780
 Feature: F175780 - Choose and Send Facility contract subsets for Migrations by Pilot Market Numbers

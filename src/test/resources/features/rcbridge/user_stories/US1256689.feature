@@ -25,7 +25,7 @@ Feature: US1256689 - [Continued] Validate Table data
   @TC551940
   @Manual
   @Functional
-  Scenario: TC551940 - (Copy of) Validate Data_Invalid data
+  Scenario: TC551940 - Validate Data_Invalid data
     Given a template is populated with data
     When the template is uploaded
     Then the file and data is validated
