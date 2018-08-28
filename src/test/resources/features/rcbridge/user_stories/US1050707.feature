@@ -25,7 +25,7 @@ Feature: US1050707 - (MSG) Create microservice exposing Market Strategy grid dat
     # Bad Path
     Given I have the ability to read the MS Access DB
     When I make a request to the microservice to read a record using the following fields:
-      | specialties | XXX         |
+      | specialty_codes | XXX             |
       | state | MM    |
       | county | Abcd   |
       | market | 99999  |
