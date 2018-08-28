@@ -23,7 +23,7 @@ Feature: F180705 - Exari Microservice Complete Integration of CLM with MSG - Opt
     # Happy Path
     Given I have the ability to read the MS Access DB
     When I make a request to the microservice to read a record using the following fields:
-      | specialties | Dermatology |
+      | specialty_codes | 007             |
       | state | AK    |
       | county | Haines |
       | market  | 0054405 |

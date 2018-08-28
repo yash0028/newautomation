@@ -1,6 +1,7 @@
 # Last updated on 
-@Priority_1
+@MVP
 @10/1_Physician
+@Priority_1
 @CMD
 @F219005
 Feature: F219005 - Contract Meta Data (CMD) App4 - Part 2

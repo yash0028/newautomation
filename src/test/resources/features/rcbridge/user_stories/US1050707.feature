@@ -12,7 +12,7 @@ Feature: US1050707 - (MSG) Create microservice exposing Market Strategy grid dat
     # Happy Path
     Given I have the ability to read the MS Access DB
     When I make a request to the microservice to read a record using the following fields:
-      | specialties | Dermatology |
+      | specialty_codes | 007             |
       | state | AK    |
       | county | Haines |
       | market  | 0054405 |
