@@ -7,12 +7,21 @@
 Feature: F175776 - Exari Microservice Establish Integration of CLM with Facility Fee Schedule - Optum
 
   @MSPS
+  @US1295290
+  @2018.PI03
+  Scenario: US1295290 - Allow user to specify version number
+    Given a user is requesting a professional fee schedule
+    When they pass a version number
+    Then that specific version fee schedule is returned
+
+  @MSPS
   @US1261012
   @2018.PI03
   Scenario: US1261012 - [Unfinished] Create External Data Query - Facility MSPS
     When connecting to the MSPS service from Exari with a fee schedule number for a facility
     Then I receive the needed data in a zip file from the MSPS service.
 
+  @MSPS
   @US1234808
   @2018.PI03
   Scenario: US1234808 - Enhancement to Fee Schedule External Data Query

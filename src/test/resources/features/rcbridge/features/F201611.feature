@@ -36,52 +36,22 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
       | CORP MPIN |
 
   @PES
+  @Alex_M
   @US1194560
   @2018.PI03
-  Scenario: US1194560::0 - PES ExternaI Data Query (Appendix 1 lookup)
-    #For Physician MPIN
-    Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "12345"
-    Then PES returns the following information:
-      | mpin |
-      | tin |
-      | firstName |
-      | middleName |
-      | lastName |
-      | address |
-      | organization |
-      | specialties |
-      | providerTypeCode |
-      | npi |
-      | phoneNumbers |
-      | faxNumbers |
-
-  @PES
-  @US1194560
-  @2018.PI03
-  Scenario: US1194560::1 - PES ExternaI Data Query (Appendix 1 lookup)
-    #For Facility MPIN
-    Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "6177192"
-    Then PES returns the following information:
-      | mpin |
-      | tin |
-      | facilityName |
-      | address |
-      | organization |
-      | specialties |
-      | providerTypeCode |
-      | npi |
-      | phoneNumbers |
+  Scenario: US1194560 - PES ExternaI Data Query (Appendix 1 lookup)
+    Given a user wants to populate appendix 1 with addresses
+    When a TIN is passed
+    Then Street, Address Type, City,State Zip,Phone,TIN, Group NPI are returned from the service
 
   @Andrew_B
   @PES
   @US1253705
   @2018.PI03
   Scenario: US1253705 - Create Appendix 1 Search Demographics API
-    Given a counterparty with a corporate MPIN is chosen
-    When the service is given a corporate MPIN
-    Then all of the names, addresses, and TINs under that corporate MPIN are returned from the service
+    Given a user wants to populate appendix 1 with addresses
+    When a TIN is passed
+    Then Street, Address Type, City,State Zip,Phone,TIN, Group NPI are returned from the service
 
   @US1210131
   @2018.PI03

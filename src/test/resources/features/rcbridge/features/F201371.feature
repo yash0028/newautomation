@@ -206,6 +206,12 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
     When an administrator downloads a copy of the crosswalk template
     Then the product crosswalk template is made available to the administrator
 
+  @US1285453
+  Scenario: US1285453 - Audit and History the new Product Codes
+    Given the application screen is ready
+    When a table file is uploaded
+    Then the previous file record and audit log info is stored in the database
+
   @US1231899
   @2018.PI03
   Scenario: US1231899 - Styling Template for Crosswalk UI

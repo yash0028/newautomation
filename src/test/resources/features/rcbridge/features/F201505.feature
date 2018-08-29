@@ -20,6 +20,16 @@ Feature: F201505 - CLM DevOps PI03
   @RCBridge
   @US1176975
   @2018.PI03
+  Scenario: US1176975::0 - RC Bridge Enhancement
+    # Enhance Test Case Link
+    Given a user story artifact with 2 valid acceptance criteria
+    And that user story does not have test cases
+    When rcbridge runs
+    Then 2 test cases are created
+
+  @RCBridge
+  @US1176975
+  @2018.PI03
   Scenario Outline: US1176975::1 - RC Bridge Enhancement
     Given a user story artifact with 2 valid acceptance criteria
     And that user story has 2 outdated RCLink test cases
@@ -30,6 +40,7 @@ Feature: F201505 - CLM DevOps PI03
       | A | B |
       | AA | BB |
 
+  @Mark_E.
   @US1289622
   @2018.PI03
   Scenario: US1289622 - Initialize events from contract transaction changes in Event Trigger
@@ -86,6 +97,7 @@ Feature: F201505 - CLM DevOps PI03
     When the integrations are checked for production data
     Then the production data should be identified
 
+  @Charlie
   @US1272911
   @2018.PI03
   Scenario: US1272911 - Fix Fortify Issues
