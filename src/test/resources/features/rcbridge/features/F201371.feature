@@ -23,6 +23,12 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
     Then the file and data is validated
     And a message(s) is returned to the user of all errors and notification that the process failed
 
+  @US1285441
+  @2018.PI03
+  Scenario: US1285441 - Identify new Product Codes
+    When the product codes are called from the crosswalk tables
+    Then the correct product codes are returned.
+
   @US1207408
   @2018.PI03
   Scenario: US1207408 - [Continued] User Interface for up and download
