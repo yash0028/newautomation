@@ -40,9 +40,8 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
   @US1194560
   @2018.PI03
   Scenario: US1194560 - PES ExternaI Data Query (Appendix 1 lookup)
-    Given a user wants to populate appendix 1 with addresses
-    When a TIN is passed
-    Then Street, Address Type, City,State Zip,Phone,TIN, Group NPI are returned from the service
+    When querying the Appendix 1 Lookup external data query
+    Then a valid response is returned to Exari
 
   @Andrew_B
   @PES
@@ -51,7 +50,16 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
   Scenario: US1253705 - Create Appendix 1 Search Demographics API
     Given a user wants to populate appendix 1 with addresses
     When a TIN is passed
-    Then Street, Address Type, City,State Zip,Phone,TIN, Group NPI are returned from the service
+    Then PES returns the following information:
+      | Street |
+      | Address Type |
+      | City |
+      | State |
+      | Zip |
+      | Phone |
+      | TIN |
+      | Group |
+      | NPI |
 
   @US1210131
   @2018.PI03

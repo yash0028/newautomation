@@ -7,7 +7,7 @@
 Feature: F209320 - Integration Services App3 - Business rules fallout and tables
 
   @US1256963
-  @2018.PI03
+  @2018.PI04
   Scenario: US1256963 - Update user interface to accomodate new tables
     Given: I have access to the Admin UI page
     When: I access the page

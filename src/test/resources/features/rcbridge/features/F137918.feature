@@ -2,7 +2,7 @@
 @Plus
 @Priority_1
 @F137918
-Feature: F137918 - Exari EM - Migrate Entity Data
+Feature: F137918 - Remove: Exari EM - Migrate Entity Data
 
   @US861076
   Scenario: US861076 - Acquire Entity Data from existing Sources
