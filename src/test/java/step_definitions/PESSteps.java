@@ -361,4 +361,32 @@ public class PESSteps {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
+
+    //US1194560
+
+    @When("^querying the Appendix (\\d+) Lookup external data query$")
+    public void queryingTheAppendixLookupExternalDataQuery(int arg0) throws Throwable {
+        // Keeping as pending, as this test is manually done
+        throw new PendingException();
+    }
+
+    @Then("^a valid response is returned to Exari$")
+    public void aValidResponseIsReturnedToExari() throws Throwable {
+        // Keeping as pending, as this test is manually done
+        throw new PendingException();
+    }
+
+    //US1100727
+    
+    @Given("^I as a user have populated the Exari Provider Roster with MPIN, TAX ID, Provider Full Name \\(First, Last\\), and NPI$")
+    public void iAsAUserHavePopulatedTheExariProviderRosterWithMPINTAXIDProviderFullNameFirstLastAndNPI() throws Throwable {
+        // Keeping as pending, as this test is manually done
+        throw new PendingException();
+    }
+
+    @When("^Exari reaches out to CLM Roster Service with parameters of:$")
+    public void exariReachesOutToCLMRosterServiceWithParametersOf() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }
