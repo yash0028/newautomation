@@ -213,6 +213,25 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
     When an administrator downloads a copy of the crosswalk template
     Then the product crosswalk template is made available to the administrator
 
+  @US1300926
+  @2018.PI03
+  Scenario: US1300926::0 - [Continued] Import Data from Spreadsheet into Table over2MB
+    Given The product code service is up and running
+    When A new spreadsheet is uploaded and stored in the database
+    And The import is processed successfully
+    Then The existing data is deleted
+    And The content of spreadsheet is parsed and stored in a database table
+    And The database is updated to indicate that the spreadsheet was processed successfully
+
+  @US1300926
+  @2018.PI03
+  Scenario: US1300926::1 - [Continued] Import Data from Spreadsheet into Table over2MB
+    Given The product code service is up and running
+    When A new spreadsheet is uploaded and stored in the database
+    And The import is fails
+    Then The existing data is not deleted and not updated
+    And The database is updated to indicate that the spreadsheet import failed
+
   @US1285453
   Scenario: US1285453 - Audit and History the new Product Codes
     Given the application screen is ready

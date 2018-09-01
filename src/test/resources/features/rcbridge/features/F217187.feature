@@ -19,20 +19,6 @@ Feature: F217187 - Contract Master Data (CMD) App2 User Interface and workflow f
     When the developer reads the SID for the CMD Feature
     Then they will understand the development needed for the CMD feature.
 
-  @US1278488
-  @2018.PI03
-  Scenario: US1278488 - CMD UI- View User Input Summary view null and more than one contract master
-    Given: I have clicked on User Input Required button on the CMD dashboard
-    When: I land on the CMD Input required page
-    Then: I can see the following data header information:
-
-  @US1278482
-  @2018.PI03
-  Scenario: US1278482 - Add new Kafka Topic for contract master data
-    Given: A contract master update request was made to NDB
-    When: The contract master did not successfully automate
-    Then: The requests that did not automate are available as a new Kafka error topic
-
   @US1290222
   @2018.PI03
   Scenario: US1290222::0 - CMD Integration with Exari - SSO (Reference Table Admin)
