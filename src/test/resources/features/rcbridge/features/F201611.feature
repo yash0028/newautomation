@@ -23,17 +23,16 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
   @2018.PI03
   Scenario: US1253705 - Create Appendix 1 Search Demographics API
     Given a user wants to populate appendix 1 with addresses
-    When a TIN is passed
+    When a "tin" of "760027557" is passed
     Then PES returns the following information:
-      | Street |
-      | Address Type |
-      | City |
-      | State |
-      | Zip |
-      | Phone |
-      | TIN |
-      | Group |
-      | NPI |
+      | addressLine1 |
+      | addressType |
+      | city |
+      | state |
+      | zip |
+      | phoneNumbers |
+      | tin |
+      | npi |
 
   @US1210131
   @2018.PI03

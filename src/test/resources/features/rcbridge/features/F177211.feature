@@ -42,6 +42,13 @@ Feature: F177211 - Receive Exari Status Acknowledgements and run Status Reports 
     When a status file is received from Exari after the extract is loaded
     Then the status file needs to be updated in Contract Status Table for status reporting
 
+  @US1303418
+  @2018.PI03
+  Scenario: US1303418 - Track UHC Fallout - resolution/remediation process
+    Given a the Contract Status table is populated during the Migration process
+    When it is completed
+    Then I can identify all contracts that were in scope to be migrated, but fell out of the Migration process (either have a fallout status, or were identified to be migrated but were not due to error)
+
   @US1239065
   @2018.PI03
   Scenario: US1239065 - additional logic for wraps, based on how integration will feed

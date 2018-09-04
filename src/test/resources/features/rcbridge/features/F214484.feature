@@ -69,20 +69,6 @@ Feature: F214484 - Integration Services App3- Part 1 Metadata tables critical da
     When accessed by a user
     Then the UI will be made available to the user.
 
-  @US1267799
-  @2018.PI03
-  Scenario: US1267799::0 - UHC Market table Create Microservice to exchange information with users
-    Given information is stored in the tableWhen a user needs information from the tableThen a service is available to exchange informationGiven a user needs to query the table
-    When the user provides NDB Market Number values
-    Then the query response provides the most recent record version attributes data
-
-  @US1267799
-  @2018.PI03
-  Scenario: US1267799::1 - UHC Market table Create Microservice to exchange information with users
-    Given a user needs to query the table
-    When the user provides a value of ST code
-    Then the user must provide Market Network Owner cd value UHN EVC CNS
-
   @kumar,_Sachin
   @US1283910
   @2018.PI03
@@ -169,7 +155,7 @@ Feature: F214484 - Integration Services App3- Part 1 Metadata tables critical da
 
   @US1262733
   @2018.PI03
-  Scenario: US1262733 - Product Group process code table
+  Scenario: US1262733::0 - Product Group process code table
     Given a business reason exists to group products and services together
     When a service exists to assign identifiers to the different product groupings
     Then the administrator has a means to record the details of those groupings
