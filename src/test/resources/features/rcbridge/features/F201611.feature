@@ -21,8 +21,8 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
   @PES
   @US1253705
   @2018.PI03
-  Scenario: US1253705 - Create Appendix 1 Search Demographics API
-    Given a user wants to populate appendix 1 with addresses
+  Scenario: US1253705::0 - Create Appendix 1 Search Demographics API
+    #Happy PathGiven a user wants to populate appendix 1 with addresses
     When a "tin" of "760027557" is passed
     Then PES returns the following information:
       | addressLine1 |
@@ -33,6 +33,16 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
       | phoneNumbers |
       | tin |
       | npi |
+
+  @Andrew_B
+  @PES
+  @US1253705
+  @2018.PI03
+  Scenario: US1253705::1 - Create Appendix 1 Search Demographics API
+    #Bad Path
+    Given a user wants to populate appendix 1 with addresses
+    When a "tin" of "abcd12345" is passed
+    Then the user receives a bad input error message
 
   @US1210131
   @2018.PI03
