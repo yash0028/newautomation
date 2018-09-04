@@ -134,4 +134,24 @@ public class MSPSSteps {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
+
+    //US1295290 - (Pending until PI03.05)
+
+    @Given("^a user is requesting a professional fee schedule$")
+    public void aUserIsRequestingAProfessionalFeeSchedule() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^they pass a version number$")
+    public void theyPassAVersionNumber() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^that specific version fee schedule is returned$")
+    public void thatSpecificVersionFeeScheduleIsReturned() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }
