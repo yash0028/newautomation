@@ -22,6 +22,7 @@ import static io.restassured.RestAssured.given;
 public class PESSteps {
     private static final String BASE_URI = "http://demographics-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String COUNTER_PARTIES_ENDPOINT = "/v1.0/counterparties/search";
+    private static final String ROSTER_ENDPOINT = "/v1.0/roster/search";
     private RequestSpecification request;
     private Response response;
     private JsonObject commonSearchParams;
@@ -203,6 +204,7 @@ public class PESSteps {
         jsonBody.addProperty("mpin", mpin);
 
         request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(jsonBody.toString());
+        response = request.post(COUNTER_PARTIES_ENDPOINT);
     }
 
     @Then("^PES returns the following information:$")
@@ -210,7 +212,6 @@ public class PESSteps {
         boolean match         = true;
         List<String> fields   = fieldsDT.asList(String.class);
 
-        response              = request.post(COUNTER_PARTIES_ENDPOINT);
         String responseString = response.asString().toLowerCase();
 
 //        System.out.println("RESPONSE: " + responseString);
@@ -225,8 +226,6 @@ public class PESSteps {
         }
         assertTrue(match);
     }
-
-    //PENDING STEPS BELOW
 
     //US1094026
 
@@ -314,39 +313,6 @@ public class PESSteps {
         throw new PendingException();
     }
 
-    //US
-
-    @Given("a counterparty with a corporate MPIN is chosen")
-    public void a_counterparty_with_a_corporate_MPIN_is_chosen() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @When("the service is given a corporate MPIN")
-    public void the_service_is_given_a_corporate_MPIN() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("all of the names, addresses, and TINs under that corporate MPIN are returned from the service")
-    public void all_of_the_names_addresses_and_TINs_under_that_corporate_MPIN_are_returned_from_the_service() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    //US
-
-    @When("the service is given an invalid corporate MPIN")
-    public void the_service_is_given_an_invalid_corporate_MPIN() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("no names, addresses, and TINs under that corporate MPIN are returned from the service")
-    public void no_names_addresses_and_TINs_under_that_corporate_MPIN_are_returned_from_the_service() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
 
     //US1210131
     
@@ -388,5 +354,25 @@ public class PESSteps {
     public void exariReachesOutToCLMRosterServiceWithParametersOf() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
+    }
+
+    //US1253705
+
+    @Given("^a user wants to populate appendix 1 with addresses$")
+    public void aUserWantsToPopulateAppendixWithAddresses() throws Throwable {
+        // noop - assuming true
+    }
+
+    @When("^a \"([^\"]*)\" of \"([^\"]*)\" is passed$")
+    public void aOfIsPassed(String param, String value) throws Throwable {
+        // Create the request JSON
+        JsonObject requestParams = new JsonObject();
+        requestParams.addProperty(param, value);
+
+        // Create the request and give it the JSON params
+        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestParams.toString());
+
+        // Get the response from the roster endpoint (roster and appendix 1 share the same endpoint)5
+        response = request.post(ROSTER_ENDPOINT);
     }
 }
