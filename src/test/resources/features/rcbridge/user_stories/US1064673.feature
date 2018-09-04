@@ -1,0 +1,14 @@
+# Last updated on 
+@US1064673
+@2018.PI03
+Feature: US1064673 - Exari>COSMOS Physician Panel Add to Existing Provider Panel Record
+
+  @CLM_UAT
+  @TC561361
+  @Manual
+  @Acceptance
+  Scenario: TC561361 - TC-01_Validate the exari is mapping correct data in to the COSMOS Payload
+    Given the Exari payload extracts and maps the correct data fields in the Exari>COSMOS payload
+    When COSMOS uploads the additional Physician Panel record into COSMOS
+    Then the COSMOS Physician Panel should be added and populate the PPC table and screens in COSMOS without error
+
