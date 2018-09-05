@@ -9,12 +9,19 @@ Feature: F183530 - Downstream Microservice Exari>COSMOS - (Physician Payload Dir
 
   @US1059062
   @2018.PI03
-  Scenario: US1059062 - Common Pricing Solution - COSMOS Payload - Add Contract
-    #Common Pricing Solution (CPS)Given the COSMOS CPS payload is built with the correct data
-    # Planned Percent Complete (PPC)
+  Scenario: US1059062::0 - Common Pricing Solution - COSMOS Payload - Add Contract
+    #Common Pricing Solution (CPS)
+    #Planned Percent Complete (PPC)
+    Given the COSMOS CPS payload is built with the correct data
     When the PPC Contract loads to COSMOS for CPS
     Then the CPS Contract will load successfully to COSMOS
-    #Add fail path
+
+  @US1059062
+  @2018.PI03
+  Scenario: US1059062::1 - Common Pricing Solution - COSMOS Payload - Add Contract
+    Given the COSMOS CPS payload is built with incorrect data
+    When the PPC Contract loads to COSMOS for CPS
+    Then the CPS Contract will fail to load to COSMOS
 
   @US1064673
   @2018.PI03
