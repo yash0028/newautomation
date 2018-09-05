@@ -52,11 +52,14 @@ public class MSPSSteps {
     @Then("^the microservice will return the requested fee schedules in a (zip|pdf) file$")
     public void theMicroserviceWillReturnTheRequestedFeeSchedulesInAZipFile(String extension) throws Throwable {
 
-        //Get the response as a byte array
-        byte[] fileBytes = response.asByteArray();
+        //Get the response as a JsonObject
+        JsonObject responseJson = RestHelper.getInstance().parseJsonResponse(response);
+
+        //Get the file in response as a byte array
+        byte[] fileBytes = Base64.getDecoder().decode(responseJson.get("file").getAsString());
 
         //Write the byte array to a zip or pdf file based on the extension
-        File file = FileHelper.getInstance().writeByteArrayToFile("testFile." + extension, fileBytes);
+        File file = FileHelper.getInstance().writeByteArrayToFile(responseJson.get("filename").getAsString(), fileBytes);
 
         //Assert that the call was successful
         assertEquals(200, response.getStatusCode());
