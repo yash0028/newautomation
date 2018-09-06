@@ -10,7 +10,7 @@ Feature: US1176975 - RC Bridge Enhancement
   Scenario Outline: TC569879 - [RL1]
     Given a user story artifact with 2 valid acceptance criteria
     And that user story has 2 outdated RCLink test cases
-    When rcbridge runs with "" and ""
+    When rcbridge runs with "<data A>" and "<data B>"
     Then the RCLink test cases are updated
     Examples:
       | data A | data B |

@@ -51,7 +51,7 @@ Feature: US1259178 - Taxonomy Grid table microservice
   Scenario Outline: TC565556 - [RL0]
     #Test happy paths
     Given a user needs to query the table
-    When the user provides the value for and for "ndbRec"
+    When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
     Then the query response provides the most recent record version attributes data
     Examples:
       | reqField    | reqValue    | ndbRecValue |
@@ -64,8 +64,8 @@ Feature: US1259178 - Taxonomy Grid table microservice
   Scenario Outline: TC565557 - [RL1]
     #Test optional paths
     Given a user needs to query the table
-    When the user provides the value for and for "ndbRec"
-    And the user provides the optional value for
+    When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
+    And the user provides the optional value <optionalValue> for <optionalField>
     Then the query response provides the most recent record version attributes data
     Examples:
       | reqField      | reqValue      | ndbRecValue   | optionalField | optionalValue |
@@ -78,7 +78,7 @@ Feature: US1259178 - Taxonomy Grid table microservice
   Scenario Outline: TC565558 - [RL2]
     #Tests both bad paths
     Given a user needs to query the table
-    When the user provides the value for and for "ndbRec"
+    When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
     Then the query response returns an error
     Examples:
       | reqField    | reqValue    | ndbRecValue |

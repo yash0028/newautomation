@@ -49,7 +49,7 @@ Feature: US1283907 - Markets table microservice
   @Automated
   @Functional
   Scenario Outline: TC565430 - [RL0]
-    Given the market number is listed in the Market UHC table
+    Given the market number <marketNumber> is listed in the Market UHC table
     When a query to the table is initiated
     Then the query response includes the market record information
     Examples:

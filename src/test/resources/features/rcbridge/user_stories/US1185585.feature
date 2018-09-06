@@ -11,9 +11,9 @@ Feature: US1185585 - [Continued][Continued] [Continued] Contract Product Descrip
   @Functional
   Scenario Outline: TC564546 - [RL0] Validate that the crosswalk provides the product code list for the corresponding contract description
     Given a product description to product code crosswalk exists
-    And using contract description from the corresponding ""
+    And using contract description from the corresponding "<contractDescriptionId>"
     When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk provides the product code identifier of ""
+    Then the crosswalk provides the product code identifier of "<productCodeList>"
     Examples:
       | contractDescriptionId | productCodeList       |
       | 2000290  | S0 S1 S2 |
