@@ -5,7 +5,7 @@
 Feature: US1055871 - Implement Test Framework within Test Projects
 
   @TC564522
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564522 - [RL0]
     Given the automation framework will be used in CI/CD. pipeline

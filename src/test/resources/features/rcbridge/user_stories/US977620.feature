@@ -6,7 +6,7 @@
 Feature: US977620 - [Spike] Coordinate with Infrastructure Engineering Team
 
   @TC565923
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565923 - [RL0]
     Given that the Kafka infrastructure will be in CORE

@@ -6,7 +6,7 @@
 Feature: US1089376 - [Spike] Identify Data Source Needed for Demographic Data
 
   @TC564383
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564383 - [RL0]
     Given many API's Exist

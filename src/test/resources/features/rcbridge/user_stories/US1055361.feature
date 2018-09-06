@@ -4,7 +4,7 @@
 Feature: US1055361 - [Spike] Investigate MSG DB Connection
 
   @TC564714
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564714 - [RL0]
     Given Exari will need to connect to the MSG DB

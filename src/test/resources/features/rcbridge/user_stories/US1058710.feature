@@ -4,7 +4,7 @@
 Feature: US1058710 - [Spike] Research Splunk for Dashboard Solution
 
   @TC565467
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565467 - [RL0]
     Given the CLM project will use a dashboarding tool to visualize and report metrics

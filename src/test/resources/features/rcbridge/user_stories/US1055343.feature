@@ -4,7 +4,7 @@
 Feature: US1055343 - Integrate Openshift Deployments with Jenkins Pipeline
 
   @TC565203
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565203 - [RL0]
     Given the created images need to be pushed onto the Dev environment,

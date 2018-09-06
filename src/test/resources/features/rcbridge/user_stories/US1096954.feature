@@ -8,7 +8,7 @@ Feature: US1096954 - Provider's specialty is on table and paper type is correct 
   @TC564385
   @Automated
   @Functional
-  Scenario: TC564385 - [RL1]
+  Scenario: TC564385 - [RL1] Validation of the provider's specialty indicator is "002" and contract type is "ANC_Facility Participation"
     Given the provider's specialty indicator is "002" and contract type is "ANC_Facility Participation"
     When finding the Specialty in ETMA
     And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table
@@ -17,7 +17,7 @@ Feature: US1096954 - Provider's specialty is on table and paper type is correct 
   @TC564384
   @Automated
   @Functional
-  Scenario: TC564384 - [RL0]
+  Scenario: TC564384 - [RL0] Validation of provider's specialty indicator is "002" and contract type is "MGA"
     Given the provider's specialty indicator is "002" and contract type is "MGA"
     When finding the Specialty in ETMA
     And the service returns paper types "IPA, MGA, SMGA, SPA, PHO, Empire Individual Agreement, Empire Group Agreement, FQHC_RHC" as matched in ETMA table

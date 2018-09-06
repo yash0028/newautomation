@@ -6,7 +6,7 @@
 Feature: US978386 - [Spike] (Provider) Evaluate what PES APIs are required for Provider service
 
   @TC565461
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565461 - [RL0]
     Given that PES has many API's

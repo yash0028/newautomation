@@ -5,7 +5,7 @@
 Feature: US1007825 - (Retry) Build retry service
 
   @TC564818
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564818 - [RL0]
     Given that a service call fails to a downstream system

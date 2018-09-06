@@ -6,7 +6,7 @@
 Feature: US977596 - (Provider) Create a microservice to connect to PES
 
   @TC565840
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565840 - [RL0]
     Given that a user wants to get provider details from PES service

@@ -6,7 +6,7 @@
 Feature: US948994 - Verify ability to hit Exari Dev environment
 
   @TC564740
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564740 - [RL0]
     Given a user wants to lookup a contract in Exam

@@ -5,7 +5,7 @@
 Feature: US1033931 - [Spike] Determine Framework Used in Micro services
 
   @TC565502
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565502 - [RL0]
     Given a developer needs to understand the correct framework to use in the micro services

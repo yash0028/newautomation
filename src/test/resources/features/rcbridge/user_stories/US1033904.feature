@@ -4,7 +4,7 @@
 Feature: US1033904 - [Spike] Understand Handoff Procedures with Exari
 
   @TC565449
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565449 - [RL0]
     Given a developer will complete new code and push that code into the test environment

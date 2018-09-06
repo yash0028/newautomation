@@ -5,7 +5,7 @@
 Feature: US1084490 - Setup OpenShift Test environment
 
   @TC565883
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565883 - [RL0]
     # Setup Open Shift and have ability to connect to test environment

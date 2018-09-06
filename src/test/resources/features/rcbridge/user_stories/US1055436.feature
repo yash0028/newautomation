@@ -4,7 +4,7 @@
 Feature: US1055436 - (Retry) Re-write Retry Service in Spring
 
   @TC565612
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565612 - [RL0]
     Given the retry mechanism is currently not written in Spring Framework

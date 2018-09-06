@@ -6,7 +6,7 @@
 Feature: US977681 - Setup Jenkins and CI/CD pipeline
 
   @TC564859
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564859 - [RL0]
     Given that code needs to be moved to dev environment
