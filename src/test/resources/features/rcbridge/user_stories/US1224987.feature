@@ -1,6 +1,5 @@
 # Last updated on 
 @US1224987
-@2018.PI03
 Feature: US1224987 - Created UHC ID/Provider Relationship
 
   @TC565677

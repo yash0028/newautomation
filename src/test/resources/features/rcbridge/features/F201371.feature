@@ -245,29 +245,6 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
     Then the UI will be available for the user.
 
   @MVP
-  @Amrutha
-  @Priority
-  @US1185585
-  @2018.PI03
-  Scenario Outline: US1185585 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
-    Given a product description to product code crosswalk exists
-    And using contract description from the corresponding "<contractDescriptionId>"
-    When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk provides the product code identifier of "<productCodeList>"
-    Examples:
-      | contractDescriptionId | productCodeList       |
-      | 2000540 |
-      | 2000550 |
-      | 2000560 |
-      | 2000570 |
-      | 2000580 |
-      | 2000590 |
-      | 2000600 |
-      | 2000610 |
-      | 2000620 |
-    #Example fail cases
-
-  @MVP
   @US1207419
   @2018.PI03
   Scenario: US1207419::0 - Store history and audit metadata

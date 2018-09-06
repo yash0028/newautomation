@@ -1,6 +1,5 @@
 # Last updated on 
 @US1225052
-@2018.PI03
 Feature: US1225052 - Create TIN Termination Workflow
 
   @TC565097

@@ -1,6 +1,5 @@
 # Last updated on 
 @US1225002
-@2018.PI03
 Feature: US1225002 - Terminated NPI/Provider Relationship
 
   @TC565830

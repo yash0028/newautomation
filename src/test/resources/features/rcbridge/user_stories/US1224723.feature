@@ -1,6 +1,5 @@
 # Last updated on 
 @US1224723
-@2018.PI03
 Feature: US1224723 - Created MPIN/TIN Relationship
 
   @TC565799

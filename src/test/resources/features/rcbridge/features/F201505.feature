@@ -33,7 +33,7 @@ Feature: F201505 - CLM DevOps PI03
   Scenario Outline: US1176975::1 - RC Bridge Enhancement
     Given a user story artifact with 2 valid acceptance criteria
     And that user story has 2 outdated RCLink test cases
-    When rcbridge runs
+    When rcbridge runs with "<data A>" and "<dataB>"
     Then the RCLink test cases are updated
     Examples:
       | data A | data B |

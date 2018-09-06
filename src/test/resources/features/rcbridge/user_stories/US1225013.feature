@@ -1,6 +1,5 @@
 # Last updated on 
 @US1225013
-@2018.PI03
 Feature: US1225013 - Process Single Updates
 
   @TC564571

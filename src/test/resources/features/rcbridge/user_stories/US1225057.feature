@@ -1,6 +1,5 @@
 # Last updated on 
 @US1225057
-@2018.PI03
 Feature: US1225057 - Create MPIN Termination Workflow
 
   @TC564621

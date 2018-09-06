@@ -1,6 +1,5 @@
 # Last updated on 
 @US1224846
-@2018.PI03
 Feature: US1224846 - Terminated TIN
 
   @TC565054

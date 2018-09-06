@@ -1,6 +1,5 @@
 # Last updated on 
 @US1224746
-@2018.PI03
 Feature: US1224746 - Created TIN
 
   @TC564389

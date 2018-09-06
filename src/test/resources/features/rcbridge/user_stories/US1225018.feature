@@ -1,6 +1,5 @@
 # Last updated on 
 @US1225018
-@2018.PI03
 Feature: US1225018 - Process Mass Updates
 
   @TC565263
