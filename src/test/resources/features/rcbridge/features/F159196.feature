@@ -25,6 +25,7 @@ Feature: F159196 - Integrate CLM with Provider Intent Certification (PIC) (Part 
     And the micro service finds the data invalid based on the selection criteria
     Then the micro service returns a service error
     Examples:
+      | contractId |
       | 124318 |
 
   @US1199511
