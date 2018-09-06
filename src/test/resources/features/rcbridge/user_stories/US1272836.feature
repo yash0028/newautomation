@@ -5,7 +5,7 @@
 Feature: US1272836 - [Spike] Look at Services to determine Pagination
 
   @TC564525
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564525 - [RL0]
     Given a microservice might return a large data set

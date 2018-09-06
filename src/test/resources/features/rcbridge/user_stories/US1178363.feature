@@ -4,7 +4,7 @@
 Feature: US1178363 - Error and Exception Handling framework
 
   @TC564482
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564482 - [RL0]
     When a user calls the service and service is unable to fulfill the request

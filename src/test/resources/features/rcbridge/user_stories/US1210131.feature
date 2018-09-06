@@ -4,7 +4,7 @@
 Feature: US1210131 - [SPIKE] Bulk Provider Extract - PES
 
   @TC564922
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564922 - [RL0]
     Given That PES needs to provide Exari with Bulk Provider Extract

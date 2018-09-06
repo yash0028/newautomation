@@ -6,7 +6,7 @@
 Feature: US1261015 - [Unfinished] (MEG) Create microservice exposing Market Exception grid data
 
   @TC565769
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565769 - [RL0]
     # As a consumer of MEG data

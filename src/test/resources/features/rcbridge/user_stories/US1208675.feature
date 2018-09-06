@@ -4,7 +4,7 @@
 Feature: US1208675 - [Continued] Attend Alfresco Training
 
   @TC564386
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564386 - [RL0]
     Given there exists all the training material and credentials for Alfresco training

@@ -4,7 +4,7 @@
 Feature: US1210038 - [SPIKE] Establish Connetion to backend database - MEG
 
   @TC565180
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565180 - [RL0]
     Given the Exari system will access the MEG

@@ -4,7 +4,7 @@
 Feature: US1177013 - Rfp Enhancements
 
   @TC565813
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565813 - [RL0]
     Given a need to improve the RFP microservice
