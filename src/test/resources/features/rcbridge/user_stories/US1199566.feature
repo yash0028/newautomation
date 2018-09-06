@@ -12,3 +12,11 @@ Feature: US1199566 - Create Table Structure and Data Types
     When the information is made available to the system administrator
     Then the table is updated and stores the information
 
+  @TC565010
+  @Automated
+  @Functional
+  Scenario: TC565010 - [RL0]
+    Given the attributes needed from the crosswalk table is known
+    When the information is made available to the system administrator
+    Then the table is updated and stores the information
+

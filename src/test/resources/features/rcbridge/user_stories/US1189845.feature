@@ -12,6 +12,15 @@ Feature: US1189845 - [Continued] Downstream system specific validation handling
     When The enriched business event is sent by the contract-domain service
     Then It is validated by the ndb-validator service and an error is reported to the transaction system
 
+  @TC565790
+  @Automated
+  @Functional
+  Scenario: TC565790 - [RL2]
+    Given A business event is received by the event gateway that requires an update to COSMOS
+    And the associated contract data is valid for the COSMOS update
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated and approved by the cosmos-validator service
+
   @TC538452
   @Automated
   @Functional
@@ -21,6 +30,24 @@ Feature: US1189845 - [Continued] Downstream system specific validation handling
     When The enriched business event is sent by the contract-domain service
     Then It is validated by the cosmos-validator service and an error is reported to the transaction system
 
+  @TC565788
+  @Automated
+  @Functional
+  Scenario: TC565788 - [RL0]
+    Given A business event is received by the event gateway that requires an update to NDB
+    And the associated contract data is valid for the NDB update
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated and approved by the ndb-validator service
+
+  @TC565789
+  @Automated
+  @Functional
+  Scenario: TC565789 - [RL1]
+    Given A business event is received by the event gateway that requires an update to NDB
+    And the associated contract data is incomplete
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated by the ndb-validator service and an error is reported to the transaction system
+
   @TC538430
   @Automated
   @Functional
@@ -29,6 +56,15 @@ Feature: US1189845 - [Continued] Downstream system specific validation handling
     And the associated contract data is valid for the COSMOS update
     When The enriched business event is sent by the contract-domain service
     Then It is validated and approved by the cosmos-validator service
+
+  @TC565791
+  @Automated
+  @Functional
+  Scenario: TC565791 - [RL3]
+    Given A business event is received by the event gateway that requires an update to COSMOS
+    And the associated contract data is invalid for the COSMOS update
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated by the cosmos-validator service and an error is reported to the transaction system
 
   @TC537147
   @Automated

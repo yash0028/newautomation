@@ -5,6 +5,13 @@
 @2018.PI04
 Feature: US1009573 - [Continued] Create External Data Query to MSG
 
+  @TC565397
+  @Automated
+  @Functional
+  Scenario: TC565397 - [RL0]
+    When the MSG microservice is called from Exari
+    Then a valid response is returned
+
   @TC536736
   @Manual
   @Acceptance

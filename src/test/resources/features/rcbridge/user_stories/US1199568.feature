@@ -13,6 +13,27 @@ Feature: US1199568 - [Continued] Import Data from Spreadsheet into Table
     Then The existing data is not deleted and not updated
     And The database is updated to indicate that the spreadsheet import failed
 
+  @TC565695
+  @Automated
+  @Functional
+  Scenario: TC565695 - [RL0]
+    Given The product code service is up and running
+    When A new spreadsheet is uploaded and stored in the database
+    And The import is processed successfully
+    Then The existing data is deleted
+    And The content of spreadsheet is parsed and stored in a database table
+    And The database is updated to indicate that the spreadsheet was processed successfully
+
+  @TC565696
+  @Automated
+  @Functional
+  Scenario: TC565696 - [RL1]
+    Given The product code service is up and running
+    When A new spreadsheet is uploaded and stored in the database
+    And The import is fails
+    Then The existing data is not deleted and not updated
+    And The database is updated to indicate that the spreadsheet import failed
+
   @TC546797
   @Manual
   @Functional

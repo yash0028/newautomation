@@ -11,10 +11,3 @@ Feature: F181649 - Create production environment
     When I select the Exari Production URL in an Internet Explorer Browser
     Then I have the ability to access the Exari Production environment
 
-  @US1285088
-  @2018.PI03
-  Scenario: US1285088 - Create Production Cosmos Landing Zone
-    Given CLM - COSMOS integration Production environment
-    When Cosmos send cosmoscontract and cosmospanel files
-    Then CLM landing zone should be ready to accept the files
-

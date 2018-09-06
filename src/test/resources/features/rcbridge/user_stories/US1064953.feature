@@ -12,3 +12,11 @@ Feature: US1064953 - Exari>COSMOS Physician Panel Cancel/Term one Panel from exi
     When COSMOS Cancels the one Physician Panel record in COSMOS
     Then the COSMOS Physician Cancel Panel should populate the PPC table and screens in COSMOS for Cancel the one Panel record without error
 
+  @TC564536
+  @Automated
+  @Functional
+  Scenario: TC564536 - [RL0]
+    #A single provider can have multiple panels. So, for one provider, cancel only one panel.Given the Exari payload extracts and maps the correct data fields in the Exari>COSMOS Physician Cancel payload
+    When COSMOS Cancels the one Physician Panel record in COSMOS
+    Then the COSMOS Physician Cancel Panel should populate the PPC table and screens in COSMOS for Cancel the one Panel record without error
+

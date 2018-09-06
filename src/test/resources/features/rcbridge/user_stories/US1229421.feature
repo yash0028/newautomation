@@ -21,6 +21,14 @@ Feature: US1229421 - Markets table
     When a query to the table is initiated
     Then the query response includes the market record information
 
+  @TC564975
+  @Automated
+  @Functional
+  Scenario: TC564975 - [RL0]
+    Given the market number is listed in the Market UHC table
+    When a query to the table is initiated
+    Then the query response includes the market record information
+
   @CLM_UAT
   @TC554293
   @Manual
@@ -29,6 +37,15 @@ Feature: US1229421 - Markets table
     Given the market number is listed in the Market UHC table
     When a query to the table is initiated
     Then the query response includes the market record information
+
+  @TC564976
+  @Automated
+  @Functional
+  Scenario: TC564976 - [RL1]
+    Given the market number is not listed in the Market UHC table
+    When a query to the table is initiated
+    Then the query response does not return the market record information
+    And a record not found message is returned
 
   @CLM_UAT
   @TC554294

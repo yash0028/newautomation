@@ -21,6 +21,14 @@ Feature: US1256692 - [Continued] Store history and audit metadata
     When a file is uploaded
     Then the previous file record and audit log info is stored in the database
 
+  @TC564580
+  @Automated
+  @Functional
+  Scenario: TC564580 - [RL0]
+    Given the application screen is ready
+    When a table file is uploaded
+    Then the previous file record and audit log info is stored in the database
+
   @TC556671
   @Manual
   @Functional

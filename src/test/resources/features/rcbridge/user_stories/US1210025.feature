@@ -5,6 +5,13 @@
 @2018.PI03
 Feature: US1210025 - [Continued] Build External Data Query - MEG
 
+  @TC565967
+  @Automated
+  @Functional
+  Scenario: TC565967 - [RL0]
+    When the MEG microservice is called
+    Then a valid MEG response is returned
+
   @TC543863
   @Manual
   @Functional

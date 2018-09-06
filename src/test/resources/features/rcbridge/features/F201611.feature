@@ -7,7 +7,7 @@
 @CLM_Exari
 @Parity
 @F201611
-Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (Demographic) - Optum (Carryover Items from PI2)
+Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (Demographic) - Optum
 
   @PES
   @Alex_M

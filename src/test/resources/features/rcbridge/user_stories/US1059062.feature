@@ -13,6 +13,14 @@ Feature: US1059062 - Common Pricing Solution - COSMOS Payload - Add Contract
     When the PPC Contract loads to COSMOS for CPS
     Then the CPS Contract will load successfully to COSMOS
 
+  @TC565013
+  @Automated
+  @Functional
+  Scenario: TC565013 - [RL1]
+    Given the COSMOS CPS payload is built with incorrect data
+    When the PPC Contract loads to COSMOS for CPS
+    Then the CPS Contract will fail to load to COSMOS
+
   @TC562745
   @Manual
   @Functional
@@ -20,4 +28,14 @@ Feature: US1059062 - Common Pricing Solution - COSMOS Payload - Add Contract
     Given the COSMOS CPS payload is built with incorrect data
     When the PPC Contract loads to COSMOS for CPS
     Then the CPS Contract will fail to load to COSMOS
+
+  @TC565012
+  @Automated
+  @Functional
+  Scenario: TC565012 - [RL0]
+    #Common Pricing Solution (CPS)
+    #Planned Percent Complete (PPC)
+    Given the COSMOS CPS payload is built with the correct data
+    When the PPC Contract loads to COSMOS for CPS
+    Then the CPS Contract will load successfully to COSMOS
 

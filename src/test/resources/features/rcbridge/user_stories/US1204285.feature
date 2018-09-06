@@ -5,6 +5,14 @@
 @2018.PI03
 Feature: US1204285 - Implement NDB Contract Master Lookup API
 
+  @TC565803
+  @Automated
+  @Functional
+  Scenario: TC565803 - [RL0]
+    Given the Exari / CLM>NDB contract master Lookup API payload data is correct
+    When NDB receives the Search parameter data
+    Then NDB will search and return back the valid contract master data for the search parameters requested.
+
   @CLM_UAT
   @TC561389
   @Manual

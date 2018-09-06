@@ -19,3 +19,10 @@ Feature: US1194560 - PES ExternaI Data Query (Appendix 1 lookup)
     When querying the Appendix 1 Lookup external data query
     Then a valid response is returned to Exari
 
+  @TC564674
+  @Automated
+  @Functional
+  Scenario: TC564674 - [RL0]
+    When querying the Appendix 1 Lookup external data query
+    Then a valid response is returned to Exari
+

@@ -5,6 +5,14 @@
 @2018.PI03
 Feature: US1009534 - Create External Data Query - MSPS Physician
 
+  @TC565523
+  @Automated
+  @Functional
+  Scenario: TC565523 - [RL0]
+    Given a contractor will need to be able to retrieve the MSPS fee schedule
+    When at this step in the interview process in Exari to retrieve a fee schedule
+    Then a fee schedule(s) are returned based on input criteria.
+
   @TC543857
   @Manual
   @Functional

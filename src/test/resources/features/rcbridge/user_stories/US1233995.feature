@@ -3,6 +3,14 @@
 @2018.PI03
 Feature: US1233995 - [Continued] NDB Layer 7 Implementation
 
+  @TC565272
+  @Automated
+  @Functional
+  Scenario: TC565272 - [RL0]
+    Given Exari needs to connect to NDB through layer 7
+    When Exari calls NDB through layer 7
+    Then a valid response is received by NDB
+
   @TC535419
   @Automated
   @Functional

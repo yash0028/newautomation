@@ -9,14 +9,6 @@ Feature: F154532 - Setup Optum Dev and Training Environment - Optum
     Given that the RC Bridge pulls in data from Rally to be sent to Cucumber
     Then the QA team needs to develop and refine the RC Bridge
 
-  @CLM_UAT
-  @US1033247
-  @2018.PI01
-  Scenario: US1033247 - Setup Automation Testing Component for REST Validation
-    Given Microservice URI
-    When Interacting with Integration Systems
-    Then REST API Automation should be performed to connect and obtain information based on GET, POST and PUT Methods
-
   @Provider_Demographics
   @PES
   @US977596

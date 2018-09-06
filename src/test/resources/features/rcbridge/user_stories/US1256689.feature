@@ -22,6 +22,15 @@ Feature: US1256689 - [Continued] Validate Table data
     Then the file and data is validated
     And a message is returned to the user that the process was successful
 
+  @TC564847
+  @Automated
+  @Functional
+  Scenario: TC564847 - [RL0]
+    Given a template has records populated with data
+    When the template is uploaded
+    Then the file and data is validated
+    And a message is returned to the user that the process was successful
+
   @TC551940
   @Manual
   @Functional
@@ -30,4 +39,13 @@ Feature: US1256689 - [Continued] Validate Table data
     When the template is uploaded
     Then the file and data is validated
     And a message is returned to the user that the process was successful
+
+  @TC564848
+  @Automated
+  @Functional
+  Scenario: TC564848 - [RL1]
+    Given a template is populated with invalid data
+    When the template is uploaded
+    Then the file and data is validated
+    And a message(s) is returned to the user of all errors and notification that the process failed
 

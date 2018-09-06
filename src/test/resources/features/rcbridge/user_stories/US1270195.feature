@@ -12,3 +12,10 @@ Feature: US1270195 - Point to new ETMA DB
     When CLM Etma service is updated with the new DB
     Then all acceptance tests are re-run
 
+  @TC565544
+  @Automated
+  @Functional
+  Scenario: TC565544 - [RL0]
+    When CLM Etma service is updated with the new DB
+    Then all acceptance tests are re-run
+

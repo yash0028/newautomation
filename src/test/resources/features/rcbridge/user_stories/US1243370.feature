@@ -21,3 +21,11 @@ Feature: US1243370 - Contract Class Validation UHC table
     When a contract sub type is selected
     Then the edit table validates the correct sub type was selected
 
+  @TC565115
+  @Automated
+  @Functional
+  Scenario: TC565115 - [RL0]
+    Given a contract sub type value exists
+    When a contract sub type is selected
+    Then the edit table validates the correct sub type was selected
+

@@ -12,6 +12,14 @@ Feature: US1234808 - Enhancement to Fee Schedule External Data Query
     When the resource is streamed to Exari
     Then the end result is an encoded string on the Exari side
 
+  @TC565805
+  @Automated
+  @Functional
+  Scenario: TC565805 - [RL0]
+    Given a fee schedule is searched
+    When the resource is streamed to Exari
+    Then the end result is an encoded string on the Exari side
+
   @TC554647
   @Manual
   @Functional
