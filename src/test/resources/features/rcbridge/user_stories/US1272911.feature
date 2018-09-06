@@ -5,7 +5,7 @@
 Feature: US1272911 - Fix Fortify Issues
 
   @TC564735
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564735 - [RL0]
     Given services that are maintained by CLM Team 1

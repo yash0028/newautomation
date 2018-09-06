@@ -4,7 +4,7 @@
 @Priority
 @US1185585
 @2018.PI03
-Feature: US1185585 - [Continued] [Continued] Contract Product Description Crosswalk
+Feature: US1185585 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
 
   @TC564546
   @Automated

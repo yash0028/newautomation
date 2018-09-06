@@ -6,7 +6,7 @@
 Feature: US1100261 - Build Micro Service (ETMA)
 
   @TC565104
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565104 - [RL0]
     Given the connection details

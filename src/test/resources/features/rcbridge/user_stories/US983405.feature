@@ -13,7 +13,7 @@ Feature: US983405 - [Continued] Setup RC Bridge Automation Testing Component
     Then Rally is updated with the results
 
   @TC408750
-  @Automated
+  @Manual
   @Acceptance
   Scenario: TC408750 - Setup Automation Testing Component
     Given I create a user story with at least one test case

@@ -5,19 +5,12 @@
 @2018.PI03
 Feature: US1210025 - [Continued] Build External Data Query - MEG
 
-  @TC565967
-  @Automated
-  @Functional
-  Scenario: TC565967 - [RL0]
-    When the MEG microservice is called
-    Then a valid MEG response is returned
-
   @TC543863
   @Manual
   @Functional
-  Scenario: TC543863 - Happy Path MEG EDQ Validation
+  Scenario: TC543863 - [RL0] Happy Path MEG EDQ Validation
     When the MEG microservice is called
-    Then a valid response is returned
+    Then a valid MEG response is returned
 
   @TC543864
   @Manual

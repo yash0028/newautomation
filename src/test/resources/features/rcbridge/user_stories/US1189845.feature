@@ -1,7 +1,7 @@
 # Last updated on 
 @US1189845
 @2018.PI03
-Feature: US1189845 - [Continued] Downstream system specific validation handling
+Feature: US1189845 - [Continued][Continued] Downstream system specific validation handling
 
   @TC537148
   @Automated

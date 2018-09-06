@@ -5,10 +5,10 @@
 @2018.PI03
 Feature: US1261008 - [Unfinished] Create External Data Query to MSG
 
-  @TC565747
-  @Automated
-  @Functional
-  Scenario: TC565747 - [RL0]
+  @TC543451
+  @Manual
+  @Acceptance
+  Scenario: TC543451 - [RL0] Create External Data Query to MSG (Happy Path Validation)
     When the MSG microservice is called
     Then a valid response is returned
 

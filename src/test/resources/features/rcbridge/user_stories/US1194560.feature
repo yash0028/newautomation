@@ -15,14 +15,7 @@ Feature: US1194560 - PES ExternaI Data Query (Appendix 1 lookup)
   @TC558182
   @Manual
   @Functional
-  Scenario: TC558182 - Happy Path Appendix 1 EDQ Verification
-    When querying the Appendix 1 Lookup external data query
-    Then a valid response is returned to Exari
-
-  @TC564674
-  @Automated
-  @Functional
-  Scenario: TC564674 - [RL0]
+  Scenario: TC558182 - [RL0] Happy Path Appendix 1 EDQ Verification
     When querying the Appendix 1 Lookup external data query
     Then a valid response is returned to Exari
 

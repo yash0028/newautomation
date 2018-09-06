@@ -5,13 +5,6 @@
 @2018.PI04
 Feature: US1009573 - [Continued] Create External Data Query to MSG
 
-  @TC565397
-  @Automated
-  @Functional
-  Scenario: TC565397 - [RL0]
-    When the MSG microservice is called from Exari
-    Then a valid response is returned
-
   @TC536736
   @Manual
   @Acceptance
@@ -23,8 +16,7 @@ Feature: US1009573 - [Continued] Create External Data Query to MSG
   @TC536735
   @Manual
   @Acceptance
-  Scenario: TC536735 - Happy Path Validation
-    Given valid input data
-    When inputting the input data into the MSG external data query
+  Scenario: TC536735 - [RL0] Happy Path Validation
+    When the MSG microservice is called from Exari
     Then a valid response is returned
 
