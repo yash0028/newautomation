@@ -1,9 +1,8 @@
 package utils;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.ZipFile;
 
 /**
@@ -50,5 +49,35 @@ public class FileHelper {
 
         //Return true if the zip file contains at least one file
         return size > 0;
+    }
+
+    public List<String> getFileLines(String fileName) {
+        BufferedReader reader;
+        String line;
+
+        ArrayList<String> list = new ArrayList<>();
+
+        try {
+            String temp = getClass().getResource(fileName).getPath();
+            System.out.println(temp);
+            InputStreamReader stream = new InputStreamReader(getClass().getResourceAsStream(fileName), "UTF-8");
+
+            reader = new BufferedReader(stream);
+            while ((line = reader.readLine()) != null) {
+                if (!line.startsWith("#") && !line.isEmpty()) {
+                    list.add(line.trim());
+                }
+            }
+
+            reader.close();
+            stream.close();
+
+        } catch (FileNotFoundException e) {
+            System.err.println(String.format("Could not find %s", fileName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return list;
     }
 }
