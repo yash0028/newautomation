@@ -12,7 +12,7 @@ import cucumber.api.junit.*;
 				"pretty",
 				"json:build/json-reports/json-report.json",
 				"junit:build/xml-reports/xml-report.xml"},
-		tags = {"not @ignore and @US1283907"})
+		tags = {"not @ignore and @US861033 and @2018.PI03"})
 public class TestRunner {
 
 }
