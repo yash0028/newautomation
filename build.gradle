@@ -23,7 +23,7 @@ sonarqube {
 
 repositories {
     maven { url 'http://repo1.uhc.com/artifactory/repo' }
-    mavenLocal()
+    //mavenLocal()
 }
 
 dependencies {
@@ -32,6 +32,7 @@ dependencies {
     testCompile group: 'io.rest-assured', name: 'rest-assured', version:'3.0.7'
     testCompile 'io.cucumber:cucumber-java:3.0.2'
     testCompile 'io.cucumber:cucumber-junit:3.0.2'
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.11.0'
 }
 
 test {

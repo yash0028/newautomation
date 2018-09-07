@@ -6,9 +6,9 @@
 Feature: US1094026 - [Continued] Create External Data Query for PES
 
   @TC564627
-  @Automated
+  @Manual
   @Functional
-  Scenario: TC564627 - [RL0]
+  Scenario: TC564627 - [RL0] PES EDQ Validation
     Given UHC will need to provide Exari with PES data
     When Exari calls PES with MPIN and TIN
     Then an external data query will return a list of responses with the following populated fields if the result is a physician:

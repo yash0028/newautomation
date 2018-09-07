@@ -25,7 +25,7 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
 
   @US1285441
   @2018.PI03
-  Scenario: US1285441 - Identify new Product Codes
+  Scenario: US1285441 - [Continued]Identify new Product Codes
     When the product codes are called from the crosswalk tables
     Then the correct product codes are returned.
 
@@ -233,7 +233,7 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
     And The database is updated to indicate that the spreadsheet import failed
 
   @US1285453
-  Scenario: US1285453 - Audit and History the new Product Codes
+  Scenario: US1285453 - [Continued]Audit and History the new Product Codes
     Given the application screen is ready
     When a table file is uploaded
     Then the previous file record and audit log info is stored in the database
@@ -249,10 +249,28 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
   @Priority
   @US1185585
   @2018.PI03
-  Scenario: US1185585 - [Continued] [Continued] Contract Product Description Crosswalk
+  Scenario Outline: US1185585::0 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
     Given a product description to product code crosswalk exists
+    And using contract description from the corresponding "<contractDescriptionId>"
     When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk provides the product code identifier
+    Then the crosswalk provides the product code identifier of "<productCodeList>"
+    Examples:
+      | contractDescriptionId | productCodeList       |
+      | 2000290  | S0 S1 S2 |
+      | 2000300              | C0 C1 C2 P3 S0 S1 S2 |
+      | 2000430 | DA      |
+      | 2000500 | 009 531 |
+
+  @MVP
+  @Amrutha
+  @Priority
+  @US1185585
+  @2018.PI03
+  Scenario: US1185585::1 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
+    #Fail case
+    Given a product description to product code crosswalk does not exist
+    When exchanging information about the products included or excluded from an Exari contract
+    Then the crosswalk returns an error
 
   @MVP
   @US1207419

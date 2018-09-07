@@ -3,7 +3,7 @@
 @Siraj
 @US861033
 @2018.PI03
-Feature: US861033 - [Continued] Integrate CLM with Examiner (Continued)
+Feature: US861033 - [Continued][Continued] Integrate CLM with Examiner (Continued)
 
   @TC564592
   @Automated

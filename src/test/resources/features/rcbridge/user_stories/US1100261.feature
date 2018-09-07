@@ -6,9 +6,9 @@
 Feature: US1100261 - Build Micro Service (ETMA)
 
   @TC565104
-  @Automated
+  @Manual
   @Functional
-  Scenario: TC565104 - [RL0]
+  Scenario: TC565104 - [RL0] Verification of ETMA microservice
     Given the connection details
     When the micro service calls the ETMA tables
     Then the connection is successful

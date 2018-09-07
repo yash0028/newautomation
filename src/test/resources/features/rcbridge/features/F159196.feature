@@ -8,19 +8,25 @@ Feature: F159196 - Integrate CLM with Provider Intent Certification (PIC) (Part 
 
   @US1199511
   @2018.PI03
-  Scenario: US1199511::0 - [Continued] PIC Implementation
+  Scenario Outline: US1199511::0 - [Continued] PIC Implementation
     Given Exari has received a request to send data to PIC
-    When the micro service has received the data from Exari
+    When the micro service has received the contract id of "<contractId>" from Exari
     And the micro service finds the data valid based on the selection criteria
     Then the micro service sends the data to PIC
+    Examples:
+      | contractId |
+      | 124319 |
 
   @US1199511
   @2018.PI03
-  Scenario: US1199511::1 - [Continued] PIC Implementation
+  Scenario Outline: US1199511::1 - [Continued] PIC Implementation
     Given Exari has received a request to send data to PIC
-    When the micro service has received the data from Exari
+    When the micro service has received the contract id of "<contractId>" from Exari
     And the micro service finds the data invalid based on the selection criteria
     Then the micro service returns a service error
+    Examples:
+      | contractId |
+      | 124318 |
 
   @US1199511
   @2018.PI03

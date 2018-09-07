@@ -1,6 +1,5 @@
 # Last updated on 
 @US1224857
-@2018.PI03
 Feature: US1224857 - Terminated NPI/TIN Relationship
 
   @TC565552

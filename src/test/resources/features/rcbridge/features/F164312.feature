@@ -12,27 +12,10 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
   @RFP
   @US1082300
   @2018.PI02
-  Scenario: US1082300::0 - Create microservice to obtain RFP data
+  Scenario: US1082300 - Create microservice to obtain RFP data
     Given a request with the following fields:
       | Place of Service |
       | Specialty Type |
-    When the request is made to the RFP service
-    Then the following fields should be returned:
-      | Credentialing Required |
-      | Super Script |
-      | Credentialing Entity |
-      | Accepting Applications (E&I) |
-      | Accepting Applications (C&S) |
-      | Accepting Applications (M&V) |
-
-  @CLM_UAT
-  @RFP
-  @US1082300
-  @2018.PI02
-  Scenario: US1082300::1 - Create microservice to obtain RFP data
-    Given a request with the following fields:
-      | Place of Service |
-      | Organization Type |
     When the request is made to the RFP service
     Then the following fields should be returned:
       | Credentialing Required |
@@ -92,15 +75,7 @@ Feature: F164312 - Exari Microservice Establish Integration of CLM with RFP - Op
   @RFP
   @US1082297
   @2018.PI02
-  Scenario: US1082297::0 - Create External Data Query for RFP
-    Given Exari will need to call our API
-    Then a web client will need to be created.
-
-  @CLM_UAT
-  @RFP
-  @US1082297
-  @2018.PI02
-  Scenario: US1082297::1 - Create External Data Query for RFP
+  Scenario: US1082297 - Create External Data Query for RFP
     Given UHC will need to provide Exari with RFP data including:
       | Place of Service |
       | Line of Business |

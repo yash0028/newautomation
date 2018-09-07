@@ -4,6 +4,7 @@
 Feature: F218481 - Synchronize Name and Unique ID
 
   @US1285745
+  @2018.PI04
   Scenario: US1285745 - Synchronize Unique ID
     Given I am a Legacy Application
     When an Entity ID is updated

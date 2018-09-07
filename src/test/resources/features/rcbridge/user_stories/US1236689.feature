@@ -4,7 +4,7 @@
 Feature: US1236689 - [Unfinished] Attend Alfresco Training
 
   @TC565939
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565939 - [RL0]
     Given there exists all the training material and credentials for Alfresco training

@@ -1,6 +1,5 @@
 # Last updated on 
 @US1225008
-@2018.PI03
 Feature: US1225008 - Created NPI/Provider Relationship
 
   @TC565786

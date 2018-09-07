@@ -7,15 +7,7 @@ Feature: US1234808 - Enhancement to Fee Schedule External Data Query
   @TC554639
   @Manual
   @Functional
-  Scenario: TC554639 - Happy Path MSPS Professional EDQ Validation
-    Given a fee schedule is searched
-    When the resource is streamed to Exari
-    Then the end result is an encoded string on the Exari side
-
-  @TC565805
-  @Automated
-  @Functional
-  Scenario: TC565805 - [RL0]
+  Scenario: TC554639 - [RL0] Happy Path MSPS Professional EDQ Validation
     Given a fee schedule is searched
     When the resource is streamed to Exari
     Then the end result is an encoded string on the Exari side

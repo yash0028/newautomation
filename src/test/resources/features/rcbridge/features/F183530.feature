@@ -9,7 +9,7 @@ Feature: F183530 - Downstream Microservice Exari>COSMOS - (Physician Payload Dir
 
   @US1059062
   @2018.PI03
-  Scenario: US1059062::0 - Common Pricing Solution - COSMOS Payload - Add Contract
+  Scenario: US1059062::0 - [Continued]Common Pricing Solution - COSMOS Payload - Add Contract
     #Common Pricing Solution (CPS)
     #Planned Percent Complete (PPC)
     Given the COSMOS CPS payload is built with the correct data
@@ -18,14 +18,14 @@ Feature: F183530 - Downstream Microservice Exari>COSMOS - (Physician Payload Dir
 
   @US1059062
   @2018.PI03
-  Scenario: US1059062::1 - Common Pricing Solution - COSMOS Payload - Add Contract
+  Scenario: US1059062::1 - [Continued]Common Pricing Solution - COSMOS Payload - Add Contract
     Given the COSMOS CPS payload is built with incorrect data
     When the PPC Contract loads to COSMOS for CPS
     Then the CPS Contract will fail to load to COSMOS
 
   @US1064673
   @2018.PI03
-  Scenario: US1064673 - Exari>COSMOS Physician Panel Add to Existing Provider Panel Record
+  Scenario: US1064673 - [Continued]Exari>COSMOS Physician Panel Add to Existing Provider Panel Record
     #A single provider can have multiple panels. So, for one provider, add only one panelGiven the Exari payload extracts and maps the correct data fields in the Exari>COSMOS payload
     When COSMOS uploads the additional Physician Panel record into COSMOS
     Then the COSMOS Physician Panel should be added and populate the PPC table and screens in COSMOS without error

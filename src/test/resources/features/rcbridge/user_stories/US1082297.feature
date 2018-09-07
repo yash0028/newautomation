@@ -6,16 +6,9 @@
 Feature: US1082297 - Create External Data Query for RFP
 
   @TC565304
-  @Automated
+  @Manual
   @Functional
-  Scenario: TC565304 - [RL0]
-    Given Exari will need to call our API
-    Then a web client will need to be created.
-
-  @TC565305
-  @Automated
-  @Functional
-  Scenario: TC565305 - [RL1]
+  Scenario: TC565304 - [RL0] RFP EDQ Validation
     Given UHC will need to provide Exari with RFP data including:
       | Place of Service |
       | Line of Business |

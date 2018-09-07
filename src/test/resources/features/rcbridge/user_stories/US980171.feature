@@ -4,7 +4,7 @@
 Feature: US980171 - [Continued] (Retry) Build retry microservice mechanism
 
   @TC565110
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565110 - [RL0]
     Given the downstream services will need to listen to api calls, a

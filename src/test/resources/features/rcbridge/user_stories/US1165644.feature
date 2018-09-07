@@ -7,20 +7,8 @@ Feature: US1165644 - Create Service Providing Facility FS  Access Via Microservi
   @TC519085
   @Automated
   @Acceptance
-  Scenario Outline: TC519085 - Create Service Providing Facility FS  Access Via Microservice
+  Scenario Outline: TC519085 - [RL0] Create Service Providing Facility FS  Access Via Microservice
     When the Exari interview calls for the facility fee schedules with Facility "<feeScheduleNumber>"
-    Then the microservice will return the requested fee schedules in a zip file
-    Examples:
-      | feeScheduleNumber |
-      | 9596 |
-      | 9875 |
-      | 2705 |
-
-  @TC565724
-  @Automated
-  @Functional
-  Scenario Outline: TC565724 - [RL0]
-    When the Exari interview calls for the facility fee schedules with Facility ""
     Then the microservice will return the requested fee schedules in a zip file
     Examples:
       | feeScheduleNumber |

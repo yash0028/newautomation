@@ -41,7 +41,7 @@ Feature: F177202 - Distributed transaction mechanism (Part 3)
 
   @US1189845
   @2018.PI03
-  Scenario: US1189845::0 - [Continued] Downstream system specific validation handling
+  Scenario: US1189845::0 - [Continued][Continued] Downstream system specific validation handling
     Given A business event is received by the event gateway that requires an update to NDB
     And the associated contract data is valid for the NDB update
     When The enriched business event is sent by the contract-domain service
@@ -49,7 +49,7 @@ Feature: F177202 - Distributed transaction mechanism (Part 3)
 
   @US1189845
   @2018.PI03
-  Scenario: US1189845::1 - [Continued] Downstream system specific validation handling
+  Scenario: US1189845::1 - [Continued][Continued] Downstream system specific validation handling
     Given A business event is received by the event gateway that requires an update to NDB
     And the associated contract data is incomplete
     When The enriched business event is sent by the contract-domain service
@@ -57,7 +57,7 @@ Feature: F177202 - Distributed transaction mechanism (Part 3)
 
   @US1189845
   @2018.PI03
-  Scenario: US1189845::2 - [Continued] Downstream system specific validation handling
+  Scenario: US1189845::2 - [Continued][Continued] Downstream system specific validation handling
     Given A business event is received by the event gateway that requires an update to COSMOS
     And the associated contract data is valid for the COSMOS update
     When The enriched business event is sent by the contract-domain service
@@ -65,7 +65,7 @@ Feature: F177202 - Distributed transaction mechanism (Part 3)
 
   @US1189845
   @2018.PI03
-  Scenario: US1189845::3 - [Continued] Downstream system specific validation handling
+  Scenario: US1189845::3 - [Continued][Continued] Downstream system specific validation handling
     Given A business event is received by the event gateway that requires an update to COSMOS
     And the associated contract data is invalid for the COSMOS update
     When The enriched business event is sent by the contract-domain service

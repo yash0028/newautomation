@@ -6,7 +6,7 @@
 Feature: US1285099 - [Unfinished] Build External Data Query - MEG
 
   @TC564991
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564991 - [RL0]
     When the MEG microservice is called

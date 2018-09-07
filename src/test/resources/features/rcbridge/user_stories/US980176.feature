@@ -5,7 +5,7 @@
 Feature: US980176 - (TxMgr) Create Transaction Management Service
 
   @TC564426
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564426 - [RL0]
     Given a user wants the ability to track a transaction

@@ -1,6 +1,5 @@
 # Last updated on 
 @US1224873
-@2018.PI03
 Feature: US1224873 - Created NPI/TIN Relationship
 
   @TC565627

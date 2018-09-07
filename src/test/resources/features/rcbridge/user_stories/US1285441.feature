@@ -1,7 +1,7 @@
 # Last updated on 
 @US1285441
 @2018.PI03
-Feature: US1285441 - Identify new Product Codes
+Feature: US1285441 - [Continued]Identify new Product Codes
 
   @TC564951
   @Automated

@@ -1,6 +1,5 @@
 # Last updated on 
 @US1224893
-@2018.PI03
 Feature: US1224893 - Terminated UHC ID/Provider Relationship
 
   @TC565289

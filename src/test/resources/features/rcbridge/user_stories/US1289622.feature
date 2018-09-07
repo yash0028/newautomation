@@ -5,7 +5,7 @@
 Feature: US1289622 - Initialize events from contract transaction changes in Event Trigger
 
   @TC564479
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564479 - [RL0]
     Given An email is sent to the Optum Exari update email address

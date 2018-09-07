@@ -4,7 +4,7 @@
 Feature: US1038960 - [Spike] IT Discovery on Interfacing with MSG Access DB
 
   @TC564573
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564573 - [RL0]
     Given that Exari will request information from the MSG Database

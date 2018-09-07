@@ -1,6 +1,5 @@
 # Last updated on 
 @US1222431
-@2018.PI03
 Feature: US1222431 - Update UHC ID
 
   @TC564597

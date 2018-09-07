@@ -1,6 +1,5 @@
 # Last updated on 
 @US1224662
-@2018.PI03
 Feature: US1224662 - Terminated MPIN/TIN Relationship
 
   @TC565015

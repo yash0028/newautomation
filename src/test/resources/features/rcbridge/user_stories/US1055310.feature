@@ -5,7 +5,7 @@
 Feature: US1055310 - Implement Docker push to Optum Docker Hub
 
   @TC564768
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564768 - [RL0]
     Given spring based Jenkins file already has all the steps required in our pipeline

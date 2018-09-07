@@ -1,7 +1,7 @@
 # Last updated on 
 @US1059062
 @2018.PI03
-Feature: US1059062 - Common Pricing Solution - COSMOS Payload - Add Contract
+Feature: US1059062 - [Continued]Common Pricing Solution - COSMOS Payload - Add Contract
 
   @TC562744
   @Manual

@@ -9,7 +9,7 @@ Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data R
   @TC565514
   @Automated
   @Functional
-  Scenario: TC565514 - [RL0]
+  Scenario: TC565514 - [RL0] Validate Physician Fields
     #for Physician
     Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "12345"
@@ -27,7 +27,7 @@ Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data R
   @TC565515
   @Automated
   @Functional
-  Scenario: TC565515 - [RL1]
+  Scenario: TC565515 - [RL1] Validate Facility Fields
     #for Facility
     Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "6177192"
