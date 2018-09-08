@@ -5,7 +5,6 @@ Feature: F207049 - Exari EM - Removed Stories
   @MVP
   @CLM_UAT
   @US1107626
-  @2018.PI03
   Scenario: US1107626 - Remove Contract ID from Provider upon Interview Termination
     Given I am the Entity Management Solution
     When the Interview process is cancelled with a Provider
@@ -21,7 +20,6 @@ Feature: F207049 - Exari EM - Removed Stories
   @MVP
   @CLM_UAT
   @US1107625
-  @2018.PI03
   Scenario: US1107625 - Associate Interview Contract ID to Provider
     Given I am the Entity Management Solution
     When a Provider enters the Interview process

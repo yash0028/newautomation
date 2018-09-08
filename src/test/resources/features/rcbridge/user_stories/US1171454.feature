@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1171454
-@2018.PI03
 Feature: US1171454 - Update Validated Status Field
 
   @TC565209

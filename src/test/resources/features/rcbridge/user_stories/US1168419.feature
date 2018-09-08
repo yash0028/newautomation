@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1168419
-@2018.PI03
 Feature: US1168419 - Search Identifier
 
   @TC565011

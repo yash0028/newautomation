@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11274
 @US858713
-@2018.PI03
 Feature: US858713 - Perform Search by Entity Attributes
 
   @TC564380

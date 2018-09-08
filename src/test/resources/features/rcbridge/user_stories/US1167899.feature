@@ -4,7 +4,6 @@
 @CLM_UAT
 @EXARI-10726
 @US1167899
-@2018.PI03
 Feature: US1167899 - Select Entity Type
 
   @TC564694

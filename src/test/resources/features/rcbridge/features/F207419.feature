@@ -19,6 +19,14 @@ Feature: F207419 - Integration Services - Part 2 Metadata legacy ETMA tables and
     Then the response includes all records that matched
 
   @MVP
+  @US1311701
+  @2018.PI04
+  Scenario: US1311701 - Med Nec clause table audit trail  - Facility
+    Given the med nec clause code record has been updated in the table
+    When the update has been recorded in CMD
+    Then audit information is recorded and available
+
+  @MVP
   @US1243370
   @2018.PI03
   Scenario: US1243370 - Contract Class Validation UHC table
@@ -28,7 +36,7 @@ Feature: F207419 - Integration Services - Part 2 Metadata legacy ETMA tables and
 
   @MVP
   @US1229506
-  @2018.PI03
+  @2018.PI04
   Scenario: US1229506 - Med Nec clause table - Facility
     Given the med nec clause language listed in the table
     When a clause exists in a contract
@@ -36,11 +44,19 @@ Feature: F207419 - Integration Services - Part 2 Metadata legacy ETMA tables and
 
   @MVP
   @US1229512
-  @2018.PI03
+  @2018.PI04
   Scenario: US1229512 - Med Nec clause table update NDB service - Facility
     Given the med nec clause language listed in the table
     When a clause code value is created or updated
     Then the clause code information update is shared with NDB
+
+  @MVP
+  @US1311703
+  @2018.PI04
+  Scenario: US1311703 - Med Nec clause table CMD UI - Facility
+    Given the med nec clause information needs to be updated
+    When a user has authorization to access the data
+    Then the table is made available via a web UI
 
   @MVP
   @US1232963
@@ -66,4 +82,12 @@ Feature: F207419 - Integration Services - Part 2 Metadata legacy ETMA tables and
     Given a retroactive reason code value is not included in the table
     When an inquiry/verification request for the specific code value is made
     Then the inquiry response/verification response does not return the code and code description
+
+  @MVP
+  @US1311685
+  @2018.PI04
+  Scenario: US1311685 - Med Nec clause table update API to NDB  - Facility
+    Given the med nec clause code record has been updated in the table
+    When the update has been recorded in CMD
+    Then the API service is initiated to notify NDB of the update
 

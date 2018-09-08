@@ -1,6 +1,5 @@
 # Last updated on 
 @US1185973
-@2018.PI03
 Feature: US1185973 - Select Characteristic Type
 
   @TC564974

@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11273
 @US858670
-@2018.PI03
 Feature: US858670 - View Relationship Time Lining History
 
   @TC564423

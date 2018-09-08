@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11399
 @US1096149
-@2018.PI03
 Feature: US1096149 - Migrate Owned TINs
 
   @TC564706

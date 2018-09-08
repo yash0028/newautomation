@@ -4,7 +4,6 @@
 @EXARI-11249
 @CLM_UAT
 @US1170981
-@2018.PI03
 Feature: US1170981 - Reactivate Entity
 
   @TC565212

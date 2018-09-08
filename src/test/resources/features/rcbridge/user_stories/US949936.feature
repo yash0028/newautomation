@@ -4,7 +4,6 @@
 @EXARI-11249
 @CLM_UAT
 @US949936
-@2018.PI03
 Feature: US949936 - Setup Account Types
 
   @TC565061

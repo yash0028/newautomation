@@ -8,7 +8,6 @@ Feature: F184552 - Exari EM - Migrate BIC / TIN Aggregation / Umbrella Entities
   @MVP
   @CLM_UAT
   @US1096155
-  @2018.PI03
   Scenario: US1096155 - Flag Entities with Special Characteristics
     Given I am a User with access to maintain Entity information
     When I want to view an Entity with a specific characteristic previously located in BIC
@@ -16,7 +15,6 @@ Feature: F184552 - Exari EM - Migrate BIC / TIN Aggregation / Umbrella Entities
 
   @MVP
   @US1096162
-  @2018.PI03
   Scenario: US1096162 - Establish Naming Convention
     Given I am a User with access to maintain Entity information
     When I name an Umbrella Entity in the Entity Management Solution
@@ -25,7 +23,6 @@ Feature: F184552 - Exari EM - Migrate BIC / TIN Aggregation / Umbrella Entities
   @MVP
   @CLM_UAT
   @US1096151
-  @2018.PI03
   Scenario: US1096151 - Migrate BIC Entity Components
     Given I am a User with access to maintain Entity information
     When I view an Umbrella Entity in the Entity Management Solution
@@ -35,7 +32,6 @@ Feature: F184552 - Exari EM - Migrate BIC / TIN Aggregation / Umbrella Entities
   @CLM_UAT
   @EXARI-11399
   @US1096149
-  @2018.PI03
   Scenario: US1096149 - Migrate Owned TINs
     Given I am a User with access to maintain Entity information
     When I need to maintain a BIC Owned TIN
@@ -45,7 +41,6 @@ Feature: F184552 - Exari EM - Migrate BIC / TIN Aggregation / Umbrella Entities
   @CLM_UAT
   @EXARI-11266
   @US1096156
-  @2018.PI03
   Scenario: US1096156 - Establish Validation Schedule
     Given I am a User with access to maintain Entity information
     When I want to validate an Entity previously located in BIC according to a Validation Schedule
@@ -54,7 +49,6 @@ Feature: F184552 - Exari EM - Migrate BIC / TIN Aggregation / Umbrella Entities
   @MVP
   @CLM_UAT
   @US1096153
-  @2018.PI03
   Scenario: US1096153 - Create Reporting Entities
     Given I am a User with access to maintain Entity information
     When I want to view a Reporting Entity previously located in BIC
@@ -63,7 +57,6 @@ Feature: F184552 - Exari EM - Migrate BIC / TIN Aggregation / Umbrella Entities
   @MVP
   @CLM_UAT
   @US1096158
-  @2018.PI03
   Scenario: US1096158 - Establish TIN Aggregation Maintenance
     Given I am a User with access to maintain Entity information
     When I want to view and maintain aggregated TINs previously located in BIC
@@ -72,7 +65,6 @@ Feature: F184552 - Exari EM - Migrate BIC / TIN Aggregation / Umbrella Entities
   @MVP
   @CLM_UAT
   @US1096161
-  @2018.PI03
   Scenario: US1096161 - Establish Provider Relationship Maintenance
     Given I am a User with access to maintain Entity information
     When a new contract is added to an Entity

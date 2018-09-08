@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11274
 @US1093318
-@2018.PI03
 Feature: US1093318 - Search Alternate Name
 
   @TC565757

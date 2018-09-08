@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1185971
-@2018.PI03
 Feature: US1185971 - Select Relationship Role
 
   @TC565779

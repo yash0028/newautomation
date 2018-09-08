@@ -157,6 +157,20 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
     When exchanging information about the products included or excluded from an Exari contract
     Then the crosswalk provides the product code identifier
 
+  @US1285457
+  @2018.PI03
+  Scenario: US1285457::0 - Implement PROS fee schedule API
+    Given the fee-schedule api internal service is ready
+    When we make a call to the service to get the fee-schedule information from PROS API
+    Then the fee-schedule information is received
+
+  @US1285457
+  @2018.PI03
+  Scenario: US1285457::1 - Implement PROS fee schedule API
+    Given the fee-schedule api internal service is ready
+    When we make a call to the service with invalid fee-schedule-id to get the fee-schedule information from PROS API
+    Then exception should be thrown
+
   @US1199569
   @2018.PI03
   Scenario: US1199569::0 - [Continued] Validate Data

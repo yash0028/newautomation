@@ -3,7 +3,6 @@
 @EXARI-11267
 @CLM_UAT
 @US1089504
-@2018.PI03
 Feature: US1089504 - Update Identifier
 
   @TC564404

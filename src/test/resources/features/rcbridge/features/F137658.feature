@@ -15,7 +15,6 @@ Feature: F137658 - Exari EM - Approval Process
 
   @EXARI-11271
   @US858605
-  @2018.PI03
   Scenario: US858605 - Capture Approval Time Lining History
     Given I am the Entity Management solution
     When A modification flows through the approval process
@@ -26,7 +25,6 @@ Feature: F137658 - Exari EM - Approval Process
 
   @EXARI-11271
   @US1094095
-  @2018.PI03
   Scenario: US1094095 - Approve Updated Entity
     Given I am a User with Approval Authority
     When a User updates an Entity and submits for approval
@@ -47,7 +45,6 @@ Feature: F137658 - Exari EM - Approval Process
 
   @EXARI-11271
   @US1094104
-  @2018.PI03
   Scenario: US1094104 - Approve Imported Entity Relationships
     Given I am a User with Approval Authority
     When a User imports Entity relationships and submits for approval
@@ -58,14 +55,12 @@ Feature: F137658 - Exari EM - Approval Process
 
   @EXARI-8603
   @US950779
-  @2018.PI03
   Scenario: US950779 - Assign Entity Workflow Status for Added Entities
     Given I am the Entity Management Solution
     When A User sets up a new Entity
     Then I assign an Entity Workflow status to the new Entity
 
   @US1094100
-  @2018.PI03
   Scenario: US1094100 - Approve Inactivated Identifier Relationship with Entity
     Given I am a User with Approval Authority
     When a User inactivates an Identifier relationship with an Entity and submits for approval
@@ -76,7 +71,6 @@ Feature: F137658 - Exari EM - Approval Process
 
   @EXARI-11271
   @US1094111
-  @2018.PI03
   Scenario: US1094111 - Approve Updated Entity Characteristic Info
     Given I am a User with Approval Authority
     When a User updates a Entity Characteristic information and submits for approval
@@ -96,7 +90,6 @@ Feature: F137658 - Exari EM - Approval Process
     And the Owner assignment is routed back to the User for updates
 
   @US1094096
-  @2018.PI03
   Scenario: US1094096 - Approve Inactivated Entity
     Given I am a User with Approval Authority
     When a User inactivates an Entity and submits for approval
@@ -107,7 +100,6 @@ Feature: F137658 - Exari EM - Approval Process
 
   @EXARI-11271
   @US1094097
-  @2018.PI03
   Scenario: US1094097 - Approve Added Identifier
     Given I am a User with Approval Authority
     When a User adds an Identifier and submits for approval
@@ -127,7 +119,6 @@ Feature: F137658 - Exari EM - Approval Process
 
   @EXARI-11271
   @US858604
-  @2018.PI03
   Scenario: US858604 - Approve Entity Updates
     Given I am a User with Approval Authority
     When I receive an Entity modification that requires my approval
@@ -146,7 +137,6 @@ Feature: F137658 - Exari EM - Approval Process
 
   @EXARI-11271
   @US1094094
-  @2018.PI03
   Scenario: US1094094 - Approve Added Entity
     Given I am a User with Approval Authority
     When a User adds an Entity and submits for approval
@@ -167,7 +157,6 @@ Feature: F137658 - Exari EM - Approval Process
 
   @EXARI-11273
   @US858606
-  @2018.PI03
   Scenario: US858606 - View Approval Time Lining History
     Given I am a User with access to view and maintain Entity information
     When I want to view approvals for modifications made to Entities
@@ -179,7 +168,6 @@ Feature: F137658 - Exari EM - Approval Process
   @CLM_UAT
   @EXARI-8603
   @US950780
-  @2018.PI03
   Scenario: US950780 - Assign Entity Workflow Status for Updated Entities
     Given I am the Entity Management Solution
     When A User updates an existing Entity
@@ -187,7 +175,6 @@ Feature: F137658 - Exari EM - Approval Process
     And the updated Entity enters the workflow approval process
 
   @US1094112
-  @2018.PI03
   Scenario: US1094112 - Approve Inactivated Entity Characteristic Info
     Given I am a User with Approval Authority
     When a User inactivates Entity Characteristic information and submits for approval
@@ -208,7 +195,6 @@ Feature: F137658 - Exari EM - Approval Process
   @MVP
   @CLM_UAT
   @US1170983
-  @2018.PI03
   Scenario: US1170983 - Approve Reactivated Entity
     Given I am a User with Approval Authority
     When a User reactivates an Entity
@@ -219,7 +205,6 @@ Feature: F137658 - Exari EM - Approval Process
 
   @EXARI-11271
   @US858603
-  @2018.PI03
   Scenario: US858603 - Follow Approval Process
     Given I am a User with access to maintain Entity information
     When I make a change that requires approval
@@ -227,7 +212,6 @@ Feature: F137658 - Exari EM - Approval Process
 
   @EXARI-11271
   @US1094102
-  @2018.PI03
   Scenario: US1094102 - Approve Imported Entity Structure
     Given I am a User with Approval Authority
     When a User imports an Entity structure and submits for approval
@@ -238,7 +222,6 @@ Feature: F137658 - Exari EM - Approval Process
 
   @EXARI-11271
   @US1094109
-  @2018.PI03
   Scenario: US1094109 - Approve Added Entity Characteristic Info
     Given I am a User with Approval Authority
     When a User adds a Entity Characteristic information and submits for approval

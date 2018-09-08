@@ -4,7 +4,6 @@
 @EXARI-11249
 @CLM_UAT
 @US944247
-@2018.PI03
 Feature: US944247 - Capture Reason for Entity Inactivation
 
   @TC564480

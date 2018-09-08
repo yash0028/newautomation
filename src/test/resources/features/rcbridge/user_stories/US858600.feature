@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11273
 @US858600
-@2018.PI03
 Feature: US858600 - View Entity Time Lining History
 
   @TC565493

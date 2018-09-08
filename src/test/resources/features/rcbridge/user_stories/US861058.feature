@@ -3,7 +3,6 @@
 @EXARI-11271
 @EXARI-8724
 @US861058
-@2018.PI03
 Feature: US861058 - Publish Events When Entity Structures Change
 
   @TC565447

@@ -3,7 +3,6 @@
 @EXARI-11249
 @CLM_UAT
 @US1116715
-@2018.PI03
 Feature: US1116715 - Expire Entity Type
 
   @TC565143

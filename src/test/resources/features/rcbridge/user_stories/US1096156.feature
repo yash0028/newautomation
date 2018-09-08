@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11266
 @US1096156
-@2018.PI03
 Feature: US1096156 - Establish Validation Schedule
 
   @TC565783

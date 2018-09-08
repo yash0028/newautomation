@@ -4,7 +4,6 @@
 @EXARI-11249
 @CLM_UAT
 @US858695
-@2018.PI03
 Feature: US858695 - Setup Entity Characteristic Type
 
   @TC564774

@@ -10,7 +10,6 @@ Feature: F207069 - Exari EM - Enable Business Rules
     And the Entity can not have two active Owners at the same time
 
   @US1179398
-  @2018.PI03
   Scenario: US1179398 - Messenger Model IPA
     Given I am a User
     When I create a relationship between an Entity and a Messenger Model IPA
@@ -33,7 +32,6 @@ Feature: F207069 - Exari EM - Enable Business Rules
   @MVP
   @CLM_UAT
   @US1149316
-  @2018.PI03
   Scenario: US1149316 - Entity Type Conflict - Health Organization Umbrella and Organizational Unit
     Given I am the Entity Management Solution
     When a User is selecting an Entity Type

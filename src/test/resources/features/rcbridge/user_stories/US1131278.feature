@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-10713
 @US1131278
-@2018.PI03
 Feature: US1131278 - View Contracts Associated to a Provider
 
   @TC565835

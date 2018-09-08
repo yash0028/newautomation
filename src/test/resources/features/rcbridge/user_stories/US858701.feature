@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11792
 @US858701
-@2018.PI03
 Feature: US858701 - Create & Update Entity Rules
 
   @TC565691

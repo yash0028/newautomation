@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US858706
-@2018.PI03
 Feature: US858706 - View Business Rule Time Lining History
 
   @TC565850

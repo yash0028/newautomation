@@ -5,7 +5,6 @@ Feature: F198150 - Exari EM - Uncategorized
   @MVP
   @CLM_UAT
   @US858706
-  @2018.PI03
   Scenario: US858706 - View Business Rule Time Lining History
     Given I am a User with access to view and maintain Entity information
     When I want to view time lining history for Business Rules
@@ -15,7 +14,6 @@ Feature: F198150 - Exari EM - Uncategorized
     And I can view the date and time of when the User performed the change
 
   @US858702
-  @2018.PI03
   Scenario: US858702 - Create & Update Entity Relationship Rules
     Given I am an Administrative User
     When I want to create a new Entity relationship rule for an Entity
@@ -26,7 +24,6 @@ Feature: F198150 - Exari EM - Uncategorized
   @MVP
   @CLM_UAT
   @US1168429
-  @2018.PI03
   Scenario: US1168429 - Create Contracting Event
     Given I am the Entity Management Solution
     When an active contract is in place for an Identifier to Entity relationship that is being expired

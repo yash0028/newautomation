@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11399
 @US858607
-@2018.PI03
 Feature: US858607 - Import Structure from Template
 
   @TC565628

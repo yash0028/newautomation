@@ -9,7 +9,6 @@ Feature: F137659 - Exari EM - Import Data
   @CLM_UAT
   @EXARI-11399
   @US858608
-  @2018.PI03
   Scenario: US858608 - Import Relationships from Template
     Given I am a User with access to maintain Entities
     When I want to load Entity relationships in template form into the Entity Management solution
@@ -19,7 +18,6 @@ Feature: F137659 - Exari EM - Import Data
   @CLM_UAT
   @EXARI-11399
   @US858607
-  @2018.PI03
   Scenario: US858607 - Import Structure from Template
     Given I am a User with access to maintain Entities
     When I want to load an Entity structure in template form into the Entity Management solution
@@ -28,7 +26,6 @@ Feature: F137659 - Exari EM - Import Data
   @MVP
   @EXARI-11273
   @US858609
-  @2018.PI03
   Scenario: US858609 - Capture Import Time Lining History
     Given I am the Entity Management solution
     When A User imports Entity Structure or Entity Relationships from a template

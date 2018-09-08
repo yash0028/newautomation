@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-10713
 @US1107632
-@2018.PI03
 Feature: US1107632 - Associate Contract ID to Counterparty upon Contract Execution
 
   @TC565140

@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11453
 @US861138
-@2018.PI03
 Feature: US861138 - Export Entity Structure
 
   @TC564447

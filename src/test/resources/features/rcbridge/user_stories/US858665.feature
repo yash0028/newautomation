@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11696
 @US858665
-@2018.PI03
 Feature: US858665 - Add Entity Relationship Type
 
   @TC564554

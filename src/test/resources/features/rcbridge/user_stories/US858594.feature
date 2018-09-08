@@ -4,7 +4,6 @@
 @EXARI-11249
 @CLM_UAT
 @US858594
-@2018.PI03
 Feature: US858594 - Inactivate Entity
 
   @TC565940

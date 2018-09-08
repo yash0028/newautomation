@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11273
 @US858611
-@2018.PI03
 Feature: US858611 - View Importation Time Lining History
 
   @TC564550

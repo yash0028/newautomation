@@ -5,7 +5,6 @@
 @EXARI-11249
 @CLM_UAT
 @US1089321
-@2018.PI03
 Feature: US1089321 - Prevent Inactive Entity Maintenance
 
   @TC565310

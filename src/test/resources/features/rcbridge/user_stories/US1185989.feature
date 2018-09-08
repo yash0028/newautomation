@@ -1,6 +1,5 @@
 # Last updated on 
 @US1185989
-@2018.PI03
 Feature: US1185989 - Update Relationship Role
 
   @TC564864

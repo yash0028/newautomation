@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11696
 @US1114664
-@2018.PI03
 Feature: US1114664 - Parent Entity Relationships
 
   @TC565031

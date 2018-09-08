@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11765
 @US1119871
-@2018.PI03
 Feature: US1119871 - Filter by Entity Relationship Role
 
   @TC565471

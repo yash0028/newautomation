@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1149316
-@2018.PI03
 Feature: US1149316 - Entity Type Conflict - Health Organization Umbrella and Organizational Unit
 
   @TC565286

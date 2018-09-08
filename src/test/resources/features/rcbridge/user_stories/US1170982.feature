@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11270
 @US1170982
-@2018.PI03
 Feature: US1170982 - Retained Relationships
 
   @TC564494

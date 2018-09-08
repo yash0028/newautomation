@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1107626
-@2018.PI03
 Feature: US1107626 - Remove Contract ID from Provider upon Interview Termination
 
   @TC565680

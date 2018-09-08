@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11274
 @US1186271
-@2018.PI03
 Feature: US1186271 - Return Active and Inactive Entities
 
   @TC565811

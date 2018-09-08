@@ -2,7 +2,6 @@
 @MVP
 @EXARI-11273
 @US1170984
-@2018.PI03
 Feature: US1170984 - Capture Timeline History
 
   @TC565103

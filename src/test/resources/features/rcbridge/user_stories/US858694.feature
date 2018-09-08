@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US858694
-@2018.PI03
 Feature: US858694 - Setup Relationship Types
 
   @TC565707

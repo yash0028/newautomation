@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11271
 @US1094095
-@2018.PI03
 Feature: US1094095 - Approve Updated Entity
 
   @TC564611

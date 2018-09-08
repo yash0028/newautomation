@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11274
 @US920674
-@2018.PI03
 Feature: US920674 - Perform Search by Active Entities
 
   @TC565751

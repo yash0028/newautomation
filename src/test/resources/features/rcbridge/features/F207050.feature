@@ -6,7 +6,6 @@ Feature: F207050 - Exari EM - Check for Duplicates
   @CLM_UAT
   @EXARI-11274
   @US1080995
-  @2018.PI03
   Scenario: US1080995 - Check for Duplicates - Updated Entity Name
     Given I am the Entity Management Solution
     When A User updates an Entity Name
@@ -47,7 +46,6 @@ Feature: F207050 - Exari EM - Check for Duplicates
   @CLM_UAT
   @EXARI-11274
   @US949053
-  @2018.PI03
   Scenario: US949053 - Check for Duplicate Name
     Given I am the Entity Management Solution
     When A User adds an Entity

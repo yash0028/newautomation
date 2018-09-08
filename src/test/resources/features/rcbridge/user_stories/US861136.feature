@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11453
 @US861136
-@2018.PI03
 Feature: US861136 - Export Entity Detail
 
   @TC565159

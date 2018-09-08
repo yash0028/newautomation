@@ -15,7 +15,6 @@ Feature: F137662 - Exari EM - Create and Maintain Entity Supplemental Detail
   @CLM_UAT
   @EXARI-11698
   @US858626
-  @2018.PI03
   Scenario: US858626 - Add Notes
     Given I am a User with access to maintain Entity information
     When I want to add a note to an Entity
@@ -27,7 +26,6 @@ Feature: F137662 - Exari EM - Create and Maintain Entity Supplemental Detail
   @MVP
   @EXARI-11273
   @US858631
-  @2018.PI03
   Scenario: US858631 - Capture Supplemental Detail Time Lining History
     Given I am the Entity Management Solution
     When A User adds a note to an Entity
@@ -43,7 +41,6 @@ Feature: F137662 - Exari EM - Create and Maintain Entity Supplemental Detail
   @EXARI-11643
   @CLM_UAT
   @US858627
-  @2018.PI03
   Scenario: US858627 - Add Attachments
     Given I am a User with access to maintain Entity information
     When I want to associate a document to an Entity

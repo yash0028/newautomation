@@ -4,7 +4,6 @@
 @EXARI-11249
 @CLM_UAT
 @US1193286
-@2018.PI03
 Feature: US1193286 - Capture Reason for Reactivation
 
   @TC565269

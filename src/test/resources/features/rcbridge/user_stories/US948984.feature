@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US948984
-@2018.PI03
 Feature: US948984 - Update Relationship Roles
 
   @TC565030

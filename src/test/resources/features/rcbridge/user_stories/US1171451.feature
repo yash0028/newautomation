@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1171451
-@2018.PI03
 Feature: US1171451 - Upload Tax ID File
 
   @TC564926

@@ -1,7 +1,6 @@
 # Last updated on 
 @MVP
 @US861056
-@2018.PI03
 Feature: US861056 - Map Entity Data Elements for Downstream Consumption
 
   @TC565422

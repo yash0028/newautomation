@@ -1,6 +1,5 @@
 # Last updated on 
 @US858702
-@2018.PI03
 Feature: US858702 - Create & Update Entity Relationship Rules
 
   @TC564919

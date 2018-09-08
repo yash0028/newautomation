@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11271
 @US1094102
-@2018.PI03
 Feature: US1094102 - Approve Imported Entity Structure
 
   @TC565330

@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1096161
-@2018.PI03
 Feature: US1096161 - Establish Provider Relationship Maintenance
 
   @TC565279

@@ -1,7 +1,6 @@
 # Last updated on 
 @MVP
 @US1171452
-@2018.PI03
 Feature: US1171452 - Identify Matching Tax IDs
 
   @TC564666

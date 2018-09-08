@@ -4,7 +4,6 @@
 @CLM_UAT
 @EXARI-10726
 @US858591
-@2018.PI03
 Feature: US858591 - Add Entity Name
 
   @TC565477

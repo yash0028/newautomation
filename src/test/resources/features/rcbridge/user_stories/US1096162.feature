@@ -1,7 +1,6 @@
 # Last updated on 
 @MVP
 @US1096162
-@2018.PI03
 Feature: US1096162 - Establish Naming Convention
 
   @TC565530

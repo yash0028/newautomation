@@ -3,7 +3,6 @@
 @EXARI-10529
 @CLM_UAT
 @US858730
-@2018.PI03
 Feature: US858730 - View Provider Detail
 
   @TC565443

@@ -9,7 +9,6 @@ Feature: F137903 - Exari EM - Provide Entity Data
   @EXARI-11271
   @EXARI-8724
   @US861058
-  @2018.PI03
   Scenario: US861058 - Publish Events When Entity Structures Change
     Given I am the Entity Management Solution
     When an Entity structure changes in the Entity Management Solution
@@ -17,7 +16,6 @@ Feature: F137903 - Exari EM - Provide Entity Data
 
   @MVP
   @US861056
-  @2018.PI03
   Scenario: US861056 - Map Entity Data Elements for Downstream Consumption
     Given I am the Entity Management Solution
     When Entity data is updated in the Entity Management Solution

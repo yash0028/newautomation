@@ -4,7 +4,6 @@
 @CLM_UAT
 @EXARI-10726
 @US1167898
-@2018.PI03
 Feature: US1167898 - Add Alternate Name
 
   @TC565738

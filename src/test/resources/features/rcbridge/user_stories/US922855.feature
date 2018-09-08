@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11273
 @US922855
-@2018.PI03
 Feature: US922855 - View Alternate Name/Alias Time Lining History
 
   @TC564773

@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1171453
-@2018.PI03
 Feature: US1171453 - Update Date Validated Field
 
   @TC564543

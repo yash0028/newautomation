@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1107625
-@2018.PI03
 Feature: US1107625 - Associate Interview Contract ID to Provider
 
   @TC564798

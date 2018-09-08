@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-8603
 @US950779
-@2018.PI03
 Feature: US950779 - Assign Entity Workflow Status for Added Entities
 
   @TC565807

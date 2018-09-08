@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-10530
 @US858719
-@2018.PI03
 Feature: US858719 - Reduce Search Results by Filter Criteria
 
   @TC564500

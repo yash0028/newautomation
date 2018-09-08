@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11453
 @US1134378
-@2018.PI03
 Feature: US1134378 - Export Entity Relationships
 
   @TC564613

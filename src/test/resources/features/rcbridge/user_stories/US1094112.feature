@@ -1,6 +1,5 @@
 # Last updated on 
 @US1094112
-@2018.PI03
 Feature: US1094112 - Approve Inactivated Entity Characteristic Info
 
   @TC564648

@@ -5,7 +5,6 @@ Feature: F207084 - Exari EM - View Summary and Reporting
   @MVP
   @CLM_UAT
   @US861135
-  @2018.PI03
   Scenario: US861135 - Export Entity Summary
     Given I am a User with access to view and maintain Entity information
     When I want to view Entity Summary data outside of the Entity Management Solution
@@ -15,7 +14,6 @@ Feature: F207084 - Exari EM - View Summary and Reporting
   @EXARI-10529
   @CLM_UAT
   @US858725
-  @2018.PI03
   Scenario: US858725 - View Entity Summary
     Given I am a User with access to view and maintain Entity information
     When I want to view an Entity summary
@@ -32,7 +30,6 @@ Feature: F207084 - Exari EM - View Summary and Reporting
     And I can view the number of related Entities by Relationship Role associated with the Entity
 
   @US861137
-  @2018.PI03
   Scenario: US861137 - Enable External Reporting
     Given I am the Entity Management Solution
     When an external recipient with no User access needs to receive Entity information

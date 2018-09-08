@@ -9,7 +9,6 @@ Feature: F137676 - Exari EM - Search by Attributes
   @CLM_UAT
   @EXARI-11274
   @US920675
-  @2018.PI03
   Scenario: US920675 - Perform Search by Inactive Entities
     Given I am a User with access to view and maintain Entity information
     When I want to find an Inactive Entity
@@ -20,7 +19,6 @@ Feature: F137676 - Exari EM - Search by Attributes
   @CLM_UAT
   @EXARI-11274
   @US858713
-  @2018.PI03
   Scenario: US858713 - Perform Search by Entity Attributes
     Given I am a User with access to view and maintain Entity information
     When I want to view an Entity
@@ -32,7 +30,6 @@ Feature: F137676 - Exari EM - Search by Attributes
   @CLM_UAT
   @EXARI-11274
   @US920674
-  @2018.PI03
   Scenario: US920674 - Perform Search by Active Entities
     Given I am a User with access to view and maintain Entity information
     When I want to find an Active Entity
@@ -43,7 +40,6 @@ Feature: F137676 - Exari EM - Search by Attributes
   @CLM_UAT
   @EXARI-11274
   @US858715
-  @2018.PI03
   Scenario: US858715 - Perform Search by Provider ID
     Given I am a User with access to view and maintain Entity information
     When I want to find out which Entities a Provider is associated to
@@ -54,7 +50,6 @@ Feature: F137676 - Exari EM - Search by Attributes
   @CLM_UAT
   @EXARI-11765
   @US1119871
-  @2018.PI03
   Scenario: US1119871 - Filter by Entity Relationship Role
     Given I am a User with access to view and maintain Entity information
     When I want to Entity sub-parts based on relationship role
@@ -65,7 +60,6 @@ Feature: F137676 - Exari EM - Search by Attributes
   @CLM_UAT
   @EXARI-11274
   @US1186271
-  @2018.PI03
   Scenario: US1186271 - Return Active and Inactive Entities
     Given I am a User with access to view and maintain Entity information
     When I want to find an Entity
@@ -83,7 +77,6 @@ Feature: F137676 - Exari EM - Search by Attributes
   @CLM_UAT
   @EXARI-11765
   @US858714
-  @2018.PI03
   Scenario: US858714 - Filter by Entity Relationship Type
     Given I am a User with access to view and maintain Entity information
     When I want to Entity sub-parts based on relationship type

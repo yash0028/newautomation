@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1116723
-@2018.PI03
 Feature: US1116723 - Expire Relationship Role
 
   @TC565029

@@ -3,7 +3,6 @@
 @EXARI-11267
 @CLM_UAT
 @US912901
-@2018.PI03
 Feature: US912901 - Inactivate Alternate Name/Alias
 
   @TC565377

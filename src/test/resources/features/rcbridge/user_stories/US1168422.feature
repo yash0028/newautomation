@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1168422
-@2018.PI03
 Feature: US1168422 - Select Identifier Type
 
   @TC565334

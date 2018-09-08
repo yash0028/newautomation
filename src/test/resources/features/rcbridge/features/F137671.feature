@@ -9,7 +9,6 @@ Feature: F137671 - Exari EM - Add and Remove Entity to Entity Relationships
   @CLM_UAT
   @EXARI-11696
   @US858664
-  @2018.PI03
   Scenario: US858664 - Add Entity Relationship Role
     Given I am a User with access to maintain Entity information
     When I am adding a relationship between two Entities
@@ -19,7 +18,6 @@ Feature: F137671 - Exari EM - Add and Remove Entity to Entity Relationships
   @CLM_UAT
   @EXARI-11696
   @US858667
-  @2018.PI03
   Scenario: US858667 - Remove Entity Relationship
     Given I am a User with access to maintain Entity information
     When I need to end a relationship between two Entities
@@ -28,7 +26,6 @@ Feature: F137671 - Exari EM - Add and Remove Entity to Entity Relationships
   @MVP
   @EXARI-11273
   @US858668
-  @2018.PI03
   Scenario: US858668 - Capture Relationship Time Lining History
     Given I am the Entity Management Solution
     When a User adds a relationship between two Entities
@@ -43,7 +40,6 @@ Feature: F137671 - Exari EM - Add and Remove Entity to Entity Relationships
   @CLM_UAT
   @EXARI-11696
   @US858666
-  @2018.PI03
   Scenario: US858666 - Update Entity Relationship
     Given I am a User with access to maintain Entity information
     When I need to change a relationship between two Entities
@@ -54,7 +50,6 @@ Feature: F137671 - Exari EM - Add and Remove Entity to Entity Relationships
   @CLM_UAT
   @EXARI-11696
   @US858665
-  @2018.PI03
   Scenario: US858665 - Add Entity Relationship Type
     Given I am a User with access to maintain Entity information
     When I am adding a relationship between two Entities

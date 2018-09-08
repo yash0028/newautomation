@@ -3,7 +3,6 @@
 @EXARI-10529
 @CLM_UAT
 @US858729
-@2018.PI03
 Feature: US858729 - View Providers Associated to an Entity
 
   @TC565002

@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1096155
-@2018.PI03
 Feature: US1096155 - Flag Entities with Special Characteristics
 
   @TC565236

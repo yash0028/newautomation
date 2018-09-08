@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11274
 @US920675
-@2018.PI03
 Feature: US920675 - Perform Search by Inactive Entities
 
   @TC564747

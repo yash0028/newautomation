@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11271
 @US1094097
-@2018.PI03
 Feature: US1094097 - Approve Added Identifier
 
   @TC564911

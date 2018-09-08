@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1107634
-@2018.PI03
 Feature: US1107634 - Remove Contract ID from Counterparty upon Contract Termination
 
   @TC564801

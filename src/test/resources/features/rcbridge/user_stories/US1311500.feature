@@ -1,0 +1,15 @@
+# Last updated on 
+@US1311500
+Feature: US1311500 - Cleanup RC-Link Test Cases
+
+  @TC572220
+  @Automated
+  @Functional
+  Scenario: TC572220 - [RL0]
+    Given RC-Link has been run
+    And is automating creation of test-cases for acceptance criteria
+    When duplicates are created
+    And some test-cases are marked as "Automated" instead of "Manual"
+    Then duplicates need to be removed
+    And the stories marked incorrectly as "Automated" are changed to "Manual"
+

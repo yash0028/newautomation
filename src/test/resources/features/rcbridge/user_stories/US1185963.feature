@@ -1,6 +1,5 @@
 # Last updated on 
 @US1185963
-@2018.PI03
 Feature: US1185963 - Select Identifier Type
 
   @TC564820

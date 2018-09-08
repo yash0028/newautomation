@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11271
 @US858603
-@2018.PI03
 Feature: US858603 - Follow Approval Process
 
   @TC565363

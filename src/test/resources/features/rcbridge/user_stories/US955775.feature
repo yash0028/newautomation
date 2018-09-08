@@ -3,7 +3,6 @@
 @EXARI-11267
 @CLM_UAT
 @US955775
-@2018.PI03
 Feature: US955775 - Set Inactivation Date - Identifier
 
   @TC565062

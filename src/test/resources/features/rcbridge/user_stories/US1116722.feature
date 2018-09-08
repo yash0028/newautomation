@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1116722
-@2018.PI03
 Feature: US1116722 - Expire Relationship Type
 
   @TC565849

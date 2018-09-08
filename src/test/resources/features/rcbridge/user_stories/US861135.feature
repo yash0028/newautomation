@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US861135
-@2018.PI03
 Feature: US861135 - Export Entity Summary
 
   @TC565937

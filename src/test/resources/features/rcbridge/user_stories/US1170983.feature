@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1170983
-@2018.PI03
 Feature: US1170983 - Approve Reactivated Entity
 
   @TC564995

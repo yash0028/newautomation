@@ -2,7 +2,6 @@
 @MVP
 @EXARI-11273
 @US1081001
-@2018.PI03
 Feature: US1081001 - Capture Entity Time Lining History - Updated Entity
 
   @TC565780

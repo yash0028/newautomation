@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11274
 @US1080995
-@2018.PI03
 Feature: US1080995 - Check for Duplicates - Updated Entity Name
 
   @TC565040

@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1116731
-@2018.PI03
 Feature: US1116731 - Expire Identifier Type
 
   @TC565704

@@ -1,7 +1,6 @@
 # Last updated on 
 @MVP
 @US1171457
-@2018.PI03
 Feature: US1171457 - Capture Time Lining History
 
   @TC565036

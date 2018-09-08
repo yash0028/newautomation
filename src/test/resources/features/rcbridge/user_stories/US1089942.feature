@@ -4,7 +4,6 @@
 @EXARI-11249
 @CLM_UAT
 @US1089942
-@2018.PI03
 Feature: US1089942 - Set Effective Date - Identifier
 
   @TC565781

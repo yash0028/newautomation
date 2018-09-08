@@ -1,6 +1,5 @@
 # Last updated on 
 @US1185987
-@2018.PI03
 Feature: US1185987 - Update Relationship Type
 
   @TC565570

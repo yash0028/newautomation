@@ -3,7 +3,6 @@
 @EXARI-11249
 @CLM_UAT
 @US950778
-@2018.PI03
 Feature: US950778 - Generate Unique Entity ID
 
   @TC564744

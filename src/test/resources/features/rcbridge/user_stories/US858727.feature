@@ -3,7 +3,6 @@
 @EXARI-10529
 @CLM_UAT
 @US858727
-@2018.PI03
 Feature: US858727 - View Relationships within Entity
 
   @TC565078

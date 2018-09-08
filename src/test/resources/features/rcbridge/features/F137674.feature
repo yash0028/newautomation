@@ -8,7 +8,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @MVP
   @CLM_UAT
   @US1116731
-  @2018.PI03
   Scenario: US1116731 - Expire Identifier Type
     Given I am an Administrative User
     When I need to expire an Identifier Type
@@ -19,7 +18,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @MVP
   @CLM_UAT
   @US1116723
-  @2018.PI03
   Scenario: US1116723 - Expire Relationship Role
     Given I am an Administrative User
     When I need to expire a Relationship Role
@@ -30,7 +28,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @MVP
   @EXARI-11273
   @US858698
-  @2018.PI03
   Scenario: US858698 - Capture Entity Attribute Time Lining History
     Given I am the Entity Management Solution
     When an Administrative User creates an Entity Attribute
@@ -45,7 +42,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @EXARI-11249
   @CLM_UAT
   @US929394
-  @2018.PI03
   Scenario: US929394 - Update Entity Type
     Given I am an Administrative User
     When I need to update an existing Entity Type
@@ -56,7 +52,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @EXARI-11249
   @CLM_UAT
   @US1116715
-  @2018.PI03
   Scenario: US1116715 - Expire Entity Type
     Given I am an Administrative User
     When I need to expire an Entity Type
@@ -68,7 +63,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @EXARI-11249
   @CLM_UAT
   @US858693
-  @2018.PI03
   Scenario: US858693 - Setup Entity Type Definitions
     Given I am an Administrative User
     When I set up a new Entity Type
@@ -77,7 +71,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @MVP
   @CLM_UAT
   @US948984
-  @2018.PI03
   Scenario: US948984 - Update Relationship Roles
     Given I am an Administrative User
     When I need to update an existing Relationship Role
@@ -88,7 +81,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @EXARI-11249
   @CLM_UAT
   @US929399
-  @2018.PI03
   Scenario: US929399 - Update Identifier Type
     Given I am an Administrative User
     When I need to update an existing Identifier Type
@@ -98,7 +90,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @MVP
   @CLM_UAT
   @US858694
-  @2018.PI03
   Scenario: US858694 - Setup Relationship Types
     Given I am an Administrative User
     When I want to setup a new Relationship Type
@@ -110,7 +101,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @EXARI-11249
   @CLM_UAT
   @US929398
-  @2018.PI03
   Scenario: US929398 - Update Entity Characteristic Type
     Given I am an Administrative User
     When I need to update an existing Entity Characteristic Type
@@ -120,7 +110,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @MVP
   @CLM_UAT
   @US948983
-  @2018.PI03
   Scenario: US948983 - Setup Relationship Roles
     Given I am an Administrative User
     When I want to setup a new Relationship Role
@@ -132,7 +121,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @EXARI-11249
   @CLM_UAT
   @US949936
-  @2018.PI03
   Scenario: US949936 - Setup Account Types
     Given I am an Administrative User
     When I want to setup a new Account Type
@@ -144,7 +132,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @EXARI-11249
   @CLM_UAT
   @US949962
-  @2018.PI03
   Scenario: US949962 - Update Account Types
     Given I am an Administrative User
     When I need to update an existing Account Type
@@ -154,7 +141,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @MVP
   @CLM_UAT
   @US1116722
-  @2018.PI03
   Scenario: US1116722 - Expire Relationship Type
     Given I am an Administrative User
     When I need to expire a Relationship Type
@@ -166,7 +152,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @EXARI-11249
   @CLM_UAT
   @US858697
-  @2018.PI03
   Scenario: US858697 - Setup Identifier Type
     Given I am an Administrative User
     When I want to setup a new Identifier Type
@@ -177,7 +162,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @EXARI-11249
   @CLM_UAT
   @US929395
-  @2018.PI03
   Scenario: US929395 - Update Entity Type Definition
     Given I am an Administrative User
     When I need to update an existing Entity Type Definition
@@ -189,7 +173,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @MVP
   @CLM_UAT
   @US929397
-  @2018.PI03
   Scenario: US929397 - Update Relationship Type
     Given I am an Administrative User
     When I need to update an existing Relationship Type
@@ -201,7 +184,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @EXARI-11249
   @CLM_UAT
   @US858695
-  @2018.PI03
   Scenario: US858695 - Setup Entity Characteristic Type
     Given I am an Administrative User
     When I want to setup a new Characteristic Type
@@ -211,7 +193,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @MVP
   @CLM_UAT
   @US1116732
-  @2018.PI03
   Scenario: US1116732 - Expire Account Type
     Given I am an Administrative User
     When I need to expire an AccountType
@@ -223,7 +204,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @EXARI-11249
   @CLM_UAT
   @US858692
-  @2018.PI03
   Scenario: US858692 - Setup Entity Types
     Given I am an Administrative User
     When I want to setup a new Entity Type
@@ -235,7 +215,6 @@ Feature: F137674 - Exari EM - Administer Global Entity Attributes
   @EXARI-11249
   @CLM_UAT
   @US1116730
-  @2018.PI03
   Scenario: US1116730 - Expire Entity Characteristic Type
     Given I am an Administrative User
     When I need to expire an Entity Characteristic Type

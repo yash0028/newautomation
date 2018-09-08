@@ -3,7 +3,6 @@
 @EXARI-11643
 @CLM_UAT
 @US858627
-@2018.PI03
 Feature: US858627 - Add Attachments
 
   @TC565610

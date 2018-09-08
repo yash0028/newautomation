@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1096153
-@2018.PI03
 Feature: US1096153 - Create Reporting Entities
 
   @TC564390

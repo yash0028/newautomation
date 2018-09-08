@@ -10,7 +10,6 @@ Feature: F198722 - Exari EM - Reactivate Entity
   @EXARI-11249
   @CLM_UAT
   @US1193286
-  @2018.PI03
   Scenario: US1193286 - Capture Reason for Reactivation
     Given I am a User
     When I am reactivating an Entity
@@ -19,7 +18,6 @@ Feature: F198722 - Exari EM - Reactivate Entity
   @MVP
   @EXARI-11273
   @US1170984
-  @2018.PI03
   Scenario: US1170984 - Capture Timeline History
     Given I am the Entity Management Solution
     When a User reactivates an Entity
@@ -30,7 +28,6 @@ Feature: F198722 - Exari EM - Reactivate Entity
   @CLM_UAT
   @EXARI-11270
   @US1170982
-  @2018.PI03
   Scenario: US1170982 - Retained Relationships
     Given I am the Entity Management Solution
     When an Entity is reactivated
@@ -42,7 +39,6 @@ Feature: F198722 - Exari EM - Reactivate Entity
   @EXARI-11249
   @CLM_UAT
   @US1170981
-  @2018.PI03
   Scenario: US1170981 - Reactivate Entity
     Given I am a User with access to maintain Entity information
     When I want to reactivate an inactive Entity

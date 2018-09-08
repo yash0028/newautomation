@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11274
 @US949053
-@2018.PI03
 Feature: US949053 - Check for Duplicate Name
 
   @TC564459

@@ -1,7 +1,6 @@
 # Last updated on 
 @MVP
 @US1168436
-@2018.PI03
 Feature: US1168436 - Check for Contract Dependencies
 
   @TC565479

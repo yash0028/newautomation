@@ -31,7 +31,6 @@ Feature: F207077 - Exari EM - Identifier Maintenance
   @EXARI-11249
   @CLM_UAT
   @US1089942
-  @2018.PI03
   Scenario: US1089942 - Set Effective Date - Identifier
     Given I am a User with access to maintain Entity information
     When I add or update an Identifier relationship to an Entity
@@ -59,7 +58,6 @@ Feature: F207077 - Exari EM - Identifier Maintenance
   @EXARI-11267
   @CLM_UAT
   @US955775
-  @2018.PI03
   Scenario: US955775 - Set Inactivation Date - Identifier
     Given I am a User with access to manage Entity information
     When I need to expire an Identifier relationship with an Entity

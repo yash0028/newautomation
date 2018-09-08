@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US929397
-@2018.PI03
 Feature: US929397 - Update Relationship Type
 
   @TC564811

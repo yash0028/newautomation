@@ -4,7 +4,6 @@
 @CLM_UAT
 @EXARI-10726
 @US1167891
-@2018.PI03
 Feature: US1167891 - Select Identifier
 
   @TC565775

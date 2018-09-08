@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11792
 @US1152174
-@2018.PI03
 Feature: US1152174 - Entity Type Conflict - PHO and IPA
 
   @TC565476

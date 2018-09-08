@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1171480
-@2018.PI03
 Feature: US1171480 - Generate Error Log
 
   @TC565469

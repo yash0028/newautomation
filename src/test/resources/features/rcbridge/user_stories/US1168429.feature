@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1168429
-@2018.PI03
 Feature: US1168429 - Create Contracting Event
 
   @TC565424

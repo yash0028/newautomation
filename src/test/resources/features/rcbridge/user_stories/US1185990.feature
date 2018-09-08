@@ -1,6 +1,5 @@
 # Last updated on 
 @US1185990
-@2018.PI03
 Feature: US1185990 - Update Characteristic Type
 
   @TC564538

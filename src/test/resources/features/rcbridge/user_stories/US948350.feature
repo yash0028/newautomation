@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US948350
-@2018.PI03
 Feature: US948350 - Search Multiple Criteria
 
   @TC565597

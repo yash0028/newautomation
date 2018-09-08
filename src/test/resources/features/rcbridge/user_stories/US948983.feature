@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US948983
-@2018.PI03
 Feature: US948983 - Setup Relationship Roles
 
   @TC564986

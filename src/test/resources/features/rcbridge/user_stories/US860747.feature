@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-10879
 @US860747
-@2018.PI03
 Feature: US860747 - Provision User Access
 
   @TC565046

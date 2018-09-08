@@ -2,7 +2,6 @@
 @MVP
 @EXARI-11273
 @US858631
-@2018.PI03
 Feature: US858631 - Capture Supplemental Detail Time Lining History
 
   @TC565800

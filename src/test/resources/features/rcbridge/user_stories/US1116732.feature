@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1116732
-@2018.PI03
 Feature: US1116732 - Expire Account Type
 
   @TC564545

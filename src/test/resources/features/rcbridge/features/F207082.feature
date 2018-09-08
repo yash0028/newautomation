@@ -15,7 +15,6 @@ Feature: F207082 - Exari EM - Create and Maintain Demographic and Characteristic
   @MVP
   @CLM_UAT
   @US922850
-  @2018.PI03
   Scenario: US922850 - Inactivate Entity Characteristic Detail
     Given I am a User with access to maintain Entities
     When I want to inactivate characteristic information on an Entity

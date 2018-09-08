@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1107635
-@2018.PI03
 Feature: US1107635 - Associate Contract ID to Provider upon Contract Execution
 
   @TC565773

@@ -3,7 +3,6 @@
 @EXARI-11267
 @CLM_UAT
 @US1089488
-@2018.PI03
 Feature: US1089488 - Update Operating License Type
 
   @TC565855

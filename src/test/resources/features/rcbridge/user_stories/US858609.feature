@@ -2,7 +2,6 @@
 @MVP
 @EXARI-11273
 @US858609
-@2018.PI03
 Feature: US858609 - Capture Import Time Lining History
 
   @TC564497

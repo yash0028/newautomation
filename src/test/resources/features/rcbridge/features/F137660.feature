@@ -8,7 +8,6 @@ Feature: F137660 - Exari EM - Maintain Entity Identifiers
   @MVP
   @CLM_UAT
   @US1168419
-  @2018.PI03
   Scenario: US1168419 - Search Identifier
     Given I am a User with access to maintain Entity information
     When I need to add an Identifier to an Entity
@@ -19,7 +18,6 @@ Feature: F137660 - Exari EM - Maintain Entity Identifiers
   @MVP
   @EXARI-11273
   @US858618
-  @2018.PI03
   Scenario: US858618 - Capture Time Lining History
     Given I am the Entity Management solution
     When User adds or updates an Identifier relationship to an Entity
@@ -32,7 +30,6 @@ Feature: F137660 - Exari EM - Maintain Entity Identifiers
 
   @MVP
   @US1168436
-  @2018.PI03
   Scenario: US1168436 - Check for Contract Dependencies
     Given I am the Entity Management Solution
     When a User inactivates an Identifier relationship with an Entity
@@ -41,7 +38,6 @@ Feature: F137660 - Exari EM - Maintain Entity Identifiers
   @MVP
   @CLM_UAT
   @US1168422
-  @2018.PI03
   Scenario: US1168422 - Select Identifier Type
     Given I am a User with access to maintain Entity information
     When I am adding an Identifier to an Entity

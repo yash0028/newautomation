@@ -1,7 +1,6 @@
 # Last updated on 
 @MVP
 @US858704
-@2018.PI03
 Feature: US858704 - Capture Business Rule Time Lining History
 
   @TC565146

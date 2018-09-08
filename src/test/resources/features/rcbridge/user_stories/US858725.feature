@@ -3,7 +3,6 @@
 @EXARI-10529
 @CLM_UAT
 @US858725
-@2018.PI03
 Feature: US858725 - View Entity Summary
 
   @TC565074

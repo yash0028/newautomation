@@ -1,6 +1,5 @@
 # Last updated on 
 @US1094100
-@2018.PI03
 Feature: US1094100 - Approve Inactivated Identifier Relationship with Entity
 
   @TC565667

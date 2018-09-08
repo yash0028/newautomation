@@ -9,7 +9,6 @@ Feature: F137675 - Exari EM - Administer Business Rules
   @CLM_UAT
   @EXARI-11792
   @US858701
-  @2018.PI03
   Scenario: US858701 - Create & Update Entity Rules
     Given I am an Administrative User
     When I want to create a new business rule for an Entity
@@ -19,7 +18,6 @@ Feature: F137675 - Exari EM - Administer Business Rules
 
   @MVP
   @US858704
-  @2018.PI03
   Scenario: US858704 - Capture Business Rule Time Lining History
     Given I am the Entity Management Solution
     When a User creates a business rule
@@ -33,7 +31,6 @@ Feature: F137675 - Exari EM - Administer Business Rules
   @CLM_UAT
   @EXARI-11696
   @US1114664
-  @2018.PI03
   Scenario: US1114664 - Parent Entity Relationships
     Given I am the Entity Management Solution
     When a User is creating a Parent Child relationship between Entities
@@ -45,7 +42,6 @@ Feature: F137675 - Exari EM - Administer Business Rules
   @CLM_UAT
   @EXARI-11696
   @US1114667
-  @2018.PI03
   Scenario: US1114667 - Child Entity Relationships
     Given I am the Entity Management Solution
     When a User is creating a Parent Child relationship between Entities
@@ -57,7 +53,6 @@ Feature: F137675 - Exari EM - Administer Business Rules
   @CLM_UAT
   @EXARI-11792
   @US1152174
-  @2018.PI03
   Scenario: US1152174 - Entity Type Conflict - PHO and IPA
     Given I am the Entity Management Solution
     When a User is selecting an Entity Type

@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11273
 @US927842
-@2018.PI03
 Feature: US927842 - View Provider to Entity Relationship Time Lining History
 
   @TC564713

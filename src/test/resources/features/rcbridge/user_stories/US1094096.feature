@@ -1,6 +1,5 @@
 # Last updated on 
 @US1094096
-@2018.PI03
 Feature: US1094096 - Approve Inactivated Entity
 
   @TC565619

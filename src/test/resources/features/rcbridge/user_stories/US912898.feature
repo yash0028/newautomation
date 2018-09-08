@@ -3,7 +3,6 @@
 @EXARI-11249
 @CLM_UAT
 @US912898
-@2018.PI03
 Feature: US912898 - Update Entity Characteristic Detail
 
   @TC565962

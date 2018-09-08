@@ -3,7 +3,6 @@
 @EXARI-11249
 @CLM_UAT
 @US858692
-@2018.PI03
 Feature: US858692 - Setup Entity Types
 
   @TC564971

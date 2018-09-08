@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11274
 @US1093316
-@2018.PI03
 Feature: US1093316 - Search Identifier
 
   @TC565829

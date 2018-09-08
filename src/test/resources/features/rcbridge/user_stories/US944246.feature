@@ -2,7 +2,6 @@
 @MVP
 @EXARI-11273
 @US944246
-@2018.PI03
 Feature: US944246 - Capture Entity Inactivation Time Lining History
 
   @TC565782

@@ -3,7 +3,6 @@
 @EXARI-11249
 @CLM_UAT
 @US929399
-@2018.PI03
 Feature: US929399 - Update Identifier Type
 
   @TC565615

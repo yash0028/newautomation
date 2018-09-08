@@ -1,6 +1,5 @@
 # Last updated on 
 @US1185985
-@2018.PI03
 Feature: US1185985 - Update Identifier Type
 
   @TC565314

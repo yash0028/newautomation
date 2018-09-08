@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1096151
-@2018.PI03
 Feature: US1096151 - Migrate BIC Entity Components
 
   @TC565543

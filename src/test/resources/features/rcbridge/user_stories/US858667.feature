@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11696
 @US858667
-@2018.PI03
 Feature: US858667 - Remove Entity Relationship
 
   @TC564583

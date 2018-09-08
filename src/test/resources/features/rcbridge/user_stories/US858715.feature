@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11274
 @US858715
-@2018.PI03
 Feature: US858715 - Perform Search by Provider ID
 
   @TC565084

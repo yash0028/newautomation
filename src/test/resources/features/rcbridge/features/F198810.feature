@@ -7,7 +7,6 @@ Feature: F198810 - Exari EM - Import Tax ID Verification Data
 
   @MVP
   @US1171452
-  @2018.PI03
   Scenario: US1171452 - Identify Matching Tax IDs
     Given I am the Entity Management Solution
     When a User uploads a file of validated Tax IDs
@@ -28,7 +27,6 @@ Feature: F198810 - Exari EM - Import Tax ID Verification Data
   @MVP
   @CLM_UAT
   @US1171480
-  @2018.PI03
   Scenario: US1171480 - Generate Error Log
     Given I am the Entity Management Solution
     When a Tax ID on the Tax ID Validation File was not found in the Entity Management Solution
@@ -39,7 +37,6 @@ Feature: F198810 - Exari EM - Import Tax ID Verification Data
   @MVP
   @CLM_UAT
   @US1171453
-  @2018.PI03
   Scenario: US1171453 - Update Date Validated Field
     Given I am the Entity Management Solution
     When a User uploads a Tax ID Validation File
@@ -48,7 +45,6 @@ Feature: F198810 - Exari EM - Import Tax ID Verification Data
   @MVP
   @CLM_UAT
   @US1171454
-  @2018.PI03
   Scenario: US1171454 - Update Validated Status Field
     Given I am the Entity Management Solution
     When a User uploads a Tax ID Validation File
@@ -57,7 +53,6 @@ Feature: F198810 - Exari EM - Import Tax ID Verification Data
   @MVP
   @CLM_UAT
   @US1171451
-  @2018.PI03
   Scenario: US1171451 - Upload Tax ID File
     Given I am a User with access to maintain Entity information
     When I want to validate Tax ID information for multiple Tax IDs
@@ -66,7 +61,6 @@ Feature: F198810 - Exari EM - Import Tax ID Verification Data
 
   @MVP
   @US1171457
-  @2018.PI03
   Scenario: US1171457 - Capture Time Lining History
     Given I am the Entity Management Solution
     When a User uploads a Tax ID Validation File

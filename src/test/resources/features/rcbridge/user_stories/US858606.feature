@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11273
 @US858606
-@2018.PI03
 Feature: US858606 - View Approval Time Lining History
 
   @TC565729

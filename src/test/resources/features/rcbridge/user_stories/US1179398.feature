@@ -1,6 +1,5 @@
 # Last updated on 
 @US1179398
-@2018.PI03
 Feature: US1179398 - Messenger Model IPA
 
   @TC564777

@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US922850
-@2018.PI03
 Feature: US922850 - Inactivate Entity Characteristic Detail
 
   @TC565624

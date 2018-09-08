@@ -9,7 +9,6 @@ Feature: F137679 - Exari EM - View Provider
   @EXARI-10529
   @CLM_UAT
   @US858730
-  @2018.PI03
   Scenario: US858730 - View Provider Detail
     Given I am a User with access to view and maintain Entity information
     When I am viewing a Provider in the Entity Management Solution
@@ -20,7 +19,6 @@ Feature: F137679 - Exari EM - View Provider
   @CLM_UAT
   @EXARI-10713
   @US1131278
-  @2018.PI03
   Scenario: US1131278 - View Contracts Associated to a Provider
     Given I am a User with access to view or modify Entity information
     When I view a Provider
@@ -31,7 +29,6 @@ Feature: F137679 - Exari EM - View Provider
   @EXARI-10529
   @CLM_UAT
   @US858729
-  @2018.PI03
   Scenario: US858729 - View Providers Associated to an Entity
     Given I am a User with access to view and maintain Entity information
     When I want to view Providers associated to an Entity

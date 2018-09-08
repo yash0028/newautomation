@@ -8,7 +8,6 @@ Feature: F137657 - Exari EM - Add Entity
   @MVP
   @CLM_UAT
   @US1185970
-  @2018.PI03
   Scenario: US1185970 - Select Relationship Type
     Given I am a User with access to maintain Entity information
     When I am creating an Entity
@@ -19,7 +18,6 @@ Feature: F137657 - Exari EM - Add Entity
   @CLM_UAT
   @EXARI-10726
   @US858591
-  @2018.PI03
   Scenario: US858591 - Add Entity Name
     Given I am a User with access to create Entities
     When I need to setup an Entity
@@ -27,7 +25,6 @@ Feature: F137657 - Exari EM - Add Entity
     #required field
 
   @US1185973
-  @2018.PI03
   Scenario: US1185973 - Select Characteristic Type
     Given I am a User with access to maintain Entity information
     When I am creating an Entity
@@ -36,7 +33,6 @@ Feature: F137657 - Exari EM - Add Entity
   @MVP
   @CLM_UAT
   @US1185971
-  @2018.PI03
   Scenario: US1185971 - Select Relationship Role
     Given I am a User with access to maintain Entity information
     When I am creating an Entity
@@ -45,7 +41,6 @@ Feature: F137657 - Exari EM - Add Entity
   @MVP
   @EXARI-11273
   @US858598
-  @2018.PI03
   Scenario: US858598 - Capture Entity Time Lining History - New Entity
     Given I am the Entity Management solution
     When A User creates an Entity
@@ -53,7 +48,6 @@ Feature: F137657 - Exari EM - Add Entity
     And the User who created the Entity
 
   @US1185963
-  @2018.PI03
   Scenario: US1185963 - Select Identifier Type
     Given I am a User with access to maintain Entity information
     When I am adding an Identifier to an Entity
@@ -64,7 +58,6 @@ Feature: F137657 - Exari EM - Add Entity
   @CLM_UAT
   @EXARI-10726
   @US1167901
-  @2018.PI03
   Scenario: US1167901 - Add Operating License Type
     Given I am a User with access to create Entities
     When I need to setup an Entity
@@ -76,7 +69,6 @@ Feature: F137657 - Exari EM - Add Entity
   @CLM_UAT
   @EXARI-10726
   @US1167899
-  @2018.PI03
   Scenario: US1167899 - Select Entity Type
     Given I am a User with access to create Entities
     When I need to setup an Entity
@@ -88,7 +80,6 @@ Feature: F137657 - Exari EM - Add Entity
   @CLM_UAT
   @EXARI-10726
   @US1167898
-  @2018.PI03
   Scenario: US1167898 - Add Alternate Name
     Given I am a User with access to create Entities
     When I need to setup an Entity
@@ -99,7 +90,6 @@ Feature: F137657 - Exari EM - Add Entity
   @EXARI-11249
   @CLM_UAT
   @US950778
-  @2018.PI03
   Scenario: US950778 - Generate Unique Entity ID
     Given I am the Entity Management Solution
     When A User sets up a new Entity
@@ -111,7 +101,6 @@ Feature: F137657 - Exari EM - Add Entity
   @CLM_UAT
   @EXARI-10726
   @US1167891
-  @2018.PI03
   Scenario: US1167891 - Select Identifier
     Given I am a User with access to create Entities
     When I need to setup an Entity

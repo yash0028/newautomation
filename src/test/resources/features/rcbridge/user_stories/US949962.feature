@@ -4,7 +4,6 @@
 @EXARI-11249
 @CLM_UAT
 @US949962
-@2018.PI03
 Feature: US949962 - Update Account Types
 
   @TC565978

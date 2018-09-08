@@ -9,7 +9,6 @@ Feature: F137661 - Exari EM - Create and Maintain Entity Characteristics
   @EXARI-11249
   @CLM_UAT
   @US912897
-  @2018.PI03
   Scenario: US912897 - Add Entity Characteristic Detail
     Given I am a User with access to maintain Entities
     When I want to add characteristic information to an Entity
@@ -18,7 +17,6 @@ Feature: F137661 - Exari EM - Create and Maintain Entity Characteristics
   @MVP
   @EXARI-11273
   @US858624
-  @2018.PI03
   Scenario: US858624 - Capture Entity Characteristic Time Lining History
     Given I am the Entity Management Solution
     When a User adds characteristic detail to an Entity
@@ -33,7 +31,6 @@ Feature: F137661 - Exari EM - Create and Maintain Entity Characteristics
   @EXARI-11249
   @CLM_UAT
   @US912898
-  @2018.PI03
   Scenario: US912898 - Update Entity Characteristic Detail
     Given I am a User with access to maintain Entities
     When I want to update characteristic information to an Entity

@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11530
 @US858720
-@2018.PI03
 Feature: US858720 - Return to Prior Search Results from Current Selection
 
   @TC564595

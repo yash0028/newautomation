@@ -3,7 +3,6 @@
 @EXARI-11267
 @CLM_UAT
 @US1089547
-@2018.PI03
 Feature: US1089547 - Inactivate Entity Identifier
 
   @TC565756

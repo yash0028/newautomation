@@ -3,7 +3,6 @@
 @EXARI-11267
 @CLM_UAT
 @US1089541
-@2018.PI03
 Feature: US1089541 - Inactivate Operating License Type
 
   @TC564969

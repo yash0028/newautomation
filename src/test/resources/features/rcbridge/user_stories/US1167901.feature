@@ -4,7 +4,6 @@
 @CLM_UAT
 @EXARI-10726
 @US1167901
-@2018.PI03
 Feature: US1167901 - Add Operating License Type
 
   @TC565207

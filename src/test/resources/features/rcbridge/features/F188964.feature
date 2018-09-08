@@ -9,7 +9,6 @@ Feature: F188964 - Exari EM - View Entity History
   @CLM_UAT
   @EXARI-11273
   @US927842
-  @2018.PI03
   Scenario: US927842 - View Provider to Entity Relationship Time Lining History
     Given I am a User with access to view and maintain Entity information
     When I want to view relationship time line history between a Provider and an Entity
@@ -22,7 +21,6 @@ Feature: F188964 - Exari EM - View Entity History
   @CLM_UAT
   @EXARI-11273
   @US858611
-  @2018.PI03
   Scenario: US858611 - View Importation Time Lining History
     Given I am a User with access to view and maintain Entity information
     When I want to view Entity import history
@@ -33,7 +31,6 @@ Feature: F188964 - Exari EM - View Entity History
   @CLM_UAT
   @EXARI-11273
   @US858699
-  @2018.PI03
   Scenario: US858699 - View Characteristics Time Lining History
     Given I am a User with access to view and maintain Entity information
     When I want to view time lining history for Entity Characteristics
@@ -46,7 +43,6 @@ Feature: F188964 - Exari EM - View Entity History
   @CLM_UAT
   @EXARI-11273
   @US858600
-  @2018.PI03
   Scenario: US858600 - View Entity Time Lining History
     Given I am a User with access to view and maintain Entity information
     When I want to view the history of events and modifications for an Entity
@@ -60,7 +56,6 @@ Feature: F188964 - Exari EM - View Entity History
   @CLM_UAT
   @EXARI-11273
   @US922855
-  @2018.PI03
   Scenario: US922855 - View Alternate Name/Alias Time Lining History
     Given I am a User with access to view and maintain Entity information
     When I want to view the time lining history of Alternate Name/Alias/DBA changes on an Entity
@@ -73,7 +68,6 @@ Feature: F188964 - Exari EM - View Entity History
   @CLM_UAT
   @EXARI-11273
   @US858619
-  @2018.PI03
   Scenario: US858619 - View Identifier Time Lining History
     Given I am a User with access to view and maintain Entity information
     When I want to view history of identifier additions to an Entity
@@ -87,7 +81,6 @@ Feature: F188964 - Exari EM - View Entity History
   @CLM_UAT
   @EXARI-11273
   @US858632
-  @2018.PI03
   Scenario: US858632 - View Supplemental Detail Time Lining History
     Given I am a User with access to view and maintain Entity information
     When I want to audit supplemental detail associated with an Entity
@@ -101,7 +94,6 @@ Feature: F188964 - Exari EM - View Entity History
   @CLM_UAT
   @EXARI-11273
   @US858670
-  @2018.PI03
   Scenario: US858670 - View Relationship Time Lining History
     Given I am a User with access to view and maintain Entity information
     When I want to view relationship time lining history between two Entities

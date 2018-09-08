@@ -1,6 +1,5 @@
 # Last updated on 
 @US1185991
-@2018.PI03
 Feature: US1185991 - Update Account Type
 
   @TC565754

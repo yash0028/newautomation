@@ -3,7 +3,6 @@
 @EXARI-10529
 @CLM_UAT
 @US1120329
-@2018.PI03
 Feature: US1120329 - View Entity Structure by Relationship Role
 
   @TC565894

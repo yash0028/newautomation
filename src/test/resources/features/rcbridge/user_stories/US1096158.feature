@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1096158
-@2018.PI03
 Feature: US1096158 - Establish TIN Aggregation Maintenance
 
   @TC565568

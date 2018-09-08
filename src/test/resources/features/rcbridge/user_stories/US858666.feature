@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11696
 @US858666
-@2018.PI03
 Feature: US858666 - Update Entity Relationship
 
   @TC564502
