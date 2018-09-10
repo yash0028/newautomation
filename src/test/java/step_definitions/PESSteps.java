@@ -38,39 +38,6 @@ public class PESSteps {
 
 //F137899
 
-    //US861016
-
-    @Given("^the Exari Interview is built with the search parameters \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
-    public void theExariInterviewIsBuiltWithTheSearchParameters(String mpin, String tin, String npi, String fn, String ln, String city, String zip, String state) throws Throwable {
-
-        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(commonSearchParams.toString());
-
-    }
-
-    @When("^the user completes the search parameters for Demographic data needs$")
-    public void theUserCompletesTheSearchParametersForDemographicDataNeeds() throws Throwable {
-
-        response = request.post(COUNTER_PARTIES_ENDPOINT);
-
-    }
-
-    @Then("^the API should use the parameters to obtain the Demographic data from the source system \\(PES\\)$")
-    public void theAPIShouldUseTheParametersToObtainTheDemographicDataFromTheSourceSystemPES() throws Throwable {
-
-        ResponseBody raResponse = response.getBody();
-        boolean result = true;
-        String[] matches = new String[] {"mpin", "tin", "address"};
-
-        //System.out.println(raResponse.asString());
-
-        for(String field: matches){
-            if(!raResponse.asString().toLowerCase().contains(field)) { result = false; }
-        }
-
-        assertTrue(result);
-
-    }
-
     //US1089376
 
     @Given("^many API's Exist$")
