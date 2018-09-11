@@ -32,50 +32,6 @@ public class ContractQuerySteps {
     private String contractId;
     private JsonObject result;
 
-//    private static final String ECM_MASTER =
-//            "businessEventDetails\n" +
-//            "contractDetails.capture\n" +
-//            "contractDetails.contractFolderName\n" +
-//            "contractDetails.contractName\n" +
-//            "contractDetails.contractOwner\n" +
-//            "contractDetails.contractStructure\n" +
-//            "contractDetails.contractTitle\n" +
-//            "contractDetails.storageNode.properties.contractValueCommitted\n" +
-//            "contractDetails.created\n" +
-//            "contractDetails.createInParentFolder\n" +
-//            "contractDetails.dateEffective\n" +
-//            "contractDetails.dateExpiry\n" +
-//            "contractDetails.dealID\n" +
-//            "contractDetails.dealName\n" +
-//            "contractDetails.externalID\n" +
-//            "contractDetails.hasDraft\n" +
-//            "contractDetails.masterAgreement\n" +
-//            "contractDetails.modified\n" +
-//            "contractDetails.parentContractID\n" +
-//            "contractDetails.status\n" +
-//            "contractDetails.storageNode\n" +
-//            "contractDetails.storageNode.properties.counterpartyLegalName\n" +
-//            "contractDetails.storageNode.properties.mpin_tin\n" +
-//            "contractDetails.storageNode.properties.ourLegalName\n" +
-//            "contractDetails.storageNode.properties.uhg_CounterpartyAddressCity\n" +
-//            "contractDetails.storageNode.properties.uhg_CounterpartyAddressStreet\n" +
-//            "contractDetails.storageNode.properties.uhg_CounterpartyAddressZip\n" +
-//            "contractDetails.storageNode.properties.uhg_Market_Number_DMCQ\n" +
-//            "contractDetails.superStatus\n" +
-//            "contractDetails.workflowInstances\n" +
-//            "contractID\n" +
-//            "contractOrders\n" +
-//            "contractTransactions\n" +
-//            "contractTransactions.storageNode\n" +
-//            "docGenID\n" +
-//            "providerRoster\n" +
-//            "siteInfo\n" +
-//            "supportingDocuments\n" +
-//            "templateDocument\n" +
-//            "templateDocument.storageNode\n" +
-//            "type\n";
-////            "workflowInstances\n";
-
     //    private JsonObject payload;
     private RequestSpecification request;
     private Response response;

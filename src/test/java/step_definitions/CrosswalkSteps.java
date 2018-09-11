@@ -1,53 +1,16 @@
 package step_definitions;
 
-import java.util.logging.Logger;
-
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import org.openqa.selenium.By;
-import pages.CrosswalkPage;
-import utils.SeleniumHelper;
-import org.openqa.selenium.support.ui.Select;
-import org.junit.Assert;
-
-import com.google.gson.JsonObject;
 import cucumber.api.PendingException;
-import cucumber.api.java.en.*;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
+import cucumber.api.java.en.Given;
+import pages.CrosswalkPage;
 
-import static io.restassured.RestAssured.given;
+import java.util.logging.Logger;
 
 public class CrosswalkSteps {
 
+
     private static Logger logger = Logger.getLogger("CrosswalkSteps");
     private CrosswalkPage crosswalkPage = null;
-
-    public static final String ENDPOINT = "";
-    public static final String RESOURCE_PRODUCTCODES = "/productcodes";
-
-    private RequestSpecification request;
-    private Response response;
-
-    @When("^the product codes are called from the crosswalk tables$")
-    public void getProductCodes() throws Throwable {
-        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(getPayload());
-        this.response = request.post(RESOURCE_PRODUCTCODES);
-        Assert.assertEquals(200, response.getStatusCode());
-    }
-
-    @Then("^the correct product codes are returned\\.$")
-    public void theCorrectProductCodesAreReturned() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    private JsonObject getPayload() {
-        JsonObject jsonObject = new JsonObject();
-        //TODO
-        return jsonObject;
-    }
 
     @Given("^the application screen is ready$")
     public void navigateToContractAdminUI() {

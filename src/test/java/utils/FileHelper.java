@@ -1,8 +1,12 @@
 package utils;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.zip.ZipFile;
 
 /**
@@ -49,6 +53,24 @@ public class FileHelper {
 
         //Return true if the zip file contains at least one file
         return size > 0;
+    }
+
+    public JsonElement getJsonFile(String fileName) {
+        JsonParser parser = new JsonParser();
+        Reader reader;
+        try{
+//            String temp = getClass().getResource(fileName).getPath();
+//            System.out.println(temp);
+            reader = new InputStreamReader(getClass().getResourceAsStream(fileName), "UTF-8");
+            return parser.parse(reader);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String getFileContents(String fileName) {
+        return getFileLines(fileName).stream().collect(Collectors.joining("\n"));
     }
 
     public List<String> getFileLines(String fileName) {
