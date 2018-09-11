@@ -1,7 +1,7 @@
 # Last updated on 
 @US1070732
-@2018.PI03
-Feature: US1070732 - Exari>COSMOS Term an individual Facility Panel - from an existing contract - PIC DIV?? Outstanding questions to COSMOS
+@2018.PI04
+Feature: US1070732 - Exari>COSMOS Term an individual Facility Panel - existing contract
 
   @TC565216
   @Automated

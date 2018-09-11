@@ -1,7 +1,7 @@
 # Last updated on 
 @US1070428
-@2018.PI03
-Feature: US1070428 - Exari>COSMOS Term/Cancel a Facility Panel - PIC DIV ?? Outstanding questions email sent 5/17
+@2018.PI04
+Feature: US1070428 - Exari>COSMOS Term/Cancel a Facility Panel
 
   @TC565745
   @Automated
