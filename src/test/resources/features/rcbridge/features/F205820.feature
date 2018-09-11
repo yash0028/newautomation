@@ -49,14 +49,14 @@ Feature: F205820 - Contract Meta Data (CMD) App4 - Part 1
   Scenario: US1301634::0 - CMD Dashboard buttons (Populate data)
     Given I am on the CMD dashboard
     When There are no completed contract requests
-    Then On the Completed button display 0 (the number zero) completed
+    Then On the Completed button display 0 completed
 
   @US1301634
   @2018.PI03
   Scenario: US1301634::2 - CMD Dashboard buttons (Populate data)
     Given I am on the CMD dashboard
     When There are no In Progress transactions
-    Then On the In Progress button display 0 (the number zero) In Progress
+    Then On the In Progress button display 0 In Progress
 
   @US1301634
   @2018.PI03
@@ -71,7 +71,7 @@ Feature: F205820 - Contract Meta Data (CMD) App4 - Part 1
     Given I am on the CMD dashboard
     When There are no Action Required Required transactions
     And There are no PCP reassignment transactions
-    Then On the Action Required Button button display 0 (the number zero) In Progress
+    Then On the Action Required Button button display 0 In Progress
 
   @US1301634
   @2018.PI03
@@ -86,7 +86,7 @@ Feature: F205820 - Contract Meta Data (CMD) App4 - Part 1
   Scenario: US1301634::6 - CMD Dashboard buttons (Populate data)
     Given I am on the CMD dashboard
     When There are no Error transactions
-    Then On the Failed button display 0 (the number zero) Errors
+    Then On the Failed button display 0 Errors
 
   @US1301634
   @2018.PI03

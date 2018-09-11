@@ -25,9 +25,15 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
 
   @US1285441
   @2018.PI03
-  Scenario: US1285441 - [Continued]Identify new Product Codes
+  Scenario: US1285441::0 - [Continued]Identify new Product Codes
     When the product codes are called from the crosswalk tables
     Then the correct product codes are returned.
+
+  @US1285441
+  @2018.PI03
+  Scenario: US1285441::1 - [Continued]Identify new Product Codes
+    When an invalid contract details are called from the crosswalk tables
+    Then the service returns an error
 
   @US1207408
   @2018.PI03

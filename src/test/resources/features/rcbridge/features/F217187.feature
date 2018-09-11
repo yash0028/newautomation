@@ -19,6 +19,15 @@ Feature: F217187 - Contract Master Data (CMD) App2 User Interface and workflow f
     When the developer reads the SID for the CMD Feature
     Then they will understand the development needed for the CMD feature.
 
+  @US1278488
+  @2018.PI03
+  Scenario: US1278488 - CMD- Action Required Page Design, layout, and fields
+    Given I am on the CMD dashboard
+    And I have clicked on Action Required button on the CMD dashboard
+    When I land on the CMD Action required page
+    Then I can see the Contract Installation Error as page heading
+    And I can see the following data header information on the page
+
   @US1290222
   @2018.PI03
   Scenario: US1290222::0 - CMD Integration with Exari - SSO (Reference Table Admin)

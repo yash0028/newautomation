@@ -3,10 +3,10 @@
 @2018.PI03
 Feature: US1301716 - CMD Dashboard Navigation Bar
 
-  @TC564620
+  @TC574134
   @Automated
   @Functional
-  Scenario: TC564620 - [RL0]
+  Scenario: TC574134 - [RL0]
     Given I have entered the CMD dashboard URL
     And I am recognized as a contract administrator with access to CMD
     When The dashboard page loads
