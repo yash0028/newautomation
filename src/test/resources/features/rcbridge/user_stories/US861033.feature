@@ -8,7 +8,7 @@ Feature: US861033 - [Continued][Continued] Integrate CLM with Examiner (Continue
   @TC564591
   @Automated
   @Functional
-  Scenario: TC564591 - [RL0]
+  Scenario: TC564591 - [RL0] Test case
     Given A contract inquiry request from PIC or Examiner
     When A REST Service call is made
     Then The contract data is sent back to PIC or Examiner

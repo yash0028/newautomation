@@ -6,7 +6,7 @@ Feature: US1309276 - Debug OAuth issue with external library
   @TC569177
   @Manual
   @Functional
-  Scenario: TC569177 - [RL0]
+  Scenario: TC569177 - [RL0] Validate Fix of OAuth issue
     Given an issue with OAuth in the external library
     When using the external data queries
     Then the connection is successful
