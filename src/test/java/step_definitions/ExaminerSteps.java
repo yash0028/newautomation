@@ -1,8 +1,13 @@
 package step_definitions;
 
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Logger;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -12,11 +17,7 @@ import io.restassured.http.ContentType;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.openqa.selenium.By;
-import pages.CrosswalkPage;
 import utils.RestHelper;
-import utils.SeleniumHelper;
-import org.openqa.selenium.support.ui.Select;
 import org.junit.Assert;
 
 public class ExaminerSteps {
@@ -33,7 +34,7 @@ public class ExaminerSteps {
     }
 
     @Given("^A contract request from PIC or Examiner$")
-    public void buildRequest(){
+    public void buildRequest() {
         buildValidRequest();
     }
 
@@ -42,35 +43,47 @@ public class ExaminerSteps {
         response = request.param("contractNumbers", "124319").get(RESOURCE);
     }
 
-    @When("^A REST Service call is made with invalid data$")
-    public void getInValidResponse() {
-        response = request.param("contractId", "124319").get(RESOURCE);
+    @When("^A REST Service call is made with invalid data \"([^\"]*)\"$")
+    public void getInValidResponse(String inputData) {
+        response = request.param("contractId", inputData).get(RESOURCE);
     }
 
-    @Then("^The service will return an error$")
-    public void validateInValidReponse() {
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
-        Assert.assertEquals("Error code is 400", 400, response.getStatusCode());
-        Assert.assertEquals("Required error message is displayed : Required String[] parameter 'contractNumbers' is not present :", "Required String[] parameter 'contractNumbers' is not present", result.get("message").getAsString());
+    @Then("^The service will return an error \"([^\"]*)\"$")
+    public void validateInValidReponse(String responseCode) {
+        Assert.assertEquals("Wrong Error code displayed", responseCode, RestHelper.getInstance().parseJsonResponse(response).get("responseCode").getAsString());
     }
 
     @Then("^The contract data is sent back to PIC or Examiner$")
-    public void validateValidResponse(){
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
-        //List<String> keys
-
+    public void validateValidResponse() {
+        Set<String> setOfRequiredKeys = new HashSet<>();
+        setOfRequiredKeys.addAll(Arrays.asList(new String[]{"lob", "contractNumber", "legalEntityName", "agreementEffDate", "agreementCancelDate", "legalDocumentStatus", "associatedAgreements"}));
+        Set<String> setOfAssociatedRequiredKeys = new HashSet<>();
+        setOfAssociatedRequiredKeys.addAll(Arrays.asList(new String[]{"legalDocumentStatus", "associatedAgreementLegalDocId", "associatedAgreementEffDate", "associatedAgreementEndDate", "associatedLegalEntityName", "associatedRegionNumber", "associatedMarketNumber"}));
+        JsonArray responseArray = RestHelper.getInstance().parseJsonResponse(response).get("responseData").getAsJsonArray();
+        Set<String> setOfKeys = null;
+        for (JsonElement element : responseArray) {
+            setOfKeys = ((JsonObject) element).keySet();
+            Assert.assertEquals("All keys related to contract are not available in the response", true, setOfKeys.containsAll(setOfRequiredKeys));
+            JsonArray associatedAgreements = ((JsonObject) element).get("associatedAgreements").getAsJsonArray();
+            if (associatedAgreements.size() > 0) {
+                Set<String> setOfAssociatedKeys = null;
+                for (JsonElement ele : associatedAgreements) {
+                    setOfAssociatedKeys = ((JsonObject) ele).keySet();
+                    Assert.assertEquals("All keys related to associated agreements are not available in the response", true, setOfAssociatedKeys.containsAll(setOfAssociatedRequiredKeys));
+                }
+            }
+        }
     }
 
     @When("^The REST service is unavailable$")
-    public void verifyServiceUnavailable(){
+    public void verifyServiceUnavailable() {
         //need to add code to automatically down the service and up the service, post this scenario execution
         response = request.request(Method.GET);
         Assert.assertEquals("Rest Service needs to be down but it is available (up and running)", 503, response.getStatusCode());
     }
 
     @Then("^An server error will be returned$")
-    public void verifyServerError(){
+    public void verifyServerError() {
         Assert.assertEquals("Server doesn't returned 503 error code", 503, response.statusCode());
     }
 }
-
