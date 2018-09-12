@@ -1,5 +1,6 @@
 package utils;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import io.restassured.response.Response;
@@ -45,9 +46,20 @@ public class RestHelper {
         return parseJsonString(responseString);
     }
 
+    public JsonElement parseJsonElementResponse(Response response) {
+        String responseString = response.asString().trim();
+        return parseJsonElementString(responseString);
+    }
+
     public JsonObject parseJsonString(String string) {
         JsonParser parser = new JsonParser();
 
         return parser.parse(string).getAsJsonObject();
+    }
+
+    public JsonElement parseJsonElementString(String string) {
+        JsonParser parser = new JsonParser();
+
+        return parser.parse(string);
     }
 }
