@@ -85,6 +85,19 @@ Feature: F171571 - Provide contract details to Examiner
   @Siraj
   @US861033
   @2018.PI03
+  Scenario Outline: US861033::1 - [Continued][Continued] Integrate CLM with Examiner (Continued)
+    Given A contract inquiry request from PIC or Examiner
+    When A REST Service call is made with invalid data <inputData>
+    Then The service will return an error <responseCode>
+    Examples:
+      | inputData    | responseCode |
+      | "124319,12389" | "1"            |
+      | "123,456,789" | "2"           |
+
+  @MVP
+  @Siraj
+  @US861033
+  @2018.PI03
   Scenario: US861033::2 - [Continued][Continued] Integrate CLM with Examiner (Continued)
     Given A contract request from PIC or Examiner
     When The REST service is unavailable
