@@ -45,12 +45,12 @@ public class ExaminerSteps {
 
     @When("^A REST Service call is made with invalid data \"([^\"]*)\"$")
     public void getInValidResponse(String inputData) {
-        response = request.param("contractId", inputData).get(RESOURCE);
+        response = request.param("contractNumbers", inputData).get(RESOURCE);
     }
 
     @Then("^The service will return an error \"([^\"]*)\"$")
     public void validateInValidReponse(String responseCode) {
-        Assert.assertEquals("Wrong Error code displayed", responseCode, RestHelper.getInstance().parseJsonResponse(response).get("responseCode").getAsString());
+        Assert.assertEquals("Wrong Error code displayed", Integer.valueOf(responseCode).longValue(), RestHelper.getInstance().parseJsonResponse(response).get("responseCode").getAsLong());
     }
 
     @Then("^The contract data is sent back to PIC or Examiner$")
