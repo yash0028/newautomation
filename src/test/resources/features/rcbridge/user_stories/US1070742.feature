@@ -1,7 +1,7 @@
 # Last updated on 
 @US1070742
-@2018.PI03
-Feature: US1070742 - COSMOS>Exari Facility Acknowledgment Process
+@2018.PI04
+Feature: US1070742 - COSMOS Facility Acknowledgment Process
 
   @TC564965
   @Automated

@@ -23,6 +23,7 @@ Feature: F183530 - Downstream Microservice Exari>COSMOS - (Physician Payload Dir
     When the PPC Contract loads to COSMOS for CPS
     Then the CPS Contract will fail to load to COSMOS
 
+  @Torey
   @US1064673
   @2018.PI03
   Scenario: US1064673 - [Continued]Exari>COSMOS Physician Panel Add to Existing Provider Panel Record

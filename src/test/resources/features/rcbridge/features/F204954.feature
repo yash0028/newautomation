@@ -26,6 +26,7 @@ Feature: F204954 - Integration Services App2 - NDB UNET/COSMOS Contract Master A
     When NDB receives the Search parameter data
     Then the spike analysis is completed
 
+  @Amrutha
   @MVP+1
   @US1204297
   @2018.PI03

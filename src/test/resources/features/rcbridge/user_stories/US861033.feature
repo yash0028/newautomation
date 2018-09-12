@@ -5,18 +5,10 @@
 @2018.PI03
 Feature: US861033 - [Continued][Continued] Integrate CLM with Examiner (Continued)
 
-  @TC564592
-  @Automated
-  @Functional
-  Scenario: TC564592 - [RL1]
-    Given A contract inquiry request from PIC or Examiner
-    When A REST Service call is made with invalid data
-    Then The service will return an error
-
   @TC564591
   @Automated
   @Functional
-  Scenario: TC564591 - [RL0]
+  Scenario: TC564591 - [RL0] Test case
     Given A contract inquiry request from PIC or Examiner
     When A REST Service call is made
     Then The contract data is sent back to PIC or Examiner

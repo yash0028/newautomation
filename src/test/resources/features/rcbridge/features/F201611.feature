@@ -7,7 +7,7 @@
 @CLM_Exari
 @Parity
 @F201611
-Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (Demographic) - Optum
+Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (Demographic) - Optumhese
 
   @PES
   @Alex_M

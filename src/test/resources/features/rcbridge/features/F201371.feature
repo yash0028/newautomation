@@ -25,9 +25,15 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
 
   @US1285441
   @2018.PI03
-  Scenario: US1285441 - [Continued]Identify new Product Codes
+  Scenario: US1285441::0 - [Continued]Identify new Product Codes
     When the product codes are called from the crosswalk tables
     Then the correct product codes are returned.
+
+  @US1285441
+  @2018.PI03
+  Scenario: US1285441::1 - [Continued]Identify new Product Codes
+    When an invalid contract details are called from the crosswalk tables
+    Then the service returns an error
 
   @US1207408
   @2018.PI03
@@ -264,12 +270,13 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
   @US1185585
   @2018.PI03
   Scenario Outline: US1185585::0 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
+    # Passing in a single valid product description
     Given a product description to product code crosswalk exists
-    And using contract description from the corresponding "<contractDescriptionId>"
+    And using product description from the corresponding "<productDescriptionId>"
     When exchanging information about the products included or excluded from an Exari contract
     Then the crosswalk provides the product code identifier of "<productCodeList>"
     Examples:
-      | contractDescriptionId | productCodeList       |
+      | productDescriptionId | productCodeList      |
       | 2000290  | S0 S1 S2 |
       | 2000300              | C0 C1 C2 P3 S0 S1 S2 |
       | 2000430 | DA      |
@@ -280,9 +287,47 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
   @Priority
   @US1185585
   @2018.PI03
-  Scenario: US1185585::1 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
-    #Fail case
-    Given a product description to product code crosswalk does not exist
+  Scenario Outline: US1185585::1 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
+    # Passing in multiple valid product descriptions
+    Given a product description to product code crosswalk exists
+    And using product descriptions from the corresponding "<productDescriptionId1>" and "<productDescriptionId2>"
+    When exchanging information about the products included or excluded from an Exari contract
+    Then the crosswalk provides the product code identifiers of "<productCodeList1>" and "<productCodeList2>"
+    Examples:
+      | productDescriptionId1 | productCodeList1      | productDescriptionId2 | productCodeList2      |
+      | 2000290              | S0 S1 S2             | 2000300              | C0 C1 C2 P3 S0 S1 S2 |
+      | 2000430 | DA      | 2000500 | 009 531 |
+
+  @MVP
+  @Amrutha
+  @Priority
+  @US1185585
+  @2018.PI03
+  Scenario: US1185585::2 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
+    # Passing in a single invalid product description
+    Given a product description that does not exist
+    When exchanging information about the products included or excluded from an Exari contract
+    Then the crosswalk returns an error
+
+  @MVP
+  @Amrutha
+  @Priority
+  @US1185585
+  @2018.PI03
+  Scenario: US1185585::3 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
+    # Passing in one valid and one invalid product description
+    Given a product description from the corresponding "2000290" and an invalid product description
+    When exchanging information about the products included or excluded from an Exari contract
+    Then the crosswalk returns an error
+
+  @MVP
+  @Amrutha
+  @Priority
+  @US1185585
+  @2018.PI03
+  Scenario: US1185585::4 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
+    # Passing in multiple invalid product descriptions
+    Given multiple product descriptions that do not exist
     When exchanging information about the products included or excluded from an Exari contract
     Then the crosswalk returns an error
 
