@@ -39,7 +39,7 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
   Scenario: US1253705::1 - Create Appendix 1 Search Demographics API
     #Bad Path
     Given a user wants to populate appendix 1 with addresses
-    When a "tin" of "abcd12345" is passed
+    When a "tin" of "abcd12345" is passed to appendix 1
     Then the user receives a bad input error message
 
   @US1311485
