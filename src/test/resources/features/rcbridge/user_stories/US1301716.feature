@@ -10,5 +10,5 @@ Feature: US1301716 - CMD Dashboard Navigation Bar
     Given I have entered the CMD dashboard URL
     And I am recognized as a contract administrator with access to CMD
     When The dashboard page loads
-    Then I can see the following as a heading on the CMD page "Contract Metadata, Reference Data, PCP Reassignment, Administration, FAQ, Help"
+    Then I can see the following as a heading on the CMD page "Contract Metadata, Current Transactions, Reference Data, User Input Queue, PCP Reassign, FAQ, Administrative, Help"
 

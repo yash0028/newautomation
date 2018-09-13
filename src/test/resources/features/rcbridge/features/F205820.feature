@@ -12,7 +12,7 @@ Feature: F205820 - Contract Meta Data (CMD) App4 - Part 1
     Given I have entered the CMD dashboard URL
     And I am recognized as a contract administrator with access to CMD
     When The dashboard page loads
-    Then I can see the following as a heading on the CMD page "Contract Metadata, Reference Data, PCP Reassignment, Administration, FAQ, Help"
+    Then I can see the following as a heading on the CMD page "Contract Metadata, Current Transactions, Reference Data, User Input Queue, PCP Reassign, FAQ, Administrative, Help"
 
   @US1301613
   @2018.PI03
@@ -50,6 +50,13 @@ Feature: F205820 - Contract Meta Data (CMD) App4 - Part 1
     Given I am on the CMD dashboard
     When There are no completed contract requests
     Then On the Completed button display 0 completed
+
+  @US1301634
+  @2018.PI03
+  Scenario: US1301634::1 - CMD Dashboard buttons (Populate data)
+    Given I am on the CMD dashboard
+    When There are completed contracts
+    Then On the Completed button display the number of completed requests returned from the search
 
   @US1301634
   @2018.PI03
