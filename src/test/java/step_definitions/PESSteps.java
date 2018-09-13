@@ -23,6 +23,8 @@ public class PESSteps {
     private static final String BASE_URI = "http://demographics-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String COUNTER_PARTIES_ENDPOINT = "/v1.0/counterparties/search";
     private static final String ROSTER_ENDPOINT = "/v1.0/roster/search";
+    private static final String LOCATIONS_ENDPOINT = "/v1.0/locations/search";
+
     private RequestSpecification request;
     private Response response;
     private JsonObject commonSearchParams;
@@ -330,8 +332,8 @@ public class PESSteps {
         // noop - assuming true
     }
 
-    @When("^a \"([^\"]*)\" of \"([^\"]*)\" is passed$")
-    public void aOfIsPassed(String param, String value) throws Throwable {
+    @When("^a \"([^\"]*)\" of \"([^\"]*)\" is passed to (roster|appendix 1)$")
+    public void aOfIsPassed(String param, String value, String searchType) throws Throwable {
         // Create the request JSON
         JsonObject requestParams = new JsonObject();
         requestParams.addProperty(param, value);
@@ -339,7 +341,20 @@ public class PESSteps {
         // Create the request and give it the JSON params
         request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestParams.toString());
 
-        // Get the response from the roster endpoint (roster and appendix 1 share the same endpoint)5
-        response = request.post(ROSTER_ENDPOINT);
+        // Get the response from the roster endpoint (roster and appendix 1 share the same endpoint)
+        if(searchType.equalsIgnoreCase("appendix 1")){
+            response = request.post(LOCATIONS_ENDPOINT);
+        }
+        else{
+            response = request.post(ROSTER_ENDPOINT);
+        }
+
+    }
+
+    //US1311485
+
+    @Given("^a user wants to do a search for Roster$")
+    public void aUserWantsToDoASearchForRoster() throws Throwable {
+        // noop - assuming true
     }
 }
