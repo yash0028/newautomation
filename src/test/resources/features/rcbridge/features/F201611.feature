@@ -24,16 +24,13 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
   Scenario: US1253705::0 - Create Appendix 1 Search Demographics API
     #Happy Path
     Given a user wants to populate appendix 1 with addresses
-    When a "tin" of "760027557" is passed
+    When a "tin" of "760027557" is passed to appendix 1
     Then PES returns the following information:
       | addressLine1 |
       | addressType |
       | city |
       | state |
       | zip |
-      | phoneNumbers |
-      | tin |
-      | npi |
 
   @Andrew_B
   @PES
@@ -44,6 +41,46 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
     Given a user wants to populate appendix 1 with addresses
     When a "tin" of "abcd12345" is passed
     Then the user receives a bad input error message
+
+  @US1311485
+  @2018.PI03
+  Scenario: US1311485::0 - PES Roster Call -Change Output Results
+    # For Physician
+    Given a user wants to do a search for Roster
+    When a "tin" of "760027557" is passed to roster
+    Then PES returns the following information:
+      | mpin |
+      | npi |
+      | firstName |
+      | middleName |
+      | lastName |
+      | providerDegree |
+      | organization |
+      | code |
+      | description |
+      | providerTypeCode |
+    # Note: "code" and "description" are for specialty
+
+  @US1311485
+  @2018.PI03
+  Scenario: US1311485::1 - PES Roster Call -Change Output Results
+    # For Facility
+    Given a user wants to do a search for Roster
+    When a "mpin" of "6177192" is passed to roster
+    Then PES returns the following information:
+      | mpin |
+      | npi |
+      | firstName |
+      | middleName |
+      | lastName |
+      | providerDegree |
+      | organization |
+      | organizationalType |
+      | organizationalTypeDescription |
+      | code |
+      | description |
+      | providerTypeCode |
+    # Note: "code" and "description" are for specialty
 
   @US1210131
   @2018.PI03

@@ -20,14 +20,11 @@ Feature: US1253705 - Create Appendix 1 Search Demographics API
   Scenario: TC543869 - [RL0] Happy Path Appendix 1 Validation
     #Happy Path
     Given a user wants to populate appendix 1 with addresses
-    When a "tin" of "760027557" is passed
+    When a "tin" of "760027557" is passed to appendix 1
     Then PES returns the following information:
       | addressLine1 |
       | addressType |
       | city |
       | state |
       | zip |
-      | phoneNumbers |
-      | tin |
-      | npi |
 
