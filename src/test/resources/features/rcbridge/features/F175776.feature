@@ -9,8 +9,16 @@ Feature: F175776 - Exari Microservice Establish Integration of CLM with Facility
   @MSPS
   @US1295290
   @2018.PI03
-  Scenario: US1295290 - Allow user to specify version number
+  Scenario: US1295290::0 - Allow user to specify version number
     Given a user is requesting a professional fee schedule
+    When they pass a version number
+    Then that specific version fee schedule is returned
+
+  @MSPS
+  @US1295290
+  @2018.PI03
+  Scenario: US1295290::1 - Allow user to specify version number
+    Given a user is requesting a facility fee schedule
     When they pass a version number
     Then that specific version fee schedule is returned
 

@@ -4,7 +4,7 @@
 Feature: US1311485 - PES Roster Call -Change Output Results
 
   @TC579704
-  @Manual
+  @Automated
   @Functional
   Scenario: TC579704 - [RL1]
     # For Facility
