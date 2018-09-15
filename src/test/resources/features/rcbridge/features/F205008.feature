@@ -3,72 +3,6 @@
 Feature: F205008 - Placeholder for future features
 
   @MVP+1
-  @US1211353
-  @2018.PI03
-  Scenario: US1211353::0 - Identify Product or Product Group Network
-    Given an product code has been identified from the product crosswalk
-    When the product requires a product network code to identify a contract master
-    Then there is a means to determine when this requirement applies
-
-  @MVP+1
-  @US1211353
-  @2018.PI03
-  Scenario: US1211353::1 - Identify Product or Product Group Network
-    Given a product requires a product network code to identify a contract master
-    When there is a means to determine when this requirement applies
-    Then there is information available about the method or schema to identify the network
-    And the identification code or schema is used
-
-  @MVP+1
-  @US1211353
-  @2018.PI03
-  Scenario: US1211353::2 - Identify Product or Product Group Network
-    Given an product code has been identified from the product crosswalk
-    When the product does not require a product network code be used in order to identify a contract master
-    Then there is a means to determine when this requirement does not apply
-
-  @MVP+1
-  @US1211188
-  @2018.PI03
-  Scenario: US1211188::0 - Identify Fee Schedule
-    Given an Exari contract record exists
-    When the contract record has a fee schedule assigned
-    Then the fee schedule number from the contract record is used
-
-  @MVP+1
-  @US1211188
-  @2018.PI03
-  Scenario: US1211188::1 - Identify Fee Schedule
-    Given an Exari contract record exists
-    When the contract record does not have a fee schedule assigned
-    Then an error message is generated and returned to the user
-
-  @MVP+1
-  @US1209973
-  @2018.PI03
-  Scenario: US1209973 - NDB Contract Master Lookup API event trigger
-    Given the Exari / CLM>NDB contract master Lookup API payload data is correct
-    When NDB receives the Search parameter data
-    Then NDB will search and return back the valid contract master data for the search parameters requested.
-
-  @MVP+1
-  @US1211054
-  @2018.PI03
-  Scenario: US1211054::0 - Identify contract Market Number
-    Given an Exari contract record exists
-    When the contract record has a market number assigned
-    Then the market number from the contract record is used
-
-  @MVP+1
-  @US1211054
-  @2018.PI03
-  Scenario: US1211054::1 - Identify contract Market Number
-    Given an Exari contract record exists
-    When the contract record does not have a market number assigned
-    Then the zip code of the counter party provider record primary service location is used
-    And used to determine market number via NDB zip to market number table crosswalk
-
-  @MVP+1
   @US1211464
   @2018.PI03
   Scenario: US1211464::0 - Identify contract provider Market Number
@@ -149,4 +83,70 @@ Feature: F205008 - Placeholder for future features
     Given an Exari contract record exists
     When the contract includes Healthcare Providers which bill on CMS-1500 claim forms
     Then the contract meets the conditions to use contract master logic
+
+  @MVP+1
+  @US1211188
+  @2018.PI03
+  Scenario: US1211188::0 - Identify Fee Schedule
+    Given an Exari contract record exists
+    When the contract record has a fee schedule assigned
+    Then the fee schedule number from the contract record is used
+
+  @MVP+1
+  @US1211188
+  @2018.PI03
+  Scenario: US1211188::1 - Identify Fee Schedule
+    Given an Exari contract record exists
+    When the contract record does not have a fee schedule assigned
+    Then an error message is generated and returned to the user
+
+  @MVP+1
+  @US1211054
+  @2018.PI03
+  Scenario: US1211054::0 - Identify contract Market Number
+    Given an Exari contract record exists
+    When the contract record has a market number assigned
+    Then the market number from the contract record is used
+
+  @MVP+1
+  @US1211054
+  @2018.PI03
+  Scenario: US1211054::1 - Identify contract Market Number
+    Given an Exari contract record exists
+    When the contract record does not have a market number assigned
+    Then the zip code of the counter party provider record primary service location is used
+    And used to determine market number via NDB zip to market number table crosswalk
+
+  @MVP+1
+  @US1211353
+  @2018.PI03
+  Scenario: US1211353::0 - Identify Product or Product Group Network
+    Given an product code has been identified from the product crosswalk
+    When the product requires a product network code to identify a contract master
+    Then there is a means to determine when this requirement applies
+
+  @MVP+1
+  @US1211353
+  @2018.PI03
+  Scenario: US1211353::1 - Identify Product or Product Group Network
+    Given a product requires a product network code to identify a contract master
+    When there is a means to determine when this requirement applies
+    Then there is information available about the method or schema to identify the network
+    And the identification code or schema is used
+
+  @MVP+1
+  @US1211353
+  @2018.PI03
+  Scenario: US1211353::2 - Identify Product or Product Group Network
+    Given an product code has been identified from the product crosswalk
+    When the product does not require a product network code be used in order to identify a contract master
+    Then there is a means to determine when this requirement does not apply
+
+  @MVP+1
+  @US1209973
+  @2018.PI03
+  Scenario: US1209973 - NDB Contract Master Lookup API event trigger
+    Given the Exari / CLM>NDB contract master Lookup API payload data is correct
+    When NDB receives the Search parameter data
+    Then NDB will search and return back the valid contract master data for the search parameters requested.
 

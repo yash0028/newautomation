@@ -269,7 +269,7 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
   @Priority
   @US1185585
   @2018.PI03
-  Scenario Outline: US1185585::0 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
+  Scenario Outline: US1185585::0 - Contract Product Description Crosswalk
     # Passing in a single valid product description
     Given a product description to product code crosswalk exists
     And using product description from the corresponding "<productDescriptionId>"
@@ -287,7 +287,7 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
   @Priority
   @US1185585
   @2018.PI03
-  Scenario Outline: US1185585::1 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
+  Scenario Outline: US1185585::1 - Contract Product Description Crosswalk
     # Passing in multiple valid product descriptions
     Given a product description to product code crosswalk exists
     And using product descriptions from the corresponding "<productDescriptionId1>" and "<productDescriptionId2>"
@@ -303,7 +303,7 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
   @Priority
   @US1185585
   @2018.PI03
-  Scenario: US1185585::2 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
+  Scenario: US1185585::2 - Contract Product Description Crosswalk
     # Passing in a single invalid product description
     Given a product description that does not exist
     When exchanging information about the products included or excluded from an Exari contract
@@ -314,7 +314,7 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
   @Priority
   @US1185585
   @2018.PI03
-  Scenario: US1185585::3 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
+  Scenario: US1185585::3 - Contract Product Description Crosswalk
     # Passing in one valid and one invalid product description
     Given a product description from the corresponding "2000290" and an invalid product description
     When exchanging information about the products included or excluded from an Exari contract
@@ -325,7 +325,7 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
   @Priority
   @US1185585
   @2018.PI03
-  Scenario: US1185585::4 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
+  Scenario: US1185585::4 - Contract Product Description Crosswalk
     # Passing in multiple invalid product descriptions
     Given multiple product descriptions that do not exist
     When exchanging information about the products included or excluded from an Exari contract

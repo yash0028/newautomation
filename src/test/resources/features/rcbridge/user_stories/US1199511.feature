@@ -19,9 +19,9 @@ Feature: US1199511 - [Continued] PIC Implementation
   @Manual
   @Functional
   Scenario: TC537136 - [RL2] Validate error when microservice cannot be reached
-    Given Exari has received a request to send data to PIC
-    When the micro service is unable to be reached by Exari
-    Then Exari will return a server error
+    Given Optum has received a request to send data to PIC
+    When the micro service is unable to be reached by PIC
+    Then Optum will return a server error
 
   @TC537132
   @Automated

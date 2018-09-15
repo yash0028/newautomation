@@ -279,3 +279,38 @@ Feature: F205772 - Contract Meta Data (CMD) ProductGroup Rate Condition Category
     And a transaction message generated of 'Physician Record did not meet qualification for Loading'
     And the transaction record details including table, table record, and warning message generated are made available should users need to review
 
+  @US1323258
+  @2018.PI04
+  Scenario: US1323258::0 - Contract Configuration Service - Configuration Details
+    Given a contract configuration (OCM) record exists
+    When an authorized user needs information contained in the OCM record
+    Then a service is available to interrogate the OCM record
+
+  @US1323258
+  @2018.PI04
+  Scenario: US1323258::1 - Contract Configuration Service - Configuration Details
+    Given the contract configuration service is available
+    When an authorized user needs information contained in the OCM record
+    And the user provides the required inputs necessary
+    And the contract configuration does not locate a contract configuration record
+    Then the contract configuration details service provides the response
+
+  @US1323258
+  @2018.PI04
+  Scenario: US1323258::2 - Contract Configuration Service - Configuration Details
+    Given the contract configuration service is available
+    When an authorized user needs information contained in the OCM record
+    And the user DOES NOT provide the required inputs necessary
+    Then the contract configuration details service DOES NOT provide the response
+    And a message returned stating required inputs required
+
+  @US1323258
+  @2018.PI04
+  Scenario: US1323258::3 - Contract Configuration Service - Configuration Details
+    Given the contract configuration service is available
+    When an authorized user needs information contained in the OCM record
+    And the user provides the required inputs necessary
+    And the contract configuration does not locate a contract configuration record
+    Then the contract configuration details service DOES NOT provide the response
+    And a message returned stating contract record not found
+
