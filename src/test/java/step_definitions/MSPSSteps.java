@@ -137,21 +137,21 @@ public class MSPSSteps {
 
     //US1295290 - (Pending until PI03.05)
 
-    @Given("^a user is requesting a professional fee schedule$")
+    @Given("^a user is requesting a (?:professional|facility) fee schedule$")
     public void aUserIsRequestingAProfessionalFeeSchedule() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
+        // Pending because this relates to external data query
         throw new PendingException();
     }
 
     @When("^they pass a version number$")
     public void theyPassAVersionNumber() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
+        // Pending because this relates to external data query
         throw new PendingException();
     }
 
     @Then("^that specific version fee schedule is returned$")
     public void thatSpecificVersionFeeScheduleIsReturned() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
+        // Pending because this relates to external data query
         throw new PendingException();
     }
 }
