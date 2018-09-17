@@ -4,7 +4,7 @@
 @10/1_Physician
 @CMD
 @F205772
-Feature: F205772 - Contract Meta Data (CMD) ProductGroup Rate Condition Category Sets
+Feature: F205772 - Contract Meta Data (CMD) ProductGroup Rate Conditions
 
   @US1311226
   @2018.PI04
@@ -29,6 +29,20 @@ Feature: F205772 - Contract Meta Data (CMD) ProductGroup Rate Condition Category
     When 'contractDetails.storageNode.properties.UHG_Payment_Appendix' includes only "Payment Appendix Medicare"
     Then Contract [ProductGroupRate.name] value Medicare is recorded in the CMD contract record
     And the process is complete
+
+  @US1328687
+  @2018.PI04
+  Scenario: US1328687::0 - Determine Contract Configuration Source - Delegated PLMI
+    Given a qualified transaction event notification is received
+    When a PLMI configuration record exists for the contract
+    Then the PLMI record details are used for processing UNET/COSMOS payloads
+
+  @US1328687
+  @2018.PI04
+  Scenario: US1328687::1 - Determine Contract Configuration Source - Delegated PLMI
+    Given a qualified transaction event notification is received
+    When a PLMI configuration record does not exist for the contract
+    Then the CMD record details are used for processing UNET/COSMOS payloads
 
   @US1315654
   @2018.PI04

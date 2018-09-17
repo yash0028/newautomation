@@ -3,7 +3,7 @@
 @Plus
 @Priority_1
 @F159195
-Feature: F159195 - Exari>COSMOS - Facility Payload
+Feature: F159195 - Exari>COSMOS - Facility Payload - CF Team
 
   @US1070406
   @2018.PI04

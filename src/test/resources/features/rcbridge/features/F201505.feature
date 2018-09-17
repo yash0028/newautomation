@@ -55,13 +55,6 @@ Feature: F201505 - CLM DevOps PI03
     When the code gets to the point in the pipeline for Fortify,
     Then the code is scanned by Fortify and results are uploaded to SCAR
 
-  @US1080320
-  @2018.PI03
-  Scenario: US1080320 - Metrics forwarding
-    Given A service capable of publishing metrics is deployed
-    When The service performs an operation, it sends statics to Splunk
-    Then The metrics are recorded and aggregated, available In a dashboard for visualization
-
   @US1181927
   @2018.PI03
   Scenario: US1181927 - Integrate Acceptance Testing into Pipeline
@@ -74,14 +67,6 @@ Feature: F201505 - CLM DevOps PI03
     Given a developer wants to build a new clm service,
     When they use the clm base docker image,
     Then they will have the necessary pieces to deploy with Monitoring, logging, etc.
-
-  @US1080317
-  @2018.PI03
-  Scenario: US1080317 - Log forwarding
-    Given A service is deployed
-    When A log message is written
-    Then The log message is send to the central log aggregation
-    And The log message is available in the log dashboard
 
   @US1168431
   @2018.PI03
@@ -104,11 +89,4 @@ Feature: F201505 - CLM DevOps PI03
     Given services that are maintained by CLM Team 1
     When Fortify reports high-end critical issues on a service
     Then a developer needs to fix the high-end critical issues
-
-  @US1078501
-  @2018.PI03
-  Scenario: US1078501 - JMX Trans for Kafka
-    Given Kafka is running
-    When Kafka is updating it's JMX metrics
-    Then The metrics are sent to Splunk for metrics aggregation and available in the metrics dashboard
 

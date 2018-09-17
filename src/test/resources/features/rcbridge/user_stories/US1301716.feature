@@ -1,4 +1,5 @@
 # Last updated on 
+@A_UI_Story
 @US1301716
 @2018.PI03
 Feature: US1301716 - CMD Dashboard Navigation Bar

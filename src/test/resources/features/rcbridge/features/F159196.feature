@@ -27,6 +27,7 @@ Feature: F159196 - Integrate CLM with Provider Intent Certification (PIC) (Part 
     Examples:
       | contractId |
       | 124318 |
+      | 124317 |
 
   @US1199511
   @2018.PI03

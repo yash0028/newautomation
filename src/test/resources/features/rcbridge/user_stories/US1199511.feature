@@ -34,4 +34,5 @@ Feature: US1199511 - [Continued] PIC Implementation
     Examples:
       | contractId |
       | 124318 |
+      | 124317 |
 

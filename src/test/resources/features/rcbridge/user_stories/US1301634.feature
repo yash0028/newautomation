@@ -1,4 +1,5 @@
 # Last updated on 
+@A_UI_Story
 @US1301634
 @2018.PI03
 Feature: US1301634 - CMD Dashboard buttons (Populate data)

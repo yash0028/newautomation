@@ -1,4 +1,5 @@
 # Last updated on 
+@A_UI_Story
 @US1236428
 @2018.PI03
 Feature: US1236428 - CMD Single Sign On - UHG Enterprise SSO (MSid and Password )
