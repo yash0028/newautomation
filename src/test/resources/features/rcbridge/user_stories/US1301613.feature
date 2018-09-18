@@ -1,4 +1,5 @@
 # Last updated on 
+@A_UI_Story
 @US1301613
 @2018.PI03
 Feature: US1301613 - CMD Dashboard buttons

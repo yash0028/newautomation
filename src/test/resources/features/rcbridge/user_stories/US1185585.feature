@@ -4,7 +4,7 @@
 @Priority
 @US1185585
 @2018.PI03
-Feature: US1185585 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
+Feature: US1185585 - Contract Product Description Crosswalk
 
   @TC569866
   @Automated
@@ -13,23 +13,7 @@ Feature: US1185585 - [Continued][Continued] [Continued] Contract Product Descrip
     # Passing in multiple invalid product descriptions
     Given multiple product descriptions that do not exist
     When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk returns an error
-
-  @TC564546
-  @Automated
-  @Functional
-  Scenario Outline: TC564546 - [RL0] Validate that the crosswalk provides the product code list for a single corresponding product description
-    # Passing in a single valid product description
-    Given a product description to product code crosswalk exists
-    And using product description from the corresponding "<productDescriptionId>"
-    When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk provides the product code identifier of "<productCodeList>"
-    Examples:
-      | productDescriptionId | productCodeList      |
-      | 2000290  | S0 S1 S2 |
-      | 2000300              | C0 C1 C2 P3 S0 S1 S2 |
-      | 2000430 | DA      |
-      | 2000500 | 009 531 |
+    Then the crosswalk provides an empty list
 
   @TC569883
   @Automated
@@ -52,7 +36,7 @@ Feature: US1185585 - [Continued][Continued] [Continued] Contract Product Descrip
     # Passing in one valid and one invalid product description
     Given a product description from the corresponding "2000290" and an invalid product description
     When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk returns an error
+    Then the crosswalk only provides the product code identifier for the valid product description
 
   @TC575412
   @Automated
@@ -61,5 +45,5 @@ Feature: US1185585 - [Continued][Continued] [Continued] Contract Product Descrip
     # Passing in a single invalid product description
     Given a product description that does not exist
     When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk returns an error
+    Then the crosswalk provides an empty list
 

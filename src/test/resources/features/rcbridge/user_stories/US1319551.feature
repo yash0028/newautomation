@@ -1,7 +1,7 @@
 # Last updated on 
 @CMD
 @US1319551
-Feature: US1319551 - NDB Contract Master Validation Group
+Feature: US1319551 - NDB Contract Master Validation Set
 
   @TC576409
   @Manual

@@ -1,6 +1,6 @@
 # Last updated on 
 @US1290222
-@2018.PI03
+@2018.PI04
 Feature: US1290222 - CMD Integration with Exari - SSO (Reference Table Admin)
 
   @TC565019

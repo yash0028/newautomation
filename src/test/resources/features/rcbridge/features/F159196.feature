@@ -27,13 +27,14 @@ Feature: F159196 - Integrate CLM with Provider Intent Certification (PIC) (Part 
     Examples:
       | contractId |
       | 124318 |
+      | 124317 |
 
   @US1199511
   @2018.PI03
   Scenario: US1199511::2 - [Continued] PIC Implementation
-    Given Exari has received a request to send data to PIC
-    When the micro service is unable to be reached by Exari
-    Then Exari will return a server error
+    Given Optum has received a request to send data to PIC
+    When the micro service is unable to be reached by PIC
+    Then Optum will return a server error
 
   @US1260995
   @2018.PI03

@@ -1,5 +1,6 @@
 package utils;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -87,6 +88,23 @@ public class SeleniumHelper {
         return null;
     }
 
+    public static List<WebElement> findElements(String identifier, String locator) {
+
+        try {
+            List<WebElement> ele = findElementsWithExplicitWait(WebElementIdentifiers.valueOf(identifier.toUpperCase()), locator, 90);
+            if (ele != null)
+                logger.info("Element with identifier type: " + identifier + " - Locator: " + locator + " is found");
+            else
+                logger.log(Level.SEVERE,
+                        "Element with identifier type: " + identifier + " - Locator: " + locator + " is not found");
+            return ele;
+        } catch (Exception e) {
+            logger.log(Level.SEVERE,
+                    "Element with identifier type: " + identifier + " - Locator: " + locator + " is not found");
+        }
+        return null;
+    }
+
     private static WebElement findElementWithExplicitWait(WebElementIdentifiers identifier, String locator,
                                                          long timeOutInSeconds) {
 
@@ -109,6 +127,35 @@ public class SeleniumHelper {
                     return waitDriver.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(locator)));
                 case LINKTEXT:
                     return waitDriver.until(ExpectedConditions.elementToBeClickable(By.linkText(locator)));
+            }
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, e.getMessage());
+        }
+        return null;
+    }
+
+    private static List<WebElement> findElementsWithExplicitWait(WebElementIdentifiers identifier, String locator,
+                                                                 long timeOutInSeconds) {
+
+        WebDriverWait waitDriver = new WebDriverWait(driver, timeOutInSeconds);
+        try {
+            switch (identifier) {
+                case ID:
+                    return waitDriver.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(locator)));
+                case CLASSNAME:
+                    return waitDriver.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className(locator)));
+                case TAGNAME:
+                    return waitDriver.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.tagName(locator)));
+                case NAME:
+                    return waitDriver.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.name(locator)));
+                case XPATH:
+                    return waitDriver.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(locator)));
+                case CSSSELECTOR:
+                    return waitDriver.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(locator)));
+                case PARTIALLINKTEXT:
+                    return waitDriver.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.partialLinkText(locator)));
+                case LINKTEXT:
+                    return waitDriver.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.linkText(locator)));
             }
         } catch (Exception e) {
             logger.log(Level.SEVERE, e.getMessage());
