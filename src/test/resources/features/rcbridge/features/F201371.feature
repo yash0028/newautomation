@@ -276,8 +276,7 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
     When exchanging information about the products included or excluded from an Exari contract
     Then the crosswalk provides the product code identifier of "<productCodeList>"
     Examples:
-      | productDescriptionId | productCodeList      |
-      | 2000290  | S0 S1 S2 |
+      | productDescriptionId | productCodeList      | 2000290              | S0 S1 S2             |
       | 2000300              | C0 C1 C2 P3 S0 S1 S2 |
       | 2000430 | DA      |
       | 2000500 | 009 531 |
@@ -307,7 +306,7 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
     # Passing in a single invalid product description
     Given a product description that does not exist
     When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk returns an error
+    Then the crosswalk provides an empty list
 
   @MVP
   @Amrutha
@@ -318,7 +317,7 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
     # Passing in one valid and one invalid product description
     Given a product description from the corresponding "2000290" and an invalid product description
     When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk returns an error
+    Then the crosswalk only provides the product code identifier for the valid product description
 
   @MVP
   @Amrutha
@@ -329,7 +328,7 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
     # Passing in multiple invalid product descriptions
     Given multiple product descriptions that do not exist
     When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk returns an error
+    Then the crosswalk provides an empty list
 
   @MVP
   @US1207419
