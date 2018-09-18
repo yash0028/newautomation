@@ -24,7 +24,7 @@ import static io.restassured.RestAssured.given;
  * Created by dtimaul on 9/11/18.
  */
 public class ContractProdDes {
-    //TODO rename file with corresponding microservice name
+    //TODO Will be renamed to contract-metadata-api
     private final static String ENDPOINT = "http://localhost:8080";
     private final static String RESOURCE_PRODUCTCODE = "/v1.0/xwalk/product/code/list";
     private final static String CSV_FILE = "/support/ContractDescriptionIDMap.csv";
@@ -52,9 +52,11 @@ public class ContractProdDes {
         productDescriptions = new ArrayList<>();
         productDescriptions.add(getProductDescription(productDesID1));
         productDescriptions.add(getProductDescription(productDesID2));
+
+        System.out.println("Array list for multiple product descriptions:\n" + productDescriptions);
     }
 
-    // Make request to microservice to get product code identifier
+    // Make request to microservice to get product code list
     @When("^exchanging information about the products included or excluded from an Exari contract$")
     public void getProductCodeIdentifier() throws Throwable {
         JsonArray productDescriptionArr = new JsonArray();
@@ -70,9 +72,9 @@ public class ContractProdDes {
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
     }
 
-    //verify Product Code Identifier Was Returned For ProductDescription
+    //verify product Code list Was returned For a single ProductDescription
     @Then("^the crosswalk provides the product code identifier of \"([^\"]*)\"$")
-    public void verifySingleProductCodeIdentifier(String expectedProductCodes) throws Throwable {
+    public void verifySingleProductCodeList(String expectedProductCodes) throws Throwable {
         // Make post request and store response
         response = request.post(RESOURCE_PRODUCTCODE);
         ArrayList<String> expectedProductCodeArr = new ArrayList<>(Arrays.asList(expectedProductCodes.split(" ")));
@@ -88,10 +90,11 @@ public class ContractProdDes {
         testProductCodeList(expectedProductCodeArr, resultProductCodeArr);
     }
 
+    //verify multiple product Code lists Was returned For multiple ProductDescriptions
     @Then("^the crosswalk provides the product code identifiers of \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void theCrosswalkProvidesTheProductCodeIdentifiersOfAnd(String expectedProductCodes1, String expectedProductCodes2) throws Throwable {
+    public void verifyMultipleProductCodeList(String expectedProductCodes1, String expectedProductCodes2) throws Throwable {
         // Make post request and store response
-        response = request.post(ENDPOINT);
+        response = request.post(RESOURCE_PRODUCTCODE);
 
         ArrayList<String> expectedProductCodeArr1 = new ArrayList<>(Arrays.asList(expectedProductCodes1.split(" ")));
         ArrayList<String> expectedProductCodeArr2 = new ArrayList<>(Arrays.asList(expectedProductCodes2.split(" ")));
@@ -174,10 +177,12 @@ public class ContractProdDes {
         List<String> lines = FileHelper.getInstance().getFileLines(CSV_FILE);
 
         for (String line : lines) {
-            String[] currentLine = line.split(",");
+            String[] currentLine = line.split("\\|");
 
-            if (currentLine[0].equals(id)) {
-                return currentLine[1];
+//            System.out.println("Current line in CSV file: " + line);
+
+            if (currentLine[0].trim().equals(id)) {
+                return currentLine[1].trim();
             }
         }
         return "No product description found for given id.";
