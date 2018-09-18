@@ -1,6 +1,6 @@
 # Last updated on 
 @US1256693
-@2018.PI03
+@2018.PI04
 Feature: US1256693 - Download Table Template
 
   @TC565607

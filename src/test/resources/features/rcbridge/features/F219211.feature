@@ -5,6 +5,38 @@
 @F219211
 Feature: F219211 - Distributed transaction mechanism (Part 4)
 
+  @US1189845
+  @2018.PI04
+  Scenario: US1189845::0 - [Continued][Continued] Downstream system specific validation handling
+    Given A business event is received by the event gateway that requires an update to NDB
+    And the associated contract data is valid for the NDB update
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated and approved by the ndb-validator service
+
+  @US1189845
+  @2018.PI04
+  Scenario: US1189845::1 - [Continued][Continued] Downstream system specific validation handling
+    Given A business event is received by the event gateway that requires an update to NDB
+    And the associated contract data is incomplete
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated by the ndb-validator service and an error is reported to the transaction system
+
+  @US1189845
+  @2018.PI04
+  Scenario: US1189845::2 - [Continued][Continued] Downstream system specific validation handling
+    Given A business event is received by the event gateway that requires an update to COSMOS
+    And the associated contract data is valid for the COSMOS update
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated and approved by the cosmos-validator service
+
+  @US1189845
+  @2018.PI04
+  Scenario: US1189845::3 - [Continued][Continued] Downstream system specific validation handling
+    Given A business event is received by the event gateway that requires an update to COSMOS
+    And the associated contract data is invalid for the COSMOS update
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated by the cosmos-validator service and an error is reported to the transaction system
+
   @US1203199
   Scenario: US1203199::0 - Detect transaction timeouts
     Given A transaction that is written to the transaction log is open for longer than the configured timeout

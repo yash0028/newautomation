@@ -1,6 +1,5 @@
 # Last updated on 
 @US1233109
-@2018.PI03
 Feature: US1233109 - Create CMD Contract Config transaction event schema
 
   @TC565055

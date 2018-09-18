@@ -1,6 +1,6 @@
 # Last updated on 
 @US1256688
-@2018.PI03
+@2018.PI04
 Feature: US1256688 - Upload Table template
 
   @TC565163

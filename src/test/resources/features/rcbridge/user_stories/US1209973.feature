@@ -1,7 +1,7 @@
 # Last updated on 
 @MVP+1
 @US1209973
-@2018.PI03
+@2018.PI04
 Feature: US1209973 - NDB Contract Master Lookup API event trigger
 
   @TC565086

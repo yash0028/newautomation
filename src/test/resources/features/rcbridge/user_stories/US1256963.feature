@@ -4,7 +4,7 @@
 Feature: US1256963 - Update user interface to accomodate new tables
 
   @TC565856
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565856 - [RL0]
     Given: I have access to the Admin UI page

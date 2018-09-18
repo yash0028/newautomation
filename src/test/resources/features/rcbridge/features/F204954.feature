@@ -26,12 +26,3 @@ Feature: F204954 - Integration Services App2 - NDB UNET/COSMOS Contract Master A
     When NDB receives the Search parameter data
     Then the spike analysis is completed
 
-  @Amrutha
-  @MVP+1
-  @US1204297
-  @2018.PI03
-  Scenario: US1204297 - NDB Common Pricing Solution Lookup API
-    Given the Exari / CLM>NDB CPS Lookup API payload data is correct
-    When NDB receives the Search parameter data
-    Then NDB will search and return back the valid CPS data for the search parameters requested.
-

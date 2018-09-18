@@ -1,7 +1,7 @@
 # Last updated on 
 @MVP+1
 @US1211073
-@2018.PI03
+@2018.PI04
 Feature: US1211073 - Determine Contract Master condition applies
 
   @TC565950

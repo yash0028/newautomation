@@ -1,7 +1,6 @@
 # Last updated on 
 @MVP+1
 @US1211287
-@2018.PI03
 Feature: US1211287 - Identify Product Group
 
   @TC564761
