@@ -25,6 +25,7 @@ import static io.restassured.RestAssured.given;
  */
 public class ContractProdDes {
     //TODO Will be renamed to contract-metadata-api
+    //TODO implement case with signle valid product description
     private final static String ENDPOINT = "http://localhost:8080";
     private final static String RESOURCE_PRODUCTCODE = "/v1.0/xwalk/product/code/list";
     private final static String CSV_FILE = "/support/ContractDescriptionIDMap.csv";
@@ -115,11 +116,12 @@ public class ContractProdDes {
     }
 
     // Verify single product description does not exist
-    @Given("^a product description to product code crosswalk does not exist$")
-    public void aProductDescriptionToProductCodeCrosswalkDoesNotExist() throws Throwable {
-        // Assume description to product code crosswalk does not exist.
+    @Given("^a product description that does not exist$")
+    public void aProductDescriptionThatDoesNotExist() throws Throwable {
+        // Assume product description does not exist
     }
 
+    // Verify multiple product description does not exist
     @Given("^multiple product descriptions that do not exist$")
     public void multipleProductDescriptionsThatDoNotExist() throws Throwable {
         // Assume product descriptions do not exist
@@ -135,10 +137,10 @@ public class ContractProdDes {
 
     @Given("^a product description from the corresponding \"([^\"]*)\" and an invalid product description$")
     public void aProductDescriptionFromTheCorrespondingAndAnInvalidProductDescription(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        // Assume there exisits one valid and one invalid product description
     }
 
+    //TODO Finish implementing
     @Then("^the crosswalk only provides the product code identifier for the valid product description$")
     public void theCrosswalkOnlyProvidesTheProductCodeIdentifierForTheValidProductDescription() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
@@ -209,4 +211,5 @@ public class ContractProdDes {
         }
         return "No product description found for given id.";
     }
+
 }
