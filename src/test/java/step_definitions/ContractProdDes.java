@@ -56,7 +56,7 @@ public class ContractProdDes {
         System.out.println("Array list for multiple product descriptions:\n" + productDescriptions);
     }
 
-    // Make request to microservice to get product code list
+    // Make request via REST call to get product code list
     @When("^exchanging information about the products included or excluded from an Exari contract$")
     public void getProductCodeIdentifier() throws Throwable {
         JsonArray productDescriptionArr = new JsonArray();
@@ -113,12 +113,41 @@ public class ContractProdDes {
 
     @Given("^a product description to product code crosswalk does not exist$")
     public void aProductDescriptionToProductCodeCrosswalkDoesNotExist() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        // Assume description to product code crosswalk does not exist.
     }
 
     @Then("^the crosswalk returns an error$")
     public void theCrosswalkReturnsAnError() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Given("^a product description from the corresponding \"([^\"]*)\" and an invalid product description$")
+    public void aProductDescriptionFromTheCorrespondingAndAnInvalidProductDescription(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^the crosswalk only provides the product code identifier for the valid product description$")
+    public void theCrosswalkOnlyProvidesTheProductCodeIdentifierForTheValidProductDescription() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Given("^a product description that does not exist$")
+    public void aProductDescriptionThatDoesNotExist() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^the crosswalk provides an empty list$")
+    public void theCrosswalkProvidesAnEmptyList() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Given("^multiple product descriptions that do not exist$")
+    public void multipleProductDescriptionsThatDoNotExist() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
