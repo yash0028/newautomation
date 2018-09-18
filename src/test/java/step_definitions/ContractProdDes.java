@@ -56,13 +56,16 @@ public class ContractProdDes {
         System.out.println("Array list for multiple product descriptions:\n" + productDescriptions);
     }
 
-    // Make request via REST call to get product code list
+    // Make REST call to get product code list
     @When("^exchanging information about the products included or excluded from an Exari contract$")
     public void getProductCodeIdentifier() throws Throwable {
         JsonArray productDescriptionArr = new JsonArray();
 
-        for (String productDescription : productDescriptions) {
-            productDescriptionArr.add(productDescription);
+        if (productDescriptions != null) {
+
+            for (String productDescription : productDescriptions) {
+                productDescriptionArr.add(productDescription);
+            }
         }
 
         //Request body: {"productDesc": [“desc1”, “desc2”]}
@@ -111,15 +114,23 @@ public class ContractProdDes {
         testProductCodeList(expectedProductCodeArr2, resultProductCodeArr2);
     }
 
+    // Verify single product description does not exist
     @Given("^a product description to product code crosswalk does not exist$")
     public void aProductDescriptionToProductCodeCrosswalkDoesNotExist() throws Throwable {
         // Assume description to product code crosswalk does not exist.
     }
 
-    @Then("^the crosswalk returns an error$")
-    public void theCrosswalkReturnsAnError() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @Given("^multiple product descriptions that do not exist$")
+    public void multipleProductDescriptionsThatDoNotExist() throws Throwable {
+        // Assume product descriptions do not exist
+    }
+
+    @Then("^the crosswalk provides an empty list$")
+    public void theCrosswalkProvidesAnEmptyList() throws Throwable {
+        response = request.post(RESOURCE_PRODUCTCODE);
+        JsonElement result = RestHelper.getInstance().parseJsonElementResponse(response);
+
+        Assert.assertEquals(0,result.getAsJsonArray().size());
     }
 
     @Given("^a product description from the corresponding \"([^\"]*)\" and an invalid product description$")
@@ -130,24 +141,6 @@ public class ContractProdDes {
 
     @Then("^the crosswalk only provides the product code identifier for the valid product description$")
     public void theCrosswalkOnlyProvidesTheProductCodeIdentifierForTheValidProductDescription() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Given("^a product description that does not exist$")
-    public void aProductDescriptionThatDoesNotExist() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("^the crosswalk provides an empty list$")
-    public void theCrosswalkProvidesAnEmptyList() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Given("^multiple product descriptions that do not exist$")
-    public void multipleProductDescriptionsThatDoNotExist() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
