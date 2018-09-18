@@ -7,5 +7,5 @@ Feature: US1310250 - Improve Services Test Coverage
   @Functional
   Scenario: TC569766 - [RL0]
     When testing our services
-    Then test-coverage should be 100 percent
+    Then method-coverage should be 100 percent
 

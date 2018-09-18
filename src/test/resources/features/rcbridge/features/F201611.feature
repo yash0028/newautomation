@@ -9,6 +9,16 @@
 @F201611
 Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (Demographic) - Optum
 
+  @#MVP
+  @Scrum_Team_1
+  @US1323657
+  @2018.PI04
+  Scenario: US1323657 - PES Automation of Add. locations for all other contracts
+    When a user fills out the appendix with the correct fields
+    Then the search will return all additional locations for those fields.
+    #attached document to this feature will show the fields necessary
+    #QE TODO: populate fields from document, and clarify difference between this story and the previous Appendix 1/Location story
+
   @PES
   @Alex_M
   @US1194560

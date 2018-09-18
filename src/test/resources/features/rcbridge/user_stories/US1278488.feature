@@ -1,6 +1,6 @@
 # Last updated on 
 @US1278488
-@2018.PI03
+@2018.PI04
 Feature: US1278488 - CMD- Action Required Page Design, layout, and fields
 
   @TC565527

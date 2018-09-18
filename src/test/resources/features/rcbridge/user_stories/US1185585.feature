@@ -15,21 +15,6 @@ Feature: US1185585 - Contract Product Description Crosswalk
     When exchanging information about the products included or excluded from an Exari contract
     Then the crosswalk provides an empty list
 
-  @TC564546
-  @Automated
-  @Functional
-  Scenario Outline: TC564546 - [RL0] Validate that the crosswalk provides the product code list for a single corresponding product description
-    # Passing in a single valid product description
-    Given a product description to product code crosswalk exists
-    And using product description from the corresponding "<productDescriptionId>"
-    When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk provides the product code identifier of "<productCodeList>"
-    Examples:
-      | productDescriptionId | productCodeList      | 2000290              | S0 S1 S2             |
-      | 2000300              | C0 C1 C2 P3 S0 S1 S2 |
-      | 2000430 | DA      |
-      | 2000500 | 009 531 |
-
   @TC569883
   @Automated
   @Functional

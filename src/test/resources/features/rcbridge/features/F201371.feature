@@ -269,23 +269,6 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
   @Priority
   @US1185585
   @2018.PI03
-  Scenario Outline: US1185585::0 - Contract Product Description Crosswalk
-    # Passing in a single valid product description
-    Given a product description to product code crosswalk exists
-    And using product description from the corresponding "<productDescriptionId>"
-    When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk provides the product code identifier of "<productCodeList>"
-    Examples:
-      | productDescriptionId | productCodeList      | 2000290              | S0 S1 S2             |
-      | 2000300              | C0 C1 C2 P3 S0 S1 S2 |
-      | 2000430 | DA      |
-      | 2000500 | 009 531 |
-
-  @MVP
-  @Amrutha
-  @Priority
-  @US1185585
-  @2018.PI03
   Scenario Outline: US1185585::1 - Contract Product Description Crosswalk
     # Passing in multiple valid product descriptions
     Given a product description to product code crosswalk exists
