@@ -2,7 +2,7 @@
 @MVP
 @Amrutha
 @Priority
-@xUS1185585
+@US1185585
 @2018.PI03
 Feature: US1185585 - [Continued][Continued] [Continued] Contract Product Description Crosswalk
 
