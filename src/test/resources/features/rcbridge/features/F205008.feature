@@ -4,7 +4,6 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211464
-  @2018.PI03
   Scenario: US1211464::0 - Identify contract provider Market Number
     Given an healthcare provider is party to an Exari contract record
     When a primary or additional service location address is associated to the provider record
@@ -13,7 +12,6 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211464
-  @2018.PI03
   Scenario: US1211464::1 - Identify contract provider Market Number
     Given an healthcare provider is party to an Exari contract record
     When the market number has been identified via the zip to market number crosswalk
@@ -21,7 +19,6 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211464
-  @2018.PI03
   Scenario: US1211464::2 - Identify contract provider Market Number
     Given the market number of the provider record has been compared to the market number assigned to the contract
     When the market numbers are identical
@@ -29,7 +26,6 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211464
-  @2018.PI03
   Scenario: US1211464::3 - Identify contract provider Market Number
     Given the market number of the provider record has been compared to the market number assigned to the contract
     When the market numbers are not identical
@@ -38,7 +34,6 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211287
-  @2018.PI03
   Scenario: US1211287::0 - Identify Product Group
     Given an Exari contract record exists
     When the contract includes product descriptions that meet contract master conditions
@@ -46,7 +41,6 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211287
-  @2018.PI03
   Scenario: US1211287::1 - Identify Product Group
     Given an Exari contract record exists
     When the contract includes network descriptions that meet contract master conditions
@@ -54,7 +48,7 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211073
-  @2018.PI03
+  @2018.PI04
   Scenario: US1211073::0 - Determine Contract Master condition applies
     Given an Exari contract record exists
     When the contract includes one or more products administered on the UNET or COSMOS claim platforms
@@ -62,7 +56,7 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211073
-  @2018.PI03
+  @2018.PI04
   Scenario: US1211073::1 - Determine Contract Master condition applies
     Given an Exari contract record exists
     When the contract does not include a product administered on the UNET or COSMOS claim platform
@@ -70,7 +64,7 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211073
-  @2018.PI03
+  @2018.PI04
   Scenario: US1211073::2 - Determine Contract Master condition applies
     Given an Exari contract record exists
     When the contract includes one or more networks administered in NDB
@@ -78,7 +72,7 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211073
-  @2018.PI03
+  @2018.PI04
   Scenario: US1211073::3 - Determine Contract Master condition applies
     Given an Exari contract record exists
     When the contract includes Healthcare Providers which bill on CMS-1500 claim forms
@@ -86,7 +80,6 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211188
-  @2018.PI03
   Scenario: US1211188::0 - Identify Fee Schedule
     Given an Exari contract record exists
     When the contract record has a fee schedule assigned
@@ -94,7 +87,6 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211188
-  @2018.PI03
   Scenario: US1211188::1 - Identify Fee Schedule
     Given an Exari contract record exists
     When the contract record does not have a fee schedule assigned
@@ -102,7 +94,6 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211054
-  @2018.PI03
   Scenario: US1211054::0 - Identify contract Market Number
     Given an Exari contract record exists
     When the contract record has a market number assigned
@@ -110,7 +101,6 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211054
-  @2018.PI03
   Scenario: US1211054::1 - Identify contract Market Number
     Given an Exari contract record exists
     When the contract record does not have a market number assigned
@@ -119,7 +109,6 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211353
-  @2018.PI03
   Scenario: US1211353::0 - Identify Product or Product Group Network
     Given an product code has been identified from the product crosswalk
     When the product requires a product network code to identify a contract master
@@ -127,7 +116,6 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211353
-  @2018.PI03
   Scenario: US1211353::1 - Identify Product or Product Group Network
     Given a product requires a product network code to identify a contract master
     When there is a means to determine when this requirement applies
@@ -136,7 +124,6 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1211353
-  @2018.PI03
   Scenario: US1211353::2 - Identify Product or Product Group Network
     Given an product code has been identified from the product crosswalk
     When the product does not require a product network code be used in order to identify a contract master
@@ -144,7 +131,7 @@ Feature: F205008 - Placeholder for future features
 
   @MVP+1
   @US1209973
-  @2018.PI03
+  @2018.PI04
   Scenario: US1209973 - NDB Contract Master Lookup API event trigger
     Given the Exari / CLM>NDB contract master Lookup API payload data is correct
     When NDB receives the Search parameter data

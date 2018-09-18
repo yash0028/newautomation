@@ -1,7 +1,6 @@
 # Last updated on 
 @MVP+1
 @US1211464
-@2018.PI03
 Feature: US1211464 - Identify contract provider Market Number
 
   @TC565711

@@ -1,6 +1,6 @@
 # Last updated on 
 @US1256696
-@2018.PI03
+@2018.PI04
 Feature: US1256696 - Styling Template for Provider Taxonomy Grid UI
 
   @TC564681

@@ -1,7 +1,6 @@
 # Last updated on 
 @MVP+1
 @US1211188
-@2018.PI03
 Feature: US1211188 - Identify Fee Schedule
 
   @TC565887

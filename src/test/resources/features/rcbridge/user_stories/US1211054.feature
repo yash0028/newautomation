@@ -1,7 +1,6 @@
 # Last updated on 
 @MVP+1
 @US1211054
-@2018.PI03
 Feature: US1211054 - Identify contract Market Number
 
   @TC565345

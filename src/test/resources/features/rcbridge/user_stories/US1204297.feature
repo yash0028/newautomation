@@ -2,7 +2,7 @@
 @Amrutha
 @MVP+1
 @US1204297
-@2018.PI03
+@2018.PI04
 Feature: US1204297 - NDB Common Pricing Solution Lookup API
 
   @TC564504

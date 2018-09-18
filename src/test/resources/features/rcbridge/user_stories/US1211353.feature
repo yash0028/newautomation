@@ -1,7 +1,6 @@
 # Last updated on 
 @MVP+1
 @US1211353
-@2018.PI03
 Feature: US1211353 - Identify Product or Product Group Network
 
   @TC565498
