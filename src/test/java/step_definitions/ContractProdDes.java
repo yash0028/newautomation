@@ -137,7 +137,7 @@ public class ContractProdDes {
 
     @Given("^a product description from the corresponding \"([^\"]*)\" and an invalid product description$")
     public void aProductDescriptionFromTheCorrespondingAndAnInvalidProductDescription(String arg0) throws Throwable {
-        // Assume there exisits one valid and one invalid product description
+        // Assume there exists one valid and one invalid product description
     }
 
     //TODO Finish implementing
