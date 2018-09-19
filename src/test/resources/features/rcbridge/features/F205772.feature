@@ -53,7 +53,7 @@ Feature: F205772 - Contract Meta Data (CMD) ProductGroup Rate Conditions
 
   @US1315554
   @2018.PI04
-  Scenario: US1315554 - View Contract ProductGroup Rate Conditions
+  Scenario: US1315554 - View Contract Product Rate Group Conditions
     Given a contract productgroup rate condition exists on a contract
     When the productgroup rate conditions have been recorded in the CMD database
     Then the productgroup rate conditions are available through a web UI
@@ -177,7 +177,7 @@ Feature: F205772 - Contract Meta Data (CMD) ProductGroup Rate Conditions
 
   @US1311228
   @2018.PI04
-  Scenario: US1311228::0 - Identify ProductGroup Rate Conditions - Physician and Professional Rates
+  Scenario: US1311228::0 - Identify Product Rate Group Conditions - Physician and Professional Rates
     Given Contract [ProductGroupRate.name] is available in the CMD contract record
     When 'contractDetails.storageNode.properties.UHG_[ProductGroupRate.name]_Fee_Schedule_ID' DOES have value
     And value IS present in 'contractDetails.storageNode.properties.'UHG_[same ProductGroupRate.name]_Fee_Schedule_ID_NPPA',
@@ -211,7 +211,7 @@ Feature: F205772 - Contract Meta Data (CMD) ProductGroup Rate Conditions
 
   @US1311229
   @2018.PI04
-  Scenario: US1311229::0 - Identify ProductGroup Rate Conditions - Physician Specialty and Physician Other Specialty Rate
+  Scenario: US1311229::0 - Identify Product Rate Group Conditions - Physician Specialty and Physician Other Specialty Rate
     Given Contract [ProductGroupRate.name] is available in the CMD contract record
     When value is present in 'contractDetails.storageNode.properties.'UHG_[same ProductGroupRate.name]_Specialty_Sched_ID', 'UHG_[same ProductGroupRate.name]_All_Spec_Sched_ID'
     Then Physician Specialty Rate Conditions apply to the ProductGroup
@@ -221,7 +221,7 @@ Feature: F205772 - Contract Meta Data (CMD) ProductGroup Rate Conditions
 
   @US1311229
   @2018.PI04
-  Scenario: US1311229::1 - Identify ProductGroup Rate Conditions - Physician Specialty and Physician Other Specialty Rate
+  Scenario: US1311229::1 - Identify Product Rate Group Conditions - Physician Specialty and Physician Other Specialty Rate
     Given Physician Specialty Rate Conditions apply to the ProductGroup
     When Product Group Physician Specialty Rate has been recorded
     Then the values for 'UHG_[ProductGroupRate.name]_Specialty' are recorded in the CMD contract record as the Product Group Physician Specialty Rate qualifiers
@@ -253,7 +253,7 @@ Feature: F205772 - Contract Meta Data (CMD) ProductGroup Rate Conditions
 
   @US1311230
   @2018.PI04
-  Scenario: US1311230::0 - Identify ProductGroup Rate Conditions - Professional Specialty and Professional Other Specialty Rate
+  Scenario: US1311230::0 - Identify Product Rate Group Conditions - Professional Specialty and Professional Other Specialty Rate
     Given Contract [ProductGroupRate.name] is available in the CMD contract record
     When value is present in 'contractDetails.storageNode.properties.'UHG_[same ProductGroupRate.name]_Specialty_Sched_ID_NPPA', 'UHG_[same ProductGroupRate.name]_All_Spec_Sched_ID_NPPA'
     Then Professional Specialty Rate Conditions apply to the ProductGroup
@@ -263,7 +263,7 @@ Feature: F205772 - Contract Meta Data (CMD) ProductGroup Rate Conditions
 
   @US1311230
   @2018.PI04
-  Scenario: US1311230::1 - Identify ProductGroup Rate Conditions - Professional Specialty and Professional Other Specialty Rate
+  Scenario: US1311230::1 - Identify Product Rate Group Conditions - Professional Specialty and Professional Other Specialty Rate
     Given Professional Specialty Rate Conditions apply to the ProductGroup
     When ProductGroup Professional Specialty Rate has been recorded
     Then the values for 'UHG_[ProductGroupRate.name]_Specialty_NPPA' are recorded in the CMD contract record as the ProductGroup Professional Specialty Rate qualifiers

@@ -1,7 +1,7 @@
 # Last updated on 
 @US1311230
 @2018.PI04
-Feature: US1311230 - Identify ProductGroup Rate Conditions - Professional Specialty and Professional Other Specialty Rate
+Feature: US1311230 - Identify Product Rate Group Conditions - Professional Specialty and Professional Other Specialty Rate
 
   @TC572196
   @Automated

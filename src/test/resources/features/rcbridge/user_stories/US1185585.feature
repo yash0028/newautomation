@@ -9,7 +9,7 @@ Feature: US1185585 - Contract Product Description Crosswalk
   @TC569866
   @Automated
   @Functional
-  Scenario: TC569866 - [RL4] Validate error message for passing in multiple bad product descriptions
+  Scenario: TC569866 - [RL4] Validate empty list for passing in multiple bad product descriptions
     # Passing in multiple invalid product descriptions
     Given multiple product descriptions that do not exist
     When exchanging information about the products included or excluded from an Exari contract
@@ -48,7 +48,7 @@ Feature: US1185585 - Contract Product Description Crosswalk
   @TC575413
   @Automated
   @Functional
-  Scenario: TC575413 - [RL3] Validate error message for passing in one good and one bad product description
+  Scenario: TC575413 - [RL3] Validate only single valid product code list for passing in one good and one bad product description
     # Passing in one valid and one invalid product description
     Given a product description from the corresponding "2000290" and an invalid product description
     When exchanging information about the products included or excluded from an Exari contract
@@ -57,7 +57,7 @@ Feature: US1185585 - Contract Product Description Crosswalk
   @TC575412
   @Automated
   @Functional
-  Scenario: TC575412 - [RL2] Validate error message for passing in one bad product description
+  Scenario: TC575412 - [RL2] Validate empty list for passing in one bad product description
     # Passing in a single invalid product description
     Given a product description that does not exist
     When exchanging information about the products included or excluded from an Exari contract

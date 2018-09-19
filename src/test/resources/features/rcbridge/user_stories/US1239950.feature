@@ -1,6 +1,5 @@
 # Last updated on 
 @US1239950
-@2018.PI03
 Feature: US1239950 - F5 GTMs for Production
 
   @TC564756
