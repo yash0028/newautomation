@@ -144,9 +144,8 @@ public class ContractProdDes {
         productDescriptions.add(getProductDescription(productDesID1));
     }
 
-    //TODO Finish implementing
-    @Then("^the crosswalk only provides the product code identifier for the valid product description$")
-    public void theCrosswalkOnlyProvidesTheProductCodeIdentifierForTheValidProductDescription() throws Throwable {
+    @Then("^the crosswalk only provides the product code identifier of \"([^\"]*)\" for the valid product description$")
+    public void theCrosswalkOnlyProvidesTheProductCodeIdentifierOfForTheValidProductDescription(String expectedProductCodes) throws Throwable {
         // Make post request and store response
         response = request.post(RESOURCE_PRODUCTCODE);
 
@@ -155,9 +154,7 @@ public class ContractProdDes {
         JsonElement result = RestHelper.getInstance().parseJsonElementResponse(response);
 
         // Check that the result is a valid json array and returns list of product codes
-        // Check if response is a json array with two objects. Each object contains key value pairs of productCodeList
-        // and an array.
-        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result, 2, 0);
+        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result, 1,0);
 
         testProductCodeList(expectedProductCodeArr, resultProductCodeArr);
     }
@@ -220,8 +217,6 @@ public class ContractProdDes {
 
         for (String line : lines) {
             String[] currentLine = line.split("\\|");
-
-//            System.out.println("Current line in CSV file: " + line);
 
             if (currentLine[0].trim().equals(id)) {
                 return currentLine[1].trim();
