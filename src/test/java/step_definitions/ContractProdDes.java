@@ -41,11 +41,11 @@ public class ContractProdDes {
     }
 
     @And("^using product description from the corresponding \"([^\"]*)\"$")
-    public void setSingleProductDescription(String expectedProductDesID) throws Throwable {
+    public void setSingleProductDescription(String productDesID) throws Throwable {
         productDescriptions = new ArrayList<>();
 
         // Use product description id to get product description from contractDescriptionIDMap.csv
-        productDescriptions.add(getProductDescription(expectedProductDesID));
+        productDescriptions.add(getProductDescription(productDesID));
     }
 
     @And("^using product descriptions from the corresponding \"([^\"]*)\" and \"([^\"]*)\"$")
@@ -135,23 +135,38 @@ public class ContractProdDes {
         Assert.assertEquals(0,result.getAsJsonArray().size());
     }
 
+    // Verify one valid and one invalid product description
     @Given("^a product description from the corresponding \"([^\"]*)\" and an invalid product description$")
-    public void aProductDescriptionFromTheCorrespondingAndAnInvalidProductDescription(String arg0) throws Throwable {
-        // Assume there exists one valid and one invalid product description
+    public void aProductDescriptionFromTheCorrespondingAndAnInvalidProductDescription(String productDesID1) throws Throwable {
+        productDescriptions = new ArrayList<>();
+
+        // Use product description id to get product description from contractDescriptionIDMap.csv
+        productDescriptions.add(getProductDescription(productDesID1));
     }
 
     //TODO Finish implementing
     @Then("^the crosswalk only provides the product code identifier for the valid product description$")
     public void theCrosswalkOnlyProvidesTheProductCodeIdentifierForTheValidProductDescription() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        // Make post request and store response
+        response = request.post(RESOURCE_PRODUCTCODE);
+
+        ArrayList<String> expectedProductCodeArr = new ArrayList<>(Arrays.asList(expectedProductCodes.split(" ")));
+
+        JsonElement result = RestHelper.getInstance().parseJsonElementResponse(response);
+
+        // Check that the result is a valid json array and returns list of product codes
+        // Check if response is a json array with two objects. Each object contains key value pairs of productCodeList
+        // and an array.
+        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result, 2, 0);
+
+        testProductCodeList(expectedProductCodeArr, resultProductCodeArr);
     }
 
     /**
      * Check that the expect product code list is equal to the actual product code list.
      *
-     * @param expected
-     * @param result
+     * @param expected An array list with the expected product codes
+     * @param result A json array with the actual product codes
      */
     private void testProductCodeList(ArrayList<String> expected, JsonArray result) throws Throwable {
 
@@ -164,11 +179,14 @@ public class ContractProdDes {
         Assert.assertEquals(expected.size(), result.getAsJsonArray().size());
     }
 
+
     /**
      * Check that the result is a valid json array.
-     *
-     * @param result
+     * @param result the json element that we want to check
+     * @param expectedSize verifies that the json array has the expected number of elements
+     * @param indexToRetrieve the index in the json array that we want to retrieve
      * @return returns a list of product codes
+     * @throws Throwable
      */
     private JsonArray checkAndParseProductCodeResult(JsonElement result, int expectedSize, int indexToRetrieve) throws Throwable {
         Assert.assertTrue(result.isJsonArray());
@@ -209,7 +227,7 @@ public class ContractProdDes {
                 return currentLine[1].trim();
             }
         }
-        return "No product description found for given id.";
+        return "";
     }
 
 }
