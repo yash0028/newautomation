@@ -318,7 +318,7 @@ Feature: F201371 - Integration Services App3 - Product Description Crosswalk
     # Passing in one valid and one invalid product description
     Given a product description from the corresponding "2000290" and an invalid product description
     When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk only provides the product code identifier for the valid product description
+    Then the crosswalk only provides the product code identifier of "S0 S1 S2" for the valid product description
 
   @MVP
   @Amrutha
