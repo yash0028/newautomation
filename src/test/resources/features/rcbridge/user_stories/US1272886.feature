@@ -1,6 +1,5 @@
 # Last updated on 
 @US1272886
-@2018.PI03
 Feature: US1272886 - [Spike] Investigate Production Data
 
   @TC565288

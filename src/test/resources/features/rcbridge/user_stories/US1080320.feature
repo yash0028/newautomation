@@ -1,6 +1,5 @@
 # Last updated on 
 @US1080320
-@2018.PI03
 Feature: US1080320 - Metrics forwarding
 
   @TC565864

@@ -7,7 +7,7 @@
 Feature: US1323657 - PES Automation of Add. locations for all other contracts
 
   @TC580019
-  @Manual
+  @Automated
   @Functional
   Scenario: TC580019 - [RL0]
     When a "tin" of "760027557" is passed to appendix 1

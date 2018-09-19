@@ -1,7 +1,7 @@
 # Last updated on 
 @US1311229
 @2018.PI04
-Feature: US1311229 - Identify ProductGroup Rate Conditions - Physician Specialty and Physician Other Specialty Rate
+Feature: US1311229 - Identify Product Rate Group Conditions - Physician Specialty and Physician Other Specialty Rate
 
   @TC572188
   @Automated

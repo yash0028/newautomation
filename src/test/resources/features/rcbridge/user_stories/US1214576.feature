@@ -1,6 +1,5 @@
 # Last updated on 
 @US1214576
-@2018.PI03
 Feature: US1214576 - CLM Base Docker Image
 
   @TC565671

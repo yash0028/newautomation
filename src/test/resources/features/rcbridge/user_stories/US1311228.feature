@@ -1,7 +1,7 @@
 # Last updated on 
 @US1311228
 @2018.PI04
-Feature: US1311228 - Identify ProductGroup Rate Conditions - Physician and Professional Rates
+Feature: US1311228 - Identify Product Rate Group Conditions - Physician and Professional Rates
 
   @TC572187
   @Automated
