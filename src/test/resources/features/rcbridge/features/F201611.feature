@@ -11,13 +11,27 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
 
   @#MVP
   @Scrum_Team_1
+  @PES
   @US1323657
   @2018.PI04
   Scenario: US1323657 - PES Automation of Add. locations for all other contracts
-    When a user fills out the appendix with the correct fields
-    Then the search will return all additional locations for those fields.
-    #attached document to this feature will show the fields necessary
-    #QE TODO: populate fields from document, and clarify difference between this story and the previous Appendix 1/Location story
+    When a "tin" of "760027557" is passed to appendix 1
+    Then PES returns the following information:
+      | mpin |
+      | tin |
+      | firstName |
+      | lastName |
+      | facilityName |
+      | providerDegree |
+      | addressLine1 |
+      | addressLine2 |
+      | addressType |
+      | city |
+      | state |
+      | zip |
+      | phoneNumbers |
+      | faxNumbers |
+      | emailAddresses |
 
   @PES
   @Alex_M
@@ -52,6 +66,7 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
     When a "tin" of "abcd12345" is passed to appendix 1
     Then the user receives a bad input error message
 
+  @PES
   @US1311485
   @2018.PI03
   Scenario: US1311485::0 - PES Roster Call -Change Output Results
@@ -71,6 +86,7 @@ Feature: F201611 - Exari Microservice Complete Integration of Exari with PES (De
       | providerTypeCode |
     # Note: "code" and "description" are for specialty
 
+  @PES
   @US1311485
   @2018.PI03
   Scenario: US1311485::1 - PES Roster Call -Change Output Results
