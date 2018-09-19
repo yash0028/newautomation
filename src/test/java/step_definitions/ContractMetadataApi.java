@@ -25,7 +25,6 @@ import static io.restassured.RestAssured.given;
  */
 public class ContractProdDes {
     //TODO Will be renamed to contract-metadata-api
-    //TODO implement case with signle valid product description
     private final static String ENDPOINT = "http://localhost:8080";
     private final static String RESOURCE_PRODUCTCODE = "/v1.0/xwalk/product/code/list";
     private final static String CSV_FILE = "/support/ContractDescriptionIDMap.csv";
@@ -34,7 +33,7 @@ public class ContractProdDes {
     private Response response;
     private ArrayList<String> productDescriptions;
 
-
+//US1185585 Contract Product Description Crosswalk
     @Given("^a product description to product code crosswalk exists$")
     public void aProductDescriptionToProductCodeCrosswalkExists() throws Throwable {
         // Assume description to product code crosswalk exists
