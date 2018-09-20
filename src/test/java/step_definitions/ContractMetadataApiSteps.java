@@ -23,7 +23,7 @@ import static io.restassured.RestAssured.given;
 /**
  * Created by dtimaul on 9/11/18.
  */
-public class ContractProdDes {
+public class ContractMetadataApiSteps {
     //TODO Will be renamed to contract-metadata-api
     private final static String ENDPOINT = "http://localhost:8080";
     private final static String RESOURCE_PRODUCTCODE = "/v1.0/xwalk/product/code/list";
