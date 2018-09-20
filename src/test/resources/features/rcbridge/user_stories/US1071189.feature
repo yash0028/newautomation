@@ -1,6 +1,5 @@
 # Last updated on 
 @US1071189
-@2018.PI03
 Feature: US1071189 - Setup Exari Production Environment and URL
 
   @TC565069
