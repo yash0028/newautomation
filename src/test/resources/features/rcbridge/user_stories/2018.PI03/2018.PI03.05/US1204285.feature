@@ -14,14 +14,6 @@ Feature: US1204285 - [Continued]Implement NDB Contract Master Lookup API
     When NDB receives the Search parameter data
     Then NDB will search and return back the valid contract master data for the search parameters requested.
 
-  @TC589311
-  @Manual
-  @Functional
-  Scenario: TC589311 - [RL1]
-    Given the Exari / CLM>NDB contract master Lookup API payload data is contains an invalid fee schedule
-    When NDB receives the Search parameter data
-    Then NDB will search and return back the result code 2
-
   @CLM_UAT
   @TC561389
   @Manual
