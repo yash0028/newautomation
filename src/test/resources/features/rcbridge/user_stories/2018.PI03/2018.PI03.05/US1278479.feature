@@ -13,7 +13,7 @@ Feature: US1278479 - Publish NDB API contract master more than one response
     And the fee schedule "96192" & the product code group "1Net" & the product code "P1"
     And the fee schedule "96192" & the product code group "PPO" & the product code "P3"
     When The API response was successful
-    Then The API returned more than one contract master
+    Then The API returned one or more contract masters
     And Add the contract master response to the Kafka Event Topic
 
   @TC565739
@@ -24,6 +24,6 @@ Feature: US1278479 - Publish NDB API contract master more than one response
     Given The NDB contract master look up API was executed with market number, fee schedule, and a single product code
     And the fee schedule "96192" & the product code group "1Net" & the product code "P1"
     When The API response was successful
-    Then The API returned one contract master
+    Then The API returned one or more contract masters
     And Add the contract master response to the Kafka Event topic
 
