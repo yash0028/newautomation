@@ -67,7 +67,6 @@ public class ContractMetadataApiSteps {
             }
         }
 
-        //Request body: {"productDesc": [“desc1”, “desc2”]}
         requestBody.add("productDesc", productDescriptionArr);
 
         //Create request with request body
@@ -83,9 +82,6 @@ public class ContractMetadataApiSteps {
 
         JsonElement result = RestHelper.getInstance().parseJsonElementResponse(response);
 
-        // Check that the result is a valid json array and returns list of product codes
-        // Check if response is a json array with one object that contains key value pair of productCodeList
-        // and an array.
         JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result, 1, 0);
 
         // check that the expected product code list is equal to the result/actual one.
@@ -146,11 +142,9 @@ public class ContractMetadataApiSteps {
     public void theCrosswalkOnlyProvidesTheProductCodeIdentifierOfForTheValidProductDescription(String expectedProductCodes) throws Throwable {
         // Make post request and store response
         response = request.post(RESOURCE_PRODUCTCODE);
-
-        ArrayList<String> expectedProductCodeArr = new ArrayList<>(Arrays.asList(expectedProductCodes.split(" ")));
-
         JsonElement result = RestHelper.getInstance().parseJsonElementResponse(response);
 
+        ArrayList<String> expectedProductCodeArr = new ArrayList<>(Arrays.asList(expectedProductCodes.split(" ")));
         // Check that the result is a valid json array and returns list of product codes
         JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result, 1,0);
 
