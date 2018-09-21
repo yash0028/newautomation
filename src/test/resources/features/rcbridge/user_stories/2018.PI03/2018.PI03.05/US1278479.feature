@@ -11,8 +11,8 @@ Feature: US1278479 - Publish NDB API contract master more than one response
     # Scenario 2 (UNET search with mkt, fee schedule, and multiple product codes
     Given The NDB contract master look up API was executed with market number, fee schedule, and more than one product code
     When The API response was successful
-    And The API returned more than one contract master
-    Then Add the contract master response to the Kafka Event Topic
+    Then The API returned more than one contract master
+    And Add the contract master response to the Kafka Event Topic
 
   @TC565739
   @Automated
@@ -21,6 +21,6 @@ Feature: US1278479 - Publish NDB API contract master more than one response
     # Scenario 1 (UNET search with mkt, fee schedule, and a single product code)
     Given The NDB contract master look up API was executed with market number, fee schedule, and a single product code
     When The API response was successful
-    And The API returned more than one contract master
-    Then Add the contract master response to the Kafka Event topic
+    Then The API returned one contract master
+    And Add the contract master response to the Kafka Event topic
 
