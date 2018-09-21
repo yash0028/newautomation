@@ -5,9 +5,9 @@
 Feature: US1278479 - Publish NDB API contract master more than one response
 
   @TC587365
-  @Manual
+  @Automated
   @Functional
-  Scenario: TC587365 - [RL1]
+  Scenario: TC587365 - [RL1] Check Mutliple
     # Scenario 2 (UNET search with mkt, fee schedule, and multiple product codes
     Given The NDB contract master look up API was executed with market number, fee schedule, and more than one product code
     When The API response was successful
@@ -17,7 +17,7 @@ Feature: US1278479 - Publish NDB API contract master more than one response
   @TC565739
   @Automated
   @Functional
-  Scenario: TC565739 - [RL0]
+  Scenario: TC565739 - [RL0] Check Single
     # Scenario 1 (UNET search with mkt, fee schedule, and a single product code)
     Given The NDB contract master look up API was executed with market number, fee schedule, and a single product code
     When The API response was successful
