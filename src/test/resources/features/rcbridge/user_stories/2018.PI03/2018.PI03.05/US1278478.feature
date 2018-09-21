@@ -7,17 +7,21 @@ Feature: US1278478 - Publish NDB API contract master null response
   @TC589269
   @Automated
   @Functional
-  Scenario: TC589269 - [RL1] Check Multiple Null
-    # Scenario 2 (UNET search with mkt, fee schedule, and multiple product codes
-    Given The NDB contract master look up API was executed with market number, fee schedule, and more than one product code that are invalid
+  Scenario: TC589269 - [RL1] Check Single Null
+    # Scenario 1B (UNET search with mkt, fee schedule, and a single product code)
+    Given The NDB contract master look up API was executed with market number, fee schedule, and a single product code
+      | feeSchedule | 96192       |
+      | productCodeGroup | PPO              |
+      | productCode | P5          |
     When The API response was successful
     Then The API returned no results
+    And the API returned a return code of "10"
     And Add the contract master response to the Kafka Event topic
 
   @TC589310
-  @Manual
+  @Automated
   @Functional
-  Scenario: TC589310 - [RL2]
+  Scenario: TC589310 - [RL2] Check Multiple Null
     # Scenario 2 (UNET search with mkt, fee schedule, and multiple product codes
     Given The NDB contract master look up API was executed with market number, fee schedule, and more than one product code
       | feeSchedule | 96192222222 | 96192       |
