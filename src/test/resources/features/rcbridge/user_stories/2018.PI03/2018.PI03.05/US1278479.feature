@@ -10,9 +10,8 @@ Feature: US1278479 - Publish NDB API contract master more than one response
   Scenario: TC587365 - [RL1] Check Mutliple
     # Scenario 2 (UNET search with mkt, fee schedule, and multiple product codes
     Given The NDB contract master look up API was executed with market number, fee schedule, and more than one product code
-      | feeSchedule | 96192       | 96192       |
-      | productCodeGroup | 1Net             | PPO              |
-      | productCode | P1          | P3          |
+    And the fee schedule "96192" & the product code group "1Net" & the product code "P1"
+    And the fee schedule "96192" & the product code group "PPO" & the product code "P3"
     When The API response was successful
     Then The API returned more than one contract master
     And Add the contract master response to the Kafka Event Topic
@@ -23,9 +22,7 @@ Feature: US1278479 - Publish NDB API contract master more than one response
   Scenario: TC565739 - [RL0] Check Single
     # Scenario 1 (UNET search with mkt, fee schedule, and a single product code)
     Given The NDB contract master look up API was executed with market number, fee schedule, and a single product code
-      | feeSchedule | 96192       |
-      | productCodeGroup | 1Net             |
-      | productCode | P1          |
+    And the fee schedule "96192" & the product code group "1Net" & the product code "P1"
     When The API response was successful
     Then The API returned one contract master
     And Add the contract master response to the Kafka Event topic

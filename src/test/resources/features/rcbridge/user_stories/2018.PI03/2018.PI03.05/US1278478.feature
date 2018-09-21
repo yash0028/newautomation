@@ -10,9 +10,7 @@ Feature: US1278478 - Publish NDB API contract master null response
   Scenario: TC589269 - [RL1] Check Single Null
     # Scenario 1B (UNET search with mkt, fee schedule, and a single product code)
     Given The NDB contract master look up API was executed with market number, fee schedule, and a single product code
-      | feeSchedule | 96192       |
-      | productCodeGroup | PPO              |
-      | productCode | P5          |
+    And the fee schedule "96192" & the product code group "PPO" & the product code "P5"
     When The API response was successful
     Then The API returned no results
     And the API returned a return code of "10"
@@ -24,9 +22,8 @@ Feature: US1278478 - Publish NDB API contract master null response
   Scenario: TC589310 - [RL2] Check Multiple Null
     # Scenario 2 (UNET search with mkt, fee schedule, and multiple product codes
     Given The NDB contract master look up API was executed with market number, fee schedule, and more than one product code
-      | feeSchedule | 96192222222 | 96192       |
-      | productCodeGroup | 1NET             | PPO              |
-      | productCode | P1          | P5          |
+    And the fee schedule "96192222222" & the product code group "1Net" & the product code "P1"
+    And the fee schedule "96192" & the product code group "PPO" & the product code "P5"
     When The API response was successful
     Then The API returned no results
     And the API returned a return code of "2" and "10"
@@ -38,9 +35,7 @@ Feature: US1278478 - Publish NDB API contract master null response
   Scenario: TC565495 - [RL0] Check Single Null
     # Scenario 1A (UNET search with mkt, fee schedule, and a single product code) bad fee schedule
     Given The NDB contract master look up API was executed with market number, fee schedule, and a single product code
-      | feeSchedule | 96192222222 |
-      | productCodeGroup | 1NET             |
-      | productCode | P1          |
+    And the fee schedule "96192222222" & the product code group "1Net" & the product code "P1"
     When The API response was successful
     Then The API returned no results
     And the API returned a return code of "2"
