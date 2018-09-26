@@ -14,7 +14,6 @@ Feature: US1278478 - Publish NDB API contract master null response
     When The API response was successful
     Then The API returned no results
     And the API returned a return code of "10"
-    And Add the contract master response to the Kafka Event topic
 
   @TC589310
   @Automated
@@ -27,7 +26,6 @@ Feature: US1278478 - Publish NDB API contract master null response
     When The API response was successful
     Then The API returned no results
     And the API returned a return code of "2" and "10"
-    And Add the contract master response to the Kafka Event topic
 
   @TC565495
   @Automated
@@ -39,5 +37,4 @@ Feature: US1278478 - Publish NDB API contract master null response
     When The API response was successful
     Then The API returned no results
     And the API returned a return code of "2"
-    And Add the contract master response to the Kafka Event topic
 

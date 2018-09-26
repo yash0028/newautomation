@@ -1,7 +1,7 @@
 # Last updated on 
 @US1311227
 @2018.PI04
-Feature: US1311227 - Identify ProductGroup Rate Conditions - Provider Rate
+Feature: US1311227 - Identify ProductGroup Rate Conditions - Provider Category
 
   @TC572221
   @Automated
