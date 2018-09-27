@@ -62,7 +62,7 @@ public class ActionRequiredPage {
 
     // Return a list of WebElements containing the rows in the table on the action required page
     public List<WebElement> getTableRows() {
-        return findElements("xpath", "//table[class = 'mat-table']");
+        return findElements("xpath", "//table[@class='mat-table']/tr");
     }
 
 }
