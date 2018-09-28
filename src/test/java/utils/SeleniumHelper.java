@@ -1,13 +1,14 @@
 package utils;
 
+import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,6 +17,10 @@ public class SeleniumHelper {
 
     private static Logger logger = Logger.getLogger("SeleniumHelper");
     private static WebDriver driver = null;
+
+    private static final String USERNAME = "clmTest";
+    private static final String ACCESS_KEY = "df50990a-fb76-4a3f-ae3c-a318212ecc3e";
+    public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
 
     private enum Browsers {
         IE, FIREFOX, CHROME
@@ -51,10 +56,17 @@ public class SeleniumHelper {
         try {
             switch (Browsers.valueOf(browserName.toUpperCase())) {
                 case CHROME:
-                    System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-                    ChromeOptions chromeOptions = new ChromeOptions();
-                    chromeOptions.setExperimentalOption("useAutomationExtension", false);
-                    driver = new ChromeDriver(chromeOptions);
+                    DesiredCapabilities caps = DesiredCapabilities.chrome();
+                    caps.setCapability("parentTunnel", "sauce_admin");
+                    caps.setCapability("tunnelIdentifier", "OptumSharedTunnel-Stg");
+                    caps.setCapability("seleniumVersion", "3.11.0");
+                    caps.setCapability("platform", "Windows 10");
+                    caps.setCapability("version", "60");
+                    caps.setCapability("chromedriverVersion", "2.28");
+                    caps.setCapability("screenResolution", "1280x1024");
+                    caps.setCapability("name", "CLM Team3 - CMD Dashboard tests");
+                    caps.setCapability("maxDuration", "3600");
+                    driver = new RemoteWebDriver(new URL(URL), caps);
                     break;
                 default:
                     throw new Exception(
@@ -62,12 +74,12 @@ public class SeleniumHelper {
             }
             driver.manage().deleteAllCookies();
             driver.manage().window().maximize();
-            driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
+            driver.manage().timeouts().pageLoadTimeout(180, TimeUnit.SECONDS);
             waitForPageLoad();
         } catch (TimeoutException e) {
             logger.log(Level.SEVERE, "Browser unable to load page within 90Sec", e);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "No valid browser is provided", e);
+            logger.log(Level.SEVERE, "No valid browser is provided : " + e.getMessage(), e);
         }
     }
 
