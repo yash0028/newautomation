@@ -4,6 +4,7 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.WebDriver;
+import utils.FileHelper;
 import utils.SeleniumHelper;
 
 import java.util.logging.Logger;
@@ -38,7 +39,7 @@ public class UtilSteps {
     @Before("@A_UI_Story")
     public void getWebDriverForUI() {
         logger.info("Starting selenium webdriver and launching browser");
-        SeleniumHelper.launchBrowser("chrome");
+        SeleniumHelper.launchBrowser(FileHelper.getInstance().getConfigValue("browserName"));
     }
 
     @After

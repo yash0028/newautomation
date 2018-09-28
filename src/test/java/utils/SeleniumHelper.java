@@ -18,9 +18,6 @@ public class SeleniumHelper {
     private static Logger logger = Logger.getLogger("SeleniumHelper");
     private static WebDriver driver = null;
 
-    private static final String USERNAME = "clmTest";
-    private static final String ACCESS_KEY = "df50990a-fb76-4a3f-ae3c-a318212ecc3e";
-    public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
 
     private enum Browsers {
         IE, FIREFOX, CHROME
@@ -53,19 +50,21 @@ public class SeleniumHelper {
      */
     public static void launchBrowser(String browserName) {
 
+        FileHelper fileHelper = FileHelper.getInstance();
+        String URL = "http://" + fileHelper.getConfigValue("SauceLabs_UserName") + ":" + fileHelper.getConfigValue("SauceLabs_AccessKey") + "@ondemand.saucelabs.com:80/wd/hub";
         try {
             switch (Browsers.valueOf(browserName.toUpperCase())) {
                 case CHROME:
                     DesiredCapabilities caps = DesiredCapabilities.chrome();
-                    caps.setCapability("parentTunnel", "sauce_admin");
-                    caps.setCapability("tunnelIdentifier", "OptumSharedTunnel-Stg");
-                    caps.setCapability("seleniumVersion", "3.11.0");
-                    caps.setCapability("platform", "Windows 10");
-                    caps.setCapability("version", "60");
-                    caps.setCapability("chromedriverVersion", "2.28");
-                    caps.setCapability("screenResolution", "1280x1024");
+                    caps.setCapability("parentTunnel", fileHelper.getConfigValue("SauceLabs_ParentTunnel"));
+                    caps.setCapability("tunnelIdentifier", fileHelper.getConfigValue("SauceLabs_TunnelIdentifier"));
+                    caps.setCapability("seleniumVersion", fileHelper.getConfigValue("SauceLabs_SeleniumVersion"));
+                    caps.setCapability("platform", fileHelper.getConfigValue("SauceLabs_Platform"));
+                    caps.setCapability("version", fileHelper.getConfigValue("SauceLabs_BrowserVesion"));
+                    caps.setCapability("chromedriverVersion", fileHelper.getConfigValue("SauceLabs_DriverVersion"));
+                    caps.setCapability("screenResolution", fileHelper.getConfigValue("SauceLabs_ScreenResolution"));
+                    caps.setCapability("maxDuration", fileHelper.getConfigValue("SauceLabs_MaxDuration"));
                     caps.setCapability("name", "CLM Team3 - CMD Dashboard tests");
-                    caps.setCapability("maxDuration", "3600");
                     driver = new RemoteWebDriver(new URL(URL), caps);
                     break;
                 default:
@@ -77,9 +76,9 @@ public class SeleniumHelper {
             driver.manage().timeouts().pageLoadTimeout(180, TimeUnit.SECONDS);
             waitForPageLoad();
         } catch (TimeoutException e) {
-            logger.log(Level.SEVERE, "Browser unable to load page within 90Sec", e);
+            logger.log(Level.SEVERE, "Browser unable to load page within 180 Seconds: " + e.getMessage());
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "No valid browser is provided : " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "No valid browser is provided : " + e.getMessage());
         }
     }
 
@@ -118,7 +117,7 @@ public class SeleniumHelper {
     }
 
     private static WebElement findElementWithExplicitWait(WebElementIdentifiers identifier, String locator,
-                                                         long timeOutInSeconds) {
+                                                          long timeOutInSeconds) {
 
         WebDriverWait waitDriver = new WebDriverWait(driver, timeOutInSeconds);
         try {
