@@ -46,7 +46,7 @@ public class UtilSteps {
     public void sendRallyUpdate() {
         WebDriver driver = SeleniumHelper.getWebDriver();
         if (driver != null) {
-            driver.close();
+            driver.quit();
         }
         //TODO
     }
