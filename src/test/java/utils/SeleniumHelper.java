@@ -1,13 +1,14 @@
 package utils;
 
+import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,6 +17,7 @@ public class SeleniumHelper {
 
     private static Logger logger = Logger.getLogger("SeleniumHelper");
     private static WebDriver driver = null;
+
 
     private enum Browsers {
         IE, FIREFOX, CHROME
@@ -48,13 +50,22 @@ public class SeleniumHelper {
      */
     public static void launchBrowser(String browserName) {
 
+        FileHelper fileHelper = FileHelper.getInstance();
+        String URL = "http://" + fileHelper.getConfigValue("SauceLabs_UserName") + ":" + fileHelper.getConfigValue("SauceLabs_AccessKey") + "@ondemand.saucelabs.com:80/wd/hub";
         try {
             switch (Browsers.valueOf(browserName.toUpperCase())) {
                 case CHROME:
-                    System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-                    ChromeOptions chromeOptions = new ChromeOptions();
-                    chromeOptions.setExperimentalOption("useAutomationExtension", false);
-                    driver = new ChromeDriver(chromeOptions);
+                    DesiredCapabilities caps = DesiredCapabilities.chrome();
+                    caps.setCapability("parentTunnel", fileHelper.getConfigValue("SauceLabs_ParentTunnel"));
+                    caps.setCapability("tunnelIdentifier", fileHelper.getConfigValue("SauceLabs_TunnelIdentifier"));
+                    caps.setCapability("seleniumVersion", fileHelper.getConfigValue("SauceLabs_SeleniumVersion"));
+                    caps.setCapability("platform", fileHelper.getConfigValue("SauceLabs_Platform"));
+                    caps.setCapability("version", fileHelper.getConfigValue("SauceLabs_BrowserVesion"));
+                    caps.setCapability("chromedriverVersion", fileHelper.getConfigValue("SauceLabs_DriverVersion"));
+                    caps.setCapability("screenResolution", fileHelper.getConfigValue("SauceLabs_ScreenResolution"));
+                    caps.setCapability("maxDuration", fileHelper.getConfigValue("SauceLabs_MaxDuration"));
+                    caps.setCapability("name", "CLM Team3 - CMD Dashboard tests");
+                    driver = new RemoteWebDriver(new URL(URL), caps);
                     break;
                 default:
                     throw new Exception(
@@ -62,12 +73,12 @@ public class SeleniumHelper {
             }
             driver.manage().deleteAllCookies();
             driver.manage().window().maximize();
-            driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
+            driver.manage().timeouts().pageLoadTimeout(180, TimeUnit.SECONDS);
             waitForPageLoad();
         } catch (TimeoutException e) {
-            logger.log(Level.SEVERE, "Browser unable to load page within 90Sec", e);
+            logger.log(Level.SEVERE, "Browser unable to load page within 180 Seconds: " + e.getMessage());
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "No valid browser is provided", e);
+            logger.log(Level.SEVERE, "No valid browser is provided : " + e.getMessage());
         }
     }
 
@@ -106,7 +117,7 @@ public class SeleniumHelper {
     }
 
     private static WebElement findElementWithExplicitWait(WebElementIdentifiers identifier, String locator,
-                                                         long timeOutInSeconds) {
+                                                          long timeOutInSeconds) {
 
         WebDriverWait waitDriver = new WebDriverWait(driver, timeOutInSeconds);
         try {

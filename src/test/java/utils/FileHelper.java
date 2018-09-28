@@ -6,6 +6,9 @@ import com.google.gson.JsonParser;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.zip.ZipFile;
 
@@ -13,7 +16,10 @@ import java.util.zip.ZipFile;
  * Created by jwacker on 8/8/2018.
  */
 public class FileHelper {
+
+    private static final Logger logger = Logger.getLogger("FileHelper");
     private static FileHelper ourInstance = new FileHelper();
+    private Properties properties = null;
 
     public static FileHelper getInstance() {
         return ourInstance;
@@ -35,7 +41,7 @@ public class FileHelper {
         return file;
     }
 
-    public boolean zipContainsFiles(File file){
+    public boolean zipContainsFiles(File file) {
         ZipFile zipFile = null;
         int size = 0;
 
@@ -46,8 +52,7 @@ public class FileHelper {
             //Get the size of the zip file
             size = zipFile.size();
             zipFile.close();
-        }
-        catch(IOException e) {
+        } catch (IOException e) {
             System.out.println("Error regarding zip file: " + e.getMessage());
         }
 
@@ -58,7 +63,7 @@ public class FileHelper {
     public JsonElement getJsonFile(String fileName) {
         JsonParser parser = new JsonParser();
         Reader reader;
-        try{
+        try {
 //            String temp = getClass().getResource(fileName).getPath();
 //            System.out.println(temp);
             reader = new InputStreamReader(getClass().getResourceAsStream(fileName), "UTF-8");
@@ -101,5 +106,25 @@ public class FileHelper {
         }
 
         return list;
+    }
+
+    public String getConfigValue(String key) {
+        if (properties == null)
+            loadPropertiesFile();
+        return properties.getProperty(key);
+    }
+
+    private void loadPropertiesFile() {
+        InputStream inputStream = null;
+        properties = new Properties();
+        try {
+            inputStream = getClass().getClassLoader().getResourceAsStream("config.properties");
+            if (inputStream == null) {
+                logger.info("Unable to find out the config.properties file");
+            }
+            properties.load(inputStream);
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, e.getMessage());
+        }
     }
 }
