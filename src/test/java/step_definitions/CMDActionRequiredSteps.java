@@ -27,13 +27,17 @@ public class CMDActionRequiredSteps {
 
     @Given("^I have clicked on Action Required button on the CMD dashboard$")
     public void ClickActionRequiredButtonOnCMDDashboard() throws Throwable {
-        SeleniumHelper.launchBrowser("chrome", true);
+        SeleniumHelper.launchBrowser("chrome");
         driver = SeleniumHelper.getWebDriver();
         driver.navigate().to(CMD_DASHBOARD_URL);
         cmdPage = CMDPage.getCMDPage();
         Assert.assertNotNull("CMD page could not be displayed", cmdPage);
 
-       // WebElement element = SeleniumHelpere.findElement(By.name("q"));
+       // WebElement element = SeleniumHelper.findElement(By.name("q"));
+
+        //driver.findElement(By.xpath("//a[contains(@href,'/contract-summary/in-progress')]")).click();
+
+        System.out.println("element clicked? " + cmdPage.clickInProgressButton());
 
 
     }
