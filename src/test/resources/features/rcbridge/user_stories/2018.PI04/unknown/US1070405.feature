@@ -1,7 +1,7 @@
 # Last updated on 
 @US1070405
 @2018.PI04
-Feature: US1070405 - Exari>COSMOS Add a Facility Panel - PIC DIV
+Feature: US1070405 - CLM >COSMOS Add a Facility Panel - PIC DIV
 
   @TC564945
   @Automated

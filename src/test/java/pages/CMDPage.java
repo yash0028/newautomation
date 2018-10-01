@@ -28,11 +28,11 @@ public class CMDPage {
         return findElements("tagName", "h3");
     }
 
-    public List<WebElement> getNavHeaders(){
+    public List<WebElement> getNavHeaders() {
         return findElements("className", "nav-item");
     }
 
-    public WebElement getActionRequiredButton() {
-        return findElement("xpath", "//button[text()=' Show Table ']");
+    public List<WebElement> getTransactionsCount() {
+        return findElements("className", "statnumber");
     }
 }

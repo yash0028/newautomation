@@ -9,7 +9,8 @@ Feature: US1064673 - [Continued]Exari>COSMOS Physician Panel Add to Existing Pro
   @Manual
   @Functional
   Scenario: TC562753 - Verify adding only one panel to physician contract
-    #A single provider can have multiple panels. So, for one provider, add only one panelGiven the Exari payload extracts and maps the correct data fields in the Exari>COSMOS payload
+    #A single provider can have multiple panels. So, for one provider, add only one panel
+    Given the Exari payload extracts and maps the correct data fields in the Exari>COSMOS payload
     When COSMOS uploads the additional Physician Panel record into COSMOS
     Then the COSMOS Physician Panel should be added and populate the PPC table and screens in COSMOS without error
 

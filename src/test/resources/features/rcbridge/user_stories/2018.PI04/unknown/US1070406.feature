@@ -1,7 +1,7 @@
 # Last updated on 
 @US1070406
 @2018.PI04
-Feature: US1070406 - Exari>COSMOS Add a Facility Panel - already existing contract - PIC DIV
+Feature: US1070406 - CLM >COSMOS Add a Facility Panel - already existing contract - PIC DIV
 
   @TC565657
   @Automated
