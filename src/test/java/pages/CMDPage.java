@@ -17,7 +17,7 @@ public class CMDPage {
     }
 
     public static CMDPage getCMDPage() {
-        return (getHeaderContractMetadata().getText().equalsIgnoreCase("Contract Metadata")) ? new CMDPage() : null;
+        return (getHeaderContractMetadata().getText().equalsIgnoreCase("Contract Management")) ? new CMDPage() : null;
     }
 
     public static WebElement getHeaderContractMetadata() {
@@ -30,5 +30,9 @@ public class CMDPage {
 
     public List<WebElement> getNavHeaders(){
         return findElements("className", "nav-item");
+    }
+
+    public WebElement getActionRequiredButton() {
+        return findElement("xpath", "//button[text()=' Show Table ']");
     }
 }

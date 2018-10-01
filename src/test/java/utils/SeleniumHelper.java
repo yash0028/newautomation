@@ -46,29 +46,53 @@ public class SeleniumHelper {
      *
      * @param browserName - Currently only chrome browser is utilized
      */
-    public static void launchBrowser(String browserName) {
-
-        try {
-            switch (Browsers.valueOf(browserName.toUpperCase())) {
-                case CHROME:
-                    System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-                    ChromeOptions chromeOptions = new ChromeOptions();
-                    chromeOptions.setExperimentalOption("useAutomationExtension", false);
-                    driver = new ChromeDriver(chromeOptions);
-                    break;
-                default:
-                    throw new Exception(
-                            "Currently only CHROME browser is supported");
+    public static void launchBrowser(String browserName, boolean isMac) {
+        if (isMac) {
+            try {
+                switch (Browsers.valueOf(browserName.toUpperCase())) {
+                    case CHROME:
+                        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
+                        ChromeOptions chromeOptions = new ChromeOptions();
+                        chromeOptions.setExperimentalOption("useAutomationExtension", false);
+                        driver = new ChromeDriver(chromeOptions);
+                        break;
+                    default:
+                        throw new Exception(
+                                "Currently only CHROME browser is supported");
+                }
+                driver.manage().deleteAllCookies();
+                driver.manage().window().maximize();
+                driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
+                waitForPageLoad();
+            } catch (TimeoutException e) {
+                logger.log(Level.SEVERE, "Browser unable to load page within 90Sec", e);
+            } catch (Exception e) {
+                logger.log(Level.SEVERE, "No valid browser is provided", e);
             }
-            driver.manage().deleteAllCookies();
-            driver.manage().window().maximize();
-            driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
-            waitForPageLoad();
-        } catch (TimeoutException e) {
-            logger.log(Level.SEVERE, "Browser unable to load page within 90Sec", e);
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, "No valid browser is provided", e);
+        } else {
+            try {
+                switch (Browsers.valueOf(browserName.toUpperCase())) {
+                    case CHROME:
+                        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+                        ChromeOptions chromeOptions = new ChromeOptions();
+                        chromeOptions.setExperimentalOption("useAutomationExtension", false);
+                        driver = new ChromeDriver(chromeOptions);
+                        break;
+                    default:
+                        throw new Exception(
+                                "Currently only CHROME browser is supported");
+                }
+                driver.manage().deleteAllCookies();
+                driver.manage().window().maximize();
+                driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
+                waitForPageLoad();
+            } catch (TimeoutException e) {
+                logger.log(Level.SEVERE, "Browser unable to load page within 90Sec", e);
+            } catch (Exception e) {
+                logger.log(Level.SEVERE, "No valid browser is provided", e);
+            }
         }
+
     }
 
     public static WebElement findElement(String identifier, String locator) {

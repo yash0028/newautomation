@@ -25,7 +25,7 @@ public class CMDSteps {
 
     @Given("^I have entered the CMD dashboard URL$")
     public void navigateToCMDdashboardUrl() {
-        SeleniumHelper.launchBrowser("chrome");
+        SeleniumHelper.launchBrowser("chrome", false);
         SeleniumHelper.getWebDriver().get(CMD_DASHBOARD_URL);
         cmdPage = CMDPage.getCMDPage();
         Assert.assertNotNull("CMD page not displayed", cmdPage);
