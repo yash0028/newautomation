@@ -64,15 +64,12 @@ public class CMDActionRequiredSteps {
                 .map(s -> LocalDate.parse(s, formatter)) // convert string to date
                 .collect(Collectors.toList()); // put all dates back into a list
 
-        System.out.println("Before sort: " + dates);
+        //  verify that the rows in the table are sorted by date from oldest to newest
+        Boolean isSorted = dates.stream().sorted().collect(Collectors.toList()).equals(dates);
 
-        Collections.sort(dates);
-        System.out.println("After sort: " + dates);
-
-
-//        Boolean isSorted = dates.stream().sorted().collect(Collectors.toList()).equals(dates);
-
-//        Assert.assertTrue(isSorted);
+//        TODO: Verify with business if the list should be sorted from newest to oldest instead?
+//        TODO: If yes, then change to - Boolean isSorted = dates.stream().sorted(Collections.reverseOrder()).collect(Collectors.toList()).equals(dates);
+        Assert.assertTrue(isSorted);
     }
 
     @Then("^for each transaction that requires input I can see data populated for each one of the fields$")
