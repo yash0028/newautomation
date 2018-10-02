@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class SeleniumHelper {
 
     private static Logger log = LoggerFactory.getLogger(SeleniumHelper.class);
-    private static WebDriver driver = null;
+    private static WebDriver driver = getWebDriver();
 
 
     private SeleniumHelper() {
@@ -30,7 +30,7 @@ public class SeleniumHelper {
      * @return - WebDriver object
      */
     public static WebDriver getWebDriver() {
-        return driver;
+        return SauceLabs.getInstance().getDriver();
     }
 
     /**

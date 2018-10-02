@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
 import ui_test.page.CMDPage;
-import ui_test.util.SeleniumHelper;
+import ui_test.util.IUiStep;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class CMDSteps implements IRestStep {
+public class CMDSteps implements IRestStep, IUiStep {
 
     private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
 
@@ -32,7 +32,7 @@ public class CMDSteps implements IRestStep {
 
     @Given("^I have entered the CMD dashboard URL$")
     public void navigateToCMDdashboardUrl() {
-        SeleniumHelper.getWebDriver().get(CMD_DASHBOARD_URL);
+        getWebDriver().get(CMD_DASHBOARD_URL);
         cmdPage = CMDPage.getCMDPage();
         Assert.assertNotNull("CMD page not displayed", cmdPage);
     }

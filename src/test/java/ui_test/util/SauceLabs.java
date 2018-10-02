@@ -7,6 +7,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.TimeKeeper;
 import util.configuration.IConfigurable;
 
 import java.net.MalformedURLException;
@@ -17,7 +18,7 @@ import java.util.Optional;
 
 class SauceLabs implements IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(SauceLabs.class);
-    private static SauceLabs INSTANCE = new SauceLabs();
+    private static SauceLabs INSTANCE;
 
     private String jobId;
     private RemoteWebDriver driver = null;
@@ -29,7 +30,7 @@ class SauceLabs implements IConfigurable {
      */
 
     private SauceLabs() {
-        this.capabilities = generateCapabilities(SupportedBrowsers.CHROME, configGetOptionalString("DEFAULT_SCENARIO_NAME").orElse("CLM UI Test"));
+        this.capabilities = generateCapabilities();
         init();
     }
 
@@ -57,7 +58,8 @@ class SauceLabs implements IConfigurable {
     }
 
     static void reset(String scenarioName) {
-        INSTANCE.close();
+        if (INSTANCE != null)
+            INSTANCE.close();
         INSTANCE = new SauceLabs(scenarioName);
     }
 
@@ -130,6 +132,12 @@ class SauceLabs implements IConfigurable {
     HELPER METHODS
      */
 
+    private DesiredCapabilities generateCapabilities() {
+        SupportedBrowsers browser = SupportedBrowsers.getFromString(configGetOptionalString("defaultBrowserName").orElse("CHROME"));
+        String name = configGetOptionalString("defaultJobName").orElse("CLM UI Test");
+        return generateCapabilities(browser, name);
+    }
+
     private DesiredCapabilities generateCapabilities(SupportedBrowsers browser, String scenarioName) {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -169,7 +177,7 @@ class SauceLabs implements IConfigurable {
         // Configure SauceLabs Integration
         capabilities.setCapability("autoAcceptsAlerts", true);
         capabilities.setCapability("parentTunnel", "sauce_admin");
-        capabilities.setCapability("tunnelIdentifier", "OptumSharedTunnel-Prd");
+        capabilities.setCapability("tunnelIdentifier", "OptumSharedTunnel-Stg");
 
 
         capabilities.setCapability("name", genName(scenarioName, browser.commonName));
@@ -181,12 +189,12 @@ class SauceLabs implements IConfigurable {
     }
 
     private String getUsername() {
-        return configGetOptionalString("username").orElse("unknown");
+        return configGetOptionalString("SauceLabs_UserName").orElse(configGetOptionalString("username").orElse("unknown"));
 
     }
 
     private String getAccessKey() {
-        return configGetOptionalString("SAUCE_ACCESS_KEY").orElse("");
+        return configGetOptionalString("SauceLabs_AccessKey").orElse("");
     }
 
     private String getURL() {
@@ -195,11 +203,11 @@ class SauceLabs implements IConfigurable {
 
 
     private String genName(String scenarioName, String browserName) {
-        return "[" + genBuilderName() + "] - [" + scenarioName + "] - " + browserName;
+        return "[" + genBuilderName() + "] " + scenarioName + " - " + browserName;
     }
 
     private String genBuild() {
-        return configGetOptionalString("JOB_NAME").orElse("unknown");
+        return configGetOptionalString("JOB_NAME").orElse(getUsername() + "::" + TimeKeeper.getInstance().getStartTimeISO());
     }
 
     private List<String> genTags() {
@@ -220,7 +228,7 @@ class SauceLabs implements IConfigurable {
             return builderName.get();
         }
 
-        builderName = configGetOptionalString("USERNAME");
+        builderName = configGetOptionalString("SauceLabs_UserName");
 
         if (builderName.isPresent()) {
             return "LOCAL - " + builderName.get();
@@ -242,6 +250,14 @@ class SauceLabs implements IConfigurable {
 
         SupportedBrowsers(String commonName) {
             this.commonName = commonName;
+        }
+
+        public static SupportedBrowsers getFromString(String s) {
+            try {
+                return SupportedBrowsers.valueOf(s.toUpperCase());
+            } catch (Exception e) {
+                return CHROME;
+            }
         }
     }
 

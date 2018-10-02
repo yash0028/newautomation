@@ -5,6 +5,6 @@ import org.openqa.selenium.WebDriver;
 public interface IUiStep {
 
     default WebDriver getWebDriver() {
-        return SauceLabs.getInstance().getDriver();
+        return SauceLabs.getInstance() != null ? SauceLabs.getInstance().getDriver() : null;
     }
 }
