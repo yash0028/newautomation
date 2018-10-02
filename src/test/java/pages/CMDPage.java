@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocator;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import utils.SeleniumHelper;
 
 import static utils.SeleniumHelper.findElements;
@@ -33,14 +35,19 @@ public class CMDPage {
     WebElement completedLink;
 
 
-    private CMDPage(WebDriver driver) {
+    public CMDPage(WebDriver driver) {
         this.driver = driver;
+        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, 100);
         //create all web elements on the CMD page
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(factory, this);
     }
 
     public static CMDPage getCMDPage() {
         return (getHeaderContractMetadata().getText().equalsIgnoreCase("Contract Management")) ? new CMDPage(SeleniumHelper.getWebDriver()) : null;
+    }
+
+    public boolean confirmCurrentPage() {
+        return driver.getCurrentUrl().matches("^.+contract-status$");
     }
 
     public static WebElement getHeaderContractMetadata() {
