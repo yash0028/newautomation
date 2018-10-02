@@ -29,8 +29,8 @@ public class ETMASteps {
     private static final String RETRO_ACTIVE_REASON_CODE_ENDPOINT = "/v1.0/retro_reason_codes";
     private RequestSpecification request;
     private Response response;
-    private String contractType     = "";
-    private JsonObject requestBody  = new JsonObject();
+    private String contractType = "";
+    private JsonObject requestBody = new JsonObject();
 
 //F182490
 
@@ -77,13 +77,13 @@ public class ETMASteps {
     public void andTheServiceReturnsPaperTypesAsMatchedInETMATable(String paperTypes) throws Throwable {
         String[] validPaperTypes = paperTypes.split(",");
 
-        boolean match            = true;
-        String responseString    = response.asString().toLowerCase();
+        boolean match = true;
+        String responseString = response.asString().toLowerCase();
 
-        for(String type: validPaperTypes){
+        for (String type : validPaperTypes) {
             type = type.trim();
 
-            if(!responseString.contains(type.toLowerCase())){
+            if (!responseString.contains(type.toLowerCase())) {
                 match = false;
             }
         }
@@ -115,13 +115,13 @@ public class ETMASteps {
     @Then("^service will NOT return paper types \"([^\"]*)\" from the ETMA table$")
     public void serviceWillNOTReturnPaperTypeFromTheETMATable(String paperTypes) throws Throwable {
         String[] invalidPaperTypes = paperTypes.split(",");
-        boolean match              = false;
-        String responseString      = response.asString().toLowerCase();
+        boolean match = false;
+        String responseString = response.asString().toLowerCase();
 
-        for(String type: invalidPaperTypes){
+        for (String type : invalidPaperTypes) {
             type = type.trim();
 
-            if(responseString.contains(type.toLowerCase())){
+            if (responseString.contains(type.toLowerCase())) {
                 match = true;
             }
         }
@@ -173,20 +173,20 @@ public class ETMASteps {
 
     @Given("^the providers (Specialty codes|Org Types) \"([^\"]*)\" and paper types \"([^\"]*)\" are passed to the service$")
     public void theProvidersSpecialtyCodesAndPaperTypesArePassedToTheService(String parameterType, String properties, String paperTypes) throws Throwable {
-        String[] propertiesArray   = properties.split(",");
-        String[] paperTypesArray   = paperTypes.split(",");
+        String[] propertiesArray = properties.split(",");
+        String[] paperTypesArray = paperTypes.split(",");
         JsonArray requestBodyArray = new JsonArray();
         JsonObject tmp;
         String propertyName;
 
         //Change request property value to whatever is mentioned in feature file (for 'Specialty code' or 'Org Types')
-        if(parameterType.equalsIgnoreCase("Specialty codes")){
+        if (parameterType.equalsIgnoreCase("Specialty codes")) {
             propertyName = "specialtyIndicator";
         } else {
             propertyName = "organizationType";
         }
 
-        for(int i = 0; i < propertiesArray.length; i++){
+        for (int i = 0; i < propertiesArray.length; i++) {
             tmp = new JsonObject();
             tmp.addProperty(propertyName, propertiesArray[i].trim());
             tmp.addProperty("contractClass", paperTypesArray[i].trim());
@@ -206,18 +206,18 @@ public class ETMASteps {
     //Same general_test.step for specialty codes and org types
     @Then("^service will return a a \"([^\"]*)\" value for each (?:specialty code|org type) and paper type combination$")
     public void serviceWillReturnAAValueForEachSpecialtyCodeAndPaperTypeCombination(String value) throws Throwable {
-        String responseString    = response.asString().toLowerCase().trim();
+        String responseString = response.asString().toLowerCase().trim();
         JsonParser parser = new JsonParser();
         JsonArray resultArray = new JsonArray();
         boolean allFalseResults = true;
 
         resultArray.addAll(parser.parse(responseString).getAsJsonArray());
 
-        for(JsonElement result: resultArray){
+        for (JsonElement result : resultArray) {
             JsonObject resObject = result.getAsJsonObject();
             boolean trueResult = resObject.get("valid").getAsBoolean();
 
-            if(trueResult){
+            if (trueResult) {
                 allFalseResults = false;
             }
         }
@@ -239,7 +239,7 @@ public class ETMASteps {
     }
 
     //US1097077
-    
+
     @Given("^UHC will need to provide Exari with ETMA table data$")
     public void uhcWillNeedToProvideExariWithETMATableData() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
@@ -259,7 +259,7 @@ public class ETMASteps {
     }
 
     //US1097073
-    
+
     @Given("^a user is attempting to validate org type or specialty code$")
     public void aUserIsAttemptingToValidateOrgTypeOrSpecialtyCode() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
@@ -285,7 +285,7 @@ public class ETMASteps {
     }
 
     //US1180600
-    
+
     @Given("^a need for documentation on connection to our services$")
     public void aNeedForDocumentationOnConnectionToOurServices() throws Throwable {
         // Write code here that turns the phrase above into concrete actions

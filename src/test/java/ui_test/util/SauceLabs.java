@@ -15,8 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class SauceLabs implements IConfigurable {
+class SauceLabs implements IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(SauceLabs.class);
+    private static SauceLabs INSTANCE = new SauceLabs();
 
     private String jobId;
     private RemoteWebDriver driver = null;
@@ -27,9 +28,45 @@ public class SauceLabs implements IConfigurable {
     CONSTRUCTOR
      */
 
-    public SauceLabs(SupportedBrowsers browser, String scenarioName) {
-        this.capabilities = generateCapabilities(browser, scenarioName);
+    private SauceLabs() {
+        this.capabilities = generateCapabilities(SupportedBrowsers.CHROME, configGetOptionalString("DEFAULT_SCENARIO_NAME").orElse("CLM UI Test"));
+        init();
+    }
 
+    private SauceLabs(String scenarioName) {
+        this.capabilities = generateCapabilities(SupportedBrowsers.CHROME, scenarioName);
+        init();
+    }
+
+    private SauceLabs(SupportedBrowsers browser, String scenarioName) {
+        this.capabilities = generateCapabilities(browser, scenarioName);
+        init();
+    }
+
+    static SauceLabs getInstance() {
+        return INSTANCE;
+    }
+
+    /*
+    STATIC METHODS
+     */
+
+    static void reset() {
+        INSTANCE.close();
+        INSTANCE = new SauceLabs();
+    }
+
+    static void reset(String scenarioName) {
+        INSTANCE.close();
+        INSTANCE = new SauceLabs(scenarioName);
+    }
+
+    static void reset(SauceLabs.SupportedBrowsers browser, String scenarioName) {
+        INSTANCE.close();
+        INSTANCE = new SauceLabs(browser, scenarioName);
+    }
+
+    private void init() {
         // Create Remote Web Driver
         try {
             this.driver = new RemoteWebDriver(new URL(getURL()), capabilities);
@@ -42,31 +79,32 @@ public class SauceLabs implements IConfigurable {
 
         // Setup SauceRest Connection
         this.sauceREST = new SauceREST(getUsername(), getAccessKey());
+        log.trace("opened connection to SauceLabs with id:{}", this.jobId);
     }
 
     /*
     CLASS METHODS
      */
 
-    public void testPassed() {
+    void testPassed() {
         sauceREST.jobPassed(jobId);
     }
 
-    public void testFailed() {
+    void testFailed() {
         sauceREST.jobFailed(jobId);
     }
 
-    public String getLink() {
+    String getSauceLink() {
 //        return "http://saucelabs.com/jobs/" + jobId;
         return sauceREST.getPublicJobLink(jobId);
     }
 
-    public WebDriver getDriver() {
+    WebDriver getDriver() {
         return driver;
     }
 
-    public boolean close() {
-        log.debug("Closing SauceLab Platform");
+    boolean close() {
+        log.trace("Closing SauceLab connection");
         try {
             if (driver != null) {
                 driver.close();
@@ -82,7 +120,7 @@ public class SauceLabs implements IConfigurable {
             return false;
         }
 
-        log.debug("Browser closed");
+        log.trace("Browser closed");
 
         return true;
 
@@ -151,13 +189,10 @@ public class SauceLabs implements IConfigurable {
         return configGetOptionalString("SAUCE_ACCESS_KEY").orElse("");
     }
 
-    public String getURL() {
+    private String getURL() {
         return "http://" + getUsername() + ":" + getAccessKey() + "@ondemand.saucelabs.com:80/wd/hub";
     }
 
-    /*
-    HELPER METHODS
-     */
 
     private String genName(String scenarioName, String browserName) {
         return "[" + genBuilderName() + "] - [" + scenarioName + "] - " + browserName;

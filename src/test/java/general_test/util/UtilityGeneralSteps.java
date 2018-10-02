@@ -1,4 +1,4 @@
-package general_test.step;
+package general_test.util;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
@@ -22,14 +22,6 @@ public class UtilityGeneralSteps {
 
     @Before
     public void getScenario(Scenario scenario) {
-        System.out.println("Grabbing Scenario Object and waiting for a bit...");
-        this.scenario = scenario;
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        UtilityGeneralSteps.scenario = scenario;
     }
-
-
 }

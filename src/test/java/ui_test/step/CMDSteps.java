@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 public class CMDSteps {
 
     private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
+
     private CMDPage cmdPage = null;
     private String CMD_DASHBOARD_URL = "http://contract-admin-ui-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
     private String END_POINT = "http://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com";

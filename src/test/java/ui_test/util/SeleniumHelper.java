@@ -50,7 +50,7 @@ public class SeleniumHelper {
                     caps.setCapability("tunnelIdentifier", fileHelper.getConfigValue("SauceLabs_TunnelIdentifier"));
                     caps.setCapability("seleniumVersion", fileHelper.getConfigValue("SauceLabs_SeleniumVersion"));
                     caps.setCapability("platform", fileHelper.getConfigValue("SauceLabs_Platform"));
-                    caps.setCapability("version", fileHelper.getConfigValue("SauceLabs_BrowserVesion"));
+                    caps.setCapability("version", fileHelper.getConfigValue("SauceLabs_BrowserVersion"));
                     caps.setCapability("chromedriverVersion", fileHelper.getConfigValue("SauceLabs_DriverVersion"));
                     caps.setCapability("screenResolution", fileHelper.getConfigValue("SauceLabs_ScreenResolution"));
                     caps.setCapability("maxDuration", fileHelper.getConfigValue("SauceLabs_MaxDuration"));
