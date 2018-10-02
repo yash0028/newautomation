@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import utils.SeleniumHelper;
 
 import static utils.SeleniumHelper.findElements;
@@ -18,13 +19,24 @@ public class CMDPage {
 
     private static Logger logger = Logger.getLogger("CMDPage");
     private WebDriver driver;
-    private By inProgressLink = By.xpath("//a[contains(@href,'/contract-summary/in-progress')]");
-    private By actionRequiredLink;
-    private By errorsLink = By.xpath("//a[contains(@href,'/contract-summary/failed')]");
+
+    @FindBy(xpath = "//a[contains(@href,'/contract-summary/in-progress')]")
+    WebElement inProgressLink;
+
+    @FindBy(xpath = "//a[contains(@href,'/contract-summary/failed')]")
+    WebElement actionRequiredLink;
+
+    @FindBy(xpath = "//a[contains(@href,'/contract-summary/failed')]")
+    WebElement errorsLink;
+
+    @FindBy(xpath = "//a[contains(@href,'/contract-summary/success')]")
+    WebElement completedLink;
 
 
     private CMDPage(WebDriver driver) {
         this.driver = driver;
+        //create all web elements on the CMD page
+        PageFactory.initElements(driver, this);
     }
 
     public static CMDPage getCMDPage() {
@@ -47,9 +59,55 @@ public class CMDPage {
         return findElements("className", "statnumber");
     }
 
-    public boolean clickInProgressButton() {
+    /**
+     * Click in progress link on contract management homepage.
+     * @return True if the link was clicked or false otherwise.
+     */
+    public boolean clickInProgressLink() {
         try {
-            driver.findElement(inProgressLink).click();
+            inProgressLink.click();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Click action required link on contract management homepage.
+     * @return True if the link was clicked or false otherwise.
+     */
+    public boolean clickActionRequiredLink() {
+        try {
+            actionRequiredLink.click();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Click in progress link on contract management homepage.
+     * @return True if the link was clicked or false otherwise.
+     */
+    public boolean clickErrorsLink() {
+        try {
+            errorsLink.click();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Click in progress link on contract management homepage.
+     * @return True if the link was clicked or false otherwise.
+     */
+    public boolean clickCompletedLink() {
+        try {
+            completedLink.click();
         } catch (Exception e) {
             e.printStackTrace();
             return false;

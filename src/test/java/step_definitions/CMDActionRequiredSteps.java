@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.ActionRequiredPage;
 import pages.CMDPage;
+import pages.InProgressPage;
 import utils.SeleniumHelper;
 
 import java.util.logging.Logger;
@@ -19,11 +20,12 @@ import java.util.logging.Logger;
  */
 public class CMDActionRequiredSteps {
     private WebDriver driver = null;
-    private ActionRequiredPage actionRequiredPage = null;
     private CMDPage cmdPage = null;
+    // TODO: Change to Action Required Page
+    private InProgressPage inProgressPage = null;
     private String CMD_DASHBOARD_URL = "http://contract-admin-ui-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
-    //TODO: Currently using contract summary page url for testing but will change to action required page url once it's ready
-    private String CMD_ACTION_REQUIRED_PAGE_URL = "http://contract-admin-ui-clm-test.ocp-ctc-dmz-nonprod.optum.com/contract-summary/failed";
+    //TODO: Change to CMD_ACTION_REQUIRED_PAGE_URL when ready
+    private String IN_PROGRESS_PAGE_URL = "http://contract-admin-ui-clm-test.ocp-ctc-dmz-nonprod.optum.com/contract-summary/in-progress";
 
     @Given("^I have clicked on Action Required button on the CMD dashboard$")
     public void ClickActionRequiredButtonOnCMDDashboard() throws Throwable {
@@ -32,20 +34,16 @@ public class CMDActionRequiredSteps {
         driver.navigate().to(CMD_DASHBOARD_URL);
         cmdPage = CMDPage.getCMDPage();
         Assert.assertNotNull("CMD page could not be displayed", cmdPage);
-
-       // WebElement element = SeleniumHelper.findElement(By.name("q"));
-
-        //driver.findElement(By.xpath("//a[contains(@href,'/contract-summary/in-progress')]")).click();
-
-        System.out.println("element clicked? " + cmdPage.clickInProgressButton());
-
-
+        //TODO: Change to cmdPage.clickActionRequiredLink when ready
+        Assert.assertTrue(cmdPage.clickInProgressLink());
     }
 
     @When("^there are Action Required transactions$")
     public void thereAreActionRequiredTransactions() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        // Get all table rows
+        //TODO: Change to
+        inProgressPage.
+
     }
 
     @Then("^the default sort of the data should be oldest submission date to newest submission date$")
