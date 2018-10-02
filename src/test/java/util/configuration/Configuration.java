@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.Properties;
 
 public class Configuration {
-    public static final String CONFIGURATIONS_SAUCELABS_API_PROPERTIES = "/configurations/.local.saucelabs.api.properties";
+    public static final String CONFIGURATIONS_UI_PROPERTIES = "/configurations/ui.properties";
     private static final String CONFIGURATIONS_GLOBAL_PROPERTIES = "/configurations/global.properties";
     private static final String CONFIGURATIONS_LOGGER_PROPERTIES = "/configurations/logger.properties";
     private static Configuration ourInstance = new Configuration();
@@ -25,6 +25,7 @@ public class Configuration {
         loadEnvironment(true, true);
         loadProperty(CONFIGURATIONS_GLOBAL_PROPERTIES, true, false);
         loadProperty(CONFIGURATIONS_LOGGER_PROPERTIES, true, false);
+        loadProperty(CONFIGURATIONS_UI_PROPERTIES, true, false);
     }
 
     /*
@@ -67,7 +68,7 @@ public class Configuration {
             properties.load(inputStream);
             inputStream.close();
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
             Util.report("ERROR: did not find <" + propertyFileName + ">.");
         }
 
