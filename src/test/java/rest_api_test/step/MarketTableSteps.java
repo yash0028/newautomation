@@ -8,14 +8,14 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
-import rest_api_test.util.RestHelper;
+import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;
 
 /**
  * Created by dtimaul on 8/15/18.
  */
-public class MarketTableSteps {
+public class MarketTableSteps implements IRestStep {
     private final String marketsTableEndpoint = "http://ndb-lookup-crosswalk-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private final String marketResource = "/market/";
     private RequestSpecification request;
@@ -36,21 +36,21 @@ public class MarketTableSteps {
 
     @Then("^the query response includes the market record information$")
     public void verifyQueryResponseWithMarketRecord() throws Throwable {
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
+        JsonObject result = parseJsonResponse(response);
 
         Assert.assertEquals(marketNumber, result.get("marketUhcDetails").getAsJsonObject().get("marketNumber").getAsString());
     }
 
     @Then("^the query response does not return the market record information$")
     public void verifyNoMarketRecord() throws Throwable {
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
+        JsonObject result = parseJsonResponse(response);
 
         Assert.assertTrue(result.get("marketUhcDetails").isJsonNull());
     }
 
     @And("^a record not found message is returned$")
     public void verifyRecordNotFound() throws Throwable {
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
+        JsonObject result = parseJsonResponse(response);
 
         Assert.assertEquals("No data found", result.get("errorDetails").getAsJsonObject().get("message").getAsString());
     }

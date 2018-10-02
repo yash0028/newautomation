@@ -15,15 +15,15 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rest_api_test.util.RestHelper;
+import rest_api_test.util.IRestStep;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ExaminerSteps {
+public class ExaminerSteps implements IRestStep {
 
-    private static Logger logger = LoggerFactory.getLogger(ExaminerSteps.class);
+    private static Logger log = LoggerFactory.getLogger(ExaminerSteps.class);
     private static final String END_POINT = "http://contracts-query-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE = "/v1.0/exari/acocontracts";
     private RequestSpecification request = null;
@@ -51,7 +51,7 @@ public class ExaminerSteps {
 
     @Then("^The service will return an error \"([^\"]*)\"$")
     public void validateInValidReponse(String responseCode) {
-        Assert.assertEquals("Wrong Error code displayed", Integer.valueOf(responseCode).longValue(), RestHelper.getInstance().parseJsonResponse(response).get("responseCode").getAsLong());
+        Assert.assertEquals("Wrong Error code displayed", Integer.valueOf(responseCode).longValue(), parseJsonResponse(response).get("responseCode").getAsLong());
     }
 
     @Then("^The contract data is sent back to PIC or Examiner$")
@@ -60,7 +60,7 @@ public class ExaminerSteps {
         setOfRequiredKeys.addAll(Arrays.asList(new String[]{"lob", "contractNumber", "legalEntityName", "agreementEffDate", "agreementCancelDate", "legalDocumentStatus", "associatedAgreements"}));
         Set<String> setOfAssociatedRequiredKeys = new HashSet<>();
         setOfAssociatedRequiredKeys.addAll(Arrays.asList(new String[]{"legalDocumentStatus", "associatedAgreementLegalDocId", "associatedAgreementEffDate", "associatedAgreementEndDate", "associatedLegalEntityName", "associatedRegionNumber", "associatedMarketNumber"}));
-        JsonArray responseArray = RestHelper.getInstance().parseJsonResponse(response).get("responseData").getAsJsonArray();
+        JsonArray responseArray = parseJsonResponse(response).get("responseData").getAsJsonArray();
         Set<String> setOfKeys = null;
         for (JsonElement element : responseArray) {
             setOfKeys = ((JsonObject) element).keySet();

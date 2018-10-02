@@ -10,7 +10,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rest_api_test.util.RestHelper;
+import rest_api_test.util.IRestStep;
 import ui_test.page.CMDPage;
 import ui_test.util.SeleniumHelper;
 
@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class CMDSteps {
+public class CMDSteps implements IRestStep {
 
     private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
 
@@ -77,34 +77,34 @@ public class CMDSteps {
     public void getCompletedTransactions() {
         totalElements = 0;
         Response response = RestAssured.given().baseUri(END_POINT).get(RESOURCE + "success");
-        totalElements = RestHelper.getInstance().parseJsonResponse(response).get("totalElements").getAsInt();
+        totalElements = parseJsonResponse(response).get("totalElements").getAsInt();
     }
 
     @When("^There are no In Progress transactions$")
     public void getInProgressTransactions() {
         totalElements = 0;
         Response response = RestAssured.given().baseUri(END_POINT).get(RESOURCE + "in-progress");
-        totalElements = RestHelper.getInstance().parseJsonResponse(response).get("totalElements").getAsInt();
+        totalElements = parseJsonResponse(response).get("totalElements").getAsInt();
     }
 
     @When("^There are no Action Required Required transactions$")
     public void getActionRequiredTransactions() {
         totalElements = 0;
         Response response = RestAssured.given().baseUri(END_POINT).get(RESOURCE + "partial-success");
-        totalElements = RestHelper.getInstance().parseJsonResponse(response).get("totalElements").getAsInt();
+        totalElements = parseJsonResponse(response).get("totalElements").getAsInt();
     }
 
     @When("^There are no PCP reassignment transactions$")
     public void getPcpReassignTransactions() {
         Response response = RestAssured.given().baseUri(END_POINT).get(RESOURCE + "manual-input");
-        totalElements = RestHelper.getInstance().parseJsonResponse(response).get("totalElements").getAsInt();
+        totalElements = parseJsonResponse(response).get("totalElements").getAsInt();
     }
 
     @When("^There are no Error transactions$")
     public void getErrorTransactions() {
         totalElements = 0;
         Response response = RestAssured.given().baseUri(END_POINT).get(RESOURCE + "failed");
-        totalElements = RestHelper.getInstance().parseJsonResponse(response).get("totalElements").getAsInt();
+        totalElements = parseJsonResponse(response).get("totalElements").getAsInt();
     }
 
     @When("^There are completed contracts$")

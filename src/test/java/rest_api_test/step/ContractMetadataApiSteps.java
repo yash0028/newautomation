@@ -10,7 +10,7 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
-import rest_api_test.util.RestHelper;
+import rest_api_test.util.IRestStep;
 import util.FileHelper;
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import static io.restassured.RestAssured.given;
 /**
  * Created by dtimaul on 9/11/18.
  */
-public class ContractMetadataApiSteps {
+public class ContractMetadataApiSteps implements IRestStep {
     //TODO Will be renamed to contract-metadata-api
     private final static String ENDPOINT = "http://localhost:8080";
     private final static String RESOURCE_PRODUCTCODE = "/v1.0/xwalk/product/code/list";
@@ -81,7 +81,7 @@ public class ContractMetadataApiSteps {
         response = request.post(RESOURCE_PRODUCTCODE);
         ArrayList<String> expectedProductCodeArr = new ArrayList<>(Arrays.asList(expectedProductCodes.split(" ")));
 
-        JsonElement result = RestHelper.getInstance().parseJsonElementResponse(response);
+        JsonElement result = parseJsonElementResponse(response);
 
         // Check that the result is a valid json array and returns list of product codes
         // Check if response is a json array with one object that contains key value pair of productCodeList
@@ -101,7 +101,7 @@ public class ContractMetadataApiSteps {
         ArrayList<String> expectedProductCodeArr1 = new ArrayList<>(Arrays.asList(expectedProductCodes1.split(" ")));
         ArrayList<String> expectedProductCodeArr2 = new ArrayList<>(Arrays.asList(expectedProductCodes2.split(" ")));
 
-        JsonElement result = RestHelper.getInstance().parseJsonElementResponse(response);
+        JsonElement result = parseJsonElementResponse(response);
 
         // Check that the result is a valid json array and returns list of product codes
         // Check if response is a json array with two objects. Each object contains key value pairs of productCodeList
@@ -128,7 +128,7 @@ public class ContractMetadataApiSteps {
     @Then("^the crosswalk provides an empty list$")
     public void theCrosswalkProvidesAnEmptyList() throws Throwable {
         response = request.post(RESOURCE_PRODUCTCODE);
-        JsonElement result = RestHelper.getInstance().parseJsonElementResponse(response);
+        JsonElement result = parseJsonElementResponse(response);
 
         Assert.assertEquals(0,result.getAsJsonArray().size());
     }
@@ -149,7 +149,7 @@ public class ContractMetadataApiSteps {
 
         ArrayList<String> expectedProductCodeArr = new ArrayList<>(Arrays.asList(expectedProductCodes.split(" ")));
 
-        JsonElement result = RestHelper.getInstance().parseJsonElementResponse(response);
+        JsonElement result = parseJsonElementResponse(response);
 
         // Check that the result is a valid json array and returns list of product codes
         JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result, 1,0);

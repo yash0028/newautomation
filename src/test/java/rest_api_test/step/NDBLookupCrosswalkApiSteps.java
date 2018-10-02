@@ -9,7 +9,7 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
-import rest_api_test.util.RestHelper;
+import rest_api_test.util.IRestStep;
 import util.FileHelper;
 
 import static io.restassured.RestAssured.given;
@@ -17,7 +17,7 @@ import static io.restassured.RestAssured.given;
 /**
  * Created by aberns on 9/10/2018.
  */
-public class NDBLookupCrosswalkApiSteps {
+public class NDBLookupCrosswalkApiSteps implements IRestStep {
     public static final String ENDPOINT = "http://ndb-lookup-crosswalk-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     public static final String RESOURCE_PRODUCTCODES = "/productcodes";
     public static final String RESOURCE_TAXONOMY_QUERY = "/taxonomy/query";
@@ -57,7 +57,7 @@ public class NDBLookupCrosswalkApiSteps {
         response = request.post(RESOURCE_TAXONOMY_QUERY);
         Assert.assertEquals(response.getStatusCode(), 200);
 
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
+        JsonObject result = parseJsonResponse(response);
 
         int arrayCount = result.get("responseMessage").getAsJsonArray().size();
 
@@ -72,7 +72,7 @@ public class NDBLookupCrosswalkApiSteps {
         response = request.post(RESOURCE_TAXONOMY_QUERY);
         Assert.assertEquals(response.getStatusCode(), 200);
 
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
+        JsonObject result = parseJsonResponse(response);
 
         int responseCode = result.get("responseCode").getAsInt();
 
@@ -86,7 +86,7 @@ public class NDBLookupCrosswalkApiSteps {
         response = request.post(RESOURCE_TAXONOMY_QUERY);
         Assert.assertEquals(response.getStatusCode(), 200);
 
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
+        JsonObject result = parseJsonResponse(response);
 
         int arrayCount = result.get("responseMessage").getAsJsonArray().size();
 
@@ -111,7 +111,7 @@ public class NDBLookupCrosswalkApiSteps {
 
     @Then("^the correct product codes are returned\\.$")
     public void checkValidCodes() throws Throwable {
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(this.response);
+        JsonObject result = parseJsonResponse(this.response);
 
         Assert.assertEquals(200, result.get("responseCode").getAsInt());
         Assert.assertEquals("Success", result.get("responseStatus").getAsString());
@@ -129,7 +129,7 @@ public class NDBLookupCrosswalkApiSteps {
 
     @Then("^the service returns an error$")
     public void checkInvalidCodes() throws Throwable {
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(this.response);
+        JsonObject result = parseJsonResponse(this.response);
 
         Assert.assertNotEquals(200, result.get("responseCode").getAsInt());
         Assert.assertNotEquals("Success", result.get("responseStatus").getAsString());

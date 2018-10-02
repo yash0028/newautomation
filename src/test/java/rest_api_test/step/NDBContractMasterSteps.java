@@ -10,14 +10,14 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
-import rest_api_test.util.RestHelper;
+import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;
 
 /**
  * Created by aberns on 8/31/2018.
  */
-public class NDBContractMasterSteps {
+public class NDBContractMasterSteps implements IRestStep {
 
     private static final String ENDPOINT = "http://ndb-contracts-master-api-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_UNET = "/contractmaster/lookup/unet/";
@@ -59,7 +59,7 @@ public class NDBContractMasterSteps {
     @When("^The API response was successful$")
     public void responseSuccessful() throws Throwable {
         sendUnet();
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
+        JsonObject result = parseJsonResponse(response);
         Assert.assertTrue(result.get("status").getAsBoolean());
     }
 
@@ -75,7 +75,7 @@ public class NDBContractMasterSteps {
 
     @Then("^The API returned no results$")
     public void returnedNoResults() throws Throwable {
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(this.response);
+        JsonObject result = parseJsonResponse(this.response);
 
         Assert.assertTrue(result.get("data").isJsonArray());
         for(JsonElement jsonElement : result.get("data").getAsJsonArray()){
@@ -88,7 +88,7 @@ public class NDBContractMasterSteps {
 
     @And("^the API returned a return code of \"([^\"]*)\"$")
     public void checkSingleReturnCode(String returnCode) throws Throwable {
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(this.response);
+        JsonObject result = parseJsonResponse(this.response);
         boolean foundOne = false;
 
         Assert.assertTrue(result.get("data").isJsonArray());
@@ -102,7 +102,7 @@ public class NDBContractMasterSteps {
 
     @And("^the API returned a return code of \"([^\"]*)\" and \"([^\"]*)\"$")
     public void CheckMultipleReturnCode(String returnCodeA, String returnCodeB) throws Throwable {
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(this.response);
+        JsonObject result = parseJsonResponse(this.response);
         boolean foundA = false;
         boolean foundB = false;
 
@@ -123,7 +123,7 @@ public class NDBContractMasterSteps {
 
     @Then("^The API returned one or more contract masters$")
     public void MultipleContractMaster() throws Throwable {
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(this.response);
+        JsonObject result = parseJsonResponse(this.response);
         System.out.println(result);
 
         Assert.assertTrue(result.get("data").isJsonArray());

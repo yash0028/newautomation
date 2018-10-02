@@ -8,7 +8,7 @@ import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import rest_api_test.util.RestHelper;
+import rest_api_test.util.IRestStep;
 
 import java.util.Map;
 
@@ -19,7 +19,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by jwacker on 7/18/2018.
  */
-public class MSGSteps {
+public class MSGSteps implements IRestStep {
     private static final String BASE_URI          = "http://market-strategy-grid-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
     private static final String PRODUCTS_ENDPOINT = "/v1.0/products";
     private RequestSpecification request;
@@ -50,7 +50,7 @@ public class MSGSteps {
         response = request.get(PRODUCTS_ENDPOINT);
 //        String responseString = response.asString();
 
-        JsonObject responseJson = RestHelper.getInstance().parseJsonResponse(response);
+        JsonObject responseJson = parseJsonResponse(response);
 
 //        System.out.println("RESPONSE: " + responseString);
 
@@ -63,7 +63,7 @@ public class MSGSteps {
         response = request.get(PRODUCTS_ENDPOINT);
         String responseString = response.asString();
 
-        JsonObject responseJson = RestHelper.getInstance().parseJsonResponse(response);
+        JsonObject responseJson = parseJsonResponse(response);
 
         System.out.println("RESPONSE: " + responseString);
 

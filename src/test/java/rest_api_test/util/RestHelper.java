@@ -12,17 +12,17 @@ import java.util.List;
  * <p>
  * This class contains helper methods for REST operations.
  */
-public class RestHelper {
+class RestHelper {
     private static RestHelper ourInstance = new RestHelper();
 
     private RestHelper() {
     }
 
-    public static RestHelper getInstance() {
+    static RestHelper getInstance() {
         return ourInstance;
     }
 
-    public boolean fieldsMatch(Response response, List<String> fields) {
+    boolean fieldsMatch(Response response, List<String> fields) {
 
         //Get the response as a String
         String responseString = response.asString().toLowerCase();
@@ -41,23 +41,23 @@ public class RestHelper {
         return true;
     }
 
-    public JsonObject parseJsonResponse(Response response) {
+    JsonObject parseJsonResponse(Response response) {
         String responseString = response.asString().trim();
         return parseJsonString(responseString);
     }
 
-    public JsonElement parseJsonElementResponse(Response response) {
+    JsonElement parseJsonElementResponse(Response response) {
         String responseString = response.asString().trim();
         return parseJsonElementString(responseString);
     }
 
-    public JsonObject parseJsonString(String string) {
+    JsonObject parseJsonString(String string) {
         JsonParser parser = new JsonParser();
 
         return parser.parse(string).getAsJsonObject();
     }
 
-    public JsonElement parseJsonElementString(String string) {
+    JsonElement parseJsonElementString(String string) {
         JsonParser parser = new JsonParser();
 
         return parser.parse(string);

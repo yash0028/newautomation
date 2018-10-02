@@ -8,14 +8,14 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import rest_api_test.util.RestHelper;
+import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;
 
 /**
  * Created by dtimaul on 8/7/18.
  */
-public class TransactionSteps {
+public class TransactionSteps implements IRestStep {
     private JsonObject payload;
     private final String eventGatewayBaseURI = "http://event-gateway-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private final String contractInstallURI = "/v1.0/mock/contract-installed";
@@ -85,7 +85,7 @@ public class TransactionSteps {
 
 //        System.out.println(response.getBody().asString());
 
-        jsonResponse = RestHelper.getInstance().parseJsonResponse(response);
+        jsonResponse = parseJsonResponse(response);
         System.out.println(jsonResponse.get("transactionId").getAsString());
 
     }

@@ -10,7 +10,7 @@ import general_test.util.UtilityGeneralSteps;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
-import rest_api_test.util.RestHelper;
+import rest_api_test.util.IRestStep;
 import util.FileHelper;
 
 import java.util.Arrays;
@@ -22,7 +22,7 @@ import static io.restassured.RestAssured.given;
 /**
  * Created by aberns on 8/14/2018.
  */
-public class ContractQuerySteps {
+public class ContractQuerySteps implements IRestStep {
 
     private static final String BASE_URI = "http://contracts-query-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String ENDPOINT_ECM = "/v1.0/exari/ecm";
@@ -48,11 +48,11 @@ public class ContractQuerySteps {
 
     @Then("^the Domain Service receives the Exari contract model$")
     public void checkValidResponse() throws Throwable {
-        JsonObject result = RestHelper.getInstance().parseJsonResponse(response);
+        JsonObject result = parseJsonResponse(response);
         Assert.assertEquals("Unexpected response", 200, result.get("responseCode").getAsInt());
 
         String tempMessage = result.get("responseMessage").getAsString();
-        JsonObject ecm = RestHelper.getInstance().parseJsonString(tempMessage);
+        JsonObject ecm = parseJsonString(tempMessage);
 
 //        System.out.println(ecm.toString());
         verifyECM(ecm);
@@ -65,7 +65,7 @@ public class ContractQuerySteps {
 
     @Then("^the Domain Service returns a service error$")
     public void checkInvalidResponse() throws Throwable {
-        result = RestHelper.getInstance().parseJsonResponse(response);
+        result = parseJsonResponse(response);
         Assert.assertNotEquals("Unexpected response: should have received a service error", 200, result.get("responseCode").getAsInt());
     }
 
@@ -127,7 +127,7 @@ public class ContractQuerySteps {
 
     @And("^the micro service finds the data valid based on the selection criteria$")
     public void isContractIdDataValid() throws Throwable {
-        result = RestHelper.getInstance().parseJsonResponse(this.response);
+        result = parseJsonResponse(this.response);
         String agreementId = result.get("responseData").getAsJsonArray().get(0).getAsJsonObject().get("agreementId").getAsString();
         Assert.assertEquals(contractId, agreementId);
     }
@@ -140,7 +140,7 @@ public class ContractQuerySteps {
 
     @And("^the micro service finds the data invalid based on the selection criteria$")
     public void theMicroServiceFindsTheDataInvalidBasedOnTheSelectionCriteria() throws Throwable {
-        result = RestHelper.getInstance().parseJsonResponse(this.response);
+        result = parseJsonResponse(this.response);
         String responseMessage = result.get("responseMessage").getAsString();
         Assert.assertTrue(responseMessage.contains("A contract has not been found for contract"));
     }

@@ -120,7 +120,7 @@ public class FileHelper {
         InputStream inputStream = null;
         properties = new Properties();
         try {
-            inputStream = getClass().getClassLoader().getResourceAsStream("config.properties");
+            inputStream = getClass().getClassLoader().getResourceAsStream("configurations/config.properties");
             if (inputStream == null) {
                 logger.info("Unable to find out the config.properties file");
             }

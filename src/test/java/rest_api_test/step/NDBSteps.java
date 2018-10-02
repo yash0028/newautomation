@@ -10,7 +10,7 @@ import cucumber.api.java.en.When;
 import general_test.util.UtilityGeneralSteps;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import rest_api_test.util.RestHelper;
+import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 /**
  * Created by aberns on 6/29/2018.
  */
-public class NDBSteps {
+public class NDBSteps implements IRestStep {
     private static final long TIMEOUTMS = 60 * 1000;
     private static final String NDB_LAYER7_BASE_URI = "http://ndb-updater-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String NDB_CONTRACT_UPDATE = "/clm/ContractRosterProducer";
@@ -156,7 +156,7 @@ public class NDBSteps {
             System.out.println(response.getContentType());
             System.out.println(response.getBody().asString());
             System.out.println("---");
-            responseJson = RestHelper.getInstance().parseJsonResponse(response);
+            responseJson = parseJsonResponse(response);
 
             if(System.currentTimeMillis() > startTime + TIMEOUTMS){
                 fail("Reached timeout for Transaction ID");
