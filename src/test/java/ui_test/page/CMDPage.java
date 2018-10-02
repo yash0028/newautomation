@@ -1,13 +1,12 @@
-package pages;
+package ui_test.page;
 
 import org.openqa.selenium.WebElement;
-
-import static utils.SeleniumHelper.findElements;
 
 import java.util.List;
 import java.util.logging.Logger;
 
-import static utils.SeleniumHelper.findElement;
+import static ui_test.util.SeleniumHelper.findElement;
+import static ui_test.util.SeleniumHelper.findElements;
 
 public class CMDPage {
 

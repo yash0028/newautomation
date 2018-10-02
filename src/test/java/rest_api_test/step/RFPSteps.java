@@ -1,4 +1,4 @@
-package step_definitions;
+package rest_api_test.step;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;

@@ -1,21 +1,19 @@
-package step_definitions;
+package rest_api_test.step;
 
+import com.google.gson.JsonObject;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
-import utils.FileHelper;
-import utils.RestHelper;
-import com.google.gson.JsonObject;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import util.FileHelper;
 
-import java.io.*;
-import java.util.Base64;
+import java.io.File;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by jwacker on 7/19/2018.

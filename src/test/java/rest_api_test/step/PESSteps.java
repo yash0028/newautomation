@@ -1,4 +1,4 @@
-package step_definitions;
+package rest_api_test.step;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -13,8 +13,8 @@ import io.restassured.specification.RequestSpecification;
 
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by jwacker on 5/16/2018.

@@ -1,4 +1,4 @@
-package utils;
+package rest_api_test.util;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

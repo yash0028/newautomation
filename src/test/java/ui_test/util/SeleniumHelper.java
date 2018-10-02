@@ -1,10 +1,4 @@
-package utils;
-
-import java.net.URL;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+package ui_test.util;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -12,7 +6,15 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import util.FileHelper;
 
+import java.net.URL;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+@Deprecated
 public class SeleniumHelper {
 
     private static Logger logger = Logger.getLogger("SeleniumHelper");

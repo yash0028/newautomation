@@ -1,7 +1,6 @@
-package step_definitions;
+package rest_api_test.step;
 
 import com.google.gson.JsonObject;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -9,7 +8,7 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
-import utils.RestHelper;
+import rest_api_test.util.RestHelper;
 
 import static io.restassured.RestAssured.given;
 

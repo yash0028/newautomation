@@ -1,13 +1,13 @@
-package pages;
+package ui_test.page;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import utils.SeleniumHelper;
-
-import static utils.SeleniumHelper.findElement;
-import static utils.SeleniumHelper.waitForElementToLoad;
+import ui_test.util.SeleniumHelper;
 
 import java.util.logging.Logger;
+
+import static ui_test.util.SeleniumHelper.findElement;
+import static ui_test.util.SeleniumHelper.waitForElementToLoad;
 
 public class CrosswalkPage {
 

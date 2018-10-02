@@ -1,4 +1,4 @@
-package step_definitions;
+package general_test.step;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;

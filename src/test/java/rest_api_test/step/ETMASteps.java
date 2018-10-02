@@ -1,4 +1,4 @@
-package step_definitions;
+package rest_api_test.step;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -10,12 +10,11 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
 
-import static org.junit.Assert.assertEquals;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -198,13 +197,13 @@ public class ETMASteps {
         request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestBodyArray.toString());
     }
 
-    //Same step for specialty codes and org types
+    //Same general_test.step for specialty codes and org types
     @When("^the (?:Specialty Codes|Org Types) are not found in ETMA$")
     public void theSpecialtyCodesAreNotFoundInETMA() throws Throwable {
         response = request.post(ALL_CONTRACT_VALIDATION_ENDPOINT);
     }
 
-    //Same step for specialty codes and org types
+    //Same general_test.step for specialty codes and org types
     @Then("^service will return a a \"([^\"]*)\" value for each (?:specialty code|org type) and paper type combination$")
     public void serviceWillReturnAAValueForEachSpecialtyCodeAndPaperTypeCombination(String value) throws Throwable {
         String responseString    = response.asString().toLowerCase().trim();

@@ -1,4 +1,4 @@
-package step_definitions;
+package ui_test.step;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -8,9 +8,9 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import pages.CMDPage;
-import utils.RestHelper;
-import utils.SeleniumHelper;
+import rest_api_test.util.RestHelper;
+import ui_test.page.CMDPage;
+import ui_test.util.SeleniumHelper;
 
 import java.util.Arrays;
 import java.util.HashSet;

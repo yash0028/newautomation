@@ -1,4 +1,4 @@
-package utils;
+package util;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -108,12 +108,14 @@ public class FileHelper {
         return list;
     }
 
+    @Deprecated
     public String getConfigValue(String key) {
         if (properties == null)
             loadPropertiesFile();
         return properties.getProperty(key);
     }
 
+    @Deprecated
     private void loadPropertiesFile() {
         InputStream inputStream = null;
         properties = new Properties();

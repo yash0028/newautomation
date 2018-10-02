@@ -1,4 +1,4 @@
-package step_definitions;
+package rest_api_test.step;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -12,7 +12,8 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.when;
 
 /**
  * Created by aberns on 6/26/2018.

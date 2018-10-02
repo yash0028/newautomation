@@ -1,4 +1,4 @@
-package step_definitions;
+package rest_api_test.step;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -9,8 +9,8 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
-import utils.FileHelper;
-import utils.RestHelper;
+import rest_api_test.util.RestHelper;
+import util.FileHelper;
 
 import static io.restassured.RestAssured.given;
 

@@ -1,10 +1,5 @@
-package step_definitions;
+package rest_api_test.step;
 
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.logging.Logger;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -17,8 +12,13 @@ import io.restassured.http.ContentType;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import utils.RestHelper;
 import org.junit.Assert;
+import rest_api_test.util.RestHelper;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.logging.Logger;
 
 public class ExaminerSteps {
 

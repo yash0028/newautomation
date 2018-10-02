@@ -1,4 +1,4 @@
-package step_definitions;
+package rest_api_test.step;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -7,15 +7,14 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import general_test.step.UtilityGeneralSteps;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import utils.RestHelper;
+import rest_api_test.util.RestHelper;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  * Created by aberns on 6/29/2018.
@@ -142,7 +141,7 @@ public class NDBSteps {
 
         //Get transaction id from response
         String tID = this.response.asString().replace("\"","");
-        UtilSteps.scenario.write("Transaction ID: " + tID);
+        UtilityGeneralSteps.scenario.write("Transaction ID: " + tID);
 
         JsonParser parser = new JsonParser();
         JsonObject responseJson;
@@ -164,7 +163,7 @@ public class NDBSteps {
                 return;
             }
         } while (responseJson.toString().contains("404") || responseJson.toString().contains("PENDING"));
-        UtilSteps.scenario.write(responseJson.toString());
+        UtilityGeneralSteps.scenario.write(responseJson.toString());
 
 //        assertTrue(result.toString().contains("THERE IS AN EXISTING CONTRACT WITHIN THIS DATE RANGE")
 //                || result.get("result").getAsString().equalsIgnoreCase("successful"));

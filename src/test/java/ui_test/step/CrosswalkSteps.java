@@ -1,8 +1,8 @@
-package step_definitions;
+package ui_test.step;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
-import pages.CrosswalkPage;
+import ui_test.page.CrosswalkPage;
 
 import java.util.logging.Logger;
 
