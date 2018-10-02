@@ -2,16 +2,16 @@ package ui_test.page;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ui_test.util.SeleniumHelper;
-
-import java.util.logging.Logger;
 
 import static ui_test.util.SeleniumHelper.findElement;
 import static ui_test.util.SeleniumHelper.waitForElementToLoad;
 
 public class CrosswalkPage {
 
-    private static Logger logger = Logger.getLogger("CrosswalkPage");
+    private static Logger log = LoggerFactory.getLogger(CrosswalkPage.class);
 
     private CrosswalkPage() {
     }

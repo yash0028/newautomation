@@ -8,6 +8,8 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import rest_api_test.util.RestHelper;
 import ui_test.page.CMDPage;
 import ui_test.util.SeleniumHelper;
@@ -16,12 +18,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class CMDSteps {
 
-    private static Logger logger = Logger.getLogger("CrosswalkSteps");
+    private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
     private CMDPage cmdPage = null;
     private String CMD_DASHBOARD_URL = "http://contract-admin-ui-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
     private String END_POINT = "http://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com";

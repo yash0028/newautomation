@@ -3,7 +3,6 @@ package ui_test.util;
 import com.saucelabs.saucerest.SauceREST;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
@@ -30,21 +29,19 @@ public class SauceLabs implements IConfigurable {
 
     public SauceLabs(SupportedBrowsers browser, String scenarioName) {
         this.capabilities = generateCapabilities(browser, scenarioName);
-        String builderName = genBuilderName();
-
 
         // Create Remote Web Driver
         try {
-            driver = new RemoteWebDriver(new URL(getURL()), capabilities);
+            this.driver = new RemoteWebDriver(new URL(getURL()), capabilities);
         } catch (MalformedURLException e) {
-            Assert.fail("Invalid SauceLabs URL: [" + getURL() + "]");
+            log.error("Invalid SauceLabs URL <{}>", getURL());
         }
 
         // Get Session ID
-        jobId = driver.getSessionId().toString();
+        this.jobId = driver.getSessionId().toString();
 
         // Setup SauceRest Connection
-        sauceREST = new SauceREST(getUsername(), getAccessKey());
+        this.sauceREST = new SauceREST(getUsername(), getAccessKey());
     }
 
     /*
@@ -62,61 +59,6 @@ public class SauceLabs implements IConfigurable {
     public String getLink() {
 //        return "http://saucelabs.com/jobs/" + jobId;
         return sauceREST.getPublicJobLink(jobId);
-    }
-
-    private DesiredCapabilities generateCapabilities(SupportedBrowsers browser, String scenarioName) {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-
-        // Configure By Browser
-        switch (browser) {
-            /**************** chrome ****************************/
-            case CHROME:
-                capabilities = DesiredCapabilities.chrome();
-                capabilities.setCapability(CapabilityType.BROWSER_NAME, "chrome");
-                capabilities.setCapability(CapabilityType.VERSION, "47");
-                capabilities.setCapability(CapabilityType.PLATFORM, "Windows 7");
-                capabilities.setCapability("screenResolution", "1280x1024");
-                break;
-
-            /**************** FireFox ****************************/
-            case FIREFOX:
-                capabilities = DesiredCapabilities.firefox();
-                capabilities.setCapability(CapabilityType.BROWSER_NAME, "firefox");
-                capabilities.setCapability(CapabilityType.VERSION, "37");
-                capabilities.setCapability(CapabilityType.PLATFORM, "Windows 7");
-                capabilities.setCapability("screenResolution", "1280x1024");
-                break;
-
-            /**************** Internet Explorer 11 ****************************/
-            case IE:
-                capabilities = DesiredCapabilities.internetExplorer();
-                capabilities.setCapability(CapabilityType.PLATFORM, "Windows 7");
-                capabilities.setCapability("screenResolution", "1280x1024");
-                capabilities.setCapability(CapabilityType.VERSION, "11");
-                break;
-
-            /**************** Safari ****************************/
-            case SAFARI:
-                capabilities = DesiredCapabilities.safari();
-                capabilities.setCapability("platform", "OSX 10.8");
-                capabilities.setCapability("screenResolution", "1280x1024");
-                break;
-            default:
-                Assert.fail("Invalid sauceLab browser parameter [" + browser + "]");
-        }
-
-        // Configure SauceLabs Integration
-        capabilities.setCapability("autoAcceptsAlerts", true);
-        capabilities.setCapability("parentTunnel", "sauce_admin");
-        capabilities.setCapability("tunnelIdentifier", "OptumSharedTunnel-Prd");
-
-
-        capabilities.setCapability("name", genName(scenarioName, browser.commonName));
-        capabilities.setCapability("build", genBuild());
-        capabilities.setCapability("tags", genTags());
-
-
-        return capabilities;
     }
 
     public WebDriver getDriver() {
@@ -144,6 +86,60 @@ public class SauceLabs implements IConfigurable {
 
         return true;
 
+    }
+
+    /*
+    HELPER METHODS
+     */
+
+    private DesiredCapabilities generateCapabilities(SupportedBrowsers browser, String scenarioName) {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+
+        // Configure By Browser
+        switch (browser) {
+            /**************** chrome ****************************/
+            case CHROME:
+                capabilities = DesiredCapabilities.chrome();
+                capabilities.setCapability("platform", "Windows 10");
+                capabilities.setCapability("version", "68.0");
+                break;
+
+            /**************** FireFox ****************************/
+            case FIREFOX:
+                capabilities = DesiredCapabilities.firefox();
+                capabilities.setCapability("platform", "Windows 10");
+                capabilities.setCapability("version", "62.0");
+                break;
+
+            /**************** Internet Explorer 11 ****************************/
+            case IE:
+                capabilities = DesiredCapabilities.internetExplorer();
+                capabilities.setCapability("platform", "Windows 10");
+                capabilities.setCapability("version", "11.103");
+                break;
+
+            /**************** Safari ****************************/
+            case SAFARI:
+                capabilities = DesiredCapabilities.safari();
+                capabilities.setCapability("platform", "macOS 10.13");
+                capabilities.setCapability("version", "11.1");
+                break;
+            default:
+                Assert.fail("Invalid sauceLab browser parameter [" + browser + "]");
+        }
+
+        // Configure SauceLabs Integration
+        capabilities.setCapability("autoAcceptsAlerts", true);
+        capabilities.setCapability("parentTunnel", "sauce_admin");
+        capabilities.setCapability("tunnelIdentifier", "OptumSharedTunnel-Prd");
+
+
+        capabilities.setCapability("name", genName(scenarioName, browser.commonName));
+        capabilities.setCapability("build", genBuild());
+        capabilities.setCapability("tags", genTags());
+
+
+        return capabilities;
     }
 
     private String getUsername() {

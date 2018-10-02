@@ -2,14 +2,14 @@ package ui_test.step;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ui_test.page.CrosswalkPage;
-
-import java.util.logging.Logger;
 
 public class CrosswalkSteps {
 
 
-    private static Logger logger = Logger.getLogger("CrosswalkSteps");
+    private static Logger log = LoggerFactory.getLogger(CrosswalkSteps.class);
     private CrosswalkPage crosswalkPage = null;
 
     @Given("^the application screen is ready$")

@@ -1,16 +1,17 @@
 package ui_test.page;
 
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 import static ui_test.util.SeleniumHelper.findElement;
 import static ui_test.util.SeleniumHelper.findElements;
 
 public class CMDPage {
 
-    private static Logger logger = Logger.getLogger("CMDPage");
+    private static Logger log = LoggerFactory.getLogger(CMDPage.class);
 
     private CMDPage() {
     }

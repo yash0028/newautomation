@@ -13,16 +13,17 @@ import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import rest_api_test.util.RestHelper;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.logging.Logger;
 
 public class ExaminerSteps {
 
-    private static Logger logger = Logger.getLogger("ExaminerSteps");
+    private static Logger logger = LoggerFactory.getLogger(ExaminerSteps.class);
     private static final String END_POINT = "http://contracts-query-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE = "/v1.0/exari/acocontracts";
     private RequestSpecification request = null;

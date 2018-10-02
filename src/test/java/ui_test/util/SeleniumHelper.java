@@ -6,32 +6,20 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import util.FileHelper;
 
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @Deprecated
 public class SeleniumHelper {
 
-    private static Logger logger = Logger.getLogger("SeleniumHelper");
+    private static Logger log = LoggerFactory.getLogger(SeleniumHelper.class);
     private static WebDriver driver = null;
 
-
-    private enum Browsers {
-        IE, FIREFOX, CHROME
-    }
-
-    private enum WebElementIdentifiers {
-        ID, CLASSNAME, TAGNAME, NAME, LINKTEXT, PARTIALLINKTEXT, XPATH, CSSSELECTOR
-    }
-
-    private enum ExpectedConditionsType {
-        VISIBLE, CLICKABLE, SELECTED, PRESENCE
-    }
 
     private SeleniumHelper() {
     }
@@ -78,9 +66,9 @@ public class SeleniumHelper {
             driver.manage().timeouts().pageLoadTimeout(180, TimeUnit.SECONDS);
             waitForPageLoad();
         } catch (TimeoutException e) {
-            logger.log(Level.SEVERE, "Browser unable to load page within 180 Seconds: " + e.getMessage());
+            log.error("Browser unable to load page within 180 Seconds: " + e.getMessage());
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "No valid browser is provided : " + e.getMessage());
+            log.debug("No valid browser is provided : " + e.getMessage());
         }
     }
 
@@ -89,13 +77,13 @@ public class SeleniumHelper {
         try {
             WebElement ele = findElementWithExplicitWait(WebElementIdentifiers.valueOf(identifier.toUpperCase()), locator, 90);
             if (ele != null)
-                logger.info("Element with identifier type: " + identifier + " - Locator: " + locator + " is found");
+                log.info("Element with identifier type: " + identifier + " - Locator: " + locator + " is found");
             else
-                logger.log(Level.SEVERE,
+                log.error(
                         "Element with identifier type: " + identifier + " - Locator: " + locator + " is not found");
             return ele;
         } catch (Exception e) {
-            logger.log(Level.SEVERE,
+            log.error(
                     "Element with identifier type: " + identifier + " - Locator: " + locator + " is not found");
         }
         return null;
@@ -106,13 +94,13 @@ public class SeleniumHelper {
         try {
             List<WebElement> ele = findElementsWithExplicitWait(WebElementIdentifiers.valueOf(identifier.toUpperCase()), locator, 90);
             if (ele != null)
-                logger.info("Element with identifier type: " + identifier + " - Locator: " + locator + " is found");
+                log.info("Element with identifier type: " + identifier + " - Locator: " + locator + " is found");
             else
-                logger.log(Level.SEVERE,
+                log.error(
                         "Element with identifier type: " + identifier + " - Locator: " + locator + " is not found");
             return ele;
         } catch (Exception e) {
-            logger.log(Level.SEVERE,
+            log.error(
                     "Element with identifier type: " + identifier + " - Locator: " + locator + " is not found");
         }
         return null;
@@ -142,7 +130,7 @@ public class SeleniumHelper {
                     return waitDriver.until(ExpectedConditions.elementToBeClickable(By.linkText(locator)));
             }
         } catch (Exception e) {
-            logger.log(Level.SEVERE, e.getMessage());
+            log.error(e.getMessage());
         }
         return null;
     }
@@ -171,7 +159,7 @@ public class SeleniumHelper {
                     return waitDriver.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.linkText(locator)));
             }
         } catch (Exception e) {
-            logger.log(Level.SEVERE, e.getMessage());
+            log.error(e.getMessage());
         }
         return null;
     }
@@ -193,11 +181,11 @@ public class SeleniumHelper {
             if (element != null && element.isEnabled()) {
                 element.clear();
                 element.sendKeys(textToEnter);
-                logger.info("Entered text " + textToEnter + " in the textbox");
+                log.info("Entered text " + textToEnter + " in the textbox");
                 return true;
             }
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "failed to enter the text " + textToEnter + " in the textbox ");
+            log.error("failed to enter the text " + textToEnter + " in the textbox ");
         }
         return false;
     }
@@ -207,11 +195,11 @@ public class SeleniumHelper {
         try {
             if (element != null && element.isEnabled()) {
                 element.click();
-                logger.info("Clicked on element " + element);
+                log.info("Clicked on element " + element);
                 return true;
             }
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "failed to click on the web element : " + element);
+            log.error("failed to click on the web element : " + element);
         }
         return false;
     }
@@ -224,7 +212,19 @@ public class SeleniumHelper {
         try {
             Thread.sleep(timeToWait * 1000);
         } catch (Exception e) {
-            logger.log(Level.INFO, "UnInterruptedException");
+            log.info("UnInterruptedException");
         }
+    }
+
+    private enum Browsers {
+        IE, FIREFOX, CHROME
+    }
+
+    private enum WebElementIdentifiers {
+        ID, CLASSNAME, TAGNAME, NAME, LINKTEXT, PARTIALLINKTEXT, XPATH, CSSSELECTOR
+    }
+
+    private enum ExpectedConditionsType {
+        VISIBLE, CLICKABLE, SELECTED, PRESENCE
     }
 }

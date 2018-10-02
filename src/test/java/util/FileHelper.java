@@ -2,13 +2,13 @@ package util;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.zip.ZipFile;
 
@@ -17,7 +17,7 @@ import java.util.zip.ZipFile;
  */
 public class FileHelper {
 
-    private static final Logger logger = Logger.getLogger("FileHelper");
+    private static final Logger logger = LoggerFactory.getLogger(FileHelper.class);
     private static FileHelper ourInstance = new FileHelper();
     private Properties properties = null;
 
@@ -126,7 +126,7 @@ public class FileHelper {
             }
             properties.load(inputStream);
         } catch (IOException e) {
-            logger.log(Level.SEVERE, e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 }
