@@ -23,7 +23,6 @@ Feature: US1311228 - Identify Product Rate Group Conditions - Physician and Prof
     Then additional Provider Rate Conditions may apply to the ProductGroup
     And the value for 'UHG_[ProductGroupRate.name]_Fee_Schedule_ID' is recorded in the CMD contract record as the ProductGroup Physician Rate
     And 'UHG_[ProductGroupRate.name]_Fee_Schedule_ID_NPPA' is recorded in the CMD contract record as the ProductGroup Professional Rate
-    NOTE: process continues to Identify Product Rate Group Conditions - Physician Specialty and Physician Other Specialty Rate
 
   @TC572187
   @Automated
