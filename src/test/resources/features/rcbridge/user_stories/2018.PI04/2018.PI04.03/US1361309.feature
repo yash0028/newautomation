@@ -16,7 +16,8 @@ Feature: US1361309 - CMD- Type 2 error parital contract master update NDB/COSMOS
   @2018.PI04
   @2018.PI04.03
   Scenario: TC598298 - [RL0]
-    Given A contract master update was initiated to NDB
-    When The response contained an error response
-    Then I can see the request/response on the CMD error page
+    Given I am on on the CMD error page
+    When I click on a contract line
+    And The contract contains a partial NDB contract master installation error
+    Then On
 

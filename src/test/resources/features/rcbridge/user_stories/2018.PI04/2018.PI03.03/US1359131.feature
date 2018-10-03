@@ -9,13 +9,13 @@
 @F218723
 Feature: US1359131 - CMD user input-Page Edit product group detail info
 
-  @TC597173
+  @TC597174
   @Manual
   @Functional
   @US1359131
   @2018.PI04
   @2018.PI03.03
-  Scenario: TC597173 - [RL1]
+  Scenario: TC597174 - [RL2]
     # Scenario 2 (Edit contract master detail info- data fields add new row)
     Given I am on the CMD Action Required page
     When I have clicked the down arrow on a contract summary row
