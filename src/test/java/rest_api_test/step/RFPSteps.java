@@ -8,6 +8,9 @@ import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import rest_api_test.util.IRestStep;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,17 +22,22 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by jwacker on 6/13/2018.
  */
-public class RFPSteps {
-    private static final String BASE_URI = "http://request-for-part-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
-    private static final String END_POINT = "/v1.0/participation_requests";
+public class RFPSteps implements IRestStep {
+    private static final Logger log = LoggerFactory.getLogger(RFPSteps.class);
+
+    private static final String ENDPOINT = "http://request-for-part-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
+    private static final String RESOURCE_PARTICIPATION_REQUESTS = "/v1.0/participation_requests";
+
+    private static String samplePlaceOfService = "AL";
+    private static String sampleOrgType = "021";
+    private static String sampleSpecialty = "050";
+
     private RequestSpecification request;
     private Response response;
     private Map<String, String> requestParams = new HashMap<String, String>();
     private Map<String, String> fieldMap = new HashMap<String, String>();
     private Map<String, String> sampleValueMap = new HashMap<String, String>();
-    private static String samplePlaceOfService = "AL";
-    private static String sampleOrgType = "021";
-    private static String sampleSpecialty = "050";
+
 
     public RFPSteps(){
         //Map all the fields to the name they're reflected as in the service
@@ -66,7 +74,7 @@ public class RFPSteps {
     @When("^the request is made to the RFP service$")
     public void theRequestIsMadeToTheRFPService() throws Throwable {
 
-        request = given().baseUri(BASE_URI).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
 
     }
 
@@ -75,7 +83,7 @@ public class RFPSteps {
         boolean match         = true;
         List<String> fields   = fieldsDT.asList(String.class);
 
-        response              = request.get(END_POINT);
+        response = request.get(RESOURCE_PARTICIPATION_REQUESTS);
         String responseString = response.asString().toLowerCase();
 
 //        System.out.println("RESPONSE: " + responseString);
@@ -107,13 +115,13 @@ public class RFPSteps {
         requestParams.put(propertyName, value);
         requestParams.put(fieldMap.get("Place of Service"), sampleValueMap.get("Place of Service"));
 
-        request = given().baseUri(BASE_URI).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
     }
 
     @When("^finding the (?:Specialty|Org Type) in RFP$")
     public void findingTheSpecialtyInRFP() throws Throwable {
 
-        response = request.get(END_POINT);
+        response = request.get(RESOURCE_PARTICIPATION_REQUESTS);
 //        System.out.println("RESPONSE: " + response.asString());
 
     }

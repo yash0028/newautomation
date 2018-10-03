@@ -10,6 +10,8 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;
@@ -18,6 +20,7 @@ import static io.restassured.RestAssured.given;
  * Created by aberns on 8/31/2018.
  */
 public class NDBContractMasterSteps implements IRestStep {
+    private static final Logger log = LoggerFactory.getLogger(NDBContractMasterSteps.class);
 
     private static final String ENDPOINT = "http://ndb-contracts-master-api-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_UNET = "/contractmaster/lookup/unet/";

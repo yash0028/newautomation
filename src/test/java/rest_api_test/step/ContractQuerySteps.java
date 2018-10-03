@@ -10,6 +10,8 @@ import general_test.util.UtilityGeneralSteps;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
 import util.FileHelper;
 
@@ -23,10 +25,11 @@ import static io.restassured.RestAssured.given;
  * Created by aberns on 8/14/2018.
  */
 public class ContractQuerySteps implements IRestStep {
+    private final static Logger log = LoggerFactory.getLogger(ContractQuerySteps.class);
 
-    private static final String BASE_URI = "http://contracts-query-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String ENDPOINT_ECM = "/v1.0/exari/ecm";
-    private static final String ENDPOINT_FACILITY = "/v1.0/exari/facilitycontracts";
+    private static final String ENDPOINT = "http://contracts-query-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String RESOURCE_ECM = "/v1.0/exari/ecm";
+    private static final String RESOURCE_FACILITY = "/v1.0/exari/facilitycontracts";
 
     private String contractId;
     private JsonObject result;
@@ -38,12 +41,12 @@ public class ContractQuerySteps implements IRestStep {
 
     @Given("^the Domain Service has received a business event from Exari$")
     public void buildValidRequest() throws Throwable {
-        this.request = given().baseUri(BASE_URI).header("Content-Type", "application/json");
+        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
     }
 
     @When("^the Domain Service queries for additional contract details from Exari$")
     public void getValidResponse() throws Throwable {
-        response = request.param("contractId", "455293").get(ENDPOINT_ECM);
+        response = request.param("contractId", "455293").get(RESOURCE_ECM);
     }
 
     @Then("^the Domain Service receives the Exari contract model$")
@@ -60,7 +63,7 @@ public class ContractQuerySteps implements IRestStep {
 
     @When("^the Domain Service queries for invalid contract details from Exari$")
     public void getInvalidResponse() throws Throwable {
-        response = request.param("contractId", "455292").get(ENDPOINT_ECM);
+        response = request.param("contractId", "455292").get(RESOURCE_ECM);
     }
 
     @Then("^the Domain Service returns a service error$")
@@ -120,8 +123,8 @@ public class ContractQuerySteps implements IRestStep {
     @When("^the micro service has received the contract id of \"([^\"]*)\" from Exari$")
     public void recieveContractId(String contractId) throws Throwable {
         this.contractId = contractId;
-        this.request = given().baseUri(BASE_URI).header("Content-Type", "application/json").param("contractId", contractId);
-        this.response = request.get(ENDPOINT_FACILITY);
+        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").param("contractId", contractId);
+        this.response = request.get(RESOURCE_FACILITY);
         Assert.assertEquals(200, this.response.getStatusCode());
     }
 

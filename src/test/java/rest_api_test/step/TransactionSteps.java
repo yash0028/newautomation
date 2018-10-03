@@ -8,6 +8,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;
@@ -16,11 +18,14 @@ import static io.restassured.RestAssured.given;
  * Created by dtimaul on 8/7/18.
  */
 public class TransactionSteps implements IRestStep {
-    private JsonObject payload;
-    private final String eventGatewayBaseURI = "http://event-gateway-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private final String contractInstallURI = "/v1.0/mock/contract-installed";
+    private static final Logger log = LoggerFactory.getLogger(TransactionSteps.class);
+
+    private final String ENDPOINT = "http://event-gateway-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private final String RESOURCE_MOCK_CONTRACT_INSTALLED = "/v1.0/mock/contract-installed";
+
     private RequestSpecification request;
     private Response response;
+    private JsonObject payload;
 
     @Given("^A business event is received by the event gateway that requires an update to NDB$")
     public void aBusinessEventIsReceivedByTheEventGatewayThatRequiresAnUpdateToNDB() throws Throwable {
@@ -80,8 +85,8 @@ public class TransactionSteps implements IRestStep {
         payload.add("ndbModel", ndbModel);
 
         //Send payload
-        request = given().baseUri(eventGatewayBaseURI).header("Content-Type", "application/json").body(payload);
-        response = request.post(contractInstallURI);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
+        response = request.post(RESOURCE_MOCK_CONTRACT_INSTALLED);
 
 //        System.out.println(response.getBody().asString());
 

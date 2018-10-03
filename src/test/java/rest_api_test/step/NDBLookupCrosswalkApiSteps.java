@@ -9,6 +9,8 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
 import util.FileHelper;
 
@@ -18,10 +20,12 @@ import static io.restassured.RestAssured.given;
  * Created by aberns on 9/10/2018.
  */
 public class NDBLookupCrosswalkApiSteps implements IRestStep {
-    public static final String ENDPOINT = "http://ndb-lookup-crosswalk-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    public static final String RESOURCE_PRODUCTCODES = "/productcodes";
-    public static final String RESOURCE_TAXONOMY_QUERY = "/taxonomy/query";
-    private static final String PRODUCT_CODE_PAYLOAD_FILE = "/support/US1285441_identify_product_codes.json";
+    private static final Logger log = LoggerFactory.getLogger(NDBLookupCrosswalkApiSteps.class);
+
+    private static final String ENDPOINT = "http://ndb-lookup-crosswalk-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String RESOURCE_PRODUCT_CODES = "/productcodes";
+    private static final String RESOURCE_TAXONOMY_QUERY = "/taxonomy/query";
+    private static final String SUPPORT_PRODUCT_CODE_PAYLOAD_FILE = "/support/US1285441_identify_product_codes.json";
 
     private RequestSpecification request;
     private Response response;
@@ -102,9 +106,9 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep {
 
     @When("^the product codes are called from the crosswalk tables$")
     public void getProductCodes() throws Throwable {
-        JsonElement jsonElement = FileHelper.getInstance().getJsonFile(PRODUCT_CODE_PAYLOAD_FILE);
+        JsonElement jsonElement = FileHelper.getInstance().getJsonFile(SUPPORT_PRODUCT_CODE_PAYLOAD_FILE);
         this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(jsonElement);
-        this.response = request.post(RESOURCE_PRODUCTCODES);
+        this.response = request.post(RESOURCE_PRODUCT_CODES);
 
         Assert.assertEquals(200, response.getStatusCode());
     }
@@ -119,10 +123,10 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep {
 
     @When("^an invalid contract details are called from the crosswalk tables$")
     public void getInvalidCodes() throws  Throwable {
-        JsonElement jsonElement = FileHelper.getInstance().getJsonFile(PRODUCT_CODE_PAYLOAD_FILE);
+        JsonElement jsonElement = FileHelper.getInstance().getJsonFile(SUPPORT_PRODUCT_CODE_PAYLOAD_FILE);
         jsonElement = jsonElement.getAsJsonObject().remove("storageNode");
         this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(jsonElement);
-        this.response = request.post(RESOURCE_PRODUCTCODES);
+        this.response = request.post(RESOURCE_PRODUCT_CODES);
 
         Assert.assertEquals(200, response.getStatusCode());
     }

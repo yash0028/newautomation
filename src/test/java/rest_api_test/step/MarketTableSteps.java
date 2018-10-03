@@ -8,6 +8,8 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;
@@ -16,8 +18,11 @@ import static io.restassured.RestAssured.given;
  * Created by dtimaul on 8/15/18.
  */
 public class MarketTableSteps implements IRestStep {
-    private final String marketsTableEndpoint = "http://ndb-lookup-crosswalk-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private final String marketResource = "/market/";
+    private static final Logger log = LoggerFactory.getLogger(MarketTableSteps.class);
+
+    private static final String ENDPOINT = "http://ndb-lookup-crosswalk-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String RESOURCE_MARKET = "/market/";
+
     private RequestSpecification request;
     private Response response;
     private String marketNumber;
@@ -29,8 +34,8 @@ public class MarketTableSteps implements IRestStep {
 
     @When("^a query to the table is initiated$")
     public void initiateQuery() throws Throwable {
-        request = given().baseUri(marketsTableEndpoint).header("Content-Type", "application/json");
-        response = request.get(marketResource + marketNumber);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
+        response = request.get(RESOURCE_MARKET + marketNumber);
 
     }
 

@@ -8,6 +8,9 @@ import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import rest_api_test.util.IRestStep;
 
 import java.util.List;
 import java.util.Map;
@@ -18,10 +21,12 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by jwacker on 8/3/2018.
  */
-public class MEGSteps {
+public class MEGSteps implements IRestStep {
+    private static final Logger log = LoggerFactory.getLogger(MEGSteps.class);
 
-    private static final String BASE_URI = "http://market-exception-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
-    private static final String ENDPOINT = "/v1.0/market_exceptions/search";
+    private static final String ENDPOINT = "http://market-exception-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
+    private static final String RESOURCE_MARKET_EXCEPTION_SEARCH = "/v1.0/market_exceptions/search";
+
     private JsonObject requestBody = new JsonObject();
     private RequestSpecification request;
     private Response response;
@@ -42,18 +47,18 @@ public class MEGSteps {
         //Add each key:value pair
         for(String key: requestParams.keySet()){
             requestBody.addProperty(key, requestParams.getOrDefault(key, ""));
-            //ENDPOINT += "/" + key + "/" + requestParams.getOrDefault(key, "") + "/";
+            //RESOURCE_MARKET_EXCEPTION_SEARCH += "/" + key + "/" + requestParams.getOrDefault(key, "") + "/";
         }
 
         //Build out the request and add the request body
-        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestBody);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
 
     }
 
     @Then("^I receive data that I would get from reading SQL db directly including the fields:$")
     public void iReceiveDataThatIWouldGetFromReadingSQLDbDirectlyIncludingTheFields(DataTable responseFieldsDT) throws Throwable {
         //Get the response
-        response = request.post(ENDPOINT);
+        response = request.post(RESOURCE_MARKET_EXCEPTION_SEARCH);
 
         //Get the response fields from the data table as a list
         List<String> responseFields = responseFieldsDT.asList();

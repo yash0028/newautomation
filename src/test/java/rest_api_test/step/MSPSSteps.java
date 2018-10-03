@@ -7,6 +7,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import rest_api_test.util.IRestStep;
 import util.FileHelper;
 
 import java.io.File;
@@ -18,10 +21,13 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by jwacker on 7/19/2018.
  */
-public class MSPSSteps {
-    private static final String BASE_URI = "http://fee-schedule-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
-    private static final String FACILITY_ENDPOINT = "/v1.0/facility_fee_schedules/search";
-    private static final String PROFESSIONAL_ENDPOINT = "/v1.0/professional_fee_schedules/search";
+public class MSPSSteps implements IRestStep {
+    private static final Logger log = LoggerFactory.getLogger(MSPSSteps.class);
+
+    private static final String ENDPOINT = "http://fee-schedule-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
+    private static final String RESOURCE_FACILITY_FEE_SCHEDULES_SEARCH = "/v1.0/facility_fee_schedules/search";
+    private static final String RESOURCE_PROFESSIONAL_FEE_SCHEDULES_SEARCH = "/v1.0/professional_fee_schedules/search";
+
     private JsonObject requestBody = new JsonObject();
     private RequestSpecification request;
     private Response response;
@@ -36,13 +42,13 @@ public class MSPSSteps {
         requestBody.addProperty("feeScheduleNumber", feeScheduleNumber);
 
         //Build out the request and add the JSON Request Body
-        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestBody.toString());
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody.toString());
 
         //Capture the response from a POST request to the endpoint URL (different endpoints for Facility and Physician)
         if(callType.equalsIgnoreCase("Facility")){
-            response = request.post(FACILITY_ENDPOINT);
+            response = request.post(RESOURCE_FACILITY_FEE_SCHEDULES_SEARCH);
         }else{
-            response = request.post(PROFESSIONAL_ENDPOINT);
+            response = request.post(RESOURCE_PROFESSIONAL_FEE_SCHEDULES_SEARCH);
         }
 
     }
