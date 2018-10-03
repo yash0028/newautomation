@@ -67,7 +67,8 @@ public class CMDActionRequiredSteps {
         // Verify that the rows in the table are sorted by date from oldest to newest
         Boolean isSorted = dates.stream().sorted().collect(Collectors.toList()).equals(dates);
 
-        // Note: This assert will fail with current dashboard because the table is sorted from newest to oldest
+        // Note: This assert will fail with in progress page because the table is sorted from newest to oldest
+        // but will pass once switched to action required page
         Assert.assertTrue(isSorted);
     }
 

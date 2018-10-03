@@ -46,6 +46,10 @@ public class CMDPage {
         return (getHeaderContractMetadata().getText().equalsIgnoreCase("Contract Management")) ? new CMDPage(SeleniumHelper.getWebDriver()) : null;
     }
 
+    /**
+     * Verifies that we are on the contract management homepage by confirming that the url.
+     * @return True if current page is the contract management homepage.
+     */
     public boolean confirmCurrentPage() {
         return driver.getCurrentUrl().matches("^.+contract-status$");
     }
