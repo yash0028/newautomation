@@ -21,12 +21,24 @@ public class FileHelper {
     private static FileHelper ourInstance = new FileHelper();
     private Properties properties = null;
 
+    /*
+    CONSTRUCTOR
+     */
+
+    private FileHelper() {
+    }
+
+    /*
+    STATIC METHODS
+     */
+
     public static FileHelper getInstance() {
         return ourInstance;
     }
 
-    private FileHelper() {
-    }
+    /*
+    CLASS METHODS
+     */
 
     public File writeByteArrayToFile(String fileName, byte[] content) throws IOException {
         //Create the file with the given filename

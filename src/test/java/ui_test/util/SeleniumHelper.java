@@ -14,6 +14,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Replaced with SauceLabs, Page Factory, and Page Object Model
+ */
 @Deprecated
 public class SeleniumHelper {
 

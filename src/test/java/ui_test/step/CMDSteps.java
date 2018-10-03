@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
-import ui_test.page.CMDPage;
+import ui_test.page.contractManagement.CMDPage;
 import ui_test.util.IUiStep;
 
 import java.util.Arrays;

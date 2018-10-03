@@ -1,4 +1,4 @@
-package util;
+package general_test.util;
 
 public class BookendOrder {
     public static final int DEFAULT = 10000;

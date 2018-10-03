@@ -4,7 +4,7 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui_test.page.CrosswalkPage;
+import ui_test.page.contractManagement.CrosswalkPage;
 
 public class CrosswalkSteps {
 

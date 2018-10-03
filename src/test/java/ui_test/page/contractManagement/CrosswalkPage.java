@@ -1,4 +1,4 @@
-package ui_test.page;
+package ui_test.page.contractManagement;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;

@@ -8,17 +8,25 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Properties;
 
+/**
+ * Singleton created to handle reading environment variables and property files (that exist
+ * within resources folder). Allows setting protected sources so they are not overwritten by variables read later.
+ */
 public class Configuration {
     public static final String CONFIGURATIONS_UI_PROPERTIES = "/configurations/ui.properties";
     private static final String CONFIGURATIONS_GLOBAL_PROPERTIES = "/configurations/global.properties";
     private static final String CONFIGURATIONS_LOGGER_PROPERTIES = "/configurations/logger.properties";
-    private static Configuration ourInstance = new Configuration();
+    private static Configuration INSTANCE = new Configuration();
+
     private Map<String, ProtectedString> optionMap;
 
     /*
     CONSTRUCTOR
      */
 
+    /**
+     * Load default configurations
+     */
     private Configuration() {
         optionMap = new HashMap<>();
         //Create Single Instances
@@ -33,33 +41,50 @@ public class Configuration {
      */
 
     public static Configuration getInstance() {
-        return ourInstance;
+        return INSTANCE;
+    }
+
+    /**
+     * Reset instance, removes all values and loads defaults again
+     */
+    public static void reset() {
+        INSTANCE = new Configuration();
     }
 
     /*
     CLASS METHODS
      */
 
-    public String getStatus() {
-        StringBuilder message = new StringBuilder();
-        long counter = this.optionMap.values().stream().filter(ps -> ps.isWriteProtected()).count();
-        message.append("Configuration: found ").append(optionMap.size()).append(" unique keys & ");
-        message.append(counter).append(" of these are protected.");
-        return message.toString();
-    }
-
+    /**
+     * Retrieve option from variable map. Package Private to prevent unknown usage.
+     *
+     * @param key
+     * @return string value at key or null
+     */
     String getOption(String key) {
         Optional<ProtectedString> optional = Optional.ofNullable(optionMap.get(key));
         return optional.map(ProtectedString::getValue).orElse(null);
     }
 
-    void loadEnvironment(boolean override, boolean makeWriteProtected) {
+    /**
+     * Load all environment variables into configuration
+     *
+     * @param override           override other unprotected variables
+     * @param makeWriteProtected prevent later load from overriding what is loaded in this call
+     */
+    public void loadEnvironment(boolean override, boolean makeWriteProtected) {
         System.getenv().forEach((key, value) -> {
             addOption(key, value, override, makeWriteProtected);
         });
     }
 
-    void loadProperty(String propertyFileName, boolean override, boolean makeWriteProtected) {
+    /**
+     * Load all variables from a property file, located in resource folder, into configuration
+     *
+     * @param override           override other unprotected variables
+     * @param makeWriteProtected prevent later load from overriding what is loaded in this call
+     */
+    public void loadProperty(String propertyFileName, boolean override, boolean makeWriteProtected) {
         InputStream inputStream;
         Properties properties = new Properties();
 
@@ -82,6 +107,19 @@ public class Configuration {
         });
     }
 
+    /**
+     * Get status of the configuration
+     *
+     * @return
+     */
+    public String getStatus() {
+        StringBuilder message = new StringBuilder();
+        long counter = this.optionMap.values().stream().filter(ps -> ps.isWriteProtected()).count();
+        message.append("Configuration: found ").append(optionMap.size()).append(" unique keys & ");
+        message.append(counter).append(" of these are protected.");
+        return message.toString();
+    }
+
     @Override
     public String toString() {
         return getStatus();
@@ -91,6 +129,14 @@ public class Configuration {
     HELPER METHODS
      */
 
+    /**
+     * Add the option and handle override and whether to make it protected
+     *
+     * @param key                to put value under
+     * @param value              string that is stored
+     * @param override           whether to override unprotected values
+     * @param makeWriteProtected whether to prevent this value from being overriden
+     */
     private void addOption(String key, String value, boolean override, boolean makeWriteProtected) {
         if (override) {
             if (!optionMap.containsKey(key) || !optionMap.get(key).isWriteProtected()) {
@@ -109,6 +155,9 @@ public class Configuration {
     UTILITY CLASS
      */
 
+    /**
+     * Store for a value and whether the value should be protected
+     */
     class ProtectedString {
         private final boolean writeProtected;
         private final String value;
