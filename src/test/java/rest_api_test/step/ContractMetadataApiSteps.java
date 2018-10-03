@@ -10,6 +10,8 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
 import util.FileHelper;
 
@@ -23,16 +25,18 @@ import static io.restassured.RestAssured.given;
  * Created by dtimaul on 9/11/18.
  */
 public class ContractMetadataApiSteps implements IRestStep {
-    //TODO Will be renamed to contract-metadata-api
+    private final static Logger log = LoggerFactory.getLogger(ContractMetadataApiSteps.class);
+
     private final static String ENDPOINT = "http://localhost:8080";
     private final static String RESOURCE_PRODUCTCODE = "/v1.0/xwalk/product/code/list";
     private final static String CSV_FILE = "/support/ContractDescriptionIDMap.csv";
+
     private RequestSpecification request;
     private JsonObject requestBody = new JsonObject();
     private Response response;
     private ArrayList<String> productDescriptions;
 
-//US1185585 Contract Product Description Crosswalk
+    //US1185585 Contract Product Description Crosswalk
     @Given("^a product description to product code crosswalk exists$")
     public void aProductDescriptionToProductCodeCrosswalkExists() throws Throwable {
         // Assume description to product code crosswalk exists
@@ -130,7 +134,7 @@ public class ContractMetadataApiSteps implements IRestStep {
         response = request.post(RESOURCE_PRODUCTCODE);
         JsonElement result = parseJsonElementResponse(response);
 
-        Assert.assertEquals(0,result.getAsJsonArray().size());
+        Assert.assertEquals(0, result.getAsJsonArray().size());
     }
 
     // Verify one valid and one invalid product description
@@ -152,7 +156,7 @@ public class ContractMetadataApiSteps implements IRestStep {
         JsonElement result = parseJsonElementResponse(response);
 
         // Check that the result is a valid json array and returns list of product codes
-        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result, 1,0);
+        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result, 1, 0);
 
         testProductCodeList(expectedProductCodeArr, resultProductCodeArr);
     }
@@ -161,7 +165,7 @@ public class ContractMetadataApiSteps implements IRestStep {
      * Check that the expect product code list is equal to the actual product code list.
      *
      * @param expected An array list with the expected product codes
-     * @param result A json array with the actual product codes
+     * @param result   A json array with the actual product codes
      */
     private void testProductCodeList(ArrayList<String> expected, JsonArray result) throws Throwable {
 
@@ -177,8 +181,9 @@ public class ContractMetadataApiSteps implements IRestStep {
 
     /**
      * Check that the result is a valid json array.
-     * @param result the json element that we want to check
-     * @param expectedSize verifies that the json array has the expected number of elements
+     *
+     * @param result          the json element that we want to check
+     * @param expectedSize    verifies that the json array has the expected number of elements
      * @param indexToRetrieve the index in the json array that we want to retrieve
      * @return returns a list of product codes
      * @throws Throwable

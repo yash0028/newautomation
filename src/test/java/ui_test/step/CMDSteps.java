@@ -21,13 +21,15 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class CMDSteps implements IRestStep, IUiStep {
-
     private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
 
+    private final static String ENDPOINT = "http://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private final static String RESOURCE_CONTRACT_SUMMARIES = "/v1.0/contract-summaries/";
+
+    private final static String CMD_DASHBOARD_URL = "http://contract-admin-ui-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
+
     private CMDPage cmdPage = null;
-    private String CMD_DASHBOARD_URL = "http://contract-admin-ui-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
-    private String END_POINT = "http://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private String RESOURCE = "/v1.0/contract-summaries/";
+
     private int totalElements = 0;
 
     @Given("^I have entered the CMD dashboard URL$")
@@ -76,34 +78,34 @@ public class CMDSteps implements IRestStep, IUiStep {
     @When("^There are no completed contract requests$")
     public void getCompletedTransactions() {
         totalElements = 0;
-        Response response = RestAssured.given().baseUri(END_POINT).get(RESOURCE + "success");
+        Response response = RestAssured.given().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_SUMMARIES + "success");
         totalElements = parseJsonResponse(response).get("totalElements").getAsInt();
     }
 
     @When("^There are no In Progress transactions$")
     public void getInProgressTransactions() {
         totalElements = 0;
-        Response response = RestAssured.given().baseUri(END_POINT).get(RESOURCE + "in-progress");
+        Response response = RestAssured.given().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_SUMMARIES + "in-progress");
         totalElements = parseJsonResponse(response).get("totalElements").getAsInt();
     }
 
     @When("^There are no Action Required Required transactions$")
     public void getActionRequiredTransactions() {
         totalElements = 0;
-        Response response = RestAssured.given().baseUri(END_POINT).get(RESOURCE + "partial-success");
+        Response response = RestAssured.given().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_SUMMARIES + "partial-success");
         totalElements = parseJsonResponse(response).get("totalElements").getAsInt();
     }
 
     @When("^There are no PCP reassignment transactions$")
     public void getPcpReassignTransactions() {
-        Response response = RestAssured.given().baseUri(END_POINT).get(RESOURCE + "manual-input");
+        Response response = RestAssured.given().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_SUMMARIES + "manual-input");
         totalElements = parseJsonResponse(response).get("totalElements").getAsInt();
     }
 
     @When("^There are no Error transactions$")
     public void getErrorTransactions() {
         totalElements = 0;
-        Response response = RestAssured.given().baseUri(END_POINT).get(RESOURCE + "failed");
+        Response response = RestAssured.given().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_SUMMARIES + "failed");
         totalElements = parseJsonResponse(response).get("totalElements").getAsInt();
     }
 

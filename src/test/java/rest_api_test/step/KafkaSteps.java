@@ -11,6 +11,9 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
@@ -18,14 +21,16 @@ import static io.restassured.RestAssured.when;
 /**
  * Created by aberns on 6/26/2018.
  */
-public class KafkaSteps {
-    private static final String benchBaseUri = "http://bench-and-test-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String payloadUri = "/api/test/contracts";
-    private static final String resultUri = "/api/test/results";
-    private static final String resetUri = "/api/test/reset";
+public class KafkaSteps implements IRestStep {
+    private static final Logger log = LoggerFactory.getLogger(KafkaSteps.class);
 
-    private static final String transactionBaseUri = "http://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
-    private static final String statusUri = "/v1/transaction/"; //need to add the {trans_id} to the end
+    private static final String ENDPOINT_BENCH_TEST = "http://bench-and-test-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String RESOURCE_TEST_CONTRACTS = "/api/test/contracts";
+    private static final String RESOURCE_TEST_RESULTS = "/api/test/results";
+    private static final String RESOURCE_TEST_RESET = "/api/test/reset";
+
+    private static final String ENDPOINT_TRANSACTION_STATUS = "http://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
+    private static final String RESOURCE_TRANSACTION = "/v1/transaction/"; //need to add the {trans_id} to the end
 
     private RequestSpecification request;
     private Response response;
@@ -61,14 +66,14 @@ public class KafkaSteps {
     @When("^I send the payload$")
     public void sendPayload() {
         eventCountTotal += payload.get("numberOfEvents").getAsInt();
-        request = given().baseUri(benchBaseUri).header("Content-Type", "application/json").body(payload);
-        response = request.post(payloadUri);
+        request = given().baseUri(ENDPOINT_BENCH_TEST).header("Content-Type", "application/json").body(payload);
+        response = request.post(RESOURCE_TEST_CONTRACTS);
         Assert.assertEquals(response.getStatusCode(), 200);
     }
 
     @Given("^I send reset command to test bench$")
     public void sendReset() {
-        response = when().get(benchBaseUri + resetUri);
+        response = when().get(ENDPOINT_BENCH_TEST + RESOURCE_TEST_RESET);
         Assert.assertEquals(response.getStatusCode(), 200);
 
         //Reset all values
@@ -146,7 +151,7 @@ public class KafkaSteps {
 
     private void getResults() {
         JsonParser parser = new JsonParser();
-        response = when().get(benchBaseUri + resultUri);
+        response = when().get(ENDPOINT_BENCH_TEST + RESOURCE_TEST_RESULTS);
         result = parser.parse(response.asString()).getAsJsonObject();
     }
 
