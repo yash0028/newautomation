@@ -41,7 +41,8 @@ Feature: US1064356 - Exari>COSMOS Physician Panel Cancel/Term
   @2018.PI03
   @2018.PI03.04
   Scenario: TC564701 - [RL0]
-    # Cancel all providers/panels that are associated with a single contract Given the Exari payload extracts and maps the correct data fields in the Exari>COSMOS Physician Cancel payload
+    # Cancel all providers/panels that are associated with a single contract
+    Given the Exari payload extracts and maps the correct data fields in the Exari>COSMOS Physician Cancel payload
     When COSMOS Cancels the Physician Panel record in COSMOS
     Then the COSMOS Physician Cancel Panel should populate the PPC table and screens in COSMOS for Cancel Panel without error
 

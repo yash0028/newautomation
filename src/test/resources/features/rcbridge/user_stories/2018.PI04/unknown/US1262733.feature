@@ -1,11 +1,7 @@
 # Last updated on 
 @US1262733
 @2018.PI04
-@MVP
-@10/1_Physician
-@CMD
-@CMD_Tables
-@F226938
+@F205008
 Feature: US1262733 - Product Group process code table
 
   @TC565573
