@@ -3,11 +3,19 @@
 @CLM_UAT
 @EXARI-11696
 @US858666
+@MVP
+@Plus
+@Priority_1
+@F137671
 Feature: US858666 - Update Entity Relationship
 
   @TC564502
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @EXARI-11696
+  @US858666
   Scenario: TC564502 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to change a relationship between two Entities

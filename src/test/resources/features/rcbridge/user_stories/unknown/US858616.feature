@@ -2,11 +2,15 @@
 @EXARI-11249
 @EXARI-11267
 @US858616
+@F207077
 Feature: US858616 - Add Identifier to Entity
 
   @TC564650
   @Automated
   @Functional
+  @EXARI-11249
+  @EXARI-11267
+  @US858616
   Scenario: TC564650 - [RL0]
     Given I am a User with access to maintain Entity information
     When I add an Identifier to an Entity

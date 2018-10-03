@@ -2,11 +2,21 @@
 @US1194527
 @2018.PI02
 @2018.PI02.04
+@MVP
+@PI02_Top3
+@Domain_Microservice
+@PIC
+@Parity
+@Examiner
+@F183241
 Feature: US1194527 - [Unfinished] PIC Implementation
 
   @TC565876
   @Automated
   @Functional
+  @US1194527
+  @2018.PI02
+  @2018.PI02.04
   Scenario: TC565876 - [RL1]
     Given A contract inquiry request from PIC or Examiner
     When A REST Service call is made with invalid data
@@ -15,6 +25,9 @@ Feature: US1194527 - [Unfinished] PIC Implementation
   @TC565875
   @Automated
   @Functional
+  @US1194527
+  @2018.PI02
+  @2018.PI02.04
   Scenario: TC565875 - [RL0]
     Given A contract inquiry request from PIC or Examiner
     When A REST Service call is made
@@ -23,6 +36,9 @@ Feature: US1194527 - [Unfinished] PIC Implementation
   @TC565877
   @Automated
   @Functional
+  @US1194527
+  @2018.PI02
+  @2018.PI02.04
   Scenario: TC565877 - [RL2]
     Given A contract request from PIC or Examiner
     When The REST service is unavailable

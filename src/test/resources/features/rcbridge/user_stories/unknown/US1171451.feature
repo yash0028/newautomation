@@ -2,11 +2,18 @@
 @MVP
 @CLM_UAT
 @US1171451
+@MVP
+@Plus
+@Priority_2
+@F198810
 Feature: US1171451 - Upload Tax ID File
 
   @TC564926
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @US1171451
   Scenario: TC564926 - [RL0]
     Given I am a User with access to maintain Entity information
     When I want to validate Tax ID information for multiple Tax IDs

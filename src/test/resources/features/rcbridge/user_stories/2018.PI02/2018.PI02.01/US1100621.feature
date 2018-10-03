@@ -2,11 +2,19 @@
 @US1100621
 @2018.PI02
 @2018.PI02.01
+@MVP
+@PI02_Top3
+@Plus
+@Parity
+@F175417
 Feature: US1100621 - Error Handling Message Spike
 
   @TC565683
   @Automated
   @Functional
+  @US1100621
+  @2018.PI02
+  @2018.PI02.01
   Scenario: TC565683 - [RL0]
     Given the need exists for approach to handling errors
     When the team analysis business and technical needs

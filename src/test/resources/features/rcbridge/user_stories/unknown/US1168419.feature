@@ -2,11 +2,18 @@
 @MVP
 @CLM_UAT
 @US1168419
+@MVP
+@Plus
+@Priority_1
+@F137660
 Feature: US1168419 - Search Identifier
 
   @TC565011
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @US1168419
   Scenario: TC565011 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to add an Identifier to an Entity

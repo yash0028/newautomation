@@ -3,11 +3,19 @@
 @CLM_UAT
 @EXARI-11273
 @US858632
+@MVP
+@Plus
+@Priority_1
+@F188964
 Feature: US858632 - View Supplemental Detail Time Lining History
 
   @TC564407
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @EXARI-11273
+  @US858632
   Scenario: TC564407 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to audit supplemental detail associated with an Entity

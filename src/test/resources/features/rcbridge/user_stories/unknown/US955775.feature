@@ -3,11 +3,16 @@
 @EXARI-11267
 @CLM_UAT
 @US955775
+@F207077
 Feature: US955775 - Set Inactivation Date - Identifier
 
   @TC565062
   @Automated
   @Functional
+  @MVP
+  @EXARI-11267
+  @CLM_UAT
+  @US955775
   Scenario: TC565062 - [RL0]
     Given I am a User with access to manage Entity information
     When I need to expire an Identifier relationship with an Entity

@@ -3,11 +3,18 @@
 @US860745
 @2018.PI01
 @2018.PI01.02
+@MVP
+@CLM_Exari
+@F137839
 Feature: US860745 - Setup Business Organizations
 
   @TC564565
   @Automated
   @Functional
+  @MVP
+  @US860745
+  @2018.PI01
+  @2018.PI01.02
   Scenario: TC564565 - [RL0]
     Given I am logged into Exari as a Business Administrator,
     When I select the Create Site button,

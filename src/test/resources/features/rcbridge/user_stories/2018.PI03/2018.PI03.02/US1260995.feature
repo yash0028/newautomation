@@ -2,11 +2,19 @@
 @US1260995
 @2018.PI03
 @2018.PI03.02
+@MVP
+@Priority_1
+@PIC
+@Parity
+@F159196
 Feature: US1260995 - [Unfinished] PIC Implementation
 
   @TC565339
   @Automated
   @Functional
+  @US1260995
+  @2018.PI03
+  @2018.PI03.02
   Scenario: TC565339 - [RL2]
     Given Exari has received a request to send data to PIC
     When the micro service is unable to be reached by Exari
@@ -15,6 +23,9 @@ Feature: US1260995 - [Unfinished] PIC Implementation
   @TC565337
   @Automated
   @Functional
+  @US1260995
+  @2018.PI03
+  @2018.PI03.02
   Scenario: TC565337 - [RL0]
     Given Exari has received a request to send data to PIC
     When the micro service has received the data from Exari
@@ -24,6 +35,9 @@ Feature: US1260995 - [Unfinished] PIC Implementation
   @TC565338
   @Automated
   @Functional
+  @US1260995
+  @2018.PI03
+  @2018.PI03.02
   Scenario: TC565338 - [RL1]
     Given Exari has received a request to send data to PIC
     When the micro service has received the data from Exari

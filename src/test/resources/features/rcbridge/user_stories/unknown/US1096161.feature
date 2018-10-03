@@ -2,11 +2,18 @@
 @MVP
 @CLM_UAT
 @US1096161
+@MVP
+@Plus
+@Priority_1
+@F184552
 Feature: US1096161 - Establish Provider Relationship Maintenance
 
   @TC565279
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @US1096161
   Scenario: TC565279 - [RL0]
     Given I am a User with access to maintain Entity information
     When a new contract is added to an Entity

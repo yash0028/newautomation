@@ -2,11 +2,19 @@
 @US1209469
 @2018.PI03
 @2018.PI03.01
+@MVP
+@Priority_1
+@PIC
+@Parity
+@F159196
 Feature: US1209469 - PIC Analysis Spike
 
   @TC565666
   @Automated
   @Functional
+  @US1209469
+  @2018.PI03
+  @2018.PI03.01
   Scenario: TC565666 - [RL0]
     Given Exari will need PIC integration
     Then a developer will need to research PIC to understand the requirements for integration.

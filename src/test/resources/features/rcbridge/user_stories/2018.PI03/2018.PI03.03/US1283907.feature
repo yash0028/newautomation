@@ -3,11 +3,20 @@
 @US1283907
 @2018.PI03
 @2018.PI03.03
+@MVP
+@10/1_Physician
+@CMD
+@CMD_Tables
+@F214484
 Feature: US1283907 - Markets table microservice
 
   @TC552579
   @Automated
   @Functional
+  @MVP
+  @US1283907
+  @2018.PI03
+  @2018.PI03.03
   Scenario: TC552579 - Invalid market number
     Given the market number "1" is not listed in the Market UHC table
     When a query to the table is initiated
@@ -17,6 +26,10 @@ Feature: US1283907 - Markets table microservice
   @TC552578
   @Automated
   @Functional
+  @MVP
+  @US1283907
+  @2018.PI03
+  @2018.PI03.03
   Scenario Outline: TC552578 - Valid market number
     Given the market number <marketNumber> is listed in the Market UHC table
     When a query to the table is initiated
@@ -40,6 +53,10 @@ Feature: US1283907 - Markets table microservice
   @TC565431
   @Automated
   @Functional
+  @MVP
+  @US1283907
+  @2018.PI03
+  @2018.PI03.03
   Scenario: TC565431 - [RL1]
     Given the market number "1" is not listed in the Market UHC table
     When a query to the table is initiated
@@ -49,6 +66,10 @@ Feature: US1283907 - Markets table microservice
   @TC565430
   @Automated
   @Functional
+  @MVP
+  @US1283907
+  @2018.PI03
+  @2018.PI03.03
   Scenario Outline: TC565430 - [RL0]
     Given the market number <marketNumber> is listed in the Market UHC table
     When a query to the table is initiated

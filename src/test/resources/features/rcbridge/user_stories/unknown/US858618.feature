@@ -2,11 +2,18 @@
 @MVP
 @EXARI-11273
 @US858618
+@MVP
+@Plus
+@Priority_1
+@F137660
 Feature: US858618 - Capture Time Lining History
 
   @TC565563
   @Automated
   @Functional
+  @MVP
+  @EXARI-11273
+  @US858618
   Scenario: TC565563 - [RL0]
     Given I am the Entity Management solution
     When User adds or updates an Identifier relationship to an Entity

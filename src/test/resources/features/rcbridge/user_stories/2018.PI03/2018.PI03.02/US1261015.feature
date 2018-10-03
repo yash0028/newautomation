@@ -4,11 +4,21 @@
 @US1261015
 @2018.PI03
 @2018.PI03.02
+@MVP
+@Plus
+@Priority_1
+@Exari_Microservice
+@F196394
 Feature: US1261015 - [Unfinished] (MEG) Create microservice exposing Market Exception grid data
 
   @TC565769
   @Manual
   @Functional
+  @CLM_UAT
+  @MEG
+  @US1261015
+  @2018.PI03
+  @2018.PI03.02
   Scenario: TC565769 - [RL0]
     # As a consumer of MEG data
     Given I have the ability to read the MS SQL

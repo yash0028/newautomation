@@ -2,11 +2,18 @@
 @MVP
 @CLM_UAT
 @US1171453
+@MVP
+@Plus
+@Priority_2
+@F198810
 Feature: US1171453 - Update Date Validated Field
 
   @TC564543
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @US1171453
   Scenario: TC564543 - [RL0]
     Given I am the Entity Management Solution
     When a User uploads a Tax ID Validation File

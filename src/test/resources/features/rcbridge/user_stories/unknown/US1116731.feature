@@ -2,11 +2,18 @@
 @MVP
 @CLM_UAT
 @US1116731
+@MVP
+@Plus
+@Priority_1
+@F137674
 Feature: US1116731 - Expire Identifier Type
 
   @TC565704
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @US1116731
   Scenario: TC565704 - [RL0]
     Given I am an Administrative User
     When I need to expire an Identifier Type

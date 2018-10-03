@@ -2,11 +2,15 @@
 @EXARI-11643
 @Non_MVP
 @US858630
+@F198150
 Feature: US858630 - Archive Attachments
 
   @TC565715
   @Automated
   @Functional
+  @EXARI-11643
+  @Non_MVP
+  @US858630
   Scenario: TC565715 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to archive an existing attachment on an Entity that is no longer valid

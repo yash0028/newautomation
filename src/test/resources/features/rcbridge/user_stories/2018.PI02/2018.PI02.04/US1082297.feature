@@ -4,11 +4,23 @@
 @US1082297
 @2018.PI02
 @2018.PI02.04
+@MVP
+@PI02_Top3
+@Plus
+@10/1_Physician
+@CLM_Exari
+@Exari_Microservice
+@F164312
 Feature: US1082297 - Create External Data Query for RFP
 
   @TC565304
   @Manual
   @Functional
+  @CLM_UAT
+  @RFP
+  @US1082297
+  @2018.PI02
+  @2018.PI02.04
   Scenario: TC565304 - [RL0] RFP EDQ Validation
     Given UHC will need to provide Exari with RFP data including:
       | Place of Service |
@@ -27,6 +39,11 @@ Feature: US1082297 - Create External Data Query for RFP
   @TC493889
   @Manual
   @Functional
+  @CLM_UAT
+  @RFP
+  @US1082297
+  @2018.PI02
+  @2018.PI02.04
   Scenario: TC493889 - Validate RFP external data query
     Given UHC will need to provide Exari with RFP data including:
       | Place of Service |

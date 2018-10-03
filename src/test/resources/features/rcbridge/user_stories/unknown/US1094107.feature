@@ -1,10 +1,13 @@
 # Last updated on 
 @US1094107
+@Plus
+@F137658
 Feature: US1094107 - Approve Inactivated Entity Demographic Info
 
   @TC564422
   @Automated
   @Functional
+  @US1094107
   Scenario: TC564422 - [RL0]
     Given I am a User with Approval Authority
     When a User inactivates Entity Demographic information and submits for approval

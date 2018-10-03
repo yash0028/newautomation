@@ -1,10 +1,15 @@
 # Last updated on 
 @US1185985
+@MVP
+@Plus
+@Priority_1
+@F183266
 Feature: US1185985 - Update Identifier Type
 
   @TC565314
   @Automated
   @Functional
+  @US1185985
   Scenario: TC565314 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to update an Identifier Type

@@ -1,10 +1,12 @@
 # Last updated on 
 @US1114661
+@F207069
 Feature: US1114661 - Single Organizational Unit Owner
 
   @TC565572
   @Automated
   @Functional
+  @US1114661
   Scenario: TC565572 - [RL0]
     Given I am the Entity Management Solution
     When a User attempts to add a second Owner to an Entity

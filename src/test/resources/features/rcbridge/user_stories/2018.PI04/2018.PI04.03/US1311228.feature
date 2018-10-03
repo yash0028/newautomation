@@ -2,11 +2,19 @@
 @US1311228
 @2018.PI04
 @2018.PI04.03
+@CMD2
+@#MVP
+@10/1_Physician
+@CMD
+@F205772
 Feature: US1311228 - Identify Product Rate Group Conditions - Physician and Professional Rates
 
   @TC573539
   @Automated
   @Functional
+  @US1311228
+  @2018.PI04
+  @2018.PI04.03
   Scenario: TC573539 - [RL1]
     Given Contract [ProductGroupRate.name] is available in the CMD contract record
     When 'contractDetails.storageNode.properties.UHG_[ProductGroupRate.name]_Fee_Schedule_ID' DOES have value
@@ -20,6 +28,9 @@ Feature: US1311228 - Identify Product Rate Group Conditions - Physician and Prof
   @TC572187
   @Automated
   @Functional
+  @US1311228
+  @2018.PI04
+  @2018.PI04.03
   Scenario: TC572187 - [RL0]
     Given Contract [ProductGroupRate.name] is available in the CMD contract record
     When 'contractDetails.storageNode.properties.UHG_[ProductGroupRate.name]_Fee_Schedule_ID' DOES have value

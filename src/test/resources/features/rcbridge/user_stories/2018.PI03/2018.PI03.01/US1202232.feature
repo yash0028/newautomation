@@ -2,11 +2,19 @@
 @US1202232
 @2018.PI03
 @2018.PI03.01
+@MVP
+@Plus
+@Priority_1
+@Parity
+@F203811
 Feature: US1202232 - Addition of new Reassign fields in API
 
   @TC564903
   @Automated
   @Functional
+  @US1202232
+  @2018.PI03
+  @2018.PI03.01
   Scenario: TC564903 - [RL0]
     Given send the cancel transaction for a UNET contract
     When PCP = P

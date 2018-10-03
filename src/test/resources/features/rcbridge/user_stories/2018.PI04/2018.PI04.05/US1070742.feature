@@ -2,11 +2,18 @@
 @US1070742
 @2018.PI04
 @2018.PI04.05
+@MVP
+@Plus
+@Priority_1
+@F159195
 Feature: US1070742 - COSMOS Facility Acknowledgment Process - Production
 
   @TC564965
   @Automated
   @Functional
+  @US1070742
+  @2018.PI04
+  @2018.PI04.05
   Scenario: TC564965 - [RL0]
     Given the Exari > COSMOS Facility data within the Payload is correct
     When COSMOS receives the Exari Facility Payload data

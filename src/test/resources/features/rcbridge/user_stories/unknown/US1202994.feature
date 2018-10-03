@@ -2,11 +2,18 @@
 @MVP
 @CLM_UAT
 @US1202994
+@MVP
+@Plus
+@Priority_2
+@F198810
 Feature: US1202994 - Export Tax IDs
 
   @TC565157
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @US1202994
   Scenario: TC565157 - [RL0]
     Given I am a User with access to maintain Entity information
     When I want to export a list of Tax IDs

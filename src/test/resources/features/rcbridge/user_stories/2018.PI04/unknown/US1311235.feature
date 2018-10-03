@@ -1,11 +1,18 @@
 # Last updated on 
 @US1311235
 @2018.PI04
+@CMD2
+@#MVP
+@10/1_Physician
+@CMD
+@F232004
 Feature: US1311235 - Apply Physician Specialty Rate process rule  during roster event process
 
   @TC572183
   @Automated
   @Functional
+  @US1311235
+  @2018.PI04
   Scenario: TC572183 - [RL1]
     Given 'Physician Specialty' rate process rule successfully processed
     When the outcome result successfully slotted to the table record
@@ -14,6 +21,8 @@ Feature: US1311235 - Apply Physician Specialty Rate process rule  during roster 
   @TC572182
   @Automated
   @Functional
+  @US1311235
+  @2018.PI04
   Scenario: TC572182 - [RL0]
     Given 'UHG_ProviderRoster_GeneratedRosterEvent' has value 'Add' or 'Cancel'
     When 'ProductGroup Physician Specialty Rate' is available from the CMD Contract database for the contract
@@ -22,6 +31,8 @@ Feature: US1311235 - Apply Physician Specialty Rate process rule  during roster 
   @TC572186
   @Automated
   @Functional
+  @US1311235
+  @2018.PI04
   Scenario: TC572186 - [RL4]
     Given 'Physician Specialty' rate process rule successfully processed
     When the outcome result did not successfully slot to either record on the table
@@ -33,6 +44,8 @@ Feature: US1311235 - Apply Physician Specialty Rate process rule  during roster 
   @TC572185
   @Automated
   @Functional
+  @US1311235
+  @2018.PI04
   Scenario: TC572185 - [RL3]
     Given 'Physician Specialty' rate process rule continues to the next record in the table
     When the outcome result successfully slotted to the table record
@@ -41,6 +54,8 @@ Feature: US1311235 - Apply Physician Specialty Rate process rule  during roster 
   @TC572184
   @Automated
   @Functional
+  @US1311235
+  @2018.PI04
   Scenario: TC572184 - [RL2]
     Given 'Physician Specialty' rate process rule successfully processed
     When the outcome result did not successfully slot to the table record

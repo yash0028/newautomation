@@ -3,11 +3,20 @@
 @US1303750
 @2018.PI04
 @2018.PI04.02
+@MVP
+@Madhur
+@Priority_1
+@CMD
+@F218723
 Feature: US1303750 - [Continued] CMD- User Input Required Page- View & Edit contract detail information (no search results found)
 
   @TC593196
   @Manual
   @Functional
+  @A_UI_Story
+  @US1303750
+  @2018.PI04
+  @2018.PI04.02
   Scenario: TC593196 - [RL1]
     # Scenario 2 (Edit contract master detail info- data fields add new row)
     Given I am on the CMD Action Required page
@@ -41,6 +50,10 @@ Feature: US1303750 - [Continued] CMD- User Input Required Page- View & Edit cont
   @TC564772
   @Automated
   @Functional
+  @A_UI_Story
+  @US1303750
+  @2018.PI04
+  @2018.PI04.02
   Scenario: TC564772 - [RL0]
     # Scenario 1 (View contract master detail info- No results with message)
     Given I am on the CMD Action required page

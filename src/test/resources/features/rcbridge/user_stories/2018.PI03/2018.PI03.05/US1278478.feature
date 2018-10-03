@@ -2,11 +2,19 @@
 @US1278478
 @2018.PI03
 @2018.PI03.05
+@MVP
+@CMD_UI
+@NDB
+@CMD
+@F217187
 Feature: US1278478 - Publish NDB API contract master null response
 
   @TC589269
   @Automated
   @Functional
+  @US1278478
+  @2018.PI03
+  @2018.PI03.05
   Scenario: TC589269 - [RL1] Check Single Null
     # Scenario 1B (UNET search with mkt, fee schedule, and a single product code)
     Given The NDB contract master look up API was executed with market number, fee schedule, and a single product code
@@ -18,6 +26,9 @@ Feature: US1278478 - Publish NDB API contract master null response
   @TC589310
   @Automated
   @Functional
+  @US1278478
+  @2018.PI03
+  @2018.PI03.05
   Scenario: TC589310 - [RL2] Check Multiple Null
     # Scenario 2 (UNET search with mkt, fee schedule, and multiple product codes
     Given The NDB contract master look up API was executed with market number, fee schedule, and more than one product code
@@ -30,6 +41,9 @@ Feature: US1278478 - Publish NDB API contract master null response
   @TC565495
   @Automated
   @Functional
+  @US1278478
+  @2018.PI03
+  @2018.PI03.05
   Scenario: TC565495 - [RL0] Check Single Null
     # Scenario 1A (UNET search with mkt, fee schedule, and a single product code) bad fee schedule
     Given The NDB contract master look up API was executed with market number, fee schedule, and a single product code

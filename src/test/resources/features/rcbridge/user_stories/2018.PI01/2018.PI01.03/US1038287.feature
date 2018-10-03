@@ -4,11 +4,19 @@
 @US1038287
 @2018.PI01
 @2018.PI01.03
+@MVP
+@CLM_Exari
+@F137841
 Feature: US1038287 - [CONTINUED] Setup initial SPA/PAT in Interview
 
   @TC565349
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @US1038287
+  @2018.PI01
+  @2018.PI01.03
   Scenario: TC565349 - [RL0]
     Given I am a Business Administrator in Exari
     When I log into Power Author

@@ -3,11 +3,19 @@
 @CLM_UAT
 @EXARI-11273
 @US858600
+@MVP
+@Plus
+@Priority_1
+@F188964
 Feature: US858600 - View Entity Time Lining History
 
   @TC565493
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @EXARI-11273
+  @US858600
   Scenario: TC565493 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view the history of events and modifications for an Entity

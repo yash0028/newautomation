@@ -3,11 +3,19 @@
 @EXARI-11249
 @CLM_UAT
 @US929394
+@MVP
+@Plus
+@Priority_1
+@F137674
 Feature: US929394 - Update Entity Type
 
   @TC564638
   @Automated
   @Functional
+  @MVP
+  @EXARI-11249
+  @CLM_UAT
+  @US929394
   Scenario: TC564638 - [RL0]
     Given I am an Administrative User
     When I need to update an existing Entity Type

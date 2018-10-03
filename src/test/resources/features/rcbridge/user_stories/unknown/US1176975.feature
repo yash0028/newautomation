@@ -1,11 +1,14 @@
 # Last updated on 
 @RCBridge
 @US1176975
+@F226404
 Feature: US1176975 - RC Bridge Enhancement
 
   @TC569879
   @Automated
   @Functional
+  @RCBridge
+  @US1176975
   Scenario Outline: TC569879 - [RL1]
     Given a user story artifact with 2 valid acceptance criteria
     And that user story has 2 outdated RCLink test cases
@@ -19,6 +22,8 @@ Feature: US1176975 - RC Bridge Enhancement
   @TC557488
   @Automated
   @Functional
+  @RCBridge
+  @US1176975
   Scenario: TC557488 - [RL0] example test
     # Enhance Test Case Link
     Given a user story artifact with 2 valid acceptance criteria

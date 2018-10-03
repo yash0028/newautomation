@@ -3,11 +3,19 @@
 @CLM_UAT
 @EXARI-11270
 @US1170982
+@MVP
+@Plus
+@Priority_1
+@F198722
 Feature: US1170982 - Retained Relationships
 
   @TC564494
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @EXARI-11270
+  @US1170982
   Scenario: TC564494 - [RL0]
     Given I am the Entity Management Solution
     When an Entity is reactivated

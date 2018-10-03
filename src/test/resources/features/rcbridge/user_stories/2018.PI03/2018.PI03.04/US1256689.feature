@@ -3,11 +3,20 @@
 @US1256689
 @2018.PI03
 @2018.PI03.04
+@MVP
+@10/1_Physician
+@CMD
+@CMD_Tables
+@F214484
 Feature: US1256689 - [Continued] Validate Table data
 
   @TC551939
   @Manual
   @Functional
+  @kumar,_Sachin
+  @US1256689
+  @2018.PI03
+  @2018.PI03.04
   Scenario: TC551939 - Validate Data_Invalid file
     Given a template is populated with data
     When the template is uploaded
@@ -17,6 +26,10 @@ Feature: US1256689 - [Continued] Validate Table data
   @TC551937
   @Manual
   @Functional
+  @kumar,_Sachin
+  @US1256689
+  @2018.PI03
+  @2018.PI03.04
   Scenario: TC551937 - Validate Data_valid
     Given a template is populated with data
     When the template is uploaded
@@ -26,6 +39,10 @@ Feature: US1256689 - [Continued] Validate Table data
   @TC564847
   @Automated
   @Functional
+  @kumar,_Sachin
+  @US1256689
+  @2018.PI03
+  @2018.PI03.04
   Scenario: TC564847 - [RL0]
     Given a template has records populated with data
     When the template is uploaded
@@ -35,6 +52,10 @@ Feature: US1256689 - [Continued] Validate Table data
   @TC551940
   @Manual
   @Functional
+  @kumar,_Sachin
+  @US1256689
+  @2018.PI03
+  @2018.PI03.04
   Scenario: TC551940 - Validate Data_Invalid data
     Given a template is populated with data
     When the template is uploaded
@@ -44,6 +65,10 @@ Feature: US1256689 - [Continued] Validate Table data
   @TC564848
   @Automated
   @Functional
+  @kumar,_Sachin
+  @US1256689
+  @2018.PI03
+  @2018.PI03.04
   Scenario: TC564848 - [RL1]
     Given a template is populated with invalid data
     When the template is uploaded

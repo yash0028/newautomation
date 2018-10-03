@@ -4,11 +4,17 @@
 @EXARI-11249
 @CLM_UAT
 @US1089942
+@F207077
 Feature: US1089942 - Set Effective Date - Identifier
 
   @TC565781
   @Automated
   @Functional
+  @MVP
+  @EXARI-11267
+  @EXARI-11249
+  @CLM_UAT
+  @US1089942
   Scenario: TC565781 - [RL0]
     Given I am a User with access to maintain Entity information
     When I add or update an Identifier relationship to an Entity

@@ -2,11 +2,16 @@
 @US1094831
 @2018.PI01
 @2018.PI01.05
+@MVP
+@F159019
 Feature: US1094831 - NDB API Creation – NDB Cross Functional Team
 
   @TC564677
   @Automated
   @Functional
+  @US1094831
+  @2018.PI01
+  @2018.PI01.05
   Scenario: TC564677 - [RL0]
     Given The Physician contract is complete and correct within Exari
     When The contract is included in the Exari Physician Contract micro-service to NDB

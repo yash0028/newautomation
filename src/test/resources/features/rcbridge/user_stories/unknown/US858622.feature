@@ -1,11 +1,14 @@
 # Last updated on 
 @EXARI-11249
 @US858622
+@F207082
 Feature: US858622 - Update Demographic Info
 
   @TC565862
   @Automated
   @Functional
+  @EXARI-11249
+  @US858622
   Scenario: TC565862 - [RL0]
     Given I am a User with access to maintain Entity information
     When I want to update demographic information on an Entity

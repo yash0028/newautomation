@@ -1,11 +1,15 @@
 # Last updated on 
 @US1285745
 @2018.PI04
+@Priority_1
+@F218481
 Feature: US1285745 - Synchronize Unique ID
 
   @TC564626
   @Automated
   @Functional
+  @US1285745
+  @2018.PI04
   Scenario: TC564626 - [RL0]
     Given I am a Legacy Application
     When an Entity ID is updated

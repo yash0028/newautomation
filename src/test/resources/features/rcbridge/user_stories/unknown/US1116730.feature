@@ -4,11 +4,20 @@
 @EXARI-11249
 @CLM_UAT
 @US1116730
+@MVP
+@Plus
+@Priority_1
+@F137674
 Feature: US1116730 - Expire Entity Characteristic Type
 
   @TC565585
   @Automated
   @Functional
+  @MVP
+  @EXARI-11792
+  @EXARI-11249
+  @CLM_UAT
+  @US1116730
   Scenario: TC565585 - [RL0]
     Given I am an Administrative User
     When I need to expire an Entity Characteristic Type

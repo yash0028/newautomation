@@ -3,11 +3,19 @@
 @CLM_UAT
 @EXARI-11273
 @US858670
+@MVP
+@Plus
+@Priority_1
+@F188964
 Feature: US858670 - View Relationship Time Lining History
 
   @TC564423
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @EXARI-11273
+  @US858670
   Scenario: TC564423 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view relationship time lining history between two Entities

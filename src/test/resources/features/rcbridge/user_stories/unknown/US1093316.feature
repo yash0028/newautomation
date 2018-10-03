@@ -3,11 +3,19 @@
 @CLM_UAT
 @EXARI-11274
 @US1093316
+@MVP
+@Plus
+@Priority_1
+@F154296
 Feature: US1093316 - Search Identifier
 
   @TC565829
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @EXARI-11274
+  @US1093316
   Scenario: TC565829 - [RL0]
     Given I am a User with access to view or maintain Entity information
     When I want to find an Entity to view or maintain

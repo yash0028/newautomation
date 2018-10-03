@@ -1,11 +1,18 @@
 # Last updated on 
 @US1311236
 @2018.PI04
+@CMD2
+@#MVP
+@10/1_Physician
+@CMD
+@F232004
 Feature: US1311236 - Apply Professional Specialty Rate process rule  during roster event process
 
   @TC572206
   @Automated
   @Functional
+  @US1311236
+  @2018.PI04
   Scenario: TC572206 - [RL1]
     Given 'Professional Specialty' rate process rule successfully processed
     When the outcome result successfully slotted to the table record
@@ -14,6 +21,8 @@ Feature: US1311236 - Apply Professional Specialty Rate process rule  during rost
   @TC572205
   @Automated
   @Functional
+  @US1311236
+  @2018.PI04
   Scenario: TC572205 - [RL0]
     Given 'UHG_ProviderRoster_GeneratedRosterEvent' has value 'Add' or 'Cancel'
     When 'ProductGroup Professional Specialty Rate' is available from the CMD Contract database for the contract
@@ -22,6 +31,8 @@ Feature: US1311236 - Apply Professional Specialty Rate process rule  during rost
   @TC572209
   @Automated
   @Functional
+  @US1311236
+  @2018.PI04
   Scenario: TC572209 - [RL4]
     Given 'Professional Specialty' rate process rule successfully processed
     When the outcome result did not successfully slot to either record on the table
@@ -33,6 +44,8 @@ Feature: US1311236 - Apply Professional Specialty Rate process rule  during rost
   @TC572208
   @Automated
   @Functional
+  @US1311236
+  @2018.PI04
   Scenario: TC572208 - [RL3]
     Given 'Professional Specialty' rate process rule continues to the next record in the table
     When the outcome result successfully slotted to the table record
@@ -41,6 +54,8 @@ Feature: US1311236 - Apply Professional Specialty Rate process rule  during rost
   @TC572207
   @Automated
   @Functional
+  @US1311236
+  @2018.PI04
   Scenario: TC572207 - [RL2]
     Given 'Professional Specialty' rate process rule successfully processed
     When the outcome result did not successfully slot to the table record

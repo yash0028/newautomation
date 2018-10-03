@@ -2,11 +2,18 @@
 @MVP
 @EXARI-11273
 @US858668
+@MVP
+@Plus
+@Priority_1
+@F137671
 Feature: US858668 - Capture Relationship Time Lining History
 
   @TC564645
   @Automated
   @Functional
+  @MVP
+  @EXARI-11273
+  @US858668
   Scenario: TC564645 - [RL0]
     Given I am the Entity Management Solution
     When a User adds a relationship between two Entities

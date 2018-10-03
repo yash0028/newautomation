@@ -1,11 +1,18 @@
 # Last updated on 
 @US1311234
 @2018.PI04
+@CMD2
+@#MVP
+@10/1_Physician
+@CMD
+@F232004
 Feature: US1311234 - Apply Professional Rate process rule  during roster event process
 
   @TC572217
   @Automated
   @Functional
+  @US1311234
+  @2018.PI04
   Scenario: TC572217 - [RL0]
     Given 'UHG_ProviderRoster_GeneratedRosterEvent' has value 'Add' or 'Cancel'
     When 'ProductGroup Professional Rate' is available from the CMD Contract database for the contract
@@ -14,6 +21,8 @@ Feature: US1311234 - Apply Professional Rate process rule  during roster event p
   @TC572218
   @Automated
   @Functional
+  @US1311234
+  @2018.PI04
   Scenario: TC572218 - [RL1]
     Given 'Professional' rate process rule successfully processed
     When the outcome result successfully slotted to the table record
@@ -22,6 +31,8 @@ Feature: US1311234 - Apply Professional Rate process rule  during roster event p
   @TC572219
   @Automated
   @Functional
+  @US1311234
+  @2018.PI04
   Scenario: TC572219 - [RL2]
     Given 'Professional' rate process rule successfully processed
     When the outcome result did not successfully slot to the table record

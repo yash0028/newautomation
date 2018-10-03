@@ -2,11 +2,19 @@
 @US1234077
 @2018.PI03
 @2018.PI03.04
+@MVP
+@Priority_1
+@Parity
+@Examiner
+@F171571
 Feature: US1234077 - [Continued] [Continued] Contract Query API Implementation
 
   @TC551549
   @Automated
   @Functional
+  @US1234077
+  @2018.PI03
+  @2018.PI03.04
   Scenario: TC551549 - [RL0] Happy Path
     Given the Domain Service has received a business event from Exari
     When the Domain Service queries for additional contract details from Exari
@@ -15,6 +23,9 @@ Feature: US1234077 - [Continued] [Continued] Contract Query API Implementation
   @TC551550
   @Automated
   @Functional
+  @US1234077
+  @2018.PI03
+  @2018.PI03.04
   Scenario: TC551550 - [RL1] Fail Path
     Given the Domain Service has received a business event from Exari
     When the Domain Service queries for invalid contract details from Exari

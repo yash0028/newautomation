@@ -3,11 +3,20 @@
 @US1194528
 @2018.PI02
 @2018.PI02.04
+@MVP
+@PI02_Top3
+@Plus
+@Parity
+@F175417
 Feature: US1194528 - [Unfinished] [Continued] Benchmarking & Acceptance Testing
 
   @TC565920
   @Automated
   @Functional
+  @CLM_UAT
+  @US1194528
+  @2018.PI02
+  @2018.PI02.04
   Scenario: TC565920 - [RL2]
     Given the approval coordinator micro service is created,
     When I send a payload to the micro service,
@@ -17,6 +26,10 @@ Feature: US1194528 - [Unfinished] [Continued] Benchmarking & Acceptance Testing
   @TC565919
   @Automated
   @Functional
+  @CLM_UAT
+  @US1194528
+  @2018.PI02
+  @2018.PI02.04
   Scenario: TC565919 - [RL1]
     Given the transaction coordinator micro service is created,
     When I send a payload to the micro service,
@@ -26,6 +39,10 @@ Feature: US1194528 - [Unfinished] [Continued] Benchmarking & Acceptance Testing
   @TC565918
   @Automated
   @Functional
+  @CLM_UAT
+  @US1194528
+  @2018.PI02
+  @2018.PI02.04
   Scenario: TC565918 - [RL0]
     Given the transaction state micro service is created,
     When I send a payload to the micro service,

@@ -2,11 +2,19 @@
 @US1311230
 @2018.PI04
 @2018.PI04.03
+@CMD2
+@#MVP
+@10/1_Physician
+@CMD
+@F205772
 Feature: US1311230 - Identify Product Rate Group Conditions - Professional Specialty and Professional Other Specialty Rate
 
   @TC572196
   @Automated
   @Functional
+  @US1311230
+  @2018.PI04
+  @2018.PI04.03
   Scenario: TC572196 - [RL1]
     Given Professional Specialty Rate Conditions apply to the ProductGroup
     When ProductGroup Professional Specialty Rate has been recorded
@@ -16,6 +24,9 @@ Feature: US1311230 - Identify Product Rate Group Conditions - Professional Speci
   @TC572195
   @Automated
   @Functional
+  @US1311230
+  @2018.PI04
+  @2018.PI04.03
   Scenario: TC572195 - [RL0]
     Given Contract [ProductGroupRate.name] is available in the CMD contract record
     When value is present in 'contractDetails.storageNode.properties.'UHG_[same ProductGroupRate.name]_Specialty_Sched_ID_NPPA', 'UHG_[same ProductGroupRate.name]_All_Spec_Sched_ID_NPPA'

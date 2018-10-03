@@ -3,11 +3,16 @@
 @CLM_UAT
 @EXARI-11274
 @US1080995
+@F207050
 Feature: US1080995 - Check for Duplicates - Updated Entity Name
 
   @TC565040
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @EXARI-11274
+  @US1080995
   Scenario: TC565040 - [RL0]
     Given I am the Entity Management Solution
     When A User updates an Entity Name

@@ -1,11 +1,14 @@
 # Last updated on 
 @EXARI-11274
 @US1093364
+@F196735
 Feature: US1093364 - Search Postal Code
 
   @TC565080
   @Automated
   @Functional
+  @EXARI-11274
+  @US1093364
   Scenario: TC565080 - [RL0]
     Given I am a User with access to view or maintain Entity information
     When I want to find an Entity to view or maintain

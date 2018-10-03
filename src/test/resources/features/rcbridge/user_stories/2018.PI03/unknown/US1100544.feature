@@ -1,11 +1,16 @@
 # Last updated on 
 @US1100544
 @2018.PI03
+@MVP
+@Parity
+@F185519
 Feature: US1100544 - Resolve feedback from Approver
 
   @TC565816
   @Automated
   @Functional
+  @US1100544
+  @2018.PI03
   Scenario: TC565816 - [RL0]
     Given a Mass Action Project has submitted for approval
     When the Approver rejects the Mass Action Project

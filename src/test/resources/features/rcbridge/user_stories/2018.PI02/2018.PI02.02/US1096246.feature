@@ -3,11 +3,22 @@
 @US1096246
 @2018.PI02
 @2018.PI02.02
+@MVP
+@PI02_Top3
+@Domain_Microservice
+@PIC
+@Parity
+@Examiner
+@F183241
 Feature: US1096246 - Create contract query microservice (inquiry)
 
   @TC564835
   @Automated
   @Functional
+  @CLM_UAT
+  @US1096246
+  @2018.PI02
+  @2018.PI02.02
   Scenario: TC564835 - [RL1]
     Given A contract inquiry request from PIC or Examiner
     When A REST Service call is made with invalid data
@@ -16,6 +27,10 @@ Feature: US1096246 - Create contract query microservice (inquiry)
   @TC564834
   @Automated
   @Functional
+  @CLM_UAT
+  @US1096246
+  @2018.PI02
+  @2018.PI02.02
   Scenario: TC564834 - [RL0]
     Given A contract inquiry request from PIC or Examiner
     When A REST Service call is made
@@ -24,6 +39,10 @@ Feature: US1096246 - Create contract query microservice (inquiry)
   @TC564836
   @Automated
   @Functional
+  @CLM_UAT
+  @US1096246
+  @2018.PI02
+  @2018.PI02.02
   Scenario: TC564836 - [RL2]
     Given A contract request from PIC or Examiner
     When The REST service is unavailable

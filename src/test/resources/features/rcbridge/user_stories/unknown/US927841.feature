@@ -1,10 +1,14 @@
 # Last updated on 
 @US927841
+@Plus
+@Priority_1
+@F137672
 Feature: US927841 - Capture Relationship Time Lining History
 
   @TC565028
   @Automated
   @Functional
+  @US927841
   Scenario: TC565028 - [RL0]
     Given I am the Entity Management Solution
     When a User adds a relationship between a Provider and an Entity

@@ -1,10 +1,13 @@
 # Last updated on 
 @US1094100
+@Plus
+@F137658
 Feature: US1094100 - Approve Inactivated Identifier Relationship with Entity
 
   @TC565667
   @Automated
   @Functional
+  @US1094100
   Scenario: TC565667 - [RL0]
     Given I am a User with Approval Authority
     When a User inactivates an Identifier relationship with an Entity and submits for approval

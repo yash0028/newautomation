@@ -2,11 +2,15 @@
 @MVP
 @CLM_UAT
 @US1168429
+@F198150
 Feature: US1168429 - Create Contracting Event
 
   @TC565424
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @US1168429
   Scenario: TC565424 - [RL0]
     Given I am the Entity Management Solution
     When an active contract is in place for an Identifier to Entity relationship that is being expired

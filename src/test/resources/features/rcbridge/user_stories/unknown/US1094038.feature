@@ -1,10 +1,13 @@
 # Last updated on 
 @US1094038
+@Plus
+@F155316
 Feature: US1094038 - Capture Reason for Identifier Inactivation or Void
 
   @TC565697
   @Automated
   @Functional
+  @US1094038
   Scenario: TC565697 - [RL0]
     Given I am a User with access to maintain Entity information
     When I am inactivating or voiding an Identifier

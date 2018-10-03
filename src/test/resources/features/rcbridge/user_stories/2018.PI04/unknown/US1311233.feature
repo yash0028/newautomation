@@ -1,11 +1,18 @@
 # Last updated on 
 @US1311233
 @2018.PI04
+@CMD2
+@#MVP
+@10/1_Physician
+@CMD
+@F232004
 Feature: US1311233 - Apply Physician Rate process rule  during roster event process
 
   @TC572178
   @Automated
   @Functional
+  @US1311233
+  @2018.PI04
   Scenario: TC572178 - [RL0]
     Given 'UHG_ProviderRoster_GeneratedRosterEvent' has value 'Add' or 'Cancel'
     When 'ProductGroup Physician Rate' is available from the CMD Contract database for the contract
@@ -14,6 +21,8 @@ Feature: US1311233 - Apply Physician Rate process rule  during roster event proc
   @TC572179
   @Automated
   @Functional
+  @US1311233
+  @2018.PI04
   Scenario: TC572179 - [RL1]
     Given 'Physician' rate process rule successfully processed
     When the outcome result successfully slotted to the table record
@@ -22,6 +31,8 @@ Feature: US1311233 - Apply Physician Rate process rule  during roster event proc
   @TC572180
   @Automated
   @Functional
+  @US1311233
+  @2018.PI04
   Scenario: TC572180 - [RL2]
     Given 'Physician' rate process rule successfully processed
     When the outcome result did not successfully slot to the table record
