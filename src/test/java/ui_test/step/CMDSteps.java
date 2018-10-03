@@ -21,13 +21,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class CMDSteps implements IRestStep, IUiStep {
-    private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
-
     private final static String ENDPOINT = "http://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private final static String RESOURCE_CONTRACT_SUMMARIES = "/v1.0/contract-summaries/";
-
     private final static String CMD_DASHBOARD_URL = "http://contract-admin-ui-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
-
+    private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
     private CMDPage cmdPage = null;
 
     private int totalElements = 0;

@@ -60,7 +60,7 @@ public class CrosswalkPage {
         return findElement("xpath", "//button[text()='Close']");
     }
 
-    public WebElement getHistoryLogItems() {
+    public WebElement getHistoryLogItems()  {
         return findElement("xpath", "//table[@class='table']/tbody");
     }
 }

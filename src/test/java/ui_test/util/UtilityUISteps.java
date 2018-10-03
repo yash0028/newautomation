@@ -26,6 +26,7 @@ public class UtilityUISteps implements IUiStep {
 
     /**
      * Send the scenario result to SauceLabs and then close connection
+     *
      * @param scenario the cucumber scenario automatically given by cucumber runner
      */
     @After(value = "@A_UI_Story", order = BookendOrder.UI)
