@@ -1,10 +1,13 @@
 # Last updated on 
 @US1094096
+@Plus
+@F137658
 Feature: US1094096 - Approve Inactivated Entity
 
   @TC565619
   @Automated
   @Functional
+  @US1094096
   Scenario: TC565619 - [RL0]
     Given I am a User with Approval Authority
     When a User inactivates an Entity and submits for approval

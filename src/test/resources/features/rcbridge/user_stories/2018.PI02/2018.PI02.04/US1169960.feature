@@ -4,11 +4,21 @@
 @US1169960
 @2018.PI02
 @2018.PI02.04
+@MVP
+@PI02_Top3
+@Plus
+@Parity
+@F182490
 Feature: US1169960 - [Continued] Build External Data Query to retrieve retroactive reason codes (ETMA)
 
   @TC493897
   @Manual
   @Functional
+  @CLM_UAT
+  @ETMA
+  @US1169960
+  @2018.PI02
+  @2018.PI02.04
   Scenario: TC493897 - [RL0] Validate retro reason code external data query (ETMA)
     Given UHC will need to provide Exari with ETMA table data
     When the Exari calls ETMA

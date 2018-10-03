@@ -2,11 +2,18 @@
 @US1358049
 @2018.PI04
 @2018.PI04.05
+@MVP
+@Plus
+@Priority_1
+@F159195
 Feature: US1358049 - COSMOS Facility Acknowledgment Process - PIC DIV
 
   @TC597161
   @Manual
   @Functional
+  @US1358049
+  @2018.PI04
+  @2018.PI04.05
   Scenario: TC597161 - [RL0]
     Given the Exari > COSMOS Facility data within the Payload is correct
     When COSMOS receives the Exari Facility Payload data

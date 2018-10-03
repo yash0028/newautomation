@@ -1,10 +1,15 @@
 # Last updated on 
 @US1225008
+@MVP
+@Plus
+@Priority_1
+@F181492
 Feature: US1225008 - Created NPI/Provider Relationship
 
   @TC565786
   @Automated
   @Functional
+  @US1225008
   Scenario: TC565786 - [RL0]
     Given I am the Entity Management Solution
     When an NPI to Provider relationship is created in NDB

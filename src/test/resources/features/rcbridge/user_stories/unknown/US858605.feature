@@ -1,11 +1,15 @@
 # Last updated on 
 @EXARI-11271
 @US858605
+@Plus
+@F137658
 Feature: US858605 - Capture Approval Time Lining History
 
   @TC565125
   @Automated
   @Functional
+  @EXARI-11271
+  @US858605
   Scenario: TC565125 - [RL0]
     Given I am the Entity Management solution
     When A modification flows through the approval process

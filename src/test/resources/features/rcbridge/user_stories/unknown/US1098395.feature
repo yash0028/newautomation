@@ -6,11 +6,23 @@
 @Non-Deliverable
 @7.5_Release
 @US1098395
+@MVP
+@Parity
+@Non-Deliverable
+@7.5_Release
+@F185542
 Feature: US1098395 - Save in Progress Projects
 
   @TC565301
   @Automated
   @Functional
+  @MVP
+  @EXARI-11548
+  @CLM_Exari
+  @Parity
+  @Non-Deliverable
+  @7.5_Release
+  @US1098395
   Scenario: TC565301 - [RL0]
     Given a User has initiated a Mass Actions Project
     When the Project requirements cannot be completed within a single work session

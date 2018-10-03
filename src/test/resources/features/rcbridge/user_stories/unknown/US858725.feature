@@ -3,11 +3,16 @@
 @EXARI-10529
 @CLM_UAT
 @US858725
+@F207084
 Feature: US858725 - View Entity Summary
 
   @TC565074
   @Automated
   @Functional
+  @MVP
+  @EXARI-10529
+  @CLM_UAT
+  @US858725
   Scenario: TC565074 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view an Entity summary

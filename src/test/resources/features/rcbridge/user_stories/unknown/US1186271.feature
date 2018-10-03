@@ -3,11 +3,19 @@
 @CLM_UAT
 @EXARI-11274
 @US1186271
+@MVP
+@Plus
+@Priority_1
+@F137676
 Feature: US1186271 - Return Active and Inactive Entities
 
   @TC565811
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @EXARI-11274
+  @US1186271
   Scenario: TC565811 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to find an Entity

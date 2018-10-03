@@ -2,11 +2,20 @@
 @US1283896
 @2018.PI03
 @2018.PI03.03
+@MVP
+@10/1_Physician
+@Crosswalk
+@Priority_1
+@CMD
+@F201371
 Feature: US1283896 - [Unfinished] Validate Data
 
   @TC564526
   @Automated
   @Functional
+  @US1283896
+  @2018.PI03
+  @2018.PI03.03
   Scenario: TC564526 - [RL0]
     Given a template is populated with data
     When the template is uploaded
@@ -16,6 +25,9 @@ Feature: US1283896 - [Unfinished] Validate Data
   @TC564527
   @Automated
   @Functional
+  @US1283896
+  @2018.PI03
+  @2018.PI03.03
   Scenario: TC564527 - [RL1]
     Given a template is populated with invalid data
     When the template is uploaded

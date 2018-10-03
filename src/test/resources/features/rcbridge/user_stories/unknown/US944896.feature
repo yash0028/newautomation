@@ -1,10 +1,13 @@
 # Last updated on 
 @US944896
+@Plus
+@F155316
 Feature: US944896 - Inactivate Identifier
 
   @TC565960
   @Automated
   @Functional
+  @US944896
   Scenario: TC565960 - [RL0]
     Given I am a User with access to maintain Entity information
     And all Entity relationships associated to the Identifier are reassigned or marked inactive

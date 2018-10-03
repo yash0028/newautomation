@@ -2,11 +2,19 @@
 @US1311226
 @2018.PI04
 @2018.PI04.02
+@CMD2
+@#MVP
+@10/1_Physician
+@CMD
+@F205772
 Feature: US1311226 - Identify Contract Product Rate Group - Medicare
 
   @TC572194
   @Automated
   @Functional
+  @US1311226
+  @2018.PI04
+  @2018.PI04.02
   Scenario: TC572194 - [RL2]
     Given 'contractDetails.transactionType' property has value 'Create Contract'
     When 'contractDetails.storageNode.properties.UHG_Payment_Appendix' includes only "Payment Appendix Medicare"
@@ -16,6 +24,9 @@ Feature: US1311226 - Identify Contract Product Rate Group - Medicare
   @TC572193
   @Automated
   @Functional
+  @US1311226
+  @2018.PI04
+  @2018.PI04.02
   Scenario: TC572193 - [RL1]
     Given 'contractDetails.transactionType' property has value 'Create Contract'
     When 'contractDetails.storageNode.properties.UHG_Payment_Appendix' DOES NOT have value "Payment Appendix [ProductGroupRate.name]"
@@ -25,6 +36,9 @@ Feature: US1311226 - Identify Contract Product Rate Group - Medicare
   @TC572192
   @Automated
   @Functional
+  @US1311226
+  @2018.PI04
+  @2018.PI04.02
   Scenario: TC572192 - [RL0]
     Given 'contractDetails.transactionType' property has value 'Create Contract'
     When 'contractDetails.storageNode.properties.UHG_Payment_Appendix' DOES have value "Payment Appendix [ProductGroupRate.name]"

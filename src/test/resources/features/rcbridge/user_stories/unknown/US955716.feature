@@ -1,10 +1,12 @@
 # Last updated on 
 @US955716
+@F207077
 Feature: US955716 - Inactivate Owner of an Identifier
 
   @TC565736
   @Automated
   @Functional
+  @US955716
   Scenario: TC565736 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to change the Owner of an Identifier

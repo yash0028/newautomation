@@ -2,11 +2,15 @@
 @MVP
 @CLM_UAT
 @US858706
+@F198150
 Feature: US858706 - View Business Rule Time Lining History
 
   @TC565850
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @US858706
   Scenario: TC565850 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view time lining history for Business Rules

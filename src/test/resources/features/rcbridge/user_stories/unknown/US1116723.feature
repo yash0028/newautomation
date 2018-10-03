@@ -2,11 +2,18 @@
 @MVP
 @CLM_UAT
 @US1116723
+@MVP
+@Plus
+@Priority_1
+@F137674
 Feature: US1116723 - Expire Relationship Role
 
   @TC565029
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @US1116723
   Scenario: TC565029 - [RL0]
     Given I am an Administrative User
     When I need to expire a Relationship Role

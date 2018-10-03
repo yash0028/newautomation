@@ -1,11 +1,17 @@
 # Last updated on 
 @US1040747
 @Configuration_for_12/1/18
+@MVP
+@PI04
+@Plus
+@F165531
 Feature: US1040747 - View Contract Summary to view Escalator Details
 
   @TC564878
   @Automated
   @Functional
+  @US1040747
+  @Configuration_for_12/1/18
   Scenario: TC564878 - [RL0]
     Given a contract with an escalator
     When I view the Contract Summary
@@ -14,6 +20,8 @@ Feature: US1040747 - View Contract Summary to view Escalator Details
   @TC564879
   @Automated
   @Functional
+  @US1040747
+  @Configuration_for_12/1/18
   Scenario: TC564879 - [RL1]
     Given a Rate Escalator Summary
     When I look at the details

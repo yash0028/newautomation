@@ -2,11 +2,20 @@
 @US1207219
 @2018.PI03
 @2018.PI03.04
+@MVP
+@10/1_Physician
+@Crosswalk
+@Priority_1
+@CMD
+@F201371
 Feature: US1207219 - [Continued] [Continued] Download Crosswalk Template
 
   @TC519603
   @Manual
   @Functional
+  @US1207219
+  @2018.PI03
+  @2018.PI03.04
   Scenario: TC519603 - Validation of Crosswalk Template download
     Given an update to the current version of the crosswalk table is needed
     When an administrator downloads a copy of the crosswalk template
@@ -15,6 +24,9 @@ Feature: US1207219 - [Continued] [Continued] Download Crosswalk Template
   @TC564698
   @Automated
   @Functional
+  @US1207219
+  @2018.PI03
+  @2018.PI03.04
   Scenario: TC564698 - [RL1]
     Given an update to the current version of the crosswalk table is needed
     When an administrator downloads a copy of the crosswalk template
@@ -23,6 +35,9 @@ Feature: US1207219 - [Continued] [Continued] Download Crosswalk Template
   @TC564697
   @Automated
   @Functional
+  @US1207219
+  @2018.PI03
+  @2018.PI03.04
   Scenario: TC564697 - [RL0]
     Given more than one product description crosswalk record exists in the database
     When access to a previous record version is needed

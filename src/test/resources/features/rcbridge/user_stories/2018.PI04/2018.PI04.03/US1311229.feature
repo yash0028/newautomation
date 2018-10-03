@@ -2,11 +2,19 @@
 @US1311229
 @2018.PI04
 @2018.PI04.03
+@CMD2
+@#MVP
+@10/1_Physician
+@CMD
+@F205772
 Feature: US1311229 - Identify Product Rate Group Conditions - Physician Specialty and Physician Other Specialty Rate
 
   @TC572188
   @Automated
   @Functional
+  @US1311229
+  @2018.PI04
+  @2018.PI04.03
   Scenario: TC572188 - [RL0]
     Given Contract [ProductGroupRate.name] is available in the CMD contract record
     When value is present in 'contractDetails.storageNode.properties.'UHG_[same ProductGroupRate.name]_Specialty_Sched_ID', 'UHG_[same ProductGroupRate.name]_All_Spec_Sched_ID'
@@ -18,6 +26,9 @@ Feature: US1311229 - Identify Product Rate Group Conditions - Physician Specialt
   @TC572189
   @Automated
   @Functional
+  @US1311229
+  @2018.PI04
+  @2018.PI04.03
   Scenario: TC572189 - [RL1]
     Given Physician Specialty Rate Conditions apply to the ProductGroup
     When Product Group Physician Specialty Rate has been recorded

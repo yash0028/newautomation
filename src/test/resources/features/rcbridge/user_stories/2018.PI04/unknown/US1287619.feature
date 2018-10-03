@@ -1,11 +1,18 @@
 # Last updated on 
 @US1287619
 @2018.PI04
+@MVP
+@10/1_Physician
+@Priority_1
+@CMD
+@F219005
 Feature: US1287619 - Create CMD Contract Config database
 
   @TC565218
   @Automated
   @Functional
+  @US1287619
+  @2018.PI04
   Scenario: TC565218 - [RL0]
     # Scenario 1 (PCP reassignment information is needed)
     Given A roster event transaction is received
@@ -28,6 +35,8 @@ Feature: US1287619 - Create CMD Contract Config database
   @TC565219
   @Automated
   @Functional
+  @US1287619
+  @2018.PI04
   Scenario: TC565219 - [RL1]
     # Scenario 2 (PCP reassignment Type 2 3 failures)
     Given A termination request contains the PCP reassignment data

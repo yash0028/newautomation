@@ -2,11 +2,18 @@
 @US1070732
 @2018.PI04
 @2018.PI04.03
+@MVP
+@Plus
+@Priority_1
+@F159195
 Feature: US1070732 - Exari>COSMOS Term an individual Facility Contract- existing contract - PSH
 
   @TC565216
   @Automated
   @Functional
+  @US1070732
+  @2018.PI04
+  @2018.PI04.03
   Scenario: TC565216 - [RL0]
     Given the Exari > COSMOS Facility data within the Payload is correct
     When COSMOS receives the Exari Facility Payload data to add to an existing contract

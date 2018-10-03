@@ -3,11 +3,19 @@
 @CLM_UAT
 @EXARI-10713
 @US1107632
+@MVP
+@Plus
+@Priority_1
+@F186556
 Feature: US1107632 - Associate Contract ID to Counterparty upon Contract Execution
 
   @TC565140
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @EXARI-10713
+  @US1107632
   Scenario: TC565140 - [RL0]
     Given I am Entity Management Solution
     When a Contract is signed and executed by the Counterparty

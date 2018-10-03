@@ -1,11 +1,15 @@
 # Last updated on 
 @EXARI-11271
 @US1094097
+@Plus
+@F137658
 Feature: US1094097 - Approve Added Identifier
 
   @TC564911
   @Automated
   @Functional
+  @EXARI-11271
+  @US1094097
   Scenario: TC564911 - [RL0]
     Given I am a User with Approval Authority
     When a User adds an Identifier and submits for approval

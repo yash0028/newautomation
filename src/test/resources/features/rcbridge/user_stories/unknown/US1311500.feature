@@ -6,6 +6,8 @@ Feature: US1311500 - Cleanup RC-Link Test Cases
   @TC572220
   @Manual
   @Functional
+  @US1311500
+  @2018.PI03.05
   Scenario: TC572220 - [RL0] Verify cleanup of test cases
     Given RC-Link has been run
     And is automating creation of test-cases for acceptance criteria

@@ -3,11 +3,20 @@
 @US1260989
 @2018.PI03
 @2018.PI03.02
+@MVP
+@Priority_1
+@Parity
+@Examiner
+@F171571
 Feature: US1260989 - [Unfinished] Integrate CLM with Examiner (Continued)
 
   @TC565700
   @Automated
   @Functional
+  @MVP
+  @US1260989
+  @2018.PI03
+  @2018.PI03.02
   Scenario: TC565700 - [RL1]
     Given A contract inquiry request from PIC or Examiner
     When A REST Service call is made with invalid data
@@ -16,6 +25,10 @@ Feature: US1260989 - [Unfinished] Integrate CLM with Examiner (Continued)
   @TC565701
   @Automated
   @Functional
+  @MVP
+  @US1260989
+  @2018.PI03
+  @2018.PI03.02
   Scenario: TC565701 - [RL2]
     Given A contract request from PIC or Examiner
     When The REST service is unavailable
@@ -24,6 +37,10 @@ Feature: US1260989 - [Unfinished] Integrate CLM with Examiner (Continued)
   @TC565699
   @Automated
   @Functional
+  @MVP
+  @US1260989
+  @2018.PI03
+  @2018.PI03.02
   Scenario: TC565699 - [RL0]
     Given A contract inquiry request from PIC or Examiner
     When A REST Service call is made

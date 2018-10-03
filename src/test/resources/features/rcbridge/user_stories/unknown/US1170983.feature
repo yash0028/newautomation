@@ -2,11 +2,16 @@
 @MVP
 @CLM_UAT
 @US1170983
+@Plus
+@F137658
 Feature: US1170983 - Approve Reactivated Entity
 
   @TC564995
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @US1170983
   Scenario: TC564995 - [RL0]
     Given I am a User with Approval Authority
     When a User reactivates an Entity

@@ -3,11 +3,19 @@
 @US1193405
 @2018.PI02
 @2018.PI02.05
+@MVP
+@PI02_Top3
+@Parity
+@F182742
 Feature: US1193405 - NDB Driver Module – NDB Cross Functional Team - Contract Master - Cancel Transactions (UNET / COSMOS)
 
   @TC564413
   @Automated
   @Functional
+  @CLM_UAT
+  @US1193405
+  @2018.PI02
+  @2018.PI02.05
   Scenario: TC564413 - [RL0]
     Given The Physician contract is complete and correct within Exari
     When The contract is included in the Exari Physician Contract micro-service to NDB with cancel date and rsn code

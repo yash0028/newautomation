@@ -1,11 +1,15 @@
 # Last updated on 
 @EXARI-11271
 @US1094102
+@Plus
+@F137658
 Feature: US1094102 - Approve Imported Entity Structure
 
   @TC565330
   @Automated
   @Functional
+  @EXARI-11271
+  @US1094102
   Scenario: TC565330 - [RL0]
     Given I am a User with Approval Authority
     When a User imports an Entity structure and submits for approval

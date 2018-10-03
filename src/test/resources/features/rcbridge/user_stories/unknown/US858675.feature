@@ -1,10 +1,14 @@
 # Last updated on 
 @US858675
+@Plus
+@Priority_1
+@F137672
 Feature: US858675 - Update Provider Relationship
 
   @TC565385
   @Automated
   @Functional
+  @US858675
   Scenario: TC565385 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to change a relationship between an Entity and a Provider

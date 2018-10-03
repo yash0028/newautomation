@@ -2,11 +2,18 @@
 @MVP
 @EXARI-11273
 @US1081001
+@MVP
+@Plus
+@Priority_1
+@F183266
 Feature: US1081001 - Capture Entity Time Lining History - Updated Entity
 
   @TC565780
   @Automated
   @Functional
+  @MVP
+  @EXARI-11273
+  @US1081001
   Scenario: TC565780 - [RL0]
     Given I am the Entity Management solution
     When A User updates an Entity

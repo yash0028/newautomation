@@ -2,11 +2,19 @@
 @US1091459
 @2018.PI02
 @2018.PI02.05
+@MVP
+@PI02_Top3
+@Plus
+@Parity
+@F172080
 Feature: US1091459 - Exari>COSMOS Physician Panel - API Development
 
   @TC565378
   @Automated
   @Functional
+  @US1091459
+  @2018.PI02
+  @2018.PI02.05
   Scenario: TC565378 - [RL0]
     Given business requirements
     When COSMOS received all necessary information from business project and Exari teams

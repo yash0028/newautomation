@@ -3,11 +3,19 @@
 @CLM_UAT
 @EXARI-11273
 @US858619
+@MVP
+@Plus
+@Priority_1
+@F188964
 Feature: US858619 - View Identifier Time Lining History
 
   @TC564586
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @EXARI-11273
+  @US858619
   Scenario: TC564586 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view history of identifier additions to an Entity

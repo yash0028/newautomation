@@ -2,11 +2,15 @@
 @MOCK_COSMOS
 @MOCK_NDB
 @US1332127
+@F226404
 Feature: US1332127 - Create NDB/Cosmos Mock Service
 
   @TC586011
   @Manual
   @Functional
+  @MOCK_COSMOS
+  @MOCK_NDB
+  @US1332127
   Scenario: TC586011 - [RL1]
     When querying the mock Cosmos service with parameters of:
       | ps624_i_cosmos_cont_nbr | 6214                    |
@@ -21,6 +25,9 @@ Feature: US1332127 - Create NDB/Cosmos Mock Service
   @TC586010
   @Manual
   @Functional
+  @MOCK_COSMOS
+  @MOCK_NDB
+  @US1332127
   Scenario: TC586010 - [RL0]
     When querying the mock NDB service with parameters of:
       | taxIdNumber | 976543236   |

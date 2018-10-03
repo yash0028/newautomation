@@ -1,10 +1,12 @@
 # Last updated on 
 @US1089630
+@F207077
 Feature: US1089630 - Assign Owner to New Identifier
 
   @TC565120
   @Automated
   @Functional
+  @US1089630
   Scenario: TC565120 - [RL0]
     Given I am the Entity Management Solution
     When a User adds an Identifier to an Entity

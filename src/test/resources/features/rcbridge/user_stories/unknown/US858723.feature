@@ -3,11 +3,19 @@
 @EXARI-10529
 @CLM_UAT
 @US858723
+@MVP
+@Plus
+@Priority_1
+@F137678
 Feature: US858723 - View Entity Structure by Relationship Type
 
   @TC564872
   @Automated
   @Functional
+  @MVP
+  @EXARI-10529
+  @CLM_UAT
+  @US858723
   Scenario: TC564872 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view only Entity components of a specified Relationship Type

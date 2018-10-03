@@ -1,10 +1,15 @@
 # Last updated on 
 @US1224893
+@MVP
+@Plus
+@Priority_1
+@F181492
 Feature: US1224893 - Terminated UHC ID/Provider Relationship
 
   @TC565289
   @Automated
   @Functional
+  @US1224893
   Scenario: TC565289 - [RL0]
     Given I am the Entity Management Solution
     When a UHC ID to Provider relationship is terminated in NDB

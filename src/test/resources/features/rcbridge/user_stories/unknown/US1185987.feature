@@ -1,10 +1,15 @@
 # Last updated on 
 @US1185987
+@MVP
+@Plus
+@Priority_1
+@F183266
 Feature: US1185987 - Update Relationship Type
 
   @TC565570
   @Automated
   @Functional
+  @US1185987
   Scenario: TC565570 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to update a Relationship Type

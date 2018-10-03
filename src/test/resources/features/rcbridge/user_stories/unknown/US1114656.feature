@@ -1,10 +1,12 @@
 # Last updated on 
 @US1114656
+@F207069
 Feature: US1114656 - Single TIN Owner
 
   @TC565673
   @Automated
   @Functional
+  @US1114656
   Scenario: TC565673 - [RL0]
     Given I am the Entity Management Solution
     When a User attempts to add a second Owner to a TIN

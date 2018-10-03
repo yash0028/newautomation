@@ -2,11 +2,18 @@
 @MVP
 @EXARI-11273
 @US858631
+@MVP
+@Plus
+@Priority_1
+@F137662
 Feature: US858631 - Capture Supplemental Detail Time Lining History
 
   @TC565800
   @Automated
   @Functional
+  @MVP
+  @EXARI-11273
+  @US858631
   Scenario: TC565800 - [RL0]
     Given I am the Entity Management Solution
     When A User adds a note to an Entity

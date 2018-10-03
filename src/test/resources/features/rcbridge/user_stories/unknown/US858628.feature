@@ -1,11 +1,14 @@
 # Last updated on 
 @EXARI-11698
 @US858628
+@F207049
 Feature: US858628 - Update Notes
 
   @TC564501
   @Automated
   @Functional
+  @EXARI-11698
+  @US858628
   Scenario: TC564501 - [RL0]
     Given I am a User with access to maintain Entity information
     When I want to update a note on an Entity

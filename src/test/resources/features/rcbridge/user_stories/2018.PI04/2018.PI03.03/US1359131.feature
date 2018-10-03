@@ -2,11 +2,19 @@
 @US1359131
 @2018.PI04
 @2018.PI03.03
+@MVP
+@Madhur
+@Priority_1
+@CMD
+@F218723
 Feature: US1359131 - CMD user input-Page Edit product group detail info
 
   @TC597173
   @Manual
   @Functional
+  @US1359131
+  @2018.PI04
+  @2018.PI03.03
   Scenario: TC597173 - [RL1]
     # Scenario 2 (Edit contract master detail info- data fields add new row)
     Given I am on the CMD Action Required page

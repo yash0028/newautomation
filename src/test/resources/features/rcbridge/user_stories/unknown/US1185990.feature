@@ -1,10 +1,15 @@
 # Last updated on 
 @US1185990
+@MVP
+@Plus
+@Priority_1
+@F183266
 Feature: US1185990 - Update Characteristic Type
 
   @TC564538
   @Automated
   @Functional
+  @US1185990
   Scenario: TC564538 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to update a Characteristic Type

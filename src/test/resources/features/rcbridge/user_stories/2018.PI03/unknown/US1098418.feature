@@ -1,11 +1,16 @@
 # Last updated on 
 @US1098418
 @2018.PI03
+@MVP
+@Parity
+@F185547
 Feature: US1098418 - Generate the amendment document
 
   @TC565071
   @Automated
   @Functional
+  @US1098418
+  @2018.PI03
   Scenario: TC565071 - [RL0]
     Given a User has identified target providers
     When applicable documents have been selected

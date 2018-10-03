@@ -1,10 +1,12 @@
 # Last updated on 
 @US1114662
+@F207069
 Feature: US1114662 - Legal TIN Owner
 
   @TC565253
   @Automated
   @Functional
+  @US1114662
   Scenario: TC565253 - [RL0]
     Given I am the Entity Management Solution
     When a User is adding an Owner to a TIN

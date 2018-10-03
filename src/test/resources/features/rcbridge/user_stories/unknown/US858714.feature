@@ -3,11 +3,19 @@
 @CLM_UAT
 @EXARI-11765
 @US858714
+@MVP
+@Plus
+@Priority_1
+@F137676
 Feature: US858714 - Filter by Entity Relationship Type
 
   @TC565201
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @EXARI-11765
+  @US858714
   Scenario: TC565201 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to Entity sub-parts based on relationship type

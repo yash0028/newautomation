@@ -3,11 +3,19 @@
 @CLM_UAT
 @EXARI-11273
 @US858699
+@MVP
+@Plus
+@Priority_1
+@F188964
 Feature: US858699 - View Characteristics Time Lining History
 
   @TC565258
   @Automated
   @Functional
+  @MVP
+  @CLM_UAT
+  @EXARI-11273
+  @US858699
   Scenario: TC565258 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view time lining history for Entity Characteristics

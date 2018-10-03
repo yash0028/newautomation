@@ -1,10 +1,15 @@
 # Last updated on 
 @US1224723
+@MVP
+@Plus
+@Priority_1
+@F181492
 Feature: US1224723 - Created MPIN/TIN Relationship
 
   @TC565799
   @Automated
   @Functional
+  @US1224723
   Scenario: TC565799 - [RL0]
     Given I am the Entity Management Solution
     When an MPIN relationship is created with that TIN in NDB

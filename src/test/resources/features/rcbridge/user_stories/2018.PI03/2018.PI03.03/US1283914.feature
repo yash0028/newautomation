@@ -3,11 +3,20 @@
 @US1283914
 @2018.PI03
 @2018.PI03.03
+@MVP
+@10/1_Physician
+@CMD
+@CMD_Tables
+@F214484
 Feature: US1283914 - [Unfinished] Validate Table data
 
   @TC564568
   @Automated
   @Functional
+  @kumar,_Sachin
+  @US1283914
+  @2018.PI03
+  @2018.PI03.03
   Scenario: TC564568 - [RL0]
     Given a template has records populated with data
     When the template is uploaded
@@ -17,6 +26,10 @@ Feature: US1283914 - [Unfinished] Validate Table data
   @TC564569
   @Automated
   @Functional
+  @kumar,_Sachin
+  @US1283914
+  @2018.PI03
+  @2018.PI03.03
   Scenario: TC564569 - [RL1]
     Given a template is populated with invalid data
     When the template is uploaded

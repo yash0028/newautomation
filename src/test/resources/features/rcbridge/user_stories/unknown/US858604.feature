@@ -1,11 +1,15 @@
 # Last updated on 
 @EXARI-11271
 @US858604
+@Plus
+@F137658
 Feature: US858604 - Approve Entity Updates
 
   @TC565496
   @Automated
   @Functional
+  @EXARI-11271
+  @US858604
   Scenario: TC565496 - [RL0]
     Given I am a User with Approval Authority
     When I receive an Entity modification that requires my approval

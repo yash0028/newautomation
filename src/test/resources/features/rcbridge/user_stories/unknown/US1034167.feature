@@ -1,11 +1,17 @@
 # Last updated on 
 @US1034167
 @Configuration_for_12/1/18
+@MVP
+@PI04
+@Plus
+@F165532
 Feature: US1034167 - Provide chargemaster summary via the 'Contract Summary'
 
   @TC565059
   @Automated
   @Functional
+  @US1034167
+  @Configuration_for_12/1/18
   Scenario: TC565059 - [RL0]
     Given a contract with chargemaster is identified
     When I click on 'Chargemaster Summary"

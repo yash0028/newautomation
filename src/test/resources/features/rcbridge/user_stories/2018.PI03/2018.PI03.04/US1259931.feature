@@ -5,11 +5,22 @@
 @US1259931
 @2018.PI03
 @2018.PI03.04
+@MVP
+@10/1_Physician
+@CMD
+@CMD_Tables
+@F214484
 Feature: US1259931 - [Continued] Maintain data using table template
 
   @TC564837
   @Automated
   @Functional
+  @MVP
+  @10/1_Physician
+  @CMD
+  @US1259931
+  @2018.PI03
+  @2018.PI03.04
   Scenario: TC564837 - [RL0]
     Given The table data service is up and running
     When new data is updated in the database
@@ -20,6 +31,12 @@ Feature: US1259931 - [Continued] Maintain data using table template
   @TC548917
   @Automated
   @Functional
+  @MVP
+  @10/1_Physician
+  @CMD
+  @US1259931
+  @2018.PI03
+  @2018.PI03.04
   Scenario: TC548917 - Verify spreadsheet import failed
     Given The table data service is up and running
     When new data is updated in the database
@@ -30,6 +47,12 @@ Feature: US1259931 - [Continued] Maintain data using table template
   @TC564839
   @Automated
   @Functional
+  @MVP
+  @10/1_Physician
+  @CMD
+  @US1259931
+  @2018.PI03
+  @2018.PI03.04
   Scenario: TC564839 - [RL1]
     Given The table data service is up and running
     When new data is updated in the database
@@ -40,6 +63,12 @@ Feature: US1259931 - [Continued] Maintain data using table template
   @TC548916
   @Automated
   @Functional
+  @MVP
+  @10/1_Physician
+  @CMD
+  @US1259931
+  @2018.PI03
+  @2018.PI03.04
   Scenario: TC548916 - Verify spreadsheet was processed successfully
     Given The table data service is up and running
     When A new data is updated in the database

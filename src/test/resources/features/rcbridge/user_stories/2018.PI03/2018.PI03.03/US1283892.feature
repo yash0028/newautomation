@@ -2,11 +2,20 @@
 @US1283892
 @2018.PI03
 @2018.PI03.03
+@MVP
+@10/1_Physician
+@Crosswalk
+@Priority_1
+@CMD
+@F201371
 Feature: US1283892 - [Unfinished] Import Data from Spreadsheet into Table
 
   @TC564668
   @Automated
   @Functional
+  @US1283892
+  @2018.PI03
+  @2018.PI03.03
   Scenario: TC564668 - [RL0]
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
@@ -18,6 +27,9 @@ Feature: US1283892 - [Unfinished] Import Data from Spreadsheet into Table
   @TC564669
   @Automated
   @Functional
+  @US1283892
+  @2018.PI03
+  @2018.PI03.03
   Scenario: TC564669 - [RL1]
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database

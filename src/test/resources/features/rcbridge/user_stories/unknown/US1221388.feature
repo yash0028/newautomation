@@ -1,10 +1,15 @@
 # Last updated on 
 @US1221388
+@MVP
+@Plus
+@Priority_1
+@F137662
 Feature: US1221388 - Select Attachment Type
 
   @TC565186
   @Automated
   @Functional
+  @US1221388
   Scenario: TC565186 - [RL0]
     Given I am a User with access to maintain Entity information
     When I am uploading an attachment to an Entity
