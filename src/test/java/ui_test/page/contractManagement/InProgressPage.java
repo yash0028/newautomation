@@ -1,4 +1,4 @@
-package pages;
+package ui_test.page.contractManagement;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,13 +9,16 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.List;
 
 /**
  * Created by dtimaul on 10/1/18.
  */
 public class InProgressPage {
-    //TODO: Implement slf4j logger
+    private static Logger log = LoggerFactory.getLogger(InProgressPage.class);
     private WebDriver driver;
 
     @FindBy(how = How.XPATH, using = "//table[@class='mat-table']")

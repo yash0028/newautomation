@@ -16,9 +16,9 @@ import static io.restassured.RestAssured.given;
  * Created by dtimaul on 8/7/18.
  */
 public class TransactionSteps implements IRestStep {
-    private JsonObject payload;
     private final String eventGatewayBaseURI = "http://event-gateway-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private final String contractInstallURI = "/v1.0/mock/contract-installed";
+    private JsonObject payload;
     private RequestSpecification request;
     private Response response;
 

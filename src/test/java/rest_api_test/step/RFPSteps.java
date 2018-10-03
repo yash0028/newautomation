@@ -22,14 +22,14 @@ import static org.junit.Assert.assertTrue;
 public class RFPSteps {
     private static final String BASE_URI = "http://request-for-part-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
     private static final String END_POINT = "/v1.0/participation_requests";
+    private static String samplePlaceOfService = "AL";
+    private static String sampleOrgType = "021";
+    private static String sampleSpecialty = "050";
     private RequestSpecification request;
     private Response response;
     private Map<String, String> requestParams = new HashMap<String, String>();
     private Map<String, String> fieldMap = new HashMap<String, String>();
     private Map<String, String> sampleValueMap = new HashMap<String, String>();
-    private static String samplePlaceOfService = "AL";
-    private static String sampleOrgType = "021";
-    private static String sampleSpecialty = "050";
 
     public RFPSteps(){
         //Map all the fields to the name they're reflected as in the service

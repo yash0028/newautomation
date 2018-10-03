@@ -1,31 +1,27 @@
-package step_definitions;
+package ui_test.step;
 
-import com.google.common.base.Strings;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import pages.ActionRequiredPage;
-import pages.CMDPage;
-import pages.InProgressPage;
-import utils.SeleniumHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ui_test.page.contractManagement.CMDPage;
+import ui_test.page.contractManagement.InProgressPage;
+import ui_test.util.IUiStep;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
  * Created by dtimaul on 9/26/18.
  */
-public class CMDActionRequiredSteps {
+public class CMDActionRequiredSteps implements IUiStep {
+    private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
     private CMDPage cmdPage = null;
     // TODO: Change to Action Required Page
     private InProgressPage inProgressPage = null;
@@ -33,9 +29,8 @@ public class CMDActionRequiredSteps {
 
     @Given("^I have clicked on Action Required button on the CMD dashboard$")
     public void ClickActionRequiredButtonOnCMDDashboard() throws Throwable {
-        SeleniumHelper.launchBrowser("chrome");
-        SeleniumHelper.getWebDriver().navigate().to(CMD_DASHBOARD_URL);
-        cmdPage = new CMDPage(SeleniumHelper.getWebDriver());
+        getWebDriver().get(CMD_DASHBOARD_URL); // Navigate to the CMD page
+        cmdPage = new CMDPage(getWebDriver());
         Assert.assertTrue("CMD page could not be displayed", cmdPage.confirmCurrentPage());
         //TODO: Change to cmdPage.clickActionRequiredLink when ready
 //        Assert.assertTrue(cmdPage.clickInProgressLink());
@@ -45,7 +40,7 @@ public class CMDActionRequiredSteps {
     @When("^there are Action Required transactions$")
     public void thereAreActionRequiredTransactions() throws Throwable {
         //TODO: Change to actionRequiredPage
-        inProgressPage = new InProgressPage(SeleniumHelper.getWebDriver());
+        inProgressPage = new InProgressPage(getWebDriver());
 //        Assert.assertTrue("URL for in progress page does not match", inProgressPage.confirmCurrentPage());
 
         //expand table to show 25 rows

@@ -35,7 +35,8 @@ public interface IConfigurable {
 
     /**
      * retrieve string value from key and compares (ignore case) to given value
-     * @param key accessed variable
+     *
+     * @param key           accessed variable
      * @param comparedValue value to compare to retrieved value
      * @return Optional boolean that is valid or null if key is not present
      */
@@ -46,6 +47,7 @@ public interface IConfigurable {
 
     /**
      * retrieve integer value from key
+     *
      * @param key accessed variable
      * @return Optional integer that is valid or a null if key is not present
      */
@@ -59,6 +61,7 @@ public interface IConfigurable {
 
     /**
      * retrieve string value from key
+     *
      * @param key accessed variable
      * @return Optional string that is valid or null if key is not present
      */

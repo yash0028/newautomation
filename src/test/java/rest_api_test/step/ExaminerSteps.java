@@ -23,9 +23,9 @@ import java.util.Set;
 
 public class ExaminerSteps implements IRestStep {
 
-    private static Logger log = LoggerFactory.getLogger(ExaminerSteps.class);
     private static final String END_POINT = "http://contracts-query-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE = "/v1.0/exari/acocontracts";
+    private static Logger log = LoggerFactory.getLogger(ExaminerSteps.class);
     private RequestSpecification request = null;
     private Response response = null;
 

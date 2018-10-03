@@ -1,18 +1,13 @@
 package ui_test.page.contractManagement;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.AjaxElementLocator;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
-import utils.SeleniumHelper;
-
-import static utils.SeleniumHelper.findElements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ui_test.util.SeleniumHelper;
 
 import java.util.List;
 
@@ -20,22 +15,16 @@ import static ui_test.util.SeleniumHelper.findElement;
 import static ui_test.util.SeleniumHelper.findElements;
 
 public class CMDPage {
-
     private static Logger log = LoggerFactory.getLogger(CMDPage.class);
-    private static Logger logger = Logger.getLogger("CMDPage");
-    private WebDriver driver;
-
     @FindBy(xpath = "//a[contains(@href,'/contract-summary/in-progress')]")
     WebElement inProgressLink;
-
     @FindBy(xpath = "//a[contains(@href,'/contract-summary/failed')]")
     WebElement actionRequiredLink;
-
     @FindBy(xpath = "//a[contains(@href,'/contract-summary/failed')]")
     WebElement errorsLink;
-
     @FindBy(xpath = "//a[contains(@href,'/contract-summary/success')]")
     WebElement completedLink;
+    private WebDriver driver;
 
 
     public CMDPage(WebDriver driver) {
@@ -49,16 +38,17 @@ public class CMDPage {
         return (getHeaderContractMetadata().getText().equalsIgnoreCase("Contract Management")) ? new CMDPage(SeleniumHelper.getWebDriver()) : null;
     }
 
+    public static WebElement getHeaderContractMetadata() {
+        return findElement("className", "navbar-brand");
+    }
+
     /**
-     * Verifies that we are on the contract management homepage by confirming that the url.
+     * Verifies that we are on the contract management homepage by confirming that the url
+     * is correct.
      * @return True if current page is the contract management homepage.
      */
     public boolean confirmCurrentPage() {
         return driver.getCurrentUrl().matches("^.+contract-status$");
-    }
-
-    public static WebElement getHeaderContractMetadata() {
-        return findElement("className", "navbar-brand");
     }
 
     public List<WebElement> getSubHeaders() {

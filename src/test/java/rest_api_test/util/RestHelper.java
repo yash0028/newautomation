@@ -75,6 +75,7 @@ class RestHelper {
 
     /**
      * Parse a Restful Response into a Json Element.
+     *
      * @param response Restful Response
      * @return Json Element
      */
@@ -99,6 +100,7 @@ class RestHelper {
 
     /**
      * Parse a String into a Json Object.
+     *
      * @param string stringified json
      * @return Json Element
      */

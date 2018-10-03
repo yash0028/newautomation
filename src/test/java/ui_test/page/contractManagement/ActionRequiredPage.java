@@ -1,22 +1,46 @@
-package pages;
+package ui_test.page.contractManagement;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
-
-import static utils.SeleniumHelper.findElement;
-import static utils.SeleniumHelper.findElements;
-
 
 /**
  * Created by dtimaul on 9/26/18.
  */
 public class ActionRequiredPage {
+    private static Logger log = LoggerFactory.getLogger(ActionRequiredPage.class);
     private WebDriver driver;
 
+    @FindBy(how = How.XPATH, using = "//table[@class='mat-table']")
+    private WebElement table;
+
+    @FindBy(xpath = "//div[@class = 'mat-select-arrow']")
+    private WebElement tableSizeSelectorButton;
+
+    @FindBy(xpath = "//span[@class = 'mat-option-text' and text()='5']")
+    private WebElement tableSize5Button;
+
+    @FindBy(xpath = "//span[@class = 'mat-option-text' and text()='10']")
+    private WebElement tableSize10Button;
+
+    @FindBy(xpath = "//span[@class='mat-option-text' and text()='25']")
+    private WebElement tableSize25Button;
+
+    /**
+     * Creates the action required page driver and its web elements.
+     *
+     * @param driver Webdriver currently being used.
+     */
     public ActionRequiredPage(WebDriver driver) {
         this.driver = driver;
         AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, 100);
@@ -24,58 +48,49 @@ public class ActionRequiredPage {
         PageFactory.initElements(factory, this);
     }
 
-    // Get web element of xpath for a particular row in the table, under the Site column.
-    public WebElement getTableSite(int index) {
-        return findElement("xpath", "xpath goes here" + index);
+    /**
+     * Confirms that the current page is the in progress page by verifying the URL.
+     *
+     * @return True if on the in progress page or false otherwise.
+     */
+    public boolean confirmCurrentPage() {
+        return driver.getCurrentUrl().matches("^.+in-progress$");
     }
 
-    // Get web element of xpath for a particular row in the table, under the State column.
-    public WebElement getTableState(int index) {
-        return findElement("xpath", "xpath goes here"  + index);
-    }
-
-    public WebElement getTableMarket(int index) {
-        return findElement("xpath", "xpath goes here"  + index);
-    }
-
-    public WebElement getTableUser(int index) {
-        return findElement("xpath", "xpath goes here"  + index);
-    }
-
-    public WebElement getTableContractID(int index) {
-        return findElement("xpath", "xpath goes here"  + index);
-    }
-
-    public WebElement getTablePoductGroupName(int index) {
-        return findElement("xpath", "xpath goes here"  + index);
-    }
-
-    public WebElement getTablePaperType(int index) {
-        return findElement("xpath", "xpath goes here" + index);
-    }
-
-    public WebElement getTableContractName(int index) {
-        return findElement("xpath", "xpath goes here" + index);
-    }
-
-    // Get web element of xpath for a particular row in the table, under the status column.
-    public WebElement getTableStatus(int index) {
-        return findElement("xpath", "xpath goes here" + index);
-    }
-
-    public WebElement getTableActionRequired(int index) {
-        return findElement("xpath", "xpath goes here" + index);
-    }
-
-    public WebElement getTableDate(int index) {
-        return findElement("xpath", "xpath goes here" + index);
-    }
-
-    // Return a list of WebElements containing the rows in the table on the action required page
+    /**
+     * Gets the rows in the table.
+     *
+     * @return A list of WebElements with the rows in the table.
+     */
     public List<WebElement> getTableRows() {
-        return findElements("xpath", "//table[@class='mat-table']/tr");
+        return this.table.findElements(By.xpath("//tbody/tr[contains(@class, 'example-element-row')]"));
     }
 
+    /**
+     * Get the date column in the table.
+     *
+     * @return A list of WebElements with the dates from the date column.
+     */
+    public List<WebElement> getDateColumn() {
+        return this.table.findElements(By.xpath("//tbody/tr/td[contains(@class,'cdk-column-timestamp')]"));
+    }
+
+    /**
+     * Selects the option to view 25 rows at a time on the table.
+     *
+     * @return True if the 25 button was clicked or false otherwise.
+     */
+    public boolean selectTableSize25() {
+        try {
+            this.tableSizeSelectorButton.click();
+            WebDriverWait wait = new WebDriverWait(driver, 100);
+            wait.until(ExpectedConditions.visibilityOf(tableSize25Button));
+            tableSize25Button.click();
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
 
 
 }
