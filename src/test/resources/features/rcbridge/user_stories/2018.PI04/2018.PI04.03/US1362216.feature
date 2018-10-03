@@ -20,7 +20,7 @@ Feature: US1362216 - Processing when provider record does not slot
     When the outcome result did not successfully slot to a process rule record on the table
     Then a Contract Master or fee schedule is not selected
     And the transaction status for the provider record product group (transaction) is ended
-    and the transaction result changed to Success
+    And the transaction result changed to Success
     And a transaction message generated of 'Provider Record did not meet qualification for Loading'
     And the transaction record details including table, table record, and warning message generated are made available should users need to review
 
