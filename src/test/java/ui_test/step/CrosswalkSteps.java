@@ -7,9 +7,8 @@ import org.slf4j.LoggerFactory;
 import ui_test.page.contractManagement.CrosswalkPage;
 
 public class CrosswalkSteps {
+    private static final Logger log = LoggerFactory.getLogger(CrosswalkSteps.class);
 
-
-    private static Logger log = LoggerFactory.getLogger(CrosswalkSteps.class);
     private CrosswalkPage crosswalkPage = null;
 
     @Given("^the application screen is ready$")

@@ -10,6 +10,8 @@ import cucumber.api.java.en.When;
 import general_test.util.UtilityGeneralSteps;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;
@@ -20,12 +22,15 @@ import static org.junit.Assert.*;
  * Created by aberns on 6/29/2018.
  */
 public class NDBSteps implements IRestStep {
-    private static final long TIMEOUTMS = 60 * 1000;
-    private static final String NDB_LAYER7_BASE_URI = "http://ndb-updater-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String NDB_CONTRACT_UPDATE = "/clm/ContractRosterProducer";
+    private static final Logger log = LoggerFactory.getLogger(NDBSteps.class);
 
-    private static final String transactionBaseUri = "http://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String statusUri = "/v1/transaction/"; //need to add the {trans_id} to the end
+    private static final String ENDPOINT_NDB_UPDATER = "http://ndb-updater-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String RESOURCE_CLM_CONTRACT_ROSTER_PRODUCER = "/clm/ContractRosterProducer";
+
+    private static final String ENDPOINT_TRANSACTION_STATUS = "http://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String RESOURCE_TRANSACTION = "/v1/transaction/"; //need to add the {trans_id} to the end
+
+    private static final long TIMEOUTMS = 60 * 1000;
 
     private RequestSpecification request;
     private Response response;
@@ -130,8 +135,8 @@ public class NDBSteps implements IRestStep {
         this.payload.addProperty("pcpIndicator", "");
 
         //Send payload
-        request = given().baseUri(NDB_LAYER7_BASE_URI).header("Content-Type", "application/json").body(payload);
-        response = request.post(NDB_CONTRACT_UPDATE);
+        request = given().baseUri(ENDPOINT_NDB_UPDATER).header("Content-Type", "application/json").body(payload);
+        response = request.post(RESOURCE_CLM_CONTRACT_ROSTER_PRODUCER);
     }
 
     @Then("^a valid response is received by NDB$")
@@ -151,7 +156,7 @@ public class NDBSteps implements IRestStep {
         do {
             //send Get request using transaction id
             //Get response from Transaction DB
-            response = when().get(transactionBaseUri + statusUri + tID);
+            response = when().get(ENDPOINT_TRANSACTION_STATUS + RESOURCE_TRANSACTION + tID);
             System.out.println("---" + tID);
             System.out.println(response.getContentType());
             System.out.println(response.getBody().asString());

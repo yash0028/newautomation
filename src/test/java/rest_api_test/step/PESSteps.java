@@ -10,6 +10,9 @@ import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import rest_api_test.util.IRestStep;
 
 import java.util.List;
 
@@ -19,17 +22,19 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by jwacker on 5/16/2018.
  */
-public class PESSteps {
-    private static final String BASE_URI = "http://demographics-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String COUNTER_PARTIES_ENDPOINT = "/v1.0/counterparties/search";
-    private static final String ROSTER_ENDPOINT = "/v1.0/roster/search";
-    private static final String LOCATIONS_ENDPOINT = "/v1.0/locations/search";
+public class PESSteps implements IRestStep {
+    private static final Logger log = LoggerFactory.getLogger(PESSteps.class);
+
+    private static final String ENDPOINT = "http://demographics-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String RESOURCE_COUNTER_PARTIES_SEARCH = "/v1.0/counterparties/search";
+    private static final String RESOURCE_ROSTER_SEARCH = "/v1.0/roster/search";
+    private static final String RESOURCE_LOCATIONS_SEARCH = "/v1.0/locations/search";
 
     private RequestSpecification request;
     private Response response;
     private JsonObject commonSearchParams;
 
-    public PESSteps(){
+    public PESSteps() {
         this.commonSearchParams = new JsonObject();
 
         commonSearchParams.addProperty("mpin", "12345");
@@ -57,7 +62,7 @@ public class PESSteps {
     @Given("^a user has searched for provider$")
     public void aUserHasSearchedForProvider() throws Throwable {
 
-        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(commonSearchParams.toString());
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(commonSearchParams.toString());
 
         assertTrue(commonSearchParams != null);
 
@@ -66,7 +71,7 @@ public class PESSteps {
     @When("^there are multiple results$")
     public void thereAreMultipleResults() throws Throwable {
 
-        response = request.post(COUNTER_PARTIES_ENDPOINT);
+        response = request.post(RESOURCE_COUNTER_PARTIES_SEARCH);
         ResponseBody raResponse = response.getBody();
 
         assertTrue(response != null);
@@ -89,7 +94,7 @@ public class PESSteps {
     @Given("^a user needs to call PES$")
     public void aUserNeedsToCallPES() throws Throwable {
 
-        request = given().baseUri(BASE_URI).header("Content-Type", "application/json");
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
 
     }
 
@@ -106,7 +111,7 @@ public class PESSteps {
 
         request.body(badJsonBody.toString());
 
-        response = request.post(COUNTER_PARTIES_ENDPOINT);
+        response = request.post(RESOURCE_COUNTER_PARTIES_SEARCH);
     }
 
     @Then("^the user receives a bad input error message$")
@@ -122,7 +127,7 @@ public class PESSteps {
     @When("^the system goes down$")
     public void theSystemGoesDown() throws Throwable {
 
-        request.baseUri(BASE_URI +"/asdf");
+        request.baseUri(ENDPOINT + "/asdf");
         response = request.post();
 
     }
@@ -138,7 +143,7 @@ public class PESSteps {
     @When("^a catastrophic error occurs$")
     public void aCatastrophicErrorOccurs() throws Throwable {
 
-        request.baseUri(BASE_URI +"/asdf");
+        request.baseUri(ENDPOINT + "/asdf");
         response = request.post();
 
     }
@@ -172,23 +177,23 @@ public class PESSteps {
 
         jsonBody.addProperty("mpin", mpin);
 
-        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(jsonBody.toString());
-        response = request.post(COUNTER_PARTIES_ENDPOINT);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(jsonBody.toString());
+        response = request.post(RESOURCE_COUNTER_PARTIES_SEARCH);
     }
 
     @Then("^PES returns the following information:$")
     public void pesReturnsTheFollowingInformation(DataTable fieldsDT) throws Throwable {
-        boolean match         = true;
-        List<String> fields   = fieldsDT.asList(String.class);
+        boolean match = true;
+        List<String> fields = fieldsDT.asList(String.class);
 
         String responseString = response.asString().toLowerCase();
 
 //        System.out.println("RESPONSE: " + responseString);
 
-        for(String field: fields){
+        for (String field : fields) {
             field = field.trim();
 
-            if(!responseString.contains(field.toLowerCase())){
+            if (!responseString.contains(field.toLowerCase())) {
                 match = false;
 //               System.out.println("-----FAILED FIELD: " + field);
             }
@@ -284,7 +289,7 @@ public class PESSteps {
 
 
     //US1210131
-    
+
     @Given("^That PES needs to provide Exari with Bulk Provider Extract$")
     public void thatPESNeedsToProvideExariWithBulkProviderExtract() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
@@ -312,7 +317,7 @@ public class PESSteps {
     }
 
     //US1100727
-    
+
     @Given("^I as a user have populated the Exari Provider Roster with MPIN, TAX ID, Provider Full Name \\(First, Last\\), and NPI$")
     public void iAsAUserHavePopulatedTheExariProviderRosterWithMPINTAXIDProviderFullNameFirstLastAndNPI() throws Throwable {
         // Keeping as pending, as this test is manually done
@@ -339,14 +344,13 @@ public class PESSteps {
         requestParams.addProperty(param, value);
 
         // Create the request and give it the JSON params
-        request = given().baseUri(BASE_URI).header("Content-Type", "application/json").body(requestParams.toString());
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestParams.toString());
 
         // Get the response from the roster endpoint (roster and appendix 1 share the same endpoint)
-        if(searchType.equalsIgnoreCase("appendix 1")){
-            response = request.post(LOCATIONS_ENDPOINT);
-        }
-        else{
-            response = request.post(ROSTER_ENDPOINT);
+        if (searchType.equalsIgnoreCase("appendix 1")) {
+            response = request.post(RESOURCE_LOCATIONS_SEARCH);
+        } else {
+            response = request.post(RESOURCE_ROSTER_SEARCH);
         }
 
     }

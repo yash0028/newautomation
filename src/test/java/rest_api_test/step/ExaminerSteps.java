@@ -22,16 +22,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ExaminerSteps implements IRestStep {
+    private static final Logger log = LoggerFactory.getLogger(ExaminerSteps.class);
 
-    private static final String END_POINT = "http://contracts-query-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String RESOURCE = "/v1.0/exari/acocontracts";
-    private static Logger log = LoggerFactory.getLogger(ExaminerSteps.class);
+    private static final String ENDPOINT = "http://contracts-query-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String RESOURCE_EXARI_ACO_CONTRACTS = "/v1.0/exari/acocontracts";
+
     private RequestSpecification request = null;
     private Response response = null;
 
     @Given("^A contract inquiry request from PIC or Examiner$")
     public void buildValidRequest() {
-        request = RestAssured.given().baseUri(END_POINT).contentType(ContentType.JSON);
+        request = RestAssured.given().baseUri(ENDPOINT).contentType(ContentType.JSON);
     }
 
     @Given("^A contract request from PIC or Examiner$")
@@ -41,12 +42,12 @@ public class ExaminerSteps implements IRestStep {
 
     @When("^A REST Service call is made$")
     public void getValidResponse() {
-        response = request.param("contractNumbers", "124319").get(RESOURCE);
+        response = request.param("contractNumbers", "124319").get(RESOURCE_EXARI_ACO_CONTRACTS);
     }
 
     @When("^A REST Service call is made with invalid data \"([^\"]*)\"$")
     public void getInValidResponse(String inputData) {
-        response = request.param("contractNumbers", inputData).get(RESOURCE);
+        response = request.param("contractNumbers", inputData).get(RESOURCE_EXARI_ACO_CONTRACTS);
     }
 
     @Then("^The service will return an error \"([^\"]*)\"$")

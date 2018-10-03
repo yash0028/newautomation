@@ -33,7 +33,7 @@ public class UtilityGeneralSteps {
      *
      * @param scenario
      */
-    @Before(order = 1)
+    @Before(order = BookendOrder.ALPHA)
     public void getScenario(Scenario scenario) {
         UtilityGeneralSteps.scenario = scenario;
     }
@@ -43,7 +43,7 @@ public class UtilityGeneralSteps {
      *
      * @param scenario
      */
-    @After(order = 1_000_000_000)
+    @After(order = BookendOrder.OMEGA)
     public void removeScenario(Scenario scenario) {
         UtilityGeneralSteps.scenario = null;
     }

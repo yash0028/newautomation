@@ -8,6 +8,8 @@ import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
 
 import java.util.Map;
@@ -20,8 +22,11 @@ import static org.junit.Assert.assertTrue;
  * Created by jwacker on 7/18/2018.
  */
 public class MSGSteps implements IRestStep {
-    private static final String BASE_URI          = "http://market-strategy-grid-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
-    private static final String PRODUCTS_ENDPOINT = "/v1.0/products";
+    private static final Logger log = LoggerFactory.getLogger(MSGSteps.class);
+
+    private static final String ENDPOINT = "http://market-strategy-grid-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
+    private static final String RESOURCE_PRODUCTS = "/v1.0/products";
+
     private RequestSpecification request;
     private Response response;
 
@@ -42,12 +47,12 @@ public class MSGSteps implements IRestStep {
 //        System.out.println("request params: " + requestParams.toString());
 
         //Build out the request and add the request body
-        request = given().baseUri(BASE_URI).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
     }
 
     @Then("^I receive all products that fit this criteria$")
     public void iReceiveAllProductsThatFitThisCriteria() throws Throwable {
-        response = request.get(PRODUCTS_ENDPOINT);
+        response = request.get(RESOURCE_PRODUCTS);
 //        String responseString = response.asString();
 
         JsonObject responseJson = parseJsonResponse(response);
@@ -60,7 +65,7 @@ public class MSGSteps implements IRestStep {
 
     @Then("^I receive a response with empty content$")
     public void iReceiveAResponseWithEmptyContent() throws Throwable {
-        response = request.get(PRODUCTS_ENDPOINT);
+        response = request.get(RESOURCE_PRODUCTS);
         String responseString = response.asString();
 
         JsonObject responseJson = parseJsonResponse(response);
