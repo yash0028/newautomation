@@ -64,7 +64,8 @@ Feature: US1259178 - Taxonomy Grid table microservice
   @2018.PI03
   @2018.PI03.03
   Scenario: TC565559 - [RL3]
-    #Test when query response result includes more than one recordGiven a user needs to query the table
+    #Test when query response result includes more than one record
+    Given a user needs to query the table
     When the user provides the value "21" for "ndbSpecCD" and "P" for "ndbRec"
     Then the query response includes all records that matched
 

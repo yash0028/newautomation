@@ -1,0 +1,22 @@
+# Last updated on 
+@US1103371
+@2018.PI02
+@2018.PI02.02
+@MVP
+@PI02_Top3
+@NDB
+@Parity
+@F185083
+Feature: US1103371 - NDB_Edit and Error Message analysis SPIKE
+
+  @TC565016
+  @Automated
+  @Functional
+  @US1103371
+  @2018.PI02
+  @2018.PI02.02
+  Scenario: TC565016 - [RL0]
+    Given the need exists for approach to process NDB specific edits
+    When the team analysis business and technical needs
+    Then an approach document for applying edits and handling error messages and status is created
+
