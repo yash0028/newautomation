@@ -1,7 +1,6 @@
 # Last updated on 
 @US1287619
 @2018.PI04
-@2018.PI04.01
 Feature: US1287619 - Create CMD Contract Config database
 
   @TC565218
