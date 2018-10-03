@@ -11,13 +11,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ui_test.util.IFactoryPage;
 
 import java.util.List;
 
 /**
  * Created by dtimaul on 9/26/18.
  */
-public class ActionRequiredPage {
+public class ActionRequiredPage implements IFactoryPage {
     private static Logger log = LoggerFactory.getLogger(ActionRequiredPage.class);
     private WebDriver driver;
 

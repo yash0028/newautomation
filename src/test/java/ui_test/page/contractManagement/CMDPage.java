@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ui_test.util.IFactoryPage;
 import ui_test.util.SeleniumHelper;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 import static ui_test.util.SeleniumHelper.findElement;
 import static ui_test.util.SeleniumHelper.findElements;
 
-public class CMDPage {
+public class CMDPage implements IFactoryPage {
     private static Logger log = LoggerFactory.getLogger(CMDPage.class);
     @FindBy(xpath = "//a[contains(@href,'/contract-summary/in-progress')]")
     WebElement inProgressLink;
