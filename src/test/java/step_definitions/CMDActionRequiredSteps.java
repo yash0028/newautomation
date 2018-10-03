@@ -64,11 +64,10 @@ public class CMDActionRequiredSteps {
                 .map(s -> LocalDate.parse(s, formatter)) // convert string to date
                 .collect(Collectors.toList()); // put all dates back into a list
 
-        //  verify that the rows in the table are sorted by date from oldest to newest
+        // Verify that the rows in the table are sorted by date from oldest to newest
         Boolean isSorted = dates.stream().sorted().collect(Collectors.toList()).equals(dates);
 
-//        TODO: Verify with business if the list should be sorted from newest to oldest instead?
-//        TODO: If yes, then change to - Boolean isSorted = dates.stream().sorted(Collections.reverseOrder()).collect(Collectors.toList()).equals(dates);
+        // Note: This assert will fail with current dashboard because the table is sorted from newest to oldest
         Assert.assertTrue(isSorted);
     }
 
