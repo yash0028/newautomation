@@ -1,6 +1,9 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 import java.util.List;
 
@@ -12,6 +15,14 @@ import static utils.SeleniumHelper.findElements;
  * Created by dtimaul on 9/26/18.
  */
 public class ActionRequiredPage {
+    private WebDriver driver;
+
+    public ActionRequiredPage(WebDriver driver) {
+        this.driver = driver;
+        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, 100);
+        //create all web elements on the CMD page
+        PageFactory.initElements(factory, this);
+    }
 
     // Get web element of xpath for a particular row in the table, under the Site column.
     public WebElement getTableSite(int index) {
