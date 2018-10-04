@@ -8,9 +8,10 @@ import org.slf4j.LoggerFactory;
 
 public interface IWebInteract {
     Logger log = LoggerFactory.getLogger(IWebInteract.class);
+    int TIMEOUT = 100;
 
     default boolean waitTillVisible(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(SauceLabs.getInstance().getDriver(), 100);
+        WebDriverWait wait = new WebDriverWait(SauceLabs.getInstance().getDriver(), TIMEOUT);
         wait.until(ExpectedConditions.visibilityOf(element));
         return element.isDisplayed();
     }
