@@ -24,7 +24,7 @@ import static org.junit.Assert.assertTrue;
 public class MSPSSteps implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(MSPSSteps.class);
 
-    private static final String ENDPOINT = "http://fee-schedule-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
+    private static final String ENDPOINT = "http://fee-schedule-api-clm-test.ocp-ctc-core-nonprod.optum.com";
     private static final String RESOURCE_FACILITY_FEE_SCHEDULES_SEARCH = "/v1.0/facility_fee_schedules/search";
     private static final String RESOURCE_PROFESSIONAL_FEE_SCHEDULES_SEARCH = "/v1.0/professional_fee_schedules/search";
 
