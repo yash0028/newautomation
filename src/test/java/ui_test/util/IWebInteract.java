@@ -19,6 +19,7 @@ public interface IWebInteract {
     default boolean click(WebElement element) {
         try {
             element.click();
+            log.trace("clicked on {}", element.getText());
         } catch (Exception e) {
             return false;
         }
@@ -29,6 +30,7 @@ public interface IWebInteract {
     default boolean submit(WebElement element) {
         try {
             element.submit();
+            log.trace("submitted {}", element.getText());
         } catch (Exception e) {
             return false;
         }
@@ -39,6 +41,7 @@ public interface IWebInteract {
     default boolean sendKeys(WebElement element, CharSequence... charSequences) {
         try {
             element.sendKeys(charSequences);
+            log.trace("sent keys {}", charSequences);
         } catch (Exception e) {
             return false;
         }
@@ -49,6 +52,7 @@ public interface IWebInteract {
     default boolean clear(WebElement element) {
         try {
             element.clear();
+            log.trace("cleared");
         } catch (Exception e) {
             return false;
         }
