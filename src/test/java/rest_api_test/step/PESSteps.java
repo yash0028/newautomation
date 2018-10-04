@@ -25,7 +25,7 @@ import static org.junit.Assert.assertTrue;
 public class PESSteps implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(PESSteps.class);
 
-    private static final String ENDPOINT = "http://demographics-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String ENDPOINT = "http://demographics-api-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_COUNTER_PARTIES_SEARCH = "/v1.0/counterparties/search";
     private static final String RESOURCE_ROSTER_SEARCH = "/v1.0/roster/search";
     private static final String RESOURCE_LOCATIONS_SEARCH = "/v1.0/locations/search";
