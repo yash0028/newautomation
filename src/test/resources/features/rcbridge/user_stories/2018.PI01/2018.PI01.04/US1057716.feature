@@ -8,7 +8,7 @@
 Feature: US1057716 - Micro Service connecting to Provider Search Services
 
   @TC565386
-  @Automated
+  @Manual
   @Functional
   @US1057716
   @2018.PI01
