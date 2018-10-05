@@ -4,7 +4,7 @@
 @2018.PI04.05
 @MVP
 @Plus
-@Priority_1
+@Priority_2
 @F159195
 Feature: US1358049 - COSMOS Facility Acknowledgment Process - PIC DIV
 

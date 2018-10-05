@@ -20,6 +20,19 @@ Feature: US1189845 - [Continued][Continued] Downstream system specific validatio
     When The enriched business event is sent by the contract-domain service
     Then It is validated by the ndb-validator service and an error is reported to the transaction system
 
+  @CLM_UAT
+  @TC598663
+  @Manual
+  @Acceptance
+  @US1189845
+  @2018.PI04
+  @2018.PI04.02
+  Scenario: TC598663 - Validate the error reported by the ndb validator service when incomplete data sent through contract domain
+    Given A business event is received by the event gateway that requires an update to NDB
+    And the associated contract data is incomplete
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated by the ndb-validator service and an error is reported to the transaction system
+
   @TC565790
   @Automated
   @Functional
@@ -68,6 +81,32 @@ Feature: US1189845 - [Continued][Continued] Downstream system specific validatio
     When The enriched business event is sent by the contract-domain service
     Then It is validated by the ndb-validator service and an error is reported to the transaction system
 
+  @CLM_UAT
+  @TC598665
+  @Manual
+  @Acceptance
+  @US1189845
+  @2018.PI04
+  @2018.PI04.02
+  Scenario: TC598665 - Validate business event approved by COSMOS validator service.
+    Given A business event is received by the event gateway that requires an update to NDB
+    And the associated contract data is incomplete
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated by the ndb-validator service and an error is reported to the transaction system
+
+  @CLM_UAT
+  @TC598658
+  @Manual
+  @Acceptance
+  @US1189845
+  @2018.PI04
+  @2018.PI04.02
+  Scenario: TC598658 - Validate business event is approved by NDB-Validator Service
+    Given A business event is received by the event gateway that requires an update to NDB
+    And the associated contract data is valid for the NDB update
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated and approved by the ndb-validator service
+
   @TC538430
   @Automated
   @Functional
@@ -87,6 +126,19 @@ Feature: US1189845 - [Continued][Continued] Downstream system specific validatio
   @2018.PI04
   @2018.PI04.02
   Scenario: TC565791 - [RL3]
+    Given A business event is received by the event gateway that requires an update to COSMOS
+    And the associated contract data is invalid for the COSMOS update
+    When The enriched business event is sent by the contract-domain service
+    Then It is validated by the cosmos-validator service and an error is reported to the transaction system
+
+  @CLM_UAT
+  @TC598667
+  @Manual
+  @Acceptance
+  @US1189845
+  @2018.PI04
+  @2018.PI04.02
+  Scenario: TC598667 - Validate the error reported by the Cosmos validator service when invalid data request sent through contract domain
     Given A business event is received by the event gateway that requires an update to COSMOS
     And the associated contract data is invalid for the COSMOS update
     When The enriched business event is sent by the contract-domain service

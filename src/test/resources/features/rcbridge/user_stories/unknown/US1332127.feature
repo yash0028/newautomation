@@ -2,7 +2,7 @@
 @MOCK_COSMOS
 @MOCK_NDB
 @US1332127
-@F226404
+@F232975
 Feature: US1332127 - Create NDB/Cosmos Mock Service
 
   @TC586011

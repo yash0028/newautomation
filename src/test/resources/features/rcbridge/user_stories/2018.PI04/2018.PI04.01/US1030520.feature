@@ -4,7 +4,7 @@
 @2018.PI04.01
 @MVP
 @Plus
-@Priority_1
+@Priority_2
 @Parity
 @F179578
 Feature: US1030520 - [SPIKE] Exari >NDB Facility/Ancillary - Medical Necessity - Analysis

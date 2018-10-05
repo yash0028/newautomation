@@ -4,7 +4,7 @@
 @2018.PI04.03
 @MVP
 @Plus
-@Priority_1
+@Priority_2
 @F159195
 Feature: US1070405 - CLM >COSMOS Add a Facility Contract- PIC DIV - PSH (Header)
 

@@ -5,6 +5,7 @@
 @CMD2
 @#MVP
 @10/1_Physician
+@Priority_2
 @CMD
 @F205772
 Feature: US1311230 - Identify Product Rate Group Conditions - Professional Specialty and Professional Other Specialty Rate

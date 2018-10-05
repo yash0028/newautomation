@@ -2,8 +2,8 @@
 @CMD
 @US1319551
 @2018.PI04
-@Priority_1
 @CMD
+@Priority_2
 @F224328
 Feature: US1319551 - NDB Contract Master Validation Set
 

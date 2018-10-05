@@ -16,11 +16,10 @@ public interface IConfigurable {
      * retrieve boolean value from configuration or return a default value
      *
      * @param key          accessed variable
-     * @param defaultValue value to return if key is not found or value is not a boolean
      * @return boolean value from key or the default
      */
-    default Boolean configGetBooleanOrDefault(String key, boolean defaultValue) {
-        return configCompare(key, "true").orElse(defaultValue);
+    default Optional<Boolean> configGetOptionalBoolean(String key) {
+        return configCompare(key, "true");
     }
 
     /**
@@ -30,7 +29,7 @@ public interface IConfigurable {
      * @return boolean value from key or false
      */
     default Boolean configGetBoolean(String key) {
-        return configGetBooleanOrDefault(key, false);
+        return configGetOptionalBoolean(key).orElse(false);
     }
 
     /**
