@@ -12,7 +12,7 @@ import cucumber.api.junit.*;
 				"pretty",
 				"json:build/json-reports/json-report.json",
 				"junit:build/xml-reports/xml-report.xml"},
-		tags = {"@Manual and (@TC593157)"})
+		tags = {"@US1259178"})
 public class TestRunner {
 
 }

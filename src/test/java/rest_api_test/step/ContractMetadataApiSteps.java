@@ -148,11 +148,10 @@ public class ContractMetadataApiSteps implements IRestStep {
 
     @Then("^the crosswalk only provides the product code identifier of \"([^\"]*)\" for the valid product description$")
     public void theCrosswalkOnlyProvidesTheProductCodeIdentifierOfForTheValidProductDescription(String expectedProductCodes) throws Throwable {
-        // Make post request and store response
-        response = request.post(RESOURCE_PRODUCTCODE);
-
         ArrayList<String> expectedProductCodeArr = new ArrayList<>(Arrays.asList(expectedProductCodes.split(" ")));
 
+        // Make post request and store response
+        response = request.post(RESOURCE_PRODUCTCODE);
         JsonElement result = parseJsonElementResponse(response);
 
         // Check that the result is a valid json array and returns list of product codes
