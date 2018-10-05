@@ -5,6 +5,7 @@
 @CMD2
 @#MVP
 @10/1_Physician
+@Priority_2
 @CMD
 @F232004
 Feature: US1311231 - Identify Rate Process rule during roster event process

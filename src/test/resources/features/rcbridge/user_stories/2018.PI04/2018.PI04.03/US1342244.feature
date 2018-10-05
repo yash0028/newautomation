@@ -5,6 +5,7 @@
 @CMD2
 @#MVP
 @10/1_Physician
+@Priority_2
 @CMD
 @F205772
 Feature: US1342244 - Identify conflicting Product Group combinations

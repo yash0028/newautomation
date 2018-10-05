@@ -5,6 +5,7 @@
 @CMD2
 @#MVP
 @10/1_Physician
+@Priority_2
 @CMD
 @F205772
 Feature: US1337398 - Identify new product codes with decision table

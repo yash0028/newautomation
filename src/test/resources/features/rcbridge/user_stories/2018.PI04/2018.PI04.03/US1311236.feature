@@ -5,6 +5,7 @@
 @CMD2
 @#MVP
 @10/1_Physician
+@Priority_2
 @CMD
 @F232004
 Feature: US1311236 - Apply Professional Specialty Rate process rule  during roster event process

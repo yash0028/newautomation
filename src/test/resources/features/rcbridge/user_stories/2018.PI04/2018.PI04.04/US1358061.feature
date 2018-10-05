@@ -4,7 +4,7 @@
 @2018.PI04.04
 @MVP
 @Plus
-@Priority_1
+@Priority_2
 @F159195
 Feature: US1358061 - CLM >COSMOS Add a Facility Contract - PIC DIV - PSD (Detail)
 
