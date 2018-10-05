@@ -7,18 +7,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.util.IFactoryPage;
+import ui_test.util.IWebInteract;
 
 import java.util.List;
 
 /**
  * Created by dtimaul on 10/1/18.
  */
-public class InProgressPage implements IFactoryPage {
+public class InProgressPage implements IFactoryPage, IWebInteract {
     private static Logger log = LoggerFactory.getLogger(InProgressPage.class);
     private WebDriver driver;
 
@@ -77,14 +76,10 @@ public class InProgressPage implements IFactoryPage {
      * @return True if the 25 button was clicked or false otherwise.
      */
     public boolean selectTableSize25() {
-        try {
-            this.tableSizeSelectorButton.click();
-            WebDriverWait wait = new WebDriverWait(driver, 100);
-            wait.until(ExpectedConditions.visibilityOf(tableSize25Button));
-            tableSize25Button.click();
-        } catch (Exception e){
-            return false;
-        }
-        return true;
+        boolean test = click(this.tableSizeSelectorButton);
+        test &= waitTillVisible(tableSize25Button);
+        test &= click(this.tableSize25Button);
+
+        return test;
     }
 }
