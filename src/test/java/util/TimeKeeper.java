@@ -55,4 +55,12 @@ public class TimeKeeper {
     public String getStartTimeHMS() {
         return hourminute.format(startTime);
     }
+
+    public String getCurrentTimeISO() {
+        return iso.format(new Date());
+    }
+
+    public String getCurrentTimeHMS() {
+        return iso.format(new Date());
+    }
 }
