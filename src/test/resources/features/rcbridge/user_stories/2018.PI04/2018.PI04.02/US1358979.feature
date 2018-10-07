@@ -1,4 +1,5 @@
 # Last updated on 
+@PES
 @US1358979
 @2018.PI04
 @2018.PI04.02
@@ -10,6 +11,7 @@ Feature: US1358979 - PES - TPSM Indicator(UHC_AgreementAcct_PlatniumAcctField) E
   @TC597195
   @Automated
   @Functional
+  @PES
   @US1358979
   @2018.PI04
   @2018.PI04.02

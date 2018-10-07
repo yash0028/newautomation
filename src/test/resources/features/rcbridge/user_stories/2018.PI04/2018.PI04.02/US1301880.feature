@@ -37,11 +37,10 @@ Feature: US1301880 - CMD- User Input Required Page- Populate rows of data
     Then for each transaction that requires input I can see data populated for each one of the fields
       | Site |
       | State |
-      | Market |
-      | User |
+      | Market Number |
+      | User ID |
       | Contract ID |
-      | Product Group Name |
-      | Paper Type |
+      | Contract Paper Type |
       | Contract Name |
       | Status |
       | Action Required |
@@ -58,5 +57,5 @@ Feature: US1301880 - CMD- User Input Required Page- Populate rows of data
     # Scenario 1 (Action required information in database)
     Given I am on the CMD User Review and Input page
     When there are no Action required transactions
-    Then the following message "There are currently no contact installation errors that require review at this time." appears on the page
+    Then the following message: There are currently no contracts that require user review and input at this time
 
