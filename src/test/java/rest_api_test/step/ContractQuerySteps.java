@@ -6,7 +6,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import general_test.util.UtilityGeneralSteps;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
@@ -81,7 +80,7 @@ public class ContractQuerySteps implements IRestStep {
             StringBuilder traveledPath = new StringBuilder("ecmObject");
             boolean tempTest = verifySingleKey(deepKeySet, 0, ecmRoot, traveledPath);
             if (tempTest) {
-                UtilityGeneralSteps.write2Scenario("Found all keys for " + traveledPath.toString());
+                log.info("Found all keys for {}", traveledPath.toString());
             } else {
                 failCount++;
             }
@@ -106,7 +105,7 @@ public class ContractQuerySteps implements IRestStep {
 
         String errorMessage = "Missing key <" + keySet.get(index) + "> in " + traveledPath.toString();
         if (currJson.isJsonPrimitive() || currJson.isJsonNull() || currJson.isJsonArray() || !currJson.getAsJsonObject().has(keySet.get(index))) {
-            UtilityGeneralSteps.write2Scenario(errorMessage);
+            log.error(errorMessage);
             return false;
         }
 

@@ -3,19 +3,24 @@ package util.configuration;
 import org.slf4j.helpers.Util;
 
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * Singleton created to handle reading environment variables and property files (that exist
  * within resources folder). Allows setting protected sources so they are not overwritten by variables read later.
  */
 public class Configuration {
-    public static final String CONFIGURATIONS_UI_PROPERTIES = "/configurations/ui.properties";
     private static final String CONFIGURATIONS_GLOBAL_PROPERTIES = "/configurations/global.properties";
-    private static final String CONFIGURATIONS_LOGGER_PROPERTIES = "/configurations/logger.properties";
+//    public static final String CONFIGURATIONS_UI_PROPERTIES = "/configurations/ui.properties";
+//    private static final String CONFIGURATIONS_LOGGER_PROPERTIES = "/configurations/logger.properties";
+
+    private static final String GLOBAL_FILE_KEY = "configuration.global.file";
+    private static final String BASE_FOLDER_KEY = "configuration.baseFolder";
+    private static final String LOGGER_FILE_KEY = "configuration.logger.file";
+    private static final String REST_FILE_KEY = "configuration.rest.file";
+    private static final String UI_FILE_KEY = "configuration.ui.file";
+    private static final String EXTRA_FILES_KEY = "configuration.extra.files";
+
     private static Configuration INSTANCE = new Configuration();
 
     private Map<String, ProtectedString> optionMap;
@@ -28,12 +33,36 @@ public class Configuration {
      * Load default configurations
      */
     private Configuration() {
-        optionMap = new HashMap<>();
-        //Create Single Instances
+        List<String> filesToLoad = new ArrayList<>();
+        this.optionMap = new HashMap<>();
+        Optional<String> baseFolder;
+
+        //Load environment variables as unchangeable
         loadEnvironment(true, true);
-        loadProperty(CONFIGURATIONS_GLOBAL_PROPERTIES, true, false);
-        loadProperty(CONFIGURATIONS_LOGGER_PROPERTIES, true, false);
-        loadProperty(CONFIGURATIONS_UI_PROPERTIES, true, false);
+
+        //Load Global variables from environment defined file or from default location
+        loadProperty(getOption(GLOBAL_FILE_KEY).orElse(CONFIGURATIONS_GLOBAL_PROPERTIES), true, false);
+
+        baseFolder = getOption(BASE_FOLDER_KEY);
+
+        //Get predefined files
+        getOption(LOGGER_FILE_KEY).map(filesToLoad::add);
+        getOption(REST_FILE_KEY).map(filesToLoad::add);
+        getOption(UI_FILE_KEY).map(filesToLoad::add);
+
+        //Get extra files
+        Optional<String> extraFileNames = getOption(EXTRA_FILES_KEY);
+        if (extraFileNames.isPresent()) {
+            for (String item : extraFileNames.get().split("\\s")) {
+                Optional.ofNullable(item).map(filesToLoad::add);
+            }
+        }
+
+        //Load the other files
+        filesToLoad.forEach(fileName ->
+                loadProperty("/" + baseFolder.orElse("") + "/" + fileName, true, false)
+        );
+
     }
 
     /*
@@ -59,11 +88,11 @@ public class Configuration {
      * Retrieve option from variable map. Package Private to prevent unknown usage.
      *
      * @param key
-     * @return string value at key or null
+     * @return optional string value at key
      */
-    String getOption(String key) {
+    Optional<String> getOption(String key) {
         Optional<ProtectedString> optional = Optional.ofNullable(optionMap.get(key));
-        return optional.map(ProtectedString::getValue).orElse(null);
+        return optional.flatMap(ProtectedString::getValue);
     }
 
     /**
@@ -149,8 +178,6 @@ public class Configuration {
         }
     }
 
-
-
     /*
     UTILITY CLASS
      */
@@ -167,8 +194,8 @@ public class Configuration {
             this.value = value;
         }
 
-        public String getValue() {
-            return value;
+        public Optional<String> getValue() {
+            return Optional.ofNullable(value);
         }
 
         boolean isWriteProtected() {

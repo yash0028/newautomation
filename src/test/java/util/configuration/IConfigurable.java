@@ -1,5 +1,7 @@
 package util.configuration;
 
+import org.slf4j.helpers.Util;
+
 import java.util.Optional;
 
 /**
@@ -51,11 +53,16 @@ public interface IConfigurable {
      * @return Optional integer that is valid or a null if key is not present
      */
     default Optional<Integer> configGetOptionalInteger(String key) {
-        try {
-            return Optional.of(Integer.parseInt(Configuration.getInstance().getOption(key)));
-        } catch (NumberFormatException nfe) {
-            return Optional.empty();
+        Optional<String> optionalS = Configuration.getInstance().getOption(key);
+        if (optionalS.isPresent()) {
+            try {
+                return Optional.of(Integer.parseInt(optionalS.get()));
+            } catch (NumberFormatException nfe) {
+                Util.report("Unable to parse value " + optionalS.get() + " from " + key + " as an integer");
+            }
         }
+
+        return Optional.empty();
     }
 
     /**
@@ -65,6 +72,6 @@ public interface IConfigurable {
      * @return Optional string that is valid or null if key is not present
      */
     default Optional<String> configGetOptionalString(String key) {
-        return Optional.ofNullable(Configuration.getInstance().getOption(key));
+        return Configuration.getInstance().getOption(key);
     }
 }
