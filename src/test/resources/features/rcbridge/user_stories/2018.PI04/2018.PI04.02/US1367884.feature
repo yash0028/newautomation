@@ -6,7 +6,7 @@
 Feature: US1367884 - Automate Exari Testing - SPA
 
   @TC600539
-  @Manual
+  @Automated
   @Functional
   @Exari_Automation
   @US1367884
