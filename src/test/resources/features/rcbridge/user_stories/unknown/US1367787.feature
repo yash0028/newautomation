@@ -6,7 +6,7 @@
 @kumar,_Sachin
 @CMD
 @F233635
-Feature: US1367787 - Data not required on Y line formatted contracts
+Feature: US1367787 - Data not required on Y and Z line formatted contracts
 
   @TC600551
   @Manual
