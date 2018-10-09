@@ -6,7 +6,7 @@
 @kumar,_Sachin
 @CMD
 @F233635
-Feature: US1367995 - Assign Penalty table for PILOT Market SPA/PAT
+Feature: US1367995 - Assign Penalty table for PILOT Market SPA/PAT Comprehensive
 
   @TC600546
   @Manual

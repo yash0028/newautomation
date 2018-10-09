@@ -12,7 +12,7 @@
 Feature: US1098621 - Examiner needs analysis - Spike
 
   @TC565639
-  @Automated
+  @Manual
   @Functional
   @US1098621
   @2018.PI02

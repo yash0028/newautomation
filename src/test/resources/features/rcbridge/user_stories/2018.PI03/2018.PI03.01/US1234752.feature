@@ -10,13 +10,13 @@
 @F201371
 Feature: US1234752 - [Unfinished] User Interface for up and download
 
-  @TC565503
-  @Automated
+  @TC605425
+  @Manual
   @Functional
   @US1234752
   @2018.PI03
   @2018.PI03.01
-  Scenario: TC565503 - [RL0]
+  Scenario: TC605425 - [RL0]
     Given the existence of a web UI
     When an authorized user access the URL
     Then the web UI for up/download is available

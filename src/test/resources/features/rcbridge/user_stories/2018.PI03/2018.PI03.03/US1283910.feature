@@ -10,14 +10,14 @@
 @F214484
 Feature: US1283910 - [Unfinished] Record Table data to Database
 
-  @TC565614
-  @Automated
+  @TC605376
+  @Manual
   @Functional
   @kumar,_Sachin
   @US1283910
   @2018.PI03
   @2018.PI03.03
-  Scenario: TC565614 - [RL1]
+  Scenario: TC605376 - [RL1]
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
     And The import is fails
