@@ -38,4 +38,12 @@ public interface IRestStep {
         return RestHelper.getInstance().parseJsonElementString(string);
     }
 
+    default boolean verifyFields(JsonElement ecmRoot, List<String> masterSet, String regex){
+        return RestHelper.getInstance().verifyFields(ecmRoot, masterSet, regex);
+    }
+
+    default boolean verifySingleKey(List<String> keySet, int index, JsonElement currJson, StringBuilder traveledPath){
+        return RestHelper.getInstance().verifySingleKey(keySet, index, currJson, traveledPath);
+    }
+
 }
