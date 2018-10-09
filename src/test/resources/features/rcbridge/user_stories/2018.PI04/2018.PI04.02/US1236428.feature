@@ -10,6 +10,20 @@
 @F218723
 Feature: US1236428 - [Continued] CMD Single Sign On - UHG Enterprise SSO (MSid and Password )
 
+  @TC564532
+  @Automated
+  @Functional
+  @A_UI_Story
+  @US1236428
+  @2018.PI04
+  @2018.PI04.02
+  Scenario: TC564532 - [RL2]
+    ##Scenario 3 (Do not have secure rule- block access/message)
+    Given I have do not have CLM_PCW_BUS_USERS or CLM_PCW_USERS role in secure
+    When I enter in the CMD URL
+    Then I am displayed the following message. "You currently do not have access to the CMD page. If you feel this is an error, please add the appropriate secure group role."
+    And I cannot access any page within CMD
+
   @CLM_UAT
   @TC598723
   @Manual
