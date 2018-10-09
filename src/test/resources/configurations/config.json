@@ -1,0 +1,10 @@
+{
+  "browser": "firefox",
+  "Environment": "dev",
+  "DevURL": "https://uhgpoc-dev.exaricontracts.com/exaricm/page/",
+  "TestURL": "https://uhg-stage.exaricontracts.com/exaricm/page/",
+  "ProdURL": "https://uhgpoc-dev.exaricontracts.com/exaricm/page/",
+  "username": "ssinha47",
+  "password": "Test123"
+}
+
