@@ -3,7 +3,7 @@
 @2018.PI04
 @Priority_1
 @F218481
-Feature: US1285745 - Synchronize Unique ID
+Feature: US1285745 - Synchronize Updated MPIN
 
   @TC564626
   @Automated
@@ -11,7 +11,8 @@ Feature: US1285745 - Synchronize Unique ID
   @US1285745
   @2018.PI04
   Scenario: TC564626 - [RL0]
-    Given I am a Legacy Application
-    When an Entity ID is updated
-    Then the matching record in the Entity Management Solution is updated
+    Given I am the Entity Management Solution
+    When a MPIN is updated in a Legacy Application
+    And the MPIN also resides in the Entity Management Solution
+    Then the matching record in the Entity Management Solution is updated to reflect the change
 
