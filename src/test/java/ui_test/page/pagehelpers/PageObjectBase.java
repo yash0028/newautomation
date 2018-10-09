@@ -11,7 +11,10 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import ui_test.page.exari.Contract;
 import ui_test.page.exari.HomePage;
 import ui_test.page.exari.LoginPage;
@@ -55,9 +58,9 @@ public class PageObjectBase {
         extent.close();
     }
 
-    @Parameters("jsonFilePath")
+    //    @Parameters("jsonFilePath")
     @BeforeClass
-    public void setup(String jsonFilePath) throws Exception {
+    public void setup() throws Exception {
 
 
         //Report.ExtentReportConfig();
@@ -79,6 +82,9 @@ public class PageObjectBase {
          * reading browser and Environment
          */
 
+        String jsonFilePath = getClass().getResource("/configurations/config.json").getFile();
+        System.out.println(jsonFilePath);
+
         JsonHelper.initialize(jsonFilePath);
         jsonReader = JsonHelper.getConfig();
         String browser = jsonReader.getBrowserName();
@@ -88,12 +94,13 @@ public class PageObjectBase {
         if (browser.equalsIgnoreCase("Firefox")) {
             capabilities = DesiredCapabilities.firefox();
             capabilities.setCapability("marionette", true);
-            System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\drivers\\geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver.exe");
             setDriver(new FirefoxDriver(capabilities));
             System.out.println("-----Firefox Browser Launched----- ");
         } else if (browser.equalsIgnoreCase("Chrome")) {
             capabilities = DesiredCapabilities.chrome();
-            System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\drivers\\chromedriver.exe");
+//            System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\drivers\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", getClass().getResource("/drivers/chromedriver").getFile());
             setDriver(new ChromeDriver(capabilities));
             System.out.println("-----Chrome Browser Launched----- ");
         } else if (browser.equalsIgnoreCase("Edge")) {

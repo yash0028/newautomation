@@ -1,5 +1,5 @@
 {
-  "browser": "firefox",
+  "browser": "chrome",
   "Environment": "dev",
   "DevURL": "https://uhgpoc-dev.exaricontracts.com/exaricm/page/",
   "TestURL": "https://uhg-stage.exaricontracts.com/exaricm/page/",

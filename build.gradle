@@ -67,6 +67,10 @@ test {
     testLogging.showStandardStreams = true
 }
 
+task testng(type: Test) {
+    useTestNG()
+}
+
 
 def String cucumberOptions() {
     return '-Dcucumber.options=' +
