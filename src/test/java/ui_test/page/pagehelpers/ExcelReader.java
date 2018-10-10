@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 
-public class XlsReader {
+public class ExcelReader {
     public static String filename = System.getProperty("user.dir");
     public static String sActionKeyword = null;
     public String path;
@@ -32,7 +32,7 @@ public class XlsReader {
     /**
      * @param path
      */
-    public XlsReader(String path) {
+    public ExcelReader(String path) {
 
         this.path = path;
         try {
@@ -48,7 +48,7 @@ public class XlsReader {
     }
 
 
-    public XlsReader(String path, String rights) {
+    public ExcelReader(String path, String rights) {
 
         this.path = path;
         try {

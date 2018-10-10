@@ -1,12 +1,14 @@
 package ui_test.page.exari;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ui_test.page.pagehelpers.FunctionalLibrary;
-import ui_test.page.pagehelpers.PageObjectBase;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import ui_test.util.IFactoryPage;
+import ui_test.util.IWebInteract;
 
-public class HomePage extends PageObjectBase {
+public class HomePage implements IFactoryPage, IWebInteract {
 
     /* ********************************  LOCATORS **************************************** */
 
@@ -68,6 +70,7 @@ public class HomePage extends PageObjectBase {
 
     @FindBy(xpath = ".//div[@class='bd yui-menu-body-scrolled']/ul/li/a[(text()='SMGA')]")
     public WebElement Smga;
+    ////li[@id='yui-gen95']/a[@class='yuimenuitemlabel' and text()='SMGA']
 
     @FindBy(xpath = "//div[@class='toolbar flat-button']/div/span[6]")
     public WebElement AnyStatus;
@@ -94,78 +97,107 @@ public class HomePage extends PageObjectBase {
     @FindBy(xpath = "//span[contains(text(),'Terminate')]")
     public WebElement Terminate;
 
+    private final WebDriver driver;
 
-    /**
-     * Constructor to initialize elements
+    /*
+    CONSTRUCTOR
      */
 
-    public HomePage(FunctionalLibrary helper) {
-        PageFactory.initElements(driver, this);
-        this.helper = helper;
+    public HomePage(WebDriver driver) {
+        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, IWebInteract.TIMEOUT);
+        PageFactory.initElements(factory, this);
+        this.driver = driver;
     }
 
+    /*
+    FACTORY PAGE METHODS
+     */
 
-    /* ********************************  METHODS **************************************** */
+    @Override
+    public boolean confirmCurrentPage() {
+        return false;
+    }
 
-    public void ClickOnSitecontract() throws Exception {
+    @Override
+    public WebDriver getDriver() {
+        return driver;
+    }
 
-        helper.highlighter(driver, Site);
-        helper.Click(driver, test, Site, "Site Menu");
-        helper.wait(driver, Test, 20);
+    /*
+    CLASS METHODS
+     */
+
+    public void ClickOnSitecontract() {
+//        helper.highlighter(driver, Site);
+//        helper.Click(driver, test, Site, "Site Menu");
+//        helper.wait(driver, Test, 20);
         //helper.pause(5);
+        click(Site);
     }
 
-    public void ClickOnEnv(String environment, WebElement element) throws InterruptedException {
-        if (environment.equalsIgnoreCase("Test")) {
-            helper.highlighter(driver, Test);
-            helper.Click(driver, test, Test, "Test Menu");
-            helper.wait(driver, element, 30);
-        }
+    public void ClickOnEnv(String environment, WebElement element) {
+//        if (environment.equalsIgnoreCase("Test")) {
+//            helper.highlighter(driver, Test);
+//            helper.Click(driver, test, Test, "Test Menu");
+//            helper.wait(driver, element, 30);
+//        }
         //helper.pause(6);
+        if (environment.equalsIgnoreCase("test")) {
+            click(Test);
+        }
     }
 
-    public void ClickOnClickonStart() throws InterruptedException {
-        helper.highlighter(driver, Clicktostart);
-        helper.Click(driver, test, Clicktostart, "Click to start");
-        helper.wait(driver, SPA_PATTemplate, 20);
+    public void ClickOnClickonStart() {
+//        helper.highlighter(driver, Clicktostart);
+//        helper.Click(driver, test, Clicktostart, "Click to start");
+//        helper.wait(driver, SPA_PATTemplate, 20);
         //helper.pause(3);
+        click(Clicktostart);
     }
 
-    public void ClickOnTemplate(WebElement element, String desc) throws InterruptedException {
-        helper.highlighter(driver, element);
-        helper.Click(driver, test, element, desc);
-        helper.wait(driver, homePage.TitleBar, 60);
+    @Deprecated
+    public void ClickOnTemplate(WebElement element, String desc) {
+//        helper.highlighter(driver, element);
+//        helper.Click(driver, test, element, desc);
+//        helper.wait(driver, homePage.TitleBar, 60);
         //helper.pause(3);
+        click(element);
     }
 
-    public void setEditStatus(String value, WebElement waitelement) throws InterruptedException {
-        helper.highlighter(driver, editStatus);
-        helper.Click(driver, test, editStatus, "Edit Status");
-        helper.wait(driver, editStatus_DropDown, 60);
-
-        helper.highlighter(driver, editStatus_DropDown);
-        helper.selectfromDropDown(driver, test, editStatus_DropDown, value, value);
-
-        helper.highlighter(driver, SAVE);
-        helper.Click(driver, test, SAVE, "Save");
-        helper.wait(driver, waitelement, 60);
-        helper.highlighter(driver, waitelement);
+    public void setEditStatus(String value, WebElement waitelement) {
+//        helper.highlighter(driver, editStatus);
+//        helper.Click(driver, test, editStatus, "Edit Status");
+//        helper.wait(driver, editStatus_DropDown, 60);
+//
+//        helper.highlighter(driver, editStatus_DropDown);
+//        helper.selectfromDropDown(driver, test, editStatus_DropDown, value, value);
+//
+//        helper.highlighter(driver, SAVE);
+//        helper.Click(driver, test, SAVE, "Save");
+//        helper.wait(driver, waitelement, 60);
+//        helper.highlighter(driver, waitelement);
+        click(editStatus);
+        selectDropDownByValue(editStatus_DropDown, value);
+        click(SAVE);
     }
 
-    public void clickFinalCapture(WebElement element) throws InterruptedException {
-        helper.highlighter(driver, finalCapture);
-        helper.Click(driver, test, finalCapture, "Final Capture");
-        helper.wait(driver, element, 60);
-
+    public void clickFinalCapture(WebElement element) {
+//        helper.highlighter(driver, finalCapture);
+//        helper.Click(driver, test, finalCapture, "Final Capture");
+//        helper.wait(driver, element, 60);
+        click(finalCapture);
     }
 
-    public void clickonAnySmartTemplate() throws InterruptedException {
-        helper.highlighter(driver, AnySmartTemplate);
-        helper.Click(driver, test, AnySmartTemplate, "AnySmartTemplate");
-
-        helper.highlighter(driver, homePage.bottomScroll);
-        homePage.bottomScroll.click();
-        helper.pause(7);
+    public void clickonAnySmartTemplate() {
+//        helper.highlighter(driver, AnySmartTemplate);
+//        helper.Click(driver, test, AnySmartTemplate, "AnySmartTemplate");
+//
+//        helper.highlighter(driver, homePage.bottomScroll);
+//        homePage.bottomScroll.click();
+//        helper.pause(7);
+        click(AnySmartTemplate);
+        click(bottomScroll);
+        pause(7);
     }
 
 
@@ -179,9 +211,10 @@ public class HomePage extends PageObjectBase {
      *
      * @throws Exception
      */
-    public Contract ContractPage() throws InterruptedException {
+    @Deprecated
+    public ContractPage ContractPage() {
         //helper.highlighter(driver,homePage.TitleBar );
-        return new Contract(helper);
+        return new ContractPage(driver);
     }
 
 }// End of class

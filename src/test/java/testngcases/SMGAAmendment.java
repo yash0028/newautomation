@@ -4,6 +4,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import org.testng.annotations.Test;
 import ui_test.page.pagehelpers.PageObjectBase;
 
+@Deprecated
 public class SMGAAmendment extends PageObjectBase {
 
     @Test
@@ -14,7 +15,7 @@ public class SMGAAmendment extends PageObjectBase {
 
         homePage = loginPage.HomeTab();
 
-        test.log(LogStatus.INFO, "Amendment of SMGA Contract in Exari", "***");
+        test.log(LogStatus.INFO, "Amendment of SMGA ContractPage in Exari", "***");
         homePage.ClickOnSitecontract();
         homePage.ClickOnEnv("Test", homePage.Clicktostart);
 
@@ -25,7 +26,7 @@ public class SMGAAmendment extends PageObjectBase {
         helper.selectvaluefromDropDown(homePage.AnyStatusXpath, "Active");
         helper.wait(driver, homePage.FirstRow, 30);
 
-        helper.Click(driver, test, homePage.FirstRow, "Slecting SMGA Active Contract");
+        helper.Click(driver, test, homePage.FirstRow, "Slecting SMGA Active ContractPage");
         helper.wait(driver, homePage.CreateAmendment, 30);
 
         helper.Click(driver, test, homePage.CreateAmendment, "Create Amendment");
@@ -34,25 +35,23 @@ public class SMGAAmendment extends PageObjectBase {
         helper.EditBox(homePage.AmendmentTitle_TextBox, "Amendment", test, "Enter Amendment title");
         helper.Click(driver, test, homePage.Create, "Create");
 
-        /* * Switching to contract page* */
-        contract = homePage.ContractPage();
+        /* * Switching to contractPage page* */
+        contractPage = homePage.ContractPage();
         //Adding Amendment in SMGA is having issue which needs to be fixed from Exari end
-        helper.wait(driver, contract.interviewsummary_label, 180);
+        helper.wait(driver, contractPage.interviewsummary_label, 180);
         helper.pause(2);
-        contract.ClickOnNext(contract.wizardComplete_label);
-        contract.ClickOnWizardCompleteNext(contract.siteDashboard_label);
+        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
+        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
 
         //set Edit Status
         homePage.setEditStatus("Final Pending QA", homePage.finalCapture);
 
         //click Final Capture
-        homePage.clickFinalCapture(contract.interviewsummary_label);
-        contract.ClickOnNext(contract.wizardComplete_label);
-        contract.ClickOnWizardCompleteNext(contract.siteDashboard_label);
+        homePage.clickFinalCapture(contractPage.interviewsummary_label);
+        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
+        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
 
         //set Edit Status
         homePage.setEditStatus("Active", homePage.status_active);
-
-
     }
 }

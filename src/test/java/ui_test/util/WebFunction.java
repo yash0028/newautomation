@@ -50,7 +50,6 @@ public class WebFunction {
         setStyle(element, "outline: 1px dashed red;");
         pause(1);
         setStyle(element, orgStyle);
-
     }
 
     /*

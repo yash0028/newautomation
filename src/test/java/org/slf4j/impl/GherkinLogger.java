@@ -286,8 +286,11 @@ public class GherkinLogger extends MarkerIgnoringBase {
         //Append message
         buffer.append(message);
 
-        write(buffer, t);
-        writeScenario(buffer);
+        if (CONFIG.reportToScenario && UtilityGeneralSteps.scenario != null) {
+            writeScenario(buffer, t);
+        } else {
+            write(buffer, t);
+        }
 
     }
 
@@ -305,10 +308,13 @@ public class GherkinLogger extends MarkerIgnoringBase {
         }
     }
 
-    private void writeScenario(StringBuilder buffer) {
-        if (CONFIG.reportToScenario && UtilityGeneralSteps.scenario != null) {
-            UtilityGeneralSteps.scenario.write(buffer.toString());
+    private void writeScenario(StringBuilder buffer, Throwable t) {
+        UtilityGeneralSteps.scenario.write(buffer.toString());
+
+        if (t != null) {
+            UtilityGeneralSteps.scenario.write(t.getMessage());
         }
+
     }
 
     private boolean isLevelEnabled(int logLevel) {

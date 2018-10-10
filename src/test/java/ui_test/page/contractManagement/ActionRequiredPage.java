@@ -19,8 +19,9 @@ import java.util.List;
  * Created by dtimaul on 9/26/18.
  */
 public class ActionRequiredPage implements IFactoryPage {
-    private static Logger log = LoggerFactory.getLogger(ActionRequiredPage.class);
-    private WebDriver driver;
+    private static final Logger log = LoggerFactory.getLogger(ActionRequiredPage.class);
+
+    private final WebDriver driver;
 
     @FindBy(how = How.XPATH, using = "//table[@class='mat-table']")
     private WebElement table;

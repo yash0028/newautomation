@@ -15,7 +15,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import ui_test.page.exari.Contract;
+import ui_test.page.exari.ContractPage;
 import ui_test.page.exari.HomePage;
 import ui_test.page.exari.LoginPage;
 import ui_test.util.d.JsonHelper;
@@ -25,19 +25,19 @@ import ui_test.util.d.PropertyReader;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
-
+@Deprecated
 public class PageObjectBase {
 
     public static String baseUrl;
     public static ExtentReports extent;
     public static ExtentTest test;
-    public static XlsReader reader;
+    public static ExcelReader reader;
     public static PropertyReader prop;
-    public static XlsReader TestSuite = null;
+    public static ExcelReader TestSuite = null;
     public static JsonReader jsonReader;
     public static LoginPage loginPage;
     public static HomePage homePage;
-    public static Contract contract;
+    public static ContractPage contractPage;
     protected static WebDriver driver;
     public Method method;
     public DesiredCapabilities capabilities = null;
@@ -71,7 +71,7 @@ public class PageObjectBase {
 
 
         //Excel path configuration
-        reader = new XlsReader(System.getProperty("user.dir") + "/TestData.xlsx");
+        reader = new ExcelReader(System.getProperty("user.dir") + "/TestData.xlsx");
 
         //Property path configuration
 		/*prop=new PropertyReader();
@@ -119,8 +119,7 @@ public class PageObjectBase {
         }
 
         helper.openPage(environment);
-        loginPage = new LoginPage(helper);
-
+        loginPage = new LoginPage(driver);
     }
 
     @BeforeMethod

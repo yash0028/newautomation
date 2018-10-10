@@ -2,6 +2,7 @@ package ui_test.page.pagehelpers;
 
 import java.sql.*;
 
+@Deprecated
 public class DataConnection {
 
     public void LoadDriver() {

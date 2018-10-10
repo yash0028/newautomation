@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-
+@Deprecated
 public class FunctionalLibrary extends PageObjectBase {
 
 
@@ -90,6 +90,7 @@ public class FunctionalLibrary extends PageObjectBase {
         return ar;
     }
 
+    @Deprecated
     public void setStyle(WebDriver driver, WebElement element, String attName, String value) {
 
         for (int i = 0; i < 3; i++) {
@@ -103,6 +104,7 @@ public class FunctionalLibrary extends PageObjectBase {
 
     }
 
+    @Deprecated
     public void highlighter(WebDriver driver, WebElement element) {
         final int wait = 1000;
         String orgStyle = element.getAttribute("style");
@@ -129,6 +131,7 @@ public class FunctionalLibrary extends PageObjectBase {
     // Purpose: To check or Uncheck a checkBox type element
     // **********************************************
 
+    @Deprecated
     public void pause(Integer second) {
         try {
             TimeUnit.SECONDS.sleep(second);
@@ -200,9 +203,9 @@ public class FunctionalLibrary extends PageObjectBase {
             highlighter(driver, Element);
             Element.click();
             pause(1);
-            contract.dropdown_text.sendKeys(xlsReader);
+            contractPage.dropdown_text.sendKeys(xlsReader);
             pause(1);
-            contract.dropdown_result.click();
+            contractPage.dropdown_result.click();
             test.log(LogStatus.PASS, "Select '" + ElementDesc + "' from the DropDown ", ExpectedResults + ElementDesc + " Should be able to select from the DropDown" + ActualResults + ElementDesc + " is Selected from  DropDown ");
 
         } catch (Exception e) {
@@ -281,7 +284,7 @@ public class FunctionalLibrary extends PageObjectBase {
     public boolean Verify_VisibleEnabled_Element(WebElement element) {
         try {
 
-            if (!(element.equals(null)) || (element.isEnabled() && element.isDisplayed())) {
+            if (element.isEnabled() && element.isDisplayed()) {
                 System.out.println("Verify_VisibleEnabled_Element :" + element.getText() + " Element exist");
                 return true;
             } else {
@@ -310,7 +313,7 @@ public class FunctionalLibrary extends PageObjectBase {
     public boolean Verify_VisibleDisabled_Element(WebElement element, String desc) {
         try {
 
-            if (!(element.isEnabled()) && (element.isDisplayed() || !(element.equals(null)))) {
+            if (!(element.isEnabled()) && element.isDisplayed()) {
                 System.out.println("Verify Disabled_Element :" + element.getText() + " Element exist and is disabled");
                 test.log(LogStatus.PASS, "Verify" + desc, ExpectedResults + desc + " should be present and enabled " + ActualResults + desc + " is present and is DISABLED");
                 return true;
@@ -556,7 +559,7 @@ public class FunctionalLibrary extends PageObjectBase {
     //read the data from the excel sheet using Apache POI and store in Object array
     public Object[][] testData(String xlFilePath, String sheetName) throws Exception {
         Object[][] excelData = null;
-        reader = new XlsReader(xlFilePath);
+        reader = new ExcelReader(xlFilePath);
         int rows = reader.getRowCount(sheetName);
         int columns = reader.getColumnCount(sheetName);
 

@@ -1,6 +1,7 @@
 package ui_test.util;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -38,7 +39,6 @@ public interface IWebInteract {
     }
 
     default boolean waitTillVisible(WebElement element) {
-        highlight(element);
         WebDriverWait wait = new WebDriverWait(this.getDriver(), TIMEOUT);
         wait.until(ExpectedConditions.visibilityOf(element));
         return element.isDisplayed();
@@ -220,6 +220,15 @@ public interface IWebInteract {
 
     default void highlight(WebElement element) {
         WebFunction.getInstance().highlight(element);
+    }
+
+    //TODO
+    default void cleanWriteTextBox(WebElement element, String text) {
+        highlight(element);
+        sendKeys(element, Keys.TAB);
+        clear(element);
+        pause(2);
+        sendKeys(element, text);
     }
 
 

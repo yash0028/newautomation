@@ -1,84 +1,113 @@
 package ui_test.page.exari;
 
-import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ui_test.page.pagehelpers.FunctionalLibrary;
-import ui_test.page.pagehelpers.PageObjectBase;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import ui_test.util.IFactoryPage;
+import ui_test.util.IWebInteract;
+import util.configuration.IConfigurable;
 
-public class LoginPage extends PageObjectBase {
+public class LoginPage implements IWebInteract, IFactoryPage, IConfigurable {
 
     /* ********************************  LOCATORS **************************************** */
 
+    private final WebDriver driver;
     @FindBy(xpath = "//input[@name='username']")
-    public static WebElement Username_TextBox;
-
+    public WebElement Username_TextBox;
     @FindBy(xpath = "//input[@name='password']")
-    public static WebElement Password_TextBox;
-
+    public WebElement Password_TextBox;
     @FindBy(xpath = "//button[text()='Sign In']")
-    public static WebElement LoginButton;
-
+    public WebElement LoginButton;
     @FindBy(xpath = "//div[@title='Home']")
-    public static WebElement HomeTab;
-
+    public WebElement HomeTab;
     @FindBy(xpath = "//*[@id='tablist']/li[1]/a")
-    public static WebElement DocumentTab;
-
+    public WebElement DocumentTab;
     @FindBy(xpath = "//html/body//font")
-    public static WebElement err_Msg;
+    public WebElement err_Msg;
 
-
-    /**
-     * Constructor to initialize elements
+    /*
+    CONSTRUCTOR
      */
 
-    public LoginPage(FunctionalLibrary helper) {
-
-        PageFactory.initElements(driver, this);
-        this.helper = helper;
-
+    public LoginPage(WebDriver driver) {
+        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, IWebInteract.TIMEOUT);
+        PageFactory.initElements(factory, this);
+        this.driver = driver;
     }
 
-    /* ********************************  METHODS **************************************** */
+    /*
+    FACTORY PAGE METHODS
+     */
+
+    @Override
+    public boolean confirmCurrentPage() {
+        return getDriver().getCurrentUrl().matches("^.+exaricm/page/$");
+    }
+
+    @Override
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    /*
+    CLASS METHODS
+     */
 
     public String[] getCredentials() {
-
         String ar[] = new String[2];
-        ar[0] = jsonReader.getUsername();
-        ar[1] = jsonReader.getPassword();
+//        ar[0] = jsonReader.getUsername();
+//        ar[1] = jsonReader.getPassword();
+        ar[0] = configGetOptionalString("exari.username").orElse("");
+        ar[1] = configGetOptionalString("exari.password").orElse("");
 
         return ar;
     }
 
 
-    public void setLoginCredentials() throws Exception {
+    public void setLoginCredentials() {
 
-        String credentials[] = getCredentials();
+//        String credentials[] = getCredentials();
+//
+//        helper.highlighter(driver, Username_TextBox);
+//        Username_TextBox.clear();
+//        Username_TextBox.sendKeys(credentials[0]);
+//        Username_TextBox.sendKeys(Keys.TAB);
+//
+//        helper.highlighter(driver, Password_TextBox);
+//        Password_TextBox.clear();
+//        Password_TextBox.sendKeys(credentials[1]);
+//
+//        helper.highlighter(driver, LoginButton);
+//        helper.Click(driver, test, LoginButton, "Login Button");
+//
+//
+//        helper.wait(driver, HomeTab, 60);
+//        if ((helper.Verify_VisibleEnabled_Element(LoginPage.HomeTab))) {
+//
+//            test.log(LogStatus.PASS, "Verify valid Credential", FunctionalLibrary.ExpectedResults + " Credential should be valid" + FunctionalLibrary.ActualResults + "Credential is  valid ");
+//
+//        } else {
+//
+//            test.log(LogStatus.FAIL, "Verify valid Credential", FunctionalLibrary.ExpectedResults + "Credential should be valid " + FunctionalLibrary.ActualResults + "Credential is not valid ");
+//        }
 
-        helper.highlighter(driver, Username_TextBox);
-        Username_TextBox.clear();
-        Username_TextBox.sendKeys(credentials[0]);
-        Username_TextBox.sendKeys(Keys.TAB);
+        String[] creds = getCredentials();
+        clear(Username_TextBox);
+        sendKeys(Username_TextBox, creds[0]);
+        sendKeys(Username_TextBox, Keys.TAB);
 
-        helper.highlighter(driver, Password_TextBox);
-        Password_TextBox.clear();
-        Password_TextBox.sendKeys(credentials[1]);
+        clear(Password_TextBox);
+        sendKeys(Password_TextBox, creds[1]);
 
-        helper.highlighter(driver, LoginButton);
-        helper.Click(driver, test, LoginButton, "Login Button");
+        click(LoginButton);
 
-
-        helper.wait(driver, HomeTab, 60);
-        if ((helper.Verify_VisibleEnabled_Element(LoginPage.HomeTab))) {
-
-            test.log(LogStatus.PASS, "Verify valid Credential", FunctionalLibrary.ExpectedResults + " Credential should be valid" + FunctionalLibrary.ActualResults + "Credential is  valid ");
-
+        if (isVisible(HomeTab)) {
+            log.info("login successful");
         } else {
-
-            test.log(LogStatus.FAIL, "Verify valid Credential", FunctionalLibrary.ExpectedResults + "Credential should be valid " + FunctionalLibrary.ActualResults + "Credential is not valid ");
+            log.info("login failed");
         }
 
     }
@@ -91,9 +120,10 @@ public class LoginPage extends PageObjectBase {
      * @throws Exception
      */
 
-    public HomePage HomeTab() throws InterruptedException {
-        helper.highlighter(driver, HomeTab);
-        return new HomePage(helper);
+    @Deprecated
+    public HomePage HomeTab() {
+        highlight(HomeTab);
+        return new HomePage(getDriver());
     }
 
 

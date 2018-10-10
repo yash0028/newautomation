@@ -22,8 +22,8 @@ import java.util.stream.Collectors;
 
 public class CMDSteps implements IRestStep, IUiStep {
     private final static String ENDPOINT = "http://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private final static String RESOURCE_CONTRACT_SUMMARIES = "/v1.0/contract-summaries/";
-    private final static String CMD_DASHBOARD_URL = "http://contract-admin-ui-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
+    private final static String RESOURCE_CONTRACT_SUMMARIES = "/v1.0/contractPage-summaries/";
+    private final static String CMD_DASHBOARD_URL = "http://contractPage-admin-ui-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
     private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
     private CMDPage cmdPage = null;
 
@@ -31,7 +31,7 @@ public class CMDSteps implements IRestStep, IUiStep {
 
     @Given("^I have entered the CMD dashboard URL$")
     public void navigateToCMDdashboardUrl() {
-        getWebDriver().get(CMD_DASHBOARD_URL);
+        getRemoteDriver().get(CMD_DASHBOARD_URL);
         cmdPage = CMDPage.getCMDPage();
         Assert.assertNotNull("CMD page not displayed", cmdPage);
     }
