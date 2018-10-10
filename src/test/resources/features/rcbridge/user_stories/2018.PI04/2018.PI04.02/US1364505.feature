@@ -30,6 +30,6 @@ Feature: US1364505 - PES Results Enhancements
     #For appendix
     Given a user wants to populate appendix 1 with addresses
     When a "tin" of "222534389" is passed to appendix 1
-    And the search results give back more than 50 providers
-    Then the user can see up to 150 providers
+    And the search results give back more than 50 locations
+    Then the user can see up to 150 locations
 
