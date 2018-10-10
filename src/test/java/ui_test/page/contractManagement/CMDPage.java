@@ -17,16 +17,19 @@ import static ui_test.util.SeleniumHelper.findElements;
 
 public class CMDPage implements IFactoryPage {
     private static Logger log = LoggerFactory.getLogger(CMDPage.class);
-    @FindBy(xpath = "//a[contains(@href,'/contract-summary/in-progress')]")
+    @FindBy(xpath = "//a[contains(@href,'/contractPage-summary/in-progress')]")
     WebElement inProgressLink;
-    @FindBy(xpath = "//a[contains(@href,'/contract-summary/failed')]")
+    @FindBy(xpath = "//a[contains(@href,'/contractPage-summary/failed')]")
     WebElement actionRequiredLink;
-    @FindBy(xpath = "//a[contains(@href,'/contract-summary/failed')]")
+    @FindBy(xpath = "//a[contains(@href,'/contractPage-summary/failed')]")
     WebElement errorsLink;
-    @FindBy(xpath = "//a[contains(@href,'/contract-summary/success')]")
+    @FindBy(xpath = "//a[contains(@href,'/contractPage-summary/success')]")
     WebElement completedLink;
     private WebDriver driver;
 
+    /*
+    CONSTRUCTOR
+     */
 
     public CMDPage(WebDriver driver) {
         this.driver = driver;
@@ -35,22 +38,41 @@ public class CMDPage implements IFactoryPage {
         PageFactory.initElements(factory, this);
     }
 
+    /*
+    STATIC METHODS
+     */
+
     public static CMDPage getCMDPage() {
-        return (getHeaderContractMetadata().getText().equalsIgnoreCase("Contract Management")) ? new CMDPage(SeleniumHelper.getWebDriver()) : null;
+        return (getHeaderContractMetadata().getText().equalsIgnoreCase("ContractPage Management")) ? new CMDPage(SeleniumHelper.getWebDriver()) : null;
     }
 
     public static WebElement getHeaderContractMetadata() {
         return findElement("className", "navbar-brand");
     }
 
-    /**
-     * Verifies that we are on the contract management homepage by confirming that the url
-     * is correct.
-     * @return True if current page is the contract management homepage.
+    /*
+    FACTORY PAGE METHODS
      */
+
+    /**
+     * Verifies that we are on the contractPage management homepage by confirming that the url
+     * is correct.
+     *
+     * @return True if current page is the contractPage management homepage.
+     */
+    @Override
     public boolean confirmCurrentPage() {
         return driver.getCurrentUrl().matches("^.+contract-status$");
     }
+
+    @Override
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    /*
+    CLASS METHODS
+     */
 
     public List<WebElement> getSubHeaders() {
         return findElements("tagName", "h3");
@@ -65,7 +87,8 @@ public class CMDPage implements IFactoryPage {
     }
 
     /**
-     * Click in progress link on contract management homepage.
+     * Click in progress link on contractPage management homepage.
+     *
      * @return True if the link was clicked or false otherwise.
      */
     public boolean clickInProgressLink() {
@@ -79,7 +102,8 @@ public class CMDPage implements IFactoryPage {
     }
 
     /**
-     * Click action required link on contract management homepage.
+     * Click action required link on contractPage management homepage.
+     *
      * @return True if the link was clicked or false otherwise.
      */
     public boolean clickActionRequiredLink() {
@@ -93,7 +117,8 @@ public class CMDPage implements IFactoryPage {
     }
 
     /**
-     * Click in progress link on contract management homepage.
+     * Click in progress link on contractPage management homepage.
+     *
      * @return True if the link was clicked or false otherwise.
      */
     public boolean clickErrorsLink() {
@@ -107,7 +132,8 @@ public class CMDPage implements IFactoryPage {
     }
 
     /**
-     * Click in progress link on contract management homepage.
+     * Click in progress link on contractPage management homepage.
+     *
      * @return True if the link was clicked or false otherwise.
      */
     public boolean clickCompletedLink() {
