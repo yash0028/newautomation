@@ -42,10 +42,12 @@ public class CMDPage implements IFactoryPage {
     STATIC METHODS
      */
 
+    @Deprecated
     public static CMDPage getCMDPage() {
         return (getHeaderContractMetadata().getText().equalsIgnoreCase("ContractPage Management")) ? new CMDPage(SeleniumHelper.getWebDriver()) : null;
     }
 
+    @Deprecated
     public static WebElement getHeaderContractMetadata() {
         return findElement("className", "navbar-brand");
     }

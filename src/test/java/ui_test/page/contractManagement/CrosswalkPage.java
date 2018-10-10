@@ -1,28 +1,66 @@
 package ui_test.page.contractManagement;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ui_test.util.IFactoryPage;
+import ui_test.util.IWebInteract;
 import ui_test.util.SeleniumHelper;
 
 import static ui_test.util.SeleniumHelper.findElement;
 import static ui_test.util.SeleniumHelper.waitForElementToLoad;
 
-public class CrosswalkPage {
+public class CrosswalkPage implements IFactoryPage, IWebInteract {
 
     private static Logger log = LoggerFactory.getLogger(CrosswalkPage.class);
 
-    private CrosswalkPage() {
+    private final WebDriver driver;
+
+    /*
+    CONSTRUCTOR
+     */
+
+    public CrosswalkPage(WebDriver driver) {
+        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, IWebInteract.TIMEOUT);
+        PageFactory.initElements(driver, factory);
+        this.driver = driver;
     }
 
+    /*
+    STATIC METHODS
+     */
+
+    @Deprecated
     public static CrosswalkPage getCrosswalkPage() {
-        return (getHeaderContractMetadata().getText().equalsIgnoreCase("Contract Metadata")) ? new CrosswalkPage() : null;
+        return (getHeaderContractMetadata().getText().equalsIgnoreCase("ContractPage Metadata")) ? new CrosswalkPage(SeleniumHelper.getWebDriver()) : null;
     }
 
+    @Deprecated
     private static WebElement getHeaderContractMetadata() {
         return findElement("tagname", "h1");
     }
+
+    /*
+    FACTORY PAGE METHODS
+     */
+
+    @Override
+    public boolean confirmCurrentPage() {
+        return false;
+    }
+
+    @Override
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    /*
+    CLASS METHODS
+     */
 
     public boolean selectValueFromImportDropdown(String optionToSelect) {
         waitForElementToLoad(5);
