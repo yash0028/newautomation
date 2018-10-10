@@ -10,62 +10,62 @@
 @F218723
 Feature: US1303750 - [Continued] CMD- User Input Required Page- View & Edit contract detail information (no search results found)
 
-  @TC593196
+  @TC593198
   @Manual
   @Functional
   @A_UI_Story
   @US1303750
   @2018.PI04
   @2018.PI04.02
-  Scenario: TC593196 - [RL1]
-    # Scenario 2 (Edit contract master detail info- data fields add new row)
+  Scenario: TC593198 - [RL3]
+    # Scenario 5 (Select contract master- Use this always)
     Given I am on the CMD Action Required page
-    When I have clicked the down arrow on a contract summary row
-    And No contract results were found for the contract summary row
-    And I have clicked the add button
-    Then The following fields are presented to me and editable.
-      | Market Number |
-      | Fee Schedule number |
-      | Product Group code |
-      | Contract System |
-      | IPA |
-      | Contract type |
-      | Group Table number |
-      | pay Method |
-      | DIV |
-      | Panel |
-      | Search for contract master button |
-    # Market Number (required)
-    # Fee Schedule number (required)
-    # Product Group code (required)
-    # Contract System (NDB or COSMOS required)
-    # IPA (Optional)
-    # Contract type (Optional)
-    # Group Table number (optional)
-    # pay Method (optional)
-    # DIV (required if COSMOS is selected)
-    # Panel (required if COSMOS is selected
-    # Search for contract master button (button is not active until all required fields are entered)
+    When I entered in a contract master number, contract master name, contract system, contract master effective date
+    And I selected user this contract master "always"
+    And I have clicked on the submit button
+    Then The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me
+    And The status of the contract master product grouping is changed to contract master selected
 
-  @TC564772
-  @Automated
+  @TC593200
+  @Manual
   @Functional
   @A_UI_Story
   @US1303750
   @2018.PI04
   @2018.PI04.02
-  Scenario: TC564772 - [RL0]
-    # Scenario 1 (View contract master detail info- No results with message)
-    Given I am on the CMD Action required page
-    When I have clicked the down arrow on a contract summary row
-    And No contract results were found for the contract summary row
-    Then I am presented with a message. "No contract masters were found based on the below search parameters. In order to complete this contract installation, please enter applicable information in the fields listed below.
-    And I can see the input parameters below the message
-      | Market Number |
-      | Fee Schedule |
-      | Product Group |
-    #Search parameters
-    #Market Number: XXXXXXXXXX
-    #Fee Schedule: XXXXXXXXXX
-    #Product Group: XX, XX, XX
+  Scenario: TC593200 - [RL4]
+    # scenario 6 (contract load button)
+    Given I have selected a contract master for a product grouping
+    When The status of of the contract master product grouping is 'contract master selected"
+    Then A proceed with contract load button appears
+
+  @TC593201
+  @Manual
+  @Functional
+  @A_UI_Story
+  @US1303750
+  @2018.PI04
+  @2018.PI04.02
+  Scenario: TC593201 - [RL5]
+    # Scenario 7 (click contract load button)
+    Given I have selected a contract master for a product grouping
+    When I click on the proceed with contract load button
+    Then The following message is displayed to me "The contract master for this product grouping has been recorded"
+    And The product grouping row is removed from the display
+
+  @TC593197
+  @Manual
+  @Functional
+  @A_UI_Story
+  @US1303750
+  @2018.PI04
+  @2018.PI04.02
+  Scenario: TC593197 - [RL2]
+    # Scenario 4 (Select contract master- Use this once)
+    Given I am on the CMD Action Required page
+    When I entered in a contract master number, contract master name, contract system, contract master effective date
+    And I selected user this contract master "once"
+    And I have clicked on the submit button
+    Then The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me
+    And The status of the contract master product grouping is changed to contract master selected
 

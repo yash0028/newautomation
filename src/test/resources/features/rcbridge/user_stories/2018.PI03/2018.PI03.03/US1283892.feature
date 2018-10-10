@@ -10,13 +10,13 @@
 @F201371
 Feature: US1283892 - [Unfinished] Import Data from Spreadsheet into Table
 
-  @TC564668
-  @Automated
+  @TC605408
+  @Manual
   @Functional
   @US1283892
   @2018.PI03
   @2018.PI03.03
-  Scenario: TC564668 - [RL0]
+  Scenario: TC605408 - [RL0]
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
     And The import is processed successfully
@@ -24,13 +24,13 @@ Feature: US1283892 - [Unfinished] Import Data from Spreadsheet into Table
     And The content of spreadsheet is parsed and stored in a database table
     And The database is updated to indicate that the spreadsheet was processed successfully
 
-  @TC564669
-  @Automated
+  @TC605409
+  @Manual
   @Functional
   @US1283892
   @2018.PI03
   @2018.PI03.03
-  Scenario: TC564669 - [RL1]
+  Scenario: TC605409 - [RL1]
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
     And The import is fails

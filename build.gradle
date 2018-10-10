@@ -1,6 +1,8 @@
+/*
 plugins {
   id "org.sonarqube" version "2.6.2"
 }
+*/
 
 apply plugin: 'java'
 apply plugin: 'maven'
@@ -14,12 +16,12 @@ targetCompatibility = 1.8
 
 
 
-sonarqube {
-    properties {
-        property 'sonar.host.url', 'http://sonar.optum.com'
-        property 'sonar.login', '826de5590c75919a8317fdfb2148206eebe7ebbc'
-    }
-}
+//sonarqube {
+//    properties {
+//        property 'sonar.host.url', 'http://sonar.optum.com'
+//        property 'sonar.login', '826de5590c75919a8317fdfb2148206eebe7ebbc'
+//    }
+//}
 
 repositories {
     maven { url 'http://repo1.uhc.com/artifactory/repo' }

@@ -26,7 +26,7 @@ public class GherkinLoggerConfiguration implements IConfigurable {
 
     static final String DATE_TIME_FORMAT_STRING_DEFAULT = null;
     static final String WARN_LEVEL_STRING_DEFAULT = "WARN";
-    static final String LOG_FILE_DEFAULT = "System.out scenario";
+    static final String LOG_FILE_DEFAULT = "System.out";
 
 
     /*

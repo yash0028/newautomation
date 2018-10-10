@@ -1,12 +1,6 @@
 # Last updated on 
 @US1256963
 @2018.PI05
-@MVP
-@10/1_Physician
-@Priority_1
-@kumar,_Sachin
-@CMD
-@F209320
 Feature: US1256963 - Update user interface to accomodate new tables
 
   @TC565856
