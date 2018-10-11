@@ -36,7 +36,7 @@ public class CrosswalkPage implements IFactoryPage, IWebInteract {
 
     @Deprecated
     public static CrosswalkPage getCrosswalkPage() {
-        return (getHeaderContractMetadata().getText().equalsIgnoreCase("ContractPage Metadata")) ? new CrosswalkPage(SeleniumHelper.getWebDriver()) : null;
+        return (getHeaderContractMetadata().getText().equalsIgnoreCase("getContractPage Metadata")) ? new CrosswalkPage(SeleniumHelper.getWebDriver()) : null;
     }
 
     @Deprecated

@@ -2,220 +2,277 @@ package ui_test.step;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui_test.page.exari.ContractPage;
 import ui_test.page.exari.HomePage;
 import ui_test.page.exari.LoginPage;
-import ui_test.page.pagehelpers.ExcelReader;
+import ui_test.page.exari.contract.wizard.ContractWizard;
+import ui_test.page.exari.contract.wizard.subpages.*;
 import ui_test.util.IUiStep;
 import ui_test.util.IWebInteract;
+import util.ExcelReader;
 import util.IFileInteract;
 import util.configuration.IConfigurable;
+
 
 public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(IWebInteract.class);
 
     private LoginPage loginPage;
     private HomePage homePage;
-    private ContractPage contractPage;
     private ExcelReader excelReader;
 
-    @Given("^I am on the Exari Login Screen$")
-    public void gotoLogin() {
+    @Given("^I am logged into Exari as a valid user$")
+    public void loginAndGoToHomePage() {
         getRemoteDriver().get(configGetOptionalString("exari.devURL").orElse(""));
         loginPage = new LoginPage(getRemoteDriver());
         Assert.assertTrue(loginPage.confirmCurrentPage());
 
-        loginPage.setLoginCredentials();
-        homePage = loginPage.HomeTab();
+        Assert.assertTrue(loginPage.login());
+        log.info("login successful");
+
+        homePage = loginPage.getHomePage();
     }
 
-    @Then("^amend SMGA contract in Exari$")
-    public void amendmentOfSMGAContractInExari() {
-        homePage.ClickOnSitecontract();
-        homePage.ClickOnEnv("Test", homePage.Clicktostart);
-
-        homePage.clickonAnySmartTemplate();
-        homePage.selectDropDownByValue(homePage.getDriver().findElement(By.xpath(homePage.xpath)), "SMGA");
-
-        homePage.click(homePage.AnyStatus);
-        homePage.selectDropDownByValue(homePage.getDriver().findElement(By.xpath(homePage.AnyStatusXpath)), "Active");
-        homePage.waitTillVisible(homePage.FirstRow);
-
-        homePage.click(homePage.FirstRow);
-        homePage.waitTillVisible(homePage.CreateAmendment);
-
-        homePage.click(homePage.CreateAmendment);
-        homePage.waitTillVisible(homePage.CreateAmendment_title);
-
-        homePage.cleanWriteTextBox(homePage.AmendmentTitle_TextBox, "Amendment");
-        homePage.click(homePage.Create);
-
-        //Switch to Contract Page
-        contractPage = homePage.ContractPage();
-        contractPage.waitTillVisible(contractPage.interviewsummary_label);
-        contractPage.pause(2);
-        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
-        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
-
-        //set Edit Status
-        homePage.setEditStatus("Final Pending QA", homePage.finalCapture);
-
-        //click Final Capture
-        homePage.clickFinalCapture(contractPage.interviewsummary_label);
-        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
-        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
-
-        //set Edit Status
-        homePage.setEditStatus("Active", homePage.status_active);
+    @Given("^I am on the \"([^\"]*)\" site$")
+    public void setSite(String siteOption) {
+//        Assert.assertTrue(homePage.confirmCurrentPage());
+        Assert.assertTrue(homePage.setSiteEnvironment2Test());
+        log.info("moved to test site");
     }
 
-    @Then("^author SMGA contract in Exari$")
+    @When("^I author a SMGA contract in Exari$")
     public void authorSMGAContractInExari() {
         excelReader = new ExcelReader(getResourcePath("/support/TestData.xlsx"));
         final int Row = 2;
+        GenericInputPage page;
 
-        homePage.ClickOnSitecontract();
-        homePage.ClickOnEnv("Test", homePage.Clicktostart);
+        //Start Contract Creation for SMGA Template
+        homePage.startContractWithSMGATemplate();
+        log.info("started contract wizard");
 
-        homePage.ClickOnClickonStart();
-        homePage.ClickOnTemplate(homePage.SMGATemplate, "SMGA Template");
+        //Switch to Contract Wizard
+        ContractWizard wizard = homePage.getContractPage().getContractWizard();
 
+        //Handle PES Input Page
+        PESInputPage pesInputPage = wizard.getPESInputPage();
+        String mpinInput = excelReader.getCellData("SMGA", "MPIN", Row);
+        pesInputPage.enterMPIN(mpinInput);
+        pesInputPage.clickNext();
 
-        contractPage = homePage.ContractPage();
+        //Handle PES Response Page
+        PESResponsePage pesResponsePage = wizard.getPESResponsePage();
+        pesResponsePage.selectCounterPartyOption1();
+        pesResponsePage.clickNext();
 
-        //PES INPUT
-        contractPage.cleanWriteTextBox(contractPage.MPIN_TextBox, excelReader.getCellData("SMGA", "MPIN", Row));
-        contractPage.MPIN_TextBox.sendKeys(Keys.TAB);
-        contractPage.clickOnNextAndWait(contractPage.TheCounterparty_Label);
+        //Handle Document Selection Page
+        DocumentSelectionPage documentSelectionPage = wizard.getDocumentSelectionPage();
+        documentSelectionPage.selectPaperTypeOptionalSMGA();
+        documentSelectionPage.clickNext();
 
-        //get the value
+        //Handle Market Number Page
+        MarketNumberInputPage marketNumberInputPage = wizard.getMarketNumberInputPage();
+        String marketNumberInput = excelReader.getCellData("SMGA", "MarketNo", Row);
+        marketNumberInputPage.selectMarketNumber(marketNumberInput);
+        marketNumberInputPage.clickNext();
 
-        //PES Response
-        contractPage.click(contractPage.optionButton1);
-        contractPage.clickOnNextAndWait(contractPage.DocumentSelection_Label);
+        //Handle Provider Details Review Page, no action
+        page = wizard.getProviderDetailsReviewPage();
+        page.clickNext();
 
-        //Document Selection
-        contractPage.click(contractPage.SMGA);
-        contractPage.clickOnNextAndWait(contractPage.dropdown_arrow);
+        //Handle RFP Response Part 1 Page, no action
+        page = wizard.getRFPResponsePart1Page();
+        page.clickNext();
 
-        //Market Number
-        contractPage.enterDropDown(excelReader.getCellData("SMGA", "MarketNo", Row));
-        contractPage.clickOnNext();
+        //Handle RFP Response Part 2 Page, no action
+        page = wizard.getRFPResponsePart2Page();
+        page.clickNext();
 
-        //match the value
-        contractPage.clickOnNextAndWait(contractPage.RFPResponseState_Label);
-        contractPage.clickOnNextAndWait(contractPage.RFPResponse_Label);
-        contractPage.clickOnNextAndWait(contractPage.HBPsRedDoor_Label);
+        //Handle to HBPs Red Door Page
+        HBPRedDoorPage hbpRedDoorPage = wizard.getHBPRedDoorPage();
+        hbpRedDoorPage.selectHospitalBasedProvidersOptionNo();
+        hbpRedDoorPage.clickNext();
 
-        //HBPs Red Door
-        contractPage.selectNo();
-        contractPage.waitTillVisible(contractPage.Appendix1_Label);
+        //Handle Appendix 1 Page
+        Appendix1Page appendix1Page = wizard.getAppendix1Page();
+        appendix1Page.selectAdditionalManualOptionNo();
+        appendix1Page.clickNext();
 
-        //appendix1
-        contractPage.selectNo();
-        contractPage.waitTillVisible(contractPage.Appendix2_Label);
+        //Handle Appendix 2 Page, no action
+        page = wizard.getAppendix2Page();
+        page.clickNext();
 
-        //appendix2
-        contractPage.clickOnNextAndWait(contractPage.PaymentAppendice_Label);
+        //Handle Payment Appendix Page, no action
+        page = wizard.getPaymentAppendixPage();
+        page.clickNext();
 
-        //Payment Appendix
-        contractPage.clickOnNextAndWait(contractPage.Appendix3_Label);
+        //Handle Appendix 3 Page, no action
+        page = wizard.getAppendix3Page();
+        page.clickNext();
 
-        //Appendix3
-        contractPage.clickOnNextAndWait(contractPage.Appendix4_Label);
+        //Handle Appendix 4 Page, no action
+        page = wizard.getAppendix4Page();
+        page.clickNext();
 
-        //Appendix4
-        contractPage.clickOnNextAndWait(contractPage.ContractDetails_Label);
+        //Handle Contact Details Page
+        ContractDetailsPage contractDetailsPage = wizard.getContractDetailsPage();
+        String effectiveDateInput = excelReader.getCellData("SMGA", "EffectiveDate", Row);
+        contractDetailsPage.setEffectiveDate(effectiveDateInput);
+        contractDetailsPage.clickNext();
 
-        //Contact Details
-        contractPage.pause(2);
-        contractPage.ContractEffectiveDate_TextBox.sendKeys(excelReader.getCellData("SMGA", "EffectiveDate", Row));//"January 1, 2038"
-        contractPage.ContractEffectiveDate_TextBox.sendKeys(Keys.TAB);
+        //Handle Interview Summary Page, no action
+        page = wizard.getInterviewSummaryPage();
+        page.clickNext();
 
-        contractPage.clickOnNextAndWait(contractPage.interviewsummary_label);
-        contractPage.pause(2);
-        //interview summary Details
-        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
+        //Handle Wizard Complete Page
+        WizardCompletePage wizardCompletePage = wizard.getWizardCompletePage();
+        wizardCompletePage.clickWizardNext();
 
-        //wizard Complete Page
-        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
+        //Back to Home Page
 
         //set Edit Status
-        homePage.setEditStatus("Final Pending QA", homePage.finalCapture);
+        homePage.setEditStatus("Final Pending QA");
 
         //click Final Capture
-        homePage.clickFinalCapture(contractPage.interviewsummary_label);
-        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
-        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
+        homePage.clickFinalCapture();
+
+        //Handle Interview Summary Page, no action
+        page = wizard.getInterviewSummaryPage();
+        page.clickNext();
+
+        //Handle Wizard Complete Page
+        wizardCompletePage = wizard.getWizardCompletePage();
+        wizardCompletePage.clickWizardNext();
+
+        //Back to Home Page
 
         //set Edit Status
-        homePage.setEditStatus("Active", homePage.status_active);
+        homePage.setEditStatus("Active");
+
+        homePage.checkActiveStatus();
     }
 
-    @Then("^terminate SMGA contract in Exari$")
+
+    @When("^I amend the most recent SMGA contract in Exari$")
+    public void amendmentOfSMGAContractInExari() {
+        boolean test;
+
+        //Set Smart Template to SMGA
+        test = homePage.selectSmartTemplateSMGA();
+
+        //Set Status to Active
+        test &= homePage.selectStatusActive();
+
+        //Click on First Row of My Contracts table
+        test &= homePage.clickContractsTableFirstRow();
+
+        //Click Create Amendment
+        //TODO missing locator in homePage
+
+        //Enter Amendment Title in the Text Box
+
+        //Switch to Contract Page
+
+        //Click on Next
+
+        //Click on Wizard Complete
+
+        //Click on Next
+
+        //Set Edit Status
+
+        //Click Final Capture
+
+        //Click Next
+
+        //Click Wizard Complete
+
+        //Click Next
+
+        //Set Edit Status
+
+//        homePage.click(homePage.CreateAmendment);
+//        homePage.waitTillVisible(homePage.CreateAmendment_title);
+//
+//        homePage.cleanWriteTextBox(homePage.AmendmentTitle_TextBox, "Amendment");
+//        homePage.click(homePage.Create);
+//
+//        //Switch to Contract Page
+//        contractPage = homePage.getContractPage();
+//        contractPage.waitTillVisible(contractPage.interviewsummary_label);
+//        contractPage.pause(2);
+//        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
+//        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
+//
+//        //set Edit Status
+//        homePage.setEditStatus("Final Pending QA", homePage.finalCapture);
+//
+//        //click Final Capture
+//        homePage.clickFinalCapture(contractPage.interviewsummary_label);
+//        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
+//        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
+//
+//        //set Edit Status
+//        homePage.setEditStatus("Active", homePage.status_active);
+//
+//        Assert.assertTrue(test);
+    }
+
+
+    @When("^I terminate the most recent SMGA contract in Exari$")
     public void terminateSMGAContractInExari() {
-        homePage.ClickOnSitecontract();
-        homePage.ClickOnEnv("Test", homePage.Clicktostart);
-
-        homePage.clickonAnySmartTemplate();
-        homePage.selectDropDownByValue(homePage.getDriver().findElement(By.xpath(homePage.xpath)), "SMGA");
-
-
-        homePage.click(homePage.AnyStatus);
-        homePage.selectDropDownByValue(homePage.getDriver().findElement(By.xpath(homePage.AnyStatusXpath)), "Active");
-
-        homePage.waitTillVisible(homePage.FirstRow);
-        homePage.click(homePage.FirstRow);
-
-        homePage.waitTillVisible(homePage.Terminate);
-        homePage.click(homePage.Terminate);
-
-        /* * Switching to contractPage page* */
-        contractPage = homePage.ContractPage();
-        contractPage.waitTillVisible(contractPage.interviewsummary_label);
-        contractPage.pause(4);
-
-        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
-        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
-
-        //set Edit Status
-        homePage.setEditStatus("Final Pending QA", homePage.finalCapture);
-
-        //click Final Capture
-        homePage.clickFinalCapture(contractPage.interviewsummary_label);
-        homePage.pause(2);
-        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
-        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
-
-        //set Edit Status
-        homePage.setEditStatus("Active", homePage.status_active);
+//        homePage.ClickOnSitecontract();
+//        homePage.setSiteEnvironment2Test();
+//
+//        homePage.clickonAnySmartTemplate();
+//        homePage.selectDropDownByValue(homePage.getDriver().findElement(By.xpath(homePage.xpath)), "SMGA");
+//
+//
+//        homePage.click(homePage.AnyStatus);
+//        homePage.selectDropDownByValue(homePage.getDriver().findElement(By.xpath(homePage.AnyStatusXpath)), "Active");
+//
+//        homePage.waitTillVisible(homePage.tableContractsFirstRow);
+//        homePage.click(homePage.tableContractsFirstRow);
+//
+//        homePage.waitTillVisible(homePage.Terminate);
+//        homePage.click(homePage.Terminate);
+//
+//        /* * Switching to contractPage page* */
+//        contractPage = homePage.getContractPage();
+//        contractPage.waitTillVisible(contractPage.interviewsummary_label);
+//        contractPage.pause(4);
+//
+//        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
+//        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
+//
+//        //set Edit Status
+//        homePage.setEditStatus("Final Pending QA", homePage.finalCapture);
+//
+//        //click Final Capture
+//        homePage.clickFinalCapture(contractPage.interviewsummary_label);
+//        homePage.pause(2);
+//        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
+//        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
+//
+//        //set Edit Status
+//        homePage.setEditStatus("Active", homePage.status_active);
 
     }
 
-    @Then("^author SPA Contract in Exari$")
-    public void authorSPAContractInExari() {
-        excelReader = new ExcelReader(getResourcePath("/support/TestData.xlsx"));
+    @Then("^I have a completed SMGA contract in Exari$")
+    public void iHaveACompletedSMGAContractInExari() throws Throwable {
 
-        homePage.ClickOnSitecontract();
-        homePage.ClickOnEnv("Test", homePage.Clicktostart);
-        homePage.ClickOnClickonStart();
-        homePage.ClickOnTemplate(homePage.SPA_PATTemplate, "SPA_PAT Template");
+    }
 
-        contractPage = homePage.ContractPage();
-        //PES INPUT
-        contractPage.cleanWriteTextBox(contractPage.MPIN_TextBox, excelReader.getCellData("SPA", "MPIN", 2));
-        contractPage.cleanWriteTextBox(contractPage.MPIN_TextBox, excelReader.getCellData("SPA", "MPIN", 2));
-        contractPage.cleanWriteTextBox(contractPage.TIN_TextBox, excelReader.getCellData("SPA", "TIN", 2));
-        contractPage.cleanWriteTextBox(contractPage.City_TextBox, excelReader.getCellData("SPA", "City", 2));
-        contractPage.cleanWriteTextBox(contractPage.ZipCode_TextBox, excelReader.getCellData("SPA", "ZipCode", 2));
-        contractPage.click(contractPage.NEXT);
+    @Then("^I have an amended SMGA contract in Exari$")
+    public void iHaveAnAmendedSMGAContractInExari() throws Throwable {
 
-        //PES Response
+    }
+
+    @Then("^I have a terminated SMGA contract in Exari$")
+    public void iHaveATerminatedSMGAContractInExari() throws Throwable {
 
     }
 }

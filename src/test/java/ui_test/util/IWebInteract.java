@@ -1,7 +1,6 @@
 package ui_test.util;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -31,10 +30,10 @@ public interface IWebInteract {
 
     default void pause(int seconds) {
         WebFunction.getInstance().pause(seconds);
+        log.trace("paused for {} seconds", seconds);
     }
 
     default boolean isVisible(WebElement element) {
-        highlight(element);
         return element.isEnabled() && element.isDisplayed();
     }
 
@@ -44,13 +43,31 @@ public interface IWebInteract {
         return element.isDisplayed();
     }
 
-    default boolean click(WebElement element) {
+    default boolean click(WebElement element, String elementName) {
         try {
             highlight(element);
             element.click();
-            log.trace("clicked on {}", element.getText());
+            log.trace("clicked on {}", elementName);
         } catch (Exception e) {
-            log.error(e.getMessage());
+            log.error("click failed for {}", elementName, e);
+            return false;
+        }
+
+        return true;
+    }
+
+    default boolean click(WebElement element) {
+        return click(element, "element");
+    }
+
+    default boolean submit(WebElement element, String elementName) {
+        try {
+            highlight(element);
+            element.submit();
+            log.trace("submitted for {}", elementName);
+        } catch (Exception e) {
+            log.error("submit failed for {}", elementName, e);
+
             return false;
         }
 
@@ -58,13 +75,16 @@ public interface IWebInteract {
     }
 
     default boolean submit(WebElement element) {
+        return submit(element, "element");
+    }
+
+    default boolean sendKeys(WebElement element, String elementName, CharSequence... charSequences) {
         try {
             highlight(element);
-            element.submit();
-            log.trace("submitted {}", element.getText());
+            element.sendKeys(charSequences);
+            log.trace("sent keys {} to {}", Arrays.toString(charSequences), elementName);
         } catch (Exception e) {
-            log.error(e.getMessage());
-
+            log.error("send keys to {} failed", elementName, e);
             return false;
         }
 
@@ -72,12 +92,17 @@ public interface IWebInteract {
     }
 
     default boolean sendKeys(WebElement element, CharSequence... charSequences) {
+        return sendKeys(element, "element", charSequences);
+    }
+
+    default boolean selectDropDownByValue(WebElement element, String elementName, String value) {
         try {
             highlight(element);
-            element.sendKeys(charSequences);
-            log.trace("sent keys {}", Arrays.toString(charSequences));
+            Select select = new Select(element);
+            select.selectByVisibleText(value);
+            log.trace("drop down {} selected value {}", elementName, value);
         } catch (Exception e) {
-            log.error(e.getMessage());
+            log.error("drop down {} failed for value {}", elementName, value, e);
             return false;
         }
 
@@ -85,13 +110,17 @@ public interface IWebInteract {
     }
 
     default boolean selectDropDownByValue(WebElement element, String value) {
+        return selectDropDownByValue(element, "element", value);
+    }
+
+    default boolean selectDropDownByIndex(WebElement element, String elementName, int index) {
         try {
             highlight(element);
             Select select = new Select(element);
-            select.selectByVisibleText(value);
-            log.trace("drop down selected {}", value);
+            select.selectByIndex(index);
+            log.trace("drop down {} selected index {}", elementName, index);
         } catch (Exception e) {
-            log.error(e.getMessage());
+            log.error("drop down {} failed for index {}", elementName, index, e);
             return false;
         }
 
@@ -99,68 +128,88 @@ public interface IWebInteract {
     }
 
     default boolean selectDropDownByIndex(WebElement element, int index) {
-        try {
-            highlight(element);
-            Select select = new Select(element);
-            select.selectByIndex(index);
-            log.trace("drop down selected index {}", index);
-        } catch (Exception e) {
-            log.error(e.getMessage());
-            return false;
-        }
-
-        return true;
+        return selectDropDownByIndex(element, "element", index);
     }
 
-    default boolean selectRadioButtonByValue(List<WebElement> elements, String value) {
+    default boolean selectRadioButtonByValue(List<WebElement> elements, String elementName, String value) {
         try {
             for (WebElement element : elements) {
                 highlight(element);
                 if (element.getAttribute("value").contains(value)) {
-                    return click(element);
+                    return click(element, elementName);
                 }
             }
         } catch (Exception e) {
-            log.error(e.getMessage());
+            log.error("radio {} select failed for value {}", elementName, value, e);
         }
 
         return false;
+    }
 
+    default boolean selectRadioButtonByValue(List<WebElement> elements, String value) {
+        return selectRadioButtonByValue(elements, "element", value);
+    }
+
+    default boolean selectRadioButtonByIndex(List<WebElement> elements, String elementName, int index) {
+        try {
+            highlight(elements.get(index));
+            return click(elements.get(index), elementName);
+        } catch (Exception e) {
+            log.error("radio {} select failed for index {}", elementName, index, e);
+        }
+
+        return false;
     }
 
     default boolean selectRadioButtonByIndex(List<WebElement> elements, int index) {
+        return selectRadioButtonByIndex(elements, "element", index);
+    }
+
+    default boolean setCheckBox(WebElement element, String elementName, boolean checked) {
         try {
-            highlight(elements.get(index));
-            return click(elements.get(index));
+            highlight(element);
+            if (element.isSelected() != checked) {
+                return click(element);
+            } else {
+                log.trace("checkbox {} already set to {}", elementName, checked);
+                return true;
+            }
         } catch (Exception e) {
-            log.error(e.getMessage());
+            log.error("checkbox {} failed", elementName, e);
         }
 
         return false;
     }
 
     default boolean setCheckBox(WebElement element, boolean checked) {
-        try {
-            highlight(element);
-            if (element.isSelected() != checked) {
-                return click(element);
-            } else {
-                log.trace("checkbox already set to {}", checked);
-            }
-        } catch (Exception e) {
-            log.error(e.getMessage());
-        }
-
-        return false;
+        return setCheckBox(element, "element", checked);
     }
 
-    default boolean clear(WebElement element) {
+    default boolean clear(WebElement element, String elementName) {
         try {
             highlight(element);
             element.clear();
-            log.trace("cleared");
+            log.trace("cleared {}", elementName);
         } catch (Exception e) {
-            log.error(e.getMessage());
+            log.error("clear {} failed", elementName, e);
+            return false;
+        }
+
+        return true;
+    }
+
+    default boolean clear(WebElement element) {
+        return clear(element, "element");
+    }
+
+    default boolean hover(WebElement element, String elementName) {
+        try {
+            highlight(element);
+            Actions actions = new Actions(this.getDriver());
+            actions.moveToElement(element).build().perform();
+            log.trace("hover on {}", elementName);
+        } catch (Exception e) {
+            log.error("hover over {} failed", elementName, e);
             return false;
         }
 
@@ -168,16 +217,7 @@ public interface IWebInteract {
     }
 
     default boolean hover(WebElement element) {
-        try {
-            highlight(element);
-            Actions actions = new Actions(this.getDriver());
-            actions.moveToElement(element).build().perform();
-        } catch (Exception e) {
-            log.error(e.getMessage());
-            return false;
-        }
-
-        return true;
+        return hover(element, "element");
     }
 
     default Set<String> getWindows() {
@@ -200,7 +240,7 @@ public interface IWebInteract {
             this.getDriver().switchTo().window(name);
             log.trace("switched to window {}", this.getDriver().getTitle());
         } catch (Exception e) {
-            log.error(e.getMessage());
+            log.error("switch window failed for {}", name, e);
             return false;
         }
         return true;
@@ -211,7 +251,7 @@ public interface IWebInteract {
             Alert alert = this.getDriver().switchTo().alert();
             alert.accept();
         } catch (Exception e) {
-            log.error(e.getMessage());
+            log.error("alert accept failed", e);
             return false;
         }
 
@@ -223,12 +263,10 @@ public interface IWebInteract {
     }
 
     //TODO
-    default void cleanWriteTextBox(WebElement element, String text) {
+    default boolean cleanWriteTextBox(WebElement element, String text) {
         highlight(element);
-        sendKeys(element, Keys.TAB);
         clear(element);
-        pause(2);
-        sendKeys(element, text);
+        return sendKeys(element, text);
     }
 
 

@@ -312,9 +312,9 @@ public class GherkinLogger extends MarkerIgnoringBase {
         UtilityGeneralSteps.scenario.write(buffer.toString());
 
         if (t != null) {
-            UtilityGeneralSteps.scenario.write(t.getMessage());
+//            UtilityGeneralSteps.scenario.write(t.getMessage());
+            writeThrowable(t, CONFIG.output.getTargetStream());
         }
-
     }
 
     private boolean isLevelEnabled(int logLevel) {

@@ -44,7 +44,7 @@ public class CMDPage implements IFactoryPage {
 
     @Deprecated
     public static CMDPage getCMDPage() {
-        return (getHeaderContractMetadata().getText().equalsIgnoreCase("ContractPage Management")) ? new CMDPage(SeleniumHelper.getWebDriver()) : null;
+        return (getHeaderContractMetadata().getText().equalsIgnoreCase("getContractPage Management")) ? new CMDPage(SeleniumHelper.getWebDriver()) : null;
     }
 
     @Deprecated
