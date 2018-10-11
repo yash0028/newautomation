@@ -59,7 +59,7 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep {
     public void theQueryResponseProvidesTheMostRecentRecordVersionAttributesData() throws Throwable {
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
         response = request.post(RESOURCE_TAXONOMY_QUERY);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(200, response.getStatusCode());
 
         JsonObject result = parseJsonResponse(response);
 
@@ -74,13 +74,13 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep {
     public void theQueryResponseReturnsAnError() throws Throwable {
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
         response = request.post(RESOURCE_TAXONOMY_QUERY);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(200, response.getStatusCode());
 
         JsonObject result = parseJsonResponse(response);
 
         int responseCode = result.get("responseCode").getAsInt();
 
-        Assert.assertNotEquals(responseCode, 200);
+        Assert.assertNotEquals(200, responseCode);
 
     }
 
@@ -88,7 +88,7 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep {
     public void theQueryResponseIncludesAllRecordsThatMatched() throws Throwable {
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
         response = request.post(RESOURCE_TAXONOMY_QUERY);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(200, response.getStatusCode());
 
         JsonObject result = parseJsonResponse(response);
 

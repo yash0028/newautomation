@@ -20,8 +20,8 @@ import static io.restassured.RestAssured.given;
 public class MarketTableSteps implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(MarketTableSteps.class);
 
-    private static final String ENDPOINT = "http://ndb-lookup-crosswalk-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String RESOURCE_MARKET = "/market/";
+    private static final String ENDPOINT = "http://contract-metadata-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String RESOURCE_MARKET = "/v1.0/markets";
 
     private RequestSpecification request;
     private Response response;
@@ -30,22 +30,23 @@ public class MarketTableSteps implements IRestStep {
     @Given("^the market number \"([^\"]*)\" is(?: not)? listed in the Market UHC table$")
     public void setMarketNumber(String arg0) throws Throwable {
         marketNumber = arg0;
+//        marketNumber = "45597";
     }
 
     @When("^a query to the table is initiated$")
     public void initiateQuery() throws Throwable {
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
-        response = request.get(RESOURCE_MARKET + marketNumber);
+        response = request.get(RESOURCE_MARKET + "?marketNumber=" + marketNumber);
+        Assert.assertEquals(200, response.getStatusCode());
     }
 
     @Then("^the query response includes the market record information$")
     public void verifyQueryResponseWithMarketRecord() throws Throwable {
         JsonElement result = parseJsonElementResponse(response);
-
         // Checks to make sure the json element is a json object
         Assert.assertTrue(result.isJsonObject());
 
-        Assert.assertEquals(marketNumber, result.getAsJsonObject().get("marketUhcDetails").getAsJsonObject().get("marketNumber").getAsString());
+        Assert.assertEquals(marketNumber, result.getAsJsonObject().get("content").getAsJsonArray().get(0).getAsJsonObject().get("marketNumber").getAsString());
     }
 
     @Then("^the query response does not return the market record information$")
@@ -53,7 +54,7 @@ public class MarketTableSteps implements IRestStep {
         JsonElement result = parseJsonElementResponse(response);
         Assert.assertTrue(result.isJsonObject());
 
-        Assert.assertTrue(result.getAsJsonObject().get("marketUhcDetails").isJsonNull());
+        Assert.assertTrue(!(result.getAsJsonObject().has("content")));
     }
 
     @And("^a record not found message is returned$")
