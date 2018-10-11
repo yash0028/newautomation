@@ -1,5 +1,7 @@
 package rest_api_test.step;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -10,6 +12,7 @@ import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
+import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
@@ -33,6 +36,7 @@ public class PESSteps implements IRestStep {
     private RequestSpecification request;
     private Response response;
     private JsonObject commonSearchParams;
+    private JsonElement responseJson;
 
     public PESSteps() {
         this.commonSearchParams = new JsonObject();
@@ -359,6 +363,35 @@ public class PESSteps implements IRestStep {
 
     @Given("^a user wants to do a search for Roster$")
     public void aUserWantsToDoASearchForRoster() throws Throwable {
-        // noop - assuming true
+        // assuming true
+    }
+
+    //US1364505
+
+    @And("^the search results give back more than (\\d+) (providers|locations)$")
+    public void theSearchResultsGiveBackMoreThanProviders(int min, String searchType) throws Throwable {
+        Assert.assertTrue("Response did not return back 200 status code", response.statusCode() == 200);
+
+        this.responseJson = parseJsonElementResponse(response);
+        JsonArray resultArray = new JsonArray();
+
+        if(searchType.equalsIgnoreCase("providers")){
+            resultArray = responseJson.getAsJsonObject().get("providers").getAsJsonArray();
+        }
+        else{
+            resultArray = responseJson.getAsJsonObject().get("locations").getAsJsonArray();
+        }
+
+        int rSize = resultArray.size();
+
+        Assert.assertTrue("Response did not contain more than " + min + " " + searchType +", but contained " + rSize,rSize > min);
+    }
+
+    @Then("^the user can see up to (\\d+) (providers|locations)$")
+    public void theUserCanSeeUpToProviders(int max, String searchType) throws Throwable {
+        JsonArray resultArray = responseJson.getAsJsonObject().get("providers").getAsJsonArray();
+        int pSize = resultArray.size();
+
+        Assert.assertTrue("Response contained more than " + max + " " + searchType + ", totaling" + pSize,pSize > max);
     }
 }
