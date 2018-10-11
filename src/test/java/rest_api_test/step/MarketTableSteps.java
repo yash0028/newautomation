@@ -1,6 +1,6 @@
 package rest_api_test.step;
 
-import com.google.gson.JsonObject;
+import com.google.gson.JsonElement;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -36,28 +36,32 @@ public class MarketTableSteps implements IRestStep {
     public void initiateQuery() throws Throwable {
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
         response = request.get(RESOURCE_MARKET + marketNumber);
-
     }
 
     @Then("^the query response includes the market record information$")
     public void verifyQueryResponseWithMarketRecord() throws Throwable {
-        JsonObject result = parseJsonResponse(response);
+        JsonElement result = parseJsonElementResponse(response);
 
-        Assert.assertEquals(marketNumber, result.get("marketUhcDetails").getAsJsonObject().get("marketNumber").getAsString());
+        // Checks to make sure the json element is a json object
+        Assert.assertTrue(result.isJsonObject());
+
+        Assert.assertEquals(marketNumber, result.getAsJsonObject().get("marketUhcDetails").getAsJsonObject().get("marketNumber").getAsString());
     }
 
     @Then("^the query response does not return the market record information$")
     public void verifyNoMarketRecord() throws Throwable {
-        JsonObject result = parseJsonResponse(response);
+        JsonElement result = parseJsonElementResponse(response);
+        Assert.assertTrue(result.isJsonObject());
 
-        Assert.assertTrue(result.get("marketUhcDetails").isJsonNull());
+        Assert.assertTrue(result.getAsJsonObject().get("marketUhcDetails").isJsonNull());
     }
 
     @And("^a record not found message is returned$")
     public void verifyRecordNotFound() throws Throwable {
-        JsonObject result = parseJsonResponse(response);
+        JsonElement result = parseJsonElementResponse(response);
+        Assert.assertTrue(result.isJsonObject());
 
-        Assert.assertEquals("No data found", result.get("errorDetails").getAsJsonObject().get("message").getAsString());
+        Assert.assertEquals("No data found", result.getAsJsonObject().get("errorDetails").getAsJsonObject().get("message").getAsString());
     }
 
 }
