@@ -86,11 +86,12 @@ public class ContractMetadataApiSteps implements IRestStep {
         ArrayList<String> expectedProductCodeArr = new ArrayList<>(Arrays.asList(expectedProductCodes.split(" ")));
 
         JsonElement result = parseJsonElementResponse(response);
+        Assert.assertTrue(result.isJsonArray());
 
         // Check that the result is a valid json array and returns list of product codes
         // Check if response is a json array with one object that contains key value pair of productCodeList
         // and an array.
-        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result, 1, 0);
+        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result.getAsJsonArray(), 1, 0);
 
         // check that the expected product code list is equal to the result/actual one.
         testProductCodeList(expectedProductCodeArr, resultProductCodeArr);
@@ -106,12 +107,13 @@ public class ContractMetadataApiSteps implements IRestStep {
         ArrayList<String> expectedProductCodeArr2 = new ArrayList<>(Arrays.asList(expectedProductCodes2.split(" ")));
 
         JsonElement result = parseJsonElementResponse(response);
+        Assert.assertTrue(result.isJsonArray());
 
         // Check that the result is a valid json array and returns list of product codes
         // Check if response is a json array with two objects. Each object contains key value pairs of productCodeList
         // and an array.
-        JsonArray resultProductCodeArr1 = checkAndParseProductCodeResult(result, 2, 0);
-        JsonArray resultProductCodeArr2 = checkAndParseProductCodeResult(result, 2, 1);
+        JsonArray resultProductCodeArr1 = checkAndParseProductCodeResult(result.getAsJsonArray(), 2, 0);
+        JsonArray resultProductCodeArr2 = checkAndParseProductCodeResult(result.getAsJsonArray(), 2, 1);
 
         testProductCodeList(expectedProductCodeArr1, resultProductCodeArr1);
         testProductCodeList(expectedProductCodeArr2, resultProductCodeArr2);
@@ -134,6 +136,7 @@ public class ContractMetadataApiSteps implements IRestStep {
         response = request.post(RESOURCE_PRODUCTCODE);
         JsonElement result = parseJsonElementResponse(response);
 
+        Assert.assertTrue(result.isJsonArray());
         Assert.assertEquals(0, result.getAsJsonArray().size());
     }
 
@@ -153,9 +156,10 @@ public class ContractMetadataApiSteps implements IRestStep {
         // Make post request and store response
         response = request.post(RESOURCE_PRODUCTCODE);
         JsonElement result = parseJsonElementResponse(response);
+        Assert.assertTrue(result.isJsonArray());
 
         // Check that the result is a valid json array and returns list of product codes
-        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result, 1, 0);
+        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result.getAsJsonArray(), 1, 0);
 
         testProductCodeList(expectedProductCodeArr, resultProductCodeArr);
     }
@@ -185,16 +189,13 @@ public class ContractMetadataApiSteps implements IRestStep {
      * @param expectedSize    verifies that the json array has the expected number of elements
      * @param indexToRetrieve the index in the json array that we want to retrieve
      * @return returns a list of product codes
-     * @throws Throwable
      */
-    private JsonArray checkAndParseProductCodeResult(JsonElement result, int expectedSize, int indexToRetrieve) throws Throwable {
-        Assert.assertTrue(result.isJsonArray());
-
+    private JsonArray checkAndParseProductCodeResult(JsonArray result, int expectedSize, int indexToRetrieve) throws Throwable {
         // check for correct size
         Assert.assertEquals(expectedSize, result.getAsJsonArray().size());
 
         // get index of result array
-        JsonElement resultIndex = result.getAsJsonArray().get(indexToRetrieve);
+        JsonElement resultIndex = result.get(indexToRetrieve);
         Assert.assertTrue(resultIndex.isJsonObject());
 
         // check if productCodeList element exists
