@@ -1,6 +1,6 @@
 # Last updated on 
 @US1221993
-@Configuration_for_12/1/18
+@Configuration_for_4/1/19
 @MVP
 @PI04
 @Plus
@@ -11,7 +11,7 @@ Feature: US1221993 - Capture 'Expected Completion' date - rate update
   @Automated
   @Functional
   @US1221993
-  @Configuration_for_12/1/18
+  @Configuration_for_4/1/19
   Scenario: TC565004 - [RL0]
     Given a contract has been started
     When I see "Expected Completion Date"

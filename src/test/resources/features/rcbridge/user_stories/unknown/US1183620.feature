@@ -1,6 +1,6 @@
 # Last updated on 
 @US1183620
-@Configuration_for_12/1/18
+@Configuration_for_2/15/19
 @MVP
 @PI04
 @Plus
@@ -11,7 +11,7 @@ Feature: US1183620 - Escalator notice on Dashboard
   @Automated
   @Functional
   @US1183620
-  @Configuration_for_12/1/18
+  @Configuration_for_2/15/19
   Scenario: TC564507 - [RL0]
     Given a contract with an escalator is identified
     When the contractor associated to the contracts views their dashboard

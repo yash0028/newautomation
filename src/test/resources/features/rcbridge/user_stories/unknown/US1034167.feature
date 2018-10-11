@@ -1,6 +1,6 @@
 # Last updated on 
 @US1034167
-@Configuration_for_12/1/18
+@Configuration_for_4/1/19
 @MVP
 @PI04
 @Plus
@@ -11,7 +11,7 @@ Feature: US1034167 - Provide chargemaster summary via the 'Contract Summary'
   @Automated
   @Functional
   @US1034167
-  @Configuration_for_12/1/18
+  @Configuration_for_4/1/19
   Scenario: TC565059 - [RL0]
     Given a contract with chargemaster is identified
     When I click on 'Chargemaster Summary"

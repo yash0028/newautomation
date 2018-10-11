@@ -127,7 +127,6 @@ public class ContractQuerySteps implements IRestStep {
     @Then("^the fields from file \"([^\"]*)\" are returned$")
     public void theFollowingFieldsAreReturned(String filename) throws Throwable {
         //Get the response fields from the data table as a list
-        //List<String> responseFields = responseFieldsDT.asList();
         List<String> responseFields = FileHelper.getInstance().getFileLines("/support/" + filename);
 
         result = parseJsonElementResponse(this.response);
