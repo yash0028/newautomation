@@ -268,6 +268,4 @@ public interface IWebInteract {
         clear(element);
         return sendKeys(element, text);
     }
-
-
 }
