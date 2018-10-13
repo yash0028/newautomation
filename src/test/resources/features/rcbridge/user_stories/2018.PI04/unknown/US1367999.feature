@@ -18,5 +18,5 @@ Feature: US1367999 - PCP Specialties Standard definition UHN
     Given the provider record includes ContractOrgCd equals "UHN"
     And the NDB Provider Record Type equals "P"
     When the primary NDB Specialty Code value equals one of the qualifying NDB Specialty Code values
-    Then the provider record will be "flagged" as a PCP within the database
+    Then the provider record will be "flagged" as a PCP within the optum contract(coming from the Exari roster populated by PES information that will include the org. and/or spec code)
 
