@@ -82,29 +82,29 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
      */
 
     public boolean selectSmartTemplateFilterOptionSMGA() {
-        click(filterSmartTemplate);
-        click(filterScrollDown);
+        click("smart template filter", filterSmartTemplate);
+        click("filter scroll down", filterScrollDown);
 
         //Scroll down for about 10 seconds
         pause(10);
 
-        hover(safeClickPoint);
-        return click(filterSmartTemplateOptionSMGA);
+        hover("safe click point", safeClickPoint);
+        return click("smart template smga option", filterSmartTemplateOptionSMGA);
     }
 
     public boolean selectStatusFilterOptionActive() {
-        click(filterStatus);
-        hover(safeClickPoint);
-        return click(filterStatusOptionActive);
+        click("status filter", filterStatus);
+        hover("safe click point", safeClickPoint);
+        return click("status filter active option", filterStatusOptionActive);
     }
 
     public boolean clickContractsTableFirstRow() {
-        return click(tableContractsFirstRow);
+        return click("contract in first row", tableContractsFirstRow);
     }
 
     public boolean startContractWithSMGATemplate() {
-        click(contractCreateStart);
-        return click(contractCreateSMGATemplate);
+        click("contract start button", contractCreateStart);
+        return click("smga template", contractCreateSMGATemplate);
     }
 
     /*

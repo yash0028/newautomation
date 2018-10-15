@@ -50,6 +50,6 @@ public class WizardCompletePage extends GenericInputPage {
      */
 
     public boolean clickWizardNext() {
-        return click(navigationWizardNext);
+        return click("wizard complete", navigationWizardNext);
     }
 }

@@ -145,27 +145,29 @@ public class ContractPage implements IWebInteract, IFactoryPage {
      */
 
     public boolean setEditStatus(String value) {
-        click(buttonOpenEditStatus);
-        selectDropDownByValue(dropdownEditStatusDialogue, value);
-        return click(buttonEditStatusDialogueSave);
+        click("edit status", buttonOpenEditStatus);
+        selectDropDownByValue("edit status dialogue option dropdown", dropdownEditStatusDialogue, value);
+        return click("edit status dialogue save button", buttonEditStatusDialogueSave);
     }
 
     public boolean clickFinalCapture() {
-        return click(buttonOpenFinalCapture);
+        return click("final capture button", buttonOpenFinalCapture);
     }
 
     public boolean checkActiveStatus() {
+        //Check if contract status of active is visibile
+        //if not, try to expand properties section and try again
         return isVisible(labelContractStatusActive) || expandProperties() && isVisible(labelContractStatusActive);
     }
 
     public boolean createAmendment(String amendmentName) {
-        click(buttonOpenCreateAmendment);
-        cleanWriteTextBox(textBoxCreateAmendmentDialogueAmendmentName, amendmentName);
-        return click(buttonCreateAmendmentDialogueCreate);
+        click("create amendment button", buttonOpenCreateAmendment);
+        cleanWriteTextBox("create amendment dialogue name textbox", textBoxCreateAmendmentDialogueAmendmentName, amendmentName);
+        return click("create amendment dialogue create button", buttonCreateAmendmentDialogueCreate);
     }
 
     public boolean expandProperties() {
-        return click("Properties expand", expandLabelProperties);
+        return click("properties expand", expandLabelProperties);
     }
 
     public boolean clickTerminate() {
