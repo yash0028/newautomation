@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 				"pretty",
 				"json:build/json-reports/json-report.json",
 				"junit:build/xml-reports/xml-report.xml"},
-		tags = {"@ExariUITest and @smga and (@author or @amend)"})
+		tags = {"@ExariUITest and @smga and (@author or @terminate)"})
 public class TestRunner {
 
 }

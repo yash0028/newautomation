@@ -60,6 +60,10 @@ public class ContractPage implements IWebInteract, IFactoryPage {
     @FindBy(xpath = "//button[contains(text(),'Create')]")
     private WebElement buttonCreateAmendmentDialogueCreate;
 
+    @FindBy(xpath = "//span[contains(text(),'Terminate')]")
+    protected WebElement buttonTerminate;
+
+
     //PES RESPONSE
 
     /* *********SMGA******* */
@@ -162,6 +166,10 @@ public class ContractPage implements IWebInteract, IFactoryPage {
 
     public boolean expandProperties() {
         return click("Properties expand", expandLabelProperties);
+    }
+
+    public boolean clickTerminate() {
+        return click("terminate button", buttonTerminate);
     }
 
 

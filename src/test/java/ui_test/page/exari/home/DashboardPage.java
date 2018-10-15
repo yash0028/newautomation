@@ -41,8 +41,7 @@ public class DashboardPage implements IFactoryPage, IWebInteract {
     public WebElement AnyStatus;
     @Deprecated
     public String AnyStatusXpath = "//div[@class='bd']/ul/li";
-    @FindBy(xpath = "//span[contains(text(),'Terminate')]")
-    public WebElement Terminate;
+
     @FindBy(xpath = "//span[contains(@title,'Dashboard')]")
     private WebElement labelDashboard;
     ////li[@id='yui-gen95']/a[@class='yuimenuitemlabel' and text()='SMGA']
@@ -52,7 +51,7 @@ public class DashboardPage implements IFactoryPage, IWebInteract {
     private WebElement headerTabSiteOptionTest;
 
 
-    // SMGA Terminate
+    // SMGA buttonTerminate
     @FindBy(xpath = "//a[@title='Northeast UHN']")
     private WebElement headerTabSiteOptionNortheastUHN;
     @FindBy(xpath = "//a[@title='Central UHN']")

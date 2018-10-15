@@ -42,10 +42,11 @@ public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
     @Given("^I am on the \"([^\"]*)\" site$")
     public void setSite(String siteOption) {
         Assert.assertTrue(dashboardPage.confirmCurrentPage());
-        Assert.assertTrue(dashboardPage.setSiteEnvironmentByString("test"));
+        Assert.assertTrue(dashboardPage.setSiteEnvironmentByString(siteOption));
 
         sitePage = dashboardPage.getSiteManager().getTestSitePage();
-        log.info("moved to test site");
+        assert sitePage.confirmCurrentPage();
+        log.info("moved to {} site", siteOption);
     }
 
     @When("^I author a SMGA contract in Exari$")
@@ -241,32 +242,72 @@ public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
         //set Edit Status
         contractPage.setEditStatus("Active");
 
-        contractPage.checkActiveStatus();
+        assert contractPage.checkActiveStatus();
     }
 
 
     @When("^I terminate the most recent SMGA contract in Exari$")
     public void terminateSMGAContractInExari() {
-//        dashboardPage.ClickOnSitecontract();
-//        dashboardPage.setSiteEnvironment2Test();
-//
-//        dashboardPage.clickonAnySmartTemplate();
-//        dashboardPage.selectDropDownByValue(dashboardPage.getDriver().findElement(By.xpath(dashboardPage.xpath)), "SMGA");
-//
-//
-//        dashboardPage.click(dashboardPage.AnyStatus);
-//        dashboardPage.selectDropDownByValue(dashboardPage.getDriver().findElement(By.xpath(dashboardPage.AnyStatusXpath)), "Active");
-//
-//        dashboardPage.waitTillVisible(dashboardPage.tableContractsFirstRow);
-//        dashboardPage.click(dashboardPage.tableContractsFirstRow);
-//
-//        dashboardPage.waitTillVisible(dashboardPage.Terminate);
-//        dashboardPage.click(dashboardPage.Terminate);
-//
-//        /* * Switching to contractPage page* */
-//        contractPage = dashboardPage.getContractPage();
-//        contractPage.waitTillVisible(contractPage.interviewsummary_label);
-//        contractPage.pause(4);
+        WizardManager wizard;
+        GenericInputPage page;
+
+        //Start Filtering Contracts in Site Page
+
+        //Set Smart Template to SMGA
+        sitePage.selectSmartTemplateFilterOptionSMGA();
+
+        //Set Status to Active
+        sitePage.selectStatusFilterOptionActive();
+
+        //Click on First Row of My Contracts table
+        sitePage.clickContractsTableFirstRow();
+
+        //Switch to Contract Page
+        contractPage = sitePage.getContractPage();
+
+        //Click Terminate button
+        contractPage.clickTerminate();
+
+        //Switch to Contract Wizard
+        wizard = contractPage.getContractWizard();
+
+        //Handle Interview Summary Page, no action
+        page = wizard.getInterviewSummaryPage();
+        assert page.confirmCurrentPage();
+        page.clickNext();
+
+        //Handle Wizard Complete Page
+        WizardCompletePage wizardCompletePage = wizard.getWizardCompletePage();
+        assert wizardCompletePage.confirmCurrentPage();
+        wizardCompletePage.clickWizardNext();
+
+        //Back to Contract Page
+        assert contractPage.confirmCurrentPage();
+
+        //set Edit Status
+        contractPage.setEditStatus("Final Pending QA");
+
+        //click Final Capture
+        contractPage.clickFinalCapture();
+
+        //Handle Interview Summary Page, no action
+        page = wizard.getInterviewSummaryPage();
+        assert page.confirmCurrentPage();
+        page.clickNext();
+
+        //Handle Wizard Complete Page
+        wizardCompletePage = wizard.getWizardCompletePage();
+        assert wizardCompletePage.confirmCurrentPage();
+        wizardCompletePage.clickWizardNext();
+
+        //Back to Contract Page
+        assert contractPage.confirmCurrentPage();
+
+        //set Edit Status
+        contractPage.setEditStatus("Active");
+
+        assert contractPage.checkActiveStatus();
+
 //
 //        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
 //        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
