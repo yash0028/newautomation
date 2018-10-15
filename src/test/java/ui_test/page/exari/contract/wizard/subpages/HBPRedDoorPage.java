@@ -10,7 +10,7 @@ public class HBPRedDoorPage extends GenericInputPage {
     private static final Logger log = LoggerFactory.getLogger(HBPRedDoorPage.class);
 
     /*
-    LOCATORS - Provider Details
+    LOCATORS
      */
 
     @FindBy(xpath = "//p[contains(text(),'HBPs Red Door')]")
@@ -36,7 +36,7 @@ public class HBPRedDoorPage extends GenericInputPage {
 
     @Override
     public boolean confirmCurrentPage() {
-        return false;
+        return isVisible(labelHBPRedDoor);
     }
 
     /*
@@ -44,10 +44,10 @@ public class HBPRedDoorPage extends GenericInputPage {
      */
 
     public boolean selectHospitalBasedProvidersOptionYes() {
-        return click(radioOptionYes);
+        return click("yes radio button", radioOptionYes);
     }
 
     public boolean selectHospitalBasedProvidersOptionNo() {
-        return click(radioOptionNo);
+        return click("no radio button", radioOptionNo);
     }
 }

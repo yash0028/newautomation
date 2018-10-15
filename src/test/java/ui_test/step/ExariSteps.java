@@ -6,10 +6,12 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui_test.page.exari.HomePage;
-import ui_test.page.exari.LoginPage;
-import ui_test.page.exari.contract.wizard.ContractWizard;
+import ui_test.page.exari.contract.ContractPage;
+import ui_test.page.exari.contract.wizard.WizardManager;
 import ui_test.page.exari.contract.wizard.subpages.*;
+import ui_test.page.exari.home.DashboardPage;
+import ui_test.page.exari.home.site.subpages.GenericSitePage;
+import ui_test.page.exari.login.LoginPage;
 import ui_test.util.IUiStep;
 import ui_test.util.IWebInteract;
 import util.ExcelReader;
@@ -21,8 +23,9 @@ public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(IWebInteract.class);
 
     private LoginPage loginPage;
-    private HomePage homePage;
-    private ExcelReader excelReader;
+    private DashboardPage dashboardPage;
+    private ContractPage contractPage;
+    private GenericSitePage sitePage;
 
     @Given("^I am logged into Exari as a valid user$")
     public void loginAndGoToHomePage() {
@@ -33,214 +36,235 @@ public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
         Assert.assertTrue(loginPage.login());
         log.info("login successful");
 
-        homePage = loginPage.getHomePage();
+        dashboardPage = loginPage.getHomePage();
     }
 
     @Given("^I am on the \"([^\"]*)\" site$")
     public void setSite(String siteOption) {
-//        Assert.assertTrue(homePage.confirmCurrentPage());
-        Assert.assertTrue(homePage.setSiteEnvironment2Test());
+        Assert.assertTrue(dashboardPage.confirmCurrentPage());
+        Assert.assertTrue(dashboardPage.setSiteEnvironmentByString("test"));
+
+        sitePage = dashboardPage.getSiteManager().getTestSitePage();
         log.info("moved to test site");
     }
 
     @When("^I author a SMGA contract in Exari$")
     public void authorSMGAContractInExari() {
-        excelReader = new ExcelReader(getResourcePath("/support/TestData.xlsx"));
+        ExcelReader excelReader = new ExcelReader(getResourcePath("/support/TestData.xlsx"));
         final int Row = 2;
         GenericInputPage page;
 
         //Start Contract Creation for SMGA Template
-        homePage.startContractWithSMGATemplate();
+        sitePage.startContractWithSMGATemplate();
         log.info("started contract wizard");
 
         //Switch to Contract Wizard
-        ContractWizard wizard = homePage.getContractPage().getContractWizard();
+        WizardManager wizard = sitePage.getContractWizard();
 
         //Handle PES Input Page
         PESInputPage pesInputPage = wizard.getPESInputPage();
+        assert pesInputPage.confirmCurrentPage();
         String mpinInput = excelReader.getCellData("SMGA", "MPIN", Row);
         pesInputPage.enterMPIN(mpinInput);
         pesInputPage.clickNext();
 
         //Handle PES Response Page
         PESResponsePage pesResponsePage = wizard.getPESResponsePage();
+        assert pesResponsePage.confirmCurrentPage();
         pesResponsePage.selectCounterPartyOption1();
         pesResponsePage.clickNext();
 
-        //Handle Document Selection Page
-        DocumentSelectionPage documentSelectionPage = wizard.getDocumentSelectionPage();
-        documentSelectionPage.selectPaperTypeOptionalSMGA();
-        documentSelectionPage.clickNext();
-
         //Handle Market Number Page
         MarketNumberInputPage marketNumberInputPage = wizard.getMarketNumberInputPage();
+        assert marketNumberInputPage.confirmCurrentPage();
         String marketNumberInput = excelReader.getCellData("SMGA", "MarketNo", Row);
         marketNumberInputPage.selectMarketNumber(marketNumberInput);
         marketNumberInputPage.clickNext();
 
         //Handle Provider Details Review Page, no action
         page = wizard.getProviderDetailsReviewPage();
+        assert page.confirmCurrentPage();
         page.clickNext();
 
         //Handle RFP Response Part 1 Page, no action
         page = wizard.getRFPResponsePart1Page();
+        assert page.confirmCurrentPage();
         page.clickNext();
 
         //Handle RFP Response Part 2 Page, no action
         page = wizard.getRFPResponsePart2Page();
+        assert page.confirmCurrentPage();
         page.clickNext();
+
+        //Handle Document Selection Page
+        DocumentSelectionPage documentSelectionPage = wizard.getDocumentSelectionPage();
+        assert documentSelectionPage.confirmCurrentPage();
+        documentSelectionPage.selectPaperTypeOptionalSMGA();
+        documentSelectionPage.clickNext();
 
         //Handle to HBPs Red Door Page
         HBPRedDoorPage hbpRedDoorPage = wizard.getHBPRedDoorPage();
+        assert hbpRedDoorPage.confirmCurrentPage();
         hbpRedDoorPage.selectHospitalBasedProvidersOptionNo();
         hbpRedDoorPage.clickNext();
 
         //Handle Appendix 1 Page
         Appendix1Page appendix1Page = wizard.getAppendix1Page();
+        assert appendix1Page.confirmCurrentPage();
         appendix1Page.selectAdditionalManualOptionNo();
         appendix1Page.clickNext();
 
         //Handle Appendix 2 Page, no action
         page = wizard.getAppendix2Page();
+        assert page.confirmCurrentPage();
         page.clickNext();
 
         //Handle Payment Appendix Page, no action
         page = wizard.getPaymentAppendixPage();
+        assert page.confirmCurrentPage();
         page.clickNext();
 
         //Handle Appendix 3 Page, no action
         page = wizard.getAppendix3Page();
+        assert page.confirmCurrentPage();
         page.clickNext();
 
         //Handle Appendix 4 Page, no action
         page = wizard.getAppendix4Page();
+        assert page.confirmCurrentPage();
         page.clickNext();
 
         //Handle Contact Details Page
         ContractDetailsPage contractDetailsPage = wizard.getContractDetailsPage();
+        assert contractDetailsPage.confirmCurrentPage();
         String effectiveDateInput = excelReader.getCellData("SMGA", "EffectiveDate", Row);
         contractDetailsPage.setEffectiveDate(effectiveDateInput);
         contractDetailsPage.clickNext();
 
         //Handle Interview Summary Page, no action
         page = wizard.getInterviewSummaryPage();
+        assert page.confirmCurrentPage();
         page.clickNext();
 
         //Handle Wizard Complete Page
         WizardCompletePage wizardCompletePage = wizard.getWizardCompletePage();
+        assert wizardCompletePage.confirmCurrentPage();
         wizardCompletePage.clickWizardNext();
 
-        //Back to Home Page
+        //Back to Contract Page
+        contractPage = sitePage.getContractPage();
+        assert contractPage.confirmCurrentPage();
 
         //set Edit Status
-        homePage.setEditStatus("Final Pending QA");
+        contractPage.setEditStatus("Final Pending QA");
 
         //click Final Capture
-        homePage.clickFinalCapture();
+        contractPage.clickFinalCapture();
 
         //Handle Interview Summary Page, no action
         page = wizard.getInterviewSummaryPage();
+        assert page.confirmCurrentPage();
         page.clickNext();
 
         //Handle Wizard Complete Page
         wizardCompletePage = wizard.getWizardCompletePage();
+        assert wizardCompletePage.confirmCurrentPage();
         wizardCompletePage.clickWizardNext();
 
-        //Back to Home Page
+        //Back to Contract Page
+        assert contractPage.confirmCurrentPage();
 
         //set Edit Status
-        homePage.setEditStatus("Active");
+        contractPage.setEditStatus("Active");
 
-        homePage.checkActiveStatus();
+        assert contractPage.checkActiveStatus();
     }
 
 
     @When("^I amend the most recent SMGA contract in Exari$")
     public void amendmentOfSMGAContractInExari() {
-        boolean test;
+        WizardManager wizard;
+        GenericInputPage page;
+
+        //Start Filtering Contracts in Site Page
 
         //Set Smart Template to SMGA
-        test = homePage.selectSmartTemplateSMGA();
+        sitePage.selectSmartTemplateFilterOptionSMGA();
 
         //Set Status to Active
-        test &= homePage.selectStatusActive();
+        sitePage.selectStatusFilterOptionActive();
 
         //Click on First Row of My Contracts table
-        test &= homePage.clickContractsTableFirstRow();
-
-        //Click Create Amendment
-        //TODO missing locator in homePage
-
-        //Enter Amendment Title in the Text Box
+        sitePage.clickContractsTableFirstRow();
 
         //Switch to Contract Page
+        contractPage = sitePage.getContractPage();
 
-        //Click on Next
+        //Click Create Amendment
+        contractPage.createAmendment("Amendment");
 
-        //Click on Wizard Complete
+        //Switch to Contract Wizard
+        wizard = contractPage.getContractWizard();
 
-        //Click on Next
+        //Handle Interview Summary Page, no action
+        page = wizard.getInterviewSummaryPage();
+        assert page.confirmCurrentPage();
+        page.clickNext();
 
-        //Set Edit Status
+        //Handle Wizard Complete Page
+        WizardCompletePage wizardCompletePage = wizard.getWizardCompletePage();
+        assert wizardCompletePage.confirmCurrentPage();
+        wizardCompletePage.clickWizardNext();
 
-        //Click Final Capture
+        //Back to Contract Page
+        assert contractPage.confirmCurrentPage();
 
-        //Click Next
+        //set Edit Status
+        contractPage.setEditStatus("Final Pending QA");
 
-        //Click Wizard Complete
+        //click Final Capture
+        contractPage.clickFinalCapture();
 
-        //Click Next
+        //Handle Interview Summary Page, no action
+        page = wizard.getInterviewSummaryPage();
+        assert page.confirmCurrentPage();
+        page.clickNext();
 
-        //Set Edit Status
+        //Handle Wizard Complete Page
+        wizardCompletePage = wizard.getWizardCompletePage();
+        assert wizardCompletePage.confirmCurrentPage();
+        wizardCompletePage.clickWizardNext();
 
-//        homePage.click(homePage.CreateAmendment);
-//        homePage.waitTillVisible(homePage.CreateAmendment_title);
-//
-//        homePage.cleanWriteTextBox(homePage.AmendmentTitle_TextBox, "Amendment");
-//        homePage.click(homePage.Create);
-//
-//        //Switch to Contract Page
-//        contractPage = homePage.getContractPage();
-//        contractPage.waitTillVisible(contractPage.interviewsummary_label);
-//        contractPage.pause(2);
-//        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
-//        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
-//
-//        //set Edit Status
-//        homePage.setEditStatus("Final Pending QA", homePage.finalCapture);
-//
-//        //click Final Capture
-//        homePage.clickFinalCapture(contractPage.interviewsummary_label);
-//        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
-//        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
-//
-//        //set Edit Status
-//        homePage.setEditStatus("Active", homePage.status_active);
-//
-//        Assert.assertTrue(test);
+        //Back to Contract Page
+        assert contractPage.confirmCurrentPage();
+
+        //set Edit Status
+        contractPage.setEditStatus("Active");
+
+        contractPage.checkActiveStatus();
     }
 
 
     @When("^I terminate the most recent SMGA contract in Exari$")
     public void terminateSMGAContractInExari() {
-//        homePage.ClickOnSitecontract();
-//        homePage.setSiteEnvironment2Test();
+//        dashboardPage.ClickOnSitecontract();
+//        dashboardPage.setSiteEnvironment2Test();
 //
-//        homePage.clickonAnySmartTemplate();
-//        homePage.selectDropDownByValue(homePage.getDriver().findElement(By.xpath(homePage.xpath)), "SMGA");
+//        dashboardPage.clickonAnySmartTemplate();
+//        dashboardPage.selectDropDownByValue(dashboardPage.getDriver().findElement(By.xpath(dashboardPage.xpath)), "SMGA");
 //
 //
-//        homePage.click(homePage.AnyStatus);
-//        homePage.selectDropDownByValue(homePage.getDriver().findElement(By.xpath(homePage.AnyStatusXpath)), "Active");
+//        dashboardPage.click(dashboardPage.AnyStatus);
+//        dashboardPage.selectDropDownByValue(dashboardPage.getDriver().findElement(By.xpath(dashboardPage.AnyStatusXpath)), "Active");
 //
-//        homePage.waitTillVisible(homePage.tableContractsFirstRow);
-//        homePage.click(homePage.tableContractsFirstRow);
+//        dashboardPage.waitTillVisible(dashboardPage.tableContractsFirstRow);
+//        dashboardPage.click(dashboardPage.tableContractsFirstRow);
 //
-//        homePage.waitTillVisible(homePage.Terminate);
-//        homePage.click(homePage.Terminate);
+//        dashboardPage.waitTillVisible(dashboardPage.Terminate);
+//        dashboardPage.click(dashboardPage.Terminate);
 //
 //        /* * Switching to contractPage page* */
-//        contractPage = homePage.getContractPage();
+//        contractPage = dashboardPage.getContractPage();
 //        contractPage.waitTillVisible(contractPage.interviewsummary_label);
 //        contractPage.pause(4);
 //
@@ -248,16 +272,16 @@ public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
 //        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
 //
 //        //set Edit Status
-//        homePage.setEditStatus("Final Pending QA", homePage.finalCapture);
+//        dashboardPage.setEditStatus("Final Pending QA", dashboardPage.finalCapture);
 //
 //        //click Final Capture
-//        homePage.clickFinalCapture(contractPage.interviewsummary_label);
-//        homePage.pause(2);
+//        dashboardPage.clickFinalCapture(contractPage.interviewsummary_label);
+//        dashboardPage.pause(2);
 //        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
 //        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
 //
 //        //set Edit Status
-//        homePage.setEditStatus("Active", homePage.status_active);
+//        dashboardPage.setEditStatus("Active", dashboardPage.status_active);
 
     }
 

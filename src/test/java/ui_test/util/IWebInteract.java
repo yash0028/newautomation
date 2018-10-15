@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 public interface IWebInteract {
@@ -43,7 +44,7 @@ public interface IWebInteract {
         return element.isDisplayed();
     }
 
-    default boolean click(WebElement element, String elementName) {
+    default boolean click(String elementName, WebElement element) {
         try {
             highlight(element);
             element.click();
@@ -57,10 +58,10 @@ public interface IWebInteract {
     }
 
     default boolean click(WebElement element) {
-        return click(element, "element");
+        return click("element", element);
     }
 
-    default boolean submit(WebElement element, String elementName) {
+    default boolean submit(String elementName, WebElement element) {
         try {
             highlight(element);
             element.submit();
@@ -75,10 +76,10 @@ public interface IWebInteract {
     }
 
     default boolean submit(WebElement element) {
-        return submit(element, "element");
+        return submit("element", element);
     }
 
-    default boolean sendKeys(WebElement element, String elementName, CharSequence... charSequences) {
+    default boolean sendKeys(String elementName, WebElement element, CharSequence... charSequences) {
         try {
             highlight(element);
             element.sendKeys(charSequences);
@@ -92,10 +93,10 @@ public interface IWebInteract {
     }
 
     default boolean sendKeys(WebElement element, CharSequence... charSequences) {
-        return sendKeys(element, "element", charSequences);
+        return sendKeys("element", element, charSequences);
     }
 
-    default boolean selectDropDownByValue(WebElement element, String elementName, String value) {
+    default boolean selectDropDownByValue(String elementName, WebElement element, String value) {
         try {
             highlight(element);
             Select select = new Select(element);
@@ -110,10 +111,10 @@ public interface IWebInteract {
     }
 
     default boolean selectDropDownByValue(WebElement element, String value) {
-        return selectDropDownByValue(element, "element", value);
+        return selectDropDownByValue("element", element, value);
     }
 
-    default boolean selectDropDownByIndex(WebElement element, String elementName, int index) {
+    default boolean selectDropDownByIndex(String elementName, WebElement element, int index) {
         try {
             highlight(element);
             Select select = new Select(element);
@@ -128,16 +129,14 @@ public interface IWebInteract {
     }
 
     default boolean selectDropDownByIndex(WebElement element, int index) {
-        return selectDropDownByIndex(element, "element", index);
+        return selectDropDownByIndex("element", element, index);
     }
 
     default boolean selectRadioButtonByValue(List<WebElement> elements, String elementName, String value) {
         try {
-            for (WebElement element : elements) {
-                highlight(element);
-                if (element.getAttribute("value").contains(value)) {
-                    return click(element, elementName);
-                }
+            Optional<WebElement> element = elements.stream().filter(e -> e.getAttribute("value").contains(value)).findFirst();
+            if (element.isPresent()) {
+                return click(elementName, element.get());
             }
         } catch (Exception e) {
             log.error("radio {} select failed for value {}", elementName, value, e);
@@ -153,7 +152,7 @@ public interface IWebInteract {
     default boolean selectRadioButtonByIndex(List<WebElement> elements, String elementName, int index) {
         try {
             highlight(elements.get(index));
-            return click(elements.get(index), elementName);
+            return click(elementName, elements.get(index));
         } catch (Exception e) {
             log.error("radio {} select failed for index {}", elementName, index, e);
         }
@@ -165,7 +164,7 @@ public interface IWebInteract {
         return selectRadioButtonByIndex(elements, "element", index);
     }
 
-    default boolean setCheckBox(WebElement element, String elementName, boolean checked) {
+    default boolean setCheckBox(String elementName, WebElement element, boolean checked) {
         try {
             highlight(element);
             if (element.isSelected() != checked) {
@@ -182,10 +181,10 @@ public interface IWebInteract {
     }
 
     default boolean setCheckBox(WebElement element, boolean checked) {
-        return setCheckBox(element, "element", checked);
+        return setCheckBox("element", element, checked);
     }
 
-    default boolean clear(WebElement element, String elementName) {
+    default boolean clear(String elementName, WebElement element) {
         try {
             highlight(element);
             element.clear();
@@ -199,10 +198,20 @@ public interface IWebInteract {
     }
 
     default boolean clear(WebElement element) {
-        return clear(element, "element");
+        return clear("element", element);
     }
 
-    default boolean hover(WebElement element, String elementName) {
+    default boolean cleanWriteTextBox(String elementName, WebElement element, String text) {
+        highlight(element);
+        clear(element);
+        return sendKeys(element, text);
+    }
+
+    default boolean cleanWriteTextBox(WebElement element, String text) {
+        return cleanWriteTextBox("element", element, text);
+    }
+
+    default boolean hover(String elementName, WebElement element) {
         try {
             highlight(element);
             Actions actions = new Actions(this.getDriver());
@@ -217,7 +226,7 @@ public interface IWebInteract {
     }
 
     default boolean hover(WebElement element) {
-        return hover(element, "element");
+        return hover("element", element);
     }
 
     default Set<String> getWindows() {
@@ -262,10 +271,5 @@ public interface IWebInteract {
         WebFunction.getInstance().highlight(element);
     }
 
-    //TODO
-    default boolean cleanWriteTextBox(WebElement element, String text) {
-        highlight(element);
-        clear(element);
-        return sendKeys(element, text);
-    }
+
 }

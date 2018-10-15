@@ -1,4 +1,4 @@
-package ui_test.page.exari.contract.wizard.subpages;
+package ui_test.page.exari.home.site.subpages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,24 +6,22 @@ import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Appendix4Page extends GenericInputPage {
-    private static final Logger log = LoggerFactory.getLogger(Appendix4Page.class);
+public class TestSitePage extends GenericSitePage {
+    private static final Logger log = LoggerFactory.getLogger(TestSitePage.class);
 
     /*
     LOCATORS
      */
 
-    @FindBy(xpath = "//p[contains(text(),'Appendix 4')]")
-    private WebElement labelAppendix4;
-
-
+    @FindBy(xpath = "//a[contains(@title,'Test')]")
+    WebElement labelTest;
 
 
     /*
     CONSTRUCTOR
      */
 
-    public Appendix4Page(WebDriver driver) {
+    public TestSitePage(WebDriver driver) {
         super(driver);
     }
 
@@ -33,7 +31,7 @@ public class Appendix4Page extends GenericInputPage {
 
     @Override
     public boolean confirmCurrentPage() {
-        return isVisible(labelAppendix4);
+        return isVisible(labelTest);
     }
 
     /*

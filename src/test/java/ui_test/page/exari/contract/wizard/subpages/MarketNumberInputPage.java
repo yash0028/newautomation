@@ -12,6 +12,10 @@ public class MarketNumberInputPage extends GenericInputPage {
     /*
     LOCATORS - Provider Details
      */
+
+    @FindBy(xpath = "//p[contains(text(),'Provider Details')]")
+    private WebElement labelProviderDetails;
+
     @FindBy(xpath = "//span[@class='select2-selection__arrow']")
     private WebElement dropdownArrowMarketNumber;
 
@@ -35,7 +39,7 @@ public class MarketNumberInputPage extends GenericInputPage {
 
     @Override
     public boolean confirmCurrentPage() {
-        return false;
+        return isVisible(labelProviderDetails) && isVisible(dropdownArrowMarketNumber);
     }
 
     /*
@@ -43,9 +47,9 @@ public class MarketNumberInputPage extends GenericInputPage {
      */
 
     public boolean selectMarketNumber(String partialMarketNumber) {
-        click(dropdownArrowMarketNumber);
-        sendKeys(dropdownTextBoxMarketNumber, partialMarketNumber);
+        click("market number dropdown arrow", dropdownArrowMarketNumber);
+        sendKeys("market number", dropdownTextBoxMarketNumber, partialMarketNumber);
         pause(1);
-        return click(dropdownOptionMarketNumber);
+        return click("market number dropdown option", dropdownOptionMarketNumber);
     }
 }

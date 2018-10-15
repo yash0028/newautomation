@@ -1,6 +1,8 @@
 package ui_test.page.exari.contract.wizard.subpages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,6 +12,9 @@ public class Appendix3Page extends GenericInputPage {
     /*
     LOCATORS
      */
+
+    @FindBy(xpath = "//p[contains(text(),'Appendix 3')]")
+    private WebElement labelAppendix3;
 
 
     /*
@@ -26,7 +31,7 @@ public class Appendix3Page extends GenericInputPage {
 
     @Override
     public boolean confirmCurrentPage() {
-        return false;
+        return isVisible(labelAppendix3);
     }
 
     /*

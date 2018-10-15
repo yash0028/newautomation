@@ -14,8 +14,8 @@ public class ContractDetailsPage extends GenericInputPage {
     LOCATORS
      */
 
-    @FindBy(xpath = ".//b[contains(text(),'getContractPage Effective Date')]")
-    public WebElement labelContractEffectiveDate;
+    @FindBy(xpath = "//p[contains(text(),'Contract Details')]")
+    private WebElement labelContractDetails;
 
     @FindBy(xpath = ".//*[@class='AnswerSideBySide interview-item__answer']/span[1]/input")
     private WebElement textBoxContractEffectiveDate;
@@ -37,7 +37,7 @@ public class ContractDetailsPage extends GenericInputPage {
 
     @Override
     public boolean confirmCurrentPage() {
-        return false;
+        return isVisible(labelContractDetails);
     }
 
     /*
@@ -46,14 +46,14 @@ public class ContractDetailsPage extends GenericInputPage {
 
     public boolean setEffectiveDate(String effectiveDate) {
         sendKeys(textBoxContractEffectiveDate, effectiveDate);
-        return sendKeys(textBoxContractEffectiveDate, Keys.TAB);
+        return sendKeys("contract effective date", textBoxContractEffectiveDate, Keys.TAB);
     }
 
     public boolean checkEffectiveDateUnsure() {
-        return setCheckBox(checkBoxContractEffectiveDateUnsure, true);
+        return setCheckBox("unsure", checkBoxContractEffectiveDateUnsure, true);
     }
 
     public boolean uncheckEffectiveDateUnsure() {
-        return setCheckBox(checkBoxContractEffectiveDateUnsure, false);
+        return setCheckBox("unsure", checkBoxContractEffectiveDateUnsure, false);
     }
 }

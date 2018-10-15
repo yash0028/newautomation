@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
-public class GenericInputPage implements IFactoryPage, IWebInteract {
+public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
     private static final Logger log = LoggerFactory.getLogger(GenericInputPage.class);
 
     /*
@@ -57,32 +57,27 @@ public class GenericInputPage implements IFactoryPage, IWebInteract {
         return driver;
     }
 
-    @Override
-    public boolean confirmCurrentPage() {
-        return false;
-    }
-
     /*
     CLASS METHODS
      */
 
     public boolean clickNext() {
-        return click(navigationNext);
+        return click("next button", navigationNext);
     }
 
     public boolean clickBack() {
-        return click(navigationBack);
+        return click("back button", navigationBack);
     }
 
     public boolean clickQuit() {
-        return click(navigationQuit);
+        return click("quit button", navigationQuit);
     }
 
     public boolean clickSave() {
-        return click(navigationSave);
+        return click("save button", navigationSave);
     }
 
     public boolean clickFastForward() {
-        return click(navigationFastForward);
+        return click("fast forward button", navigationFastForward);
     }
 }

@@ -13,6 +13,9 @@ public class InterviewSummaryPage extends GenericInputPage {
     LOCATORS
      */
 
+    @FindBy(xpath = "//h1[contains(text(),'complete')]")
+    private WebElement labelComplete;
+
     @FindBy(xpath = "//li[contains(text(),'When you are happy')]")
     public WebElement labelInterviewSummary;
 
@@ -31,7 +34,7 @@ public class InterviewSummaryPage extends GenericInputPage {
 
     @Override
     public boolean confirmCurrentPage() {
-        return isVisible(labelInterviewSummary);
+        return isVisible(labelComplete) && isVisible(labelInterviewSummary);
     }
 
     /*

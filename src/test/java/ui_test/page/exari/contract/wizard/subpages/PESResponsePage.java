@@ -10,8 +10,11 @@ public class PESResponsePage extends GenericInputPage {
     private static final Logger log = LoggerFactory.getLogger(PESInputPage.class);
 
     /*
-    LOCATORS - PES Response
+    LOCATORS
      */
+
+    @FindBy(xpath = "//p[contains(text(),'PES Response')]")
+    private WebElement labelPESResponse;
 
     @FindBy(xpath = "//b[contains(text(),'Select the Counterparty')]")
     private WebElement labelCounterParty;
@@ -36,7 +39,7 @@ public class PESResponsePage extends GenericInputPage {
 
     @Override
     public boolean confirmCurrentPage() {
-        return false;
+        return isVisible(labelPESResponse);
     }
 
     /*
@@ -44,11 +47,11 @@ public class PESResponsePage extends GenericInputPage {
      */
 
     public boolean selectCounterPartyOption1() {
-        return click(radioCounterPartyOption1);
+        return click("first option", radioCounterPartyOption1);
     }
 
     public boolean selectCounterPartyOption2() {
-        return click(radioCounterPartyOption2);
+        return click("second option", radioCounterPartyOption2);
     }
 
 }

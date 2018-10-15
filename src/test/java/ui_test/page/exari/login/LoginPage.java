@@ -1,4 +1,4 @@
-package ui_test.page.exari;
+package ui_test.page.exari.login;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ui_test.page.exari.home.DashboardPage;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 import util.configuration.IConfigurable;
@@ -67,9 +68,9 @@ public class LoginPage implements IWebInteract, IFactoryPage, IConfigurable {
 
 
     public boolean login() {
-        sendKeys(textBoxUsername, configGetOptionalString("exari.username").orElse(""));
-        sendKeys(textBoxPassword, configGetOptionalString("exari.password").orElse(""));
-        click(buttonSignIn);
+        sendKeys("username", textBoxUsername, configGetOptionalString("exari.username").orElse(""));
+        sendKeys("password", textBoxPassword, configGetOptionalString("exari.password").orElse(""));
+        click("sign in", buttonSignIn);
 
         if (isVisible(headerTabHome)) {
             log.info("login successful");
@@ -85,9 +86,9 @@ public class LoginPage implements IWebInteract, IFactoryPage, IConfigurable {
     PAGE METHODS
      */
 
-    public HomePage getHomePage() {
+    public DashboardPage getHomePage() {
         highlight(headerTabHome);
-        return new HomePage(getDriver());
+        return new DashboardPage(getDriver());
     }
 
 

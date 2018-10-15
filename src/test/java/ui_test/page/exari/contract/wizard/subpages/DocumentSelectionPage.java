@@ -9,11 +9,15 @@ import org.slf4j.LoggerFactory;
 public class DocumentSelectionPage extends GenericInputPage {
     private static final Logger log = LoggerFactory.getLogger(DocumentSelectionPage.class);
 
-    /*
-    LOCATORS - PES Response
+        /*
+    LOCATORS
      */
-    @FindBy(xpath = ".//b[contains(text(),'Paper Types available')]")
+
+    @FindBy(xpath = "//p[contains(text(),'Document Selection')]")
     private WebElement labelDocumentSelection;
+
+    @FindBy(xpath = "//b[contains(text(),'Paper Types available')]")
+    private WebElement labelDescription;
 
     @FindBy(xpath = "//input[@value='0_SPA']")
     private WebElement radioPaperTypeOptionSPA;
@@ -35,7 +39,7 @@ public class DocumentSelectionPage extends GenericInputPage {
 
     @Override
     public boolean confirmCurrentPage() {
-        return false;
+        return isVisible(labelDocumentSelection) && isVisible(labelDescription);
     }
 
     /*
@@ -43,10 +47,10 @@ public class DocumentSelectionPage extends GenericInputPage {
      */
 
     public boolean selectPaperTypeOptionSPA() {
-        return click(radioPaperTypeOptionSPA);
+        return click("spa radio button", radioPaperTypeOptionSPA);
     }
 
     public boolean selectPaperTypeOptionalSMGA() {
-        return click(radioPaperTypeOptionSMGA);
+        return click("smga radio button", radioPaperTypeOptionSMGA);
     }
 }

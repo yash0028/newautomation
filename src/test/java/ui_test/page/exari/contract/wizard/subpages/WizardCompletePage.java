@@ -33,7 +33,7 @@ public class WizardCompletePage extends GenericInputPage {
 
     @Override
     public boolean confirmCurrentPage() {
-        return isVisible(labelWizardComplete);
+        return isVisible(labelWizardComplete) && isVisible(navigationWizardNext);
     }
 
     /*

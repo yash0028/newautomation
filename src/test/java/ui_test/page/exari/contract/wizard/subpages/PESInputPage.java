@@ -13,6 +13,9 @@ public class PESInputPage extends GenericInputPage {
     LOCATORS - PES INPUTS
      */
 
+    @FindBy(xpath = "//p[contains(text(),'PES Inputs')]")
+    private WebElement labelPESInputs;
+
     @FindBy(xpath = "//input[contains(@name,'MPIN')]")
     private WebElement textBoxMPIN;
 
@@ -57,7 +60,7 @@ public class PESInputPage extends GenericInputPage {
 
     @Override
     public boolean confirmCurrentPage() {
-        return false;
+        return isVisible(labelPESInputs);
     }
 
     /*
@@ -65,6 +68,6 @@ public class PESInputPage extends GenericInputPage {
      */
 
     public boolean enterMPIN(String mpin) {
-        return cleanWriteTextBox(textBoxMPIN, mpin);
+        return cleanWriteTextBox("mpin", textBoxMPIN, mpin);
     }
 }

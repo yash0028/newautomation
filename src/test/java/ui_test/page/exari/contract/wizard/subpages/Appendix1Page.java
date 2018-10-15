@@ -10,11 +10,14 @@ public class Appendix1Page extends GenericInputPage {
     private static final Logger log = LoggerFactory.getLogger(Appendix1Page.class);
 
     /*
-    LOCATORS - Provider Details
+    LOCATORS
      */
 
-    @FindBy(xpath = "//b[contains(text(),'Will additional manuals apply')]")
+    @FindBy(xpath = "//p[contains(text(),'Appendix 1')]")
     private WebElement labelAppendix1;
+
+    @FindBy(xpath = "//b[contains(text(),'Will additional manuals apply')]")
+    private WebElement labelDescription;
 
     @FindBy(xpath = "//input[@value='0_Yes']")
     private WebElement radioOptionYes;
@@ -36,7 +39,7 @@ public class Appendix1Page extends GenericInputPage {
 
     @Override
     public boolean confirmCurrentPage() {
-        return false;
+        return isVisible(labelAppendix1) && isVisible(labelDescription);
     }
 
     /*
@@ -44,10 +47,10 @@ public class Appendix1Page extends GenericInputPage {
      */
 
     public boolean selectAdditonalManualOptionYes() {
-        return click(radioOptionYes);
+        return click("yes readio button", radioOptionYes);
     }
 
     public boolean selectAdditionalManualOptionNo() {
-        return click(radioOptionNo);
+        return click("no radio button", radioOptionNo);
     }
 }

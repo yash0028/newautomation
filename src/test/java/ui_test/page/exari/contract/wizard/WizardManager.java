@@ -3,7 +3,7 @@ package ui_test.page.exari.contract.wizard;
 import org.openqa.selenium.WebDriver;
 import ui_test.page.exari.contract.wizard.subpages.*;
 
-public class ContractWizard {
+public class WizardManager {
 
     private final WebDriver driver;
 
@@ -11,17 +11,13 @@ public class ContractWizard {
     CONSTRUCTOR
      */
 
-    public ContractWizard(WebDriver driver) {
+    public WizardManager(WebDriver driver) {
         this.driver = driver;
     }
 
     /*
     CLASS METHODS
      */
-
-    public GenericInputPage getGenericInputPage() {
-        return new GenericInputPage(driver);
-    }
 
     public PESInputPage getPESInputPage() {
         return new PESInputPage(driver);
