@@ -11,7 +11,7 @@
 Feature: US1236428 - [Continued] CMD Single Sign On - UHG Enterprise SSO (MSid and Password )
 
   @TC564532
-  @Automated
+  @Manual
   @Functional
   @A_UI_Story
   @US1236428
@@ -25,7 +25,7 @@ Feature: US1236428 - [Continued] CMD Single Sign On - UHG Enterprise SSO (MSid a
     And I cannot access any page within CMD
 
   @TC564530
-  @Automated
+  @Manual
   @Functional
   @A_UI_Story
   @US1236428
@@ -38,7 +38,7 @@ Feature: US1236428 - [Continued] CMD Single Sign On - UHG Enterprise SSO (MSid a
     Then I can access and view the following CMD pages
 
   @TC564531
-  @Automated
+  @Manual
   @Functional
   @A_UI_Story
   @US1236428
