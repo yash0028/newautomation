@@ -24,6 +24,7 @@ Feature: US1358993 - PES - Appendix Address Relationships
       | lastName |
       | facilityName |
       | providerDegree |
+      | primaryIndicator |
     And PES returns the additional PLSV and their associated billing address or mailing address
     And PES returns the following fields for address:
       | addressLine1 |

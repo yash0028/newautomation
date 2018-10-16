@@ -1,11 +1,13 @@
 # Last updated on 
+@Exari_Automation
 @US1384733
 @2018.PI04.03
 Feature: US1384733 - Exari API Testing for New Contract JSON
 
   @TC612451
-  @Manual
+  @Automated
   @Functional
+  @Exari_Automation
   @US1384733
   @2018.PI04.03
   Scenario Outline: TC612451 - [RL0]

@@ -6,7 +6,7 @@
 @10/1_Physician
 @Priority_1
 @CMD
-@F219005
+@F237213
 Feature: US1240232 - Modify Contract Config record (UI)
 
   @TC565955
