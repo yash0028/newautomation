@@ -11,39 +11,68 @@
 Feature: US1236428 - [Continued] CMD Single Sign On - UHG Enterprise SSO (MSid and Password )
 
   @TC564532
-  @Automated
+  @Manual
   @Functional
   @A_UI_Story
   @US1236428
   @2018.PI04
   @2018.PI04.02
   Scenario: TC564532 - [RL2]
-    Given an CMD record exists
-    When the user navigates to Exari from within the CMD contract record
-    Then the user returns to Exari contract record
+    ##Scenario 3 (Do not have secure rule- block access/message)
+    Given I have do not have CLM_PCW_BUS_USERS or CLM_PCW_USERS role in secure
+    When I enter in the CMD URL
+    Then I am displayed the following message. "You currently do not have access to the CMD page. If you feel this is an error, please add the appropriate secure group role."
+    And I cannot access any page within CMD
 
   @TC564530
-  @Automated
+  @Manual
   @Functional
   @A_UI_Story
   @US1236428
   @2018.PI04
   @2018.PI04.02
   Scenario: TC564530 - [RL0]
-    Given a CMD record exists
-    When the user navigates to the CMD from within Exari contract record
-    Then the user is able to view the CMD for that contract record
+    ##Scenario 1 (Normal User secure role- CMD access)
+    Given I have CLM_PCW_USERS role in secure (normal user)
+    When I enter in the CMD URL
+    Then I can access and view the following CMD pages
 
   @TC564531
-  @Automated
+  @Manual
   @Functional
   @A_UI_Story
   @US1236428
   @2018.PI04
   @2018.PI04.02
   Scenario: TC564531 - [RL1]
-    Given a CMD record does not exist
+    ##Scenario 2 (Business user access role- CMD access)
+    Given I have CLM_PCW_BUS_USERS role in secure (business user)
+    When I enter in the CMD URL
+    Then I can access and view the following CMD pages
+
+  @CLM_UAT
+  @TC598723
+  @Manual
+  @Acceptance
+  @A_UI_Story
+  @US1236428
+  @2018.PI04
+  @2018.PI04.02
+  Scenario: TC598723 - Validate whether the user is able to view CMD when contract record exists
+    Given a CMD record exists
     When the user navigates to the CMD from within Exari contract record
-    Then a message is returned to the user stating CMD record does not exist
-    And user returned to the Exari contract record session from which they
+    Then the user is able to view the CMD for that contract record
+
+  @TC564533
+  @Automated
+  @Functional
+  @A_UI_Story
+  @US1236428
+  @2018.PI04
+  @2018.PI04.02
+  Scenario: TC564533 - [RL3]
+    ##Scenario 4 (Both Secure Roles)
+    Given I have have CLM_PCW_BUS_USERS or CLM_PCW_USERS role in secure
+    When I enter in the CMD URL
+    Then I can access and view the following CMD pages
 

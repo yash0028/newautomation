@@ -12,7 +12,7 @@
 Feature: US1208966 - SSO analysis SPIKE
 
   @TC564481
-  @Automated
+  @Manual
   @Functional
   @MVP
   @US1208966

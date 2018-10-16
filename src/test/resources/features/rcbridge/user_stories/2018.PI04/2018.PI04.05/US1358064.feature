@@ -4,7 +4,7 @@
 @2018.PI04.05
 @MVP
 @Plus
-@Priority_1
+@Priority_2
 @F159195
 Feature: US1358064 - CLM >COSMOS Add a Facility Contract - PIC DIV - PSO (Criteria)
 

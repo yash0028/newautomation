@@ -4,7 +4,7 @@
 @2018.PI04.02
 @MVP
 @Plus
-@Priority_1
+@Priority_2
 @F159195
 Feature: US1070767 - SPIKE - COSMOS API Facility Analysis
 
