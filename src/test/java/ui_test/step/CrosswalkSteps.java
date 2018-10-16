@@ -15,7 +15,7 @@ public class CrosswalkSteps {
     public void navigateToContractAdminUI() {
         //This works only in local machine, need to setup env in docker
         /*SeleniumHelper.launchBrowser("chrome");
-        SeleniumHelper.getWebDriver().get("http://contract-admin-ui-clm-dev.ocp-ctc-dmz-nonprod.optum.com/metadata");
+        SeleniumHelper.getRemoteDriver().get("http://contract-admin-ui-clm-dev.ocp-ctc-dmz-nonprod.optum.com/metadata");
         crosswalkPage = CrosswalkPage.getCrosswalkPage();
         Assert.assertNotNull("Crosswalk page not displayed", crosswalkPage);*/
         throw new PendingException();

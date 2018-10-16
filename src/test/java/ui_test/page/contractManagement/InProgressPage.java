@@ -36,6 +36,10 @@ public class InProgressPage implements IFactoryPage, IWebInteract {
     @FindBy(xpath = "//span[@class='mat-option-text' and text()='25']")
     private WebElement tableSize25Button;
 
+    /*
+    CONSTRUCTOR
+     */
+
     /**
      * Creates an in progress page driver and its web elements.
      * @param driver Webdriver currently being used.
@@ -47,13 +51,27 @@ public class InProgressPage implements IFactoryPage, IWebInteract {
         PageFactory.initElements(factory, this);
     }
 
+    /*
+    FACTORY PAGE METHODS
+     */
+
     /**
      * Confirms that the current page is the in progress page by verifying the URL.
      * @return True if on the in progress page or false otherwise.
      */
+    @Override
     public boolean confirmCurrentPage() {
         return driver.getCurrentUrl().matches("^.+in-progress$");
     }
+
+    @Override
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    /*
+    CLASS METHODS
+     */
 
     /**
      * Gets the rows in the table.

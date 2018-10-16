@@ -22,6 +22,7 @@ public class UtilityUISteps implements IUiStep {
     @Before(value = "@A_UI_Story", order = BookendOrder.UI)
     public void openConnection(Scenario scenario) {
         SauceLabs.reset(scenario.getName());
+        log.info("SauceLabs Test Video: {}", SauceLabs.getInstance().getSauceLink());
     }
 
     /**
