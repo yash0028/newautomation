@@ -1,6 +1,7 @@
 package ui_test.util;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -14,10 +15,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public interface IWebInteract {
     Logger log = LoggerFactory.getLogger(IWebInteract.class);
-    int TIMEOUT = 100;
+    int TIMEOUT = 90;
 
     /*
     INTERFACE METHODS
@@ -30,8 +32,16 @@ public interface IWebInteract {
      */
 
     default void pause(int seconds) {
-        WebFunction.getInstance().pause(seconds);
+        pauseSilent(seconds);
         log.trace("paused for {} seconds", seconds);
+    }
+
+    default void pauseSilent(int seconds) {
+        try {
+            TimeUnit.SECONDS.sleep(seconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     default boolean isVisible(WebElement element) {
@@ -204,7 +214,7 @@ public interface IWebInteract {
     default boolean cleanWriteTextBox(String elementName, WebElement element, String text) {
         highlight(element);
         clear(element);
-        return sendKeys(element, text);
+        return sendKeys(elementName, element, text);
     }
 
     default boolean cleanWriteTextBox(WebElement element, String text) {
@@ -268,7 +278,21 @@ public interface IWebInteract {
     }
 
     default void highlight(WebElement element) {
-        WebFunction.getInstance().highlight(element);
+        String orgStyle = element.getAttribute("style");
+
+        setStyle(element, "outline: 1px dashed red;");
+        pauseSilent(1);
+        setStyle(element, orgStyle);
+    }
+
+    default void setStyle(WebElement element, String value) {
+        final WebDriver driver = this.getDriver();
+
+        for (int i = 0; i < 3; i++) {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, value);
+
+        }
     }
 
 

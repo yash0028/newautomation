@@ -1,5 +1,6 @@
 package ui_test.step;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -14,7 +15,6 @@ import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.page.exari.login.LoginPage;
 import ui_test.util.IUiStep;
 import ui_test.util.IWebInteract;
-import util.ExcelReader;
 import util.IFileInteract;
 import util.configuration.IConfigurable;
 
@@ -22,15 +22,14 @@ import util.configuration.IConfigurable;
 public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(IWebInteract.class);
 
-    private LoginPage loginPage;
     private DashboardPage dashboardPage;
     private ContractPage contractPage;
     private GenericSitePage sitePage;
 
-    @Given("^I am logged into Exari as a valid user$")
+    @Given("^I am logged into Exari Dev as a valid user$")
     public void loginAndGoToHomePage() {
         getRemoteDriver().get(configGetOptionalString("exari.devURL").orElse(""));
-        loginPage = new LoginPage(getRemoteDriver());
+        LoginPage loginPage = new LoginPage(getRemoteDriver());
         Assert.assertTrue(loginPage.confirmCurrentPage());
 
         Assert.assertTrue(loginPage.login());
@@ -44,20 +43,49 @@ public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
         Assert.assertTrue(dashboardPage.confirmCurrentPage());
         Assert.assertTrue(dashboardPage.setSiteEnvironmentByString(siteOption));
 
-        sitePage = dashboardPage.getSiteManager().getTestSitePage();
+        sitePage = dashboardPage.getSitePage();
         assert sitePage.confirmCurrentPage();
         log.info("moved to {} site", siteOption);
     }
 
-    @When("^I author a SMGA contract in Exari$")
-    public void authorSMGAContractInExari() {
-        ExcelReader excelReader = new ExcelReader(getResourcePath("/support/TestData.xlsx"));
-        final int Row = 2;
-        GenericInputPage page;
+    @When("^I select the most recent \"([^\"]*)\" \"([^\"]*)\" contract in Exari$")
+    public void selectFirstContractWithFilter(String contractType, String contractStatus) {
+        log.info("filtering contracts by {} type and {} status", contractType, contractStatus);
+        //Start Filtering Contracts in Site Page
 
+        //Set Smart Template to SMGA
+        sitePage.selectSmartTemplateFilterOptionSMGA();
+
+        //Set Status to Active
+        sitePage.selectStatusFilterOptionActive();
+
+        //Click on First Row of My Contracts table
+        sitePage.clickContractsTableFirstRow();
+
+        //Switch to Contract Page
+        contractPage = sitePage.getContractPage();
+    }
+
+    @Then("^I have an active \"([^\"]*)\" contract in Exari$")
+    public void checkStatusForActive(String contractType) {
+        log.info("checking for active status");
+        assert contractPage.checkActiveStatus();
+    }
+
+    /*
+    AUTHOR CONTRACT STEPS
+     */
+
+    @When("^I author a \"([^\"]*)\" contract in Exari$")
+    public void authorContractInExari(String contractType) {
         //Start Contract Creation for SMGA Template
         sitePage.startContractWithSMGATemplate();
         log.info("started contract wizard");
+    }
+
+    @And("^the \"([^\"]*)\" contract has an MPIN of \"([^\"]*)\", a market number of \"([^\"]*)\", and an effective date of \"([^\"]*)\"$")
+    public void authorContractWizard(String contractType, String mpinValue, String marketNumberValue, String effectiveDateValue) {
+        GenericInputPage page;
 
         //Switch to Contract Wizard
         WizardManager wizard = sitePage.getContractWizard();
@@ -65,8 +93,7 @@ public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
         //Handle PES Input Page
         PESInputPage pesInputPage = wizard.getPESInputPage();
         assert pesInputPage.confirmCurrentPage();
-        String mpinInput = excelReader.getCellData("SMGA", "MPIN", Row);
-        pesInputPage.enterMPIN(mpinInput);
+        pesInputPage.enterMPIN(mpinValue);
         pesInputPage.clickNext();
 
         //Handle PES Response Page
@@ -78,8 +105,7 @@ public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
         //Handle Market Number Page
         MarketNumberInputPage marketNumberInputPage = wizard.getMarketNumberInputPage();
         assert marketNumberInputPage.confirmCurrentPage();
-        String marketNumberInput = excelReader.getCellData("SMGA", "MarketNo", Row);
-        marketNumberInputPage.selectMarketNumber(marketNumberInput);
+        marketNumberInputPage.selectMarketNumber(marketNumberValue);
         marketNumberInputPage.clickNext();
 
         //Handle Provider Details Review Page, no action
@@ -138,8 +164,7 @@ public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
         //Handle Contact Details Page
         ContractDetailsPage contractDetailsPage = wizard.getContractDetailsPage();
         assert contractDetailsPage.confirmCurrentPage();
-        String effectiveDateInput = excelReader.getCellData("SMGA", "EffectiveDate", Row);
-        contractDetailsPage.setEffectiveDate(effectiveDateInput);
+        contractDetailsPage.setEffectiveDate(effectiveDateValue);
         contractDetailsPage.clickNext();
 
         //Handle Interview Summary Page, no action
@@ -156,53 +181,21 @@ public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
         contractPage = sitePage.getContractPage();
         assert contractPage.confirmCurrentPage();
 
-        //set Edit Status
-        contractPage.setEditStatus("Final Pending QA");
-
-        //click Final Capture
-        contractPage.clickFinalCapture();
-
-        //Handle Interview Summary Page, no action
-        page = wizard.getInterviewSummaryPage();
-        assert page.confirmCurrentPage();
-        page.clickNext();
-
-        //Handle Wizard Complete Page
-        wizardCompletePage = wizard.getWizardCompletePage();
-        assert wizardCompletePage.confirmCurrentPage();
-        wizardCompletePage.clickWizardNext();
-
-        //Back to Contract Page
-        assert contractPage.confirmCurrentPage();
-
-        //set Edit Status
-        contractPage.setEditStatus("Active");
-
-        assert contractPage.checkActiveStatus();
+        //Perform QA analysis and set status as active
+        finishContract();
     }
 
+    /*
+    AMEND CONTRACT STEPS
+     */
 
-    @When("^I amend the most recent SMGA contract in Exari$")
-    public void amendmentOfSMGAContractInExari() {
+    @When("^I amend that \"([^\"]*)\" contract in Exari$")
+    public void amendmentOfSMGAContractInExari(String contractType) {
         WizardManager wizard;
         GenericInputPage page;
-
-        //Start Filtering Contracts in Site Page
-
-        //Set Smart Template to SMGA
-        sitePage.selectSmartTemplateFilterOptionSMGA();
-
-        //Set Status to Active
-        sitePage.selectStatusFilterOptionActive();
-
-        //Click on First Row of My Contracts table
-        sitePage.clickContractsTableFirstRow();
-
-        //Switch to Contract Page
-        contractPage = sitePage.getContractPage();
 
         //Click Create Amendment
-        contractPage.createAmendment("Amendment");
+        contractPage.startAmendment("Amendment");
 
         //Switch to Contract Wizard
         wizard = contractPage.getContractWizard();
@@ -220,53 +213,21 @@ public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
         //Back to Contract Page
         assert contractPage.confirmCurrentPage();
 
-        //set Edit Status
-        contractPage.setEditStatus("Final Pending QA");
-
-        //click Final Capture
-        contractPage.clickFinalCapture();
-
-        //Handle Interview Summary Page, no action
-        page = wizard.getInterviewSummaryPage();
-        assert page.confirmCurrentPage();
-        page.clickNext();
-
-        //Handle Wizard Complete Page
-        wizardCompletePage = wizard.getWizardCompletePage();
-        assert wizardCompletePage.confirmCurrentPage();
-        wizardCompletePage.clickWizardNext();
-
-        //Back to Contract Page
-        assert contractPage.confirmCurrentPage();
-
-        //set Edit Status
-        contractPage.setEditStatus("Active");
-
-        assert contractPage.checkActiveStatus();
+        //Perform QA analysis and set status as active
+        finishContract();
     }
 
+    /*
+    TERMINATE CONTRACT STEPS
+     */
 
-    @When("^I terminate the most recent SMGA contract in Exari$")
-    public void terminateSMGAContractInExari() {
+    @When("^I terminate that \"([^\"]*)\" contract in Exari$")
+    public void terminateSMGAContractInExari(String contractType) {
         WizardManager wizard;
         GenericInputPage page;
 
-        //Start Filtering Contracts in Site Page
-
-        //Set Smart Template to SMGA
-        sitePage.selectSmartTemplateFilterOptionSMGA();
-
-        //Set Status to Active
-        sitePage.selectStatusFilterOptionActive();
-
-        //Click on First Row of My Contracts table
-        sitePage.clickContractsTableFirstRow();
-
-        //Switch to Contract Page
-        contractPage = sitePage.getContractPage();
-
         //Click Terminate button
-        contractPage.clickTerminate();
+        contractPage.startTerminate();
 
         //Switch to Contract Wizard
         wizard = contractPage.getContractWizard();
@@ -284,6 +245,18 @@ public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
         //Back to Contract Page
         assert contractPage.confirmCurrentPage();
 
+        //Perform QA analysis and set status as active
+        finishContract();
+    }
+
+    /*
+    HELPER METHODS
+     */
+
+    private void finishContract() {
+        WizardManager wizard = contractPage.getContractWizard();
+        GenericInputPage page;
+
         //set Edit Status
         contractPage.setEditStatus("Final Pending QA");
 
@@ -296,7 +269,7 @@ public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
         page.clickNext();
 
         //Handle Wizard Complete Page
-        wizardCompletePage = wizard.getWizardCompletePage();
+        WizardCompletePage wizardCompletePage = wizard.getWizardCompletePage();
         assert wizardCompletePage.confirmCurrentPage();
         wizardCompletePage.clickWizardNext();
 
@@ -305,39 +278,5 @@ public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
 
         //set Edit Status
         contractPage.setEditStatus("Active");
-
-        assert contractPage.checkActiveStatus();
-
-//
-//        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
-//        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
-//
-//        //set Edit Status
-//        dashboardPage.setEditStatus("Final Pending QA", dashboardPage.finalCapture);
-//
-//        //click Final Capture
-//        dashboardPage.clickFinalCapture(contractPage.interviewsummary_label);
-//        dashboardPage.pause(2);
-//        contractPage.clickOnNextAndWait(contractPage.wizardComplete_label);
-//        contractPage.ClickOnWizardCompleteNext(contractPage.siteDashboard_label);
-//
-//        //set Edit Status
-//        dashboardPage.setEditStatus("Active", dashboardPage.status_active);
-
-    }
-
-    @Then("^I have a completed SMGA contract in Exari$")
-    public void iHaveACompletedSMGAContractInExari() throws Throwable {
-
-    }
-
-    @Then("^I have an amended SMGA contract in Exari$")
-    public void iHaveAnAmendedSMGAContractInExari() throws Throwable {
-
-    }
-
-    @Then("^I have a terminated SMGA contract in Exari$")
-    public void iHaveATerminatedSMGAContractInExari() throws Throwable {
-
     }
 }

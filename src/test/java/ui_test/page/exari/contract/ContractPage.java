@@ -2,7 +2,6 @@ package ui_test.page.exari.contract;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
@@ -12,23 +11,27 @@ import ui_test.page.exari.contract.wizard.WizardManager;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
-import java.util.List;
-
 public class ContractPage implements IWebInteract, IFactoryPage {
     private static final Logger log = LoggerFactory.getLogger(ContractPage.class);
+
+    private final WebDriver driver;
+
 
     /*
     LOCATORS
      */
+
+    @FindBy(xpath = "//span[contains(text(),'Terminate')]")
+    private WebElement buttonTerminate;
+
+    @FindBy(xpath = "//table[contains(@class,'ygtvtable')]/tbody/tr/td[2]/span[1]")
+    private WebElement buttonMasterContract;
 
     @FindBy(xpath = "//h2[contains(text(),'Properties')]")
     private WebElement expandLabelProperties;
 
     @FindBy(xpath = "//h2[contains(text(),'Documents')]")
     private WebElement labelDocuments;
-
-    @FindBy(xpath = "//div[@class='title-bar']")
-    private WebElement TitleBar;
 
     @FindBy(xpath = "//span[contains(text(),'Edit Status')]")
     private WebElement buttonOpenEditStatus;
@@ -59,58 +62,6 @@ public class ContractPage implements IWebInteract, IFactoryPage {
 
     @FindBy(xpath = "//button[contains(text(),'Create')]")
     private WebElement buttonCreateAmendmentDialogueCreate;
-
-    @FindBy(xpath = "//span[contains(text(),'Terminate')]")
-    protected WebElement buttonTerminate;
-
-
-    //PES RESPONSE
-
-    /* *********SMGA******* */
-    private final WebDriver driver;
-    public String optionButton = "//input[@type='radio']";
-    @FindBy(xpath = "//label/b[contains(text(),'Select the Arbitration County')]")
-    public WebElement Question;
-    @FindBy(xpath = "//span/label[contains(text(),'San Diego County, CA')]/parent::span/input[@value='2_San Diego County']")
-    public WebElement optionArbitarycountry;
-    @FindBy(xpath = "//*[@id='interviewRoundQuestions']/div/p")
-    public WebElement ProviderDetails;
-    @FindBy(xpath = ".//input[@class='Answer']")
-    public WebElement ProviderFullName;
-    @FindBy(xpath = "//b[contains(text(),'State Code for RFP')]")
-    public WebElement RFPResponseState_Label;
-    @FindBy(xpath = "//b[contains(text(),'Credentialing Required')]")
-    public WebElement RFPResponse_Label;
-    @FindBy(xpath = "//b[contains(text(),'Hospital Based')]")
-    public WebElement HBPsRedDoor_Label;
-    @FindBy(xpath = "//b[contains(text(),'included in Appendix 2')]")
-    public WebElement Appendix2_Label;
-    @FindBy(xpath = ".//b[contains(text(),'Payment Appendice')]")
-    public WebElement PaymentAppendice_Label;
-    @FindBy(xpath = ".//b[contains(text(),'additional service locations')]")
-    public WebElement Appendix3_Label;
-    @FindBy(xpath = ".//b[contains(text(),'Clinic Name')]")
-    public WebElement Appendix4_Label;
-
-
-
-
-
-
-
-    @FindBy(xpath = ".//div[@id='HEADER_SITE_DASHBOARD']")
-    public WebElement siteDashboard_label;
-
-    @FindAll({
-            @FindBy(xpath = ".//*[@id='MCQAnswerBlock91_XRI_FOLLOWUP']//div[1]/p/label/b")
-    })
-    public List<WebElement> allElementsInList;
-
-
-    /* *********SPA******* */
-
-    @FindBy(xpath = "//input[@type='checkbox']")
-    public WebElement CheckBox;
 
 
     /*
@@ -160,7 +111,10 @@ public class ContractPage implements IWebInteract, IFactoryPage {
         return isVisible(labelContractStatusActive) || expandProperties() && isVisible(labelContractStatusActive);
     }
 
-    public boolean createAmendment(String amendmentName) {
+    public boolean startAmendment(String amendmentName) {
+        if (!isVisible(buttonOpenCreateAmendment)) {
+            gotoMasterContract();
+        }
         click("create amendment button", buttonOpenCreateAmendment);
         cleanWriteTextBox("create amendment dialogue name textbox", textBoxCreateAmendmentDialogueAmendmentName, amendmentName);
         return click("create amendment dialogue create button", buttonCreateAmendmentDialogueCreate);
@@ -170,8 +124,15 @@ public class ContractPage implements IWebInteract, IFactoryPage {
         return click("properties expand", expandLabelProperties);
     }
 
-    public boolean clickTerminate() {
+    public boolean startTerminate() {
+        if (!isVisible(buttonTerminate)) {
+            gotoMasterContract();
+        }
         return click("terminate button", buttonTerminate);
+    }
+
+    public boolean gotoMasterContract() {
+        return click("master contract", buttonMasterContract);
     }
 
 

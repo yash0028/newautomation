@@ -45,7 +45,7 @@ public class ContractDetailsPage extends GenericInputPage {
      */
 
     public boolean setEffectiveDate(String effectiveDate) {
-        sendKeys(textBoxContractEffectiveDate, effectiveDate);
+        sendKeys("contract effective date", textBoxContractEffectiveDate, effectiveDate);
         return sendKeys("contract effective date", textBoxContractEffectiveDate, Keys.TAB);
     }
 

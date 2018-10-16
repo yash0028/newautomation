@@ -8,12 +8,12 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.home.site.SiteManager;
+import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
 public class DashboardPage implements IFactoryPage, IWebInteract {
     private static final Logger log = LoggerFactory.getLogger(DashboardPage.class);
-
 
     /*
     LOCATORS
@@ -57,6 +57,9 @@ public class DashboardPage implements IFactoryPage, IWebInteract {
     @FindBy(xpath = "//a[@title='Central UHN']")
     private WebElement headerTabSiteOptionCentralUHN;
 
+    // Site value
+    private GenericSitePage sitePage;
+
     /*
     CONSTRUCTOR
      */
@@ -88,19 +91,22 @@ public class DashboardPage implements IFactoryPage, IWebInteract {
     public boolean setSiteEnvironment2Test() {
         click("site tab", headerTabSite);
         click("test site", headerTabSiteOptionTest);
-        return getSiteManager().getTestSitePage().confirmCurrentPage();
+        sitePage = getSiteManager().getTestSitePage();
+        return sitePage.confirmCurrentPage();
     }
 
     public boolean setSiteEnvironment2NortheastUHN() {
         click("site tab", headerTabSite);
-        click("northeast uhn", headerTabSiteOptionTest);
-        return getSiteManager().getNortheastUHNSitePage().confirmCurrentPage();
+        click("northeast uhn", headerTabSiteOptionNortheastUHN);
+        sitePage = getSiteManager().getNortheastUHNSitePage();
+        return sitePage.confirmCurrentPage();
     }
 
     public boolean setSiteEnvironment2CentralUHN() {
         click("site tab", headerTabSite);
-        click("central uhn", headerTabSiteOptionTest);
-        return getSiteManager().getCentralUHNSitePage().confirmCurrentPage();
+        click("central uhn", headerTabSiteOptionCentralUHN);
+        sitePage = getSiteManager().getCentralUHNSitePage();
+        return sitePage.confirmCurrentPage();
     }
 
     public boolean setSiteEnvironmentByString(String env) {
@@ -120,6 +126,10 @@ public class DashboardPage implements IFactoryPage, IWebInteract {
 
     public SiteManager getSiteManager() {
         return new SiteManager(driver);
+    }
+
+    public GenericSitePage getSitePage() {
+        return sitePage;
     }
 
 }// End of class
