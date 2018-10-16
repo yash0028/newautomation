@@ -25,7 +25,7 @@ Feature: US1064673 - [Continued]Exari>COSMOS Physician Panel Add to Existing Pro
     Then the COSMOS Physician Panel should be added and populate the PPC table and screens in COSMOS without error
 
   @TC564900
-  @Automated
+  @Manual
   @Functional
   @Torey
   @US1064673

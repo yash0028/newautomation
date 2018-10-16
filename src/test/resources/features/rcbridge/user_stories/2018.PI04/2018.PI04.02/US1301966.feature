@@ -11,7 +11,7 @@
 Feature: US1301966 - CMD- Dashboard transaction search and update Service call
 
   @TC565379
-  @Automated
+  @Manual
   @Functional
   @A_UI_Story
   @US1301966
@@ -24,7 +24,7 @@ Feature: US1301966 - CMD- Dashboard transaction search and update Service call
     Then Provide a success response and no data
 
   @TC611978
-  @Manual
+  @Automated
   @Functional
   @A_UI_Story
   @US1301966

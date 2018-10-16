@@ -2,9 +2,9 @@
 @CMD
 @US1356648
 @2018.PI05
+@CMD
 @Priority_2
 @UCM
-@CMD
 @F231564
 Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
 
