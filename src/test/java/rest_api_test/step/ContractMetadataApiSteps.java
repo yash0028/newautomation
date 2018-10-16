@@ -13,7 +13,7 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
-import util.FileHelper;
+import util.file.IFileReader;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,7 +24,7 @@ import static io.restassured.RestAssured.given;
 /**
  * Created by dtimaul on 9/11/18.
  */
-public class ContractMetadataApiSteps implements IRestStep {
+public class ContractMetadataApiSteps implements IRestStep, IFileReader {
     private final static Logger log = LoggerFactory.getLogger(ContractMetadataApiSteps.class);
 
     private final static String ENDPOINT = "http://localhost:8080";
@@ -216,7 +216,7 @@ public class ContractMetadataApiSteps implements IRestStep {
      * @return product description
      */
     private String getProductDescription(String id) {
-        List<String> lines = FileHelper.getInstance().getFileLines(CSV_FILE);
+        List<String> lines = getFileLines(CSV_FILE);
 
         for (String line : lines) {
             String[] currentLine = line.split("\\|");

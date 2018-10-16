@@ -12,7 +12,8 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
-import util.FileHelper;
+import util.file.IFileReader;
+
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
@@ -20,7 +21,7 @@ import static io.restassured.RestAssured.given;
 /**
  * Created by aberns on 8/14/2018.
  */
-public class ContractQuerySteps implements IRestStep {
+public class ContractQuerySteps implements IRestStep, IFileReader {
     private final static Logger log = LoggerFactory.getLogger(ContractQuerySteps.class);
 
     private static final String ENDPOINT = "http://contracts-query-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
@@ -47,14 +48,16 @@ public class ContractQuerySteps implements IRestStep {
 
     @Then("^the Domain Service receives the Exari contract model$")
     public void checkValidResponse() throws Throwable {
-        JsonObject result = parseJsonResponse(response);
-        Assert.assertEquals("Unexpected response", 200, result.get("responseCode").getAsInt());
+        JsonElement result = parseJsonElementResponse(response);
+        Assert.assertTrue(result.isJsonObject());
+        Assert.assertEquals("Unexpected response", 200, result.getAsJsonObject().get("responseCode").getAsInt());
 
-        String tempMessage = result.get("responseMessage").getAsString();
-        JsonObject ecm = parseJsonString(tempMessage);
+        String tempMessage = result.getAsJsonObject().get("responseMessage").getAsString();
+        JsonElement ecm = parseJsonElementString(tempMessage);
+        Assert.assertTrue(ecm.isJsonObject());
 
 //        System.out.println(ecm.toString());
-        List<String> masterSet = FileHelper.getInstance().getFileLines("/support/ecm/ecm.txt");
+        List<String> masterSet = getFileLines("/support/ecm/ecm.txt");
         Assert.assertTrue(verifyFields(ecm, masterSet, "\\."));
     }
 
@@ -65,7 +68,8 @@ public class ContractQuerySteps implements IRestStep {
 
     @Then("^the Domain Service returns a service error$")
     public void checkInvalidResponse() throws Throwable {
-        result = parseJsonResponse(response);
+        result = parseJsonElementResponse(response);
+        Assert.assertTrue(result.isJsonObject());
         Assert.assertNotEquals("Unexpected response: should have received a service error", 200, result.getAsJsonObject().get("responseCode").getAsInt());
     }
 
@@ -84,7 +88,8 @@ public class ContractQuerySteps implements IRestStep {
 
     @And("^the micro service finds the data valid based on the selection criteria$")
     public void isContractIdDataValid() throws Throwable {
-        result = parseJsonResponse(this.response);
+        result = parseJsonElementResponse(this.response);
+        Assert.assertTrue(result.isJsonObject());
         String agreementId = result.getAsJsonObject().get("responseData").getAsJsonArray().get(0).getAsJsonObject().get("agreementId").getAsString();
         Assert.assertEquals(contractId, agreementId);
     }
@@ -97,7 +102,8 @@ public class ContractQuerySteps implements IRestStep {
 
     @And("^the micro service finds the data invalid based on the selection criteria$")
     public void theMicroServiceFindsTheDataInvalidBasedOnTheSelectionCriteria() throws Throwable {
-        result = parseJsonResponse(this.response);
+        result = parseJsonElementResponse(this.response);
+        Assert.assertTrue(result.isJsonObject());
         String responseMessage = result.getAsJsonObject().get("responseMessage").getAsString();
         Assert.assertTrue(responseMessage.contains("A contract has not been found for contract"));
     }
@@ -132,7 +138,7 @@ public class ContractQuerySteps implements IRestStep {
         String responseMessage = result.getAsJsonObject().get("responseMessage").getAsString();
         JsonObject responseJson = parseJsonElementString(responseMessage).getAsJsonObject();
 
-        List<String> masterSet = FileHelper.getInstance().getFileLines("/support/ecm/" + filename);
+        List<String> masterSet = getFileLines("/support/ecm/" + filename);
 
         Assert.assertTrue(verifyFields(responseJson, masterSet, " "));
     }
