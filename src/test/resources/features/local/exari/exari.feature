@@ -2,7 +2,7 @@
 @A_UI_Story
 Feature: Exari UI Test
 
-  @author @ignore
+  @author
   Scenario Outline: Author <type> on <site> page
     Given I am logged into Exari Dev as a valid user
     And I am on the "<site>" site
@@ -17,7 +17,7 @@ Feature: Exari UI Test
 #      | central uhn   | SMGA |
 
 
-  @amend @ignore
+  @amend
   Scenario Outline: Amend <type> on <site> page
     Given I am logged into Exari Dev as a valid user
     And I am on the "<site>" site
@@ -31,7 +31,7 @@ Feature: Exari UI Test
 #      | northeast uhn | SMGA |
 #      | central uhn   | SMGA |
 
-  @terminate @ignore
+  @terminate
   Scenario Outline: Terminate <type> on <site> page
     Given I am logged into Exari Dev as a valid user
     And I am on the "<site>" site
@@ -45,7 +45,7 @@ Feature: Exari UI Test
 #      | northeast uhn | SMGA |
 #      | central uhn   | SMGA |
 
-  @author @amend @terminate @contractLifecycle
+  @ignore @author @amend @terminate @contractLifecycle
   Scenario Outline: Author amend and terminate a <type> on <site> page
     Given I am logged into Exari Dev as a valid user
     And I am on the "<site>" site
