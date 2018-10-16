@@ -2,7 +2,6 @@ package rest_api_test.step;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -55,7 +54,7 @@ public class ContractQuerySteps implements IRestStep {
         JsonObject ecm = parseJsonString(tempMessage);
 
 //        System.out.println(ecm.toString());
-        List<String> masterSet = FileHelper.getInstance().getFileLines("/support/ecm.txt");
+        List<String> masterSet = FileHelper.getInstance().getFileLines("/support/ecm/ecm.txt");
         Assert.assertTrue(verifyFields(ecm, masterSet, "\\."));
     }
 
@@ -126,8 +125,6 @@ public class ContractQuerySteps implements IRestStep {
 
     @Then("^the fields from file \"([^\"]*)\" are returned$")
     public void theFollowingFieldsAreReturned(String filename) throws Throwable {
-        //Get the response fields from the data table as a list
-        List<String> responseFields = FileHelper.getInstance().getFileLines("/support/" + filename);
 
         result = parseJsonElementResponse(this.response);
         Assert.assertTrue(result.isJsonObject());
@@ -135,9 +132,9 @@ public class ContractQuerySteps implements IRestStep {
         String responseMessage = result.getAsJsonObject().get("responseMessage").getAsString();
         JsonObject responseJson = parseJsonElementString(responseMessage).getAsJsonObject();
 
-        List<String> masterSet = FileHelper.getInstance().getFileLines("/support/" + filename);
+        List<String> masterSet = FileHelper.getInstance().getFileLines("/support/ecm/" + filename);
 
-        Assert.assertTrue(verifyFields(responseJson, masterSet, "#####"));
+        Assert.assertTrue(verifyFields(responseJson, masterSet, " "));
     }
 
 }

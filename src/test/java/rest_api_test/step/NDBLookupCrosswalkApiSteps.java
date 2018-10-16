@@ -25,7 +25,7 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep {
     private static final String ENDPOINT = "http://ndb-lookup-crosswalk-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_PRODUCT_CODES = "/productcodes";
     private static final String RESOURCE_TAXONOMY_QUERY = "/taxonomy/query";
-    private static final String SUPPORT_PRODUCT_CODE_PAYLOAD_FILE = "/support/US1285441_identify_product_codes.json";
+    private static final String SUPPORT_PRODUCT_CODE_PAYLOAD_FILE = "/support/US1285441/identify_product_codes.json";
 
     private RequestSpecification request;
     private Response response;

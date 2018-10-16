@@ -29,7 +29,7 @@ public class ContractMetadataApiSteps implements IRestStep {
 
     private final static String ENDPOINT = "http://localhost:8080";
     private final static String RESOURCE_PRODUCTCODE = "/v1.0/xwalk/product/code/list";
-    private final static String CSV_FILE = "/support/ContractDescriptionIDMap.csv";
+    private final static String CSV_FILE = "/support/US1185585/ContractDescriptionIDMap.csv";
 
     private RequestSpecification request;
     private JsonObject requestBody = new JsonObject();
