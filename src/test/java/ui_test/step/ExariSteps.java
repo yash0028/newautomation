@@ -15,11 +15,11 @@ import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.page.exari.login.LoginPage;
 import ui_test.util.IUiStep;
 import ui_test.util.IWebInteract;
-import util.IFileInteract;
 import util.configuration.IConfigurable;
+import util.file.IFileReader;
 
 
-public class ExariSteps implements IUiStep, IFileInteract, IConfigurable {
+public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(IWebInteract.class);
 
     private DashboardPage dashboardPage;
