@@ -3,6 +3,7 @@ package rest_api_test.util;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.stream.MalformedJsonException;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import org.slf4j.Logger;
@@ -87,11 +88,22 @@ class RestHelper {
 
     boolean verifySingleKey(List<String> keySet, int index, JsonElement currJson, StringBuilder traveledPath){
         JsonElement nextJson;
+        JsonParser parser = new JsonParser();
 
         //Move into array
         while (currJson.isJsonArray() && currJson.getAsJsonArray().size() > 0) {
             currJson = currJson.getAsJsonArray().get(0);
             traveledPath.append("[0]");
+        }
+
+        // If JSON Primitive, parse into JSON Element
+        try {
+            if (currJson.isJsonPrimitive()) {
+                currJson = parser.parse(currJson.getAsJsonPrimitive().getAsString());
+            }
+
+        } catch (Exception e){
+            // Do nothing
         }
 
         //Check that the previous json is still usable and not at the end of the check
