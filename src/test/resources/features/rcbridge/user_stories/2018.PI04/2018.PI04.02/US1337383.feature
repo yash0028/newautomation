@@ -1,5 +1,5 @@
 # Last updated on 
-@RC_unlinked
+@RC_No_Link
 @US1337383
 @2018.PI04
 @2018.PI04.02
@@ -8,7 +8,7 @@ Feature: US1337383 - [Continued] NDB downstream Functional test case scenarios
   @TC587880
   @Manual
   @Functional
-  @RC_unlinked
+  @RC_No_Link
   @US1337383
   @2018.PI04
   @2018.PI04.02
