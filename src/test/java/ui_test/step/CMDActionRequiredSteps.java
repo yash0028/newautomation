@@ -5,11 +5,13 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.contractManagement.CMDPage;
 import ui_test.page.contractManagement.InProgressPage;
 import ui_test.util.IUiStep;
+import ui_test.util.SeleniumHelper;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -23,24 +25,32 @@ import java.util.stream.Collectors;
 public class CMDActionRequiredSteps implements IUiStep {
     private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
     private CMDPage cmdPage = null;
+    private WebDriver driver;
     // TODO: Change to Action Required Page
     private InProgressPage inProgressPage = null;
-    private String CMD_DASHBOARD_URL = "http://contractPage-admin-ui-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
+    private String CMD_DASHBOARD_URL = "http://contract-admin-ui-clm-test.ocp-ctc-dmz-nonprod.optum.com/contract-status";
 
     @Given("^I have clicked on Action Required button on the CMD dashboard$")
     public void ClickActionRequiredButtonOnCMDDashboard() throws Throwable {
-        getRemoteDriver().get(CMD_DASHBOARD_URL); // Navigate to the CMD page
-        cmdPage = new CMDPage(getRemoteDriver());
-        Assert.assertTrue("CMD page could not be displayed", cmdPage.confirmCurrentPage());
-        //TODO: Change to cmdPage.clickActionRequiredLink when ready
-//        Assert.assertTrue(cmdPage.clickInProgressLink());
-        Assert.assertTrue(cmdPage.clickErrorsLink());
+        driver = SeleniumHelper.launchBrowser();
+        driver.get(CMD_DASHBOARD_URL);
+        cmdPage = new CMDPage(driver);
+        System.out.println(driver.getCurrentUrl());
+
+
+//        getRemoteDriver().get(CMD_DASHBOARD_URL); // Navigate to the CMD page
+//        cmdPage = new CMDPage(getRemoteDriver());
+//        Assert.assertTrue("CMD page could not be displayed", cmdPage.confirmCurrentPage());
+//        //TODO: Change to cmdPage.clickActionRequiredLink when ready
+        Assert.assertTrue(cmdPage.clickInProgressLink());
+//        Assert.assertTrue(cmdPage.clickErrorsLink());
     }
 
     @When("^there are Action Required transactions$")
     public void thereAreActionRequiredTransactions() throws Throwable {
-        //TODO: Change to actionRequiredPage
-        inProgressPage = new InProgressPage(getRemoteDriver());
+        inProgressPage = new InProgressPage(driver);
+//        //TODO: Change to actionRequiredPage
+//        inProgressPage = new InProgressPage(getRemoteDriver());
 //        Assert.assertTrue("URL for in progress page does not match", inProgressPage.confirmCurrentPage());
 
         //expand table to show 25 rows

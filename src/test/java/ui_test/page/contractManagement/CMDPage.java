@@ -17,13 +17,16 @@ import static ui_test.util.SeleniumHelper.findElements;
 
 public class CMDPage implements IFactoryPage {
     private static Logger log = LoggerFactory.getLogger(CMDPage.class);
-    @FindBy(xpath = "//a[contains(@href,'/contractPage-summary/in-progress')]")
+    @FindBy(xpath = "//a[contains(@href,'/contract-summary/in-progress')]")
     WebElement inProgressLink;
-    @FindBy(xpath = "//a[contains(@href,'/contractPage-summary/failed')]")
+
+    @FindBy(xpath = "//a[contains(@href,'/contract-summary/failed')]")
     WebElement actionRequiredLink;
-    @FindBy(xpath = "//a[contains(@href,'/contractPage-summary/failed')]")
+
+    @FindBy(xpath = "//a[contains(@href,'/reassignment')]")
     WebElement errorsLink;
-    @FindBy(xpath = "//a[contains(@href,'/contractPage-summary/success')]")
+
+    @FindBy(xpath = "//a[contains(@href,'/contract-summary/success')]")
     WebElement completedLink;
     private WebDriver driver;
 
@@ -119,7 +122,7 @@ public class CMDPage implements IFactoryPage {
     }
 
     /**
-     * Click in progress link on contractPage management homepage.
+     * Click in errors link on contractPage management homepage.
      *
      * @return True if the link was clicked or false otherwise.
      */
@@ -134,7 +137,7 @@ public class CMDPage implements IFactoryPage {
     }
 
     /**
-     * Click in progress link on contractPage management homepage.
+     * Click in completed link on contractPage management homepage.
      *
      * @return True if the link was clicked or false otherwise.
      */

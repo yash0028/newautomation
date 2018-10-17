@@ -30,7 +30,6 @@ public class MarketTableSteps implements IRestStep {
     @Given("^the market number \"([^\"]*)\" is(?: not)? listed in the Market UHC table$")
     public void setMarketNumber(String arg0) throws Throwable {
         marketNumber = arg0;
-//        marketNumber = "45597";
     }
 
     @When("^a query to the table is initiated$")
