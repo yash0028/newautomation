@@ -8,7 +8,7 @@
 @Priority_2
 @CMD
 @F232004
-Feature: US1311232 - Apply Provider Rate process rule during roster event process
+Feature: US1311232 - Apply Provider Rate process rule during roster event process(E2E)
 
   @TC572201
   @Automated

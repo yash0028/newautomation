@@ -19,8 +19,9 @@ import java.util.List;
  * Created by dtimaul on 9/26/18.
  */
 public class ActionRequiredPage implements IFactoryPage {
-    private static Logger log = LoggerFactory.getLogger(ActionRequiredPage.class);
-    private WebDriver driver;
+    private static final Logger log = LoggerFactory.getLogger(ActionRequiredPage.class);
+
+    private final WebDriver driver;
 
     @FindBy(how = How.XPATH, using = "//table[@class='mat-table']")
     private WebElement table;
@@ -37,6 +38,10 @@ public class ActionRequiredPage implements IFactoryPage {
     @FindBy(xpath = "//span[@class='mat-option-text' and text()='25']")
     private WebElement tableSize25Button;
 
+    /*
+    CONSTRUCTOR
+     */
+
     /**
      * Creates the action required page driver and its web elements.
      *
@@ -49,6 +54,10 @@ public class ActionRequiredPage implements IFactoryPage {
         PageFactory.initElements(factory, this);
     }
 
+    /*
+    FACTORY PAGE METHODS
+     */
+
     /**
      * Confirms that the current page is the in progress page by verifying the URL.
      *
@@ -57,6 +66,15 @@ public class ActionRequiredPage implements IFactoryPage {
     public boolean confirmCurrentPage() {
         return driver.getCurrentUrl().matches("^.+in-progress$");
     }
+
+    @Override
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    /*
+    CLASS METHODS
+     */
 
     /**
      * Gets the rows in the table.

@@ -9,7 +9,7 @@
 Feature: US1189845 - [Continued][Continued] Downstream system specific validation handling
 
   @TC537148
-  @Automated
+  @Manual
   @Functional
   @US1189845
   @2018.PI04
@@ -34,7 +34,7 @@ Feature: US1189845 - [Continued][Continued] Downstream system specific validatio
     Then It is validated by the ndb-validator service and an error is reported to the transaction system
 
   @TC565790
-  @Automated
+  @Manual
   @Functional
   @US1189845
   @2018.PI04
@@ -46,7 +46,7 @@ Feature: US1189845 - [Continued][Continued] Downstream system specific validatio
     Then It is validated and approved by the cosmos-validator service
 
   @TC538452
-  @Automated
+  @Manual
   @Functional
   @US1189845
   @2018.PI04
@@ -58,7 +58,7 @@ Feature: US1189845 - [Continued][Continued] Downstream system specific validatio
     Then It is validated by the cosmos-validator service and an error is reported to the transaction system
 
   @TC565788
-  @Automated
+  @Manual
   @Functional
   @US1189845
   @2018.PI04
@@ -70,7 +70,7 @@ Feature: US1189845 - [Continued][Continued] Downstream system specific validatio
     Then It is validated and approved by the ndb-validator service
 
   @TC565789
-  @Automated
+  @Manual
   @Functional
   @US1189845
   @2018.PI04
@@ -108,7 +108,7 @@ Feature: US1189845 - [Continued][Continued] Downstream system specific validatio
     Then It is validated and approved by the ndb-validator service
 
   @TC538430
-  @Automated
+  @Manual
   @Functional
   @US1189845
   @2018.PI04
@@ -120,7 +120,7 @@ Feature: US1189845 - [Continued][Continued] Downstream system specific validatio
     Then It is validated and approved by the cosmos-validator service
 
   @TC565791
-  @Automated
+  @Manual
   @Functional
   @US1189845
   @2018.PI04
@@ -145,7 +145,7 @@ Feature: US1189845 - [Continued][Continued] Downstream system specific validatio
     Then It is validated by the cosmos-validator service and an error is reported to the transaction system
 
   @TC537147
-  @Automated
+  @Manual
   @Functional
   @US1189845
   @2018.PI04

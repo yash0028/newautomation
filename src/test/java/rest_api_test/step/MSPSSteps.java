@@ -10,7 +10,7 @@ import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
-import util.FileHelper;
+import util.file.IFileWriter;
 
 import java.io.File;
 
@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by jwacker on 7/19/2018.
  */
-public class MSPSSteps implements IRestStep {
+public class MSPSSteps implements IRestStep, IFileWriter {
     private static final Logger log = LoggerFactory.getLogger(MSPSSteps.class);
 
     private static final String ENDPOINT = "http://fee-schedule-api-clm-test.ocp-ctc-core-nonprod.optum.com";
@@ -60,14 +60,14 @@ public class MSPSSteps implements IRestStep {
         byte[] fileBytes = response.asByteArray();
 
         //Write the byte array to a zip or pdf file based on the extension
-        File file = FileHelper.getInstance().writeByteArrayToFile("testFile." + extension, fileBytes);
+        File file = writeByteArrayToFile("testFile." + extension, fileBytes);
 
         //Assert that the call was successful
         assertEquals(200, response.getStatusCode());
 
         //Assert that the zip contains files or that the pdf is exists and can be read
         if(extension.equalsIgnoreCase("zip")){
-            assertTrue(FileHelper.getInstance().zipContainsFiles(file));
+            assertTrue(zipContainsFiles(file));
         }
         else{
             assertTrue(file.isFile() && file.canRead());

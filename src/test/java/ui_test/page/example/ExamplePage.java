@@ -13,7 +13,7 @@ import ui_test.util.IFactoryPage;
 public class ExamplePage implements IFactoryPage {
     @FindBy(xpath = "//input[@name='firstname']")
     WebElement firstNameInput;
-    private WebDriver driver;
+    private final WebDriver driver;
 
     /*
     CONSTRUCTOR
@@ -30,13 +30,22 @@ public class ExamplePage implements IFactoryPage {
     }
 
     /*
-    CLASS METHODS
+    FACTORY PAGE METHODS
      */
 
     @Override
     public boolean confirmCurrentPage() {
         return driver.getCurrentUrl().matches("^.+automation-practice-form/$");
     }
+
+    @Override
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    /*
+    CLASS METHODS
+     */
 
     public boolean enterFirstName(String firstName) {
         try {

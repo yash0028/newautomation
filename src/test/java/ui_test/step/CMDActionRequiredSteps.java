@@ -25,12 +25,12 @@ public class CMDActionRequiredSteps implements IUiStep {
     private CMDPage cmdPage = null;
     // TODO: Change to Action Required Page
     private InProgressPage inProgressPage = null;
-    private String CMD_DASHBOARD_URL = "http://contract-admin-ui-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
+    private String CMD_DASHBOARD_URL = "http://contractPage-admin-ui-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
 
     @Given("^I have clicked on Action Required button on the CMD dashboard$")
     public void ClickActionRequiredButtonOnCMDDashboard() throws Throwable {
-        getWebDriver().get(CMD_DASHBOARD_URL); // Navigate to the CMD page
-        cmdPage = new CMDPage(getWebDriver());
+        getRemoteDriver().get(CMD_DASHBOARD_URL); // Navigate to the CMD page
+        cmdPage = new CMDPage(getRemoteDriver());
         Assert.assertTrue("CMD page could not be displayed", cmdPage.confirmCurrentPage());
         //TODO: Change to cmdPage.clickActionRequiredLink when ready
 //        Assert.assertTrue(cmdPage.clickInProgressLink());
@@ -40,7 +40,7 @@ public class CMDActionRequiredSteps implements IUiStep {
     @When("^there are Action Required transactions$")
     public void thereAreActionRequiredTransactions() throws Throwable {
         //TODO: Change to actionRequiredPage
-        inProgressPage = new InProgressPage(getWebDriver());
+        inProgressPage = new InProgressPage(getRemoteDriver());
 //        Assert.assertTrue("URL for in progress page does not match", inProgressPage.confirmCurrentPage());
 
         //expand table to show 25 rows

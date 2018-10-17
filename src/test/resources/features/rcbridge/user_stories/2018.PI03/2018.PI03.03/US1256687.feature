@@ -10,18 +10,6 @@
 @F214484
 Feature: US1256687 - Populate initial Provider Taxonomy Grid table
 
-  @TC565399
-  @Automated
-  @Functional
-  @kumar,_Sachin
-  @US1256687
-  @2018.PI03
-  @2018.PI03.03
-  Scenario: TC565399 - [RL0]
-    Given attributes and permissible code values have been gathered
-    When the table administrator needs to store the information
-    Then a table is made available for the administrator to create and maintian the information
-
   @CLM_UAT
   @TC554281
   @Manual
@@ -42,7 +30,7 @@ Feature: US1256687 - Populate initial Provider Taxonomy Grid table
   @US1256687
   @2018.PI03
   @2018.PI03.03
-  Scenario: TC552036 - Verify table Provider Taxonomy Grid
+  Scenario: TC552036 - [RL0] Verify table Provider Taxonomy Grid
     Given attributes and permissible code values have been gathered
     When the table administrator needs to store the information
     Then a table is made available for the administrator to create and maintian the information

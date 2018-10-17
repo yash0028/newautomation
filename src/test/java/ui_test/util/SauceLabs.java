@@ -170,7 +170,7 @@ class SauceLabs implements IConfigurable {
      */
     private DesiredCapabilities generateCapabilities() {
         SupportedBrowsers browser = SupportedBrowsers.getFromString(configGetOptionalString("defaultBrowserName").orElse("CHROME"));
-        String name = configGetOptionalString("defaultJobName").orElse("CLM UI Test");
+        String name = configGetOptionalString("defaultJobName").orElse("CLM UI headerTabSiteOptionTest");
         return generateCapabilities(browser, name);
     }
 
@@ -227,6 +227,8 @@ class SauceLabs implements IConfigurable {
         capabilities.setCapability("build", genBuild());
         capabilities.setCapability("tags", genTags());
 
+        capabilities.setCapability("public", "public restricted");
+
 
         return capabilities;
     }
@@ -276,7 +278,7 @@ class SauceLabs implements IConfigurable {
      * @return build name
      */
     private String genBuild() {
-        return configGetOptionalString("JOB_NAME").orElse(getUsername() + "::" + TimeKeeper.getInstance().getStartTimeISO());
+        return configGetOptionalString("BUILD_TAG").orElse(getUsername() + "::" + TimeKeeper.getInstance().getStartTimeISO());
     }
 
     /**

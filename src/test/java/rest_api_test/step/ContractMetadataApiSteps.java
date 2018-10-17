@@ -13,7 +13,7 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
-import util.FileHelper;
+import util.file.IFileReader;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,12 +24,12 @@ import static io.restassured.RestAssured.given;
 /**
  * Created by dtimaul on 9/11/18.
  */
-public class ContractMetadataApiSteps implements IRestStep {
+public class ContractMetadataApiSteps implements IRestStep, IFileReader {
     private final static Logger log = LoggerFactory.getLogger(ContractMetadataApiSteps.class);
 
     private final static String ENDPOINT = "http://localhost:8080";
     private final static String RESOURCE_PRODUCTCODE = "/v1.0/xwalk/product/code/list";
-    private final static String CSV_FILE = "/support/ContractDescriptionIDMap.csv";
+    private final static String CSV_FILE = "/support/US1185585/ContractDescriptionIDMap.csv";
 
     private RequestSpecification request;
     private JsonObject requestBody = new JsonObject();
@@ -71,7 +71,7 @@ public class ContractMetadataApiSteps implements IRestStep {
             }
         }
 
-        //Request body: {"productDesc": [“desc1”, “desc2”]}
+        //Request body: {"productDesc": ["desc1", "desc2"]}
         requestBody.add("productDesc", productDescriptionArr);
 
         //Create request with request body
@@ -216,7 +216,7 @@ public class ContractMetadataApiSteps implements IRestStep {
      * @return product description
      */
     private String getProductDescription(String id) {
-        List<String> lines = FileHelper.getInstance().getFileLines(CSV_FILE);
+        List<String> lines = getFileLines(CSV_FILE);
 
         for (String line : lines) {
             String[] currentLine = line.split("\\|");

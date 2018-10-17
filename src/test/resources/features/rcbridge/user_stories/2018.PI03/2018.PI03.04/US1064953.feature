@@ -23,7 +23,7 @@ Feature: US1064953 - Exari>COSMOS Physician Panel Cancel/Term one Panel from exi
     Then the COSMOS Physician Cancel Panel should populate the PPC table and screens in COSMOS for Cancel the one Panel record without error
 
   @TC564536
-  @Automated
+  @Manual
   @Functional
   @US1064953
   @2018.PI03

@@ -1,4 +1,4 @@
-package util;
+package util.file;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -9,36 +9,45 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-import java.util.stream.Collectors;
 import java.util.zip.ZipFile;
 
 /**
  * Created by jwacker on 8/8/2018.
  */
-public class FileHelper {
+public class FileHandler {
+    private static final Logger log = LoggerFactory.getLogger(FileHandler.class);
+    private static FileHandler INSTANCE = new FileHandler();
 
-    private static final Logger logger = LoggerFactory.getLogger(FileHelper.class);
-    private static FileHelper ourInstance = new FileHelper();
     private Properties properties = null;
 
     /*
     CONSTRUCTOR
      */
 
-    private FileHelper() {
+    private FileHandler() {
     }
 
     /*
     STATIC METHODS
      */
 
-    public static FileHelper getInstance() {
-        return ourInstance;
+    @Deprecated
+    public static FileHandler getInstance_old() {
+        return INSTANCE;
+    }
+
+    static FileHandler getInstance() {
+        return INSTANCE;
     }
 
     /*
     CLASS METHODS
      */
+
+    public String getResourceFilePath(String fileInResourceFolder) {
+        return getClass().getResource(fileInResourceFolder).getFile();
+
+    }
 
     public File writeByteArrayToFile(String fileName, byte[] content) throws IOException {
         //Create the file with the given filename
@@ -86,25 +95,26 @@ public class FileHelper {
         return null;
     }
 
-    public String getFileContents(String fileName) {
-        return getFileLines(fileName).stream().collect(Collectors.joining("\n"));
+    public String getFileContents(String fileName, boolean ignoreComments, boolean ignoreEmpty) {
+        return String.join("\n", getFileLines(fileName, ignoreComments, ignoreEmpty));
     }
 
-    public List<String> getFileLines(String fileName) {
+    public List<String> getFileLines(String fileName, boolean ignoreComments, boolean ignoreEmpty) {
         BufferedReader reader;
         String line;
 
         ArrayList<String> list = new ArrayList<>();
 
         try {
-            String temp = getClass().getResource(fileName).getPath();
-            System.out.println(temp);
+            String filePath = getClass().getResource(fileName).getFile();
+            log.trace("opening file {}", filePath);
             InputStreamReader stream = new InputStreamReader(getClass().getResourceAsStream(fileName), "UTF-8");
 
             reader = new BufferedReader(stream);
             while ((line = reader.readLine()) != null) {
-                if (!line.startsWith("#") && !line.isEmpty()) {
-                    list.add(line.trim());
+                line = line.trim();
+                if ((!line.startsWith("#") || !ignoreComments) && (!line.isEmpty() || !ignoreEmpty)) {
+                    list.add(line);
                 }
             }
 
@@ -112,9 +122,9 @@ public class FileHelper {
             stream.close();
 
         } catch (FileNotFoundException e) {
-            System.err.println(String.format("Could not find %s", fileName));
+            log.error("file {} not found", fileName, e);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("io exception", e);
         }
 
         return list;
@@ -134,11 +144,11 @@ public class FileHelper {
         try {
             inputStream = getClass().getClassLoader().getResourceAsStream("configurations/ui.properties");
             if (inputStream == null) {
-                logger.info("Unable to find out the ui.properties file");
+                log.info("Unable to find out the ui.properties file");
             }
             properties.load(inputStream);
         } catch (IOException e) {
-            logger.error(e.getMessage());
+            log.error(e.getMessage());
         }
     }
 }

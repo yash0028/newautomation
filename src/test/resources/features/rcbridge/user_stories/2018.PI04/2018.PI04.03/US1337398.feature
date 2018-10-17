@@ -8,7 +8,7 @@
 @Priority_2
 @CMD
 @F205772
-Feature: US1337398 - Identify new product codes with decision table
+Feature: US1337398 - Identify new product codes with decision table (E2E?)
 
   @TC587891
   @Manual

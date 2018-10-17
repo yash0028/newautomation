@@ -5,6 +5,7 @@
 @10/1_Physician
 @Priority_1
 @CMD
+@Amrutha
 @F209320
 Feature: US1256989 - Upload CLM Rule Table
 

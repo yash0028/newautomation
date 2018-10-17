@@ -8,7 +8,7 @@
 @Priority_2
 @CMD
 @F205772
-Feature: US1311230 - Identify Product Rate Group Conditions - Professional Specialty and Professional Other Specialty Rate
+Feature: US1311230 - Identify Product Rate Group Conditions - Professional Specialty and Professional Other Specialty Rate(E2E?)
 
   @TC572196
   @Automated

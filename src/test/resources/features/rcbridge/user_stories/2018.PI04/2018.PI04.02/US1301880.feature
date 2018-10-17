@@ -11,7 +11,7 @@
 Feature: US1301880 - CMD- User Input Required Page- Populate rows of data
 
   @TC593157
-  @Automated
+  @Manual
   @Functional
   @A_UI_Story
   @US1301880
@@ -24,7 +24,7 @@ Feature: US1301880 - CMD- User Input Required Page- Populate rows of data
     Then the default sort of the data should be oldest submission date to newest submission date
 
   @TC593156
-  @Automated
+  @Manual
   @Functional
   @A_UI_Story
   @US1301880
@@ -47,7 +47,7 @@ Feature: US1301880 - CMD- User Input Required Page- Populate rows of data
       | Date |
 
   @TC564483
-  @Automated
+  @Manual
   @Functional
   @A_UI_Story
   @US1301880

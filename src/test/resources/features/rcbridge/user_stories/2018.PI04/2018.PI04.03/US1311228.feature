@@ -8,7 +8,7 @@
 @Priority_2
 @CMD
 @F205772
-Feature: US1311228 - Identify Product Rate Group Conditions - Physician and Professional Rates
+Feature: US1311228 - Identify Product Rate Group Conditions - Physician and Professional Rates (E2E?)
 
   @TC572187
   @Automated
