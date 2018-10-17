@@ -12,7 +12,7 @@
 Feature: US1089539 - Optum - Create Interface Specification for API service
 
   @TC564584
-  @Automated
+  @Manual
   @Functional
   @US1089539
   @2018.PI02

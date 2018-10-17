@@ -23,7 +23,7 @@ Feature: US1064588 - Exari>COSMOS Physician Panel Cancel/Term all Providers pane
     Then the COSMOS Physician Panels should Cancel One Physician Panels without error
 
   @TC565843
-  @Automated
+  @Manual
   @Functional
   @US1064588
   @2018.PI03

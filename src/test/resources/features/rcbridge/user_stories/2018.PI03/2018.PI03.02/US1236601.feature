@@ -10,53 +10,53 @@
 @F177202
 Feature: US1236601 - Code Coverage Test Cases
 
-  @TC564654
-  @Automated
+  @TC615273
+  @Manual
   @Functional
   @US1236601
   @2018.PI03
   @2018.PI03.02
-  Scenario: TC564654 - [RL0]
+  Scenario: TC615273 - [RL0]
     When The units are run and the code coverage is recorded for the contract-query-api service
     Then The overall test code coverage is above 70%
 
-  @TC564656
-  @Automated
+  @TC615276
+  @Manual
   @Functional
   @US1236601
   @2018.PI03
   @2018.PI03.02
-  Scenario: TC564656 - [RL2]
-    When The units are run and the code coverage is recorded for the cosmos-updater-service service
-    Then The overall test code coverage is above 70%
-
-  @TC564657
-  @Automated
-  @Functional
-  @US1236601
-  @2018.PI03
-  @2018.PI03.02
-  Scenario: TC564657 - [RL3]
+  Scenario: TC615276 - [RL3]
     When The units are run and the code coverage is recorded for the contracts-domain service
     Then The overall test code coverage is above 70%
 
-  @TC564658
-  @Automated
+  @TC615275
+  @Manual
   @Functional
   @US1236601
   @2018.PI03
   @2018.PI03.02
-  Scenario: TC564658 - [RL4]
+  Scenario: TC615275 - [RL2]
+    When The units are run and the code coverage is recorded for the cosmos-updater-service service
+    Then The overall test code coverage is above 70%
+
+  @TC615277
+  @Manual
+  @Functional
+  @US1236601
+  @2018.PI03
+  @2018.PI03.02
+  Scenario: TC615277 - [RL4]
     When The units are run and the code coverage is recorded for the product-crosswalk service
     Then The overall test code coverage is above 70%
 
-  @TC564655
-  @Automated
+  @TC615274
+  @Manual
   @Functional
   @US1236601
   @2018.PI03
   @2018.PI03.02
-  Scenario: TC564655 - [RL1]
+  Scenario: TC615274 - [RL1]
     When The units are run and the code coverage is recorded for the ndb-updater-service service
     Then The overall test code coverage is above 70%
 

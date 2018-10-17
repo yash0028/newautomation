@@ -18,6 +18,6 @@ Feature: US1361309 - CMD- Type 2 error parital contract master update NDB/COSMOS
   Scenario: TC598298 - [RL0]
     Given I am on on the CMD error page
     When I click on a contract line
-    And The contract contains a partial NDB contract master installation error
-    Then On
+    And The contract contains a partial NDB/COSMOS contract master installation error
+    Then on the Modal window i can see the error code and in the message the request/response submitted to NDB
 

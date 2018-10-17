@@ -34,13 +34,13 @@ Feature: US1199569 - [Continued] Validate Data
     Then the file and data is validated
     And a message is returned to the user that the process was successful
 
-  @TC565401
-  @Automated
+  @TC615282
+  @Manual
   @Functional
   @US1199569
   @2018.PI03
   @2018.PI03.04
-  Scenario: TC565401 - [RL0]
+  Scenario: TC615282 - [RL0]
     Given a template is populated with data
     When the template is uploaded
     Then the file and data is validated
@@ -58,13 +58,13 @@ Feature: US1199569 - [Continued] Validate Data
     Then the file and data is validated
     And a message is returned to the user that the process was successful
 
-  @TC565402
-  @Automated
+  @TC615283
+  @Manual
   @Functional
   @US1199569
   @2018.PI03
   @2018.PI03.04
-  Scenario: TC565402 - [RL1]
+  Scenario: TC615283 - [RL1]
     Given a template is populated with invalid data
     When the template is uploaded
     Then the file and data is validated

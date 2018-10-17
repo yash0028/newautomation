@@ -8,7 +8,7 @@
 @Priority_2
 @CMD
 @F205772
-Feature: US1311229 - Identify Product Rate Group Conditions - Physician Specialty and Physician Other Specialty Rate
+Feature: US1311229 - Identify Product Rate Group Conditions - Physician Specialty and Physician Other Specialty Rate(E2E?)
 
   @TC572188
   @Automated

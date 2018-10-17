@@ -8,7 +8,7 @@
 @Priority_2
 @CMD
 @F232004
-Feature: US1311235 - Apply Physician Specialty Rate process rule  during roster event process
+Feature: US1311235 - Apply Physician Specialty Rate process rule  during roster event process(E2E?)
 
   @TC572183
   @Automated

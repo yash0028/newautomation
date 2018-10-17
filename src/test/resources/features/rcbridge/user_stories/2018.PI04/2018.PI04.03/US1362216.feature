@@ -8,7 +8,7 @@
 @Priority_2
 @CMD
 @F232004
-Feature: US1362216 - Processing when provider record does not slot
+Feature: US1362216 - Processing when provider record does not slot(E2E?)
 
   @TC598291
   @Manual

@@ -17,7 +17,7 @@ Feature: US1229421 - Markets table
   @US1229421
   @2018.PI03
   @2018.PI03.03
-  Scenario: TC547622 - Query Markets table with invalid market number
+  Scenario: TC547622 - [RL1] Query Markets table with invalid market number
     Given the market number is not listed in the Market UHC table
     When a query to the table is initiated
     Then the query response does not return the market record information
@@ -30,19 +30,7 @@ Feature: US1229421 - Markets table
   @US1229421
   @2018.PI03
   @2018.PI03.03
-  Scenario: TC547621 - Query Markets table with valid market number
-    Given the market number is listed in the Market UHC table
-    When a query to the table is initiated
-    Then the query response includes the market record information
-
-  @TC564975
-  @Automated
-  @Functional
-  @MVP
-  @US1229421
-  @2018.PI03
-  @2018.PI03.03
-  Scenario: TC564975 - [RL0]
+  Scenario: TC547621 - [RL0] Query Markets table with valid market number
     Given the market number is listed in the Market UHC table
     When a query to the table is initiated
     Then the query response includes the market record information
@@ -59,19 +47,6 @@ Feature: US1229421 - Markets table
     Given the market number is listed in the Market UHC table
     When a query to the table is initiated
     Then the query response includes the market record information
-
-  @TC564976
-  @Automated
-  @Functional
-  @MVP
-  @US1229421
-  @2018.PI03
-  @2018.PI03.03
-  Scenario: TC564976 - [RL1]
-    Given the market number is not listed in the Market UHC table
-    When a query to the table is initiated
-    Then the query response does not return the market record information
-    And a record not found message is returned
 
   @CLM_UAT
   @TC554294

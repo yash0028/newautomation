@@ -6,6 +6,7 @@
 @10/1_Physician
 @Priority_1
 @CMD
+@Amrutha
 @F209320
 Feature: US1256905 - Create CLM Rule Table
 

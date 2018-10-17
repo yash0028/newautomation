@@ -24,7 +24,7 @@ Feature: US1199566 - Create Table Structure and Data Types
     Then the table is updated and stores the information
 
   @TC565010
-  @Automated
+  @Manual
   @Functional
   @MVP
   @US1199566
