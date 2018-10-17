@@ -71,7 +71,7 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
             }
         }
 
-        //Request body: {"productDesc": [“desc1”, “desc2”]}
+        //Request body: {"productDesc": ["desc1", "desc2"]}
         requestBody.add("productDesc", productDescriptionArr);
 
         //Create request with request body
