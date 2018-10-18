@@ -1,0 +1,35 @@
+# Last updated on 
+@US1240232
+@2018.PI04
+@2018.PI04.04
+@MVP
+@10/1_Physician
+@Priority_1
+@CMD
+@F237213
+@releasePresent
+@iterationFuture
+Feature: US1240232 - Modify Contract Config record (UI)
+
+  @TC615301
+  @Manual
+  @Functional
+  @US1240232
+  @2018.PI04
+  @2018.PI04.04
+  Scenario: TC615301 - [RL0]
+    Given an Exari contract is created
+    When the contract 'Final Capture' event occurs in Exari
+    Then a CMD record is created
+
+  @TC615302
+  @Manual
+  @Functional
+  @US1240232
+  @2018.PI04
+  @2018.PI04.04
+  Scenario: TC615302 - [RL1]
+    Given an CMD record exists
+    When a CMD record inquiry request is made
+    Then a CMD record is accessible
+
