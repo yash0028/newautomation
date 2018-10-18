@@ -4,6 +4,8 @@
 @MVP
 @Parity
 @F185547
+@releasePast
+@iterationUnknown
 Feature: US1098423 - Select amendment from list of applicable document
 
   @TC564749

@@ -4,6 +4,8 @@
 @CMD2
 @Priority_2
 @F232444
+@releaseUnknown
+@iterationUnknown
 Feature: US1229506 - Med Nec clause table - Facility
 
   @TC564492

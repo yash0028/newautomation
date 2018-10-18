@@ -1,6 +1,8 @@
 # Last updated on 
 @US1078501
 @F226404
+@releaseUnknown
+@iterationUnknown
 Feature: US1078501 - JMX Trans for Kafka
 
   @TC565404

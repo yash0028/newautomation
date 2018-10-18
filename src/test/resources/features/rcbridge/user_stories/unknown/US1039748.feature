@@ -5,6 +5,8 @@
 @PI04
 @Plus
 @F165534
+@releasePresent
+@iterationUnknown
 Feature: US1039748 - Prevent execution of contract if retro and no approval
 
   @TC565765

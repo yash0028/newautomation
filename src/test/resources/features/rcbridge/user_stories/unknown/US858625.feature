@@ -2,6 +2,8 @@
 @EXARI-11273
 @US858625
 @F207082
+@releaseUnknown
+@iterationUnknown
 Feature: US858625 - View Demographic Time Lining History
 
   @TC565528

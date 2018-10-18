@@ -3,6 +3,8 @@
 @US1094111
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US1094111 - Approve Updated Entity Characteristic Info
 
   @TC565740

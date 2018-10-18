@@ -8,6 +8,8 @@
 @Priority_1
 @Exari_Microservice
 @F175776
+@releasePast
+@iterationPast
 Feature: US1295290 - Allow user to specify version number
 
   @TC564469

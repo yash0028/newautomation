@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F152967
+@releaseUnknown
+@iterationUnknown
 Feature: US944246 - Capture Entity Inactivation Time Lining History
 
   @TC565782

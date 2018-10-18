@@ -2,6 +2,8 @@
 @US1315554
 @2018.PI04
 @F205008
+@releasePresent
+@iterationUnknown
 Feature: US1315554 - View Contract Product Rate Group Conditions
 
   @TC573556

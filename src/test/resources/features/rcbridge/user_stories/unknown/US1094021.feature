@@ -2,6 +2,8 @@
 @US1094021
 @Plus
 @F155316
+@releaseUnknown
+@iterationUnknown
 Feature: US1094021 - Capture Inactivate and Void Time Lining History
 
   @TC564816

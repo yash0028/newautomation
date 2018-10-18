@@ -9,6 +9,8 @@
 @Priority_1
 @CMD
 @F201371
+@releasePast
+@iterationPast
 Feature: US1207278 - Access and security management
 
   @TC533889

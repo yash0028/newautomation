@@ -4,6 +4,8 @@
 @Plus
 @Priority_1
 @F181492
+@releaseUnknown
+@iterationUnknown
 Feature: US1225002 - Terminated NPI/Provider Relationship
 
   @TC565830

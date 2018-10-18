@@ -4,6 +4,8 @@
 @Plus
 @Priority_1
 @F181492
+@releaseUnknown
+@iterationUnknown
 Feature: US1224873 - Created NPI/TIN Relationship
 
   @TC565627

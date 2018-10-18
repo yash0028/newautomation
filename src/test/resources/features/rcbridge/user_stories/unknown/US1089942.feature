@@ -5,6 +5,8 @@
 @CLM_UAT
 @US1089942
 @F207077
+@releaseUnknown
+@iterationUnknown
 Feature: US1089942 - Set Effective Date - Identifier
 
   @TC565781

@@ -8,6 +8,8 @@
 @CMD
 @CMD_Tables
 @F214484
+@releasePast
+@iterationPast
 Feature: US1256689 - [Continued] Validate Table data
 
   @TC551939

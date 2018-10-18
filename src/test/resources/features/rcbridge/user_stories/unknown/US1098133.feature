@@ -2,6 +2,8 @@
 @US1098133
 @Non_MVP
 @F184553
+@releaseUnknown
+@iterationUnknown
 Feature: US1098133 - Establish Naming Convention
 
   @TC565245

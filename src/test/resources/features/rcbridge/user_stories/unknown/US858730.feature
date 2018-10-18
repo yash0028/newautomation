@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137679
+@releaseUnknown
+@iterationUnknown
 Feature: US858730 - View Provider Detail
 
   @TC565443

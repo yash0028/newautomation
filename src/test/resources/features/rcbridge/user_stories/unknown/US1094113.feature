@@ -3,6 +3,8 @@
 @US1094113
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US1094113 - Approve Identifier Owner Assignment
 
   @TC564619

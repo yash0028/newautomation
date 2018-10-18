@@ -10,6 +10,8 @@
 @Parity
 @Examiner
 @F183241
+@releasePast
+@iterationPast
 Feature: US1096246 - Create contract query microservice (inquiry)
 
   @TC564835

@@ -3,6 +3,8 @@
 @US858605
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US858605 - Capture Approval Time Lining History
 
   @TC565125

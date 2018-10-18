@@ -9,6 +9,8 @@
 @Plus
 @Parity
 @F182490
+@releasePast
+@iterationPast
 Feature: US1171058 - [Unfinished] Build External Data Query to retrieve retroactive reason codes (ETMA)
 
   @TC565491

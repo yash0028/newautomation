@@ -3,6 +3,8 @@
 @US950779
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US950779 - Assign Entity Workflow Status for Added Entities
 
   @TC565807

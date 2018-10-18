@@ -6,6 +6,8 @@
 @PI02_Top3
 @Parity
 @F171708
+@releasePast
+@iterationPast
 Feature: US1030787 - [Continued] [Continued] Exari > NDB -  COSMOS Physician Panel - NDB/UNET Y Line
 
   @TC565722

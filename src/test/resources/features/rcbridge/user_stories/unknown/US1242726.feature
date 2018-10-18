@@ -1,5 +1,7 @@
 # Last updated on 
 @US1242726
+@releaseUnknown
+@iterationUnknown
 Feature: US1242726 - View Contract Config Product Rate Groups (contract masters)
 
   @TC565419

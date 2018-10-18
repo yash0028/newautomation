@@ -12,6 +12,8 @@
 @CLM_Exari
 @Parity
 @F201611
+@releasePast
+@iterationPast
 Feature: US1311485 - PES Roster Call -Change Output Results
 
   @TC579704

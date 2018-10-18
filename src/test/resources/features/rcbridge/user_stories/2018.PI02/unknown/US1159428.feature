@@ -2,6 +2,8 @@
 @US1159428
 @2018.PI02
 @F194839
+@releasePast
+@iterationUnknown
 Feature: US1159428 - Jenkins Job for OpenShift Cleanup
 
   @TC564687

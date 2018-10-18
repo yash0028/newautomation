@@ -2,6 +2,8 @@
 @US1262733
 @2018.PI04
 @F205008
+@releasePresent
+@iterationUnknown
 Feature: US1262733 - Product Group process code table
 
   @TC565573

@@ -3,6 +3,8 @@
 @Plus
 @Priority_1
 @F137672
+@releaseUnknown
+@iterationUnknown
 Feature: US1105127 - Default Relationship Type
 
   @TC565064

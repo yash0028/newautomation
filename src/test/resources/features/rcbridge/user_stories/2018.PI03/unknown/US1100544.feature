@@ -4,6 +4,8 @@
 @MVP
 @Parity
 @F185519
+@releasePast
+@iterationUnknown
 Feature: US1100544 - Resolve feedback from Approver
 
   @TC565816

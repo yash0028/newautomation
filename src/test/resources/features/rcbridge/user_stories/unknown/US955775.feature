@@ -4,6 +4,8 @@
 @CLM_UAT
 @US955775
 @F207077
+@releaseUnknown
+@iterationUnknown
 Feature: US955775 - Set Inactivation Date - Identifier
 
   @TC565062

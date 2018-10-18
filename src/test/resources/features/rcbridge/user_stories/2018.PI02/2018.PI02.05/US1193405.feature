@@ -7,6 +7,8 @@
 @PI02_Top3
 @Parity
 @F182742
+@releasePast
+@iterationPast
 Feature: US1193405 - NDB Driver Module – NDB Cross Functional Team - Contract Master - Cancel Transactions (UNET / COSMOS)
 
   @TC564413

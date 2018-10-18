@@ -13,6 +13,8 @@
 @CLM_Exari
 @Parity
 @F137899
+@releasePast
+@iterationPast
 Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data Requests To PES - Counter Party lookup
 
   @TC565514

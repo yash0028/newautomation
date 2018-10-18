@@ -4,6 +4,8 @@
 @Plus
 @Priority_1
 @F137676
+@releaseUnknown
+@iterationUnknown
 Feature: US1257574 - Save Search
 
   @TC564830

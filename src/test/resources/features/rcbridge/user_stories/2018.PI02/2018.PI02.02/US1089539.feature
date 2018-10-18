@@ -9,6 +9,8 @@
 @Parity
 @Examiner
 @F183241
+@releasePast
+@iterationPast
 Feature: US1089539 - Optum - Create Interface Specification for API service
 
   @TC564584

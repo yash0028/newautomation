@@ -8,6 +8,8 @@
 @Plus
 @CLM_Exari
 @F192389
+@releasePast
+@iterationUnknown
 Feature: US1137954 - Update existing Mass Action definitions
 
   @TC565352

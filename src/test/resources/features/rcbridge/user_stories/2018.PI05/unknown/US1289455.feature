@@ -6,6 +6,8 @@
 @Priority_1
 @CMD
 @F237213
+@releaseFuture
+@iterationUnknown
 Feature: US1289455 - Create Contract Config Detail web page template
 
   @TC565827

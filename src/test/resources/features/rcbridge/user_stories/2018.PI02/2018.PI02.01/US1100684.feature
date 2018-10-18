@@ -7,6 +7,8 @@
 @Plus
 @Parity
 @F175417
+@releasePast
+@iterationPast
 Feature: US1100684 - Event Subscription and Publication Library Refinement
 
   @TC565091

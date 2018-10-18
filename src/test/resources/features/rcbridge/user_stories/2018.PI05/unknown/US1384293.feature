@@ -6,6 +6,8 @@
 @Priority_2
 @UCM
 @F231564
+@releaseFuture
+@iterationUnknown
 Feature: US1384293 - New UCM - [ProductGroup] Rate condition (UI story)
 
   @TC612453

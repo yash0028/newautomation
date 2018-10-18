@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137676
+@releaseUnknown
+@iterationUnknown
 Feature: US858714 - Filter by Entity Relationship Type
 
   @TC565201

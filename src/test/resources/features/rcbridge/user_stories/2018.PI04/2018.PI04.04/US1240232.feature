@@ -7,6 +7,8 @@
 @Priority_1
 @CMD
 @F237213
+@releasePresent
+@iterationFuture
 Feature: US1240232 - Modify Contract Config record (UI)
 
   @TC615301

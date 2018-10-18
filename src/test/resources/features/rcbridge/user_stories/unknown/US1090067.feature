@@ -1,6 +1,8 @@
 # Last updated on 
 @US1090067
 @F207077
+@releaseUnknown
+@iterationUnknown
 Feature: US1090067 - Inactivate Identifier Relationship with Entity
 
   @TC565142

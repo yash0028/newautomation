@@ -10,6 +10,8 @@
 @Parity
 @Examiner
 @F183241
+@releasePast
+@iterationPast
 Feature: US1148878 - Create contract query microservice PIC (inquiry)
 
   @TC565908

@@ -9,6 +9,8 @@
 @Priority_1
 @CMD
 @F218723
+@releasePresent
+@iterationPast
 Feature: US1204297 - NDB Common Pricing Solution Lookup API
 
   @TC615259

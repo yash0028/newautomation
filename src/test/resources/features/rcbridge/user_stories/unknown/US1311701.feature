@@ -4,6 +4,8 @@
 @CMD2
 @Priority_2
 @F232444
+@releaseUnknown
+@iterationUnknown
 Feature: US1311701 - Med Nec clause table audit trail  - Facility
 
   @TC572191

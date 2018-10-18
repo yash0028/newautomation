@@ -8,6 +8,8 @@
 @Priority_1
 @CMD
 @F201371
+@releasePast
+@iterationPast
 Feature: US1231899 - Styling Template for Crosswalk UI
 
   @TC615278

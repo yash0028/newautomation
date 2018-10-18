@@ -2,6 +2,8 @@
 @US1094114
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US1094114 - Approve Identifier Owner Inactivation
 
   @TC565295

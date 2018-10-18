@@ -2,6 +2,8 @@
 @US1374512
 @Priority_1
 @F218481
+@releaseUnknown
+@iterationUnknown
 Feature: US1374512 - Synchronize Deactivated Provider
 
   @TC605565

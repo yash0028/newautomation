@@ -10,6 +10,8 @@
 @CLM_Exari
 @Exari_Microservice
 @F180705
+@releasePresent
+@iterationPast
 Feature: US1009573 - [Continued] Create External Data Query to MSG
 
   @TC536736

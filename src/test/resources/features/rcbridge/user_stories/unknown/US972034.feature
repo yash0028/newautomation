@@ -6,6 +6,8 @@
 @PI04
 @Plus
 @F165534
+@releasePresent
+@iterationUnknown
 Feature: US972034 - Retro Why can't move effective date
 
   @TC565550

@@ -6,6 +6,8 @@
 @Plus
 @Parity
 @F176903
+@releasePast
+@iterationPast
 Feature: US1145673 - Change delivery method from Wet to DocuSign
 
   @TC565810

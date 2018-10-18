@@ -5,6 +5,8 @@
 @PI04
 @Plus
 @F165532
+@releasePresent
+@iterationUnknown
 Feature: US1034167 - Provide chargemaster summary via the 'Contract Summary'
 
   @TC565059

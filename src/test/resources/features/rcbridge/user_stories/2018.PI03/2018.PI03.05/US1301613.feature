@@ -8,6 +8,8 @@
 @Priority_1
 @CMD
 @F205820
+@releasePast
+@iterationPast
 Feature: US1301613 - CMD Dashboard buttons
 
   @TC574136

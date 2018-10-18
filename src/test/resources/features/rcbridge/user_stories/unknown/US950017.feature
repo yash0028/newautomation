@@ -1,6 +1,8 @@
 # Last updated on 
 @US950017
 @F207077
+@releaseUnknown
+@iterationUnknown
 Feature: US950017 - Void Identifier Relationship with Entity
 
   @TC564729

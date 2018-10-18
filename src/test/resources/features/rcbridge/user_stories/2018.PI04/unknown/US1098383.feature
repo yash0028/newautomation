@@ -6,6 +6,8 @@
 @MVP
 @Parity
 @F185543
+@releasePresent
+@iterationUnknown
 Feature: US1098383 - Upload spreadsheet to identify target providers
 
   @TC564950

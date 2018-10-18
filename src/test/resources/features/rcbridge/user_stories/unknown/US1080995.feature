@@ -4,6 +4,8 @@
 @EXARI-11274
 @US1080995
 @F207050
+@releaseUnknown
+@iterationUnknown
 Feature: US1080995 - Check for Duplicates - Updated Entity Name
 
   @TC565040

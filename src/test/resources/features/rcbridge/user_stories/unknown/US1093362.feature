@@ -2,6 +2,8 @@
 @EXARI-11274
 @US1093362
 @F196735
+@releaseUnknown
+@iterationUnknown
 Feature: US1093362 - Search City
 
   @TC564960

@@ -6,6 +6,8 @@
 @MVP
 @CLM_Exari
 @F154549
+@releasePast
+@iterationPast
 Feature: US934699 - Promote key select data from one Exari environment to another
 
   @TC565465

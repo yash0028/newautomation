@@ -4,6 +4,8 @@
 @CMD2
 @Priority_2
 @F232444
+@releaseUnknown
+@iterationUnknown
 Feature: US1259301 - Zip to Market table microservice
 
   @TC565223

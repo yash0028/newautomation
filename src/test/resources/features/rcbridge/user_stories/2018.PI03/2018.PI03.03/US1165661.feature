@@ -8,6 +8,8 @@
 @Priority_1
 @Exari_Microservice
 @F175776
+@releasePast
+@iterationPast
 Feature: US1165661 - [Continued] Create External Data Query - Facility MSPS
 
   @TC536781

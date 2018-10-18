@@ -4,6 +4,8 @@
 @Plus
 @Priority_1
 @F181492
+@releaseUnknown
+@iterationUnknown
 Feature: US1225018 - Process Mass Updates
 
   @TC565263

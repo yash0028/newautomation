@@ -6,6 +6,8 @@
 @Plus
 @Priority_2
 @F198810
+@releaseUnknown
+@iterationUnknown
 Feature: US1171454 - Update Validated Status Field
 
   @TC565209

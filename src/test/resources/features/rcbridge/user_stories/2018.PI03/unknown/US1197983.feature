@@ -1,6 +1,8 @@
 # Last updated on 
 @US1197983
 @2018.PI03
+@releasePast
+@iterationUnknown
 Feature: US1197983 - View the Product Code or Product Code Groups
 
   @TC564445

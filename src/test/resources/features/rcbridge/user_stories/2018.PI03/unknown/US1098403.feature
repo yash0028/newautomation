@@ -4,6 +4,8 @@
 @MVP
 @Parity
 @F185519
+@releasePast
+@iterationUnknown
 Feature: US1098403 - Request approval of Mass Action
 
   @TC565601

@@ -2,6 +2,8 @@
 @US1374509
 @Priority_1
 @F218481
+@releaseUnknown
+@iterationUnknown
 Feature: US1374509 - Synchronize Added MPIN
 
   @TC605566

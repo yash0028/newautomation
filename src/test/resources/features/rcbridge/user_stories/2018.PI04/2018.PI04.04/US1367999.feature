@@ -8,6 +8,8 @@
 @kumar,_Sachin
 @CMD
 @F233635
+@releasePresent
+@iterationFuture
 Feature: US1367999 - PCP Specialties Standard definition UHN
 
   @TC600523

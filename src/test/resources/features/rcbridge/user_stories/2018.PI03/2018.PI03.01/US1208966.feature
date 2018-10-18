@@ -9,6 +9,8 @@
 @Priority_1
 @CMD
 @F201371
+@releasePast
+@iterationPast
 Feature: US1208966 - SSO analysis SPIKE
 
   @TC564481

@@ -8,6 +8,8 @@
 @Priority_1
 @CMD
 @F201371
+@releasePast
+@iterationPast
 Feature: US1207219 - [Continued] [Continued] Download Crosswalk Template
 
   @TC519603

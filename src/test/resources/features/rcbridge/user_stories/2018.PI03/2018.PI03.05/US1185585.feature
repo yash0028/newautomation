@@ -11,6 +11,8 @@
 @Priority_1
 @CMD
 @F201371
+@releasePast
+@iterationPast
 Feature: US1185585 - Contract Product Description Crosswalk
 
   @TC569866

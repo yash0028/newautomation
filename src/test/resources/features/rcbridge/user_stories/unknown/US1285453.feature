@@ -7,6 +7,8 @@
 @Priority_1
 @CMD
 @F201371
+@releaseUnknown
+@iterationPast
 Feature: US1285453 - [Continued]Audit and History the new Product Codes
 
   @TC565172

@@ -9,6 +9,8 @@
 @Plus
 @Parity
 @F182490
+@releasePast
+@iterationPast
 Feature: US1096954 - Provider's specialty is on table and paper type is correct (ETMA)
 
   @TC564385

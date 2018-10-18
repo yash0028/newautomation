@@ -8,6 +8,8 @@
 @Cosmos
 @Parity
 @F183530
+@releasePast
+@iterationPast
 Feature: US1064588 - Exari>COSMOS Physician Panel Cancel/Term all Providers panels
 
   @CLM_UAT

@@ -6,6 +6,8 @@
 @2018.PI01.01
 @MVP
 @F154532
+@releasePast
+@iterationPast
 Feature: US977620 - [Spike] Coordinate with Infrastructure Engineering Team
 
   @TC565923

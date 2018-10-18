@@ -3,6 +3,8 @@
 @US1094106
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US1094106 - Approve Updated Entity Demographic Info
 
   @TC564893

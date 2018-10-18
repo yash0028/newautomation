@@ -7,6 +7,8 @@
 @CMD
 @Amrutha
 @F209320
+@releasePresent
+@iterationUnknown
 Feature: US1367829 - PPO Product Group Table Number
 
   @TC600530

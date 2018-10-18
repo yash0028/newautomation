@@ -11,6 +11,8 @@
 @CLM_Exari
 @Parity
 @F137899
+@releasePast
+@iterationPast
 Feature: US1095963 - Multiple Results (PES)
 
   @TC565899

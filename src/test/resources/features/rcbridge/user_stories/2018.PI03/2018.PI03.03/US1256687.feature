@@ -8,6 +8,8 @@
 @CMD
 @CMD_Tables
 @F214484
+@releasePast
+@iterationPast
 Feature: US1256687 - Populate initial Provider Taxonomy Grid table
 
   @CLM_UAT

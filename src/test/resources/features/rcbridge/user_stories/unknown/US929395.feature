@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137674
+@releaseUnknown
+@iterationUnknown
 Feature: US929395 - Update Entity Type Definition
 
   @TC564647

@@ -7,6 +7,8 @@
 @NDB
 @Parity
 @F185083
+@releasePast
+@iterationPast
 Feature: US1103371 - NDB_Edit and Error Message analysis SPIKE
 
   @TC605365

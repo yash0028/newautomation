@@ -1,6 +1,8 @@
 # Last updated on 
 @US1361315
 @F232442
+@releaseUnknown
+@iterationUnknown
 Feature: US1361315 - Add Physician Specialties
 
   @TC598290

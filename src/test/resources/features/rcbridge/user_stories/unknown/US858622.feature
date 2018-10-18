@@ -2,6 +2,8 @@
 @EXARI-11249
 @US858622
 @F207082
+@releaseUnknown
+@iterationUnknown
 Feature: US858622 - Update Demographic Info
 
   @TC565862

@@ -7,6 +7,8 @@
 @PI02_Top3
 @Parity
 @F182742
+@releasePast
+@iterationPast
 Feature: US1094829 - NDB API Creation – NDB Cross Functional Team
 
   @TC565300

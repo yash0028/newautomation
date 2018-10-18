@@ -8,6 +8,8 @@
 @CMD
 @Amrutha
 @F209320
+@releasePresent
+@iterationPresent
 Feature: US1256963 - Update user interface to accomodate new tables
 
   @TC565856

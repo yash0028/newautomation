@@ -9,6 +9,8 @@
 @Plus
 @Parity
 @F182490
+@releasePast
+@iterationPast
 Feature: US1103710 - Counter-party Provider Org TypeCode is found and paper type is returned
 
   @TC564966

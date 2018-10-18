@@ -8,6 +8,8 @@
 @Parity
 @Contract_Query
 @F204933
+@releasePast
+@iterationPast
 Feature: US1179431 - [Continued] PIC Implementation
 
   @TC565438

@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F137674
+@releaseUnknown
+@iterationUnknown
 Feature: US858698 - Capture Entity Attribute Time Lining History
 
   @TC565513

@@ -4,6 +4,8 @@
 @Priority_1
 @10/1_Physician
 @F219211
+@releaseUnknown
+@iterationUnknown
 Feature: US1210707 - Resource Store Cleanup Service
 
   @TC565760

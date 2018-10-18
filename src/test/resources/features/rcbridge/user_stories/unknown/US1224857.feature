@@ -4,6 +4,8 @@
 @Plus
 @Priority_1
 @F181492
+@releaseUnknown
+@iterationUnknown
 Feature: US1224857 - Terminated NPI/TIN Relationship
 
   @TC565552

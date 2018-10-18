@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137678
+@releaseUnknown
+@iterationUnknown
 Feature: US858727 - View Relationships within Entity
 
   @TC565078

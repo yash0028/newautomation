@@ -11,6 +11,8 @@
 @CLM_Exari
 @Parity
 @F137899
+@releasePast
+@iterationPast
 Feature: US1176533 - Enhancement to use new PES combined API (Counter Party) stub API
 
   @TC564928

@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137661
+@releaseUnknown
+@iterationUnknown
 Feature: US912897 - Add Entity Characteristic Detail
 
   @TC565885

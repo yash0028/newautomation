@@ -9,6 +9,8 @@
 @Plus
 @Parity
 @F182490
+@releasePast
+@iterationPast
 Feature: US1097030 - Org type is on table and paper type is correct
 
   @TC564560

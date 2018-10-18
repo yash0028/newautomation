@@ -5,6 +5,8 @@
 @CMD
 @Priority_2
 @F224328
+@releasePresent
+@iterationFuture
 Feature: US1356374 - Product Rate Condition enrichment
 
   @TC600538

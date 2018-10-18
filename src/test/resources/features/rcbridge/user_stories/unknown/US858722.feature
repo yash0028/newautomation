@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137678
+@releaseUnknown
+@iterationUnknown
 Feature: US858722 - View Entire Entity Structure
 
   @TC565282

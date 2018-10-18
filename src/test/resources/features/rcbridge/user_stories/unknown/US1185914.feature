@@ -12,6 +12,8 @@
 @Non-Deliverable
 @7.5_Release
 @F185542
+@releaseUnknown
+@iterationUnknown
 Feature: US1185914 - View contract status summary
 
   @TC565961

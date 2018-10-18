@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F137674
+@releaseUnknown
+@iterationUnknown
 Feature: US858694 - Setup Relationship Types
 
   @TC565707

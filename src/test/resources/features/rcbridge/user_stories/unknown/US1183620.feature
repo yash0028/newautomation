@@ -5,6 +5,8 @@
 @PI04
 @Plus
 @F165531
+@releasePresent
+@iterationUnknown
 Feature: US1183620 - Escalator notice on Dashboard
 
   @TC564507

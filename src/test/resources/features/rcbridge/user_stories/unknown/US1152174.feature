@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137675
+@releaseUnknown
+@iterationUnknown
 Feature: US1152174 - Entity Type Conflict - PHO and IPA
 
   @TC565476

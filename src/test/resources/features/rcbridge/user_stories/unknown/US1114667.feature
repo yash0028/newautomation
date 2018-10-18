@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137675
+@releaseUnknown
+@iterationUnknown
 Feature: US1114667 - Child Entity Relationships
 
   @TC564547

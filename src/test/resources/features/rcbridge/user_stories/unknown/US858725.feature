@@ -4,6 +4,8 @@
 @CLM_UAT
 @US858725
 @F207084
+@releaseUnknown
+@iterationUnknown
 Feature: US858725 - View Entity Summary
 
   @TC565074

@@ -4,6 +4,8 @@
 @US1170983
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US1170983 - Approve Reactivated Entity
 
   @TC564995

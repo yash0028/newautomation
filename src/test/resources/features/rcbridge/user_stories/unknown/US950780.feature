@@ -4,6 +4,8 @@
 @US950780
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US950780 - Assign Entity Workflow Status for Updated Entities
 
   @TC564448

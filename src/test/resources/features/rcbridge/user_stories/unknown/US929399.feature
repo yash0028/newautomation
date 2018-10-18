@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137674
+@releaseUnknown
+@iterationUnknown
 Feature: US929399 - Update Identifier Type
 
   @TC565615

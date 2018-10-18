@@ -5,6 +5,8 @@
 @Plus
 @Priority_2
 @F198810
+@releaseUnknown
+@iterationUnknown
 Feature: US1171452 - Identify Matching Tax IDs
 
   @TC564666

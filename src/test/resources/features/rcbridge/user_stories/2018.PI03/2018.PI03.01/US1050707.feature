@@ -10,6 +10,8 @@
 @CLM_Exari
 @Exari_Microservice
 @F180705
+@releasePast
+@iterationPast
 Feature: US1050707 - (MSG) Create microservice exposing Market Strategy grid data
 
   @TC565752

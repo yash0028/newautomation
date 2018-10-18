@@ -5,6 +5,8 @@
 @MVP
 @PES
 @F159994
+@releasePast
+@iterationPast
 Feature: US1057716 - Micro Service connecting to Provider Search Services
 
   @TC565386

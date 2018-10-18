@@ -11,6 +11,8 @@
 @Non-Deliverable
 @7.5_Release
 @F185542
+@releaseUnknown
+@iterationUnknown
 Feature: US1185895 - View project status summary
 
   @TC565926

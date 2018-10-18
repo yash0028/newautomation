@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F137660
+@releaseUnknown
+@iterationUnknown
 Feature: US858618 - Capture Time Lining History
 
   @TC565563

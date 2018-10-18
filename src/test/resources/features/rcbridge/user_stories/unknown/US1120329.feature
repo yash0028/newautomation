@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137678
+@releaseUnknown
+@iterationUnknown
 Feature: US1120329 - View Entity Structure by Relationship Role
 
   @TC565894

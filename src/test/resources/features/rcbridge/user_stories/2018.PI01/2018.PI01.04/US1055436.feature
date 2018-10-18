@@ -4,6 +4,8 @@
 @2018.PI01.04
 @MVP
 @F161919
+@releasePast
+@iterationPast
 Feature: US1055436 - (Retry) Re-write Retry Service in Spring
 
   @TC565612

@@ -10,6 +10,8 @@
 @CLM_Exari
 @Parity
 @F137899
+@releasePast
+@iterationPast
 Feature: US1178363 - Error and Exception Handling framework
 
   @TC564482

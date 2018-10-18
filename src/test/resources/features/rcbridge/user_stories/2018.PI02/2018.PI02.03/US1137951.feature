@@ -11,6 +11,8 @@
 @Plus
 @CLM_Exari
 @F192389
+@releasePast
+@iterationPast
 Feature: US1137951 - Create a new Mass Action definitions
 
   @TC565307

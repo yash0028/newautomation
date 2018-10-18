@@ -6,6 +6,8 @@
 @MVP
 @CLM_Exari
 @F137839
+@releasePast
+@iterationPast
 Feature: US860745 - Setup Business Organizations
 
   @TC564565

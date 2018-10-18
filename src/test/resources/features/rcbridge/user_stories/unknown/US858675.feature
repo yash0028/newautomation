@@ -3,6 +3,8 @@
 @Plus
 @Priority_1
 @F137672
+@releaseUnknown
+@iterationUnknown
 Feature: US858675 - Update Provider Relationship
 
   @TC565385

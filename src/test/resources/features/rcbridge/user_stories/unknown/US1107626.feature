@@ -3,6 +3,8 @@
 @CLM_UAT
 @US1107626
 @F207049
+@releaseUnknown
+@iterationUnknown
 Feature: US1107626 - Remove Contract ID from Provider upon Interview Termination
 
   @TC565680

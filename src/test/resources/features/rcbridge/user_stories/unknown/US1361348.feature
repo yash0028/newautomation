@@ -1,6 +1,8 @@
 # Last updated on 
 @US1361348
 @F232442
+@releaseUnknown
+@iterationUnknown
 Feature: US1361348 - Add M&R Tier Types
 
   @TC598294

@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F137662
+@releaseUnknown
+@iterationUnknown
 Feature: US858631 - Capture Supplemental Detail Time Lining History
 
   @TC565800

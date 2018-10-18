@@ -3,6 +3,8 @@
 @CLM_UAT
 @US1168429
 @F198150
+@releaseUnknown
+@iterationUnknown
 Feature: US1168429 - Create Contracting Event
 
   @TC565424

@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137671
+@releaseUnknown
+@iterationUnknown
 Feature: US858664 - Add Entity Relationship Role
 
   @TC564683

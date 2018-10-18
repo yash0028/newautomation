@@ -8,6 +8,8 @@
 @kumar,_Sachin
 @CMD
 @F233635
+@releasePresent
+@iterationFuture
 Feature: US1367998 - Determine Product Penalty Table requirement
 
   @TC611128

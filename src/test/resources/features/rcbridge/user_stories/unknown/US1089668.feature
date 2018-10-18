@@ -2,6 +2,8 @@
 @EXARI-11249
 @US1089668
 @F207077
+@releaseUnknown
+@iterationUnknown
 Feature: US1089668 - Perform Identifier Field Validation - Update Identifier
 
   @TC564710

@@ -9,6 +9,8 @@
 @Plus
 @Parity
 @F182490
+@releasePast
+@iterationPast
 Feature: US1097032 - Error - Org type is on table and paper type is not correct
 
   @TC564603

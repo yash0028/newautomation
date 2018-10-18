@@ -7,6 +7,8 @@
 @Plus
 @Parity
 @F175417
+@releasePast
+@iterationPast
 Feature: US1094080 - Transaction State Microservice - Transaction Configuration
 
   @TC565454

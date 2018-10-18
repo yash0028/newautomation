@@ -9,6 +9,8 @@
 @Cosmos
 @Parity
 @F183530
+@releasePast
+@iterationPast
 Feature: US1064673 - [Continued]Exari>COSMOS Physician Panel Add to Existing Provider Panel Record
 
   @TC562753

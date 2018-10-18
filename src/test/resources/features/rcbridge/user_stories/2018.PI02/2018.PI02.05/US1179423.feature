@@ -9,6 +9,8 @@
 @Parity
 @Examiner
 @F183241
+@releasePast
+@iterationPast
 Feature: US1179423 - [Continued] Examiner implementation
 
   @TC565241

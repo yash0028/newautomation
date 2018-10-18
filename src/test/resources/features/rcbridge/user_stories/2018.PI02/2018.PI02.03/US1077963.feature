@@ -7,6 +7,8 @@
 @Plus
 @Parity
 @F175417
+@releasePast
+@iterationPast
 Feature: US1077963 - Transaction Status Update and Connect Database
 
   @TC565867

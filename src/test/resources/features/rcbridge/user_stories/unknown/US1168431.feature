@@ -1,6 +1,8 @@
 # Last updated on 
 @US1168431
 @F226404
+@releaseUnknown
+@iterationUnknown
 Feature: US1168431 - Jenkins Automation Scripts
 
   @TC565480

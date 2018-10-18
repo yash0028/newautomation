@@ -5,6 +5,8 @@
 @PI03
 @Priority_1
 @F137934
+@releaseUnknown
+@iterationUnknown
 Feature: US1354411 - Export Entities without a Relationship
 
   @TC595396

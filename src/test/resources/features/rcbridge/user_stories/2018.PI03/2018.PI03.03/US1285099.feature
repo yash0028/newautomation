@@ -9,6 +9,8 @@
 @Priority_1
 @Exari_Microservice
 @F196394
+@releasePast
+@iterationPast
 Feature: US1285099 - [Unfinished] Build External Data Query - MEG
 
   @TC564991

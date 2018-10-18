@@ -8,6 +8,8 @@
 @NDB
 @Parity
 @F185083
+@releasePast
+@iterationPast
 Feature: US1194515 - [Unfinished] Domain MS - Create event schema design for Roster Update
 
   @TC605419

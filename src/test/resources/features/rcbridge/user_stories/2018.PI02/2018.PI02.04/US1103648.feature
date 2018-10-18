@@ -8,6 +8,8 @@
 @Plus
 @Parity
 @F182490
+@releasePast
+@iterationPast
 Feature: US1103648 - [Continued] Retro Active Reason Code - Contract Level (ETMA)
 
   @TC493887

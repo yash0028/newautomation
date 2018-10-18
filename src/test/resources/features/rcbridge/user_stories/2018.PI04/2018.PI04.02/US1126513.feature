@@ -7,6 +7,8 @@
 @Priority_2
 @Parity
 @F179578
+@releasePresent
+@iterationPast
 Feature: US1126513 - [Continued] Exari >NDB Facility/Ancillary - Medical Necessity API Java Layer
 
   @TC564417

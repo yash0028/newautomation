@@ -6,6 +6,8 @@
 @Plus
 @Priority_2
 @F198810
+@releaseUnknown
+@iterationUnknown
 Feature: US1171451 - Upload Tax ID File
 
   @TC564926

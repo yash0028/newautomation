@@ -7,6 +7,8 @@
 @PIC
 @Parity
 @F159196
+@releasePast
+@iterationPast
 Feature: US1260995 - [Unfinished] PIC Implementation
 
   @TC605421

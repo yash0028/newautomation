@@ -5,6 +5,8 @@
 @PI04
 @Plus
 @F165531
+@releasePresent
+@iterationUnknown
 Feature: US1040747 - View Contract Summary to view Escalator Details
 
   @TC564878

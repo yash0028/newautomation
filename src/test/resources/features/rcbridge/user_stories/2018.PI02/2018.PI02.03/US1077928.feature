@@ -7,6 +7,8 @@
 @Plus
 @Parity
 @F175417
+@releasePast
+@iterationPast
 Feature: US1077928 - Transaction Status Microservice
 
   @TC565581

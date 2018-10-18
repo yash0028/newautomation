@@ -12,6 +12,8 @@
 @CLM_Exari
 @Parity
 @F137899
+@releasePast
+@iterationPast
 Feature: US1093992 - Handle Errors from PES
 
   @TC565199

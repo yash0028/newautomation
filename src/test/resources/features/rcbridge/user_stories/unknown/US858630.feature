@@ -3,6 +3,8 @@
 @Non_MVP
 @US858630
 @F198150
+@releaseUnknown
+@iterationUnknown
 Feature: US858630 - Archive Attachments
 
   @TC565715

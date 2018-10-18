@@ -7,6 +7,8 @@
 @NDB
 @Parity
 @F185083
+@releasePast
+@iterationPast
 Feature: US1105361 - NDB Contract payload analysis SPIKE
 
   @TC605374

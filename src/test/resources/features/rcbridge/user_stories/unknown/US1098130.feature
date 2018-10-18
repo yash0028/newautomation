@@ -2,6 +2,8 @@
 @US1098130
 @Non_MVP
 @F184553
+@releaseUnknown
+@iterationUnknown
 Feature: US1098130 - Migrate Examiner MPINs
 
   @TC565897

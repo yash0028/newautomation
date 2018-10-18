@@ -7,6 +7,8 @@
 @Plus
 @Parity
 @F175417
+@releasePast
+@iterationPast
 Feature: US1094296 - Kafka Testing Utility Spike
 
   @TC605420

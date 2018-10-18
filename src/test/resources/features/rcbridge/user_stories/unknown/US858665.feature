@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137671
+@releaseUnknown
+@iterationUnknown
 Feature: US858665 - Add Entity Relationship Type
 
   @TC564554

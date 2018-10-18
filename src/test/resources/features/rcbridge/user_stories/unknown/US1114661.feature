@@ -1,6 +1,8 @@
 # Last updated on 
 @US1114661
 @F207069
+@releaseUnknown
+@iterationUnknown
 Feature: US1114661 - Single Organizational Unit Owner
 
   @TC565572

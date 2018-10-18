@@ -14,6 +14,8 @@
 @CLM_Exari
 @Parity
 @F201611
+@releasePresent
+@iterationPast
 Feature: US1323657 - PES Automation of Add. locations for all other contracts
 
   @TC580019

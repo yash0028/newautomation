@@ -8,6 +8,8 @@
 @NDB
 @Parity
 @F185083
+@releasePast
+@iterationPast
 Feature: US1172975 - [Unfinished] [Continued] NDB_Send Updates for Update Roster business event
 
   @TC605398

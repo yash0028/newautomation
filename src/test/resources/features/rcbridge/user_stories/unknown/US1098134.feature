@@ -2,6 +2,8 @@
 @US1098134
 @Non_MVP
 @F184553
+@releaseUnknown
+@iterationUnknown
 Feature: US1098134 - Establish Update and Maintenance Process
 
   @TC565946

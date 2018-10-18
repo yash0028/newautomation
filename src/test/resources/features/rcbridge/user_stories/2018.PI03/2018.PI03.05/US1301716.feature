@@ -8,6 +8,8 @@
 @Priority_1
 @CMD
 @F205820
+@releasePast
+@iterationPast
 Feature: US1301716 - CMD Dashboard Navigation Bar
 
   @TC574134

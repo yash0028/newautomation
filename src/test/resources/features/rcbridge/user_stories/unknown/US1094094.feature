@@ -3,6 +3,8 @@
 @US1094094
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US1094094 - Approve Added Entity
 
   @TC565723

@@ -8,6 +8,8 @@
 @Plus
 @Priority_1
 @F137657
+@releaseUnknown
+@iterationUnknown
 Feature: US1167891 - Select Identifier
 
   @TC565775

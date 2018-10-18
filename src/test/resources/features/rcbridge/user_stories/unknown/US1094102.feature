@@ -3,6 +3,8 @@
 @US1094102
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US1094102 - Approve Imported Entity Structure
 
   @TC565330

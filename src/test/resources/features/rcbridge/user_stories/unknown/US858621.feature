@@ -2,6 +2,8 @@
 @EXARI-11249
 @US858621
 @F207082
+@releaseUnknown
+@iterationUnknown
 Feature: US858621 - Add Entity Demographic Info
 
   @TC565410

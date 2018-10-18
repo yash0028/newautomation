@@ -4,6 +4,8 @@
 @Priority_1
 @CMD2
 @F210192
+@releasePresent
+@iterationUnknown
 Feature: US1256688 - Upload Table template
 
   @TC565163

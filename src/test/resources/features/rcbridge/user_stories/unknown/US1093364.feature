@@ -2,6 +2,8 @@
 @EXARI-11274
 @US1093364
 @F196735
+@releaseUnknown
+@iterationUnknown
 Feature: US1093364 - Search Postal Code
 
   @TC565080

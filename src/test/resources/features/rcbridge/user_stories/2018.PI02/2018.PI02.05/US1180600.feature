@@ -7,6 +7,8 @@
 @Plus
 @Parity
 @F182490
+@releasePast
+@iterationPast
 Feature: US1180600 - Implement Swagger on ETMA services
 
   @TC565748

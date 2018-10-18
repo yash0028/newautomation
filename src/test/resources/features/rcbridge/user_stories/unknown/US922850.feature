@@ -3,6 +3,8 @@
 @CLM_UAT
 @US922850
 @F207082
+@releaseUnknown
+@iterationUnknown
 Feature: US922850 - Inactivate Entity Characteristic Detail
 
   @TC565624

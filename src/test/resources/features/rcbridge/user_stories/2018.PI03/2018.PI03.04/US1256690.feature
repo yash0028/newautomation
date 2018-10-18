@@ -8,6 +8,8 @@
 @CMD
 @CMD_Tables
 @F214484
+@releasePast
+@iterationPast
 Feature: US1256690 - [Continued] Record Table data to Database
 
   @TC551934

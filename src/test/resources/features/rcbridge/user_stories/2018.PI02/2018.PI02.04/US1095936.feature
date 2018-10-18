@@ -11,6 +11,8 @@
 @CLM_Exari
 @Parity
 @F137899
+@releasePast
+@iterationPast
 Feature: US1095936 - External Data Query for PES - Error Handling
 
   @TC493893

@@ -3,6 +3,8 @@
 @10/1_Physician
 @Parity
 @F181649
+@releaseUnknown
+@iterationUnknown
 Feature: US1071189 - Setup Exari Production Environment and URL
 
   @TC565069

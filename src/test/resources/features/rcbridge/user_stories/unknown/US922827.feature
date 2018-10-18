@@ -1,6 +1,8 @@
 # Last updated on 
 @US922827
 @F207058
+@releaseUnknown
+@iterationUnknown
 Feature: US922827 - Inactivate Entity Address
 
   @TC564409

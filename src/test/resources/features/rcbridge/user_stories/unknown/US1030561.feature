@@ -1,5 +1,7 @@
 # Last updated on 
 @US1030561
+@releaseUnknown
+@iterationUnknown
 Feature: US1030561 - Exari >NDB Facility/Ancillary - Terminate Medical Necessity Amendment Contract
 
   @TC565192

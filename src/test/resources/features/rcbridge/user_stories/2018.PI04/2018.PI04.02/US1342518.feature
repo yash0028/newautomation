@@ -7,6 +7,8 @@
 @Priority_2
 @Parity
 @F179578
+@releasePresent
+@iterationPast
 Feature: US1342518 - [QE] Exari >NDB Facility/Ancillary - Medical Necessity API Mainframe Layer
 
   @TC590675

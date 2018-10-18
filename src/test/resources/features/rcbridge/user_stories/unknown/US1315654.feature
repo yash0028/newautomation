@@ -1,6 +1,8 @@
 # Last updated on 
 @US1315654
 @F205008
+@releaseUnknown
+@iterationUnknown
 Feature: US1315654 - Identify Rate Process rule during roster event process - Exceptions
 
   @TC573548

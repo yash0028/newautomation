@@ -1,6 +1,8 @@
 # Last updated on 
 @US1089508
 @F207058
+@releaseUnknown
+@iterationUnknown
 Feature: US1089508 - Update Entity Address
 
   @TC565169

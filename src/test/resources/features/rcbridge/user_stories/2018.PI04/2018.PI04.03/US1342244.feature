@@ -8,6 +8,8 @@
 @Priority_2
 @CMD
 @F205772
+@releasePresent
+@iterationPresent
 Feature: US1342244 - Identify conflicting Product Group combinations
 
   @TC590678

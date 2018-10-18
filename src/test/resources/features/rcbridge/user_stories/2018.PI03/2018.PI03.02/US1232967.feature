@@ -7,6 +7,8 @@
 @Priority_1
 @Parity
 @F203811
+@releasePast
+@iterationPast
 Feature: US1232967 - Addition of PCP Override field in API
 
   @TC565616

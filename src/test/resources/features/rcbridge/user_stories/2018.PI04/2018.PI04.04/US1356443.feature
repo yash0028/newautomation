@@ -5,6 +5,8 @@
 @CMD
 @Priority_2
 @F224328
+@releasePresent
+@iterationFuture
 Feature: US1356443 - Run basic Contract and Roster Event validation
 
   @TC600542

@@ -7,6 +7,8 @@
 @Parity
 @Examiner
 @F171571
+@releasePast
+@iterationPast
 Feature: US1234010 - [Continued] Exari Search API Implementation
 
   @TC535826

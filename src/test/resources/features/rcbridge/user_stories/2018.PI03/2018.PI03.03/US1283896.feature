@@ -8,6 +8,8 @@
 @Priority_1
 @CMD
 @F201371
+@releasePast
+@iterationPast
 Feature: US1283896 - [Unfinished] Validate Data
 
   @TC605404

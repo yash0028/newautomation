@@ -6,6 +6,8 @@
 @MVP
 @Parity
 @F185543
+@releasePresent
+@iterationUnknown
 Feature: US1098563 - Scrub impacted providers against integration points
 
   @TC564557

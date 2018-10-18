@@ -2,6 +2,8 @@
 @US1094096
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US1094096 - Approve Inactivated Entity
 
   @TC565619

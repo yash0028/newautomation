@@ -7,6 +7,8 @@
 @MVP
 @CLM_Exari
 @F137841
+@releasePast
+@iterationPast
 Feature: US1038287 - [CONTINUED] Setup initial SPA/PAT in Interview
 
   @TC565349

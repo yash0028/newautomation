@@ -2,6 +2,8 @@
 @MVP+1
 @US1211353
 @F205008
+@releaseUnknown
+@iterationUnknown
 Feature: US1211353 - Identify Product or Product Group Network
 
   @TC565498

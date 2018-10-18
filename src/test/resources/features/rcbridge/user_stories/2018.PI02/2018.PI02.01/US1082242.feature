@@ -6,6 +6,8 @@
 @PI02_Top3
 @Parity
 @F171708
+@releasePast
+@iterationPast
 Feature: US1082242 - Exari >NDB -  COSMOS Physician PPC - Analysis
 
   @TC564717

@@ -5,6 +5,8 @@
 @Plus
 @Priority_2
 @F159170
+@releasePresent
+@iterationUnknown
 Feature: US861014 - Allow for error handling if call to Optum provides failure point
 
   @TC564886

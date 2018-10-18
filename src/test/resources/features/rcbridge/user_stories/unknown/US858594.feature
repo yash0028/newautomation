@@ -8,6 +8,8 @@
 @Plus
 @Priority_1
 @F152967
+@releaseUnknown
+@iterationUnknown
 Feature: US858594 - Inactivate Entity
 
   @TC565940

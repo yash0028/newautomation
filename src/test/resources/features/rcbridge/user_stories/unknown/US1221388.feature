@@ -4,6 +4,8 @@
 @Plus
 @Priority_1
 @F137662
+@releaseUnknown
+@iterationUnknown
 Feature: US1221388 - Select Attachment Type
 
   @TC565186

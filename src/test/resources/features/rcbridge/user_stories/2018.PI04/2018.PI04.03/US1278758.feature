@@ -7,6 +7,8 @@
 @Priority_1
 @CMD
 @F218723
+@releasePresent
+@iterationPresent
 Feature: US1278758 - update status of product grouping installation status (work object)
 
   @TC564535

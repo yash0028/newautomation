@@ -8,6 +8,8 @@
 @Plus
 @Priority_1
 @F137674
+@releaseUnknown
+@iterationUnknown
 Feature: US858695 - Setup Entity Characteristic Type
 
   @TC564774

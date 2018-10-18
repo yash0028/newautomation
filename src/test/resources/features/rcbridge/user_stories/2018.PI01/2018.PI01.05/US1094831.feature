@@ -4,6 +4,8 @@
 @2018.PI01.05
 @MVP
 @F159019
+@releasePast
+@iterationPast
 Feature: US1094831 - NDB API Creation – NDB Cross Functional Team
 
   @TC564677

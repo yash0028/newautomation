@@ -8,6 +8,8 @@
 @Priority_1
 @Exari_Microservice
 @F159017
+@releasePast
+@iterationPast
 Feature: US1231695 - Create Service Providing Physician FS  Access Via Microservice
 
   @TC536761

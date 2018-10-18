@@ -1,6 +1,8 @@
 # Last updated on 
 @US1361350
 @F232442
+@releaseUnknown
+@iterationUnknown
 Feature: US1361350 - Add C&S Tier Types
 
   @TC598287

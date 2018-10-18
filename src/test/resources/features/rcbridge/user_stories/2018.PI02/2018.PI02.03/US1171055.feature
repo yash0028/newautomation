@@ -9,6 +9,8 @@
 @Plus
 @Parity
 @F182490
+@releasePast
+@iterationPast
 Feature: US1171055 - [Unfinished] Build External Data Query (ETMA)
 
   @TC565506

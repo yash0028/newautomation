@@ -7,6 +7,8 @@
 @CMD
 @CMD_Tables
 @F214484
+@releasePast
+@iterationPast
 Feature: US1256695 - User Interface for up and download
 
   @TC615400

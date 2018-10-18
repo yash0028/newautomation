@@ -2,6 +2,8 @@
 @US1374516
 @Priority_1
 @F218481
+@releaseUnknown
+@iterationUnknown
 Feature: US1374516 - Synchronize Updated TIN Name
 
   @TC605564

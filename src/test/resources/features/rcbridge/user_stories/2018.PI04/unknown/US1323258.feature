@@ -2,6 +2,8 @@
 @US1323258
 @2018.PI04
 @F205008
+@releasePresent
+@iterationUnknown
 Feature: US1323258 - Contract Configuration Service - Configuration Details
 
   @TC581721

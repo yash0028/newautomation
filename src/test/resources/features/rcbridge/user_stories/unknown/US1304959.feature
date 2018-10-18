@@ -1,5 +1,7 @@
 # Last updated on 
 @US1304959
+@releaseUnknown
+@iterationUnknown
 Feature: US1304959 - API Certification
 
   @TC565922

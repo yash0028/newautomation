@@ -8,6 +8,8 @@
 @Cosmos
 @Parity
 @F183530
+@releasePast
+@iterationPast
 Feature: US1059062 - [Continued]Common Pricing Solution - COSMOS Payload - Add Contract
 
   @TC562744

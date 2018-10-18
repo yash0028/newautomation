@@ -9,6 +9,8 @@
 @Parity
 @Examiner
 @F171571
+@releasePast
+@iterationPast
 Feature: US861033 - [Continued][Continued] Integrate CLM with Examiner (Continued)
 
   @TC564592

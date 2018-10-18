@@ -12,6 +12,8 @@
 @CLM_Exari
 @Parity
 @F137899
+@releasePast
+@iterationPast
 Feature: US1089376 - [Spike] Identify Data Source Needed for Demographic Data
 
   @TC564383

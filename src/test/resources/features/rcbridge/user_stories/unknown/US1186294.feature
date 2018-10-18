@@ -9,6 +9,8 @@
 @Non-Deliverable
 @7.5_Release
 @F185542
+@releaseUnknown
+@iterationUnknown
 Feature: US1186294 - Display project association during database searches
 
   @TC565595

@@ -8,6 +8,8 @@
 @Plus
 @Priority_1
 @F137657
+@releaseUnknown
+@iterationUnknown
 Feature: US1167901 - Add Operating License Type
 
   @TC565207

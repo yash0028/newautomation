@@ -1,6 +1,8 @@
 # Last updated on 
 @US1361301
 @F232442
+@releaseUnknown
+@iterationUnknown
 Feature: US1361301 - Add Hospital Specialties
 
   @TC598301

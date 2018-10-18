@@ -4,6 +4,8 @@
 @2018.PI01.04
 @MVP
 @F159019
+@releasePast
+@iterationPast
 Feature: US1016410 - Exari>NDB Physician payload data
 
   @TC564449

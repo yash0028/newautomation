@@ -8,6 +8,8 @@
 @Plus
 @Priority_1
 @F137674
+@releaseUnknown
+@iterationUnknown
 Feature: US949962 - Update Account Types
 
   @TC565978

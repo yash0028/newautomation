@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F137674
+@releaseUnknown
+@iterationUnknown
 Feature: US1116723 - Expire Relationship Role
 
   @TC565029

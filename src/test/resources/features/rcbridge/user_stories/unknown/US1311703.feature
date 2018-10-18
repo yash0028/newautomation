@@ -4,6 +4,8 @@
 @CMD2
 @Priority_2
 @F232444
+@releaseUnknown
+@iterationUnknown
 Feature: US1311703 - Med Nec clause table CMD UI - Facility
 
   @TC572210

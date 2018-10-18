@@ -2,6 +2,8 @@
 @US1307098
 @2018.PI03
 @2018.PI03.05
+@releasePast
+@iterationPast
 Feature: US1307098 - API Certification
 
   @TC564541

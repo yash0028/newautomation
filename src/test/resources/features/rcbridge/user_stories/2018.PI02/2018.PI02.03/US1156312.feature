@@ -2,6 +2,8 @@
 @US1156312
 @2018.PI02
 @2018.PI02.03
+@releasePast
+@iterationPast
 Feature: US1156312 - OSAM Assessment
 
   @TC565426

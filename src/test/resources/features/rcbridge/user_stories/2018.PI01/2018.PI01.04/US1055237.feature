@@ -5,6 +5,8 @@
 @2018.PI01.04
 @MVP
 @F154532
+@releasePast
+@iterationPast
 Feature: US1055237 - OSAM Assessment
 
   @TC564743

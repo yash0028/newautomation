@@ -8,6 +8,8 @@
 @PI03
 @Priority_1
 @F137934
+@releaseUnknown
+@iterationUnknown
 Feature: US861138 - Export Entity Structure
 
   @TC564447

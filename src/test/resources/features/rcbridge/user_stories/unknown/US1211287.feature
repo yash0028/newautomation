@@ -2,6 +2,8 @@
 @MVP+1
 @US1211287
 @F205008
+@releaseUnknown
+@iterationUnknown
 Feature: US1211287 - Identify Product Group
 
   @TC564761

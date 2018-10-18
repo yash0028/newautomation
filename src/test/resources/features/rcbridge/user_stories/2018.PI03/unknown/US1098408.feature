@@ -4,6 +4,8 @@
 @MVP
 @Parity
 @F185519
+@releasePast
+@iterationUnknown
 Feature: US1098408 - Document comments within request for approval
 
   @TC564612

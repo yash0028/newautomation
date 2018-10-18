@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137671
+@releaseUnknown
+@iterationUnknown
 Feature: US858666 - Update Entity Relationship
 
   @TC564502

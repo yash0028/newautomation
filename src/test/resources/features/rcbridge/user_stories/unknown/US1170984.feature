@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F198722
+@releaseUnknown
+@iterationUnknown
 Feature: US1170984 - Capture Timeline History
 
   @TC565103

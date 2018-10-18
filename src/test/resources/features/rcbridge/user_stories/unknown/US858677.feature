@@ -3,6 +3,8 @@
 @Plus
 @Priority_1
 @F137672
+@releaseUnknown
+@iterationUnknown
 Feature: US858677 - Remove Provider Relationship
 
   @TC565520

@@ -8,6 +8,8 @@
 @PI03
 @Priority_1
 @F137934
+@releaseUnknown
+@iterationUnknown
 Feature: US1134378 - Export Entity Relationships
 
   @TC564613

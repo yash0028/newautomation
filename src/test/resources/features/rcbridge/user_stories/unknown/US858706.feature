@@ -3,6 +3,8 @@
 @CLM_UAT
 @US858706
 @F198150
+@releaseUnknown
+@iterationUnknown
 Feature: US858706 - View Business Rule Time Lining History
 
   @TC565850

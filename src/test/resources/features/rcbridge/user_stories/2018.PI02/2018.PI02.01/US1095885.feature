@@ -8,6 +8,8 @@
 @Plus
 @Parity
 @F175417
+@releasePast
+@iterationPast
 Feature: US1095885 - Contract Gateway API
 
   @TC565537

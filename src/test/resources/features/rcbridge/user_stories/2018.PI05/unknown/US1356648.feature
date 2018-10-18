@@ -6,6 +6,8 @@
 @Priority_2
 @UCM
 @F231564
+@releaseFuture
+@iterationUnknown
 Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
 
   @TC611979

@@ -2,6 +2,8 @@
 @US1094101
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US1094101 - Approve Voided Identifier
 
   @TC565273

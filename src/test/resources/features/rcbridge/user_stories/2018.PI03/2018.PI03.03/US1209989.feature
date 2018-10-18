@@ -9,6 +9,8 @@
 @Priority_1
 @Exari_Microservice
 @F196394
+@releasePast
+@iterationPast
 Feature: US1209989 - [Continued] (MEG) Create microservice exposing Market Exception grid data
 
   @TC536741

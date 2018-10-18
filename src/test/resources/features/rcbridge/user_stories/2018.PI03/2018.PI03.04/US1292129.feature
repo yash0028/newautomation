@@ -7,6 +7,8 @@
 @NDB
 @CMD
 @F217187
+@releasePast
+@iterationPast
 Feature: US1292129 - [Spike] Dev Analysis
 
   @TC605366

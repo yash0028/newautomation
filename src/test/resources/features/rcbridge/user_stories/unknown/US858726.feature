@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137678
+@releaseUnknown
+@iterationUnknown
 Feature: US858726 - Compare Entity Information
 
   @TC564996

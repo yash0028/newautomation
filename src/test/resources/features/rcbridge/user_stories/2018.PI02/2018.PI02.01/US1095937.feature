@@ -8,6 +8,8 @@
 @Plus
 @Parity
 @F175417
+@releasePast
+@iterationPast
 Feature: US1095937 - Approval Coordinator Microservice
 
   @TC565890

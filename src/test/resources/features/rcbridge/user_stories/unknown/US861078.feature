@@ -3,6 +3,8 @@
 @Plus
 @Priority_1
 @F137918
+@releaseUnknown
+@iterationUnknown
 Feature: US861078 - Provide Consolidated Entities for Review
 
   @TC564904

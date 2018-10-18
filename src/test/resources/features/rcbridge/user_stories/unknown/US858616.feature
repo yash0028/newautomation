@@ -3,6 +3,8 @@
 @EXARI-11267
 @US858616
 @F207077
+@releaseUnknown
+@iterationUnknown
 Feature: US858616 - Add Identifier to Entity
 
   @TC564650

@@ -5,6 +5,8 @@
 @PI04
 @Plus
 @F165532
+@releasePresent
+@iterationUnknown
 Feature: US1034211 - Identify contract with a chargemaster via Compliance Manager
 
   @TC565566

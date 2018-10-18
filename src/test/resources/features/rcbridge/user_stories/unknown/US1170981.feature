@@ -8,6 +8,8 @@
 @Plus
 @Priority_1
 @F198722
+@releaseUnknown
+@iterationUnknown
 Feature: US1170981 - Reactivate Entity
 
   @TC565212

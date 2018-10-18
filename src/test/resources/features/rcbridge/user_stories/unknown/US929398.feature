@@ -8,6 +8,8 @@
 @Plus
 @Priority_1
 @F137674
+@releaseUnknown
+@iterationUnknown
 Feature: US929398 - Update Entity Characteristic Type
 
   @TC564856

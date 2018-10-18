@@ -5,6 +5,8 @@
 @Plus
 @Priority_2
 @F159195
+@releaseFuture
+@iterationUnknown
 Feature: US1070406 - CLM >COSMOS Add a Facility Contract - to existing contract - PIC DIV - PSH
 
   @TC565657

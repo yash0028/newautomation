@@ -9,6 +9,8 @@
 @NDB
 @Parity
 @F185083
+@releasePast
+@iterationPast
 Feature: US1169275 - NDB Common Pricing Solution Payload analysis SPIKE
 
   @TC605410

@@ -3,6 +3,8 @@
 @US1272836
 @2018.PI03
 @2018.PI03.03
+@releasePast
+@iterationPast
 Feature: US1272836 - [Spike] Look at Services to determine Pagination
 
   @TC564525

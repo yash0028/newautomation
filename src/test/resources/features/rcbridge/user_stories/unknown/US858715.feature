@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137676
+@releaseUnknown
+@iterationUnknown
 Feature: US858715 - Perform Search by Provider ID
 
   @TC565084

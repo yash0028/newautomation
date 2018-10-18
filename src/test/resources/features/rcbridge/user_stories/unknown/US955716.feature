@@ -1,6 +1,8 @@
 # Last updated on 
 @US955716
 @F207077
+@releaseUnknown
+@iterationUnknown
 Feature: US955716 - Inactivate Owner of an Identifier
 
   @TC565736

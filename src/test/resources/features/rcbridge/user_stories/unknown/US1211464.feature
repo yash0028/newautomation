@@ -2,6 +2,8 @@
 @MVP+1
 @US1211464
 @F205008
+@releaseUnknown
+@iterationUnknown
 Feature: US1211464 - Identify contract provider Market Number
 
   @TC565711

@@ -11,6 +11,8 @@
 @CMD
 @Parity
 @F204954
+@releasePast
+@iterationPast
 Feature: US1271550 - [Spike] NDB Contract Master Lookup API
 
   @TC605380

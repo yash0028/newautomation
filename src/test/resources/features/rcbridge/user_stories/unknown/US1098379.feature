@@ -11,6 +11,8 @@
 @Non-Deliverable
 @7.5_Release
 @F185542
+@releaseUnknown
+@iterationUnknown
 Feature: US1098379 - Initiate Mass Action from UI
 
   @TC564637

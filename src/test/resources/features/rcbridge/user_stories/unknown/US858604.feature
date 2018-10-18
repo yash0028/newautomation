@@ -3,6 +3,8 @@
 @US858604
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US858604 - Approve Entity Updates
 
   @TC565496

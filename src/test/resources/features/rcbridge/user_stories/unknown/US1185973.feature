@@ -4,6 +4,8 @@
 @Plus
 @Priority_1
 @F137657
+@releaseUnknown
+@iterationUnknown
 Feature: US1185973 - Select Characteristic Type
 
   @TC564974

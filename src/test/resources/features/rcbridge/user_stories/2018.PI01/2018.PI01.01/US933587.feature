@@ -6,6 +6,8 @@
 @MVP
 @CLM_Exari
 @F137837
+@releasePast
+@iterationPast
 Feature: US933587 - Setup Standard Configuration Settings
 
   @TC565860

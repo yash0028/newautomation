@@ -5,6 +5,8 @@
 @2018.PI03.04
 @MVP
 @F201505
+@releasePast
+@iterationPast
 Feature: US1272911 - Fix Fortify Issues
 
   @TC564735

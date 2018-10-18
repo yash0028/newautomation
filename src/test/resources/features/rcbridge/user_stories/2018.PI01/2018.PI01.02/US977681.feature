@@ -6,6 +6,8 @@
 @2018.PI01.02
 @MVP
 @F154532
+@releasePast
+@iterationPast
 Feature: US977681 - Setup Jenkins and CI/CD pipeline
 
   @TC564859

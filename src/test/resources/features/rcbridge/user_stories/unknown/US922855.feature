@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F188964
+@releaseUnknown
+@iterationUnknown
 Feature: US922855 - View Alternate Name/Alias Time Lining History
 
   @TC564773

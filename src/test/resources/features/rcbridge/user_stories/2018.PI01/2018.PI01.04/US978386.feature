@@ -7,6 +7,8 @@
 @MVP
 @PES
 @F159994
+@releasePast
+@iterationPast
 Feature: US978386 - [Spike] (Provider) Evaluate what PES APIs are required for Provider service
 
   @TC565461

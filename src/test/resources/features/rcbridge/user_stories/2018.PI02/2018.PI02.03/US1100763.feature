@@ -6,6 +6,8 @@
 @PI02_Top3
 @Parity
 @F171708
+@releasePast
+@iterationPast
 Feature: US1100763 - Exari > NDB - COSMOS Physician Panel - Stop Feeding
 
   @TC565154

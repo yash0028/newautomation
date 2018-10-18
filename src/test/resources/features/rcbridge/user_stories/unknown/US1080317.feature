@@ -1,6 +1,8 @@
 # Last updated on 
 @US1080317
 @F226404
+@releaseUnknown
+@iterationUnknown
 Feature: US1080317 - Log forwarding
 
   @TC565777

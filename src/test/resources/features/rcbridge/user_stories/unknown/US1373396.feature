@@ -1,6 +1,8 @@
 # Last updated on 
 @US1373396
 @F232975
+@releaseUnknown
+@iterationUnknown
 Feature: US1373396 - Change Layer7 Urls to Stargate
 
   @TC605370

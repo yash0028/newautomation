@@ -8,6 +8,8 @@
 @Priority_1
 @CMD
 @F218723
+@releasePresent
+@iterationPast
 Feature: US1301966 - CMD- Dashboard transaction search and update Service call
 
   @TC565379

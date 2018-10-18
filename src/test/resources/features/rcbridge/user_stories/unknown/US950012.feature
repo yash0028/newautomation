@@ -2,6 +2,8 @@
 @US950012
 @Plus
 @F155316
+@releaseUnknown
+@iterationUnknown
 Feature: US950012 - Void Identifier
 
   @TC564660

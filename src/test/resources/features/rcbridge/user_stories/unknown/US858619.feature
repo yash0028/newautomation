@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F188964
+@releaseUnknown
+@iterationUnknown
 Feature: US858619 - View Identifier Time Lining History
 
   @TC564586

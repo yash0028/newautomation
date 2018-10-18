@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137679
+@releaseUnknown
+@iterationUnknown
 Feature: US1131278 - View Contracts Associated to a Provider
 
   @TC565835

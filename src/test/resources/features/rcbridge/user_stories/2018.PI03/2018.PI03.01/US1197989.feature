@@ -7,6 +7,8 @@
 @Priority_1
 @Parity
 @F203766
+@releasePast
+@iterationPast
 Feature: US1197989 - Exari / CLM > NDB Contract Master Lookup API
 
   @TC565459

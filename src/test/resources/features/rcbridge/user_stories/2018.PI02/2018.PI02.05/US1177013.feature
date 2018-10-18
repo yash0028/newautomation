@@ -9,6 +9,8 @@
 @CLM_Exari
 @Exari_Microservice
 @F164312
+@releasePast
+@iterationPast
 Feature: US1177013 - Rfp Enhancements
 
   @TC565813

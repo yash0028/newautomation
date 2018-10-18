@@ -6,6 +6,8 @@
 @MVP
 @CLM_Exari
 @F137838
+@releasePast
+@iterationPast
 Feature: US935310 - Install Power Author Package on UHC Team desktops
 
   @TC564963

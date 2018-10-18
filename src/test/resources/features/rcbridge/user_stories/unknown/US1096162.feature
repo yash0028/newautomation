@@ -5,6 +5,8 @@
 @Plus
 @Priority_1
 @F184552
+@releaseUnknown
+@iterationUnknown
 Feature: US1096162 - Establish Naming Convention
 
   @TC565530

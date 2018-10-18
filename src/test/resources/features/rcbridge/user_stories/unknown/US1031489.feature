@@ -5,6 +5,8 @@
 @PI04
 @Plus
 @F165532
+@releasePresent
+@iterationUnknown
 Feature: US1031489 - Chargemaster notice on Dashboard
 
   @TC564629

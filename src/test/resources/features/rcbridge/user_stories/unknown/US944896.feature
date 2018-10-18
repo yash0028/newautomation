@@ -2,6 +2,8 @@
 @US944896
 @Plus
 @F155316
+@releaseUnknown
+@iterationUnknown
 Feature: US944896 - Inactivate Identifier
 
   @TC565960

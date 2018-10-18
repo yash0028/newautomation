@@ -7,6 +7,8 @@
 @PI02_Top3
 @Parity
 @F171708
+@releasePast
+@iterationPast
 Feature: US1148672 - [Unfinished] Exari >NDB/COSMOS Physician PPC - API
 
   @TC564734

@@ -1,6 +1,8 @@
 # Last updated on 
 @US1299736
 @F232975
+@releaseUnknown
+@iterationUnknown
 Feature: US1299736 - NonProd NonUser Account Creation
 
   @TC565383

@@ -1,6 +1,8 @@
 # Last updated on 
 @US1089509
 @F207058
+@releaseUnknown
+@iterationUnknown
 Feature: US1089509 - Update Entity Address Type
 
   @TC565903

@@ -4,6 +4,8 @@
 @Plus
 @Priority_1
 @F181492
+@releaseUnknown
+@iterationUnknown
 Feature: US1224987 - Created UHC ID/Provider Relationship
 
   @TC565677

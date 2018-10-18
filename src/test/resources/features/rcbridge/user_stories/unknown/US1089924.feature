@@ -1,6 +1,8 @@
 # Last updated on 
 @US1089924
 @F207077
+@releaseUnknown
+@iterationUnknown
 Feature: US1089924 - Assign Owner to Updated Identifier
 
   @TC564617

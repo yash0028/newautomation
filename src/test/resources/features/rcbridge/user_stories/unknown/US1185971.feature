@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F137657
+@releaseUnknown
+@iterationUnknown
 Feature: US1185971 - Select Relationship Role
 
   @TC565779

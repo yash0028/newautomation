@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F154296
+@releaseUnknown
+@iterationUnknown
 Feature: US1093312 - Search Entity Name
 
   @TC565210

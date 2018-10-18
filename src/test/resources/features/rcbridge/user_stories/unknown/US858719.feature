@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137677
+@releaseUnknown
+@iterationUnknown
 Feature: US858719 - Reduce Search Results by Filter Criteria
 
   @TC564500

@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F183266
+@releaseUnknown
+@iterationUnknown
 Feature: US1089541 - Inactivate Operating License Type
 
   @TC564969

@@ -10,6 +10,8 @@
 @CLM_Exari
 @Exari_Microservice
 @F164312
+@releasePast
+@iterationPast
 Feature: US1095910 - External Data Query for RFP - Error Handling
 
   @TC493891

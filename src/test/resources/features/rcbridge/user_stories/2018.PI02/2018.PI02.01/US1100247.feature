@@ -8,6 +8,8 @@
 @Plus
 @Parity
 @F175417
+@releasePast
+@iterationPast
 Feature: US1100247 - Domain service stub
 
   @TC565356

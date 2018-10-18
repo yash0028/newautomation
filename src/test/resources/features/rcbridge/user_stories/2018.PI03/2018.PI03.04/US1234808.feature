@@ -8,6 +8,8 @@
 @Priority_1
 @Exari_Microservice
 @F175776
+@releasePast
+@iterationPast
 Feature: US1234808 - Enhancement to Fee Schedule External Data Query
 
   @TC554639

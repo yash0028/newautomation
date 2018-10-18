@@ -4,6 +4,8 @@
 @Plus
 @Priority_1
 @F137657
+@releaseUnknown
+@iterationUnknown
 Feature: US1185963 - Select Identifier Type
 
   @TC564820

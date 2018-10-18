@@ -5,6 +5,8 @@
 @Plus
 @Priority_1
 @F137675
+@releaseUnknown
+@iterationUnknown
 Feature: US858704 - Capture Business Rule Time Lining History
 
   @TC565146

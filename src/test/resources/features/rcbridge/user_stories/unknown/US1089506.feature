@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F183266
+@releaseUnknown
+@iterationUnknown
 Feature: US1089506 - Update Entity Alternate Name
 
   @TC564910

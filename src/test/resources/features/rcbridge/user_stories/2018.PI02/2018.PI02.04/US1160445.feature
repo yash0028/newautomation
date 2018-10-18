@@ -7,6 +7,8 @@
 @PI02_Top3
 @Parity
 @F182742
+@releasePast
+@iterationPast
 Feature: US1160445 - [Continued] NDB Driver Module – NDB Cross Functional Team - Contract Master
 
   @TC565734

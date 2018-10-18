@@ -6,6 +6,8 @@
 @MVP
 @CLM_Exari
 @F137841
+@releasePast
+@iterationPast
 Feature: US860798 - Establish Master Style Sheet for Professional Formatting
 
   @TC565678

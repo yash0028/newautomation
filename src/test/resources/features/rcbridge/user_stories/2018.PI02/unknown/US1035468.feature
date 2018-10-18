@@ -2,6 +2,8 @@
 @Workflow
 @US1035468
 @2018.PI02
+@releasePast
+@iterationUnknown
 Feature: US1035468 - Send Counter Party parameters to Optum
 
   @TC565831

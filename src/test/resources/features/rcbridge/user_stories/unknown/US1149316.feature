@@ -3,6 +3,8 @@
 @CLM_UAT
 @US1149316
 @F207069
+@releaseUnknown
+@iterationUnknown
 Feature: US1149316 - Entity Type Conflict - Health Organization Umbrella and Organizational Unit
 
   @TC565286

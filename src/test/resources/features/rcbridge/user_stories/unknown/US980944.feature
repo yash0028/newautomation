@@ -4,6 +4,8 @@
 @Plus
 @Priority_1
 @F137672
+@releaseUnknown
+@iterationUnknown
 Feature: US980944 - Add Provider Relationship Role
 
   @TC565175

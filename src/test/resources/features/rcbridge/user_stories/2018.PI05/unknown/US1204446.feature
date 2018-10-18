@@ -6,6 +6,8 @@
 @Amrutha
 @Parity
 @F205016
+@releaseFuture
+@iterationUnknown
 Feature: US1204446 - Editing the Physician Payload logic for Reassign fields
 
   @TC564515

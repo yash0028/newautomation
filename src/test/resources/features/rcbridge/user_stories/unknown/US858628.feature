@@ -2,6 +2,8 @@
 @EXARI-11698
 @US858628
 @F207049
+@releaseUnknown
+@iterationUnknown
 Feature: US858628 - Update Notes
 
   @TC564501

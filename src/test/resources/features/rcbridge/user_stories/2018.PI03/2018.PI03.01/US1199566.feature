@@ -9,6 +9,8 @@
 @Priority_1
 @CMD
 @F201371
+@releasePast
+@iterationPast
 Feature: US1199566 - Create Table Structure and Data Types
 
   @TC518832

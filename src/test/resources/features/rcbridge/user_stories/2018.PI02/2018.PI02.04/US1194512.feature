@@ -7,6 +7,8 @@
 @NDB
 @Parity
 @F185083
+@releasePast
+@iterationPast
 Feature: US1194512 - [Unfinished] Add a Contract Master to an Existing Physician on an Existing Contract
 
   @TC605427

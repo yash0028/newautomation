@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137676
+@releaseUnknown
+@iterationUnknown
 Feature: US1119871 - Filter by Entity Relationship Role
 
   @TC565471

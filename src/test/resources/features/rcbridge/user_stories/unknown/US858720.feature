@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137677
+@releaseUnknown
+@iterationUnknown
 Feature: US858720 - Return to Prior Search Results from Current Selection
 
   @TC564595

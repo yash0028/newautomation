@@ -1,6 +1,8 @@
 # Last updated on 
 @US1366319
 @F232975
+@releaseUnknown
+@iterationUnknown
 Feature: US1366319 - Pipeline Upkeep and Improvement
 
   @TC599674

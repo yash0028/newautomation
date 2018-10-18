@@ -6,6 +6,8 @@
 @MVP
 @Parity
 @F185543
+@releasePresent
+@iterationUnknown
 Feature: US1183043 - View search results
 
   @TC564906

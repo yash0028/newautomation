@@ -3,6 +3,8 @@
 @CLM_UAT
 @US1107625
 @F207049
+@releaseUnknown
+@iterationUnknown
 Feature: US1107625 - Associate Interview Contract ID to Provider
 
   @TC564798

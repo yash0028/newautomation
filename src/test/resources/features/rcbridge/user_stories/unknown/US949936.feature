@@ -8,6 +8,8 @@
 @Plus
 @Priority_1
 @F137674
+@releaseUnknown
+@iterationUnknown
 Feature: US949936 - Setup Account Types
 
   @TC565061

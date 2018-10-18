@@ -1,6 +1,8 @@
 # Last updated on 
 @US1364645
 @F232975
+@releaseUnknown
+@iterationUnknown
 Feature: US1364645 - Stage and Prod Managed DB Cluster
 
   @TC599670

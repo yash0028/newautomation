@@ -5,6 +5,8 @@
 @2018.PI01.03
 @MVP
 @F161296
+@releasePast
+@iterationPast
 Feature: US1033931 - [Spike] Determine Framework Used in Micro services
 
   @TC565502

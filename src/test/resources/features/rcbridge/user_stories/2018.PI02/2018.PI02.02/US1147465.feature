@@ -8,6 +8,8 @@
 @Plus
 @Parity
 @F172080
+@releasePast
+@iterationPast
 Feature: US1147465 - [Unfinished] COSMOS API Layer 7 Cerification
 
   @TC565387

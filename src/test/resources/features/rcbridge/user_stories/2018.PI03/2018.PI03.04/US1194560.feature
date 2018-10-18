@@ -13,6 +13,8 @@
 @CLM_Exari
 @Parity
 @F201611
+@releasePast
+@iterationPast
 Feature: US1194560 - PES ExternaI Data Query (Appendix 1 lookup)
 
   @TC558183

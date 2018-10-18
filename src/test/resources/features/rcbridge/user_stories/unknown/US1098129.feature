@@ -2,6 +2,8 @@
 @US1098129
 @Non_MVP
 @F184553
+@releaseUnknown
+@iterationUnknown
 Feature: US1098129 - Migrate Active Post Deal Examiner Rosters
 
   @TC565900

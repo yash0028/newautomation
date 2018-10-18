@@ -6,6 +6,8 @@
 @Priority_1
 @Scrum_Team_1
 @F232041
+@releasePresent
+@iterationPast
 Feature: US1358993 - PES - Appendix Address Relationships
 
   @TC597153

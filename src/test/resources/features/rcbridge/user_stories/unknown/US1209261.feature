@@ -3,6 +3,8 @@
 @Priority_1
 @CMD2
 @F210044
+@releaseUnknown
+@iterationUnknown
 Feature: US1209261 - Provider Network Group
 
   @TC565038

@@ -7,6 +7,8 @@
 @Priority_1
 @CMD
 @F218723
+@releasePresent
+@iterationPresent
 Feature: US1290196 - [Continued] Contract Master Override work objects audits database schema
 
   @TC573538

@@ -1,6 +1,8 @@
 # Last updated on 
 @US1311500
 @2018.PI03.05
+@releaseUnknown
+@iterationPast
 Feature: US1311500 - Cleanup RC-Link Test Cases
 
   @TC572220

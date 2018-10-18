@@ -3,6 +3,8 @@
 @Plus
 @Priority_1
 @F137918
+@releaseUnknown
+@iterationUnknown
 Feature: US861080 - Make Entity Data Available
 
   @TC565725

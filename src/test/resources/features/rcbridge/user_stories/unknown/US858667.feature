@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137671
+@releaseUnknown
+@iterationUnknown
 Feature: US858667 - Remove Entity Relationship
 
   @TC564583

@@ -11,6 +11,8 @@
 @CLM_Exari
 @Exari_Microservice
 @F164312
+@releasePast
+@iterationPast
 Feature: US1082297 - Create External Data Query for RFP
 
   @TC565304

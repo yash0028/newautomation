@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F188964
+@releaseUnknown
+@iterationUnknown
 Feature: US858600 - View Entity Time Lining History
 
   @TC565493

@@ -9,6 +9,8 @@
 @Transaction
 @Parity
 @F177202
+@releasePast
+@iterationPast
 Feature: US1128296 - [Continued] [Continued] Benchmarking & Acceptance Testing
 
   @TC565847

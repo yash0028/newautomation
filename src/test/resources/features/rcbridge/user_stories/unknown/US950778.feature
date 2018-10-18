@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137657
+@releaseUnknown
+@iterationUnknown
 Feature: US950778 - Generate Unique Entity ID
 
   @TC564744

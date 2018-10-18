@@ -3,6 +3,8 @@
 @Plus
 @Priority_1
 @F137918
+@releaseUnknown
+@iterationUnknown
 Feature: US861077 - Consolidate Entity Data
 
   @TC564431

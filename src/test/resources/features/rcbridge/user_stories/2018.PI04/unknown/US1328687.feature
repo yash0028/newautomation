@@ -2,6 +2,8 @@
 @US1328687
 @2018.PI04
 @F205008
+@releasePresent
+@iterationUnknown
 Feature: US1328687 - Determine Contract Configuration Source - Delegated PLMI
 
   @TC584497

@@ -3,6 +3,8 @@
 @US1094104
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US1094104 - Approve Imported Entity Relationships
 
   @TC565893

@@ -7,6 +7,8 @@
 @NDB
 @Parity
 @F185083
+@releasePast
+@iterationPast
 Feature: US1194530 - [Unfinished] Cosmos Integration
 
   @TC605397

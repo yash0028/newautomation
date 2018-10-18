@@ -7,6 +7,8 @@
 @Plus
 @Parity
 @F172080
+@releasePast
+@iterationPast
 Feature: US1069574 - SPIKE: COSMOS>Exari Error Acknowledgement payload-analysis
 
   @TC565336

@@ -3,6 +3,8 @@
 @CLM_UAT
 @US949956
 @2018.PI03
+@releasePast
+@iterationUnknown
 Feature: US949956 - Setup Identifier Relationship Type
 
   @TC565341

@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F186556
+@releaseUnknown
+@iterationUnknown
 Feature: US1107635 - Associate Contract ID to Provider upon Contract Execution
 
   @TC565773

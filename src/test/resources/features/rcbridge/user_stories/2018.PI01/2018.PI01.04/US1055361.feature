@@ -4,6 +4,8 @@
 @2018.PI01.04
 @MVP
 @F154532
+@releasePast
+@iterationPast
 Feature: US1055361 - [Spike] Investigate MSG DB Connection
 
   @TC564714

@@ -13,6 +13,8 @@
 @CLM_Exari
 @Parity
 @F201611
+@releasePast
+@iterationPast
 Feature: US1253705 - Create Appendix 1 Search Demographics API
 
   @TC543875

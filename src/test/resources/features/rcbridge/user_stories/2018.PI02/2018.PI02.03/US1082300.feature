@@ -11,6 +11,8 @@
 @CLM_Exari
 @Exari_Microservice
 @F164312
+@releasePast
+@iterationPast
 Feature: US1082300 - Create microservice to obtain RFP data
 
   @TC565532

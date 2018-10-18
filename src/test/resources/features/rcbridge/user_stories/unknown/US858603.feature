@@ -3,6 +3,8 @@
 @US858603
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US858603 - Follow Approval Process
 
   @TC565363

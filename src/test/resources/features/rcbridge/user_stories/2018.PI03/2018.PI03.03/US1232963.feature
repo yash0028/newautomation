@@ -6,6 +6,8 @@
 @CMD2
 @Priority_2
 @F207419
+@releasePast
+@iterationPast
 Feature: US1232963 - Retroactive Reason Codes table
 
   @TC549319

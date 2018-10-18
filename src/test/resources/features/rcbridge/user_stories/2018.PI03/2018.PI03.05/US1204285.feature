@@ -12,6 +12,8 @@
 @CMD
 @Parity
 @F204954
+@releasePast
+@iterationPast
 Feature: US1204285 - [Continued]Implement NDB Contract Master Lookup API
 
   @TC565803

@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F184552
+@releaseUnknown
+@iterationUnknown
 Feature: US1096149 - Migrate Owned TINs
 
   @TC564706

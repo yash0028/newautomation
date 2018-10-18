@@ -4,6 +4,8 @@
 @2018.PI01.04
 @MVP
 @F159019
+@releasePast
+@iterationPast
 Feature: US1074216 - [Unfinished] SPIKE - Analysis around NDB API Creation – NDB Cross Functional Team
 
   @TC565448

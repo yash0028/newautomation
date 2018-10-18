@@ -7,6 +7,8 @@
 @Priority_1
 @Parity
 @F203811
+@releasePast
+@iterationPast
 Feature: US1202232 - Addition of new Reassign fields in API
 
   @TC564903

@@ -8,6 +8,8 @@
 @CMD
 @Amrutha
 @F209320
+@releasePresent
+@iterationPresent
 Feature: US1371319 - Download CLM Rule Table
 
   @TC603987

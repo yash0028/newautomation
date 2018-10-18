@@ -8,6 +8,8 @@
 @CMD
 @CMD_Tables
 @F214484
+@releasePast
+@iterationPast
 Feature: US1259178 - Taxonomy Grid table microservice
 
   @TC543879

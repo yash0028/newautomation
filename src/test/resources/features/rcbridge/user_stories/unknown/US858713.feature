@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137676
+@releaseUnknown
+@iterationUnknown
 Feature: US858713 - Perform Search by Entity Attributes
 
   @TC564380

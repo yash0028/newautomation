@@ -8,6 +8,8 @@
 @Plus
 @Priority_1
 @F152967
+@releaseUnknown
+@iterationUnknown
 Feature: US944247 - Capture Reason for Entity Inactivation
 
   @TC564480

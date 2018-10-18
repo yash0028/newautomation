@@ -9,6 +9,8 @@
 @Plus
 @Parity
 @F182490
+@releasePast
+@iterationPast
 Feature: US1129434 - Error - Specialty Indicator or Org Type not found for given Provider on Roster
 
   @TC564420

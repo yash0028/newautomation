@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F181492
+@releaseUnknown
+@iterationUnknown
 Feature: US1086983 - Update TIN
 
   @TC564601

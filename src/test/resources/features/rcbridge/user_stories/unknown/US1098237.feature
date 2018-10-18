@@ -2,6 +2,8 @@
 @US1098237
 @Non_MVP
 @F184554
+@releaseUnknown
+@iterationUnknown
 Feature: US1098237 - Establish Daily Update Process
 
   @TC565815

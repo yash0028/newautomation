@@ -6,6 +6,8 @@
 @PI03
 @10/1_Physician
 @F205542
+@releasePast
+@iterationPast
 Feature: US1208675 - [Continued] Attend Alfresco Training
 
   @TC564386

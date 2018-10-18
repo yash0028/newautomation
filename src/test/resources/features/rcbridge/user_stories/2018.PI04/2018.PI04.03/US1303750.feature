@@ -8,6 +8,8 @@
 @Priority_1
 @CMD
 @F218723
+@releasePresent
+@iterationPresent
 Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View & Edit contract detail information (no search results found)
 
   @TC593198

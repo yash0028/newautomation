@@ -6,6 +6,8 @@
 @Plus
 @Priority_2
 @F198810
+@releaseUnknown
+@iterationUnknown
 Feature: US1202994 - Export Tax IDs
 
   @TC565157

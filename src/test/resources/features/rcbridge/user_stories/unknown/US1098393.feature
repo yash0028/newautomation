@@ -10,6 +10,8 @@
 @Non-Deliverable
 @7.5_Release
 @F185542
+@releaseUnknown
+@iterationUnknown
 Feature: US1098393 - Derive status of included providers
 
   @TC565090

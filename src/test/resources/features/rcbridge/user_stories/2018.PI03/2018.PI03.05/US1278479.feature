@@ -7,6 +7,8 @@
 @NDB
 @CMD
 @F217187
+@releasePast
+@iterationPast
 Feature: US1278479 - Publish NDB API contract master more than one response
 
   @TC587365

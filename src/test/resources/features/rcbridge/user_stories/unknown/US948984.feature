@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F137674
+@releaseUnknown
+@iterationUnknown
 Feature: US948984 - Update Relationship Roles
 
   @TC565030

@@ -2,6 +2,8 @@
 @EXARI-11273
 @US922849
 @F196735
+@releaseUnknown
+@iterationUnknown
 Feature: US922849 - View Address Time Lining History
 
   @TC564432

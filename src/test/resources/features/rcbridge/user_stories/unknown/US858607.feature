@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137659
+@releaseUnknown
+@iterationUnknown
 Feature: US858607 - Import Structure from Template
 
   @TC565628

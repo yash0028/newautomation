@@ -11,6 +11,8 @@
 @Plus
 @CLM_Exari
 @F192389
+@releasePast
+@iterationUnknown
 Feature: US1138071 - View detailed list of Mass Action definitons
 
   @TC565174

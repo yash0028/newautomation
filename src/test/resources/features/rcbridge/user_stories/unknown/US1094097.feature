@@ -3,6 +3,8 @@
 @US1094097
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US1094097 - Approve Added Identifier
 
   @TC564911

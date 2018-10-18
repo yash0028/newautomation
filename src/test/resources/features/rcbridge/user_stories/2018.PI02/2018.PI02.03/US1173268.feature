@@ -10,6 +10,8 @@
 @CLM_Exari
 @Exari_Microservice
 @F164312
+@releasePast
+@iterationPast
 Feature: US1173268 - [Unfinished] Error - Org type or Specialty is not found in RFP
 
   @TC565167

@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137679
+@releaseUnknown
+@iterationUnknown
 Feature: US858729 - View Providers Associated to an Entity
 
   @TC565002

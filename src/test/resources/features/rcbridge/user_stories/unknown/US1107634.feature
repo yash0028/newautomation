@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F186556
+@releaseUnknown
+@iterationUnknown
 Feature: US1107634 - Remove Contract ID from Counterparty upon Contract Termination
 
   @TC564801

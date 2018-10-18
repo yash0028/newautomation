@@ -8,6 +8,8 @@
 @Priority_1
 @CMD
 @F201371
+@releasePast
+@iterationPast
 Feature: US1283892 - [Unfinished] Import Data from Spreadsheet into Table
 
   @TC605408

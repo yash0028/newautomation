@@ -6,6 +6,8 @@
 @CMD2
 @Priority_2
 @F207419
+@releasePast
+@iterationPast
 Feature: US1243370 - Contract Class Validation UHC table
 
   @TC549317

@@ -8,6 +8,8 @@
 @Cosmos
 @Parity
 @F183530
+@releasePast
+@iterationPast
 Feature: US1064272 - Exari>COSMOS Physician Panel Add Transaction - Payload Data Mapping
 
   @TC565689

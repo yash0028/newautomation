@@ -8,6 +8,8 @@
 @Priority_1
 @Exari_Microservice
 @F175776
+@releasePast
+@iterationPast
 Feature: US1165644 - Create Service Providing Facility FS  Access Via Microservice
 
   @TC519085

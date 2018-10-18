@@ -9,6 +9,8 @@
 @Priority_1
 @CMD
 @F201371
+@releasePast
+@iterationPast
 Feature: US1207419 - Store history and audit metadata
 
   @TC533929

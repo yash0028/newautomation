@@ -6,6 +6,8 @@
 @2018.PI01.02
 @MVP
 @F154532
+@releasePast
+@iterationPast
 Feature: US948994 - Verify ability to hit Exari Dev environment
 
   @TC564740

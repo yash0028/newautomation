@@ -8,6 +8,8 @@
 @Priority_1
 @CMD
 @F201371
+@releasePast
+@iterationPast
 Feature: US1234752 - [Unfinished] User Interface for up and download
 
   @TC605425

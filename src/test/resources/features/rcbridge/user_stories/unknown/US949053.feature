@@ -4,6 +4,8 @@
 @EXARI-11274
 @US949053
 @F207050
+@releaseUnknown
+@iterationUnknown
 Feature: US949053 - Check for Duplicate Name
 
   @TC564459

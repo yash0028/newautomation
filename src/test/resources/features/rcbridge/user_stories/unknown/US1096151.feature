@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F184552
+@releaseUnknown
+@iterationUnknown
 Feature: US1096151 - Migrate BIC Entity Components
 
   @TC565543

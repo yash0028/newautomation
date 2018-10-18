@@ -12,6 +12,8 @@
 @Non-Deliverable
 @7.5_Release
 @F185542
+@releaseUnknown
+@iterationUnknown
 Feature: US1185931 - Search for specific provider status
 
   @TC564898

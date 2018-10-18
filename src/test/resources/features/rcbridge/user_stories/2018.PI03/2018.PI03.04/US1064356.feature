@@ -8,6 +8,8 @@
 @Cosmos
 @Parity
 @F183530
+@releasePast
+@iterationPast
 Feature: US1064356 - Exari>COSMOS Physician Panel Cancel/Term
 
   @TC562755

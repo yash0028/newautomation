@@ -3,6 +3,8 @@
 @US1211073
 @2018.PI04
 @F205008
+@releasePresent
+@iterationUnknown
 Feature: US1211073 - Determine Contract Master condition applies
 
   @TC565950

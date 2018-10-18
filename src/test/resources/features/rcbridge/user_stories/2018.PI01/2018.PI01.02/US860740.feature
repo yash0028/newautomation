@@ -6,6 +6,8 @@
 @MVP
 @CLM_Exari
 @F137838
+@releasePast
+@iterationPast
 Feature: US860740 - [Continued] Setup User Groups for Contract Authoring
 
   @TC565254

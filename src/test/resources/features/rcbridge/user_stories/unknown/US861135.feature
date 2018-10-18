@@ -3,6 +3,8 @@
 @CLM_UAT
 @US861135
 @F207084
+@releaseUnknown
+@iterationUnknown
 Feature: US861135 - Export Entity Summary
 
   @TC565937

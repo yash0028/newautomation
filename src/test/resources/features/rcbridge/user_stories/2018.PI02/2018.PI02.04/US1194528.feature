@@ -8,6 +8,8 @@
 @Plus
 @Parity
 @F175417
+@releasePast
+@iterationPast
 Feature: US1194528 - [Unfinished] [Continued] Benchmarking & Acceptance Testing
 
   @TC605391

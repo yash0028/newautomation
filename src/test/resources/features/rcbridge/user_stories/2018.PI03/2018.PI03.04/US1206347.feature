@@ -2,6 +2,8 @@
 @US1206347
 @2018.PI03
 @2018.PI03.04
+@releasePast
+@iterationPast
 Feature: US1206347 - Create Centralized Location to perform Provider Roster adds/updates
 
   @TC565526

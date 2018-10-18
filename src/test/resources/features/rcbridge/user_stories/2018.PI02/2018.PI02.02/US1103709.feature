@@ -9,6 +9,8 @@
 @Plus
 @Parity
 @F182490
+@releasePast
+@iterationPast
 Feature: US1103709 - Counter-party Provider Specialty Code is found and paper type is returned
 
   @TC564555

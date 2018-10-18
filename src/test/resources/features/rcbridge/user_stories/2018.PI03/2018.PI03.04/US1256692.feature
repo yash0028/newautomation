@@ -9,6 +9,8 @@
 @CMD
 @CMD_Tables
 @F214484
+@releasePast
+@iterationPast
 Feature: US1256692 - [Continued] Store history and audit metadata
 
   @TC556665

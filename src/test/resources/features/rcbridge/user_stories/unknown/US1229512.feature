@@ -4,6 +4,8 @@
 @CMD2
 @Priority_2
 @F232444
+@releaseUnknown
+@iterationUnknown
 Feature: US1229512 - Med Nec clause table update NDB service - Facility
 
   @TC565984

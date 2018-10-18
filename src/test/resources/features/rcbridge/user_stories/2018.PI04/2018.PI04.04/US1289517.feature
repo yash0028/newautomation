@@ -7,6 +7,8 @@
 @Priority_1
 @CMD
 @F219005
+@releasePresent
+@iterationFuture
 Feature: US1289517 - Contract Config Services - Contract Master overrides service
 
   @TC565434

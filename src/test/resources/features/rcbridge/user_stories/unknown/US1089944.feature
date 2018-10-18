@@ -3,6 +3,8 @@
 @EXARI-11267
 @US1089944
 @F207077
+@releaseUnknown
+@iterationUnknown
 Feature: US1089944 - Set Identifier Effective Date - Update Identifier
 
   @TC565982

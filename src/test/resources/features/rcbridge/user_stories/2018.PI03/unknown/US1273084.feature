@@ -3,6 +3,8 @@
 @2018.PI03
 @MVP
 @F201505
+@releasePast
+@iterationUnknown
 Feature: US1273084 - Fortify Scans
 
   @TC565518

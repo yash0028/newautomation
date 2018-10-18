@@ -7,6 +7,8 @@
 @CLM_Exari
 @Parity
 @F159706
+@releasePast
+@iterationPast
 Feature: US1129180 - (Unfinished) Create Provider Level Roster Widget in Exari
 
   @TC565881

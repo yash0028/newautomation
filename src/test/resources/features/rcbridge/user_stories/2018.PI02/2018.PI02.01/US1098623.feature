@@ -10,6 +10,8 @@
 @Parity
 @Examiner
 @F183241
+@releasePast
+@iterationPast
 Feature: US1098623 - Provider Intent Certification (PIC) needs analysis - Spike
 
   @TC605371

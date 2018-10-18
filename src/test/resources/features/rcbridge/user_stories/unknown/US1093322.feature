@@ -2,6 +2,8 @@
 @EXARI-11274
 @US1093322
 @F196735
+@releaseUnknown
+@iterationUnknown
 Feature: US1093322 - Search Street Address
 
   @TC565590

@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137675
+@releaseUnknown
+@iterationUnknown
 Feature: US858701 - Create & Update Entity Rules
 
   @TC565691

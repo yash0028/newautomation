@@ -1,6 +1,8 @@
 # Last updated on 
 @US1361321
 @F232442
+@releaseUnknown
+@iterationUnknown
 Feature: US1361321 - Add Ancillary Specialties
 
   @TC598305

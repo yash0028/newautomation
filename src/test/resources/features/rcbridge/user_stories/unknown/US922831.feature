@@ -1,6 +1,8 @@
 # Last updated on 
 @US922831
 @F207082
+@releaseUnknown
+@iterationUnknown
 Feature: US922831 - Inactivate Entity Demographic Info
 
   @TC565669

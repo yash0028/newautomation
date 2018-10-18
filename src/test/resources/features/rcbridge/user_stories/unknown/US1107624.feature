@@ -1,6 +1,8 @@
 # Last updated on 
 @US1107624
 @F207049
+@releaseUnknown
+@iterationUnknown
 Feature: US1107624 - Remove Contract ID from Counterparty upon Interview Termination
 
   @TC565257

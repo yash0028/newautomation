@@ -7,6 +7,8 @@
 @NDB
 @Parity
 @F185083
+@releasePast
+@iterationPast
 Feature: US1179417 - [Continued] Exari event producer [contracts-gateway-api]
 
   @TC564722

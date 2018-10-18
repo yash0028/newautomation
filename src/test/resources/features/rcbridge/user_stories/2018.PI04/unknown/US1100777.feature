@@ -6,6 +6,8 @@
 @MVP
 @Parity
 @F185543
+@releasePresent
+@iterationUnknown
 Feature: US1100777 - Specify transaction values via spreadsheet
 
   @TC565854

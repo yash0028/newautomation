@@ -4,6 +4,8 @@
 @MVP
 @Parity
 @F185547
+@releasePast
+@iterationUnknown
 Feature: US1100186 - Edit the amendment document
 
   @TC565647

@@ -2,6 +2,8 @@
 @US1098234
 @Non_MVP
 @F184554
+@releaseUnknown
+@iterationUnknown
 Feature: US1098234 - Migrate DLGT CDs and Descriptions
 
   @TC565969

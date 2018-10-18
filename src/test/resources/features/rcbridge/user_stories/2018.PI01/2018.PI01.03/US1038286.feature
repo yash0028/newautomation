@@ -6,6 +6,8 @@
 @MVP
 @CLM_Exari
 @F137841
+@releasePast
+@iterationPast
 Feature: US1038286 - [CONTINUED] Setup initial SPA/PAT Contract Template
 
   @TC565052

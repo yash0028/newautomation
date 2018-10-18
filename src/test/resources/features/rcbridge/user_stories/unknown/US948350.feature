@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F154296
+@releaseUnknown
+@iterationUnknown
 Feature: US948350 - Search Multiple Criteria
 
   @TC565597

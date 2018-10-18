@@ -8,6 +8,8 @@
 @Plus
 @Priority_1
 @F137674
+@releaseUnknown
+@iterationUnknown
 Feature: US1116730 - Expire Entity Characteristic Type
 
   @TC565585

@@ -6,6 +6,8 @@
 @MVP
 @CLM_Exari
 @F137839
+@releasePast
+@iterationPast
 Feature: US933396 - Update Business Organizations
 
   @TC565204

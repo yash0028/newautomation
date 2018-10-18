@@ -7,6 +7,8 @@
 @MVP
 @CLM_Exari
 @F154549
+@releasePast
+@iterationPast
 Feature: US949049 - Setup Exari Training Environment and URL
 
   @TC565626

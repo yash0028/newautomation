@@ -9,6 +9,8 @@
 @Priority_1
 @Exari_Microservice
 @F159017
+@releasePast
+@iterationPast
 Feature: US1009534 - Create External Data Query - MSPS Physician
 
   @TC543857

@@ -2,6 +2,8 @@
 @US1094038
 @Plus
 @F155316
+@releaseUnknown
+@iterationUnknown
 Feature: US1094038 - Capture Reason for Identifier Inactivation or Void
 
   @TC565697

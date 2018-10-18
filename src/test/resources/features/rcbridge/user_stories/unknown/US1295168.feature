@@ -1,5 +1,7 @@
 # Last updated on 
 @US1295168
+@releaseUnknown
+@iterationUnknown
 Feature: US1295168 - Update OSE Templates
 
   @TC565149

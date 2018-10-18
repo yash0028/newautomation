@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137676
+@releaseUnknown
+@iterationUnknown
 Feature: US1186271 - Return Active and Inactive Entities
 
   @TC565811

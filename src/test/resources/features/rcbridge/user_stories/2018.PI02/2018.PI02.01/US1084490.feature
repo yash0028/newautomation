@@ -6,6 +6,8 @@
 @10/1_Physician
 @Parity
 @F177493
+@releasePast
+@iterationPast
 Feature: US1084490 - Setup OpenShift Test environment
 
   @TC565883

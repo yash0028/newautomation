@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137659
+@releaseUnknown
+@iterationUnknown
 Feature: US858608 - Import Relationships from Template
 
   @TC564634

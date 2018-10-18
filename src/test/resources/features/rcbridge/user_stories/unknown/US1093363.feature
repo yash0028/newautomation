@@ -2,6 +2,8 @@
 @EXARI-11274
 @US1093363
 @F196735
+@releaseUnknown
+@iterationUnknown
 Feature: US1093363 - Search State
 
   @TC564518

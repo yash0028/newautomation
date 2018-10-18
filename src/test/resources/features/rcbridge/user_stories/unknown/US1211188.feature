@@ -2,6 +2,8 @@
 @MVP+1
 @US1211188
 @F205008
+@releaseUnknown
+@iterationUnknown
 Feature: US1211188 - Identify Fee Schedule
 
   @TC565887

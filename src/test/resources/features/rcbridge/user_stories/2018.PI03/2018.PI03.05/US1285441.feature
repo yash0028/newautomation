@@ -8,6 +8,8 @@
 @Priority_1
 @CMD
 @F201371
+@releasePast
+@iterationPast
 Feature: US1285441 - [Continued]Identify new Product Codes
 
   @TC574135

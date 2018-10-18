@@ -2,6 +2,8 @@
 @US1309292
 @2018.PI03
 @2018.PI03.05
+@releasePast
+@iterationPast
 Feature: US1309292 - Restructure MySql Database per product/service
 
   @TC569176

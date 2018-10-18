@@ -2,6 +2,8 @@
 @EXARI-11274
 @US1089525
 @F207050
+@releaseUnknown
+@iterationUnknown
 Feature: US1089525 - Check for Duplicates - Updated Entity Identifier
 
   @TC565425

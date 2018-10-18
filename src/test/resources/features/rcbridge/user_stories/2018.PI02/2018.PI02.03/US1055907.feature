@@ -7,6 +7,8 @@
 @Plus
 @Parity
 @F175417
+@releasePast
+@iterationPast
 Feature: US1055907 - Kafka Consumer Library Test Cases
 
   @TC565654

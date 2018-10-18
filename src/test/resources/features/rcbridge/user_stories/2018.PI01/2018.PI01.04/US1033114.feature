@@ -5,6 +5,8 @@
 @MVP
 @CLM_Exari
 @F172168
+@releasePast
+@iterationPast
 Feature: US1033114 - Perform visioning and import of Sample Contract data and associated Attachments (and types) from Emptoris into Exari
 
   @TC564676

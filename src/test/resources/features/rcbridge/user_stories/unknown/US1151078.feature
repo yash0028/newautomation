@@ -1,6 +1,8 @@
 # Last updated on 
 @US1151078
 @F226404
+@releaseUnknown
+@iterationUnknown
 Feature: US1151078 - Shared build pipeline for CLM
 
   @TC565917

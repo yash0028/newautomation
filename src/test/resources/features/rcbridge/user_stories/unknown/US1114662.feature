@@ -1,6 +1,8 @@
 # Last updated on 
 @US1114662
 @F207069
+@releaseUnknown
+@iterationUnknown
 Feature: US1114662 - Legal TIN Owner
 
   @TC565253

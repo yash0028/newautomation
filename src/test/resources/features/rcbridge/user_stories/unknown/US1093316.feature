@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F154296
+@releaseUnknown
+@iterationUnknown
 Feature: US1093316 - Search Identifier
 
   @TC565829

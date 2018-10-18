@@ -7,6 +7,8 @@
 @Priority_1
 @Exari_Microservice
 @F196394
+@releasePast
+@iterationPast
 Feature: US1210038 - [SPIKE] Establish Connetion to backend database - MEG
 
   @TC565180

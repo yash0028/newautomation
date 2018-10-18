@@ -8,6 +8,8 @@
 @Plus
 @Priority_1
 @F137657
+@releaseUnknown
+@iterationUnknown
 Feature: US858591 - Add Entity Name
 
   @TC565477

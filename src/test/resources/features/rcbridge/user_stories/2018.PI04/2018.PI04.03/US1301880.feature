@@ -8,6 +8,8 @@
 @Priority_1
 @CMD
 @F218723
+@releasePresent
+@iterationPresent
 Feature: US1301880 - [Continued] CMD- User Input Required Page- Populate rows of data
 
   @TC593157

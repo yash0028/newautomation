@@ -8,6 +8,8 @@
 @Transaction
 @Parity
 @F177202
+@releasePast
+@iterationPast
 Feature: US1236601 - Code Coverage Test Cases
 
   @TC615273

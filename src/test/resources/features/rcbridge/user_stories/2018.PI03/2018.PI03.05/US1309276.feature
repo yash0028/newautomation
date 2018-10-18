@@ -2,6 +2,8 @@
 @US1309276
 @2018.PI03
 @2018.PI03.05
+@releasePast
+@iterationPast
 Feature: US1309276 - Debug OAuth issue with external library
 
   @TC569177

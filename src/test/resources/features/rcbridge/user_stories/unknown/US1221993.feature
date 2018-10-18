@@ -5,6 +5,8 @@
 @PI04
 @Plus
 @F165533
+@releasePresent
+@iterationUnknown
 Feature: US1221993 - Capture 'Expected Completion' date - rate update
 
   @TC565004

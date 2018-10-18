@@ -1,5 +1,7 @@
 # Last updated on 
 @US1016417
+@releaseUnknown
+@iterationUnknown
 Feature: US1016417 - Integrate CLM Exari with COSMOS Facility
 
   @TC565321

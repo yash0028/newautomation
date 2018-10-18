@@ -11,6 +11,8 @@
 @CLM_Exari
 @Parity
 @F201611
+@releasePast
+@iterationPast
 Feature: US1210131 - [SPIKE] Bulk Provider Extract - PES
 
   @TC564922

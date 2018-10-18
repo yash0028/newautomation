@@ -2,6 +2,8 @@
 @US1085951
 @MVP
 @F182690
+@releaseUnknown
+@iterationUnknown
 Feature: US1085951 - Add PowerAuthor to the Appstore
 
   @TC565489

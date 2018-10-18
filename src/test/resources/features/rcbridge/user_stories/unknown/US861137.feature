@@ -1,6 +1,8 @@
 # Last updated on 
 @US861137
 @F207084
+@releaseUnknown
+@iterationUnknown
 Feature: US861137 - Enable External Reporting
 
   @TC565114

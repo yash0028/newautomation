@@ -3,6 +3,8 @@
 @2018.PI03
 @MVP
 @F201505
+@releasePast
+@iterationUnknown
 Feature: US1181927 - Integrate Acceptance Testing into Pipeline
 
   @TC564765

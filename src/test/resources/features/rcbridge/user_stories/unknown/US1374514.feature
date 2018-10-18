@@ -2,6 +2,8 @@
 @US1374514
 @Priority_1
 @F218481
+@releaseUnknown
+@iterationUnknown
 Feature: US1374514 - Synchronize Deactivated TIN
 
   @TC605562

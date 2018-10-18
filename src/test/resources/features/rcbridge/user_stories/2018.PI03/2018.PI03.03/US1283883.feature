@@ -10,6 +10,8 @@
 @CMD
 @CMD_Tables
 @F214484
+@releasePast
+@iterationPast
 Feature: US1283883 - [Unfinished] Maintain data using table template
 
   @TC605350

@@ -5,6 +5,8 @@
 @Plus
 @Priority_1
 @F137660
+@releaseUnknown
+@iterationUnknown
 Feature: US1168436 - Check for Contract Dependencies
 
   @TC565479

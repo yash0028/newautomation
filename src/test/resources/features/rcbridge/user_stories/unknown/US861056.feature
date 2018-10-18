@@ -5,6 +5,8 @@
 @Plus
 @Priority_1
 @F137903
+@releaseUnknown
+@iterationUnknown
 Feature: US861056 - Map Entity Data Elements for Downstream Consumption
 
   @TC565422

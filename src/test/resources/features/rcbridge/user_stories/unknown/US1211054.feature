@@ -2,6 +2,8 @@
 @MVP+1
 @US1211054
 @F205008
+@releaseUnknown
+@iterationUnknown
 Feature: US1211054 - Identify contract Market Number
 
   @TC565345

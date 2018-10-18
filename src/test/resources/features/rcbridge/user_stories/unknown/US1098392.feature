@@ -11,6 +11,8 @@
 @Non-Deliverable
 @7.5_Release
 @F185542
+@releaseUnknown
+@iterationUnknown
 Feature: US1098392 - Define/derive project status
 
   @TC564790

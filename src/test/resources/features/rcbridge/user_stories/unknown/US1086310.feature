@@ -7,6 +7,8 @@
 @Priority_2
 @Parity
 @F182721
+@releaseUnknown
+@iterationUnknown
 Feature: US1086310 - Exari>NDB/COSMOS Panel Demographic Updates - Do Not send to COSMOS
 
   @TC565555

@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F137671
+@releaseUnknown
+@iterationUnknown
 Feature: US858668 - Capture Relationship Time Lining History
 
   @TC564645

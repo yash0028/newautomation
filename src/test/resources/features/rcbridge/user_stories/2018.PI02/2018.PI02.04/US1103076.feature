@@ -6,6 +6,8 @@
 @Plus
 @Parity
 @F186037
+@releasePast
+@iterationPast
 Feature: US1103076 - Domain MS - Edits and Errors for Roster Update Event SPIKE
 
   @TC605357

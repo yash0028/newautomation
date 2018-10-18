@@ -7,6 +7,8 @@
 @NDB
 @Parity
 @F185083
+@releasePast
+@iterationPast
 Feature: US1028152 - NDB_Data Model Transformation for Update Roster business event
 
   @TC565938

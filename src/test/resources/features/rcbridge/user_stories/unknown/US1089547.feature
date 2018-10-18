@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F183266
+@releaseUnknown
+@iterationUnknown
 Feature: US1089547 - Inactivate Entity Identifier
 
   @TC565756

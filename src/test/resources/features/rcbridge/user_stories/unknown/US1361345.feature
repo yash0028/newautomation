@@ -1,6 +1,8 @@
 # Last updated on 
 @US1361345
 @F232442
+@releaseUnknown
+@iterationUnknown
 Feature: US1361345 - Add E&I Tier Types
 
   @TC598300

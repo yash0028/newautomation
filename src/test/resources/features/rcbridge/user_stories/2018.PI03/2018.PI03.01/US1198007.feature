@@ -7,6 +7,8 @@
 @Priority_1
 @Parity
 @F203766
+@releasePast
+@iterationPast
 Feature: US1198007 - Exari / CLM > NDB Common Pricing Solution Lookup API
 
   @TC564842

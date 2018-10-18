@@ -4,6 +4,8 @@
 @Plus
 @Priority_1
 @F181492
+@releaseUnknown
+@iterationUnknown
 Feature: US1224662 - Terminated MPIN/TIN Relationship
 
   @TC565015

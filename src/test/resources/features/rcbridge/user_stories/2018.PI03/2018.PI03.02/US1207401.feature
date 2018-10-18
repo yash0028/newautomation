@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F171127
+@releasePast
+@iterationPast
 Feature: US1207401 - SPIKE: Exari> NDB Facility/Ancillary Payload - Layout data attributes Analysis
 
   @TC564942

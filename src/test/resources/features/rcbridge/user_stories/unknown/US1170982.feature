@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F198722
+@releaseUnknown
+@iterationUnknown
 Feature: US1170982 - Retained Relationships
 
   @TC564494

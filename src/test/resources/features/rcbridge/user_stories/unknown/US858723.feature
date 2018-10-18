@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137678
+@releaseUnknown
+@iterationUnknown
 Feature: US858723 - View Entity Structure by Relationship Type
 
   @TC564872

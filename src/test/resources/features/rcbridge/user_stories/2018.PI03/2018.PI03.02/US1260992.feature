@@ -8,6 +8,8 @@
 @Transaction
 @Parity
 @F177202
+@releasePast
+@iterationPast
 Feature: US1260992 - [Unfinished] Downstream system specific validation handling
 
   @TC605355

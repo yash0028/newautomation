@@ -8,6 +8,8 @@
 @Plus
 @CLM_Exari
 @F192389
+@releasePast
+@iterationUnknown
 Feature: US1137956 - Define user access to Mass Action definitions
 
   @TC564540

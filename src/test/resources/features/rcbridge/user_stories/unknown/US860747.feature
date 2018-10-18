@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137840
+@releaseUnknown
+@iterationUnknown
 Feature: US860747 - Provision User Access
 
   @TC565046

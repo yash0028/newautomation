@@ -4,6 +4,8 @@
 @Priority_1
 @CMD2
 @F210192
+@releasePresent
+@iterationUnknown
 Feature: US1256693 - Download Table Template
 
   @TC565607

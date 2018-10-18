@@ -1,6 +1,8 @@
 # Last updated on 
 @US1197943
 @2018.PI03
+@releasePast
+@iterationUnknown
 Feature: US1197943 - Create Product Roster Screen
 
   @TC565358

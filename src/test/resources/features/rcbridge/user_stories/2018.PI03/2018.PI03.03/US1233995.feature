@@ -8,6 +8,8 @@
 @NDB_Roster_Update
 @Parity
 @F205218
+@releasePast
+@iterationPast
 Feature: US1233995 - [Continued] NDB Layer 7 Implementation
 
   @TC565272

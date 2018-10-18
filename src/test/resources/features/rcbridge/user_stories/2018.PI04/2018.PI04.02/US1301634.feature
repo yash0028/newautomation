@@ -8,6 +8,8 @@
 @Priority_1
 @CMD
 @F219005
+@releasePresent
+@iterationPast
 Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
 
   @TC573546

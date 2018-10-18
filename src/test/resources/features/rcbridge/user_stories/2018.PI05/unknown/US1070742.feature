@@ -5,6 +5,8 @@
 @Plus
 @Priority_2
 @F159195
+@releaseFuture
+@iterationUnknown
 Feature: US1070742 - COSMOS Facility Acknowledgment Process - Production
 
   @TC564965

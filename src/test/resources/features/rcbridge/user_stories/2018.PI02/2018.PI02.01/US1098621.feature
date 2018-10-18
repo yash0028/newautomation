@@ -9,6 +9,8 @@
 @Parity
 @Examiner
 @F183241
+@releasePast
+@iterationPast
 Feature: US1098621 - Examiner needs analysis - Spike
 
   @TC565639

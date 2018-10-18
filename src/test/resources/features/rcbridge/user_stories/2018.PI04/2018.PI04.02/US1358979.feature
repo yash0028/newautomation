@@ -6,6 +6,8 @@
 @Priority_1
 @Scrum_Team_1
 @F232041
+@releasePresent
+@iterationPast
 Feature: US1358979 - PES - TPSM Indicator(UHC_AgreementAcct_PlatniumAcctField) Exari/OptumOptum/Exari
 
   @TC597195

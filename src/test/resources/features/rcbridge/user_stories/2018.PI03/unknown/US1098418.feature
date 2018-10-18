@@ -4,6 +4,8 @@
 @MVP
 @Parity
 @F185547
+@releasePast
+@iterationUnknown
 Feature: US1098418 - Generate the amendment document
 
   @TC565071

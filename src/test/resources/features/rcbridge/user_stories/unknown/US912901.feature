@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F183266
+@releaseUnknown
+@iterationUnknown
 Feature: US912901 - Inactivate Alternate Name/Alias
 
   @TC565377

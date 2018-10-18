@@ -12,6 +12,8 @@
 @CLM_Exari
 @Parity
 @F137899
+@releasePast
+@iterationPast
 Feature: US1094026 - [Continued] Create External Data Query for PES
 
   @TC564627

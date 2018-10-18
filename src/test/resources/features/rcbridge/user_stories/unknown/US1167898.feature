@@ -8,6 +8,8 @@
 @Plus
 @Priority_1
 @F137657
+@releaseUnknown
+@iterationUnknown
 Feature: US1167898 - Add Alternate Name
 
   @TC565738

@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F186556
+@releaseUnknown
+@iterationUnknown
 Feature: US1107632 - Associate Contract ID to Counterparty upon Contract Execution
 
   @TC565140

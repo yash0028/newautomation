@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137674
+@releaseUnknown
+@iterationUnknown
 Feature: US858693 - Setup Entity Type Definitions
 
   @TC565340

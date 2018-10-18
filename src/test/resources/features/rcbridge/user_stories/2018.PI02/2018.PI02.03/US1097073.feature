@@ -8,6 +8,8 @@
 @Plus
 @Parity
 @F182490
+@releasePast
+@iterationPast
 Feature: US1097073 - Error Handling (non-data related)
 
   @TC565442

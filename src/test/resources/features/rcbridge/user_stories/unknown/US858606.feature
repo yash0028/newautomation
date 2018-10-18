@@ -3,6 +3,8 @@
 @US858606
 @Plus
 @F137658
+@releaseUnknown
+@iterationUnknown
 Feature: US858606 - View Approval Time Lining History
 
   @TC565729

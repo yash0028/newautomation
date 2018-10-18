@@ -4,6 +4,8 @@
 @Priority_1
 @10/1_Physician
 @F219211
+@releaseUnknown
+@iterationUnknown
 Feature: US1203199 - Detect transaction timeouts
 
   @TC565675

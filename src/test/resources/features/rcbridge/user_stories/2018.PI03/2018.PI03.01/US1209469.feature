@@ -7,6 +7,8 @@
 @PIC
 @Parity
 @F159196
+@releasePast
+@iterationPast
 Feature: US1209469 - PIC Analysis Spike
 
   @TC605379

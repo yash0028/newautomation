@@ -6,6 +6,8 @@
 @Plus
 @Parity
 @F186037
+@releasePast
+@iterationPast
 Feature: US1103082 - Domain MS - Send errors or canonical model for Roster Update Event
 
   @TC565569

@@ -9,6 +9,8 @@
 @Plus
 @Priority_1
 @F152967
+@releaseUnknown
+@iterationUnknown
 Feature: US1089321 - Prevent Inactive Entity Maintenance
 
   @TC565310

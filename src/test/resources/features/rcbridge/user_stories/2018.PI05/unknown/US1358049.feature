@@ -5,6 +5,8 @@
 @Plus
 @Priority_2
 @F159195
+@releaseFuture
+@iterationUnknown
 Feature: US1358049 - COSMOS Facility Acknowledgment Process - PIC DIV
 
   @TC597161

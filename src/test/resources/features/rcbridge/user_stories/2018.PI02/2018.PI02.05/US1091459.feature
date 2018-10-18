@@ -7,6 +7,8 @@
 @Plus
 @Parity
 @F172080
+@releasePast
+@iterationPast
 Feature: US1091459 - Exari>COSMOS Physician Panel - API Development
 
   @TC565378

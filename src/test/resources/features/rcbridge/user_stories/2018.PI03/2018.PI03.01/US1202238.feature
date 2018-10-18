@@ -7,6 +7,8 @@
 @Priority_1
 @Parity
 @F203811
+@releasePast
+@iterationPast
 Feature: US1202238 - Updating the Physician Payload logic for Reassign fields in Driver module
 
   @TC564826

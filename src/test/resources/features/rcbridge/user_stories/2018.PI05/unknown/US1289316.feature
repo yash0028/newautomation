@@ -6,6 +6,8 @@
 @Priority_1
 @CMD
 @F237213
+@releaseFuture
+@iterationUnknown
 Feature: US1289316 - View Contract Config Summary web page
 
   @TC564781

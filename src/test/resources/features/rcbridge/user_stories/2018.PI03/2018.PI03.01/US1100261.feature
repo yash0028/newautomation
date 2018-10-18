@@ -9,6 +9,8 @@
 @Plus
 @Parity
 @F182490
+@releasePast
+@iterationPast
 Feature: US1100261 - Build Micro Service (ETMA)
 
   @TC565104

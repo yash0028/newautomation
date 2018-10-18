@@ -6,6 +6,8 @@
 @MVP
 @Parity
 @F185543
+@releasePresent
+@iterationUnknown
 Feature: US1183047 - Filter search results
 
   @TC565171

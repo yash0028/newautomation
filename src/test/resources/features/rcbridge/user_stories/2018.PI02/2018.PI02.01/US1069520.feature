@@ -7,6 +7,8 @@
 @Plus
 @Parity
 @F172080
+@releasePast
+@iterationPast
 Feature: US1069520 - SPIKE: Exari>COSMOS Physician Panel Anlaysis
 
   @TC565239

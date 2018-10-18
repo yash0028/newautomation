@@ -6,6 +6,8 @@
 @Plus
 @Priority_1
 @F137657
+@releaseUnknown
+@iterationUnknown
 Feature: US858598 - Capture Entity Time Lining History - New Entity
 
   @TC564753

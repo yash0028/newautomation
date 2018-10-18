@@ -7,6 +7,8 @@
 @Plus
 @Priority_1
 @F137662
+@releaseUnknown
+@iterationUnknown
 Feature: US858627 - Add Attachments
 
   @TC565610

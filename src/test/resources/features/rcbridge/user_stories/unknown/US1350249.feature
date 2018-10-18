@@ -4,6 +4,8 @@
 @PhyCon
 @Plus
 @F194519
+@releaseUnknown
+@iterationUnknown
 Feature: US1350249 - Send attachments to PhyCon
 
   @TC593199

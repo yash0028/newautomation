@@ -7,6 +7,8 @@
 @NDB
 @CMD
 @F217187
+@releasePast
+@iterationPast
 Feature: US1278478 - Publish NDB API contract master null response
 
   @TC589269

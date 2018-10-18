@@ -1,6 +1,8 @@
 # Last updated on 
 @US1107622
 @F207049
+@releaseUnknown
+@iterationUnknown
 Feature: US1107622 - Associate Interview Contract ID to Counterparty
 
   @TC565861

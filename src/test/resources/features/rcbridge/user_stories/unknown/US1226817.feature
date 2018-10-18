@@ -4,6 +4,8 @@
 @Plus
 @Priority_1
 @F181492
+@releaseUnknown
+@iterationUnknown
 Feature: US1226817 - Created BSAR/Provider Relationship
 
   @TC565160

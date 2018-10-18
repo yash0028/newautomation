@@ -6,6 +6,8 @@
 @MVP
 @CLM_Exari
 @F137838
+@releasePast
+@iterationPast
 Feature: US1066649 - Establish Power Author Access
 
   @TC565355

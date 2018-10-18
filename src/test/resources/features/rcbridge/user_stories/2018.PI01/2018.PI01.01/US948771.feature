@@ -7,6 +7,8 @@
 @MVP
 @CLM_Exari
 @F150724
+@releasePast
+@iterationPast
 Feature: US948771 - Setup Exari Dev Environment and URL
 
   @TC564920

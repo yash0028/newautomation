@@ -7,6 +7,8 @@
 @PI02_Top3
 @Parity
 @F182742
+@releasePast
+@iterationPast
 Feature: US1086921 - [Continued] Exari>NDB Physician payload API - Layer 7 Certification
 
   @TC564460

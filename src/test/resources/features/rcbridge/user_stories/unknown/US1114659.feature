@@ -1,6 +1,8 @@
 # Last updated on 
 @US1114659
 @F207069
+@releaseUnknown
+@iterationUnknown
 Feature: US1114659 - Every TIN has an Owner
 
   @TC565983

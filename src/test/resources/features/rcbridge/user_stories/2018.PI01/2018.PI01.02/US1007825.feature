@@ -5,6 +5,8 @@
 @2018.PI01.02
 @MVP
 @F161919
+@releasePast
+@iterationPast
 Feature: US1007825 - (Retry) Build retry service
 
   @TC564818

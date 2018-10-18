@@ -9,6 +9,8 @@
 @Plus
 @Parity
 @F182490
+@releasePast
+@iterationPast
 Feature: US1096916 - Error - Provider's specialty is on table and paper type is not correct
 
   @TC564873

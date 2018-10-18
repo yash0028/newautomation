@@ -6,6 +6,8 @@
 @MVP
 @Plus
 @F178659
+@releasePast
+@iterationPast
 Feature: US1065276 - [Continued] [Continued] Exari>NDB Contract Lockdown and Editing Physician and Facility
 
   @TC565564

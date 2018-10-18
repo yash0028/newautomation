@@ -2,6 +2,8 @@
 @US1374510
 @Priority_1
 @F218481
+@releaseUnknown
+@iterationUnknown
 Feature: US1374510 - Synchronize Deactivated MPIN
 
   @TC605567

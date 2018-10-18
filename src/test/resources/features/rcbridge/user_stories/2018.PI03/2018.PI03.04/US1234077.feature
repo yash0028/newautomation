@@ -7,6 +7,8 @@
 @Parity
 @Examiner
 @F171571
+@releasePast
+@iterationPast
 Feature: US1234077 - [Continued] [Continued] Contract Query API Implementation
 
   @TC551549
