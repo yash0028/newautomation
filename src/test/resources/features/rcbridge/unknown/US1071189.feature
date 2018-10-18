@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @US1071189
 @10/1_Physician
 @Parity

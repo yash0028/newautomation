@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @CLM_UAT
 @RFP
 @US1082300
@@ -26,12 +26,12 @@ Feature: US1082300 - Create microservice to obtain RFP data
   Scenario: TC565532 - [RL0] Happy Path Validation
     Given a request with the following fields:
       | Place of Service |
-      | Specialty Type |
+      | Specialty Type   |
     When the request is made to the RFP service
     Then the following fields should be returned:
-      | Credentialing Required |
-      | Super Script |
-      | Credentialing Entity |
+      | Credentialing Required       |
+      | Super Script                 |
+      | Credentialing Entity         |
       | Accepting Applications (E&I) |
       | Accepting Applications (C&S) |
       | Accepting Applications (M&V) |

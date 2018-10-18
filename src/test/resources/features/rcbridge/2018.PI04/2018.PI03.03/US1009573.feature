@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @CLM_UAT
 @MSG
 @US1009573

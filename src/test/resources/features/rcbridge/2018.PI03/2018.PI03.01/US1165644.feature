@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @MSPS
 @US1165644
 @2018.PI03
@@ -24,7 +24,7 @@ Feature: US1165644 - Create Service Providing Facility FS  Access Via Microservi
     Then the microservice will return the requested fee schedules in a zip file
     Examples:
       | feeScheduleNumber |
-      | 9596 |
-      | 9875 |
-      | 2705 |
+      | 9596              |
+      | 9875              |
+      | 2705              |
 

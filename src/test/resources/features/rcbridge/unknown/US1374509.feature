@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @US1374509
 @Priority_1
 @F218481

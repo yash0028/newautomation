@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @MVP
 @CLM_UAT
 @EXARI-10879

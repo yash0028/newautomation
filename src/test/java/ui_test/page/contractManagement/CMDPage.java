@@ -8,6 +8,7 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.util.IFactoryPage;
+import ui_test.util.IWebInteract;
 import ui_test.util.SeleniumHelper;
 
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
 import static ui_test.util.SeleniumHelper.findElement;
 import static ui_test.util.SeleniumHelper.findElements;
 
-public class CMDPage implements IFactoryPage {
+public class CMDPage implements IFactoryPage, IWebInteract {
     private static Logger log = LoggerFactory.getLogger(CMDPage.class);
     @FindBy(xpath = "//a[contains(@href,'/contract-summary/in-progress')]")
     WebElement inProgressLink;
@@ -97,13 +98,7 @@ public class CMDPage implements IFactoryPage {
      * @return True if the link was clicked or false otherwise.
      */
     public boolean clickInProgressLink() {
-        try {
-            inProgressLink.click();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
+        return click("in progress button", inProgressLink);
     }
 
     /**
@@ -112,13 +107,7 @@ public class CMDPage implements IFactoryPage {
      * @return True if the link was clicked or false otherwise.
      */
     public boolean clickActionRequiredLink() {
-        try {
-            actionRequiredLink.click();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
+        return click("action required button", actionRequiredLink);
     }
 
     /**
@@ -127,13 +116,7 @@ public class CMDPage implements IFactoryPage {
      * @return True if the link was clicked or false otherwise.
      */
     public boolean clickErrorsLink() {
-        try {
-            errorsLink.click();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
+        return click("errors button", errorsLink);
     }
 
     /**
@@ -142,12 +125,6 @@ public class CMDPage implements IFactoryPage {
      * @return True if the link was clicked or false otherwise.
      */
     public boolean clickCompletedLink() {
-        try {
-            completedLink.click();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
+        return click("completed button", completedLink);
     }
 }

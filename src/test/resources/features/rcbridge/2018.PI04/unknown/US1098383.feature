@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @MVP
 @Parity
 @US1098383

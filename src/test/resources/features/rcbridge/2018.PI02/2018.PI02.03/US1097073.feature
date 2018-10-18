@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @ETMA
 @US1097073
 @2018.PI02

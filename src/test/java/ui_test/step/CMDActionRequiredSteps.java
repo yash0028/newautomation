@@ -34,17 +34,16 @@ public class CMDActionRequiredSteps implements IUiStep {
         driver = SeleniumHelper.launchBrowser();
         driver.get(CMD_DASHBOARD_URL);
         cmdPage = new CMDPage(driver);
-        System.out.println(driver.getCurrentUrl());
-        Assert.assertTrue(cmdPage.clickActionRequiredLink());
+        Assert.assertTrue("CMD page could not be displayed", cmdPage.confirmCurrentPage());
+        Assert.assertTrue("Action required link could not be clicked", cmdPage.clickActionRequiredLink());
 
 //        getRemoteDriver().get(CMD_DASHBOARD_URL); // Navigate to the CMD page
 //        cmdPage = new CMDPage(getRemoteDriver());
-//        Assert.assertTrue("CMD page could not be displayed", cmdPage.confirmCurrentPage());
     }
 
     @When("^there are Action Required transactions$")
     public void thereAreActionRequiredTransactions() throws Throwable {
-        //        actionRequiredPage = new actionRequiredPage(getRemoteDriver());
+        // actionRequiredPage = new actionRequiredPage(getRemoteDriver());
         actionRequiredPage = new ActionRequiredPage(driver);
         Assert.assertTrue("URL for in progress page does not match", actionRequiredPage.confirmCurrentPage());
 
@@ -68,12 +67,14 @@ public class CMDActionRequiredSteps implements IUiStep {
         Boolean isSorted = dates.stream().sorted().collect(Collectors.toList()).equals(dates);
 
         //Assert.assertTrue(isSorted);
+        driver.close();
+
     }
 
     @Then("^for each transaction that requires input I can see data populated for each one of the fields$")
     public void forEachTransactionThatRequiresInputICanSeeDataPopulatedForEachOneOfTheFields() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+        driver.close();
     }
 
     @When("^there are no Action required transactions$")
@@ -84,8 +85,8 @@ public class CMDActionRequiredSteps implements IUiStep {
 
     @Then("^the following message \"([^\"]*)\" appears on the page$")
     public void theFollowingMessageAppearsOnThePage(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        driver.close();
+
     }
 
 

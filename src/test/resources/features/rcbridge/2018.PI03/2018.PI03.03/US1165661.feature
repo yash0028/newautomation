@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @MSPS
 @US1165661
 @2018.PI03

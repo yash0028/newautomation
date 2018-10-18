@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @US955716
 @F207077
 @releaseUnknown

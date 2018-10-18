@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @US1209261
 @Priority_1
 @CMD2

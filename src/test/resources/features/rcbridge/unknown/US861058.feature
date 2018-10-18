@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @MVP
 @EXARI-11271
 @EXARI-8724
