@@ -31,19 +31,6 @@ Feature: US1256989 - Upload CLM Rule Table
     When an administrator downloads a copy of the rules table template
     Then the rules table template is made available to the administrator
 
-  @TC564769
-  @Automated
-  @Functional
-  @US1256989
-  @2018.PI04
-  Scenario: TC564769 - [RL0]
-    Given the CLM Rule Tables service is up and running
-    When A new spreadsheet is uploaded and stored in the database
-    And The import is processed successfully
-    Then The existing data is deleted
-    And The content of spreadsheet is parsed and stored in a database table
-    And The database is updated to indicate that the spreadsheet was processed successfully
-
   @TC603991
   @Manual
   @Functional
@@ -53,6 +40,19 @@ Feature: US1256989 - Upload CLM Rule Table
     Given the existence of a web UI
     When an authorized user access the URL
     Then the web UI for up/download is available
+
+  @TC615405
+  @Manual
+  @Functional
+  @US1256989
+  @2018.PI04
+  Scenario: TC615405 - [RL0]
+    Given the CLM Rule Tables service is up and running
+    When A new spreadsheet is uploaded and stored in the database
+    And The import is processed successfully
+    Then The existing data is deleted
+    And The content of spreadsheet is parsed and stored in a database table
+    And The database is updated to indicate that the spreadsheet was processed successfully
 
   @TC603989
   @Manual
