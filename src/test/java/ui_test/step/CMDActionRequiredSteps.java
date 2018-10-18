@@ -6,6 +6,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.contractManagement.ActionRequiredPage;
@@ -13,11 +14,7 @@ import ui_test.page.contractManagement.CMDPage;
 import ui_test.util.IUiStep;
 import ui_test.util.SeleniumHelper;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
-import java.util.stream.Collectors;
 
 /**
  * Created by dtimaul on 9/26/18.
@@ -28,6 +25,7 @@ public class CMDActionRequiredSteps implements IUiStep {
     private CMDPage cmdPage = null;
     private ActionRequiredPage actionRequiredPage = null;
     private WebDriver driver;
+    private List<WebElement> tableRows = null;
 
     @Given("^I have clicked on Action Required button on the CMD dashboard$")
     public void ClickActionRequiredButtonOnCMDDashboard() throws Throwable {
@@ -50,30 +48,21 @@ public class CMDActionRequiredSteps implements IUiStep {
         //expand table to show 25 rows
         actionRequiredPage.selectTableSize25();
 
+        tableRows = actionRequiredPage.getTableRows();
+
         // check if the table has rows
-        Assert.assertTrue(actionRequiredPage.getTableRows().size() > 0);
+        Assert.assertTrue(tableRows.size() > 0);
     }
 
     @Then("^the default sort of the data should be oldest submission date to newest submission date$")
     public void verifyRowDateSortOrder() throws Throwable {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
-        // Create list of strings with the date from each row in the table
-        List<LocalDate> dates = actionRequiredPage.getDateColumn().stream() //get table data
-                .map(webElement -> webElement.getText()) // convert Web element to string
-                .map(s -> LocalDate.parse(s, formatter)) // convert string to date
-                .collect(Collectors.toList()); // put all dates back into a list
-
-        // Verify that the rows in the table are sorted by date from oldest to newest
-        Boolean isSorted = dates.stream().sorted().collect(Collectors.toList()).equals(dates);
-
-        //Assert.assertTrue(isSorted);
+        Assert.assertTrue(actionRequiredPage.verifyTableDateSordOrder(true));
         driver.close();
 
     }
 
     @Then("^for each transaction that requires input I can see data populated for each one of the fields$")
-    public void forEachTransactionThatRequiresInputICanSeeDataPopulatedForEachOneOfTheFields() throws Throwable {
-
+    public void verifyRowColumnData() throws Throwable {
         driver.close();
     }
 

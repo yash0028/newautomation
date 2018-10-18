@@ -68,7 +68,7 @@ public class CMDPage implements IFactoryPage, IWebInteract {
      */
     @Override
     public boolean confirmCurrentPage() {
-        return driver.getCurrentUrl().matches("^.+contract-status$");
+        return isVisible(inProgressLink) && driver.getCurrentUrl().matches("^.+contract-status$");
     }
 
     @Override
