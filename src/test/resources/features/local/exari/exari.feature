@@ -1,5 +1,6 @@
 @ExariUITest
 @A_UI_Story
+@Automated
 Feature: Exari UI Test
 
   @author
