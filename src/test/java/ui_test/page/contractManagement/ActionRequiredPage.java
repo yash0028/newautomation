@@ -59,12 +59,12 @@ public class ActionRequiredPage implements IFactoryPage {
      */
 
     /**
-     * Confirms that the current page is the in progress page by verifying the URL.
+     * Confirms that the current page is the action required page by verifying the URL.
      *
      * @return True if on the in progress page or false otherwise.
      */
     public boolean confirmCurrentPage() {
-        return driver.getCurrentUrl().matches("^.+in-progress$");
+        return driver.getCurrentUrl().matches("^.+reassignment$");
     }
 
     @Override

@@ -20,10 +20,10 @@ public class CMDPage implements IFactoryPage {
     @FindBy(xpath = "//a[contains(@href,'/contract-summary/in-progress')]")
     WebElement inProgressLink;
 
-    @FindBy(xpath = "//a[contains(@href,'/contract-summary/failed')]")
+    @FindBy(xpath = "//a[contains(@href,'/reassignment')]")
     WebElement actionRequiredLink;
 
-    @FindBy(xpath = "//a[contains(@href,'/reassignment')]")
+    @FindBy(xpath = "//a[contains(@href,'/contract-summary/failed')]")
     WebElement errorsLink;
 
     @FindBy(xpath = "//a[contains(@href,'/contract-summary/success')]")
