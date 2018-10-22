@@ -1,5 +1,4 @@
-# Last updated on
-@A_UI_Story
+# Last updated on 
 @US1301880
 @2018.PI04
 @2018.PI04.03
@@ -15,7 +14,6 @@ Feature: US1301880 - [Continued] CMD- User Input Required Page- Populate rows of
   @TC593157
   @Manual
   @Functional
-  @A_UI_Story
   @US1301880
   @2018.PI04
   @2018.PI04.03
@@ -28,7 +26,6 @@ Feature: US1301880 - [Continued] CMD- User Input Required Page- Populate rows of
   @TC593156
   @Manual
   @Functional
-  @A_UI_Story
   @US1301880
   @2018.PI04
   @2018.PI04.03
@@ -51,7 +48,6 @@ Feature: US1301880 - [Continued] CMD- User Input Required Page- Populate rows of
   @TC564483
   @Manual
   @Functional
-  @A_UI_Story
   @US1301880
   @2018.PI04
   @2018.PI04.03
