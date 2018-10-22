@@ -90,7 +90,6 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      * @return A list of WebElements with the rows in the table.
      */
     public List<WebElement> getTableRows() {
-        System.out.println("****** get table rows *******\n" + this.table.findElements(By.xpath("//tbody/tr[contains(@class, 'example-element-row')]")));
         return this.table.findElements(By.xpath("//tbody/tr[contains(@class, 'example-element-row')]"));
     }
 
@@ -123,7 +122,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
         return result;
     }
 
-    public boolean verifyMultipleRandomRowContent() {
+    public boolean verifyAllTableRowFieldContents() {
         return getTableRows().stream().allMatch(this::verifySingleRow);
     }
 

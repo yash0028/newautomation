@@ -65,8 +65,7 @@ public class CMDActionRequiredSteps implements IUiStep {
 
     @Then("^for each transaction that requires input I can see data populated for each one of the fields$")
     public void verifyRowColumnData() throws Throwable {
-        //TODO implement method
-        actionRequiredPage.verifyMultipleRandomRowContent();
+        actionRequiredPage.verifyAllTableRowFieldContents();
         driver.close();
     }
 
