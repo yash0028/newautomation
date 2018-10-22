@@ -1,5 +1,4 @@
 # Last updated on 
-@A_UI_Story
 @US1303750
 @2018.PI04
 @2018.PI04.03
@@ -15,7 +14,6 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   @TC593196
   @Manual
   @Functional
-  @A_UI_Story
   @US1303750
   @2018.PI04
   @2018.PI04.03
@@ -36,7 +34,6 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   @TC619012
   @Manual
   @Functional
-  @A_UI_Story
   @US1303750
   @2018.PI04
   @2018.PI04.03
@@ -50,7 +47,6 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   @TC593198
   @Manual
   @Functional
-  @A_UI_Story
   @US1303750
   @2018.PI04
   @2018.PI04.03
@@ -66,7 +62,6 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   @TC564772
   @Manual
   @Functional
-  @A_UI_Story
   @US1303750
   @2018.PI04
   @2018.PI04.03
@@ -87,7 +82,6 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   @TC593200
   @Manual
   @Functional
-  @A_UI_Story
   @US1303750
   @2018.PI04
   @2018.PI04.03
@@ -103,7 +97,6 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   @TC593201
   @Manual
   @Functional
-  @A_UI_Story
   @US1303750
   @2018.PI04
   @2018.PI04.03
@@ -116,7 +109,6 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   @TC593197
   @Manual
   @Functional
-  @A_UI_Story
   @US1303750
   @2018.PI04
   @2018.PI04.03
