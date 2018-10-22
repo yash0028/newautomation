@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 				"pretty",
 				"json:build/json-reports/json-report.json",
 				"junit:build/xml-reports/xml-report.xml"},
-		tags = {"@US1283907"})
+		tags = {"@US1259178"})
 public class TestRunner {
 
 }
