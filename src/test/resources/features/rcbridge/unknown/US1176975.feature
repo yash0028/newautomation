@@ -18,8 +18,8 @@ Feature: US1176975 - RC Bridge Enhancement
     Then the RCLink test cases are updated
     Examples:
       | data A | data B |
-      | A | B |
-      | AA | BB |
+      | A      | B      |
+      | AA     | BB     |
 
   @TC557488
   @Automated

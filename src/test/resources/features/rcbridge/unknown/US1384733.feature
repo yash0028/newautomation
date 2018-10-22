@@ -19,8 +19,8 @@ Feature: US1384733 - Exari API Testing for New Contract JSON
     And the fields from file "ExariContractJsonFieldsNotNull.txt" are not null
     Examples:
       | contractId |
-      | 45792546 |
-      | 40433225 |
-      | 35607806 |
-      | 69494430 |
+      | 45792546   |
+      | 40433225   |
+      | 35607806   |
+      | 69494430   |
 

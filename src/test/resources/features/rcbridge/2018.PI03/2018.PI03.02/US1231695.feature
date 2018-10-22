@@ -25,10 +25,10 @@ Feature: US1231695 - Create Service Providing Physician FS  Access Via Microserv
     Then the microservice will return the requested fee schedules in a pdf file
     Examples:
       | feeScheduleNumber |
-      | 20010000000 |
-      | 20060080302 |
-      | NEWENG_6238 |
-      | VA_9518PR |
+      | 20010000000       |
+      | 20060080302       |
+      | NEWENG_6238       |
+      | VA_9518PR         |
 
   @TC536762
   @Automated
@@ -43,8 +43,8 @@ Feature: US1231695 - Create Service Providing Physician FS  Access Via Microserv
     Then the microservice will return a "404" error message
     Examples:
       | feeScheduleNumber |
-      | XXXXX |
-      | ABCDE |
-      | 012345 |
-      | AbC123 |
+      | XXXXX             |
+      | ABCDE             |
+      | 012345            |
+      | AbC123            |
 

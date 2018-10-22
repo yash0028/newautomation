@@ -28,18 +28,18 @@ Feature: US1311485 - PES Roster Call -Change Output Results
     Given a user wants to do a search for Roster
     When a "mpin" of "6177192" is passed to roster
     Then PES returns the following information:
-      | mpin |
-      | npi |
-      | firstName |
-      | middleName |
-      | lastName |
-      | providerDegree |
-      | organization |
-      | organizationalType |
+      | mpin                          |
+      | npi                           |
+      | firstName                     |
+      | middleName                    |
+      | lastName                      |
+      | providerDegree                |
+      | organization                  |
+      | organizationalType            |
       | organizationalTypeDescription |
-      | code |
-      | description |
-      | providerTypeCode |
+      | code                          |
+      | description                   |
+      | providerTypeCode              |
     # Note: "code" and "description" are for specialty
 
   @TC572204
@@ -54,15 +54,15 @@ Feature: US1311485 - PES Roster Call -Change Output Results
     Given a user wants to do a search for Roster
     When a "tin" of "760027557" is passed to roster
     Then PES returns the following information:
-      | mpin |
-      | npi |
-      | firstName |
-      | middleName |
-      | lastName |
-      | providerDegree |
-      | organization |
-      | code |
-      | description |
+      | mpin             |
+      | npi              |
+      | firstName        |
+      | middleName       |
+      | lastName         |
+      | providerDegree   |
+      | organization     |
+      | code             |
+      | description      |
       | providerTypeCode |
     # Note: "code" and "description" are for specialty
 

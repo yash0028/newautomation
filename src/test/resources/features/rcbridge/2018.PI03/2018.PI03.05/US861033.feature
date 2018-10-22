@@ -26,9 +26,9 @@ Feature: US861033 - [Continued][Continued] Integrate CLM with Examiner (Continue
     When A REST Service call is made with invalid data <inputData>
     Then The service will return an error <responseCode>
     Examples:
-      | inputData    | responseCode |
-      | "124319,12389" | "1"            |
-      | "123,456,789" | "2"           |
+      | inputData      | responseCode |
+      | "124319,12389" | "1"          |
+      | "123,456,789"  | "2"          |
 
   @TC564591
   @Automated

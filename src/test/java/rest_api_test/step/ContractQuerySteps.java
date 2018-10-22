@@ -2,7 +2,6 @@ package rest_api_test.step;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
