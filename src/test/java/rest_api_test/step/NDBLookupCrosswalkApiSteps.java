@@ -22,9 +22,9 @@ import static io.restassured.RestAssured.given;
 public class NDBLookupCrosswalkApiSteps implements IRestStep, IFileReader {
     private static final Logger log = LoggerFactory.getLogger(NDBLookupCrosswalkApiSteps.class);
 
-    private static final String ENDPOINT = "http://ndb-lookup-crosswalk-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String ENDPOINT = "http://contract-metadata-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_PRODUCT_CODES = "/productcodes";
-    private static final String RESOURCE_TAXONOMY_QUERY = "/taxonomy/query";
+    private static final String RESOURCE_TAXONOMY_QUERY = "/v1.0/provider_taxonomies";
     private static final String SUPPORT_PRODUCT_CODE_PAYLOAD_FILE = "/support/US1285441/identify_product_codes.json";
 
     private RequestSpecification request;
@@ -59,7 +59,7 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep, IFileReader {
     public void theQueryResponseProvidesTheMostRecentRecordVersionAttributesData() throws Throwable {
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
         response = request.post(RESOURCE_TAXONOMY_QUERY);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(200, response.getStatusCode());
 
         JsonElement result = parseJsonElementResponse(response);
 
@@ -76,14 +76,14 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep, IFileReader {
     public void theQueryResponseReturnsAnError() throws Throwable {
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
         response = request.post(RESOURCE_TAXONOMY_QUERY);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(200, response.getStatusCode());
 
         JsonElement result = parseJsonElementResponse(response);
         Assert.assertTrue(result.isJsonObject());
 
         int responseCode = result.getAsJsonObject().get("responseCode").getAsInt();
 
-        Assert.assertNotEquals(responseCode, 200);
+        Assert.assertNotEquals(200, responseCode);
 
     }
 
@@ -91,7 +91,7 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep, IFileReader {
     public void theQueryResponseIncludesAllRecordsThatMatched() throws Throwable {
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
         response = request.post(RESOURCE_TAXONOMY_QUERY);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(200, response.getStatusCode());
 
         JsonElement result = parseJsonElementResponse(response);
         Assert.assertTrue(result.isJsonObject());

@@ -8,6 +8,7 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.util.IFactoryPage;
+import ui_test.util.IWebInteract;
 import ui_test.util.SeleniumHelper;
 
 import java.util.List;
@@ -15,15 +16,18 @@ import java.util.List;
 import static ui_test.util.SeleniumHelper.findElement;
 import static ui_test.util.SeleniumHelper.findElements;
 
-public class CMDPage implements IFactoryPage {
+public class CMDPage implements IFactoryPage, IWebInteract {
     private static Logger log = LoggerFactory.getLogger(CMDPage.class);
-    @FindBy(xpath = "//a[contains(@href,'/contractPage-summary/in-progress')]")
+    @FindBy(xpath = "//a[contains(@href,'/contract-summary/in-progress')]")
     WebElement inProgressLink;
-    @FindBy(xpath = "//a[contains(@href,'/contractPage-summary/failed')]")
+
+    @FindBy(xpath = "//a[contains(@href,'/reassignment')]")
     WebElement actionRequiredLink;
-    @FindBy(xpath = "//a[contains(@href,'/contractPage-summary/failed')]")
+
+    @FindBy(xpath = "//a[contains(@href,'/contract-summary/failed')]")
     WebElement errorsLink;
-    @FindBy(xpath = "//a[contains(@href,'/contractPage-summary/success')]")
+
+    @FindBy(xpath = "//a[contains(@href,'/contract-summary/success')]")
     WebElement completedLink;
     private WebDriver driver;
 
@@ -64,7 +68,7 @@ public class CMDPage implements IFactoryPage {
      */
     @Override
     public boolean confirmCurrentPage() {
-        return driver.getCurrentUrl().matches("^.+contract-status$");
+        return isVisible(inProgressLink) && driver.getCurrentUrl().matches("^.+contract-status$");
     }
 
     @Override
@@ -94,13 +98,7 @@ public class CMDPage implements IFactoryPage {
      * @return True if the link was clicked or false otherwise.
      */
     public boolean clickInProgressLink() {
-        try {
-            inProgressLink.click();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
+        return click("in progress button", inProgressLink);
     }
 
     /**
@@ -109,42 +107,24 @@ public class CMDPage implements IFactoryPage {
      * @return True if the link was clicked or false otherwise.
      */
     public boolean clickActionRequiredLink() {
-        try {
-            actionRequiredLink.click();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
+        return click("action required button", actionRequiredLink);
     }
 
     /**
-     * Click in progress link on contractPage management homepage.
+     * Click in errors link on contractPage management homepage.
      *
      * @return True if the link was clicked or false otherwise.
      */
     public boolean clickErrorsLink() {
-        try {
-            errorsLink.click();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
+        return click("errors button", errorsLink);
     }
 
     /**
-     * Click in progress link on contractPage management homepage.
+     * Click in completed link on contractPage management homepage.
      *
      * @return True if the link was clicked or false otherwise.
      */
     public boolean clickCompletedLink() {
-        try {
-            completedLink.click();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
+        return click("completed button", completedLink);
     }
 }

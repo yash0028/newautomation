@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @US1199511
 @2018.PI03
 @2018.PI03.05
@@ -24,7 +24,7 @@ Feature: US1199511 - [Continued] PIC Implementation
     Then the micro service sends the data to PIC
     Examples:
       | contractId |
-      | 124319 |
+      | 124319     |
 
   @TC537136
   @Manual
@@ -88,6 +88,6 @@ Feature: US1199511 - [Continued] PIC Implementation
     Then the micro service returns a service error
     Examples:
       | contractId |
-      | 124318 |
-      | 124317 |
+      | 124318     |
+      | 124317     |
 

@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @EXARI-11274
 @US1093362
 @F196735

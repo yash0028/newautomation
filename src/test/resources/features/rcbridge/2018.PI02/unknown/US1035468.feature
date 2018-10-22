@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @Workflow
 @US1035468
 @2018.PI02

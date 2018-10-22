@@ -5,72 +5,67 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ui_test.page.contractManagement.ActionRequiredPage;
 import ui_test.page.contractManagement.CMDPage;
-import ui_test.page.contractManagement.InProgressPage;
 import ui_test.util.IUiStep;
+import ui_test.util.SeleniumHelper;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
-import java.util.stream.Collectors;
 
 /**
  * Created by dtimaul on 9/26/18.
  */
 public class CMDActionRequiredSteps implements IUiStep {
     private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
+    private String CMD_DASHBOARD_URL = "http://localhost:4200/contract-status";
     private CMDPage cmdPage = null;
-    // TODO: Change to Action Required Page
-    private InProgressPage inProgressPage = null;
-    private String CMD_DASHBOARD_URL = "http://contractPage-admin-ui-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
+    private ActionRequiredPage actionRequiredPage = null;
+    private WebDriver driver;
+    private List<WebElement> tableRows = null;
 
     @Given("^I have clicked on Action Required button on the CMD dashboard$")
     public void ClickActionRequiredButtonOnCMDDashboard() throws Throwable {
-        getRemoteDriver().get(CMD_DASHBOARD_URL); // Navigate to the CMD page
-        cmdPage = new CMDPage(getRemoteDriver());
+        driver = SeleniumHelper.launchBrowser();
+        driver.get(CMD_DASHBOARD_URL);
+        cmdPage = new CMDPage(driver);
         Assert.assertTrue("CMD page could not be displayed", cmdPage.confirmCurrentPage());
-        //TODO: Change to cmdPage.clickActionRequiredLink when ready
-//        Assert.assertTrue(cmdPage.clickInProgressLink());
-        Assert.assertTrue(cmdPage.clickErrorsLink());
+        Assert.assertTrue("Action required link could not be clicked", cmdPage.clickActionRequiredLink());
+
+//        getRemoteDriver().get(CMD_DASHBOARD_URL); // Navigate to the CMD page
+//        cmdPage = new CMDPage(getRemoteDriver());
     }
 
     @When("^there are Action Required transactions$")
     public void thereAreActionRequiredTransactions() throws Throwable {
-        //TODO: Change to actionRequiredPage
-        inProgressPage = new InProgressPage(getRemoteDriver());
-//        Assert.assertTrue("URL for in progress page does not match", inProgressPage.confirmCurrentPage());
+        // actionRequiredPage = new actionRequiredPage(getRemoteDriver());
+        actionRequiredPage = new ActionRequiredPage(driver);
+        Assert.assertTrue("URL for in progress page does not match", actionRequiredPage.confirmCurrentPage());
 
         //expand table to show 25 rows
-        inProgressPage.selectTableSize25();
+        actionRequiredPage.selectTableSize25();
+
+        tableRows = actionRequiredPage.getTableRows();
 
         // check if the table has rows
-        Assert.assertTrue(inProgressPage.getTableRows().size() > 0);
+        Assert.assertTrue(tableRows.size() > 0);
     }
 
     @Then("^the default sort of the data should be oldest submission date to newest submission date$")
     public void verifyRowDateSortOrder() throws Throwable {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
-        // Create list of strings with the date from each row in the table
-        List<LocalDate> dates = inProgressPage.getDateColumn().stream() //get table data
-                .map(webElement -> webElement.getText()) // convert Web element to string
-                .map(s -> LocalDate.parse(s, formatter)) // convert string to date
-                .collect(Collectors.toList()); // put all dates back into a list
+        Assert.assertTrue(actionRequiredPage.verifyTableDateSordOrder(true));
+        driver.close();
 
-        // Verify that the rows in the table are sorted by date from oldest to newest
-        Boolean isSorted = dates.stream().sorted().collect(Collectors.toList()).equals(dates);
-
-        // Note: This assert will fail with in progress page because the table is sorted from newest to oldest
-        // but will pass once switched to action required page
-        //Assert.assertTrue(isSorted);
     }
 
     @Then("^for each transaction that requires input I can see data populated for each one of the fields$")
-    public void forEachTransactionThatRequiresInputICanSeeDataPopulatedForEachOneOfTheFields() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void verifyRowColumnData() throws Throwable {
+        //TODO implement method
+        actionRequiredPage.verifyMultipleRandomRowContent();
+        driver.close();
     }
 
     @When("^there are no Action required transactions$")
@@ -81,8 +76,8 @@ public class CMDActionRequiredSteps implements IUiStep {
 
     @Then("^the following message \"([^\"]*)\" appears on the page$")
     public void theFollowingMessageAppearsOnThePage(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        driver.close();
+
     }
 
 

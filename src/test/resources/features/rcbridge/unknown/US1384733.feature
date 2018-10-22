@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @Exari_Automation
 @US1384733
 @2018.PI04.03
@@ -18,5 +18,5 @@ Feature: US1384733 - Exari API Testing for New Contract JSON
     Then the fields from file "ExariContractJsonFieldsNew.txt" are returned
     Examples:
       | contractId |
-      | 45792546 |
+      | 45792546   |
 

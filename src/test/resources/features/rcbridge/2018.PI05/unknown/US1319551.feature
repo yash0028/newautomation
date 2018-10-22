@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @CMD
 @US1319551
 @2018.PI05

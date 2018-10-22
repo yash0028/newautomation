@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @EXARI-11614
 @Non-Deliverable
 @7.5_Release

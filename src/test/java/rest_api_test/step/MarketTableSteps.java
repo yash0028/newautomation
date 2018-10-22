@@ -1,6 +1,6 @@
 package rest_api_test.step;
 
-import com.google.gson.JsonObject;
+import com.google.gson.JsonElement;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -20,8 +20,8 @@ import static io.restassured.RestAssured.given;
 public class MarketTableSteps implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(MarketTableSteps.class);
 
-    private static final String ENDPOINT = "http://ndb-lookup-crosswalk-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String RESOURCE_MARKET = "/market/";
+    private static final String ENDPOINT = "http://contract-metadata-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String RESOURCE_MARKET = "/v1.0/markets";
 
     private RequestSpecification request;
     private Response response;
@@ -35,29 +35,35 @@ public class MarketTableSteps implements IRestStep {
     @When("^a query to the table is initiated$")
     public void initiateQuery() throws Throwable {
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
-        response = request.get(RESOURCE_MARKET + marketNumber);
-
+        response = request.get(RESOURCE_MARKET + "?marketNumber=" + marketNumber);
+        Assert.assertEquals(200, response.getStatusCode());
     }
 
     @Then("^the query response includes the market record information$")
     public void verifyQueryResponseWithMarketRecord() throws Throwable {
-        JsonObject result = parseJsonResponse(response);
+        JsonElement result = parseJsonElementResponse(response);
+        // Checks to make sure the json element is a json object
+        Assert.assertTrue(result.isJsonObject());
 
-        Assert.assertEquals(marketNumber, result.get("marketUhcDetails").getAsJsonObject().get("marketNumber").getAsString());
+        Assert.assertEquals(marketNumber, result.getAsJsonObject().get("content").getAsJsonArray().get(0).getAsJsonObject().get("marketNumber").getAsString());
     }
 
     @Then("^the query response does not return the market record information$")
     public void verifyNoMarketRecord() throws Throwable {
-        JsonObject result = parseJsonResponse(response);
+        JsonElement result = parseJsonElementResponse(response);
+        Assert.assertTrue(result.isJsonObject());
 
-        Assert.assertTrue(result.get("marketUhcDetails").isJsonNull());
+        Assert.assertTrue(!(result.getAsJsonObject().has("content")));
     }
 
     @And("^a record not found message is returned$")
     public void verifyRecordNotFound() throws Throwable {
-        JsonObject result = parseJsonResponse(response);
+        JsonElement result = parseJsonElementResponse(response);
+        Assert.assertTrue(result.isJsonObject());
 
-        Assert.assertEquals("No data found", result.get("errorDetails").getAsJsonObject().get("message").getAsString());
+        Assert.assertEquals("0", result.getAsJsonObject().get("numberOfElements").getAsString());
+
+//        Assert.assertEquals("No data found", result.getAsJsonObject().get("errorDetails").getAsJsonObject().get("message").getAsString());
     }
 
 }

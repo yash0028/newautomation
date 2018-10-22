@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @Exari_Automation
 @US1367884
 @2018.PI04
@@ -20,14 +20,14 @@ Feature: US1367884 - Automate Exari API Testing
     Then the fields from file "ExariContractJsonFields.txt" are returned
     Examples:
       | contractId |
-      | 83912326 |
-      | 54832293 |
-      | 61101243 |
-      | 41730707 |
-      | 78522500 |
-      | 39385755 |
-      | 39156795 |
-      | 47992548 |
-      | 47541909 |
-      | 97318644 |
+      | 83912326   |
+      | 54832293   |
+      | 61101243   |
+      | 41730707   |
+      | 78522500   |
+      | 39385755   |
+      | 39156795   |
+      | 47992548   |
+      | 47541909   |
+      | 97318644   |
 

@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @MVP
 @Infrastructure
 @US977620

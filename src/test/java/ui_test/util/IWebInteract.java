@@ -54,6 +54,13 @@ public interface IWebInteract {
         return element.isDisplayed();
     }
 
+    /**
+     * Clicks a given web element and logs the element name
+     *
+     * @param elementName The element description name
+     * @param element     Web element to be clicked
+     * @return true if clicked or false otherwise
+     */
     default boolean click(String elementName, WebElement element) {
         try {
             highlight(element);
@@ -67,9 +74,15 @@ public interface IWebInteract {
         return true;
     }
 
+    /**
+     * Clicks a given web element.
+     * @param element Web element to be clicked
+     * @return true if clicked or false otherwise
+     */
     default boolean click(WebElement element) {
         return click("element", element);
     }
+
 
     default boolean submit(String elementName, WebElement element) {
         try {
