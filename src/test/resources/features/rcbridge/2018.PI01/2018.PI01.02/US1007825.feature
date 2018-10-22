@@ -1,4 +1,4 @@
-# Last updated on
+# Last updated on 
 @Transaction_Mgmt
 @US1007825
 @2018.PI01

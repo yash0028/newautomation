@@ -1,4 +1,4 @@
-# Last updated on
+# Last updated on 
 @US950012
 @Plus
 @F155316

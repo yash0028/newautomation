@@ -1,4 +1,5 @@
-# Last updated on
+# Last updated on 
+@A_UI_Story
 @US1256989
 @2018.PI04
 @2018.PI04.03
@@ -15,6 +16,7 @@ Feature: US1256989 - Upload CLM Rule Table
   @TC603988
   @Manual
   @Functional
+  @A_UI_Story
   @US1256989
   @2018.PI04
   @2018.PI04.03
@@ -28,6 +30,7 @@ Feature: US1256989 - Upload CLM Rule Table
   @TC603990
   @Manual
   @Functional
+  @A_UI_Story
   @US1256989
   @2018.PI04
   @2018.PI04.03
@@ -39,6 +42,7 @@ Feature: US1256989 - Upload CLM Rule Table
   @TC603991
   @Manual
   @Functional
+  @A_UI_Story
   @US1256989
   @2018.PI04
   @2018.PI04.03
@@ -50,6 +54,7 @@ Feature: US1256989 - Upload CLM Rule Table
   @TC615405
   @Manual
   @Functional
+  @A_UI_Story
   @US1256989
   @2018.PI04
   @2018.PI04.03
@@ -64,6 +69,7 @@ Feature: US1256989 - Upload CLM Rule Table
   @TC603989
   @Manual
   @Functional
+  @A_UI_Story
   @US1256989
   @2018.PI04
   @2018.PI04.03

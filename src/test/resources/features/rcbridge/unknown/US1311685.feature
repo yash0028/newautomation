@@ -1,4 +1,4 @@
-# Last updated on
+# Last updated on 
 @MVP
 @US1311685
 @CMD2

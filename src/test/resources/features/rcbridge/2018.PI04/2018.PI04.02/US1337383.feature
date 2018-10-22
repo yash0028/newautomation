@@ -1,4 +1,4 @@
-# Last updated on
+# Last updated on 
 @RC_No_Link
 @US1337383
 @2018.PI04

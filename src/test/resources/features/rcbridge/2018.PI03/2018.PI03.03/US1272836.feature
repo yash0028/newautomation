@@ -1,4 +1,4 @@
-# Last updated on
+# Last updated on 
 @kumar,_Sachin
 @US1272836
 @2018.PI03

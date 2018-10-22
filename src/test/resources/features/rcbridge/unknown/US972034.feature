@@ -1,4 +1,4 @@
-# Last updated on
+# Last updated on 
 @Retro
 @US972034
 @Configuration_for_2/15/19
