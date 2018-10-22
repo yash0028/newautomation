@@ -1,4 +1,4 @@
-# Last updated on
+# Last updated on 
 @Infrastructure
 @US1033931
 @2018.PI01

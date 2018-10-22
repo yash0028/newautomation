@@ -1,4 +1,5 @@
-# Last updated on
+# Last updated on 
+@A_UI_Story
 @US1371319
 @2018.PI04
 @2018.PI04.03
@@ -15,6 +16,7 @@ Feature: US1371319 - Download CLM Rule Table
   @TC603987
   @Manual
   @Functional
+  @A_UI_Story
   @US1371319
   @2018.PI04
   @2018.PI04.03
@@ -27,6 +29,7 @@ Feature: US1371319 - Download CLM Rule Table
   @TC603986
   @Manual
   @Functional
+  @A_UI_Story
   @US1371319
   @2018.PI04
   @2018.PI04.03

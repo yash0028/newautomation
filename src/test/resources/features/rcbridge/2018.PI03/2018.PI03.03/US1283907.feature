@@ -1,4 +1,4 @@
-# Last updated on
+# Last updated on 
 @MVP
 @US1283907
 @2018.PI03
@@ -38,19 +38,19 @@ Feature: US1283907 - Markets table microservice
     Then the query response includes the market record information
     Examples:
       | marketNumber |
-      | "1402"       |
-      | "1403"       |
-      | "1404"       |
-      | "2407"       |
-      | "2408"       |
-      | "2409"       |
-      | "3413"       |
-      | "4420"       |
-      | "4421"       |
-      | "4422"       |
-      | "4423"       |
-      | "4430"       |
-      | "4431"       |
+      | "1402" |
+      | "1403" |
+      | "1404" |
+      | "2407" |
+      | "2408" |
+      | "2409" |
+      | "3413" |
+      | "4420" |
+      | "4421" |
+      | "4422" |
+      | "4423" |
+      | "4430" |
+      | "4431" |
 
   @TC565431
   @Automated
@@ -78,17 +78,17 @@ Feature: US1283907 - Markets table microservice
     Then the query response includes the market record information
     Examples:
       | marketNumber |
-      | "1402"       |
-      | "1403"       |
-      | "1404"       |
-      | "2407"       |
-      | "2408"       |
-      | "2409"       |
-      | "3413"       |
-      | "4420"       |
-      | "4421"       |
-      | "4422"       |
-      | "4423"       |
-      | "4430"       |
-      | "4431"       |
+      | "1402" |
+      | "1403" |
+      | "1404" |
+      | "2407" |
+      | "2408" |
+      | "2409" |
+      | "3413" |
+      | "4420" |
+      | "4421" |
+      | "4422" |
+      | "4423" |
+      | "4430" |
+      | "4431" |
 

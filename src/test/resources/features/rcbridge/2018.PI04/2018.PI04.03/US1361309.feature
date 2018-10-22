@@ -1,4 +1,5 @@
-# Last updated on
+# Last updated on 
+@A_UI_Story
 @US1361309
 @2018.PI04
 @2018.PI04.03
@@ -14,6 +15,7 @@ Feature: US1361309 - CMD- Type 2 error parital contract master update NDB/COSMOS
   @TC598298
   @Manual
   @Functional
+  @A_UI_Story
   @US1361309
   @2018.PI04
   @2018.PI04.03

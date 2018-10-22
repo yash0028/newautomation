@@ -1,4 +1,4 @@
-# Last updated on
+# Last updated on 
 @Andrew_B
 @PES
 @US1253705
@@ -45,8 +45,8 @@ Feature: US1253705 - Create Appendix 1 Search Demographics API
     When a "tin" of "760027557" is passed to appendix 1
     Then PES returns the following information:
       | addressLine1 |
-      | addressType  |
-      | city         |
-      | state        |
-      | zip          |
+      | addressType |
+      | city |
+      | state |
+      | zip |
 

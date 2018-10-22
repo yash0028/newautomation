@@ -1,4 +1,4 @@
-# Last updated on
+# Last updated on 
 @MVP
 @US1260989
 @2018.PI03

@@ -1,4 +1,4 @@
-# Last updated on
+# Last updated on 
 @CLM_UAT
 @US1055237
 @2018.PI01

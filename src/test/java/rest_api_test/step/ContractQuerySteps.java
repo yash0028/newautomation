@@ -2,6 +2,7 @@ package rest_api_test.step;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -140,7 +141,16 @@ public class ContractQuerySteps implements IRestStep, IFileReader {
 
         List<String> masterSet = getFileLines("/support/ecm/" + filename);
 
-        Assert.assertTrue(verifyFields(responseJson, masterSet, " "));
+        Assert.assertTrue("Not all required fields were returned in the Exari Contract JSON", verifyFields(responseJson, masterSet, " "));
     }
 
+    @And("^the fields from file \"([^\"]*)\" are not null$")
+    public void theFieldsFromFileAreNotNull(String filename) throws Throwable {
+        String responseMessage = result.getAsJsonObject().get("responseMessage").getAsString();
+        JsonObject responseJson = parseJsonElementString(responseMessage).getAsJsonObject();
+
+        List<String> masterSet = getFileLines("/support/ecm/" + filename);
+
+        Assert.assertTrue("Some fields in the contract JSON were blank or null when they shouldn't be", verifyFieldsNotNull(responseJson, masterSet, " "));
+    }
 }
