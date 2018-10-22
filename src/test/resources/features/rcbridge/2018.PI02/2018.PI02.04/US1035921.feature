@@ -22,7 +22,7 @@ Feature: US1035921 - [Continued] Error - Org type or Specialty is not found in R
   @2018.PI02
   @2018.PI02.04
   Scenario: TC493885 - [RL1] Testing bad org type
-    Given the provider's Org Type "abc123" is passed to the RFP service #org type that doesn't exist
+    Given the provider's Org Type "abc123" is passed to the RFP service
     When finding the Org Type in RFP
     Then the RFP service will return a blank list
 
@@ -34,7 +34,7 @@ Feature: US1035921 - [Continued] Error - Org type or Specialty is not found in R
   @2018.PI02
   @2018.PI02.04
   Scenario: TC493884 - [RL0] Testing bad specialty code
-    Given the provider's Specialty "abc123" is passed to the RFP service #specialty code that doesn't exist
+    Given the provider's Specialty "abc123" is passed to the RFP service
     When finding the Specialty in RFP
     Then the RFP service will return a blank list
 
