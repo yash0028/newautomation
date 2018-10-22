@@ -77,14 +77,12 @@ storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartyRole_Healthc
 storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartyOrganizationalType
 storageNode properties {www.exari.com/model/UHGTest/1.0}Payment_InvoiceTimePeriodValue
 storageNode properties {www.exari.com/model/UHGTest/1.0}Market_Phone_Number
-storageNode properties {www.exari.com/model/UHGTest/1.0}Market_Number_DMCQ_Virginia
 storageNode properties {www.exari.com/model/UHGTest/1.0}Payment_InvoiceSubmissionTimeLimit
 
 storageNode properties OurLegalName
 storageNode properties TemplateType
 storageNode properties ContractDealOwner
 
-storageNode properties {www.exari.com/model/UHGTest/1.0}Appendix2_MLTSS
 storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartySpecialityDescription
 
 storageNode properties DocumentLastModifiedVersion

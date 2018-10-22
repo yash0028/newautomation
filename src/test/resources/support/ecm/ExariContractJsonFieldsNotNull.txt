@@ -1,0 +1,14 @@
+contractOwner
+
+storageNode properties {www.exari.com/model/UHGTest/1.0}ProviderRoster_JSON
+storageNode properties {www.exari.com/model/UHGTest/1.0}ProviderRoster_JSON providers
+storageNode properties {www.exari.com/model/UHGTest/1.0}ProviderRoster_JSON providers num
+storageNode properties {www.exari.com/model/UHGTest/1.0}ProviderRoster_JSON providers mpin
+storageNode properties {www.exari.com/model/UHGTest/1.0}ProviderRoster_JSON providers tin
+storageNode properties {www.exari.com/model/UHGTest/1.0}ProviderRoster_JSON providers npi
+storageNode properties {www.exari.com/model/UHGTest/1.0}ProviderRoster_JSON providers name
+storageNode properties {www.exari.com/model/UHGTest/1.0}ProviderRoster_JSON providers specCode
+storageNode properties {www.exari.com/model/UHGTest/1.0}ProviderRoster_JSON providers specDesc
+storageNode properties {www.exari.com/model/UHGTest/1.0}ProviderRoster_JSON providers searchId
+
+
