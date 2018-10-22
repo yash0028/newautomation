@@ -94,11 +94,15 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
         return this.table.findElements(By.xpath("//tbody/tr[contains(@class, 'example-element-row')]"));
     }
 
-    public boolean verifyRandomRowContent() {
+    public boolean verifyMultipleRandomRowContent() {
         List<WebElement> allRows = getTableRows();
 
         //select rows 1, 2, 3, 5, 8 in the table and verify that each row has data in each column.
         //select the first row and verify its columns
+        WebElement firstRow = allRows.get(0);
+
+        //Get each column in the row as strings and store them in a List. Then verify that each position in the
+        // list is not empty.
 
         return false;
     }
