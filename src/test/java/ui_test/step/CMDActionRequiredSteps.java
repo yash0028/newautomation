@@ -42,16 +42,15 @@ public class CMDActionRequiredSteps implements IUiStep {
         Assert.assertTrue("CMD page could not be displayed", cmdPage.confirmCurrentPage());
         Assert.assertTrue("Action required link could not be clicked", cmdPage.clickActionRequiredLink());
 
+        actionRequiredPage = new ActionRequiredPage(driver);
+        Assert.assertTrue("URL for in progress page does not match", actionRequiredPage.confirmCurrentPage());
+
 //        getRemoteDriver().get(CMD_DASHBOARD_URL); // Navigate to the CMD page
 //        cmdPage = new CMDPage(getRemoteDriver());
     }
 
     @When("^there are Action Required transactions$")
     public void thereAreActionRequiredTransactions() throws Throwable {
-        // actionRequiredPage = new actionRequiredPage(getRemoteDriver());
-        actionRequiredPage = new ActionRequiredPage(driver);
-        Assert.assertTrue("URL for in progress page does not match", actionRequiredPage.confirmCurrentPage());
-
         //expand table to show 25 rows
         actionRequiredPage.selectTableSize25();
 
@@ -94,15 +93,12 @@ public class CMDActionRequiredSteps implements IUiStep {
     @Given("^I have clicked on the detail information on a contract ID$")
     public void iHaveClickedOnTheDetailInformationOnAContractID() throws Throwable {
         ClickActionRequiredButtonOnCMDDashboard();
-
-        // Click + icon one of the contract ID's
-        actionRequiredPage.clickTableRow(1);
     }
 
     @When("^The contract ID has more than one product grouping$")
     public void theContractIDHasMoreThanOneProductGrouping() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+
     }
 
     @And("^No contract master was found for all product groupings$")
@@ -113,8 +109,7 @@ public class CMDActionRequiredSteps implements IUiStep {
 
     @Then("^For each product grouping under the contract ID I can see the following message: No contract master ID was found\\. Please make a selection to complete the contract load\\.$")
     public void forEachProductGroupingUnderTheContractIDICanSeeTheFollowingMessageNoContractMasterIDWasFoundPleaseMakeASelectionToCompleteTheContractLoad() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        driver.close();
     }
 
     @And("^I can see the latest input parameters for each product grouping underneath the search details column:$")
@@ -137,8 +132,7 @@ public class CMDActionRequiredSteps implements IUiStep {
 
     @Then("^The following message is displayed to me \"([^\"]*)\"$")
     public void theFollowingMessageIsDisplayedToMe(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        driver.close();
     }
 
     @And("^The product grouping row is removed from the display$")
@@ -173,8 +167,7 @@ public class CMDActionRequiredSteps implements IUiStep {
 
     @Then("^The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me$")
     public void theModalWindowClosesAndIAmBroughtBackToTheCMDActionRequiredPageWithTheProductGroupingInformationIWasEditingDisplayedToMe() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        driver.close();
     }
 
     @And("^The status of the contract master product grouping is changed to contract master selected$")
@@ -197,8 +190,7 @@ public class CMDActionRequiredSteps implements IUiStep {
 
     @Then("^I can see the following message: \"([^\"]*)\"$")
     public void iCanSeeTheFollowingMessage(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        driver.close();
     }
 
     @And("^I can see the latest input parameters underneath the Search details column$")
@@ -215,8 +207,7 @@ public class CMDActionRequiredSteps implements IUiStep {
 
     @Then("^A proceed with contract load button appears$")
     public void aProceedWithContractLoadButtonAppears() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        driver.close();
     }
 
     @When("^I have clicked the down arrow on a contract summary row$")
@@ -239,8 +230,7 @@ public class CMDActionRequiredSteps implements IUiStep {
 
     @Then("^A modal window appears for me to enter the following data fields\\.$")
     public void aModalWindowAppearsForMeToEnterTheFollowingDataFields() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        driver.close();
     }
 
 }

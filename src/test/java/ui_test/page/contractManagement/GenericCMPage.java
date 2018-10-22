@@ -172,14 +172,24 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
         }
     }
 
+    public int getProductGroupCount(int rowNumber) {
+        WebElement row = getTableRows().get(rowNumber);
+
+        click("click table row", row);
+
+        //find by element and find table and count the number of tr in the table.
+
+        return 1;
+    }
+
     /**
      * @param rowNumber
      * @return
      */
-    public boolean clickTableRow(int rowNumber) {
+    private boolean clickTableRow(int rowNumber) {
         List<WebElement> tableRows = getTableRows();
 
-        return click(tableRows.get(rowNumber));
+        return click("click table row", tableRows.get(rowNumber));
     }
 
 //    public boolean clickBackButton() {
