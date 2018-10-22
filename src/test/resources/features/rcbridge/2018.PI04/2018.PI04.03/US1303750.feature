@@ -12,6 +12,30 @@
 @iterationPresent
 Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View & Edit contract detail information (no search results found)
 
+  @TC593196
+  @Manual
+  @Functional
+  @A_UI_Story
+  @US1303750
+  @2018.PI04
+  @2018.PI04.03
+  Scenario: TC593196 - [RL1]
+    # Scenario 3 (Edit contract master detail info- data fields choose contract master)
+    Given I am on the CMD Action Required page
+    When I have clicked the down arrow on a contract summary row
+    And No contract results were found for the contract summary row
+    And I have clicked the edit button
+    Then A modal window appears for me to enter the following data fields.
+    # Contract Master Number
+    # Contract Master Name
+    # Contract system
+    # NDB, COSMOS, both
+    # Contract Master effective Date
+    # Use this contract master
+    # once
+    # always
+    # Submit button
+
   @TC593198
   @Manual
   @Functional
@@ -23,7 +47,7 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
     # Scenario 5 (Select contract master- Use this always)
     Given I am on the CMD Action Required page
     When I entered in a contract master number, contract master name, contract system, contract master effective date
-    And I selected user this contract master "always"
+    And I selected use this contract master "always"
     And I have clicked on the submit button
     Then The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me
     And The status of the contract master product grouping is changed to contract master selected
@@ -66,7 +90,7 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
     # Scenario 4 (Select contract master- Use this once)
     Given I am on the CMD Action Required page
     When I entered in a contract master number, contract master name, contract system, contract master effective date
-    And I selected user this contract master "once"
+    And I selected use this contract master "once"
     And I have clicked on the submit button
     Then The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me
     And The status of the contract master product grouping is changed to contract master selected
