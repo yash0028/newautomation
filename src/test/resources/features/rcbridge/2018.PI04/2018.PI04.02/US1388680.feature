@@ -1,5 +1,4 @@
 # Last updated on
-@A_UI_Story
 @US1388680
 @2018.PI04
 @2018.PI04.02
@@ -15,7 +14,6 @@ Feature: US1388680 - [Unfinished] CMD- User Input Required Page- Populate rows o
   @TC615271
   @Manual
   @Functional
-  @A_UI_Story
   @US1388680
   @2018.PI04
   @2018.PI04.02
@@ -28,7 +26,6 @@ Feature: US1388680 - [Unfinished] CMD- User Input Required Page- Populate rows o
   @TC615270
   @Manual
   @Functional
-  @A_UI_Story
   @US1388680
   @2018.PI04
   @2018.PI04.02
@@ -37,21 +34,20 @@ Feature: US1388680 - [Unfinished] CMD- User Input Required Page- Populate rows o
     Given I have clicked on Action Required button on the CMD dashboard
     When there are Action Required transactions
     Then for each transaction that requires input I can see data populated for each one of the fields
-      | Site                |
-      | State               |
-      | Market Number       |
-      | User ID             |
-      | Contract ID         |
-      | Contract Paper Type |
-      | Contract Name       |
-      | Status              |
-      | Action Required     |
-      | Date                |
+# Site
+# State
+# Market Number
+# User ID
+# Contract ID
+# Contract Paper Type
+# Contract Name
+# Status
+# Action Required
+# Date
 
   @TC615269
   @Manual
   @Functional
-  @A_UI_Story
   @US1388680
   @2018.PI04
   @2018.PI04.02

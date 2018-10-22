@@ -86,25 +86,45 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      */
 
     /**
-     * Gets the rows in the table.
-     *
+     * Gets all of the rows in the table.
      * @return A list of WebElements with the rows in the table.
      */
     public List<WebElement> getTableRows() {
+        System.out.println("****** get table rows *******\n" + this.table.findElements(By.xpath("//tbody/tr[contains(@class, 'example-element-row')]")));
         return this.table.findElements(By.xpath("//tbody/tr[contains(@class, 'example-element-row')]"));
     }
 
+    /**
+     * Verify that all fields in a single row in the table contains data and is not empty.
+     *
+     * @param element A WebElement containing the row data for a table row.
+     * @return True if the all of the fields contain data in the table row or false otherwise.
+     */
+    public Boolean verifySingleRow(WebElement element) {
+        return element.findElements(By.xpath("//td")).stream().noneMatch(element1 -> element.getText().isEmpty());
+    }
+
+    /**
+     * Verify that for a single row in the table contains data fpr each field specified by the list of indexes.
+     *
+     * @param element      A WebElement containing the row data for a table row.
+     * @param confirmIndex list containing the indexes that we want to verify its contents.
+     * @return True if the specified fields contain data in the table row of false otherwise.
+     */
+    public Boolean verifySingleRow(WebElement element, List<Integer> confirmIndex) {
+        Boolean result = true;
+        List<WebElement> tableRowData = element.findElements(By.xpath("//td"));
+
+        // check if text is found at the specified index
+        for (Integer i : confirmIndex) {
+            if (tableRowData.get(i).getText().isEmpty()) ;
+            result = false;
+        }
+        return result;
+    }
+
     public boolean verifyMultipleRandomRowContent() {
-        List<WebElement> allRows = getTableRows();
-
-        //select rows 1, 2, 3, 5, 8 in the table and verify that each row has data in each column.
-        //select the first row and verify its columns
-        WebElement firstRow = allRows.get(0);
-
-        //Get each column in the row as strings and store them in a List. Then verify that each position in the
-        // list is not empty.
-
-        return false;
+        return getTableRows().stream().allMatch(this::verifySingleRow);
     }
 
     /**

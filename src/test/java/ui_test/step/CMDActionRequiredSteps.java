@@ -15,6 +15,7 @@ import ui_test.util.IUiStep;
 import ui_test.util.SeleniumHelper;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by dtimaul on 9/26/18.
@@ -31,6 +32,7 @@ public class CMDActionRequiredSteps implements IUiStep {
     public void ClickActionRequiredButtonOnCMDDashboard() throws Throwable {
         driver = SeleniumHelper.launchBrowser();
         driver.get(CMD_DASHBOARD_URL);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         cmdPage = new CMDPage(driver);
         Assert.assertTrue("CMD page could not be displayed", cmdPage.confirmCurrentPage());
         Assert.assertTrue("Action required link could not be clicked", cmdPage.clickActionRequiredLink());
