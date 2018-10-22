@@ -1,6 +1,7 @@
 package ui_test.step;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -89,6 +90,100 @@ public class CMDActionRequiredSteps implements IUiStep {
     US1303750: CMD- User Input Required Page- View & Edit contract detail information (no search results found)
      */
 
+    @Given("^I am on the CMD Action Required page$")
+    public void iAmOnTheCMDActionRequiredPage() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 
+    @When("^I have clicked the down arrow on a contract summary row$")
+    public void iHaveClickedTheDownArrowOnAContractSummaryRow() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^No contract results were found for the contract summary row$")
+    public void noContractResultsWereFoundForTheContractSummaryRow() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^I have clicked the edit button$")
+    public void iHaveClickedTheEditButton() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^A modal window appears for me to enter the following data fields\\.$")
+    public void aModalWindowAppearsForMeToEnterTheFollowingDataFields() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^I entered in a contract master number, contract master name, contract system, contract master effective date$")
+    public void iEnteredInAContractMasterNumberContractMasterNameContractSystemContractMasterEffectiveDate() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^I selected use this contract master \"([^\"]*)\"$")
+    public void iSelectedUseThisContractMaster(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^I have clicked on the submit button$")
+    public void iHaveClickedOnTheSubmitButton() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me$")
+    public void theModalWindowClosesAndIAmBroughtBackToTheCMDActionRequiredPageWithTheProductGroupingInformationIWasEditingDisplayedToMe() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^The status of the contract master product grouping is changed to contract master selected$")
+    public void theStatusOfTheContractMasterProductGroupingIsChangedToContractMasterSelected() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Given("^I have selected a contract master for a product grouping$")
+    public void iHaveSelectedAContractMasterForAProductGrouping() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^The status of of the contract master product grouping is 'contract master selected\"$")
+    public void theStatusOfOfTheContractMasterProductGroupingIsContractMasterSelected() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^A proceed with contract load button appears$")
+    public void aProceedWithContractLoadButtonAppears() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^I click on the proceed with contract load button$")
+    public void iClickOnTheProceedWithContractLoadButton() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^The following message is displayed to me \"([^\"]*)\"$")
+    public void theFollowingMessageIsDisplayedToMe(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^The product grouping row is removed from the display$")
+    public void theProductGroupingRowIsRemovedFromTheDisplay() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 
 }

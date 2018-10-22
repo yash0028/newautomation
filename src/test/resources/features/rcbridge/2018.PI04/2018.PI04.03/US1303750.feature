@@ -26,6 +26,7 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
     And No contract results were found for the contract summary row
     And I have clicked the edit button
     Then A modal window appears for me to enter the following data fields.
+
     # Contract Master Number
     # Contract Master Name
     # Contract system
