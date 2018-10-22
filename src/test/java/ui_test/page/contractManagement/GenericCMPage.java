@@ -55,7 +55,6 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
     @FindBy(xpath = "//button[contains(text(),'Back')]")
     protected WebElement buttonBack;
 
-
     /*
     CONSTRUCTOR
      */
@@ -171,6 +170,16 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
             // Verify that the rows in the table are sorted by date from newest to oldest
             return dates.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList()).equals(dates);
         }
+    }
+
+    /**
+     * @param rowNumber
+     * @return
+     */
+    public boolean clickTableRow(int rowNumber) {
+        List<WebElement> tableRows = getTableRows();
+
+        return click(tableRows.get(rowNumber));
     }
 
 //    public boolean clickBackButton() {

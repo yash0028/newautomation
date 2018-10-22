@@ -74,6 +74,7 @@ public class CMDActionRequiredSteps implements IUiStep {
         driver.close();
     }
 
+
     @When("^there are no Action required transactions$")
     public void thereAreNoActionRequiredTransactions() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
@@ -90,32 +91,64 @@ public class CMDActionRequiredSteps implements IUiStep {
     US1303750: CMD- User Input Required Page- View & Edit contract detail information (no search results found)
      */
 
+    @Given("^I have clicked on the detail information on a contract ID$")
+    public void iHaveClickedOnTheDetailInformationOnAContractID() throws Throwable {
+        ClickActionRequiredButtonOnCMDDashboard();
+
+        // Click + icon one of the contract ID's
+        actionRequiredPage.clickTableRow(1);
+    }
+
+    @When("^The contract ID has more than one product grouping$")
+    public void theContractIDHasMoreThanOneProductGrouping() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^No contract master was found for all product groupings$")
+    public void noContractMasterWasFoundForAllProductGroupings() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^For each product grouping under the contract ID I can see the following message: No contract master ID was found\\. Please make a selection to complete the contract load\\.$")
+    public void forEachProductGroupingUnderTheContractIDICanSeeTheFollowingMessageNoContractMasterIDWasFoundPleaseMakeASelectionToCompleteTheContractLoad() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^I can see the latest input parameters for each product grouping underneath the search details column:$")
+    public void iCanSeeTheLatestInputParametersForEachProductGroupingUnderneathTheSearchDetailsColumn() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Given("^I have selected a contract master for a product grouping$")
+    public void iHaveSelectedAContractMasterForAProductGrouping() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^I click on the proceed with contract load button$")
+    public void iClickOnTheProceedWithContractLoadButton() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^The following message is displayed to me \"([^\"]*)\"$")
+    public void theFollowingMessageIsDisplayedToMe(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^The product grouping row is removed from the display$")
+    public void theProductGroupingRowIsRemovedFromTheDisplay() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
     @Given("^I am on the CMD Action Required page$")
     public void iAmOnTheCMDActionRequiredPage() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @When("^I have clicked the down arrow on a contract summary row$")
-    public void iHaveClickedTheDownArrowOnAContractSummaryRow() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @And("^No contract results were found for the contract summary row$")
-    public void noContractResultsWereFoundForTheContractSummaryRow() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @And("^I have clicked the edit button$")
-    public void iHaveClickedTheEditButton() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("^A modal window appears for me to enter the following data fields\\.$")
-    public void aModalWindowAppearsForMeToEnterTheFollowingDataFields() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
@@ -150,8 +183,26 @@ public class CMDActionRequiredSteps implements IUiStep {
         throw new PendingException();
     }
 
-    @Given("^I have selected a contract master for a product grouping$")
-    public void iHaveSelectedAContractMasterForAProductGrouping() throws Throwable {
+    @When("^The contract ID has a single product grouping$")
+    public void theContractIDHasASingleProductGrouping() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^No contract master was found$")
+    public void noContractMasterWasFound() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^I can see the following message: \"([^\"]*)\"$")
+    public void iCanSeeTheFollowingMessage(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^I can see the latest input parameters underneath the Search details column$")
+    public void iCanSeeTheLatestInputParametersUnderneathTheSearchDetailsColumn() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
@@ -168,20 +219,26 @@ public class CMDActionRequiredSteps implements IUiStep {
         throw new PendingException();
     }
 
-    @When("^I click on the proceed with contract load button$")
-    public void iClickOnTheProceedWithContractLoadButton() throws Throwable {
+    @When("^I have clicked the down arrow on a contract summary row$")
+    public void iHaveClickedTheDownArrowOnAContractSummaryRow() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
 
-    @Then("^The following message is displayed to me \"([^\"]*)\"$")
-    public void theFollowingMessageIsDisplayedToMe(String arg0) throws Throwable {
+    @And("^No contract results were found for the contract summary row$")
+    public void noContractResultsWereFoundForTheContractSummaryRow() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
 
-    @And("^The product grouping row is removed from the display$")
-    public void theProductGroupingRowIsRemovedFromTheDisplay() throws Throwable {
+    @And("^I have clicked the edit button$")
+    public void iHaveClickedTheEditButton() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^A modal window appears for me to enter the following data fields\\.$")
+    public void aModalWindowAppearsForMeToEnterTheFollowingDataFields() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
