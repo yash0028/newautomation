@@ -61,7 +61,9 @@ public class MarketTableSteps implements IRestStep {
         JsonElement result = parseJsonElementResponse(response);
         Assert.assertTrue(result.isJsonObject());
 
-        Assert.assertEquals("No data found", result.getAsJsonObject().get("errorDetails").getAsJsonObject().get("message").getAsString());
+        Assert.assertEquals("0", result.getAsJsonObject().get("numberOfElements").getAsString());
+
+//        Assert.assertEquals("No data found", result.getAsJsonObject().get("errorDetails").getAsJsonObject().get("message").getAsString());
     }
 
 }
