@@ -7,7 +7,7 @@
 Feature: US1384733 - Exari API Testing for New Contract JSON
 
   @TC612451
-  @Manual
+  @Automated
   @Functional
   @Exari_Automation
   @US1384733
