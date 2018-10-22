@@ -122,6 +122,71 @@ class RestHelper {
         return verifySingleKey(keySet, index + 1, nextJson, traveledPath);
     }
 
+    boolean verifyFieldsNotNull(JsonElement ecmRoot, List<String> masterSet, String regex){
+        int failCount = 0;
+
+        for (String masterKey : masterSet) {
+            List<String> deepKeySet = Arrays.stream(masterKey.split(regex)).map(String::trim).collect(Collectors.toList());
+            StringBuilder traveledPath = new StringBuilder("object");
+            boolean tempTest = verifyElementNotNull(deepKeySet, 0, ecmRoot, traveledPath);
+            if (tempTest) {
+                //log.info("Element {} is not null", traveledPath.toString());
+            } else {
+                failCount++;
+            }
+        }
+
+        return failCount == 0;
+    }
+
+    boolean verifyElementNotNull(List<String> keySet, int index, JsonElement currJson, StringBuilder traveledPath){
+        JsonElement nextJson;
+        JsonParser parser = new JsonParser();
+
+        //Move into array
+        while (currJson.isJsonArray() && currJson.getAsJsonArray().size() > 0) {
+            currJson = currJson.getAsJsonArray().get(0);
+            traveledPath.append("[0]");
+        }
+
+        // If JSON Primitive, parse into JSON Element
+        try {
+            if (currJson.isJsonPrimitive()) {
+                currJson = parser.parse(currJson.getAsJsonPrimitive().getAsString());
+            }
+
+        } catch (Exception e){
+            // Do nothing
+        }
+
+        //Check that the previous json is still usable and not at the end of the check
+        if (index >= keySet.size()) {
+            return true;
+        }
+
+        String errorMessage = "Missing key <" + keySet.get(index) + "> in " + traveledPath.toString();
+        if (currJson.isJsonPrimitive() || currJson.isJsonNull() || currJson.isJsonArray() || !currJson.getAsJsonObject().has(keySet.get(index))) {
+            log.error(errorMessage);
+            return false;
+        }
+
+        nextJson = currJson.getAsJsonObject().get(keySet.get(index));
+        traveledPath.append(".").append(keySet.get(index));
+
+        String nullErrorMessage = "Element <" + keySet.get(index) + "> in " + traveledPath.toString() + " is null";
+        if (nextJson.isJsonNull()){
+            log.error(nullErrorMessage);
+            return false;
+        }
+
+        if (nextJson.isJsonPrimitive() && (nextJson.getAsString().isEmpty() || nextJson.getAsString().equals("null")) ){
+            log.error(nullErrorMessage);
+            return false;
+        }
+
+        return verifyElementNotNull(keySet, index + 1, nextJson, traveledPath);
+    }
+
     /**
      * Parse a Restful Response into a Json Object.
      * Deprecated since JsonElement should be used instead to check if the response json is an array, object, or null
