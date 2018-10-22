@@ -28,6 +28,10 @@ public class CMDActionRequiredSteps implements IUiStep {
     private WebDriver driver;
     private List<WebElement> tableRows = null;
 
+    /*
+    US1301880: CMD- User Input Required Page- Populate rows of data
+     */
+
     @Given("^I have clicked on Action Required button on the CMD dashboard$")
     public void ClickActionRequiredButtonOnCMDDashboard() throws Throwable {
         driver = SeleniumHelper.launchBrowser();
@@ -80,6 +84,11 @@ public class CMDActionRequiredSteps implements IUiStep {
         driver.close();
 
     }
+
+    /*
+    US1303750: CMD- User Input Required Page- View & Edit contract detail information (no search results found)
+     */
+
 
 
 }
