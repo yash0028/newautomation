@@ -390,10 +390,11 @@ public class PESSteps implements IRestStep {
 
     @Then("^the user can see up to (\\d+) (providers|locations)$")
     public void theUserCanSeeUpToProviders(int max, String searchType) throws Throwable {
-        JsonArray resultArray = responseJson.getAsJsonObject().get("providers").getAsJsonArray();
+        JsonArray resultArray = responseJson.getAsJsonObject().get(searchType).getAsJsonArray();;
+
         int pSize = resultArray.size();
 
-        Assert.assertTrue("Response contained more than " + max + " " + searchType + ", totaling" + pSize,pSize > max);
+        Assert.assertTrue("Response contained more than " + max + " " + searchType + ", totaling " + pSize,pSize < max);
     }
 
     //US1358993

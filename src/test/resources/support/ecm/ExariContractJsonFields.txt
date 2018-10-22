@@ -2,8 +2,8 @@
 contractID
 docGenID
 storageNode
-storageNode#####uuid
-storageNode#####properties
+storageNode uuid
+storageNode properties
 contractName
 contractFolderName
 contractStructure
@@ -22,23 +22,23 @@ contractValueCommitted
 ourLegalName
 counterpartyLegalName
 templateDocument
-templateDocument#####templateName
-templateDocument#####templateAllowCreate
-templateDocument#####templateAllowCapture
-templateDocument#####templateAllowAmendmentCreate
-templateDocument#####templateDocumentPath
-templateDocument#####templateDefaultAnswerSet
-templateDocument#####templateBaselineAnswerSet
-templateDocument#####templateRevisionHistory
-templateDocument#####templateOutputFormat
-templateDocument#####templateInterviewType
-templateDocument#####templateCustomParameters
-templateDocument#####templateStatus
-templateDocument#####templateMasterAgreement
-templateDocument#####orderTemplateDocument
-templateDocument#####supportingDocumentTemplates
-templateDocument#####captureConfig
-templateDocument#####containerTemplate
+templateDocument templateName
+templateDocument templateAllowCreate
+templateDocument templateAllowCapture
+templateDocument templateAllowAmendmentCreate
+templateDocument templateDocumentPath
+templateDocument templateDefaultAnswerSet
+templateDocument templateBaselineAnswerSet
+templateDocument templateRevisionHistory
+templateDocument templateOutputFormat
+templateDocument templateInterviewType
+templateDocument templateCustomParameters
+templateDocument templateStatus
+templateDocument templateMasterAgreement
+templateDocument orderTemplateDocument
+templateDocument supportingDocumentTemplates
+templateDocument captureConfig
+templateDocument containerTemplate
 contractTransactions
 siteInfo
 contractOrders

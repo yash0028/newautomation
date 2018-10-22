@@ -1,10 +1,9 @@
 # Last updated on
 @US1256694
-@2018.PI04
 @Priority_1
 @CMD2
 @F210192
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US1256694 - Access and security management
 
@@ -12,7 +11,6 @@ Feature: US1256694 - Access and security management
   @Automated
   @Functional
   @US1256694
-  @2018.PI04
   Scenario: TC564935 - [RL0]
     Given a user requests view-only permissions to the Provider Taxonomy Grid table
     When the contract system administrator approves the request
@@ -22,7 +20,6 @@ Feature: US1256694 - Access and security management
   @Automated
   @Functional
   @US1256694
-  @2018.PI04
   Scenario: TC564936 - [RL1]
     Given a user requests update permissions to the Provider Taxonomy Grid table
     When a contract system administrator approves the request
@@ -32,7 +29,6 @@ Feature: US1256694 - Access and security management
   @Automated
   @Functional
   @US1256694
-  @2018.PI04
   Scenario: TC564937 - [RL2]
     Given a user requests access ot the Provider Taxonomy Grid data
     When the contract system administrator does not approve the request
