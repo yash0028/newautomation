@@ -7,7 +7,7 @@
 Feature: US1176975 - RC Bridge Enhancement
 
   @TC569879
-  @Automated
+  @Manual
   @Functional
   @RCBridge
   @US1176975
@@ -17,12 +17,16 @@ Feature: US1176975 - RC Bridge Enhancement
     When rcbridge runs with "<data A>" and "<data B>"
     Then the RCLink test cases are updated
     Examples:
-      | data A | data B |
-      | A | B |
-      | AA | BB |
+      | data A | data B | data C |
+      | aa | bb | cc |
+      | aa | bc | cc |
+      | aa | bd | cc |
+      | ab | bb | cc |
+      | ab | bc | cc |
+      | ab | bd | cc |
 
   @TC557488
-  @Automated
+  @Manual
   @Functional
   @RCBridge
   @US1176975
