@@ -1,5 +1,7 @@
 # Last updated on 
+@A_UI_Story
 @US1398051
+@Exari_UI_Test
 @F237915
 @releaseUnknown
 @iterationUnknown
@@ -8,6 +10,7 @@ Feature: US1398051 - Create initial ui tests
   @TC620112
   @Manual
   @Functional
+  @A_UI_Story
   @US1398051
   Scenario Outline: TC620112 - [RL1] Check for template create button on site
     # Scenario 1: test for contract templates on each site
@@ -29,6 +32,7 @@ Feature: US1398051 - Create initial ui tests
   @TC620095
   @Manual
   @Functional
+  @A_UI_Story
   @US1398051
   Scenario Outline: TC620095 - [RL0] Connect to site
     Given I am logged into Exari Dev as a valid user
