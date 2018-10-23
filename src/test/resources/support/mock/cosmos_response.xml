@@ -1,0 +1,44 @@
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+    <env:Header/>
+    <env:Body>
+        <ns3:exaupdResponse xmlns:ns2="http://www.ibm.com/xmlns/prod/CICS/channel-instance" xmlns:ns3="http://www.COSLINKC.Response.com" xmlns:ns4="http://www.COSLINKC.Request.com" ns2:channel="false">
+            <ns3:COSLINKC-RSP ns2:structuredContainer="false">
+                <ns3:ps624_out_rec>
+                    <ns3:ps624_resp_common>
+                        <ns3:ps624_resp_err_msg>Success!</ns3:ps624_resp_err_msg>
+                    </ns3:ps624_resp_common>
+                    <ns3:ps624_o_rec>
+                        <ns3:ps624_o_tran_code>PS624</ns3:ps624_o_tran_code>
+                        <ns3:ps624_o_version_nbr>101</ns3:ps624_o_version_nbr>
+                        <ns3:ps624_o_tran_type>C</ns3:ps624_o_tran_type>
+                        <ns3:ps624_o_source>45</ns3:ps624_o_source>
+                        <ns3:ps624_o_site_id>MSP</ns3:ps624_o_site_id>
+                        <ns3:ps624_o_provider_type>1</ns3:ps624_o_provider_type>
+                        <ns3:ps624_o_provider_nbr>7</ns3:ps624_o_provider_nbr>
+                        <ns3:ps624_o_panel_nbr>7</ns3:ps624_o_panel_nbr>
+                        <ns3:ps624_o_spec_agre_ind/>
+                        <ns3:ps624_o_spec_agre_nbr>0</ns3:ps624_o_spec_agre_nbr>
+                        <ns3:ps624_o_exari_cont_id>12222268</ns3:ps624_o_exari_cont_id>
+                        <ns3:ps624_o_ahld_eff_date>0</ns3:ps624_o_ahld_eff_date>
+                        <ns3:ps624_o_ahld_exp_date>0</ns3:ps624_o_ahld_exp_date>
+                        <ns3:ps624_o_ahld_rsn_cde>0</ns3:ps624_o_ahld_rsn_cde>
+                        <ns3:ps624_o_status>P</ns3:ps624_o_status>
+                        <ns3:ps624_o_role>G</ns3:ps624_o_role>
+                        <ns3:ps624_o_pcp_type>0</ns3:ps624_o_pcp_type>
+                        <ns3:ps624_o_pcp_nbr>0</ns3:ps624_o_pcp_nbr>
+                        <ns3:ps624_o_network>9008200</ns3:ps624_o_network>
+                        <ns3:ps624_o_new_ptnt>Y</ns3:ps624_o_new_ptnt>
+                        <ns3:ps624_o_cosmos_cont_nbr>294</ns3:ps624_o_cosmos_cont_nbr>
+                        <ns3:ps624_o_eff_date>20180101</ns3:ps624_o_eff_date>
+                        <ns3:ps624_o_exp_date>20190101</ns3:ps624_o_exp_date>
+                        <ns3:ps624_o_pnlt_tbl>0</ns3:ps624_o_pnlt_tbl>
+                        <ns3:ps624_o_ndb_mkt_nbr>0</ns3:ps624_o_ndb_mkt_nbr>
+                        <ns3:ps624_o_ndb_fee_sched_nbr>0</ns3:ps624_o_ndb_fee_sched_nbr>
+                        <ns3:ps624_o_ndb_contr_id>0</ns3:ps624_o_ndb_contr_id>
+                        <ns3:ps624_o_success_error_ind>S</ns3:ps624_o_success_error_ind>
+                    </ns3:ps624_o_rec>
+                </ns3:ps624_out_rec>
+            </ns3:COSLINKC-RSP>
+        </ns3:exaupdResponse>
+    </env:Body>
+</env:Envelope>
