@@ -1,5 +1,6 @@
 package ui_test.page.exari.home.site.subpages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,34 +30,36 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
     @FindBy(xpath = "//img[@alt='Logo image']")
     protected WebElement safeClickPoint;
 
-    @FindBy(xpath = "//div[contains(@class,'hd topscrollbar')]")
-    protected WebElement filterScrollUp;
-
-    @FindBy(xpath = "//div[contains(@class, 'ft bottomscrollbar')]")
-    protected WebElement filterScrollDown;
-
-    //SMGAAmendment
     @FindBy(xpath = "//div[@class='toolbar flat-button']/div/span[3]")
     protected WebElement filterSmartTemplate;
-
-    @FindBy(xpath = "//li[@index='61']/a[contains(text(),'SMGA')]")
-    protected WebElement filterSmartTemplateOptionSMGA;
 
     @FindBy(xpath = "//div[@class='toolbar flat-button']/div/span[6]")
     protected WebElement filterStatus;
 
-    @FindBy(xpath = "//li[@index='10']/a[contains(text(),'Active')]")
-    protected WebElement filterStatusOptionActive;
-
-    //    @FindBy(xpath = ".//table[contains(@id,'yuievtautoid')]//tbody[2]/tr[1]//h4")
     @FindBy(xpath = "//table[contains(@id, 'yuievtautoid')]/tbody[@class='yui-dt-data']/tr[1 and contains(@class, 'yui-dt-first')]//h4/a")
     protected WebElement tableContractsFirstRow;
 
     @FindBy(xpath = "//td/span[text()='Click to start']")
     protected WebElement contractCreateStart;
 
-    @FindBy(xpath = "//h3[@title='SMGA' and text()='SMGA.xml']//following-sibling::div/span[@title='Create New']/a")
-    protected WebElement contractCreateSMGATemplate;
+    @FindBy(xpath = "//div[contains(@class, 'create-new-results-element')]//table/tbody[2]")
+    protected WebElement contractCreateTemplateTable;
+
+    /*
+    LOCATORS - FILTER OPTIONS
+     */
+
+    @FindBy(xpath = "//div[contains(@class,'hd topscrollbar')]")
+    protected WebElement filterScrollUp;
+
+    @FindBy(xpath = "//div[contains(@class, 'ft bottomscrollbar')]")
+    protected WebElement filterScrollDown;
+
+    @FindBy(xpath = "//li[@index='61']/a[contains(text(),'SMGA')]")
+    protected WebElement filterSmartTemplateOptionSMGA;
+
+    @FindBy(xpath = "//li[@index='10']/a[contains(text(),'Active')]")
+    protected WebElement filterStatusOptionActive;
 
     /*
     CONSTRUCTOR
@@ -104,7 +107,18 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
 
     public boolean startContractWithSMGATemplate() {
         click("contract start button", contractCreateStart);
-        return click("smga template", contractCreateSMGATemplate);
+        return click("smga template", getTemplateOption("SMGA.xml"));
+    }
+
+    public boolean startContractTemplate(String templateName) {
+        click("contract start button", contractCreateStart);
+        return click("template " + templateName, getTemplateOption(templateName));
+    }
+
+    public boolean isContractTemplateVisible(String templateName) {
+        return isVisible(getTemplateOption(templateName))
+                || click("contract start button", contractCreateStart)
+                && isVisible(getTemplateOption(templateName));
     }
 
     /*
@@ -117,5 +131,16 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
 
     public WizardManager getContractWizard() {
         return new WizardManager(driver);
+    }
+
+    /*
+    HELPER METHOD
+     */
+
+    private WebElement getTemplateOption(String template) {
+        String path = "//h3[contains(text(), 'GetPaperTypes.xml')]//following-sibling::div/span[@title='Create New']/a";
+        WebElement element = contractCreateTemplateTable.findElement(By.xpath(path));
+        waitTillVisible(element);
+        return element;
     }
 }
