@@ -72,6 +72,17 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
         assert contractPage.checkActiveStatus();
     }
 
+    @Then("^I find the create new button for \"([^\"]*)\"$")
+    public void findCreateButton(String template) {
+        assert sitePage.isContractTemplateVisible(template);
+    }
+
+    @Then("^I confirm on am on the \"([^\"]*)\" landing page$")
+    public void confirmSitePage(String site) {
+        SiteManager siteManager = new SiteManager(getRemoteDriver());
+        assert siteManager.getSitePage(site).confirmCurrentPage();
+    }
+
     /*
     AUTHOR CONTRACT STEPS
      */
@@ -278,16 +289,5 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
 
         //set Edit Status
         contractPage.setEditStatus("Active");
-    }
-
-    @Then("^I find the create new button for \"([^\"]*)\"$")
-    public void iFindTheCreateNewButtonFor(String template) {
-        assert sitePage.isContractTemplateVisible(template);
-    }
-
-    @Then("^I confirm on am on the \"([^\"]*)\" landing page$")
-    public void confirmSitePage(String site) {
-        SiteManager siteManager = new SiteManager(getRemoteDriver());
-        assert siteManager.getSitePage(site).confirmCurrentPage();
     }
 }
