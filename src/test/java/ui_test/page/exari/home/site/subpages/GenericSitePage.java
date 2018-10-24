@@ -43,7 +43,7 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
     protected WebElement contractCreateStart;
 
     @FindBy(xpath = "//div[contains(@class, 'create-new-results-element')]//table/tbody[2]")
-    protected WebElement contractCreateTemplateTable;
+    protected WebElement contractCreateTemplateOptions;
 
     /*
     LOCATORS - FILTER OPTIONS
@@ -60,6 +60,13 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
 
     @FindBy(xpath = "//li[@index='10']/a[contains(text(),'Active')]")
     protected WebElement filterStatusOptionActive;
+
+    /*
+    LOCATORS - CONTRACT TEMPLATES
+     */
+
+    @FindBy(xpath = "//h3[contains(text(),'GetPaperTypes.xml')]//following-sibling::div/span[@title='Create New']/a")
+    protected WebElement contractCreateTemplateOptionGetPaperTypes;
 
     /*
     CONSTRUCTOR
@@ -116,9 +123,8 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
     }
 
     public boolean isContractTemplateVisible(String templateName) {
-        return isVisible(getTemplateOption(templateName))
-                || click("contract start button", contractCreateStart)
-                && isVisible(getTemplateOption(templateName));
+        click("contract start button", contractCreateStart);
+        return isVisible(getTemplateOption(templateName));
     }
 
     /*
@@ -138,9 +144,16 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
      */
 
     private WebElement getTemplateOption(String template) {
-        String path = "//h3[contains(text(), 'GetPaperTypes.xml')]//following-sibling::div/span[@title='Create New']/a";
-        WebElement element = contractCreateTemplateTable.findElement(By.xpath(path));
-        waitTillVisible(element);
-        return element;
+        String path = ".//h3[contains(text(),'" + template + "')]/following-sibling::div/span[@title='Create New']/a";
+        //Wait for anchor element
+        waitTillVisible(contractCreateTemplateOptionGetPaperTypes);
+
+        //Try to find sub element
+        try {
+            return contractCreateTemplateOptions.findElement(By.xpath(path));
+        } catch (Exception e) {
+            log.error("did not find {}", template, e);
+            return null;
+        }
     }
 }
