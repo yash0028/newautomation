@@ -8,7 +8,7 @@
 Feature: US1332127 - Create NDB/Cosmos Mock Service
 
   @TC586011
-  @Manual
+  @Automated
   @Functional
   @MOCK_COSMOS
   @MOCK_NDB
@@ -19,7 +19,7 @@ Feature: US1332127 - Create NDB/Cosmos Mock Service
     And the mock service returns a response identical to file "cosmos_response.xml"
 
   @TC586010
-  @Manual
+  @Automated
   @Functional
   @MOCK_COSMOS
   @MOCK_NDB
