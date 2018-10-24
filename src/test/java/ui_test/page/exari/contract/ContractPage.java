@@ -8,13 +8,16 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.contract.wizard.WizardManager;
+import ui_test.page.exari.navigation.ExariNavigationPanel;
+import ui_test.page.exari.navigation.IExariNavigation;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
-public class ContractPage implements IWebInteract, IFactoryPage {
+public class ContractPage implements IWebInteract, IFactoryPage, IExariNavigation {
     private static final Logger log = LoggerFactory.getLogger(ContractPage.class);
 
     private final WebDriver driver;
+    private final ExariNavigationPanel navigationPanel;
 
 
     /*
@@ -72,6 +75,7 @@ public class ContractPage implements IWebInteract, IFactoryPage {
         AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, IWebInteract.TIMEOUT);
         PageFactory.initElements(factory, this);
         this.driver = driver;
+        this.navigationPanel = new ExariNavigationPanel(driver);
     }
 
     /*
@@ -88,8 +92,14 @@ public class ContractPage implements IWebInteract, IFactoryPage {
         return driver;
     }
 
-    /* ********************************  METHODS **************************************** */
+    /*
+    EXARI NAVIGATION METHODS
+     */
 
+    @Override
+    public ExariNavigationPanel getNavigationPanel() {
+        return this.navigationPanel;
+    }
 
     /*
     CLASS METHODS

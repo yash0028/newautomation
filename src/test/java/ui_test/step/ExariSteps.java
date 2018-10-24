@@ -11,6 +11,7 @@ import ui_test.page.exari.contract.ContractPage;
 import ui_test.page.exari.contract.wizard.WizardManager;
 import ui_test.page.exari.contract.wizard.subpages.*;
 import ui_test.page.exari.home.DashboardPage;
+import ui_test.page.exari.home.site.SiteManager;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.page.exari.login.LoginPage;
 import ui_test.util.IUiStep;
@@ -41,9 +42,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
     @Given("^I am on the \"([^\"]*)\" site$")
     public void setSite(String siteOption) {
         Assert.assertTrue(dashboardPage.confirmCurrentPage());
-        Assert.assertTrue(dashboardPage.setSiteEnvironmentByString(siteOption));
+        sitePage = dashboardPage.getNavigationPanel().setSiteEnvironment(siteOption);
 
-        sitePage = dashboardPage.getSitePage();
         assert sitePage.confirmCurrentPage();
         log.info("moved to {} site", siteOption);
     }
@@ -278,5 +278,16 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
 
         //set Edit Status
         contractPage.setEditStatus("Active");
+    }
+
+    @Then("^I find the create new button for \"([^\"]*)\"$")
+    public void iFindTheCreateNewButtonFor(String template) {
+        assert sitePage.isContractTemplateVisible(template);
+    }
+
+    @Then("^I confirm on am on the \"([^\"]*)\" landing page$")
+    public void confirmSitePage(String site) {
+        SiteManager siteManager = new SiteManager(getRemoteDriver());
+        assert siteManager.getSitePage(site).confirmCurrentPage();
     }
 }
