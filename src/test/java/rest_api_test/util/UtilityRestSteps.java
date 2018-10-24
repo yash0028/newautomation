@@ -4,20 +4,30 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import general_test.util.BookendOrder;
+import io.restassured.specification.RequestSpecification;
+
+import static io.restassured.RestAssured.given;
 
 
 /**
  * Utility Cucumber steps for Rest API Stories to do something before and after
  */
 public class UtilityRestSteps {
+    private static final String ENDPOINT = "http://cosmos-ndb-mock-service-clm-test.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String RESOURCE_CLEAR_COSMOS_DB = "/v1.0/cosmos/cleardb";
+    private static final String RESOURCE_CLEAR_NDB_DB = "/v1.0/ndb/cleardb";
 
-    @Before(value = "@Mock_Test", order = BookendOrder.REST)
+    private RequestSpecification request;
+
+    @Before(value = "@US1332127", order = BookendOrder.REST)
     public void resetMockService(Scenario scenario) {
-        //Do something before a mock service test
+        given().baseUri(ENDPOINT).delete(RESOURCE_CLEAR_COSMOS_DB);
+        given().baseUri(ENDPOINT).delete(RESOURCE_CLEAR_COSMOS_DB);
     }
 
-    @After(value = "@Mock_Test", order = BookendOrder.REST)
+    @After(value = "@US1332127", order = BookendOrder.REST)
     public void somethingAfter(Scenario scenario) {
-        //Do something after a mock service test
+        given().baseUri(ENDPOINT).delete(RESOURCE_CLEAR_COSMOS_DB);
+        given().baseUri(ENDPOINT).delete(RESOURCE_CLEAR_COSMOS_DB);
     }
 }
