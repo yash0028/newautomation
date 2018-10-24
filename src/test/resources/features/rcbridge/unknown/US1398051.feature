@@ -8,7 +8,7 @@
 Feature: US1398051 - Create initial ui tests
 
   @TC620112
-  @Manual
+  @Automated
   @Functional
   @A_UI_Story
   @US1398051
@@ -30,7 +30,7 @@ Feature: US1398051 - Create initial ui tests
       | northeast uhn | SMGA.xml      |
 
   @TC620095
-  @Manual
+  @Automated
   @Functional
   @A_UI_Story
   @US1398051
