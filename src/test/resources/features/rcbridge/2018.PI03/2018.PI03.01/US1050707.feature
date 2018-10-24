@@ -27,9 +27,9 @@ Feature: US1050707 - (MSG) Create microservice exposing Market Strategy grid dat
     Given I have the ability to read the MS Access DB
     When I make a request to the microservice to read a record using the following fields:
       | specialty_codes | 007             |
-      | state | AK    |
-      | county | Haines |
-      | market  | 0054405 |
+      | state           | AK              |
+      | county          | Haines          |
+      | market          | 0054405         |
     Then I receive all products that fit this criteria
 
   @TC565753
@@ -45,8 +45,8 @@ Feature: US1050707 - (MSG) Create microservice exposing Market Strategy grid dat
     Given I have the ability to read the MS Access DB
     When I make a request to the microservice to read a record using the following fields:
       | specialty_codes | XXX             |
-      | state | MM    |
-      | county | Abcd   |
-      | market | 99999  |
+      | state           | MM              |
+      | county          | Abcd            |
+      | market          | 99999           |
     Then I receive a response with empty content
 

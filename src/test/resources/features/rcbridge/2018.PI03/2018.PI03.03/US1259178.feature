@@ -39,8 +39,8 @@ Feature: US1259178 - Taxonomy Grid table microservice
     Then the query response provides the most recent record version attributes data
     Examples:
       | reqField      | reqValue      | ndbRecValue   | optionalField | optionalValue |
-      | "ndbSpecCD" | "21"        | "P"         | "ndbOrg"    | "21"        |
-      | "ndbOrg"    | "22"        | "O"         | "ndbSpecCD" | "22"        |
+      | "ndbSpecCD"   | "21"          | "P"           | "ndbOrg"      | "21"          |
+      | "ndbOrg"      | "22"          | "O"           | "ndbSpecCD"   | "22"          |
 
   @TC543876
   @Automated
@@ -56,7 +56,7 @@ Feature: US1259178 - Taxonomy Grid table microservice
     Examples:
       | reqField    | reqValue    | ndbRecValue |
       | "ndbSpecCD" | "21"        | "P"         |
-      | "ndbOrg" | "22"     | "O"      |
+      | "ndbOrg"    | "22"        | "O"         |
 
   @TC565559
   @Automated
@@ -86,7 +86,7 @@ Feature: US1259178 - Taxonomy Grid table microservice
     Examples:
       | reqField    | reqValue    | ndbRecValue |
       | "ndbSpecCD" | "21"        | "P"         |
-      | "ndbOrg" | "22"     | "O"      |
+      | "ndbOrg"    | "22"        | "O"         |
 
   @TC565557
   @Automated
@@ -103,8 +103,8 @@ Feature: US1259178 - Taxonomy Grid table microservice
     Then the query response provides the most recent record version attributes data
     Examples:
       | reqField      | reqValue      | ndbRecValue   | optionalField | optionalValue |
-      | "ndbSpecCD" | "21"        | "P"         | "ndbOrg"    | "21"        |
-      | "ndbOrg"    | "22"        | "O"         | "ndbSpecCD" | "22"        |
+      | "ndbSpecCD"   | "21"          | "P"           | "ndbOrg"      | "21"          |
+      | "ndbOrg"      | "22"          | "O"           | "ndbSpecCD"   | "22"          |
 
   @TC565558
   @Automated
@@ -121,7 +121,7 @@ Feature: US1259178 - Taxonomy Grid table microservice
     Examples:
       | reqField    | reqValue    | ndbRecValue |
       | "ndbSpecCD" | "22"        | "O"         |
-      | "ndbOrg" | "22"     | "P"      |
+      | "ndbOrg"    | "22"        | "P"         |
 
   @TC551313
   @Automated
@@ -138,5 +138,5 @@ Feature: US1259178 - Taxonomy Grid table microservice
     Examples:
       | reqField    | reqValue    | ndbRecValue |
       | "ndbSpecCD" | "22"        | "O"         |
-      | "ndbOrg" | "22"     | "P"      |
+      | "ndbOrg"    | "22"        | "P"         |
 

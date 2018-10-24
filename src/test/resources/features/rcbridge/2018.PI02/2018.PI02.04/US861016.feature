@@ -31,14 +31,14 @@ Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data R
     Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "12345"
     Then PES returns the following information:
-      | address |
-      | mpin |
-      | tin |
-      | firstName |
-      | lastName |
-      | specialties |
+      | address          |
+      | mpin             |
+      | tin              |
+      | firstName        |
+      | lastName         |
+      | specialties      |
       | providerTypeCode |
-      | phoneNumbers |
+      | phoneNumbers     |
     #And the system displays results with the best match first (Need to clarify this)
 
   @TC565515
@@ -55,10 +55,10 @@ Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data R
     Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "6177192"
     Then PES returns the following information:
-      | facilityName |
-      | address |
-      | mpin |
-      | tin |
+      | facilityName     |
+      | address          |
+      | mpin             |
+      | tin              |
       | providerTypeCode |
 
   @Functional
@@ -75,13 +75,13 @@ Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data R
     Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "12345"
     Then PES returns the following information:
-      | address |
-      | mpin |
-      | tin |
-      | firstName |
-      | lastName |
-      | specialties |
+      | address          |
+      | mpin             |
+      | tin              |
+      | firstName        |
+      | lastName         |
+      | specialties      |
       | providerTypeCode |
-      | phoneNumbers |
+      | phoneNumbers     |
     #And the system displays results with the best match first (Need to clarify this)
 

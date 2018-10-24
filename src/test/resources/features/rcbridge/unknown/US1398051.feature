@@ -21,13 +21,13 @@ Feature: US1398051 - Create initial ui tests
     #| southeast uhn |
     #| west |
     #| national |
-      | site | type |
+      | site              | type              |
       | test              | GetPaperTypes.xml |
-      | test     | SMGA.xml |
+      | test              | SMGA.xml          |
       | central uhn       | GetPaperTypes.xml |
-      | central uhn | SMGA.xml    |
+      | central uhn       | SMGA.xml          |
       | northeast uhn     | GetPaperTypes.xml |
-      | northeast uhn | SMGA.xml      |
+      | northeast uhn     | SMGA.xml          |
 
   @TC620095
   @Automated
@@ -39,9 +39,9 @@ Feature: US1398051 - Create initial ui tests
     And I am on the "<site>" site
     Then I confirm on am on the "<site>" landing page
     Examples:
-      | site |
-      | test |
-      | central uhn |
+      | site          |
+      | test          |
+      | central uhn   |
       | northeast uhn |
     #| southeast uhn |
     #| west |

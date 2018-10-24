@@ -18,12 +18,12 @@ Feature: US1176975 - RC Bridge Enhancement
     Then the RCLink test cases are updated
     Examples:
       | data A | data B | data C |
-      | aa | bb | cc |
-      | aa | bc | cc |
-      | aa | bd | cc |
-      | ab | bb | cc |
-      | ab | bc | cc |
-      | ab | bd | cc |
+      | aa     | bb     | cc     |
+      | aa     | bc     | cc     |
+      | aa     | bd     | cc     |
+      | ab     | bb     | cc     |
+      | ab     | bc     | cc     |
+      | ab     | bd     | cc     |
 
   @TC557488
   @Manual
