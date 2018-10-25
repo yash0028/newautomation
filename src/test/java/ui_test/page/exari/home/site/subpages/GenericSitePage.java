@@ -1,6 +1,5 @@
 package ui_test.page.exari.home.site.subpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,42 +30,39 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
     protected WebElement safeClickPoint;
 
     @FindBy(xpath = "//div[@class='toolbar flat-button']/div/span[3]")
-    protected WebElement filterSmartTemplate;
+    protected WebElement dropdownFilterSmartTemplate;
 
     @FindBy(xpath = "//div[@class='toolbar flat-button']/div/span[6]")
-    protected WebElement filterStatus;
+    protected WebElement dropdownFilterStatus;
 
     @FindBy(xpath = "//table[contains(@id, 'yuievtautoid')]/tbody[@class='yui-dt-data']/tr[1 and contains(@class, 'yui-dt-first')]//h4/a")
     protected WebElement tableContractsFirstRow;
 
     @FindBy(xpath = "//td/span[text()='Click to start']")
-    protected WebElement contractCreateStart;
-
-    @FindBy(xpath = "//div[contains(@class, 'create-new-results-element')]//table/tbody[2]")
-    protected WebElement contractCreateTemplateOptions;
+    protected WebElement buttonContractCreateStart;
 
     /*
     LOCATORS - FILTER OPTIONS
      */
 
     @FindBy(xpath = "//div[contains(@class,'hd topscrollbar')]")
-    protected WebElement filterScrollUp;
+    protected WebElement buttonFilterScrollUp;
 
     @FindBy(xpath = "//div[contains(@class, 'ft bottomscrollbar')]")
-    protected WebElement filterScrollDown;
+    protected WebElement buttonFilterScrollDown;
 
     @FindBy(xpath = "//li[@index='61']/a[contains(text(),'SMGA')]")
-    protected WebElement filterSmartTemplateOptionSMGA;
+    protected WebElement optionFilterSmartTemplateSMGA;
 
     @FindBy(xpath = "//li[@index='10']/a[contains(text(),'Active')]")
-    protected WebElement filterStatusOptionActive;
+    protected WebElement optionFilterStatusActive;
 
     /*
     LOCATORS - CONTRACT TEMPLATES
      */
 
-    @FindBy(xpath = "//h3[contains(text(),'GetPaperTypes.xml')]//following-sibling::div/span[@title='Create New']/a")
-    protected WebElement contractCreateTemplateOptionGetPaperTypes;
+    @FindBy(xpath = "//h3[contains(text(),'Pilot Contract Wrapper')]//following-sibling::div/span[@title='Create New']/a")
+    protected WebElement buttonContractCreatePilotContractWrapper;
 
     /*
     CONSTRUCTOR
@@ -92,39 +88,30 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
      */
 
     public boolean selectSmartTemplateFilterOptionSMGA() {
-        click("smart template filter", filterSmartTemplate);
-        click("filter scroll down", filterScrollDown);
+        click("smart template filter", dropdownFilterSmartTemplate);
+        click("filter scroll down", buttonFilterScrollDown);
 
         //Scroll down for about 10 seconds
         pause(10);
 
         hover("safe click point", safeClickPoint);
-        return click("smart template smga option", filterSmartTemplateOptionSMGA);
+        return click("smart template smga option", optionFilterSmartTemplateSMGA);
     }
 
     public boolean selectStatusFilterOptionActive() {
-        click("status filter", filterStatus);
+        click("status filter", dropdownFilterStatus);
         hover("safe click point", safeClickPoint);
-        return click("status filter active option", filterStatusOptionActive);
+        return click("status filter active option", optionFilterStatusActive);
     }
 
     public boolean clickContractsTableFirstRow() {
         return click("contract in first row", tableContractsFirstRow);
     }
 
-    public boolean startContractWithSMGATemplate() {
-        click("contract start button", contractCreateStart);
-        return click("smga template", getTemplateOption("SMGA.xml"));
-    }
-
-    public boolean startContractTemplate(String templateName) {
-        click("contract start button", contractCreateStart);
-        return click("template " + templateName, getTemplateOption(templateName));
-    }
-
-    public boolean isContractTemplateVisible(String templateName) {
-        click("contract start button", contractCreateStart);
-        return isVisible(getTemplateOption(templateName));
+    public boolean startContractAuthor() {
+        click("contract start button", buttonContractCreateStart);
+        //Give it some extra time since loading pilot contract wrapper can take some time
+        return click("pilot contract", buttonContractCreatePilotContractWrapper);
     }
 
     /*
@@ -143,17 +130,5 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
     HELPER METHOD
      */
 
-    private WebElement getTemplateOption(String template) {
-        String path = ".//h3[contains(text(),'" + template + "')]/following-sibling::div/span[@title='Create New']/a";
-        //Wait for anchor element
-        waitTillVisible(contractCreateTemplateOptionGetPaperTypes);
 
-        //Try to find sub element
-        try {
-            return contractCreateTemplateOptions.findElement(By.xpath(path));
-        } catch (Exception e) {
-            log.error("did not find {}", template, e);
-            return null;
-        }
-    }
 }

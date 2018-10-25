@@ -60,7 +60,7 @@ public class PESInputPage extends GenericInputPage {
 
     @Override
     public boolean confirmCurrentPage() {
-        return isVisible(labelPESInputs);
+        return waitTillVisible(textBoxMPIN, 180) && isVisible(labelPESInputs);
     }
 
     /*
@@ -69,5 +69,9 @@ public class PESInputPage extends GenericInputPage {
 
     public boolean enterMPIN(String mpin) {
         return cleanWriteTextBox("mpin", textBoxMPIN, mpin);
+    }
+
+    public boolean enterTIN(String tin) {
+        return cleanWriteTextBox("tin", textBoxTIN, tin);
     }
 }

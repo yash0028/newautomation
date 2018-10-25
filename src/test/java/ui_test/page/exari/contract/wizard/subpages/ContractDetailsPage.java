@@ -23,6 +23,8 @@ public class ContractDetailsPage extends GenericInputPage {
     @FindBy(xpath = ".//div[@class='AnswerSideBySide interview-item__answer']/span[2]/input")
     private WebElement checkBoxContractEffectiveDateUnsure;
 
+    //Phycon Number input
+
     /*
     CONSTRUCTOR
      */
@@ -55,5 +57,11 @@ public class ContractDetailsPage extends GenericInputPage {
 
     public boolean uncheckEffectiveDateUnsure() {
         return setCheckBox("unsure", checkBoxContractEffectiveDateUnsure, false);
+    }
+
+    public boolean enterPhyconNumber(String number) {
+
+
+        return true;
     }
 }
