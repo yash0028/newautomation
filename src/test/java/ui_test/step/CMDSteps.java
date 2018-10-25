@@ -31,8 +31,8 @@ public class CMDSteps implements IRestStep, IUiStep {
 
     @Given("^I have entered the CMD dashboard URL$")
     public void navigateToCMDdashboardUrl() {
-        getRemoteDriver().get(CMD_DASHBOARD_URL);
-        cmdPage = new CMDPage(getRemoteDriver());
+        getDriver().get(CMD_DASHBOARD_URL);
+        cmdPage = new CMDPage(getDriver());
         Assert.assertNotNull("CMD page not displayed", cmdPage);
     }
 

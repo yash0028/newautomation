@@ -29,8 +29,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
 
     @Given("^I am logged into Exari Dev as a valid user$")
     public void loginAndGoToHomePage() {
-        getRemoteDriver().get(configGetOptionalString("exari.devURL").orElse(""));
-        LoginPage loginPage = new LoginPage(getRemoteDriver());
+        getDriver().get(configGetOptionalString("exari.devURL").orElse(""));
+        LoginPage loginPage = new LoginPage(getDriver());
         Assert.assertTrue(loginPage.confirmCurrentPage());
 
         Assert.assertTrue(loginPage.login());
@@ -287,7 +287,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
 
     @Then("^I confirm on am on the \"([^\"]*)\" landing page$")
     public void confirmSitePage(String site) {
-        SiteManager siteManager = new SiteManager(getRemoteDriver());
+        SiteManager siteManager = new SiteManager(getDriver());
         assert siteManager.getSitePage(site).confirmCurrentPage();
     }
 }
