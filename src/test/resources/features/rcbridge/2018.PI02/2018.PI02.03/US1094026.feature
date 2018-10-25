@@ -28,30 +28,30 @@ Feature: US1094026 - [Continued] Create External Data Query for PES
     Given UHC will need to provide Exari with PES data
     When Exari calls PES with MPIN and TIN
     Then an external data query will return a list of responses with the following populated fields if the result is a physician:
-      | mpin |
-      | tin |
-      | firstName |
-      | lastName |
-      | address |
-      | addressLine1 |
-      | city |
-      | zip |
-      | state |
-      | specialties |
-      | specialtyCode |
-      | description |
+      | mpin             |
+      | tin              |
+      | firstName        |
+      | lastName         |
+      | address          |
+      | addressLine1     |
+      | city             |
+      | zip              |
+      | state            |
+      | specialties      |
+      | specialtyCode    |
+      | description      |
       | providerTypeCode |
-      | phoneNumbers |
+      | phoneNumbers     |
     And an external data query will return a list of responses with the following populated fields if the result is a facility:
-      | mpin |
-      | tin |
-      | facilityName |
-      | address |
-      | addressLine1 |
-      | city |
-      | zip |
-      | state |
-      | organization |
+      | mpin             |
+      | tin              |
+      | facilityName     |
+      | address          |
+      | addressLine1     |
+      | city             |
+      | zip              |
+      | state            |
+      | organization     |
       | organizationType |
       | organizationCode |
       | providerTypeCode |

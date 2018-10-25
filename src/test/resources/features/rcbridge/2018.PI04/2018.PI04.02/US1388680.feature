@@ -37,16 +37,16 @@ Feature: US1388680 - [Unfinished] CMD- User Input Required Page- Populate rows o
     Given I have clicked on Action Required button on the CMD dashboard
     When there are Action Required transactions
     Then for each transaction that requires input I can see data populated for each one of the fields
-      | Site |
-      | State |
-      | Market Number |
-      | User ID |
-      | Contract ID |
+      | Site                |
+      | State               |
+      | Market Number       |
+      | User ID             |
+      | Contract ID         |
       | Contract Paper Type |
-      | Contract Name |
-      | Status |
-      | Action Required |
-      | Date |
+      | Contract Name       |
+      | Status              |
+      | Action Required     |
+      | Date                |
 
   @TC615269
   @Manual

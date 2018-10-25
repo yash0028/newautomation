@@ -6,7 +6,7 @@
 @F236509
 @releaseFuture
 @iterationUnknown
-Feature: US1396746 - Create Duplicate Edit 2 for Draft and Active contracts
+Feature: US1396746 - Create Duplicate Edit 2 for Draft
 
   @TC619293
   @Manual
