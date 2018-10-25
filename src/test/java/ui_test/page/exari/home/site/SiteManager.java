@@ -56,8 +56,10 @@ public class SiteManager {
     public enum Site {
         TEST,
         CENTRAL,
+        WEST,
         NORTHEAST,
-        SOUTHEAST;
+        SOUTHEAST,
+        NATIONAL;
 
         public static Site string2Site(String site) {
             site = site.toUpperCase();

@@ -62,3 +62,30 @@ Feature: Exari UI Test
 #      | northeast uhn | SMGA |
 #      | central uhn   | SMGA |
 
+
+  Scenario Outline: Author contract on Central
+    Given I am logged into Exari Dev as a valid user and go to the "central uhn" site
+    When I author a contract using the "Pilot Contract Wrapper" template using the MPIN "<mpin>"
+    # Assume choosing First PES Response
+    And I enter the following contract information
+      | Market Number      | <market number> |
+      | Paper Type         | <paper type>    |
+      | HBP                | no              |
+      | Phycon             | 1234            |
+      | Additional Manuals | no              |
+
+
+    And I enter the Market Number "<market number>" and
+    And I select the Paper Type "<paper type>"
+    And I select the HBP option of "no"
+    And I enter the Phycon Number "<phycon>"
+    And I select no additional manuals
+
+    Examples:
+    # MPIN: 1000470
+    # Market Number: 35551
+    # Paper Type: SPA
+
+  # Arbitration county?
+
+
