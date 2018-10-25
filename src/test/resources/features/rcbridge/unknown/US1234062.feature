@@ -1,8 +1,6 @@
 # Last updated on 
 @US1234062
-@Priority_1
-@CMD2
-@F210044
+@F205008
 @releaseUnknown
 @iterationUnknown
 Feature: US1234062 - Provider TIN

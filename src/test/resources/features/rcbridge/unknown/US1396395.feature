@@ -1,8 +1,5 @@
 # Last updated on 
 @US1396395
-@MVP
-@Maintenance
-@F236042
 @releaseUnknown
 @iterationUnknown
 Feature: US1396395 - Extend term of agreement - hard term - load downstream integrated - NDB

@@ -1,8 +1,5 @@
 # Last updated on 
 @US1396399
-@MVP
-@Maintenance
-@F236042
 @releaseUnknown
 @iterationUnknown
 Feature: US1396399 - Extend term of agreement - hard term - load downstream integrated - COSMOS
