@@ -35,13 +35,13 @@ public class CMDActionRequiredSteps implements IUiStep {
         Assert.assertTrue("CMD page could not be displayed", cmdPage.confirmCurrentPage());
         Assert.assertTrue("Action required link could not be clicked", cmdPage.clickActionRequiredLink());
 
-//        getRemoteDriver().get(CMD_DASHBOARD_URL); // Navigate to the CMD page
-//        cmdPage = new CMDPage(getRemoteDriver());
+//        getDriver().get(CMD_DASHBOARD_URL); // Navigate to the CMD page
+//        cmdPage = new CMDPage(getDriver());
     }
 
     @When("^there are Action Required transactions$")
     public void thereAreActionRequiredTransactions() throws Throwable {
-        // actionRequiredPage = new actionRequiredPage(getRemoteDriver());
+        // actionRequiredPage = new actionRequiredPage(getDriver());
         actionRequiredPage = new ActionRequiredPage(driver);
         Assert.assertTrue("URL for in progress page does not match", actionRequiredPage.confirmCurrentPage());
 

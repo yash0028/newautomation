@@ -7,11 +7,12 @@ import cucumber.api.java.Before;
 import general_test.util.BookendOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.configuration.IConfigurable;
 
 /**
  * Utility Cucumber steps for UI Stories to start and close SauceLabs connection
  */
-public class UtilityUISteps implements IUiStep {
+public class UtilityUISteps implements IUiStep, IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(UtilityUISteps.class);
 
     /**
@@ -21,8 +22,14 @@ public class UtilityUISteps implements IUiStep {
      */
     @Before(value = "@A_UI_Story", order = BookendOrder.UI)
     public void openConnection(Scenario scenario) {
-        SauceLabs.reset(scenario.getName());
-        log.info("SauceLabs Test Video: {}", SauceLabs.getInstance().getSauceLink());
+        if (isRunningLocalDriver()) {
+            SauceLabs.reset(scenario.getName());
+            log.info("SauceLabs Test Video: {}", SauceLabs.getInstance().getSauceLink());
+
+        } else {
+            LocalDriver.reset();
+            log.info("Running local ui test");
+        }
     }
 
     /**
@@ -32,12 +39,17 @@ public class UtilityUISteps implements IUiStep {
      */
     @After(value = "@A_UI_Story", order = BookendOrder.UI)
     public void closeConnection(Scenario scenario) {
-        if (scenario.getStatus() == Result.Type.PASSED) {
-            SauceLabs.getInstance().testPassed();
+        if (isRunningLocalDriver()) {
+            if (scenario.getStatus() == Result.Type.PASSED) {
+                SauceLabs.getInstance().testPassed();
+            } else {
+                SauceLabs.getInstance().testFailed();
+            }
+
+            SauceLabs.getInstance().close();
         } else {
-            SauceLabs.getInstance().testFailed();
+            LocalDriver.getInstance().close();
         }
 
-        SauceLabs.getInstance().close();
     }
 }
