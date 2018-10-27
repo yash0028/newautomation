@@ -1,15 +1,15 @@
 # Last updated on 
-@MVP+1
+@CMD2
 @US1211464
 @F205008
 @releaseUnknown
 @iterationUnknown
-Feature: US1211464 - Identify contract provider Market Number
+Feature: US1211464 - Process contract master search based on Market Number of Provider Roster record / Service Location
 
   @TC565711
   @Automated
   @Functional
-  @MVP+1
+  @CMD2
   @US1211464
   Scenario: TC565711 - [RL2]
     Given the market number of the provider record has been compared to the market number assigned to the contract
@@ -19,7 +19,7 @@ Feature: US1211464 - Identify contract provider Market Number
   @TC565709
   @Automated
   @Functional
-  @MVP+1
+  @CMD2
   @US1211464
   Scenario: TC565709 - [RL0]
     Given an healthcare provider is party to an Exari contract record
@@ -30,7 +30,7 @@ Feature: US1211464 - Identify contract provider Market Number
   @TC565710
   @Automated
   @Functional
-  @MVP+1
+  @CMD2
   @US1211464
   Scenario: TC565710 - [RL1]
     Given an healthcare provider is party to an Exari contract record
@@ -40,7 +40,7 @@ Feature: US1211464 - Identify contract provider Market Number
   @TC565712
   @Automated
   @Functional
-  @MVP+1
+  @CMD2
   @US1211464
   Scenario: TC565712 - [RL3]
     Given the market number of the provider record has been compared to the market number assigned to the contract
