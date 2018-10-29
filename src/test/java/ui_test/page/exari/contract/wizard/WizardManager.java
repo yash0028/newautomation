@@ -61,12 +61,7 @@ public class WizardManager {
             rfpResponseMasterPage.clickNext();
         }
 
-        //Handle Provider Detail
-        ProviderDetailsReviewPage providerDetailsReviewPage = this.getProviderDetailsReviewPage();
-        if (providerDetailsReviewPage.confirmCurrentPage()) {
-            providerDetailsReviewPage.selectArbitrationCounty();
-            providerDetailsReviewPage.clickNext();
-        }
+//        handleArbitrationCounty();
 
         return test;
     }
@@ -78,6 +73,8 @@ public class WizardManager {
 
         test &= documentSelectionPage.selectRadioOption(paperType);
         documentSelectionPage.clickNext();
+
+        test &= handleArbitrationCounty();
 
         return test;
     }
@@ -129,6 +126,31 @@ public class WizardManager {
 
         test &= appendix2Page.selectMedicareAdvantageIfAvailable();
         appendix2Page.clickNext();
+
+        return test;
+    }
+
+    public boolean enterPaymentAppendix() {
+        boolean test = true;
+        //Handle Payment Appendix
+        PaymentAppendixPage paymentAppendixPage = this.getPaymentAppendixPage();
+        assert paymentAppendixPage.confirmCurrentPage();
+
+        test &= paymentAppendixPage.selectNonStandardOptionNo();
+        test &= paymentAppendixPage.selectIncludeAllPayer();
+        paymentAppendixPage.clickNext();
+
+        //Handle Select All Payer again
+        if (paymentAppendixPage.confirmCurrentPage()) {
+            test &= paymentAppendixPage.selectIncludeAllPayer();
+            paymentAppendixPage.clickNext();
+        }
+
+        //Handle Fee Schedule ID
+        if (paymentAppendixPage.confirmCurrentPage()) {
+            test &= paymentAppendixPage.enterFeeSchedule("1234");
+            paymentAppendixPage.clickNext();
+        }
 
         return test;
     }
@@ -203,5 +225,21 @@ public class WizardManager {
 
     public WizardCompletePage getWizardCompletePage() {
         return new WizardCompletePage(driver);
+    }
+
+    /*
+    HELPER METHODS
+     */
+
+    private boolean handleArbitrationCounty() {
+        //Handle Provider Detail
+        ProviderDetailsReviewPage providerDetailsReviewPage = this.getProviderDetailsReviewPage();
+        if (providerDetailsReviewPage.confirmCurrentPage()) {
+            //Select and go to next
+            return providerDetailsReviewPage.selectArbitrationCounty(0) &&
+                    providerDetailsReviewPage.clickNext();
+        }
+
+        return true;
     }
 }

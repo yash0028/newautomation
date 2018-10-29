@@ -23,6 +23,9 @@ public class ContractDetailsPage extends GenericInputPage {
     @FindBy(xpath = ".//div[@class='AnswerSideBySide interview-item__answer']/span[2]/input")
     private WebElement checkBoxContractEffectiveDateUnsure;
 
+    @FindBy(xpath = "//input[contains(@name,'PhyCon') and @type='text']")
+    private WebElement textBoxPhyConNumber;
+
     //Phycon Number input
 
     /*
@@ -60,8 +63,6 @@ public class ContractDetailsPage extends GenericInputPage {
     }
 
     public boolean enterPhyconNumber(String number) {
-
-
-        return true;
+        return cleanWriteTextBox("phycon number input", textBoxPhyConNumber, number);
     }
 }

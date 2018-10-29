@@ -16,6 +16,15 @@ public class PaymentAppendixPage extends GenericInputPage {
     @FindBy(xpath = "//p[contains(text(),'Payment Appendix')]")
     private WebElement labelPaymentAppendix;
 
+    @FindBy(xpath = "//input[contains(@value,'No')]")
+    private WebElement radioOptionNo;
+
+    @FindBy(xpath = "//input[contains(@value,'Payment Appendix All Payer')]")
+    private WebElement optionAllPayer;
+
+    @FindBy(xpath = "//input[contains(@id,'Schedule_ID')]")
+    private WebElement textBoxFeeScheduleID;
+
     /*
     CONSTRUCTOR
      */
@@ -36,4 +45,16 @@ public class PaymentAppendixPage extends GenericInputPage {
     /*
     CLASS METHODS
      */
+
+    public boolean selectNonStandardOptionNo() {
+        return click("non-standard no radio", radioOptionNo);
+    }
+
+    public boolean selectIncludeAllPayer() {
+        return click("all payer option", optionAllPayer);
+    }
+
+    public boolean enterFeeSchedule(String feeID) {
+        return cleanWriteTextBox("fee schedule", textBoxFeeScheduleID, feeID);
+    }
 }
