@@ -1,8 +1,6 @@
 # Last updated on 
 @US1256694
-@Priority_1
-@CMD2
-@F210192
+@F205008
 @releaseUnknown
 @iterationUnknown
 Feature: US1256694 - Access and security management
