@@ -22,7 +22,7 @@ public class WizardManager {
     public boolean searchPES(String mpin, String tin, int index) {
         boolean test = true;
         //Handle PES Input Page
-        PESInputPage pesInputPage = this.getPESInputPage();
+        PESInputPage pesInputPage = new PESInputPage(driver);
         assert pesInputPage.confirmCurrentPage();
 
         if (mpin != null && !mpin.isEmpty()) {
@@ -36,7 +36,7 @@ public class WizardManager {
         pesInputPage.clickNext();
 
         //Handle PES Response Page
-        PESResponsePage pesResponsePage = this.getPESResponsePage();
+        PESResponsePage pesResponsePage = new PESResponsePage(driver);
         assert pesResponsePage.confirmCurrentPage();
 
         //Ignore index for now, just select option 1
@@ -49,14 +49,14 @@ public class WizardManager {
     public boolean enterMarketNumber(String marketNumber) {
         boolean test = true;
         //Handle Market Number Page
-        MarketNumberInputPage marketNumberInputPage = this.getMarketNumberInputPage();
+        MarketNumberInputPage marketNumberInputPage = new MarketNumberInputPage(driver);
         assert marketNumberInputPage.confirmCurrentPage();
 
         test &= marketNumberInputPage.selectMarketNumber(marketNumber);
         marketNumberInputPage.clickNext();
 
         //Handle RFP Response Master Page, no action
-        RFPResponseMasterPage rfpResponseMasterPage = this.getRFPResponseMasterPage();
+        RFPResponseMasterPage rfpResponseMasterPage = new RFPResponseMasterPage(driver);
         if (rfpResponseMasterPage.confirmCurrentPage()) {
             rfpResponseMasterPage.clickNext();
         }
@@ -68,7 +68,7 @@ public class WizardManager {
 
     public boolean selectPaperType(String paperType) {
         boolean test = true;
-        DocumentSelectionPage documentSelectionPage = this.getDocumentSelectionPage();
+        DocumentSelectionPage documentSelectionPage = new DocumentSelectionPage(driver);
         assert documentSelectionPage.confirmCurrentPage();
 
         test &= documentSelectionPage.selectRadioOption(paperType);
@@ -82,7 +82,7 @@ public class WizardManager {
     public boolean selectHBPOption(String option) {
         boolean test = true;
         //Handle HBP Red Door
-        HBPRedDoorPage hbpRedDoorPage = this.getHBPRedDoorPage();
+        HBPRedDoorPage hbpRedDoorPage = new HBPRedDoorPage(driver);
         assert hbpRedDoorPage.confirmCurrentPage();
         if (option.equalsIgnoreCase("yes")) {
             test &= hbpRedDoorPage.selectHospitalBasedProvidersOptionYes();
@@ -97,7 +97,7 @@ public class WizardManager {
 
     public boolean enterPhyconNumber(String phycon) {
         boolean test = true;
-        ContractDetailsPage contractDetailsPage = this.getContractDetailsPage();
+        ContractDetailsPage contractDetailsPage = new ContractDetailsPage(driver);
         assert contractDetailsPage.confirmCurrentPage();
 
         test &= contractDetailsPage.enterPhyconNumber(phycon);
@@ -109,7 +109,7 @@ public class WizardManager {
     public boolean enterAppendix1() {
         boolean test = true;
         //Handle Appendix 1 Page
-        Appendix1Page appendix1Page = this.getAppendix1Page();
+        Appendix1Page appendix1Page = new Appendix1Page(driver);
         assert appendix1Page.confirmCurrentPage();
 
         test &= appendix1Page.selectAdditionalManualOptionNo();
@@ -121,7 +121,7 @@ public class WizardManager {
     public boolean enterAppendix2() {
         boolean test = true;
         //Handle Appendix 2 Page
-        Appendix2Page appendix2Page = this.getAppendix2Page();
+        Appendix2Page appendix2Page = new Appendix2Page(driver);
         assert appendix2Page.confirmCurrentPage();
 
         test &= appendix2Page.selectMedicareAdvantageIfAvailable();
@@ -133,7 +133,7 @@ public class WizardManager {
     public boolean enterPaymentAppendix() {
         boolean test = true;
         //Handle Payment Appendix
-        PaymentAppendixPage paymentAppendixPage = this.getPaymentAppendixPage();
+        PaymentAppendixPage paymentAppendixPage = new PaymentAppendixPage(driver);
         assert paymentAppendixPage.confirmCurrentPage();
 
         test &= paymentAppendixPage.selectNonStandardOptionNo();
@@ -195,84 +195,12 @@ public class WizardManager {
     }
 
     /*
-    PAGE
-     */
-
-    public PESInputPage getPESInputPage() {
-        return new PESInputPage(driver);
-    }
-
-    public PESResponsePage getPESResponsePage() {
-        return new PESResponsePage(driver);
-    }
-
-    public DocumentSelectionPage getDocumentSelectionPage() {
-        return new DocumentSelectionPage(driver);
-    }
-
-    public MarketNumberInputPage getMarketNumberInputPage() {
-        return new MarketNumberInputPage(driver);
-    }
-
-    public ProviderDetailsReviewPage getProviderDetailsReviewPage() {
-        return new ProviderDetailsReviewPage(driver);
-    }
-
-    public RFPResponsePart1Page getRFPResponsePart1Page() {
-        return new RFPResponsePart1Page(driver);
-    }
-
-    public RFPResponsePart2Page getRFPResponsePart2Page() {
-        return new RFPResponsePart2Page(driver);
-    }
-
-    public RFPResponseMasterPage getRFPResponseMasterPage() {
-        return new RFPResponseMasterPage(driver);
-    }
-
-    public HBPRedDoorPage getHBPRedDoorPage() {
-        return new HBPRedDoorPage(driver);
-    }
-
-    public Appendix1Page getAppendix1Page() {
-        return new Appendix1Page(driver);
-    }
-
-    public Appendix2Page getAppendix2Page() {
-        return new Appendix2Page(driver);
-    }
-
-    public PaymentAppendixPage getPaymentAppendixPage() {
-        return new PaymentAppendixPage(driver);
-    }
-
-    public Appendix3Page getAppendix3Page() {
-        return new Appendix3Page(driver);
-    }
-
-    public Appendix4Page getAppendix4Page() {
-        return new Appendix4Page(driver);
-    }
-
-    public ContractDetailsPage getContractDetailsPage() {
-        return new ContractDetailsPage(driver);
-    }
-
-    public InterviewSummaryPage getInterviewSummaryPage() {
-        return new InterviewSummaryPage(driver);
-    }
-
-    public WizardCompletePage getWizardCompletePage() {
-        return new WizardCompletePage(driver);
-    }
-
-    /*
     HELPER METHODS
      */
 
     private boolean handleArbitrationCounty() {
         //Handle Provider Detail
-        ProviderDetailsReviewPage providerDetailsReviewPage = this.getProviderDetailsReviewPage();
+        ProviderDetailsReviewPage providerDetailsReviewPage = new ProviderDetailsReviewPage(driver);
         if (providerDetailsReviewPage.confirmCurrentPage()) {
             //Select and go to next
             return providerDetailsReviewPage.selectArbitrationCounty(0) &&
