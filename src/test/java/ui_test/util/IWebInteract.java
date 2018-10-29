@@ -32,26 +32,38 @@ public interface IWebInteract {
      */
 
     default void pause(int seconds) {
-        pauseSilent(seconds);
-        log.trace("paused for {} seconds", seconds);
+        if (pauseSilent(seconds))
+            log.trace("paused for {} seconds", seconds);
     }
 
-    default void pauseSilent(int seconds) {
+    default boolean pauseSilent(int seconds) {
         try {
             TimeUnit.SECONDS.sleep(seconds);
         } catch (InterruptedException e) {
             e.printStackTrace();
+            log.error("failed to pause for {} seconds", seconds, e);
+            return false;
         }
+
+        return true;
     }
 
     default boolean isVisible(WebElement element) {
-        return element.isEnabled() && element.isDisplayed();
+        try {
+            return element.isEnabled() && element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     default boolean waitTillVisible(WebElement element, int timeout) {
-        WebDriverWait wait = new WebDriverWait(this.getDriver(), timeout);
-        wait.until(ExpectedConditions.visibilityOf(element));
-        return isVisible(element);
+        try {
+            WebDriverWait wait = new WebDriverWait(this.getDriver(), timeout);
+            wait.until(ExpectedConditions.visibilityOf(element));
+            return isVisible(element);
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     default boolean waitTillVisible(WebElement element) {
@@ -80,6 +92,7 @@ public interface IWebInteract {
 
     /**
      * Clicks a given web element.
+     *
      * @param element Web element to be clicked
      * @return true if clicked or false otherwise
      */
