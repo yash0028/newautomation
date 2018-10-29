@@ -93,6 +93,7 @@ public class WizardManager {
         } else {
             test &= hbpRedDoorPage.selectHospitalBasedProvidersOptionNo();
         }
+        hbpRedDoorPage.clickNext();
 
         return test;
     }
@@ -103,6 +104,31 @@ public class WizardManager {
         assert contractDetailsPage.confirmCurrentPage();
 
         test &= contractDetailsPage.enterPhyconNumber(phycon);
+        contractDetailsPage.clickNext();
+
+        return test;
+    }
+
+    public boolean enterAppendix1() {
+        boolean test = true;
+        //Handle Appendix 1 Page
+        Appendix1Page appendix1Page = this.getAppendix1Page();
+        assert appendix1Page.confirmCurrentPage();
+
+        test &= appendix1Page.selectAdditionalManualOptionNo();
+        appendix1Page.clickNext();
+
+        return test;
+    }
+
+    public boolean enterAppendix2() {
+        boolean test = true;
+        //Handle Appendix 2 Page
+        Appendix2Page appendix2Page = this.getAppendix2Page();
+        assert appendix2Page.confirmCurrentPage();
+
+        test &= appendix2Page.selectMedicareAdvantageIfAvailable();
+        appendix2Page.clickNext();
 
         return test;
     }

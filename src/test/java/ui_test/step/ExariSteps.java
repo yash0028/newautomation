@@ -70,8 +70,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
         );
 
         //Appendix 1 :: Select Additional Manuals
+        assert wizard.enterAppendix1();
 
         //Appendix 2 ::
+        assert wizard.enterAppendix2();
 
         //Payment Appendix ::
 
