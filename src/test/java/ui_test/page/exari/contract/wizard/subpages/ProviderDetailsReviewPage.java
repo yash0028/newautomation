@@ -16,6 +16,9 @@ public class ProviderDetailsReviewPage extends GenericInputPage {
     @FindBy(xpath = "//p[contains(text(),'Address')]")
     private WebElement labelAddress;
 
+    @FindBy(xpath = "//div/div/p/label/b[contains(text(), 'Arbitration County')]/ancestor::div[contains(@class, 'interview-item')]//div[1]/div/span/input[@type='radio']")
+    private WebElement radioOptionArbitrationCounty1;
+
     /*
     CONSTRUCTOR
      */
@@ -36,4 +39,12 @@ public class ProviderDetailsReviewPage extends GenericInputPage {
     /*
     CLASS METHODS
      */
+
+    public boolean selectArbitrationCounty() {
+        if (isVisible(radioOptionArbitrationCounty1)) {
+            return click(radioOptionArbitrationCounty1);
+        } else {
+            return true;
+        }
+    }
 }

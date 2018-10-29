@@ -22,7 +22,7 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
      */
     @Before(value = "@A_UI_Story", order = BookendOrder.UI)
     public void openConnection(Scenario scenario) {
-        if (isRunningLocalDriver()) {
+        if (isRemoteDriver()) {
             SauceLabs.reset(scenario.getName());
             log.info("SauceLabs Test Video: {}", SauceLabs.getInstance().getSauceLink());
 
@@ -39,7 +39,7 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
      */
     @After(value = "@A_UI_Story", order = BookendOrder.UI)
     public void closeConnection(Scenario scenario) {
-        if (isRunningLocalDriver()) {
+        if (isRemoteDriver()) {
             if (scenario.getStatus() == Result.Type.PASSED) {
                 SauceLabs.getInstance().testPassed();
             } else {

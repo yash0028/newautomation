@@ -19,6 +19,124 @@ public class WizardManager {
     CLASS METHODS
      */
 
+    public boolean searchPES(String mpin, String tin, int index) {
+        boolean test = true;
+        //Handle PES Input Page
+        PESInputPage pesInputPage = this.getPESInputPage();
+        assert pesInputPage.confirmCurrentPage();
+
+        if (mpin != null && !mpin.isEmpty()) {
+            test &= pesInputPage.enterMPIN(mpin);
+        }
+
+        if (tin != null && !tin.isEmpty()) {
+            test &= pesInputPage.enterTIN(tin);
+        }
+
+        pesInputPage.clickNext();
+
+        //Handle PES Response Page
+        PESResponsePage pesResponsePage = this.getPESResponsePage();
+        assert pesResponsePage.confirmCurrentPage();
+
+        //Ignore index for now, just select option 1
+        pesResponsePage.selectCounterPartyOption1();
+        pesResponsePage.clickNext();
+
+        return test;
+    }
+
+    public boolean enterMarketNumber(String marketNumber) {
+        boolean test = true;
+        //Handle Market Number Page
+        MarketNumberInputPage marketNumberInputPage = this.getMarketNumberInputPage();
+        assert marketNumberInputPage.confirmCurrentPage();
+
+        test &= marketNumberInputPage.selectMarketNumber(marketNumber);
+        marketNumberInputPage.clickNext();
+
+        //Handle RFP Response Master Page, no action
+        RFPResponseMasterPage rfpResponseMasterPage = this.getRFPResponseMasterPage();
+        if (rfpResponseMasterPage.confirmCurrentPage()) {
+            rfpResponseMasterPage.clickNext();
+        }
+
+        //Handle Provider Detail
+        ProviderDetailsReviewPage providerDetailsReviewPage = this.getProviderDetailsReviewPage();
+        if (providerDetailsReviewPage.confirmCurrentPage()) {
+            providerDetailsReviewPage.selectArbitrationCounty();
+            providerDetailsReviewPage.clickNext();
+        }
+
+        return test;
+    }
+
+    public boolean selectPaperType(String paperType) {
+        boolean test = true;
+        DocumentSelectionPage documentSelectionPage = this.getDocumentSelectionPage();
+        assert documentSelectionPage.confirmCurrentPage();
+
+        test &= documentSelectionPage.selectRadioOption(paperType);
+        documentSelectionPage.clickNext();
+
+        return test;
+    }
+
+    public boolean selectHBPOption(String option) {
+        boolean test = true;
+        //Handle HBP Red Door
+        HBPRedDoorPage hbpRedDoorPage = this.getHBPRedDoorPage();
+        assert hbpRedDoorPage.confirmCurrentPage();
+        if (option.equalsIgnoreCase("yes")) {
+            test &= hbpRedDoorPage.selectHospitalBasedProvidersOptionYes();
+            //Do some extra stuff
+        } else {
+            test &= hbpRedDoorPage.selectHospitalBasedProvidersOptionNo();
+        }
+        hbpRedDoorPage.clickNext();
+
+        return test;
+    }
+
+    public boolean enterPhyconNumber(String phycon) {
+        boolean test = true;
+        ContractDetailsPage contractDetailsPage = this.getContractDetailsPage();
+        assert contractDetailsPage.confirmCurrentPage();
+
+        test &= contractDetailsPage.enterPhyconNumber(phycon);
+        contractDetailsPage.clickNext();
+
+        return test;
+    }
+
+    public boolean enterAppendix1() {
+        boolean test = true;
+        //Handle Appendix 1 Page
+        Appendix1Page appendix1Page = this.getAppendix1Page();
+        assert appendix1Page.confirmCurrentPage();
+
+        test &= appendix1Page.selectAdditionalManualOptionNo();
+        appendix1Page.clickNext();
+
+        return test;
+    }
+
+    public boolean enterAppendix2() {
+        boolean test = true;
+        //Handle Appendix 2 Page
+        Appendix2Page appendix2Page = this.getAppendix2Page();
+        assert appendix2Page.confirmCurrentPage();
+
+        test &= appendix2Page.selectMedicareAdvantageIfAvailable();
+        appendix2Page.clickNext();
+
+        return test;
+    }
+
+    /*
+    PAGE
+     */
+
     public PESInputPage getPESInputPage() {
         return new PESInputPage(driver);
     }
@@ -45,6 +163,10 @@ public class WizardManager {
 
     public RFPResponsePart2Page getRFPResponsePart2Page() {
         return new RFPResponsePart2Page(driver);
+    }
+
+    public RFPResponseMasterPage getRFPResponseMasterPage() {
+        return new RFPResponseMasterPage(driver);
     }
 
     public HBPRedDoorPage getHBPRedDoorPage() {

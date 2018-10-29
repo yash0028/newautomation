@@ -48,10 +48,14 @@ public interface IWebInteract {
         return element.isEnabled() && element.isDisplayed();
     }
 
-    default boolean waitTillVisible(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(this.getDriver(), TIMEOUT);
+    default boolean waitTillVisible(WebElement element, int timeout) {
+        WebDriverWait wait = new WebDriverWait(this.getDriver(), timeout);
         wait.until(ExpectedConditions.visibilityOf(element));
-        return element.isDisplayed();
+        return isVisible(element);
+    }
+
+    default boolean waitTillVisible(WebElement element) {
+        return waitTillVisible(element, TIMEOUT);
     }
 
     /**
