@@ -155,6 +155,45 @@ public class WizardManager {
         return test;
     }
 
+    public boolean selectRegulatoryAppendix(String search, int index) {
+        boolean test = true;
+        //Handle Regulatory Appendix
+        RegulatoryAppendixPage regulatoryAppendixPage = new RegulatoryAppendixPage(driver);
+        assert regulatoryAppendixPage.confirmCurrentPage();
+
+        test &= regulatoryAppendixPage.selectRegulatory(search, index);
+        regulatoryAppendixPage.clickNext();
+
+        return test;
+    }
+
+    public boolean selectProviderRoster() {
+        boolean test = true;
+        //Handle Provider Roster
+        ProviderRosterPage providerRosterPage = new ProviderRosterPage(driver);
+        assert providerRosterPage.confirmCurrentPage();
+
+        test &= providerRosterPage.selectRosterActionNone();
+        providerRosterPage.clickNext();
+
+        return test;
+    }
+
+    public boolean previewContractAndComplete() {
+        ContractPreviewPage contractPreviewPage = new ContractPreviewPage(driver);
+        assert contractPreviewPage.confirmCurrentPage();
+        contractPreviewPage.clickNext();
+
+        WizardCompletePage wizardCompletePage = new WizardCompletePage(driver);
+        assert wizardCompletePage.confirmCurrentPage();
+
+        return wizardCompletePage.clickNext();
+    }
+
+    public boolean finalCapture() {
+        return true;
+    }
+
     /*
     PAGE
      */

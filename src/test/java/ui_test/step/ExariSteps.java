@@ -73,18 +73,21 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
         //Payment Appendix ::
         assert wizard.enterPaymentAppendix();
 
-        //Regulatory Appendix ::
+        //Regulatory Appendix :: Search for Regulator
+        assert wizard.selectRegulatoryAppendix("iowa", 0);
 
-        //Appendix 3 ::
+        //Provider Roster :: Select Roster Action
+        assert wizard.selectProviderRoster();
 
-        //Appendix 4 ::
+        //Preview Contact & Wizard Complete :: no operation
+        assert wizard.previewContractAndComplete();
 
-        //Select HBP Option
-        assert wizard.selectHBPOption(
-                contractParam.getOrDefault("HBP", null)
-        );
+        //Back to contract page
+        contractPage = sitePage.getContractPage();
+        assert contractPage.confirmCurrentPage();
 
-
+        //Perform QA analysis and set status as active
+        assert markContractActive();
     }
 
     @Then("^I have an active contract in Exari$")
@@ -196,7 +199,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
         assert contractPage.confirmCurrentPage();
 
         //Perform QA analysis and set status as active
-        finishContract();
+        markContractActive();
     }
 
     /*
@@ -228,7 +231,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
         assert contractPage.confirmCurrentPage();
 
         //Perform QA analysis and set status as active
-        finishContract();
+        markContractActive();
     }
 
     /*
@@ -260,7 +263,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
         assert contractPage.confirmCurrentPage();
 
         //Perform QA analysis and set status as active
-        finishContract();
+        markContractActive();
     }
 
     @When("^I select the most recent \"([^\"]*)\" \"([^\"]*)\" contract in Exari$")
@@ -305,9 +308,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
         log.info("moved to {} site", siteOption);
     }
 
-    private void finishContract() {
+    private boolean markContractActive() {
         WizardManager wizard = contractPage.getContractWizard();
-        GenericInputPage page;
 
         //set Edit Status
         contractPage.setEditStatus("Final Pending QA");
@@ -315,20 +317,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
         //click Final Capture
         contractPage.clickFinalCapture();
 
-        //Handle Interview Summary Page, no action
-        page = wizard.getInterviewSummaryPage();
-        assert page.confirmCurrentPage();
-        page.clickNext();
-
-        //Handle Wizard Complete Page
-        WizardCompletePage wizardCompletePage = wizard.getWizardCompletePage();
-        assert wizardCompletePage.confirmCurrentPage();
-        wizardCompletePage.clickWizardNext();
+        assert wizard.finalCapture();
 
         //Back to Contract Page
         assert contractPage.confirmCurrentPage();
 
         //set Edit Status
-        contractPage.setEditStatus("Active");
+        return contractPage.setEditStatus("Active");
     }
 }
