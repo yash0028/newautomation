@@ -64,7 +64,7 @@ public class WizardManager {
         //Handle Provider Detail
         ProviderDetailsReviewPage providerDetailsReviewPage = this.getProviderDetailsReviewPage();
         if (providerDetailsReviewPage.confirmCurrentPage()) {
-            test &= providerDetailsReviewPage.selectArbitrationCounty();
+            providerDetailsReviewPage.selectArbitrationCounty();
             providerDetailsReviewPage.clickNext();
         }
 

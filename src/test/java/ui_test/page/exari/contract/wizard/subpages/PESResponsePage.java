@@ -47,11 +47,11 @@ public class PESResponsePage extends GenericInputPage {
      */
 
     public boolean selectCounterPartyOption1() {
-        return click("first option", radioCounterPartyOption1);
+        return isVisible(radioCounterPartyOption1) && click("first option", radioCounterPartyOption1);
     }
 
     public boolean selectCounterPartyOption2() {
-        return click("second option", radioCounterPartyOption2);
+        return isVisible(radioCounterPartyOption2) && click("second option", radioCounterPartyOption2);
     }
 
 }

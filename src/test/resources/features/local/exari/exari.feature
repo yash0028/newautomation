@@ -18,7 +18,7 @@ Feature: Exari UI Test
     Examples:
       | mpin    | market number | paper type |
       | 1000470 | 35551         | SPA        |
-      | 1000470 | 35551         | PAT        |
+
     # MPIN: 1000470
     # Market Number: 35551
     # Paper Type: SPA
