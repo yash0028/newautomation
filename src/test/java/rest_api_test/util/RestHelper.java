@@ -77,7 +77,7 @@ class RestHelper {
             StringBuilder traveledPath = new StringBuilder("object");
             boolean tempTest = verifySingleKey(deepKeySet, 0, ecmRoot, traveledPath);
             if (tempTest) {
-                log.info("Found all keys for {}", traveledPath.toString());
+                log.trace("Found all keys for {}", traveledPath.toString());
             } else {
                 failCount++;
             }
