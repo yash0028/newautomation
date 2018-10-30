@@ -24,7 +24,7 @@ import static org.junit.Assert.assertTrue;
 public class MSGSteps implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(MSGSteps.class);
 
-    private static final String ENDPOINT = "http://market-strategy-grid-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
+    private static final String ENDPOINT = "http://market-strategy-grid-api-clm-test.ocp-ctc-core-nonprod.optum.com";
     private static final String RESOURCE_PRODUCTS = "/v1.0/products";
 
     private RequestSpecification request;
