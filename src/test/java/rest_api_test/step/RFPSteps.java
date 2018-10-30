@@ -25,7 +25,7 @@ import static org.junit.Assert.assertTrue;
 public class RFPSteps implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(RFPSteps.class);
 
-    private static final String ENDPOINT = "http://request-for-part-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
+    private static final String ENDPOINT = "http://request-for-part-api-clm-test.ocp-ctc-core-nonprod.optum.com";
     private static final String RESOURCE_PARTICIPATION_REQUESTS = "/v1.0/participation_requests";
 
     private static String samplePlaceOfService = "AL";
