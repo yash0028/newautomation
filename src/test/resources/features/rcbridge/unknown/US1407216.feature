@@ -16,13 +16,15 @@ Feature: US1407216 - Author SPA Contact UI Path
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     When I author a contract using the following contract information
       | MPIN               | <mpin>             |
+      | TIN                | <tin>              |
       | Market Number      | <market number>    |
-      | Paper Type         | <paper type>       |
+      | Paper Type         | SPA                |
       | HBP                | no                 |
       | Phycon             | 1234               |
       | Additional Manuals | no                 |
     Then I have an active contract in Exari
     Examples:
-      | site          | mpin          | market number | paper type    |
-      | central uhn   | 1000470       | 35551         | SPA           |
+      | site          | mpin          | tin           | market number |
+      | central uhn   | 1628713       | 510613164     | 35551         |
+      | northeast uhn | 1628713       | 510613164     | 50645         |
 

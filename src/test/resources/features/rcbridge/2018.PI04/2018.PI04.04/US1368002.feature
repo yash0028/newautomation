@@ -1,7 +1,7 @@
 # Last updated on 
 @US1368002
 @2018.PI04
-@2018.PI04.05
+@2018.PI04.04
 @MVP
 @10/1_Physician
 @Priority_1
@@ -18,7 +18,7 @@ Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
   @Functional
   @US1368002
   @2018.PI04
-  @2018.PI04.05
+  @2018.PI04.04
   Scenario: TC611133 - [RL2]
     Given UHG_SITE = UHN Northeast, Central, West, Southeast
     And UHG Market_Number-DMCQ=03413 (Field in the UCM Model)

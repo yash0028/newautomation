@@ -1,7 +1,7 @@
 # Last updated on 
 @US1367999
 @2018.PI04
-@2018.PI04.04
+@2018.PI04.05
 @MVP
 @10/1_Physician
 @Priority_1
@@ -17,7 +17,7 @@ Feature: US1367999 - PCP Specialties Standard definition UHN
   @Functional
   @US1367999
   @2018.PI04
-  @2018.PI04.04
+  @2018.PI04.05
   Scenario: TC600523 - [RL0]
     Given the provider record includes ContractOrgCd equals "UHN"
     And the NDB Provider Record Type equals "P"
