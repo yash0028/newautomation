@@ -97,11 +97,11 @@ public class WizardManager {
 
     public boolean enterPhyconNumber(String phycon) {
         boolean test = true;
-        ContractDetailsPage contractDetailsPage = new ContractDetailsPage(driver);
-        assert contractDetailsPage.confirmCurrentPage();
+        ContractDetailsPhyconPage contractDetailsPhyconPage = new ContractDetailsPhyconPage(driver);
+        assert contractDetailsPhyconPage.confirmCurrentPage();
 
-        test &= contractDetailsPage.enterPhyconNumber(phycon);
-        contractDetailsPage.clickNext();
+        test &= contractDetailsPhyconPage.enterPhyconNumber(phycon);
+        contractDetailsPhyconPage.clickNext();
 
         return test;
     }
@@ -191,7 +191,40 @@ public class WizardManager {
     }
 
     public boolean finalCapture() {
-        return true;
+        boolean test = true;
+        //Handle Effective Date
+        ContractDetailsEffectiveDatePage contractDetailsEffectiveDatePage = new ContractDetailsEffectiveDatePage(driver);
+        assert contractDetailsEffectiveDatePage.confirmCurrentPage();
+
+        test &= contractDetailsEffectiveDatePage.setEffectiveDate("October 4, 2018");
+        contractDetailsEffectiveDatePage.clickNext();
+
+        //Handle Provider Signatory
+        ProviderSignatoryPage providerSignatoryPage = new ProviderSignatoryPage(driver);
+        assert providerSignatoryPage.confirmCurrentPage();
+
+        test &= providerSignatoryPage.enterSignerName("Alex Berns");
+        test &= providerSignatoryPage.enterSignDate("October 20, 2018");
+        test &= providerSignatoryPage.enterSignerEmail("alex.berns@optum.com");
+        providerSignatoryPage.clickNext();
+
+        //Handle Our Signatory
+        OurSignatoryPage ourSignatoryPage = new OurSignatoryPage(driver);
+        assert ourSignatoryPage.confirmCurrentPage();
+
+        test &= ourSignatoryPage.enterSignerName("Suruchi Sinha");
+        test &= ourSignatoryPage.enterSignDate("October 20, 2018");
+        ourSignatoryPage.clickNext();
+
+        //Handle Roster Action, no action
+        ProviderRosterPage providerRosterPage = new ProviderRosterPage(driver);
+        assert providerRosterPage.confirmCurrentPage();
+        providerRosterPage.clickNext();
+
+        //Handle Preview and complete
+        test &= previewContractAndComplete();
+
+        return test;
     }
 
     /*
