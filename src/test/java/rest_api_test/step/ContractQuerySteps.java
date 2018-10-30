@@ -43,7 +43,6 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
     private RequestSpecification request;
     private Response response;
     private List<Response> responses = new ArrayList<>();
-    private Map<String, Response> contractResponseMap = new HashMap<>();
 
 
     @Given("^the Domain Service has received a business event from Exari$")
