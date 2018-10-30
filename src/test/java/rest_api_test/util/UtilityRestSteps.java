@@ -22,12 +22,12 @@ public class UtilityRestSteps {
     @Before(value = "@US1332127", order = BookendOrder.REST)
     public void resetMockService(Scenario scenario) {
         given().baseUri(ENDPOINT).delete(RESOURCE_CLEAR_COSMOS_DB);
-        given().baseUri(ENDPOINT).delete(RESOURCE_CLEAR_COSMOS_DB);
+        given().baseUri(ENDPOINT).delete(RESOURCE_CLEAR_NDB_DB);
     }
 
     @After(value = "@US1332127", order = BookendOrder.REST)
     public void somethingAfter(Scenario scenario) {
         given().baseUri(ENDPOINT).delete(RESOURCE_CLEAR_COSMOS_DB);
-        given().baseUri(ENDPOINT).delete(RESOURCE_CLEAR_COSMOS_DB);
+        given().baseUri(ENDPOINT).delete(RESOURCE_CLEAR_NDB_DB);
     }
 }
