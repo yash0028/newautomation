@@ -1,4 +1,4 @@
-# Last updated on
+# Last updated on 
 @Exari_Automation
 @US1384733
 @2018.PI04.03

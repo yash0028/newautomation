@@ -66,7 +66,7 @@ Feature: US1236428 - [Continued] [Continued] CMD Single Sign On - UHG Enterprise
     Then the user is able to view the CMD for that contract record
 
   @TC564533
-  @Automated
+  @Manual
   @Functional
   @A_UI_Story
   @US1236428

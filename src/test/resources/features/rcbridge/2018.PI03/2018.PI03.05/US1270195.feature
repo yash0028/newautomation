@@ -14,7 +14,7 @@
 Feature: US1270195 - Point to new ETMA DB
 
   @TC554636
-  @Automated
+  @Manual
   @Functional
   @Charlie
   @ETMA

@@ -12,6 +12,7 @@
 @iterationFuture
 Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
 
+  @RC_unlinked
   @TC611133
   @Manual
   @Functional

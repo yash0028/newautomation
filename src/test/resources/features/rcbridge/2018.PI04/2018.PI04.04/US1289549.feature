@@ -11,6 +11,17 @@
 @iterationFuture
 Feature: US1289549 - Contract Config Services - Update Contract Config record
 
+  @TC624683
+  @Manual
+  @Functional
+  @US1289549
+  @2018.PI04
+  @2018.PI04.04
+  Scenario: TC624683 - [RL1]
+    Given a contract master override or exception has been deemed appropriate
+    When the contract configuration detail record is accessed
+    Then a service is available that record existing user inputs and process correctly. (Once or always)
+
   @TC616503
   @Manual
   @Functional

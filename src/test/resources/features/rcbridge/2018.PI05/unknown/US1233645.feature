@@ -1,11 +1,7 @@
 # Last updated on 
 @US1233645
 @2018.PI05
-@MVP
-@10/1_Physician
-@Priority_1
-@CMD
-@F237213
+@F205008
 @releaseFuture
 @iterationUnknown
 Feature: US1233645 - Create Contract Config Summary web page template
