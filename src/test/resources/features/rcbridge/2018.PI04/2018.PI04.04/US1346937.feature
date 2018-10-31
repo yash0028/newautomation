@@ -1,14 +1,14 @@
 # Last updated on 
 @US1346937
 @2018.PI04
-@2018.PI04.03
+@2018.PI04.04
 @MVP
 @Madhur
 @Priority_1
 @CMD
 @F218723
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1346937 - [Continued] CMD- Update database schema for parital contract master updates
 
   @TC592146
@@ -16,7 +16,7 @@ Feature: US1346937 - [Continued] CMD- Update database schema for parital contrac
   @Functional
   @US1346937
   @2018.PI04
-  @2018.PI04.03
+  @2018.PI04.04
   Scenario: TC592146 - [RL0]
     # Scenario 1 (NDB partial update):
     Given The NDB contract master update was submitted from a roster

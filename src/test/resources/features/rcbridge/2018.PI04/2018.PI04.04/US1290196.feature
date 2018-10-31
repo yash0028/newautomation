@@ -1,14 +1,14 @@
 # Last updated on 
 @US1290196
 @2018.PI04
-@2018.PI04.03
+@2018.PI04.04
 @MVP
 @Madhur
 @Priority_1
 @CMD
 @F218723
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1290196 - [Continued] Contract Master Override work objects audits database schema
 
   @TC616488
@@ -16,7 +16,7 @@ Feature: US1290196 - [Continued] Contract Master Override work objects audits da
   @Functional
   @US1290196
   @2018.PI04
-  @2018.PI04.03
+  @2018.PI04.04
   Scenario: TC616488 - [RL2]
     # Scenario 3 (contract master error has been resolved- multiple contract masters)
     Given A business contractor is reviewing a contract master error
@@ -30,7 +30,7 @@ Feature: US1290196 - [Continued] Contract Master Override work objects audits da
   @Functional
   @US1290196
   @2018.PI04
-  @2018.PI04.03
+  @2018.PI04.04
   Scenario: TC616490 - [RL4]
     # Scenario 5 (PCP reassignment information has been resolved- multiple reassign MPIN/IPA/Sequence number)
     Given A a business contractor is reviewing a PCP reassignment error
@@ -44,7 +44,7 @@ Feature: US1290196 - [Continued] Contract Master Override work objects audits da
   @Functional
   @US1290196
   @2018.PI04
-  @2018.PI04.03
+  @2018.PI04.04
   Scenario: TC616487 - [RL1]
     # Scenario 2 (contract master error has been resolved- multiple contract masters)
     Given A business contractor is reviewing a contract master error
@@ -58,7 +58,7 @@ Feature: US1290196 - [Continued] Contract Master Override work objects audits da
   @Functional
   @US1290196
   @2018.PI04
-  @2018.PI04.03
+  @2018.PI04.04
   Scenario: TC616486 - [RL0]
     # Scenario 1 (contract master error has been resolved- No contract master found error)
     Given A business contractor is reviewing a contract master error
@@ -72,7 +72,7 @@ Feature: US1290196 - [Continued] Contract Master Override work objects audits da
   @Functional
   @US1290196
   @2018.PI04
-  @2018.PI04.03
+  @2018.PI04.04
   Scenario: TC616489 - [RL3]
     # Scenario 4 (PCP reassignment information has been resolved- single reassign MPIN/IPA/Sequence number)
     Given A a business contractor is reviewing a PCP reassignment error
