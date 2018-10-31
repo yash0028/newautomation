@@ -220,7 +220,7 @@ class SauceLabs implements IConfigurable {
         // Configure SauceLabs Integration
         capabilities.setCapability("autoAcceptsAlerts", true);
         capabilities.setCapability("parentTunnel", "sauce_admin");
-        capabilities.setCapability("tunnelIdentifier", "OptumSharedTunnel-Stg");
+        capabilities.setCapability("tunnelIdentifier", "OptumSharedTunnel-Prd");
 
 
         capabilities.setCapability("name", genName(scenarioName, browser.commonName));

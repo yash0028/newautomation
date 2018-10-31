@@ -75,7 +75,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
         assert wizard.selectRegulatoryAppendix("iowa", 0);
 
         //Provider Roster :: Select Roster Action
-        assert wizard.selectProviderRoster();
+        assert wizard.selectProviderRoster(
+                contractParam.getOrDefault("TIN", null)
+        );
 
         //Preview Contact & Wizard Complete :: no operation
         assert wizard.previewContractAndComplete();

@@ -1,9 +1,14 @@
 package ui_test.page.exari.contract.wizard;
 
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ui_test.page.exari.contract.wizard.subpages.*;
+import util.TimeKeeper;
 
 public class WizardManager {
+    private static final Logger log = LoggerFactory.getLogger(WizardManager.class);
+
 
     private final WebDriver driver;
 
@@ -43,6 +48,10 @@ public class WizardManager {
         pesResponsePage.selectCounterPartyOption1();
         pesResponsePage.clickNext();
 
+        if (pesResponsePage.confirmCurrentPage()) {
+            pesResponsePage.clickNext();
+        }
+
         return test;
     }
 
@@ -61,7 +70,7 @@ public class WizardManager {
             rfpResponseMasterPage.clickNext();
         }
 
-//        handleArbitrationCounty();
+        handleArbitrationCounty();
 
         return test;
     }
@@ -110,10 +119,12 @@ public class WizardManager {
         boolean test = true;
         //Handle Appendix 1 Page
         Appendix1Page appendix1Page = new Appendix1Page(driver);
-        assert appendix1Page.confirmCurrentPage();
 
-        test &= appendix1Page.selectAdditionalManualOptionNo();
-        appendix1Page.clickNext();
+        if (appendix1Page.confirmCurrentPage()) {
+            test &= appendix1Page.selectAdditionalManualOptionNo();
+            appendix1Page.clickNext();
+        }
+
 
         return test;
     }
@@ -167,14 +178,33 @@ public class WizardManager {
         return test;
     }
 
-    public boolean selectProviderRoster() {
+    public boolean selectProviderRoster(String tin) {
         boolean test = true;
         //Handle Provider Roster
         ProviderRosterPage providerRosterPage = new ProviderRosterPage(driver);
         assert providerRosterPage.confirmCurrentPage();
 
-        test &= providerRosterPage.selectRosterActionNone();
+        if (tin == null || tin.isEmpty()) {
+            test &= providerRosterPage.selectRosterActionNone();
+        } else {
+            test &= providerRosterPage.selectRosterActionAdd();
+        }
+
         providerRosterPage.clickNext();
+
+        if (providerRosterPage.confirmCurrentPage()) {
+            test &= providerRosterPage.enterApproachSingleTin(tin);
+            providerRosterPage.clickNext();
+
+            if (providerRosterPage.confirmCurrentPage()) {
+                test &= providerRosterPage.selectAllProvider();
+                providerRosterPage.clickNext();
+
+                if (providerRosterPage.confirmCurrentPage()) {
+                    providerRosterPage.clickNext();
+                }
+            }
+        }
 
         return test;
     }
@@ -192,11 +222,17 @@ public class WizardManager {
 
     public boolean finalCapture() {
         boolean test = true;
+        String futureDate = TimeKeeper.getInstance().getExariFutureDate(20);
+        String currentDate = TimeKeeper.getInstance().getExariFutureDate(0);
+
+        log.info("future date: {}", futureDate);
+        log.info("current date: {}", currentDate);
+
         //Handle Effective Date
         ContractDetailsEffectiveDatePage contractDetailsEffectiveDatePage = new ContractDetailsEffectiveDatePage(driver);
         assert contractDetailsEffectiveDatePage.confirmCurrentPage();
 
-        test &= contractDetailsEffectiveDatePage.setEffectiveDate("October 4, 2018");
+        test &= contractDetailsEffectiveDatePage.setEffectiveDate(futureDate);
         contractDetailsEffectiveDatePage.clickNext();
 
         //Handle Provider Signatory
@@ -204,7 +240,7 @@ public class WizardManager {
         assert providerSignatoryPage.confirmCurrentPage();
 
         test &= providerSignatoryPage.enterSignerName("Alex Berns");
-        test &= providerSignatoryPage.enterSignDate("October 20, 2018");
+        test &= providerSignatoryPage.enterSignDate(currentDate);
         test &= providerSignatoryPage.enterSignerEmail("alex.berns@optum.com");
         providerSignatoryPage.clickNext();
 
@@ -213,7 +249,7 @@ public class WizardManager {
         assert ourSignatoryPage.confirmCurrentPage();
 
         test &= ourSignatoryPage.enterSignerName("Suruchi Sinha");
-        test &= ourSignatoryPage.enterSignDate("October 20, 2018");
+        test &= ourSignatoryPage.enterSignDate(currentDate);
         ourSignatoryPage.clickNext();
 
         //Handle Roster Action, no action

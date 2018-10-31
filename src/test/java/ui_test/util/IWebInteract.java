@@ -242,7 +242,6 @@ public interface IWebInteract {
     }
 
     default boolean cleanWriteTextBox(String elementName, WebElement element, String text) {
-        highlight(element);
         clear(element);
         return sendKeys(elementName, element, text);
     }

@@ -22,6 +22,7 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
      */
     @Before(value = "@A_UI_Story", order = BookendOrder.UI)
     public void openConnection(Scenario scenario) {
+
         if (isRemoteDriver()) {
             SauceLabs.reset(scenario.getName());
             log.info("SauceLabs Test Video: {}", SauceLabs.getInstance().getSauceLink());
