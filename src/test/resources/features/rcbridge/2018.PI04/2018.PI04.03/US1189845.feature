@@ -66,6 +66,7 @@ Feature: US1189845 - [Continued] [Continued][Continued] Downstream system specif
   @2018.PI04
   @2018.PI04.03
   Scenario: TC565788 - [RL0]
+    #Acceptance criteria needs to be updated to only test the validator services and not the entire system.
     Given A business event is received by the event gateway that requires an update to NDB
     And the associated contract data is valid for the NDB update
     When The enriched business event is sent by the contract-domain service

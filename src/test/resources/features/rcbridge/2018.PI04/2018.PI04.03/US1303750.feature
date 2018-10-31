@@ -103,7 +103,7 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   Scenario: TC593201 - [RL5]
     # scenario 6 (contract load button)
     Given I have selected a contract master for a product grouping
-    When The status of of the contract master product grouping is 'contract master selected"
+    When The status of the contract master product grouping is 'contract master selected"
     Then A proceed with contract load button appears
 
   @TC593197

@@ -62,7 +62,7 @@ Feature: US1290196 - [Continued] Contract Master Override work objects audits da
   Scenario: TC616486 - [RL0]
     # Scenario 1 (contract master error has been resolved- No contract master found error)
     Given A business contractor is reviewing a contract master error
-    When They overridden the contract master
+    When They have overridden the contract master
     And They have clicked the proceed with installation button
     Then record the contract master information the business user entered
     And Update the transaction ID with the date/timestamp the resolution was made.

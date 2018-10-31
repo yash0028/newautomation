@@ -47,7 +47,7 @@ Feature: US1308272 - [Continued] CMD- User Input Required Page- View detail info
   Scenario: TC619032 - [RL1]
     # Scenario 2 (Multiple Product grouping under contract ID- All have more than one contract master was found
     Given I have clicked on the detail information on a contract ID
-    When The contract ID has a Multiple product groupings
+    When The contract ID has Multiple product groupings
     And More than one contract master was found for all product groupings
     Then I can see up to the first 7 contract masters for each product grouping that was returned from the search
     And I can see the latest search input parameters for each product grouping
