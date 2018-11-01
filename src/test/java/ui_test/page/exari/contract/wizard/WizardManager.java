@@ -92,14 +92,15 @@ public class WizardManager {
         boolean test = true;
         //Handle HBP Red Door
         HBPRedDoorPage hbpRedDoorPage = new HBPRedDoorPage(driver);
-        assert hbpRedDoorPage.confirmCurrentPage();
-        if (option.equalsIgnoreCase("yes")) {
-            test &= hbpRedDoorPage.selectHospitalBasedProvidersOptionYes();
-            //Do some extra stuff
-        } else {
-            test &= hbpRedDoorPage.selectHospitalBasedProvidersOptionNo();
+        if (hbpRedDoorPage.confirmCurrentPage()) {
+            if (option.equalsIgnoreCase("yes")) {
+                test &= hbpRedDoorPage.selectHospitalBasedProvidersOptionYes();
+                //Do some extra stuff
+            } else {
+                test &= hbpRedDoorPage.selectHospitalBasedProvidersOptionNo();
+            }
+            hbpRedDoorPage.clickNext();
         }
-        hbpRedDoorPage.clickNext();
 
         return test;
     }
