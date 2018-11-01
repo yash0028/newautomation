@@ -19,7 +19,7 @@ Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
   @2018.PI04
   @2018.PI04.04
   Scenario Outline: TC608275 - [RL1]
-    Given UHG_SITE contains "<site>"
+    Given "UHG_SITE" contains "<site>"
     And "UHG_MARKET_NUMBER-DMCQ" = "03413"
     When "PRODUCT_SERVICES_EXCLUDED" does contain the word "Heritage"
     Then "MARKET_PRODUCT" silent inclusion criteria has NOT been met for "<marketProduct>"
@@ -47,18 +47,4 @@ Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
       | Central             | HRTG OPTIONS RV     |
       | West                | HRTG SEL ADV CHOICE |
       | Southeast           | HRTG SEL ADV OPTION |
-
-  @RC_unlinked
-  @TC611133
-  @Manual
-  @Functional
-  @US1368002
-  @2018.PI04
-  @2018.PI04.04
-  Scenario: TC611133 - [RL2]
-    Given UHG_SITE = UHN Northeast, Central, West, Southeast
-    And UHG Market_Number-DMCQ=03413 (Field in the UCM Model)
-    When PRODUCT_SERVICES_EXCLUDED does NOT include 'Heritage%'
-    And PAYMENT_POLICIES-MCQ is NOT UnitedHealthcare River Valley
-    Then create payloads that include MARKET PRODUCT GROUP:HRTG CHOICE RV,HRTG OPTIONS RV,HRTG SEL ADV CHOICE,HRTG SEL ADV OPTION (equivalent) which should exclude PRODUCT_CD = EL, EO, ER and V3
 
