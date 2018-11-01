@@ -1,4 +1,5 @@
 # Last updated on 
+@Contract_Rules
 @US1367739
 @2018.PI04
 @2018.PI04.04
@@ -15,6 +16,7 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @TC600526
   @Manual
   @Functional
+  @Contract_Rules
   @US1367739
   @2018.PI04
   @2018.PI04.04
@@ -25,6 +27,7 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @TC600525
   @Manual
   @Functional
+  @Contract_Rules
   @US1367739
   @2018.PI04
   @2018.PI04.04
@@ -38,6 +41,7 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @TC627486
   @Manual
   @Functional
+  @Contract_Rules
   @US1367739
   @2018.PI04
   @2018.PI04.04
@@ -48,6 +52,7 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @TC627485
   @Manual
   @Functional
+  @Contract_Rules
   @US1367739
   @2018.PI04
   @2018.PI04.04

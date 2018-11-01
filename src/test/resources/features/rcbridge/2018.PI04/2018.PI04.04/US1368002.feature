@@ -1,4 +1,5 @@
 # Last updated on 
+@Contract_Rules
 @US1368002
 @2018.PI04
 @2018.PI04.04
@@ -15,6 +16,7 @@ Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
   @TC608275
   @Manual
   @Functional
+  @Contract_Rules
   @US1368002
   @2018.PI04
   @2018.PI04.04
@@ -33,6 +35,7 @@ Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
   @TC600549
   @Manual
   @Functional
+  @Contract_Rules
   @US1368002
   @2018.PI04
   @2018.PI04.04

@@ -2,14 +2,14 @@
 @A_UI_Story
 @US1236428
 @2018.PI04
-@2018.PI04.03
+@2018.PI04.04
 @MVP
 @Madhur
 @Priority_1
 @CMD
 @F218723
 @releasePresent
-@iterationPast
+@iterationPresent
 Feature: US1236428 - [Continued] [Continued] CMD Single Sign On - UHG Enterprise SSO (MSid and Password )
 
   @TC564532
@@ -18,7 +18,7 @@ Feature: US1236428 - [Continued] [Continued] CMD Single Sign On - UHG Enterprise
   @A_UI_Story
   @US1236428
   @2018.PI04
-  @2018.PI04.03
+  @2018.PI04.04
   Scenario: TC564532 - [RL2]
     ##Scenario 3 (Do not have secure rule- block access/message)
     Given I have do not have CLM_PCW_BUS_USERS or CLM_PCW_USERS role in secure
@@ -32,7 +32,7 @@ Feature: US1236428 - [Continued] [Continued] CMD Single Sign On - UHG Enterprise
   @A_UI_Story
   @US1236428
   @2018.PI04
-  @2018.PI04.03
+  @2018.PI04.04
   Scenario: TC564530 - [RL0]
     ##Scenario 1 (Normal User secure role- CMD access)
     Given I have CLM_PCW_USERS role in secure (normal user)
@@ -45,7 +45,7 @@ Feature: US1236428 - [Continued] [Continued] CMD Single Sign On - UHG Enterprise
   @A_UI_Story
   @US1236428
   @2018.PI04
-  @2018.PI04.03
+  @2018.PI04.04
   Scenario: TC564531 - [RL1]
     ##Scenario 2 (Business user access role- CMD access)
     Given I have CLM_PCW_BUS_USERS role in secure (business user)
@@ -59,7 +59,7 @@ Feature: US1236428 - [Continued] [Continued] CMD Single Sign On - UHG Enterprise
   @A_UI_Story
   @US1236428
   @2018.PI04
-  @2018.PI04.03
+  @2018.PI04.04
   Scenario: TC598723 - Validate whether the user is able to view CMD when contract record exists
     Given a CMD record exists
     When the user navigates to the CMD from within Exari contract record
@@ -71,7 +71,7 @@ Feature: US1236428 - [Continued] [Continued] CMD Single Sign On - UHG Enterprise
   @A_UI_Story
   @US1236428
   @2018.PI04
-  @2018.PI04.03
+  @2018.PI04.04
   Scenario: TC564533 - [RL3]
     ##Scenario 4 (Both Secure Roles)
     Given I have have CLM_PCW_BUS_USERS or CLM_PCW_USERS role in secure

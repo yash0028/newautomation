@@ -1,14 +1,14 @@
 # Last updated on 
 @US1278758
 @2018.PI04
-@2018.PI04.03
+@2018.PI04.04
 @MVP
 @Madhur
 @Priority_1
 @CMD
 @F218723
 @releasePresent
-@iterationPast
+@iterationPresent
 Feature: US1278758 - update status of product grouping installation status (work object)
 
   @TC616505
@@ -16,7 +16,7 @@ Feature: US1278758 - update status of product grouping installation status (work
   @Functional
   @US1278758
   @2018.PI04
-  @2018.PI04.03
+  @2018.PI04.04
   Scenario: TC616505 - [RL1]
     # Scenario 2 (User selected contract master- Use this just once)
     Given The user has selected use this contract master once for a product grouping on the modal window.
@@ -28,7 +28,7 @@ Feature: US1278758 - update status of product grouping installation status (work
   @Functional
   @US1278758
   @2018.PI04
-  @2018.PI04.03
+  @2018.PI04.04
   Scenario: TC616504 - [RL0]
     # Scenario 1 (user selected contract master- Use this always
     Given The user has selected use this contract master always for a product grouping on the modal window.

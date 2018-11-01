@@ -1,4 +1,5 @@
 # Last updated on 
+@Contract_Rules
 @US1368004
 @2018.PI04
 @2018.PI04.04
@@ -13,8 +14,9 @@
 Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
 
   @TC625448
-  @Manual
+  @Automated
   @Functional
+  @Contract_Rules
   @US1368004
   @2018.PI04
   @2018.PI04.04
@@ -23,8 +25,9 @@ Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
     Then return a Bad Request error
 
   @TC611124
-  @Manual
+  @Automated
   @Functional
+  @Contract_Rules
   @US1368004
   @2018.PI04
   @2018.PI04.04
@@ -36,8 +39,9 @@ Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
     Then "marketProductIncluded" value "HRTG CHOICE RV" and "marketProductNetwork" value of "705" recorded in the OCM record
 
   @TC625449
-  @Manual
+  @Automated
   @Functional
+  @Contract_Rules
   @US1368004
   @2018.PI04
   @2018.PI04.04
@@ -46,8 +50,9 @@ Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
     Then return a Bad Request error
 
   @TC600537
-  @Manual
+  @Automated
   @Functional
+  @Contract_Rules
   @US1368004
   @2018.PI04
   @2018.PI04.04
@@ -58,8 +63,9 @@ Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
     Then "marketProductIncluded" value "HRTG CHOICE RV" and "marketProductNetwork" value of "706" recorded in the OCM record
 
   @TC611125
-  @Manual
+  @Automated
   @Functional
+  @Contract_Rules
   @US1368004
   @2018.PI04
   @2018.PI04.04
