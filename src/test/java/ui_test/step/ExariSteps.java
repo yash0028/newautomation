@@ -57,6 +57,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
                 contractParam.getOrDefault("Paper Type", null)
         );
 
+        //Select HBP option
+        assert wizard.selectHBPOption(
+                contractParam.getOrDefault("HBP", "no")
+        );
+
         //Enter Phycon
         assert wizard.enterPhyconNumber(
                 contractParam.getOrDefault("Phycon", null)
