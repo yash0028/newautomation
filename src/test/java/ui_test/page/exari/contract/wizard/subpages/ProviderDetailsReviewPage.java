@@ -48,6 +48,14 @@ public class ProviderDetailsReviewPage extends GenericInputPage {
      */
 
     public boolean selectArbitrationCounty(int index) {
+        if (radioOptionArbitrationCounty.isEmpty()) {
+            return true;
+        }
+
+        if (radioOptionArbitrationCounty.size() >= index) {
+            return false;
+        }
+
         return click("county radio button", radioOptionArbitrationCounty.get(index));
     }
 }
