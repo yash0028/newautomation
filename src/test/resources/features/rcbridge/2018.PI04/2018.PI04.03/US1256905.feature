@@ -9,7 +9,7 @@
 @Amrutha
 @F209320
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1256905 - Create CLM Rule Table
 
   @TC615404

@@ -8,7 +8,7 @@
 @CMD
 @F218723
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1359165 - Update status of contract ID installation status.
 
   @TC597208

@@ -8,7 +8,7 @@
 @CMD
 @F218723
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1308272 - [Continued] CMD- User Input Required Page- View detail information (more than one contract master returned )
 
   @TC567000

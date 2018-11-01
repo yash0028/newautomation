@@ -10,7 +10,7 @@
 @Amrutha
 @F209320
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1371319 - Download CLM Rule Table
 
   @TC603987

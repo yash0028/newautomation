@@ -9,7 +9,7 @@
 @CMD
 @F233635
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
 
   @TC608275

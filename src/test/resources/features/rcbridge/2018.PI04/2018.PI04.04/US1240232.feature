@@ -8,7 +8,7 @@
 @CMD
 @F237213
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1240232 - Modify Contract Config record (UI)
 
   @TC615301

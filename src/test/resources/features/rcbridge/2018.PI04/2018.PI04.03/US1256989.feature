@@ -10,7 +10,7 @@
 @Amrutha
 @F209320
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1256989 - Upload CLM Rule Table
 
   @TC603988

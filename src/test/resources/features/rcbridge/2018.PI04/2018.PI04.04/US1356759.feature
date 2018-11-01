@@ -6,7 +6,7 @@
 @Priority_2
 @F224328
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1356759 - Contract Product Market number validation set (T3)
 
   @TC596333

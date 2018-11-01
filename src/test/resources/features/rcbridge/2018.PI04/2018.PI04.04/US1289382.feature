@@ -8,7 +8,7 @@
 @CMD
 @F237213
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1289382 - Contract Config Services - Contract Config search service
 
   @TC616506

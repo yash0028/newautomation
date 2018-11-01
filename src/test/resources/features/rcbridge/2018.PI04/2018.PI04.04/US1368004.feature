@@ -9,7 +9,7 @@
 @CMD
 @F233635
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
 
   @TC625448

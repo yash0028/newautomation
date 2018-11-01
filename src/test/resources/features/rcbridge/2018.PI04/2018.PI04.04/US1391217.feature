@@ -8,7 +8,7 @@
 @CMD
 @F237213
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1391217 - Search - based on Contract ID
 
   @TC624687

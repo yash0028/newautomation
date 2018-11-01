@@ -9,7 +9,7 @@
 @CMD
 @F218723
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1361309 - CMD- Type 2 error parital contract master update NDB/COSMOS
 
   @TC598298

@@ -6,7 +6,7 @@
 @Priority_2
 @F224328
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1356396 - Contract Product Rate Group validation set (T3)
 
   @TC611119

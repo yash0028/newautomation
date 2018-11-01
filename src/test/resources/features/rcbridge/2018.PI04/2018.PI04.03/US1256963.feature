@@ -9,8 +9,8 @@
 @Amrutha
 @F209320
 @releasePresent
-@iterationPresent
-Feature: US1256963 - Update user interface to accommodate new tables
+@iterationPast
+Feature: US1256963 - Update user interface to accommodate rules table
 
   @TC565856
   @Manual

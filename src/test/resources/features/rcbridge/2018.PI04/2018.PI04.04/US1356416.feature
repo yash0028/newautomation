@@ -6,7 +6,7 @@
 @Priority_2
 @F224328
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1356416 - Market Product Groups implicit inclusion/exclusions
 
   @TC611117

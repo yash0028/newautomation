@@ -6,7 +6,7 @@
 @Priority_2
 @F224328
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1356361 - PROS Fee Schedule ID Validation Set (T3)
 
   @TC596324

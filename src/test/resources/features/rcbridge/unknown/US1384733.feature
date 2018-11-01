@@ -3,7 +3,7 @@
 @US1384733
 @2018.PI04.03
 @releaseUnknown
-@iterationPresent
+@iterationPast
 Feature: US1384733 - Exari API Testing for New Contract JSON
 
   @TC625885
