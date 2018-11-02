@@ -60,7 +60,7 @@ public class ContractRulesSteps implements IRestStep {
     // US1368004 (IPA Determination)
 
     @Given("^silent inclusion criteria for \"([^\"]*)\" values \"([^\"]*)\" (has|has NOT) been met$")
-    public void silentInclusionCriteriaForValuesHasBeenMet(String arg0, String arg1) throws Throwable {
+    public void silentInclusionCriteriaForValuesHasBeenMet(String arg0, String arg1, String condition) throws Throwable {
         // Assume True for now
         // todo: add check to validate this has/has not been met once silent inclusion is completed
     }
