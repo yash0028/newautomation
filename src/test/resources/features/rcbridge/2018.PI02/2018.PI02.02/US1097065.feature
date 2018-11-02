@@ -21,7 +21,7 @@ Feature: US1097065 - Error - Specialty Indicator or Org Type not found
   @US1097065
   @2018.PI02
   @2018.PI02.02
-  Scenario: TC564882 - [RL1] Validation Error -  the provider's Org Type "abc123" is passed to the service
+  Scenario: TC564882 - [RL1] Validation Error - the provider's Org Type "abc123" is passed to the service
     Given the provider's Org Type "abc123" is passed to the service
     When finding the Org Type in ETMA
     Then the service will return a "False" value

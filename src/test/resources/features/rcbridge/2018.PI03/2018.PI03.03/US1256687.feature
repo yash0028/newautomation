@@ -20,7 +20,7 @@ Feature: US1256687 - Populate initial Provider Taxonomy Grid table
   @US1256687
   @2018.PI03
   @2018.PI03.03
-  Scenario: TC554281 - TC-01_Validate  Provider Taxonomy Grid Table
+  Scenario: TC554281 - TC-01_Validate Provider Taxonomy Grid Table
     Given attributes and permissible code values have been gathered
     When the table administrator needs to store the information
     Then a table is made available for the administrator to create and maintian the information

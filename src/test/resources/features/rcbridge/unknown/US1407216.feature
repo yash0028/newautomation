@@ -12,7 +12,7 @@ Feature: US1407216 - Author SPA Contact UI Path
   @Functional
   @A_UI_Story
   @US1407216
-  Scenario Outline: TC624355 - [RL0] Author SPA contract in &lt;site>
+  Scenario Outline: TC624355 - [RL0] Author SPA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     When I author a contract using the following contract information
       | MPIN               | <mpin>             |

@@ -50,7 +50,7 @@ Feature: US1232963 - Retroactive Reason Codes table
   @US1232963
   @2018.PI03
   @2018.PI03.03
-  Scenario: TC561356 - TC-01_Validate  Retroactive reasons codes table
+  Scenario: TC561356 - TC-01_Validate Retroactive reasons codes table
     Given a retroactive reason code value table exists
     When a request to the table to return all values is made
     Then the query response returns the list of active codes and code descriptions
