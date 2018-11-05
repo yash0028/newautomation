@@ -21,10 +21,10 @@ Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
   @2018.PI04
   @2018.PI04.04
   Scenario Outline: TC608275 - [RL1]
-    Given "UHG_SITE" contains "<site>"
-    And "UHG_MARKET_NUMBER-DMCQ" = "03413"
-    When "PRODUCT_SERVICES_EXCLUDED" does contain the word "Heritage"
-    Then "MARKET_PRODUCT" silent inclusion criteria has NOT been met for "<marketProduct>"
+    Given "uhgSite" contains "<site>"
+    And "marketNumber" = "03413"
+    When "productServicesExcluded" does contain the word "Heritage"
+    Then "marketProductGroups" silent inclusion criteria has NOT been met for "<marketProduct>"
     Examples:
       | site                | marketProduct       |
       | Northeast           | HRTG CHOICE RV      |
@@ -40,10 +40,10 @@ Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
   @2018.PI04
   @2018.PI04.04
   Scenario Outline: TC600549 - [RL0]
-    Given "UHG_SITE" contains "<site>"
-    And "UHG_MARKET_NUMBER-DMCQ" = "03413"
-    When "PRODUCT_SERVICES_EXCLUDED" does NOT contain the word "Heritage"
-    Then "MARKET_PRODUCT" silent inclusion criteria has been met for "<marketProduct>"
+    Given "uhgSite" contains "<site>"
+    And "marketNumber" = "03413"
+    When "productServicesExcluded" does NOT contain the word "Heritage"
+    Then "marketProductGroups" silent inclusion criteria has been met for "<marketProduct>"
     Examples:
       | site                | marketProduct       |
       | Northeast           | HRTG CHOICE RV      |
