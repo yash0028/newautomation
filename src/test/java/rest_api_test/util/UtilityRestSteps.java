@@ -25,7 +25,7 @@ public class UtilityRestSteps {
         given().baseUri(ENDPOINT).delete(RESOURCE_CLEAR_NDB_DB);
     }
 
-    @After(value = "@US1332127", order = BookendOrder.REST)
+    @After(value = "@US1332127", order = -1 * BookendOrder.REST)
     public void somethingAfter(Scenario scenario) {
         given().baseUri(ENDPOINT).delete(RESOURCE_CLEAR_COSMOS_DB);
         given().baseUri(ENDPOINT).delete(RESOURCE_CLEAR_NDB_DB);
