@@ -67,7 +67,7 @@ public class DocumentSelectionPage extends GenericInputPage {
         }
 
         if (option.equalsIgnoreCase("smga") || option.equalsIgnoreCase("Simplified Medical Group Agreement")) {
-            return selectPaperTypeOptionSPA();
+            return selectPaperTypeOptionalSMGA();
         }
 
         return false;

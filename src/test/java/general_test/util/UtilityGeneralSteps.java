@@ -27,7 +27,7 @@ public class UtilityGeneralSteps {
      *
      * @param scenario
      */
-    @After(order = BookendOrder.OMEGA)
+    @After(order = -1 * BookendOrder.OMEGA)
     public void removeScenario(Scenario scenario) {
         UtilityGeneralSteps.scenario = null;
     }
