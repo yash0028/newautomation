@@ -7,7 +7,7 @@
 @F224328
 @releasePresent
 @iterationPresent
-Feature: US1356443 - Run basic Contract and Roster Event validation
+Feature: US1356443 - Run basic Contract and Roster Event validation [E2E]
 
   @TC600542
   @Manual

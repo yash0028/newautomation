@@ -7,7 +7,7 @@
 @F224328
 @releasePresent
 @iterationPresent
-Feature: US1356396 - Contract Product Rate Group validation set (T3)
+Feature: US1356396 - Contract Product Rate Group validation set (T3) [E2E]
 
   @TC611119
   @Manual

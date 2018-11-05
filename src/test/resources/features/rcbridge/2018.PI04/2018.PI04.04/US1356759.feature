@@ -7,7 +7,7 @@
 @F224328
 @releasePresent
 @iterationPresent
-Feature: US1356759 - Contract Product Market number validation set (T3)
+Feature: US1356759 - Contract Product Market number validation set (T3) [E2E]
 
   @TC596333
   @Manual
