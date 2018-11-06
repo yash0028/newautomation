@@ -76,29 +76,5 @@ public class MEGSteps implements IRestStep {
         assertTrue(allMatch);
     }
 
-    //US1210025
 
-    @When("^the MEG microservice is called$")
-    public void theMEGMicroserviceIsCalled() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("^a valid MEG response is returned$")
-    public void aValidMEGResponseIsReturned() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Given("^the Exari system will access the MEG$")
-    public void theExariSystemWillAccessTheMEG() throws Throwable {
-        // Spike story, no testing needed
-        throw new PendingException();
-    }
-
-    @Then("^a developer will have to research how to connect to the MEG backend\\.$")
-    public void aDeveloperWillHaveToResearchHowToConnectToTheMEGBackend() throws Throwable {
-        // Spike story, no testing needed
-        throw new PendingException();
-    }
 }
