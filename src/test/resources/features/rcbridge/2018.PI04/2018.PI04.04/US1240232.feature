@@ -2,11 +2,7 @@
 @US1240232
 @2018.PI04
 @2018.PI04.04
-@MVP
-@10/1_Physician
-@Priority_1
-@CMD
-@F237213
+@F205008
 @releasePresent
 @iterationPresent
 Feature: US1240232 - Modify Contract Config record (UI)
