@@ -27,10 +27,10 @@ Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
     Then "marketProductGroups" silent inclusion criteria has NOT been met for "<marketProduct>"
     Examples:
       | site                | marketProduct       |
-      | Northeast UHN       | HRTG CHOICE RV      |
-      | Central UHN         | HRTG OPTIONS RV     |
-      | West UHN            | HRTG SEL ADV CHOICE |
-      | Southeast UHN       | HRTG SEL ADV OPTION |
+      | Northeast           | HRTG CHOICE RV      |
+      | Central             | HRTG OPTIONS RV     |
+      | West                | HRTG SEL ADV CHOICE |
+      | Southeast           | HRTG SEL ADV OPTION |
 
   @TC600549
   @Manual
@@ -46,8 +46,8 @@ Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
     Then "marketProductGroups" silent inclusion criteria has been met for "<marketProduct>"
     Examples:
       | site                | marketProduct       |
-      | Northeast UHN       | HRTG CHOICE RV      |
-      | Central UHN         | HRTG OPTIONS RV     |
-      | West UHN            | HRTG SEL ADV CHOICE |
-      | Southeast UHN       | HRTG SEL ADV OPTION |
+      | Northeast           | HRTG CHOICE RV      |
+      | Central             | HRTG OPTIONS RV     |
+      | West                | HRTG SEL ADV CHOICE |
+      | Southeast           | HRTG SEL ADV OPTION |
 
