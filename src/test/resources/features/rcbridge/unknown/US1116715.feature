@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137674
 @releaseUnknown
 @iterationUnknown
 Feature: US1116715 - Expire Entity Type
@@ -17,7 +16,6 @@ Feature: US1116715 - Expire Entity Type
   @MVP
   @EXARI-11249
   @CLM_UAT
-  @US1116715
   Scenario: TC565143 - [RL0]
     Given I am an Administrative User
     When I need to expire an Entity Type

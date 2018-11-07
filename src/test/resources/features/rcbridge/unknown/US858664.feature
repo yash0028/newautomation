@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137671
 @releaseUnknown
 @iterationUnknown
 Feature: US858664 - Add Entity Relationship Role
@@ -17,7 +16,6 @@ Feature: US858664 - Add Entity Relationship Role
   @MVP
   @CLM_UAT
   @EXARI-11696
-  @US858664
   Scenario: TC564683 - [RL0]
     Given I am a User with access to maintain Entity information
     When I am adding a relationship between two Entities

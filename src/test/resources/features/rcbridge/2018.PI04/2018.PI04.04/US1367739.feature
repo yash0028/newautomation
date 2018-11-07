@@ -8,7 +8,6 @@
 @Priority_1
 @kumar,_Sachin
 @CMD
-@F233635
 @releasePresent
 @iterationPresent
 Feature: US1367739 - Identify UHC EI and MR Pilot Markets
@@ -17,9 +16,6 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Manual
   @Functional
   @Contract_Rules
-  @US1367739
-  @2018.PI04
-  @2018.PI04.04
   Scenario: TC600526 - [RL1]
     Given "uhgSite" equals "Northeast UHN"
     When "uhgContractSubtypeHealthcare" equals one of Practitioner Agreement, Medical Group Agreement, Simplified Physician Agreement, Simplified Practitioner Group Agreement, Simplified Medical Group Agreement
@@ -30,9 +26,6 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Manual
   @Functional
   @Contract_Rules
-  @US1367739
-  @2018.PI04
-  @2018.PI04.04
   Scenario: TC600525 - [RL0]
     Given "uhgSite" equals "Central UHN"
     When "uhgContractSubtypeHealthcare" equals one of "<uhgContractSubtypeHealthcare>"
@@ -109,9 +102,6 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Manual
   @Functional
   @Contract_Rules
-  @US1367739
-  @2018.PI04
-  @2018.PI04.04
   Scenario: TC630783 - [RL6]
     When "uhgMarketNumber" does not equal one of 03413, 13476, 13477, 13478, 13479, 13634, 36555, 45592, 45593, 45594, 45595, 45596, 45597
     Then return the following message "The selected provider(s) is currently not in scope for Exari contracting."
@@ -120,9 +110,6 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Manual
   @Functional
   @Contract_Rules
-  @US1367739
-  @2018.PI04
-  @2018.PI04.04
   Scenario: TC627486 - [RL3]
     Given "uhgSite" equals "West UHN"
     When "uhgContractSubtypeHealthcare" equals one of Practitioner Agreement, Medical Group Agreement, Simplified Physician Agreement, Simplified Practitioner Group Agreement, Simplified Medical Group Agreement
@@ -134,9 +121,6 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Manual
   @Functional
   @Contract_Rules
-  @US1367739
-  @2018.PI04
-  @2018.PI04.04
   Scenario: TC627485 - [RL2]
     Given "uhgSite" equals "Southeast UHN"
     When "uhgContractSubtypeHealthcare" equals one of Practitioner Agreement, Medical Group Agreement, Simplified Physician Agreement, Simplified Practitioner Group Agreement, Simplified Medical Group Agreement
@@ -147,9 +131,6 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Manual
   @Functional
   @Contract_Rules
-  @US1367739
-  @2018.PI04
-  @2018.PI04.04
   Scenario: TC630781 - [RL4]
     When "uhgSite" does not equals one of Central UHN, Northeast UHN, Southeast UHN, West UHN
     Then return the following message "The selected provider(s) is currently not in scope for Exari contracting."
@@ -158,9 +139,6 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Manual
   @Functional
   @Contract_Rules
-  @US1367739
-  @2018.PI04
-  @2018.PI04.04
   Scenario: TC630782 - [RL5]
     When "uhgContractSubtypeHealthcare" does not equal one of Practitioner Agreement, Medical Group Agreement, Simplified Physician Agreement, Simplified Practitioner Group Agreement, Simplified Medical Group Agreement
     Then return the following message "The selected provider(s) is currently not in scope for Exari contracting."

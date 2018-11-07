@@ -8,7 +8,6 @@
 @PI02_Top3
 @Plus
 @Parity
-@F182490
 @releasePast
 @iterationPast
 Feature: US1097032 - Error - Org type is on table and paper type is not correct
@@ -18,9 +17,6 @@ Feature: US1097032 - Error - Org type is on table and paper type is not correct
   @Functional
   @CLM_UAT
   @ETMA
-  @US1097032
-  @2018.PI02
-  @2018.PI02.02
   Scenario: TC564603 - [RL0] Validation of Error
     Given the provider's organization type is "012" and contract type is "MGA"
     When finding the Org Type in ETMA

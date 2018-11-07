@@ -5,7 +5,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137660
 @releaseUnknown
 @iterationUnknown
 Feature: US1168422 - Select Identifier Type
@@ -15,7 +14,6 @@ Feature: US1168422 - Select Identifier Type
   @Functional
   @MVP
   @CLM_UAT
-  @US1168422
   Scenario: TC565334 - [RL0]
     Given I am a User with access to maintain Entity information
     When I am adding an Identifier to an Entity

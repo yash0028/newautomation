@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137661
 @releaseUnknown
 @iterationUnknown
 Feature: US912898 - Update Entity Characteristic Detail
@@ -17,7 +16,6 @@ Feature: US912898 - Update Entity Characteristic Detail
   @MVP
   @EXARI-11249
   @CLM_UAT
-  @US912898
   Scenario: TC565962 - [RL0]
     Given I am a User with access to maintain Entities
     When I want to update characteristic information to an Entity

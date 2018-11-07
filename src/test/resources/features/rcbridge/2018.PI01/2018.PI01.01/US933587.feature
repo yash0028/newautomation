@@ -5,7 +5,6 @@
 @2018.PI01.01
 @MVP
 @CLM_Exari
-@F137837
 @releasePast
 @iterationPast
 Feature: US933587 - Setup Standard Configuration Settings
@@ -14,9 +13,6 @@ Feature: US933587 - Setup Standard Configuration Settings
   @Automated
   @Functional
   @MVP
-  @US933587
-  @2018.PI01
-  @2018.PI01.01
   Scenario: TC565860 - [RL0]
     Given the Business Administrators provided Global Settings requirements to Exari,
     When the Exari Database Administrator evaluated these Global Setting requirements

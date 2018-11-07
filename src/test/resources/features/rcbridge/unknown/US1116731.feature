@@ -5,7 +5,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137674
 @releaseUnknown
 @iterationUnknown
 Feature: US1116731 - Expire Identifier Type
@@ -15,7 +14,6 @@ Feature: US1116731 - Expire Identifier Type
   @Functional
   @MVP
   @CLM_UAT
-  @US1116731
   Scenario: TC565704 - [RL0]
     Given I am an Administrative User
     When I need to expire an Identifier Type

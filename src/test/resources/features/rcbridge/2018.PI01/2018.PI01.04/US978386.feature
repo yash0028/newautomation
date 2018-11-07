@@ -6,7 +6,6 @@
 @2018.PI01.04
 @MVP
 @PES
-@F159994
 @releasePast
 @iterationPast
 Feature: US978386 - [Spike] (Provider) Evaluate what PES APIs are required for Provider service
@@ -16,9 +15,6 @@ Feature: US978386 - [Spike] (Provider) Evaluate what PES APIs are required for P
   @Functional
   @Provider_Demographics
   @PES
-  @US978386
-  @2018.PI01
-  @2018.PI01.04
   Scenario: TC565461 - [RL0]
     Given that PES has many API's
     When we call those APIs, we need to understand what can be returned

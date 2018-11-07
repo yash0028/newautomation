@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137657
 @releaseUnknown
 @iterationUnknown
 Feature: US950778 - Generate Unique Entity ID
@@ -17,7 +16,6 @@ Feature: US950778 - Generate Unique Entity ID
   @MVP
   @EXARI-11249
   @CLM_UAT
-  @US950778
   Scenario: TC564744 - [RL0]
     Given I am the Entity Management Solution
     When A User sets up a new Entity

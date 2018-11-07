@@ -9,9 +9,6 @@ Feature: US1415079 - Defect - “Use selected contact master #: always” works 
   @TC630784
   @Manual
   @Functional
-  @US1415079
-  @2018.PI04
-  @2018.PI04.04
   Scenario: TC630784 - [RL0]
     Given I am on the CMD Action Required page
     When I entered in a contract master number, contract master name, contract system, contract master effective date

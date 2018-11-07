@@ -1,7 +1,6 @@
 # Last updated on 
 @US1374512
 @Priority_1
-@F218481
 @releaseUnknown
 @iterationUnknown
 Feature: US1374512 - Synchronize Deactivated Provider
@@ -9,7 +8,6 @@ Feature: US1374512 - Synchronize Deactivated Provider
   @TC605565
   @Manual
   @Functional
-  @US1374512
   Scenario: TC605565 - [RL0]
     Given I am the Entity Management Solution
     When a Provider is deactivated in a Legacy Application

@@ -2,7 +2,6 @@
 @US1401398
 @2018.PI05
 @CMD
-@F225423
 @releaseFuture
 @iterationUnknown
 Feature: US1401398 - Execute PCP identificaiton and gatekeepr product business rule API
@@ -10,8 +9,6 @@ Feature: US1401398 - Execute PCP identificaiton and gatekeepr product business r
   @TC627935
   @Manual
   @Functional
-  @US1401398
-  @2018.PI05
   Scenario: TC627935 - [RL0]
     ###Scenario 1 (Cancellations on roster request- No PCP's found on roster)
     Given The roster submitted contains providers with a cancellation
@@ -22,8 +19,6 @@ Feature: US1401398 - Execute PCP identificaiton and gatekeepr product business r
   @TC627936
   @Manual
   @Functional
-  @US1401398
-  @2018.PI05
   Scenario: TC627936 - [RL1]
     ###Scenario 2 (Cancellations on roster request-PCP's found on roster)
     Given The roster submitted contains providers with a cancellation

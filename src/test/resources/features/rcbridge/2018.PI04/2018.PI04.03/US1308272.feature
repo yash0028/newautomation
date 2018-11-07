@@ -6,7 +6,6 @@
 @Madhur
 @Priority_1
 @CMD
-@F218723
 @releasePresent
 @iterationPast
 Feature: US1308272 - [Continued] CMD- User Input Required Page- View detail information (more than one contract master returned )
@@ -14,9 +13,6 @@ Feature: US1308272 - [Continued] CMD- User Input Required Page- View detail info
   @TC567000
   @Manual
   @Functional
-  @US1308272
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC567000 - [RL0]
     # Scenario 1 (Single Product Grouping under contract ID- More than one contract master found)
     Given I have clicked on the detail information on a contract ID
@@ -41,9 +37,6 @@ Feature: US1308272 - [Continued] CMD- User Input Required Page- View detail info
   @TC619032
   @Manual
   @Functional
-  @US1308272
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC619032 - [RL1]
     # Scenario 2 (Multiple Product grouping under contract ID- All have more than one contract master was found
     Given I have clicked on the detail information on a contract ID
@@ -61,9 +54,6 @@ Feature: US1308272 - [Continued] CMD- User Input Required Page- View detail info
   @TC619033
   @Manual
   @Functional
-  @US1308272
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC619033 - [RL2]
     # Scenario 3 (multiple product grouping under contract ID- at least one has no contract master, at least one has more than one contract master)
     Given I have clicked on the detail information on a contract ID

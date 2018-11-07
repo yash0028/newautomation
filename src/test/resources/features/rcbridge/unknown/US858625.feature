@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11273
 @US858625
-@F207082
 @releaseUnknown
 @iterationUnknown
 Feature: US858625 - View Demographic Time Lining History
@@ -10,7 +9,6 @@ Feature: US858625 - View Demographic Time Lining History
   @Automated
   @Functional
   @EXARI-11273
-  @US858625
   Scenario: TC565528 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view historical changes to demographic information on an Entity

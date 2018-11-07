@@ -8,7 +8,6 @@
 @Plus
 @Priority_1
 @Exari_Microservice
-@F159017
 @releasePast
 @iterationPast
 Feature: US1009534 - Create External Data Query - MSPS Physician
@@ -18,9 +17,6 @@ Feature: US1009534 - Create External Data Query - MSPS Physician
   @Functional
   @MSPS
   @Andrew_B
-  @US1009534
-  @2018.PI03
-  @2018.PI03.03
   Scenario: TC543857 - [RL0] Happy Path MSPS EDQ Validation
     Given a contractor will need to be able to retrieve the MSPS fee schedule
     When at this step in the interview process in Exari to retrieve a fee schedule
@@ -31,9 +27,6 @@ Feature: US1009534 - Create External Data Query - MSPS Physician
   @Functional
   @MSPS
   @Andrew_B
-  @US1009534
-  @2018.PI03
-  @2018.PI03.03
   Scenario: TC543858 - Bad Path MSPS EDQ Validation
     Given a contractor will need to be able to retrieve the MSPS fee schedule
     When at this step in the interview process to retrieve a fee schedule

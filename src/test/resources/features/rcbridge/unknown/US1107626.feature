@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US1107626
-@F207049
 @releaseUnknown
 @iterationUnknown
 Feature: US1107626 - Remove Contract ID from Provider upon Interview Termination
@@ -12,7 +11,6 @@ Feature: US1107626 - Remove Contract ID from Provider upon Interview Termination
   @Functional
   @MVP
   @CLM_UAT
-  @US1107626
   Scenario: TC565680 - [RL0]
     Given I am the Entity Management Solution
     When the Interview process is cancelled with a Provider

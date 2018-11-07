@@ -3,7 +3,6 @@
 @2018.PI05
 @MVP
 @Maintenance
-@F235963
 @releaseFuture
 @iterationUnknown
 Feature: US1387308 - Process ADD transaction to subscribing platform(s)
@@ -11,8 +10,6 @@ Feature: US1387308 - Process ADD transaction to subscribing platform(s)
   @TC614198
   @Manual
   @Functional
-  @US1387308
-  @2018.PI05
   Scenario: TC614198 - [RL0]
     Given a RosterUpdate transaction has been published
     When the update is an add

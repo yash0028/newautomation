@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137659
 @releaseUnknown
 @iterationUnknown
 Feature: US858608 - Import Relationships from Template
@@ -17,7 +16,6 @@ Feature: US858608 - Import Relationships from Template
   @MVP
   @CLM_UAT
   @EXARI-11399
-  @US858608
   Scenario: TC564634 - [RL0]
     Given I am a User with access to maintain Entities
     When I want to load Entity relationships in template form into the Entity Management solution

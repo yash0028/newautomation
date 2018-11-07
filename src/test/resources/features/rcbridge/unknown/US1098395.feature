@@ -10,7 +10,6 @@
 @Parity
 @Non-Deliverable
 @7.5_Release
-@F185542
 @releaseUnknown
 @iterationUnknown
 Feature: US1098395 - Save in Progress Projects
@@ -24,7 +23,6 @@ Feature: US1098395 - Save in Progress Projects
   @Parity
   @Non-Deliverable
   @7.5_Release
-  @US1098395
   Scenario: TC565301 - [RL0]
     Given a User has initiated a Mass Actions Project
     When the Project requirements cannot be completed within a single work session

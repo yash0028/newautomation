@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11249
 @US858621
-@F207082
 @releaseUnknown
 @iterationUnknown
 Feature: US858621 - Add Entity Demographic Info
@@ -10,7 +9,6 @@ Feature: US858621 - Add Entity Demographic Info
   @Automated
   @Functional
   @EXARI-11249
-  @US858621
   Scenario: TC565410 - [RL0]
     Given I am a User with access to maintain Entities
     When I want to add demographic information to an Entity

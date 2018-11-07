@@ -11,7 +11,6 @@
 @Priority_1
 @CLM_Exari
 @Parity
-@F201611
 @releasePast
 @iterationPast
 Feature: US1311485 - PES Roster Call -Change Output Results
@@ -20,9 +19,6 @@ Feature: US1311485 - PES Roster Call -Change Output Results
   @Automated
   @Functional
   @PES
-  @US1311485
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC579704 - [RL1]
     # For Facility
     Given a user wants to do a search for Roster
@@ -46,9 +42,6 @@ Feature: US1311485 - PES Roster Call -Change Output Results
   @Automated
   @Functional
   @PES
-  @US1311485
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC572204 - [RL0]
     # For Physician
     Given a user wants to do a search for Roster

@@ -7,7 +7,6 @@ Feature: US1030561 - Exari >NDB Facility/Ancillary - Terminate Medical Necessity
   @TC565192
   @Automated
   @Functional
-  @US1030561
   Scenario: TC565192 - [RL0]
     Given - The Facility contract provider(s) cancel is complete and correct within Exari
     When - The contract is included in the Exari Facility Contract ETL to NDB

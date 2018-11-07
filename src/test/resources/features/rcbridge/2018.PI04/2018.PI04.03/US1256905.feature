@@ -7,7 +7,6 @@
 @Priority_1
 @CMD
 @Amrutha
-@F209320
 @releasePresent
 @iterationPast
 Feature: US1256905 - Create CLM Rule Table
@@ -15,9 +14,6 @@ Feature: US1256905 - Create CLM Rule Table
   @TC615404
   @Manual
   @Functional
-  @US1256905
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC615404 - [RL2]
     Given rules exist
     When the rule details need to be accessed
@@ -27,9 +23,6 @@ Feature: US1256905 - Create CLM Rule Table
   @TC615402
   @Manual
   @Functional
-  @US1256905
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC615402 - [RL0]
     Given rules exist
     When the rules need to be stored
@@ -38,9 +31,6 @@ Feature: US1256905 - Create CLM Rule Table
   @TC615403
   @Manual
   @Functional
-  @US1256905
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC615403 - [RL1]
     Given rules exist
     When the rules need to be applied during contract processing

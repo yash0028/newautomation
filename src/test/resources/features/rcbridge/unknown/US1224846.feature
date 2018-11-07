@@ -3,7 +3,6 @@
 @MVP
 @Plus
 @Priority_1
-@F181492
 @releaseUnknown
 @iterationUnknown
 Feature: US1224846 - Terminated TIN
@@ -11,7 +10,6 @@ Feature: US1224846 - Terminated TIN
   @TC565054
   @Automated
   @Functional
-  @US1224846
   Scenario: TC565054 - [RL0]
     Given I am the Entity Management Solution
     When a TIN is terminated in NDB

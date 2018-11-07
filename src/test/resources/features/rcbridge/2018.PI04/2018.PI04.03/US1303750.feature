@@ -6,7 +6,6 @@
 @Madhur
 @Priority_1
 @CMD
-@F218723
 @releasePresent
 @iterationPast
 Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View & Edit contract detail information (no search results found)
@@ -14,9 +13,6 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   @TC593196
   @Manual
   @Functional
-  @US1303750
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC593196 - [RL1]
     # Scenario 2 (Multiple product grouping under contract ID- no contract master found for all)
     Given I have clicked on the detail information on a contract ID
@@ -34,9 +30,6 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   @TC619012
   @Manual
   @Functional
-  @US1303750
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC619012 - [RL6]
     # Scenario 7 (click contract load button)
     Given I have selected a contract master for a product grouping
@@ -47,9 +40,6 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   @TC593198
   @Manual
   @Functional
-  @US1303750
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC593198 - [RL3]
     # Scenario 4 (Select contract master- Use this once)
     Given I am on the CMD Action Required page
@@ -62,9 +52,6 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   @TC564772
   @Manual
   @Functional
-  @US1303750
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC564772 - [RL0]
     # Scenario 1 (Single Product grouping under Contract ID- No contract master found)
     Given I have clicked on the detail information on a contract ID
@@ -82,9 +69,6 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   @TC593200
   @Manual
   @Functional
-  @US1303750
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC593200 - [RL4]
     # Scenario 5 (Select contract master- Use this always)
     Given I am on the CMD Action Required page
@@ -97,9 +81,6 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   @TC593201
   @Manual
   @Functional
-  @US1303750
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC593201 - [RL5]
     # scenario 6 (contract load button)
     Given I have selected a contract master for a product grouping
@@ -109,9 +90,6 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
   @TC593197
   @Manual
   @Functional
-  @US1303750
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC593197 - [RL2]
     # Scenario 3 (Edit contract master detail info- data fields choose contract master)
     Given I am on the CMD Action Required page

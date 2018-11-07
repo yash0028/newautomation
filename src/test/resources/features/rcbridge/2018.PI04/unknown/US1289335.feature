@@ -8,8 +8,6 @@ Feature: US1289335 - View multi-Contract Config Summary web page
   @TC616423
   @Manual
   @Functional
-  @US1289335
-  @2018.PI04
   Scenario: TC616423 - [RL0]
     Given an Exari contract is created
     When a contract is executed in Exari
@@ -18,8 +16,6 @@ Feature: US1289335 - View multi-Contract Config Summary web page
   @TC616424
   @Manual
   @Functional
-  @US1289335
-  @2018.PI04
   Scenario: TC616424 - [RL1]
     Given an CMD record exists
     When a contract configuration overview inquiry request is made

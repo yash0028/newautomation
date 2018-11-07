@@ -10,7 +10,6 @@
 @Crosswalk
 @Priority_1
 @CMD
-@F201371
 @releasePast
 @iterationPast
 Feature: US1185585 - Contract Product Description Crosswalk
@@ -21,9 +20,6 @@ Feature: US1185585 - Contract Product Description Crosswalk
   @MVP
   @Amrutha
   @Priority
-  @US1185585
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC569866 - [RL4] Validate empty list for passing in multiple bad product descriptions
     # Passing in multiple invalid product descriptions
     Given multiple product descriptions that do not exist
@@ -36,9 +32,6 @@ Feature: US1185585 - Contract Product Description Crosswalk
   @MVP
   @Amrutha
   @Priority
-  @US1185585
-  @2018.PI03
-  @2018.PI03.05
   Scenario Outline: TC564546 - [RL0] Validate that the crosswalk provides the product code list for a single corresponding product description
     # Passing in a single valid product description
     Given a product description to product code crosswalk exists
@@ -58,9 +51,6 @@ Feature: US1185585 - Contract Product Description Crosswalk
   @MVP
   @Amrutha
   @Priority
-  @US1185585
-  @2018.PI03
-  @2018.PI03.05
   Scenario Outline: TC569883 - [RL1] Validate that the crosswalk provides the product code list for multiple corresponding product descriptions
     # Passing in multiple valid product descriptions
     Given a product description to product code crosswalk exists
@@ -78,9 +68,6 @@ Feature: US1185585 - Contract Product Description Crosswalk
   @MVP
   @Amrutha
   @Priority
-  @US1185585
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC575413 - [RL3] Validate only single valid product code list for passing in one good and one bad product description
     # Passing in one valid and one invalid product description
     Given a product description from the corresponding "2000290" and an invalid product description
@@ -93,9 +80,6 @@ Feature: US1185585 - Contract Product Description Crosswalk
   @MVP
   @Amrutha
   @Priority
-  @US1185585
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC575412 - [RL2] Validate empty list for passing in one bad product description
     # Passing in a single invalid product description
     Given a product description that does not exist

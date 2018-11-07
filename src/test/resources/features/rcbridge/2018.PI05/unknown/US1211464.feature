@@ -4,7 +4,6 @@
 @2018.PI05
 @MVP
 @CMD_UI
-@F242516
 @releaseFuture
 @iterationUnknown
 Feature: US1211464 - Contract Master search based on Service Location Market Number
@@ -13,8 +12,6 @@ Feature: US1211464 - Contract Master search based on Service Location Market Num
   @Automated
   @Functional
   @CMD2
-  @US1211464
-  @2018.PI05
   Scenario: TC565711 - [RL2]
     Given service location market numbers have been identified
     When all market numbers ARE NOT the same as the contract market numbers
@@ -25,8 +22,6 @@ Feature: US1211464 - Contract Master search based on Service Location Market Num
   @Automated
   @Functional
   @CMD2
-  @US1211464
-  @2018.PI05
   Scenario: TC565709 - [RL0]
     Given an healthcare provider is party to an Exari contract record
     When all service location addresses are contained in the contract record
@@ -36,8 +31,6 @@ Feature: US1211464 - Contract Master search based on Service Location Market Num
   @Automated
   @Functional
   @CMD2
-  @US1211464
-  @2018.PI05
   Scenario: TC565710 - [RL1]
     Given service location market numbers have been identified
     When all market numbers are the same as the contract market number
@@ -47,8 +40,6 @@ Feature: US1211464 - Contract Master search based on Service Location Market Num
   @Automated
   @Functional
   @CMD2
-  @US1211464
-  @2018.PI05
   Scenario: TC565712 - [RL3]
     Given service location market number is used for contract configuration processes
     When provider service location address market number is used

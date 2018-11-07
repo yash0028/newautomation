@@ -5,7 +5,6 @@
 @MVP
 @Plus
 @Priority_2
-@F198810
 @releaseUnknown
 @iterationUnknown
 Feature: US1202994 - Export Tax IDs
@@ -15,7 +14,6 @@ Feature: US1202994 - Export Tax IDs
   @Functional
   @MVP
   @CLM_UAT
-  @US1202994
   Scenario: TC565157 - [RL0]
     Given I am a User with access to maintain Entity information
     When I want to export a list of Tax IDs

@@ -10,7 +10,6 @@
 @Parity
 @Non-Deliverable
 @7.5_Release
-@F185542
 @releaseUnknown
 @iterationUnknown
 Feature: US1098379 - Initiate Mass Action from UI
@@ -24,7 +23,6 @@ Feature: US1098379 - Initiate Mass Action from UI
   @Parity
   @Non-Deliverable
   @7.5_Release
-  @US1098379
   Scenario: TC564637 - [RL0]
     Given I am a user with access to the Mass Actions UI
     When I want to add amendments to existing contracts

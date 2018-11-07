@@ -10,7 +10,6 @@
 @MVP
 @CLM_Exari
 @Parity
-@F137899
 @releasePast
 @iterationPast
 Feature: US1095936 - External Data Query for PES - Error Handling
@@ -19,9 +18,6 @@ Feature: US1095936 - External Data Query for PES - Error Handling
   @Manual
   @Functional
   @PES
-  @US1095936
-  @2018.PI02
-  @2018.PI02.04
   Scenario: TC493893 - [RL0] Incorrect data error validation
     Given a user needs to call PES
     When a user incorrectly inputs data
@@ -31,9 +27,6 @@ Feature: US1095936 - External Data Query for PES - Error Handling
   @Manual
   @Functional
   @PES
-  @US1095936
-  @2018.PI02
-  @2018.PI02.04
   Scenario: TC493894 - [RL1] System unavailable error validation
     Given a user needs to call PES
     When the system goes down
@@ -43,9 +36,6 @@ Feature: US1095936 - External Data Query for PES - Error Handling
   @Manual
   @Functional
   @PES
-  @US1095936
-  @2018.PI02
-  @2018.PI02.04
   Scenario: TC493895 - [RL2] Catastrophic error validation
     Given a user needs to call PES
     When a catastrophic error occurs

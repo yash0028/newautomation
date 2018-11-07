@@ -10,7 +10,6 @@
 @MVP
 @Plus
 @CLM_Exari
-@F192389
 @releasePast
 @iterationPast
 Feature: US1137951 - Create a new Mass Action definitions
@@ -23,9 +22,6 @@ Feature: US1137951 - Create a new Mass Action definitions
   @EXARI-11525
   @CLM_Exari
   @7.5_Release
-  @US1137951
-  @2018.PI02
-  @2018.PI02.03
   Scenario: TC565307 - [RL0]
     Given I am a Mass Action Administrator
     When a new Mas Action Definition is identified

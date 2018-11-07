@@ -5,7 +5,6 @@
 @2018.PI01.02
 @MVP
 @CLM_Exari
-@F137838
 @releasePast
 @iterationPast
 Feature: US860740 - [Continued] Setup User Groups for Contract Authoring
@@ -14,9 +13,6 @@ Feature: US860740 - [Continued] Setup User Groups for Contract Authoring
   @Automated
   @Functional
   @MVP
-  @US860740
-  @2018.PI01
-  @2018.PI01.02
   Scenario: TC565254 - [RL0]
     Given I am logged into Exari as a Contract Administrator,
     When I apply the defined User Group configurations and select save,

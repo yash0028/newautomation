@@ -1,6 +1,5 @@
 # Last updated on 
 @US1209266
-@F205008
 @releaseUnknown
 @iterationUnknown
 Feature: US1209266 - Provider Network Group Role
@@ -8,7 +7,6 @@ Feature: US1209266 - Provider Network Group Role
   @TC564673
   @Automated
   @Functional
-  @US1209266
   Scenario: TC564673 - [RL1]
     Given an Exari contract is active
     When the contract requires a means to dientify conditions based on provider role in context of their affiliation with a group of individuals and/or organizations in order to administer the terms
@@ -18,7 +16,6 @@ Feature: US1209266 - Provider Network Group Role
   @TC564671
   @Automated
   @Functional
-  @US1209266
   Scenario: TC564671 - [RL0]
     Given an Exari contract is active
     When the contract requires a means to identify conditions based on provider role in context of their affiliation with a group of individuals and/or organizations in order to administer the terms

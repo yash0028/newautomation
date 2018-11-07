@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137678
 @releaseUnknown
 @iterationUnknown
 Feature: US858724 - View Entity Detail
@@ -17,7 +16,6 @@ Feature: US858724 - View Entity Detail
   @MVP
   @EXARI-10529
   @CLM_UAT
-  @US858724
   Scenario: TC565912 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view a Entity details

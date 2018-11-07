@@ -3,7 +3,6 @@
 @2018.PI05
 @MVP
 @Maintenance
-@F240037
 @releaseFuture
 @iterationUnknown
 Feature: US1403499 - Receive and recognize term update events/transactions from Exari
@@ -11,8 +10,6 @@ Feature: US1403499 - Receive and recognize term update events/transactions from 
   @TC622453
   @Manual
   @Functional
-  @US1403499
-  @2018.PI05
   Scenario: TC622453 - [RL0]
     Given the OCM is subscribed to the Exari Business Event Type "TermsUpdated"
     When an "TermsUpdated" transaction is published

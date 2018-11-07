@@ -5,7 +5,6 @@
 @MVP
 @PI02_Top3
 @Parity
-@F171708
 @releasePast
 @iterationPast
 Feature: US1193225 - [Unfinished] [Continued] Exari > NDB -  COSMOS Physician Panel - NDB/UNET Y Line
@@ -13,9 +12,6 @@ Feature: US1193225 - [Unfinished] [Continued] Exari > NDB -  COSMOS Physician Pa
   @TC565554
   @Automated
   @Functional
-  @US1193225
-  @2018.PI02
-  @2018.PI02.04
   Scenario: TC565554 - [RL0]
     Given the NDB Process to load a corresponding UNET Y line when an NDB/COSMOS Physician Panel is loaded
     When the NDB/COSMOS panel data is received, NDB will also require the corresponding UNET Y line data

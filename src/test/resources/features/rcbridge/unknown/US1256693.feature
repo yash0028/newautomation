@@ -1,6 +1,5 @@
 # Last updated on 
 @US1256693
-@F205008
 @releaseUnknown
 @iterationUnknown
 Feature: US1256693 - Download Table Template
@@ -8,7 +7,6 @@ Feature: US1256693 - Download Table Template
   @TC565607
   @Automated
   @Functional
-  @US1256693
   Scenario: TC565607 - [RL0]
     Given more than one Provider Taxonomy Grid record exists in the database
     When access to a previous record version is needed
@@ -17,7 +15,6 @@ Feature: US1256693 - Download Table Template
   @TC565609
   @Automated
   @Functional
-  @US1256693
   Scenario: TC565609 - [RL1]
     Given an update to the current version of the Provider Taxonomy Grid is needed
     When an administrator downloads a copy of the table template

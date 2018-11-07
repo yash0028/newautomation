@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137676
 @releaseUnknown
 @iterationUnknown
 Feature: US1119871 - Filter by Entity Relationship Role
@@ -17,7 +16,6 @@ Feature: US1119871 - Filter by Entity Relationship Role
   @MVP
   @CLM_UAT
   @EXARI-11765
-  @US1119871
   Scenario: TC565471 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to Entity sub-parts based on relationship role

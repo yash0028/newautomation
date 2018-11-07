@@ -12,7 +12,6 @@
 @MVP
 @CLM_Exari
 @Parity
-@F137899
 @releasePast
 @iterationPast
 Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data Requests To PES - Counter Party lookup
@@ -23,9 +22,6 @@ Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data R
   @CLM_UAT
   @Provider_Demograhics
   @PES
-  @US861016
-  @2018.PI02
-  @2018.PI02.04
   Scenario: TC565514 - [RL0] Validate Physician Fields
     #for Physician
     Given I am a User with access to add a Counterparty to an Interview
@@ -47,9 +43,6 @@ Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data R
   @CLM_UAT
   @Provider_Demograhics
   @PES
-  @US861016
-  @2018.PI02
-  @2018.PI02.04
   Scenario: TC565515 - [RL1] Validate Facility Fields
     #for Facility
     Given I am a User with access to add a Counterparty to an Interview
@@ -68,9 +61,6 @@ Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data R
   @CLM_UAT
   @Provider_Demograhics
   @PES
-  @US861016
-  @2018.PI02
-  @2018.PI02.04
   Scenario: TC493888 - Validate correct fields returned
     Given I am a User with access to add a Counterparty to an Interview
     When I search for a Counterparty using MPIN of "12345"

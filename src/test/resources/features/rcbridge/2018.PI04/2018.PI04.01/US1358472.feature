@@ -7,7 +7,6 @@
 @Madhur
 @Priority_1
 @CMD
-@F218723
 @releasePresent
 @iterationPast
 Feature: US1358472 - [Unfinished] CMD- User Input Required Page- View & Edit contract detail information (no search results found)
@@ -16,9 +15,6 @@ Feature: US1358472 - [Unfinished] CMD- User Input Required Page- View & Edit con
   @Manual
   @Functional
   @A_UI_Story
-  @US1358472
-  @2018.PI04
-  @2018.PI04.01
   Scenario: TC597144 - [RL0]
     # Scenario 1 (View contract master detail info- No results with message)
     Given I am on the CMD Action required page
@@ -38,9 +34,6 @@ Feature: US1358472 - [Unfinished] CMD- User Input Required Page- View & Edit con
   @Manual
   @Functional
   @A_UI_Story
-  @US1358472
-  @2018.PI04
-  @2018.PI04.01
   Scenario: TC597145 - [RL1]
     # Scenario 2 (Edit contract master detail info- data fields add new row)
     Given I am on the CMD Action Required page

@@ -8,7 +8,6 @@
 @Priority_1
 @kumar,_Sachin
 @CMD
-@F233635
 @releasePresent
 @iterationPresent
 Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
@@ -17,9 +16,6 @@ Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
   @Manual
   @Functional
   @Contract_Rules
-  @US1368002
-  @2018.PI04
-  @2018.PI04.04
   Scenario Outline: TC608275 - [RL1]
     Given "uhgSite" contains "<site>"
     And "marketNumber" = "03413"
@@ -36,9 +32,6 @@ Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
   @Manual
   @Functional
   @Contract_Rules
-  @US1368002
-  @2018.PI04
-  @2018.PI04.04
   Scenario Outline: TC600549 - [RL0]
     Given "uhgSite" contains "<site>"
     And "marketNumber" = "03413"

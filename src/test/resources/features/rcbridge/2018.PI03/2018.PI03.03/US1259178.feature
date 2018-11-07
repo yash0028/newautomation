@@ -7,7 +7,6 @@
 @10/1_Physician
 @CMD
 @CMD_Tables
-@F214484
 @releasePast
 @iterationPast
 Feature: US1259178 - Taxonomy Grid table microservice
@@ -16,9 +15,6 @@ Feature: US1259178 - Taxonomy Grid table microservice
   @Automated
   @Functional
   @Mark
-  @US1259178
-  @2018.PI03
-  @2018.PI03.03
   Scenario: TC543879 - Multiple Records Validation
     #Test when query response result includes more than one record
     Given a user needs to query the table
@@ -29,9 +25,6 @@ Feature: US1259178 - Taxonomy Grid table microservice
   @Automated
   @Functional
   @Mark
-  @US1259178
-  @2018.PI03
-  @2018.PI03.03
   Scenario Outline: TC543877 - Optional Attributes Validation
     Given a user needs to query the table
     When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
@@ -46,9 +39,6 @@ Feature: US1259178 - Taxonomy Grid table microservice
   @Automated
   @Functional
   @Mark
-  @US1259178
-  @2018.PI03
-  @2018.PI03.03
   Scenario Outline: TC543876 - Non optional Attributes Validation
     Given a user needs to query the table
     When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
@@ -62,9 +52,6 @@ Feature: US1259178 - Taxonomy Grid table microservice
   @Automated
   @Functional
   @Mark
-  @US1259178
-  @2018.PI03
-  @2018.PI03.03
   Scenario: TC565559 - [RL3]
     #Test when query response result includes more than one record
     Given a user needs to query the table
@@ -75,9 +62,6 @@ Feature: US1259178 - Taxonomy Grid table microservice
   @Automated
   @Functional
   @Mark
-  @US1259178
-  @2018.PI03
-  @2018.PI03.03
   Scenario Outline: TC565556 - [RL0]
     #Test happy paths
     Given a user needs to query the table
@@ -92,9 +76,6 @@ Feature: US1259178 - Taxonomy Grid table microservice
   @Automated
   @Functional
   @Mark
-  @US1259178
-  @2018.PI03
-  @2018.PI03.03
   Scenario Outline: TC565557 - [RL1]
     #Test optional paths
     Given a user needs to query the table
@@ -110,9 +91,6 @@ Feature: US1259178 - Taxonomy Grid table microservice
   @Automated
   @Functional
   @Mark
-  @US1259178
-  @2018.PI03
-  @2018.PI03.03
   Scenario Outline: TC565558 - [RL2]
     #Tests both bad paths
     Given a user needs to query the table
@@ -127,9 +105,6 @@ Feature: US1259178 - Taxonomy Grid table microservice
   @Automated
   @Functional
   @Mark
-  @US1259178
-  @2018.PI03
-  @2018.PI03.03
   Scenario Outline: TC551313 - Missing Attributes Validation
     #Tests both bad paths
     Given a user needs to query the table

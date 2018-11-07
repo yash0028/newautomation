@@ -6,7 +6,6 @@
 @Priority_1
 @PIC
 @Parity
-@F159196
 @releasePast
 @iterationPast
 Feature: US1199511 - [Continued] PIC Implementation
@@ -14,9 +13,6 @@ Feature: US1199511 - [Continued] PIC Implementation
   @TC534390
   @Automated
   @Functional
-  @US1199511
-  @2018.PI03
-  @2018.PI03.05
   Scenario Outline: TC534390 - [RL0] Validate contract data is sent back to PIC
     Given Exari has received a request to send data to PIC
     When the micro service has received the contract id of "<contractId>" from Exari
@@ -29,9 +25,6 @@ Feature: US1199511 - [Continued] PIC Implementation
   @TC537136
   @Manual
   @Functional
-  @US1199511
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC537136 - [RL2] Validate error when microservice cannot be reached
     Given Optum has received a request to send data to PIC
     When the micro service is unable to be reached by PIC
@@ -41,9 +34,6 @@ Feature: US1199511 - [Continued] PIC Implementation
   @TC585310
   @Manual
   @Acceptance
-  @US1199511
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC585310 - TC-02_validate the server error when the micro service is unable to reached by PIC
     Given Optum has received a request to send data to PIC
     When the micro service is unable to be reached by PIC
@@ -53,9 +43,6 @@ Feature: US1199511 - [Continued] PIC Implementation
   @TC585304
   @Manual
   @Acceptance
-  @US1199511
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC585304 - TC-02_Validate the Contract details received when invalid request made from PIC
     Given Exari has received a request to send data to PIC
     When the micro service has received the contract id of "<contractId>" from Exari
@@ -66,9 +53,6 @@ Feature: US1199511 - [Continued] PIC Implementation
   @TC585284
   @Manual
   @Acceptance
-  @US1199511
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC585284 - TC-01_Validate the Contract details received when a valid request made from PIC
     Given Exari has received a request to send data to PIC
     When the micro service has received the contract id of "<contractId>" from Exari
@@ -78,9 +62,6 @@ Feature: US1199511 - [Continued] PIC Implementation
   @TC537132
   @Automated
   @Functional
-  @US1199511
-  @2018.PI03
-  @2018.PI03.05
   Scenario Outline: TC537132 - [RL1] Validate error message for invalid data
     Given Exari has received a request to send data to PIC
     When the micro service has received the contract id of "<contractId>" from Exari

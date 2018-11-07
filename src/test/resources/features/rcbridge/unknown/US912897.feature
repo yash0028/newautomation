@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137661
 @releaseUnknown
 @iterationUnknown
 Feature: US912897 - Add Entity Characteristic Detail
@@ -17,7 +16,6 @@ Feature: US912897 - Add Entity Characteristic Detail
   @MVP
   @EXARI-11249
   @CLM_UAT
-  @US912897
   Scenario: TC565885 - [RL0]
     Given I am a User with access to maintain Entities
     When I want to add characteristic information to an Entity

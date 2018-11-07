@@ -7,7 +7,6 @@
 @10/1_Physician
 @Priority_1
 @CMD
-@F205820
 @releasePast
 @iterationPast
 Feature: US1301716 - CMD Dashboard Navigation Bar
@@ -16,9 +15,6 @@ Feature: US1301716 - CMD Dashboard Navigation Bar
   @Automated
   @Functional
   @A_UI_Story
-  @US1301716
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC574134 - [RL0]
     Given I have entered the CMD dashboard URL
     And I am recognized as a contract administrator with access to CMD

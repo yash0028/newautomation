@@ -4,7 +4,6 @@
 @2018.PI03
 @2018.PI03.04
 @MVP
-@F201505
 @releasePast
 @iterationPast
 Feature: US1272911 - Fix Fortify Issues
@@ -13,9 +12,6 @@ Feature: US1272911 - Fix Fortify Issues
   @Manual
   @Functional
   @Charlie
-  @US1272911
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC564735 - [RL0]
     Given services that are maintained by CLM Team 1
     When Fortify reports high-end critical issues on a service

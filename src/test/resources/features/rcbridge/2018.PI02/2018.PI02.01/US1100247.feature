@@ -7,7 +7,6 @@
 @PI02_Top3
 @Plus
 @Parity
-@F175417
 @releasePast
 @iterationPast
 Feature: US1100247 - Domain service stub
@@ -16,9 +15,6 @@ Feature: US1100247 - Domain service stub
   @Automated
   @Functional
   @#MVP
-  @US1100247
-  @2018.PI02
-  @2018.PI02.01
   Scenario: TC565356 - [RL0]
     Given an event processes an update request event
     When the scenario simulates an update is ok
@@ -28,9 +24,6 @@ Feature: US1100247 - Domain service stub
   @Automated
   @Functional
   @#MVP
-  @US1100247
-  @2018.PI02
-  @2018.PI02.01
   Scenario: TC565357 - [RL1]
     Given an event processes an update request event
     When the scenario simulates an update has aborted

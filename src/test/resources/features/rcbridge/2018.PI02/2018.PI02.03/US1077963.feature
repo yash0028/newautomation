@@ -6,7 +6,6 @@
 @PI02_Top3
 @Plus
 @Parity
-@F175417
 @releasePast
 @iterationPast
 Feature: US1077963 - Transaction Status Update and Connect Database
@@ -14,9 +13,6 @@ Feature: US1077963 - Transaction Status Update and Connect Database
   @TC565867
   @Automated
   @Functional
-  @US1077963
-  @2018.PI02
-  @2018.PI02.03
   Scenario: TC565867 - [RL2]
     Given A transaction is in progress
     When a transaction status event is received but the database is unavailable
@@ -25,9 +21,6 @@ Feature: US1077963 - Transaction Status Update and Connect Database
   @TC565866
   @Automated
   @Functional
-  @US1077963
-  @2018.PI02
-  @2018.PI02.03
   Scenario: TC565866 - [RL1]
     Given A transaction is in progress
     When a transaction status event is received
@@ -37,9 +30,6 @@ Feature: US1077963 - Transaction Status Update and Connect Database
   @TC565865
   @Automated
   @Functional
-  @US1077963
-  @2018.PI02
-  @2018.PI02.03
   Scenario: TC565865 - [RL0]
     Given A transaction is in progress
     When a transaction status event is received

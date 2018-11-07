@@ -1,7 +1,6 @@
 # Last updated on 
 @MVP+1
 @US1211188
-@F205008
 @releaseUnknown
 @iterationUnknown
 Feature: US1211188 - Identify Fee Schedule
@@ -10,7 +9,6 @@ Feature: US1211188 - Identify Fee Schedule
   @Automated
   @Functional
   @MVP+1
-  @US1211188
   Scenario: TC565887 - [RL0]
     Given an Exari contract record exists
     When the contract record has a fee schedule assigned
@@ -20,7 +18,6 @@ Feature: US1211188 - Identify Fee Schedule
   @Automated
   @Functional
   @MVP+1
-  @US1211188
   Scenario: TC565888 - [RL1]
     Given an Exari contract record exists
     When the contract record does not have a fee schedule assigned

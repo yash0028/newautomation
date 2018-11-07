@@ -2,7 +2,6 @@
 @US980966
 @Plus
 @Priority_1
-@F137672
 @releaseUnknown
 @iterationUnknown
 Feature: US980966 - Add Provider Relationship Type
@@ -10,7 +9,6 @@ Feature: US980966 - Add Provider Relationship Type
   @TC564802
   @Automated
   @Functional
-  @US980966
   Scenario: TC564802 - [RL0]
     Given I am a User with access to maintain Entity information
     When I am adding a relationship between a Provider and an Entity

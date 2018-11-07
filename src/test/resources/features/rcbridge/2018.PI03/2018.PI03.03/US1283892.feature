@@ -7,7 +7,6 @@
 @Crosswalk
 @Priority_1
 @CMD
-@F201371
 @releasePast
 @iterationPast
 Feature: US1283892 - [Unfinished] Import Data from Spreadsheet into Table
@@ -15,9 +14,6 @@ Feature: US1283892 - [Unfinished] Import Data from Spreadsheet into Table
   @TC605408
   @Manual
   @Functional
-  @US1283892
-  @2018.PI03
-  @2018.PI03.03
   Scenario: TC605408 - [RL0]
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
@@ -29,9 +25,6 @@ Feature: US1283892 - [Unfinished] Import Data from Spreadsheet into Table
   @TC605409
   @Manual
   @Functional
-  @US1283892
-  @2018.PI03
-  @2018.PI03.03
   Scenario: TC605409 - [RL1]
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database

@@ -4,7 +4,6 @@
 @2018.PI03
 @2018.PI03.04
 @MVP
-@F201505
 @releasePast
 @iterationPast
 Feature: US1289622 - Initialize events from contract transaction changes in Event Trigger
@@ -13,9 +12,6 @@ Feature: US1289622 - Initialize events from contract transaction changes in Even
   @Manual
   @Functional
   @Mark_E.
-  @US1289622
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC564479 - [RL0]
     Given An email is sent to the Optum Exari update email address
     When the event is sent to the Event Gateway

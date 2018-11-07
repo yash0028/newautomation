@@ -5,7 +5,6 @@
 @Plus
 @Priority_2
 @Facility
-@F243736
 @releaseFuture
 @iterationUnknown
 Feature: US1358064 - CLM >COSMOS Add a Facility Contract - PIC DIV - PSO (Criteria)
@@ -13,8 +12,6 @@ Feature: US1358064 - CLM >COSMOS Add a Facility Contract - PIC DIV - PSO (Criter
   @TC597181
   @Manual
   @Functional
-  @US1358064
-  @2018.PI05
   Scenario: TC597181 - [RL0]
     Given the Exari > COSMOS Facility data within the Payload is correct
     When COSMOS receives the Exari Facility Payload data

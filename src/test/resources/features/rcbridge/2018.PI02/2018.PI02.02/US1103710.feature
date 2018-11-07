@@ -8,7 +8,6 @@
 @PI02_Top3
 @Plus
 @Parity
-@F182490
 @releasePast
 @iterationPast
 Feature: US1103710 - Counter-party Provider Org TypeCode is found and paper type is returned
@@ -18,9 +17,6 @@ Feature: US1103710 - Counter-party Provider Org TypeCode is found and paper type
   @Functional
   @CLM_UAT
   @ETMA
-  @US1103710
-  @2018.PI02
-  @2018.PI02.02
   Scenario: TC564966 - [RL0] Validation of Counter-party Provider Org TypeCode is found and paper type is returned
     Given the provider's organization type is "012" and contract type is not known
     When finding the Org Type in ETMA
@@ -31,9 +27,6 @@ Feature: US1103710 - Counter-party Provider Org TypeCode is found and paper type
   @Functional
   @CLM_UAT
   @ETMA
-  @US1103710
-  @2018.PI02
-  @2018.PI02.02
   Scenario: TC564967 - [RL1] Validation of Counter-party Provider Org TypeCode is found and service is not return paper
     Given the provider's organization type is "012" and contract type is not known
     When finding the Org Type in ETMA

@@ -3,7 +3,6 @@
 @MVP
 @Plus
 @Priority_1
-@F181492
 @releaseUnknown
 @iterationUnknown
 Feature: US1226816 - Terminated BSAR/Provider Relationship
@@ -11,7 +10,6 @@ Feature: US1226816 - Terminated BSAR/Provider Relationship
   @TC565632
   @Automated
   @Functional
-  @US1226816
   Scenario: TC565632 - [RL0]
     Given I am the Entity Management Solution
     When a BSAR to Provider relationship is terminated in NDB

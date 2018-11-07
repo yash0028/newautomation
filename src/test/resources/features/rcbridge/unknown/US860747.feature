@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137840
 @releaseUnknown
 @iterationUnknown
 Feature: US860747 - Provision User Access
@@ -17,7 +16,6 @@ Feature: US860747 - Provision User Access
   @MVP
   @CLM_UAT
   @EXARI-10879
-  @US860747
   Scenario: TC565046 - [RL0]
     Given I am an Administrative User of the Entity Management Solution
     When I want to grant and remove access to Users by Entity

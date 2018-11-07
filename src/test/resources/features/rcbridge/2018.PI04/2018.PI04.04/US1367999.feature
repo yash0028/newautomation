@@ -8,7 +8,6 @@
 @Priority_1
 @kumar,_Sachin
 @CMD
-@F233635
 @releasePresent
 @iterationPresent
 Feature: US1367999 - PCP Specialties Standard definition UHN
@@ -17,9 +16,6 @@ Feature: US1367999 - PCP Specialties Standard definition UHN
   @Manual
   @Functional
   @Contract_Rules
-  @US1367999
-  @2018.PI04
-  @2018.PI04.04
   Scenario Outline: TC600523 - [RL0]
     Given the provider record "contractOrgCd" equals "UHN"
     And the NDB "providerRecordType" equals "P"
@@ -40,9 +36,6 @@ Feature: US1367999 - PCP Specialties Standard definition UHN
   @Manual
   @Functional
   @Contract_Rules
-  @US1367999
-  @2018.PI04
-  @2018.PI04.04
   Scenario Outline: TC600524 - [RL1]
     Given the provider record "contractOrgCd" equals "UHN"
     And the NDB "providerRecordType" equals "P"

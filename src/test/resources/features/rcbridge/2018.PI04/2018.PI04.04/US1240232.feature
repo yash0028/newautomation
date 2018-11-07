@@ -2,7 +2,6 @@
 @US1240232
 @2018.PI04
 @2018.PI04.04
-@F205008
 @releasePresent
 @iterationPresent
 Feature: US1240232 - Modify Contract Config record (UI)
@@ -10,9 +9,6 @@ Feature: US1240232 - Modify Contract Config record (UI)
   @TC615301
   @Manual
   @Functional
-  @US1240232
-  @2018.PI04
-  @2018.PI04.04
   Scenario: TC615301 - [RL0]
     Given an Exari contract is created
     When the contract 'Final Capture' event occurs in Exari
@@ -21,9 +17,6 @@ Feature: US1240232 - Modify Contract Config record (UI)
   @TC615302
   @Manual
   @Functional
-  @US1240232
-  @2018.PI04
-  @2018.PI04.04
   Scenario: TC615302 - [RL1]
     Given an CMD record exists
     When a CMD record inquiry request is made

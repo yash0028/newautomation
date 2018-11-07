@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137903
 @releaseUnknown
 @iterationUnknown
 Feature: US861058 - Publish Events When Entity Structures Change
@@ -17,7 +16,6 @@ Feature: US861058 - Publish Events When Entity Structures Change
   @MVP
   @EXARI-11271
   @EXARI-8724
-  @US861058
   Scenario: TC565447 - [RL0]
     Given I am the Entity Management Solution
     When an Entity structure changes in the Entity Management Solution

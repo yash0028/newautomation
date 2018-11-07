@@ -5,7 +5,6 @@
 @2018.PI01.02
 @MVP
 @CLM_Exari
-@F137839
 @releasePast
 @iterationPast
 Feature: US933396 - Update Business Organizations
@@ -14,9 +13,6 @@ Feature: US933396 - Update Business Organizations
   @Automated
   @Functional
   @MVP
-  @US933396
-  @2018.PI01
-  @2018.PI01.02
   Scenario: TC565204 - [RL0]
     Given I am logged into Exari as a Business Administrator,
     When I select the Site button,

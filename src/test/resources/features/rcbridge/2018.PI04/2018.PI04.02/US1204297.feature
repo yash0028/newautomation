@@ -8,7 +8,6 @@
 @Madhur
 @Priority_1
 @CMD
-@F218723
 @releasePresent
 @iterationPast
 Feature: US1204297 - NDB Common Pricing Solution Lookup API
@@ -18,9 +17,6 @@ Feature: US1204297 - NDB Common Pricing Solution Lookup API
   @Functional
   @Amrutha
   @MVP+1
-  @US1204297
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC615259 - [RL0]
     Given the COSMOS DIV is EVC and Contract package # is 22503
     When COSMOS detects they cannot process (no op message) the request

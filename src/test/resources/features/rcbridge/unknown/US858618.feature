@@ -5,7 +5,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137660
 @releaseUnknown
 @iterationUnknown
 Feature: US858618 - Capture Time Lining History
@@ -15,7 +14,6 @@ Feature: US858618 - Capture Time Lining History
   @Functional
   @MVP
   @EXARI-11273
-  @US858618
   Scenario: TC565563 - [RL0]
     Given I am the Entity Management solution
     When User adds or updates an Identifier relationship to an Entity

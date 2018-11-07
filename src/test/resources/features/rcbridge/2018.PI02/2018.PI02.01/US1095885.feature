@@ -7,7 +7,6 @@
 @PI02_Top3
 @Plus
 @Parity
-@F175417
 @releasePast
 @iterationPast
 Feature: US1095885 - Contract Gateway API
@@ -16,9 +15,6 @@ Feature: US1095885 - Contract Gateway API
   @Automated
   @Functional
   @CLM_UAT
-  @US1095885
-  @2018.PI02
-  @2018.PI02.01
   Scenario: TC565537 - [RL1]
     Given A business transaction
     When Transaction is received from Exari but the transaction state service is down
@@ -28,9 +24,6 @@ Feature: US1095885 - Contract Gateway API
   @Automated
   @Functional
   @CLM_UAT
-  @US1095885
-  @2018.PI02
-  @2018.PI02.01
   Scenario: TC565536 - [RL0]
     Given A business transaction
     When Transaction is received from Exari

@@ -2,7 +2,6 @@
 @EXARI-11271
 @US1094113
 @Plus
-@F137658
 @releaseUnknown
 @iterationUnknown
 Feature: US1094113 - Approve Identifier Owner Assignment
@@ -11,7 +10,6 @@ Feature: US1094113 - Approve Identifier Owner Assignment
   @Automated
   @Functional
   @EXARI-11271
-  @US1094113
   Scenario: TC564619 - [RL0]
     Given I am a User with Approval Authority
     When a User adds an Owner to an Identifier and submits for approval

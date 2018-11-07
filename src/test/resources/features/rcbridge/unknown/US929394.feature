@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137674
 @releaseUnknown
 @iterationUnknown
 Feature: US929394 - Update Entity Type
@@ -17,7 +16,6 @@ Feature: US929394 - Update Entity Type
   @MVP
   @EXARI-11249
   @CLM_UAT
-  @US929394
   Scenario: TC564638 - [RL0]
     Given I am an Administrative User
     When I need to update an existing Entity Type

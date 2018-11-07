@@ -7,7 +7,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137674
 @releaseUnknown
 @iterationUnknown
 Feature: US929398 - Update Entity Characteristic Type
@@ -19,7 +18,6 @@ Feature: US929398 - Update Entity Characteristic Type
   @EXARI-11792
   @EXARI-11249
   @CLM_UAT
-  @US929398
   Scenario: TC564856 - [RL0]
     Given I am an Administrative User
     When I need to update an existing Entity Characteristic Type

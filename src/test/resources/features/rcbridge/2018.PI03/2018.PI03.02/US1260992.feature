@@ -7,7 +7,6 @@
 @Priority_1
 @Transaction
 @Parity
-@F177202
 @releasePast
 @iterationPast
 Feature: US1260992 - [Unfinished] Downstream system specific validation handling
@@ -15,9 +14,6 @@ Feature: US1260992 - [Unfinished] Downstream system specific validation handling
   @TC605355
   @Manual
   @Functional
-  @US1260992
-  @2018.PI03
-  @2018.PI03.02
   Scenario: TC605355 - [RL3]
     Given A business event is received by the event gateway that requires an update to COSMOS
     And the associated contract data is invalid for the COSMOS update
@@ -27,9 +23,6 @@ Feature: US1260992 - [Unfinished] Downstream system specific validation handling
   @TC605354
   @Manual
   @Functional
-  @US1260992
-  @2018.PI03
-  @2018.PI03.02
   Scenario: TC605354 - [RL2]
     Given A business event is received by the event gateway that requires an update to COSMOS
     And the associated contract data is valid for the COSMOS update
@@ -39,9 +32,6 @@ Feature: US1260992 - [Unfinished] Downstream system specific validation handling
   @TC605353
   @Manual
   @Functional
-  @US1260992
-  @2018.PI03
-  @2018.PI03.02
   Scenario: TC605353 - [RL1]
     Given A business event is received by the event gateway that requires an update to NDB
     And the associated contract data is incomplete
@@ -51,9 +41,6 @@ Feature: US1260992 - [Unfinished] Downstream system specific validation handling
   @TC605352
   @Manual
   @Functional
-  @US1260992
-  @2018.PI03
-  @2018.PI03.02
   Scenario: TC605352 - [RL0]
     Given A business event is received by the event gateway that requires an update to NDB
     And the associated contract data is valid for the NDB update

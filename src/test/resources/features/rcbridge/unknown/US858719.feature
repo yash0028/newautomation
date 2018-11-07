@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137677
 @releaseUnknown
 @iterationUnknown
 Feature: US858719 - Reduce Search Results by Filter Criteria
@@ -17,7 +16,6 @@ Feature: US858719 - Reduce Search Results by Filter Criteria
   @MVP
   @CLM_UAT
   @EXARI-10530
-  @US858719
   Scenario: TC564500 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to refine my search results

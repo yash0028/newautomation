@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137678
 @releaseUnknown
 @iterationUnknown
 Feature: US858722 - View Entire Entity Structure
@@ -17,7 +16,6 @@ Feature: US858722 - View Entire Entity Structure
   @MVP
   @EXARI-10529
   @CLM_UAT
-  @US858722
   Scenario: TC565282 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view an entire Entity structure

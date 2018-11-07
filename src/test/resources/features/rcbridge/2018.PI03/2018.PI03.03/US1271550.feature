@@ -10,7 +10,6 @@
 @Priority_1
 @CMD
 @Parity
-@F204954
 @releasePast
 @iterationPast
 Feature: US1271550 - [Spike] NDB Contract Master Lookup API
@@ -19,9 +18,6 @@ Feature: US1271550 - [Spike] NDB Contract Master Lookup API
   @Manual
   @Functional
   @MVP+1
-  @US1271550
-  @2018.PI03
-  @2018.PI03.03
   Scenario: TC605380 - [RL0]
     Given the Exari / CLM>NDB contract master Lookup API payload data is correct
     When NDB receives the Search parameter data

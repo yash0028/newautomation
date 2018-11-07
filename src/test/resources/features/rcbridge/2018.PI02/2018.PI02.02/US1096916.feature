@@ -8,7 +8,6 @@
 @PI02_Top3
 @Plus
 @Parity
-@F182490
 @releasePast
 @iterationPast
 Feature: US1096916 - Error - Provider's specialty is on table and paper type is not correct
@@ -18,9 +17,6 @@ Feature: US1096916 - Error - Provider's specialty is on table and paper type is 
   @Functional
   @CLM_UAT
   @ETMA
-  @US1096916
-  @2018.PI02
-  @2018.PI02.02
   Scenario: TC564873 - [RL0] Validation of error
     Given the provider's specialty indicator is "002" and contract type is "ANC_Facility Participation"
     When finding the Specialty in ETMA

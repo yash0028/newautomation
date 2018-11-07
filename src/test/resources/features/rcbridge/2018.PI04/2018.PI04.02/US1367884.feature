@@ -11,9 +11,6 @@ Feature: US1367884 - Automate Exari API Testing
   @Automated
   @Functional
   @Exari_Automation
-  @US1367884
-  @2018.PI04
-  @2018.PI04.02
   Scenario Outline: TC600539 - [RL0] Verify Fields of Exari Contract JSON
     Given a contract with Contract ID of "<contractId>"
     When hitting the Exari API for Contract JSON Data

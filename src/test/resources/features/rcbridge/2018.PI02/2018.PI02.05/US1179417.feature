@@ -6,7 +6,6 @@
 @PI02_Top3
 @NDB
 @Parity
-@F185083
 @releasePast
 @iterationPast
 Feature: US1179417 - [Continued] Exari event producer [contracts-gateway-api]
@@ -14,9 +13,6 @@ Feature: US1179417 - [Continued] Exari event producer [contracts-gateway-api]
   @TC564722
   @Automated
   @Functional
-  @US1179417
-  @2018.PI02
-  @2018.PI02.05
   Scenario: TC564722 - [RL1]
     Given A business transaction
     When Transaction is received from Exari but the transaction state service is down
@@ -25,9 +21,6 @@ Feature: US1179417 - [Continued] Exari event producer [contracts-gateway-api]
   @TC564721
   @Automated
   @Functional
-  @US1179417
-  @2018.PI02
-  @2018.PI02.05
   Scenario: TC564721 - [RL0]
     Given A business transaction
     When Transaction is received from Exari

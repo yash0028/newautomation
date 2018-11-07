@@ -9,7 +9,6 @@
 @Priority_1
 @CLM_Exari
 @Exari_Microservice
-@F180705
 @releasePast
 @iterationPast
 Feature: US1050707 - (MSG) Create microservice exposing Market Strategy grid data
@@ -19,9 +18,6 @@ Feature: US1050707 - (MSG) Create microservice exposing Market Strategy grid dat
   @Functional
   @CLM_UAT
   @MSG
-  @US1050707
-  @2018.PI03
-  @2018.PI03.01
   Scenario: TC565752 - [RL0] MSG Happy Path Validation
     # Happy Path
     Given I have the ability to read the MS Access DB
@@ -37,9 +33,6 @@ Feature: US1050707 - (MSG) Create microservice exposing Market Strategy grid dat
   @Functional
   @CLM_UAT
   @MSG
-  @US1050707
-  @2018.PI03
-  @2018.PI03.01
   Scenario: TC565753 - [RL1] MSG Bad Path Validation
     # Bad Path
     Given I have the ability to read the MS Access DB

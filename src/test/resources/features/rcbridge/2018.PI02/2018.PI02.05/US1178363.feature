@@ -9,7 +9,6 @@
 @MVP
 @CLM_Exari
 @Parity
-@F137899
 @releasePast
 @iterationPast
 Feature: US1178363 - Error and Exception Handling framework
@@ -17,9 +16,6 @@ Feature: US1178363 - Error and Exception Handling framework
   @TC564482
   @Manual
   @Functional
-  @US1178363
-  @2018.PI02
-  @2018.PI02.05
   Scenario: TC564482 - [RL0]
     When a user calls the service and service is unable to fulfill the request
     Then it must respond back with appropriate error code

@@ -7,7 +7,6 @@
 @Priority_1
 @kumar,_Sachin
 @CMD
-@F233635
 @releasePresent
 @iterationFuture
 Feature: US1367998 - Determine Product Penalty Table requirement
@@ -15,9 +14,6 @@ Feature: US1367998 - Determine Product Penalty Table requirement
   @TC611128
   @Manual
   @Functional
-  @US1367998
-  @2018.PI04
-  @2018.PI04.05
   Scenario: TC611128 - [RL1]
     Given UHG_Site includes UHN Northeast, UHN Southeast, UHN West, UHN Central or UHN National
     When Product_Services value does not include 'Core, CommercialproductsrequiringPCP, CommercialproductsnotrequiringPCP, Navigate, Nexus-OA,Nexus-R,Nexus-NR, Compass, Charter, Heritage, HeritageChoice, NHP, or AllRiverValleyproducts'

@@ -2,7 +2,6 @@
 @MVP
 @CLM_UAT
 @US861135
-@F207084
 @releaseUnknown
 @iterationUnknown
 Feature: US861135 - Export Entity Summary
@@ -12,7 +11,6 @@ Feature: US861135 - Export Entity Summary
   @Functional
   @MVP
   @CLM_UAT
-  @US861135
   Scenario: TC565937 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view Entity Summary data outside of the Entity Management Solution

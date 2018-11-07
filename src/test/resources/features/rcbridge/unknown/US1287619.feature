@@ -4,7 +4,6 @@
 @10/1_Physician
 @Priority_1
 @CMD
-@F219005
 @releaseUnknown
 @iterationUnknown
 Feature: US1287619 - Create CMD Contract Config database (This for PCP) - Pending move to PI05
@@ -12,7 +11,6 @@ Feature: US1287619 - Create CMD Contract Config database (This for PCP) - Pendin
   @TC616514
   @Manual
   @Functional
-  @US1287619
   Scenario: TC616514 - [RL1]
     # Scenario 2 (PCP reassignment Type 2 3 failures)
     Given A termination request contains the PCP reassignment data
@@ -27,7 +25,6 @@ Feature: US1287619 - Create CMD Contract Config database (This for PCP) - Pendin
   @TC616513
   @Manual
   @Functional
-  @US1287619
   Scenario: TC616513 - [RL0]
     # Scenario 1 (PCP reassignment information is needed)
     Given A roster event transaction is received

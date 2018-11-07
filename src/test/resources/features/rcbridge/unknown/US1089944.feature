@@ -2,7 +2,6 @@
 @EXARI-11249
 @EXARI-11267
 @US1089944
-@F207077
 @releaseUnknown
 @iterationUnknown
 Feature: US1089944 - Set Identifier Effective Date - Update Identifier
@@ -12,7 +11,6 @@ Feature: US1089944 - Set Identifier Effective Date - Update Identifier
   @Functional
   @EXARI-11249
   @EXARI-11267
-  @US1089944
   Scenario: TC565982 - [RL0]
     Given I am a User with access to maintain Entity information
     When I update an Identifier on an Entity

@@ -2,7 +2,6 @@
 @EXARI-8603
 @US950779
 @Plus
-@F137658
 @releaseUnknown
 @iterationUnknown
 Feature: US950779 - Assign Entity Workflow Status for Added Entities
@@ -11,7 +10,6 @@ Feature: US950779 - Assign Entity Workflow Status for Added Entities
   @Automated
   @Functional
   @EXARI-8603
-  @US950779
   Scenario: TC565807 - [RL0]
     Given I am the Entity Management Solution
     When A User sets up a new Entity

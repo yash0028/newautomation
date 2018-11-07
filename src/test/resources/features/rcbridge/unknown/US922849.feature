@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11273
 @US922849
-@F196735
 @releaseUnknown
 @iterationUnknown
 Feature: US922849 - View Address Time Lining History
@@ -10,7 +9,6 @@ Feature: US922849 - View Address Time Lining History
   @Automated
   @Functional
   @EXARI-11273
-  @US922849
   Scenario: TC564432 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view address history for an Entity

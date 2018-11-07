@@ -7,7 +7,6 @@
 @10/1_Physician
 @Priority_1
 @CMD
-@F219005
 @releasePresent
 @iterationPast
 Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
@@ -16,9 +15,6 @@ Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
   @Automated
   @Functional
   @A_UI_Story
-  @US1301634
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC573546 - [RL7]
     Given I am on the CMD dashboard
     When There are Errors for contract requests
@@ -28,9 +24,6 @@ Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
   @Automated
   @Functional
   @A_UI_Story
-  @US1301634
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC573541 - [RL2]
     Given I am on the CMD dashboard
     When There are no In Progress transactions
@@ -40,9 +33,6 @@ Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
   @Automated
   @Functional
   @A_UI_Story
-  @US1301634
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC573545 - [RL6]
     Given I am on the CMD dashboard
     When There are no Error transactions
@@ -52,9 +42,6 @@ Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
   @Automated
   @Functional
   @A_UI_Story
-  @US1301634
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC573543 - [RL4]
     Given I am on the CMD dashboard
     When There are no Action Required Required transactions
@@ -65,9 +52,6 @@ Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
   @Automated
   @Functional
   @A_UI_Story
-  @US1301634
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC573544 - [RL5]
     Given I am on the CMD dashboard
     When There are Action Required contracts
@@ -78,9 +62,6 @@ Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
   @Automated
   @Functional
   @A_UI_Story
-  @US1301634
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC573540 - [RL1]
     Given I am on the CMD dashboard
     When There are completed contracts
@@ -90,9 +71,6 @@ Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
   @Automated
   @Functional
   @A_UI_Story
-  @US1301634
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC564578 - [RL0]
     Given I am on the CMD dashboard
     When There are no completed contract requests
@@ -102,9 +80,6 @@ Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
   @Automated
   @Functional
   @A_UI_Story
-  @US1301634
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC573542 - [RL3]
     Given I am on the CMD dashboard
     When There are In Progress contracts

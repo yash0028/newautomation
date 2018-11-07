@@ -6,7 +6,6 @@
 @Plus
 @Priority_2
 @Parity
-@F179578
 @releasePresent
 @iterationPast
 Feature: US1030520 - [SPIKE] Exari >NDB Facility/Ancillary - Medical Necessity - Analysis
@@ -14,9 +13,6 @@ Feature: US1030520 - [SPIKE] Exari >NDB Facility/Ancillary - Medical Necessity -
   @TC564962
   @Automated
   @Functional
-  @US1030520
-  @2018.PI04
-  @2018.PI04.01
   Scenario: TC564962 - [RL0]
     Given - The Facility contract provider(s) cancel is complete and correct within Exari
     When - The contract is included in the Exari Facility Contract ETL to NDB

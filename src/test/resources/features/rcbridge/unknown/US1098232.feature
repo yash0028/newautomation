@@ -1,7 +1,6 @@
 # Last updated on 
 @US1098232
 @Non_MVP
-@F184554
 @releaseUnknown
 @iterationUnknown
 Feature: US1098232 - Migrate MPIN/TIN/DLGT CD Data
@@ -9,7 +8,6 @@ Feature: US1098232 - Migrate MPIN/TIN/DLGT CD Data
   @TC564778
   @Automated
   @Functional
-  @US1098232
   Scenario: TC564778 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view current MPIN/TIN/DLGT CD data that was stored in NDB

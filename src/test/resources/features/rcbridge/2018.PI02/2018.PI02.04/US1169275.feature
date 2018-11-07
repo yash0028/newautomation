@@ -8,7 +8,6 @@
 @PI02_Top3
 @NDB
 @Parity
-@F185083
 @releasePast
 @iterationPast
 Feature: US1169275 - NDB Common Pricing Solution Payload analysis SPIKE
@@ -18,9 +17,6 @@ Feature: US1169275 - NDB Common Pricing Solution Payload analysis SPIKE
   @Functional
   @#MVP
   @Parity
-  @US1169275
-  @2018.PI02
-  @2018.PI02.04
   Scenario: TC605410 - [RL0]
     Given an Exari contract includes a COSMOS product priced via Common Pricing Solution (CPS)
     When a contract business event triggers in Exari

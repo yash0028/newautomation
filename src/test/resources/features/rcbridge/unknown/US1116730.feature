@@ -7,7 +7,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137674
 @releaseUnknown
 @iterationUnknown
 Feature: US1116730 - Expire Entity Characteristic Type
@@ -19,7 +18,6 @@ Feature: US1116730 - Expire Entity Characteristic Type
   @EXARI-11792
   @EXARI-11249
   @CLM_UAT
-  @US1116730
   Scenario: TC565585 - [RL0]
     Given I am an Administrative User
     When I need to expire an Entity Characteristic Type

@@ -9,9 +9,6 @@ Feature: US1337392 - [Continued] [Continued] CPS lookup API Layer-7 implementati
   @TC587886
   @Manual
   @Functional
-  @US1337392
-  @2018.PI04
-  @2018.PI04.04
   Scenario: TC587886 - [RL0]
     Given the COSMOS DIV is EVC and Contract package # is 22503
     When COSMOS detects they cannot process (no op message) the request

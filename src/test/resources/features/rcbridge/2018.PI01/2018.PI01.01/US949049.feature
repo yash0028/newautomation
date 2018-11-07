@@ -6,7 +6,6 @@
 @2018.PI01.01
 @MVP
 @CLM_Exari
-@F154549
 @releasePast
 @iterationPast
 Feature: US949049 - Setup Exari Training Environment and URL
@@ -16,9 +15,6 @@ Feature: US949049 - Setup Exari Training Environment and URL
   @Functional
   @MVP
   @CLM_UAT
-  @US949049
-  @2018.PI01
-  @2018.PI01.01
   Scenario: TC565626 - [RL0]
     Given I enter my userid and password on the Exari training login page
     When I select the Exari development URL in an Internet Explorer Browser

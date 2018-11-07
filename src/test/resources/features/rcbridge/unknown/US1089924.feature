@@ -1,6 +1,5 @@
 # Last updated on 
 @US1089924
-@F207077
 @releaseUnknown
 @iterationUnknown
 Feature: US1089924 - Assign Owner to Updated Identifier
@@ -8,7 +7,6 @@ Feature: US1089924 - Assign Owner to Updated Identifier
   @TC564617
   @Automated
   @Functional
-  @US1089924
   Scenario: TC564617 - [RL0]
     Given I am the Entity Management Solution
     When a User updates an Identifier to an Entity

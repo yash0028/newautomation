@@ -2,7 +2,6 @@
 @US861076
 @Plus
 @Priority_1
-@F137918
 @releaseUnknown
 @iterationUnknown
 Feature: US861076 - Acquire Entity Data from existing Sources
@@ -10,7 +9,6 @@ Feature: US861076 - Acquire Entity Data from existing Sources
   @TC565457
   @Automated
   @Functional
-  @US861076
   Scenario: TC565457 - [RL0]
     Given I am the Entity Management Solution
     When an existing source contains Entity data

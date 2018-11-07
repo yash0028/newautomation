@@ -2,7 +2,6 @@
 @A_UI_Story
 @US1414472
 @Exari_UI_Test
-@F237915
 @releaseUnknown
 @iterationUnknown
 Feature: US1414472 - Author SMGA Contact UI Path
@@ -11,7 +10,6 @@ Feature: US1414472 - Author SMGA Contact UI Path
   @Manual
   @Functional
   @A_UI_Story
-  @US1414472
   Scenario Outline: TC627894 - [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     When I author a contract using the following contract information

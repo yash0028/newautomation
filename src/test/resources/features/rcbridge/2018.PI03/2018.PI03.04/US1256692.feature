@@ -8,7 +8,6 @@
 @10/1_Physician
 @CMD
 @CMD_Tables
-@F214484
 @releasePast
 @iterationPast
 Feature: US1256692 - [Continued] Store history and audit metadata
@@ -18,9 +17,6 @@ Feature: US1256692 - [Continued] Store history and audit metadata
   @Functional
   @kumar,_Sachin
   @Alex_M
-  @US1256692
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC556665 - Validate the history of taxonomy file
     Given previous file versions exist
     When an authorized user accesses the screen UI
@@ -31,9 +27,6 @@ Feature: US1256692 - [Continued] Store history and audit metadata
   @Functional
   @kumar,_Sachin
   @Alex_M
-  @US1256692
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC615401 - [RL0]
     Given the application screen is ready
     When a table file is uploaded
@@ -44,9 +37,6 @@ Feature: US1256692 - [Continued] Store history and audit metadata
   @Functional
   @kumar,_Sachin
   @Alex_M
-  @US1256692
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC556658 - Validate updation of audit log information in database
     Given the application screen is ready
     When a file is uploaded
@@ -57,9 +47,6 @@ Feature: US1256692 - [Continued] Store history and audit metadata
   @Functional
   @kumar,_Sachin
   @Alex_M
-  @US1256692
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC556671 - Validate the history of taxonomy file failure
     Given previous file versions exist
     When an authorized user accesses the screen UI

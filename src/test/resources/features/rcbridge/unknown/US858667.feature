@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137671
 @releaseUnknown
 @iterationUnknown
 Feature: US858667 - Remove Entity Relationship
@@ -17,7 +16,6 @@ Feature: US858667 - Remove Entity Relationship
   @MVP
   @CLM_UAT
   @EXARI-11696
-  @US858667
   Scenario: TC564583 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to end a relationship between two Entities

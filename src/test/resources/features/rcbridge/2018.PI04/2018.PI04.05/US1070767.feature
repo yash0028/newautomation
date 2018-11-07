@@ -6,7 +6,6 @@
 @Plus
 @Priority_2
 @Facility
-@F243723
 @releasePresent
 @iterationFuture
 Feature: US1070767 - SPIKE - COSMOS API Facility Analysis
@@ -14,9 +13,6 @@ Feature: US1070767 - SPIKE - COSMOS API Facility Analysis
   @TC564759
   @Automated
   @Functional
-  @US1070767
-  @2018.PI04
-  @2018.PI04.05
   Scenario: TC564759 - [RL0]
     Given that COSMOS works through their analysis around ingesting the CLM Facility Payload data
     When COSMOS receives the Exari Facility Payload data

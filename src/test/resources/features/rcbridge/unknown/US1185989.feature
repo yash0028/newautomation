@@ -3,7 +3,6 @@
 @MVP
 @Plus
 @Priority_1
-@F183266
 @releaseUnknown
 @iterationUnknown
 Feature: US1185989 - Update Relationship Role
@@ -11,7 +10,6 @@ Feature: US1185989 - Update Relationship Role
   @TC564864
   @Automated
   @Functional
-  @US1185989
   Scenario: TC564864 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to update a Relationship Role

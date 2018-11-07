@@ -4,7 +4,6 @@
 @2018.PI05
 @MVP
 @CMD_UI
-@F242516
 @releaseFuture
 @iterationUnknown
 Feature: US1259301 - Zip to Market table microservice
@@ -13,8 +12,6 @@ Feature: US1259301 - Zip to Market table microservice
   @Manual
   @Functional
   @CMD
-  @US1259301
-  @2018.PI05
   Scenario: TC616925 - [RL0]
     Given a user needs to query the table
     When the user provides ZipCd
@@ -24,8 +21,6 @@ Feature: US1259301 - Zip to Market table microservice
   @Manual
   @Functional
   @CMD
-  @US1259301
-  @2018.PI05
   Scenario: TC616926 - [RL1]
     Given a user provides a valid ZipCd
     When the query response result includes more than one record

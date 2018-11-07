@@ -6,7 +6,6 @@
 @Plus
 @Priority_1
 @Parity
-@F203811
 @releasePast
 @iterationPast
 Feature: US1202238 - Updating the Physician Payload logic for Reassign fields in Driver module
@@ -14,9 +13,6 @@ Feature: US1202238 - Updating the Physician Payload logic for Reassign fields in
   @TC564826
   @Automated
   @Functional
-  @US1202238
-  @2018.PI03
-  @2018.PI03.01
   Scenario: TC564826 - [RL0]
     Given send the cancel transaction for a UNET contract
     When PCP = P

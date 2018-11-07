@@ -11,7 +11,6 @@
 @Priority_1
 @CMD
 @Parity
-@F204954
 @releasePast
 @iterationPast
 Feature: US1204285 - [Continued]Implement NDB Contract Master Lookup API
@@ -21,9 +20,6 @@ Feature: US1204285 - [Continued]Implement NDB Contract Master Lookup API
   @Functional
   @Prateek
   @MVP+1
-  @US1204285
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC565803 - [RL0]
     Given the Exari / CLM>NDB contract master Lookup API payload data is correct
     When NDB receives the Search parameter data
@@ -35,9 +31,6 @@ Feature: US1204285 - [Continued]Implement NDB Contract Master Lookup API
   @Acceptance
   @Prateek
   @MVP+1
-  @US1204285
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC561389 - TC-01_validate NDB contract Master lookup API
     Given the Exari / CLM>NDB contract master Lookup API payload data is correct
     When NDB receives the Search parameter data

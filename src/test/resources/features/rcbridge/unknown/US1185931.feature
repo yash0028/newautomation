@@ -11,7 +11,6 @@
 @Parity
 @Non-Deliverable
 @7.5_Release
-@F185542
 @releaseUnknown
 @iterationUnknown
 Feature: US1185931 - Search for specific provider status
@@ -26,7 +25,6 @@ Feature: US1185931 - Search for specific provider status
   @EXARI-11651
   @EXARI-11843
   @CLM_Exari
-  @US1185931
   Scenario: TC564898 - [RL0]
     Given I have access to a Mass Action Project
     When the project has started

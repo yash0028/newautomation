@@ -2,7 +2,6 @@
 @US1105127
 @Plus
 @Priority_1
-@F137672
 @releaseUnknown
 @iterationUnknown
 Feature: US1105127 - Default Relationship Type
@@ -10,7 +9,6 @@ Feature: US1105127 - Default Relationship Type
   @TC565064
   @Automated
   @Functional
-  @US1105127
   Scenario: TC565064 - [RL0]
     Given I am the Entity Management Solution
     When a new Provider is associated with a TIN in a Legacy Application

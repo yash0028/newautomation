@@ -4,7 +4,6 @@
 @CMD
 @Priority_2
 @UCM
-@F231564
 @releaseFuture
 @iterationUnknown
 Feature: US1345335 - New UCM - Market_Products
@@ -12,8 +11,6 @@ Feature: US1345335 - New UCM - Market_Products
   @TC618587
   @Manual
   @Functional
-  @US1345335
-  @2018.PI05
   Scenario: TC618587 - [RL5]
     Given market product groups DO NOT exist in the CMD Product Description table
     When an authorized user provides a valid Contract Market Number and date
@@ -23,8 +20,6 @@ Feature: US1345335 - New UCM - Market_Products
   @TC618583
   @Manual
   @Functional
-  @US1345335
-  @2018.PI05
   Scenario: TC618583 - [RL1]
     Given market product groups exist in the CMD Product Description table for a market number
     When an authorized user provides a valid Contract Market Number and date as input
@@ -34,8 +29,6 @@ Feature: US1345335 - New UCM - Market_Products
   @TC618588
   @Manual
   @Functional
-  @US1345335
-  @2018.PI05
   Scenario: TC618588 - [RL6]
     Given a contract is not in Active status within Exari
     When the user needs to view the Market Products included or excluded from the Contract
@@ -45,8 +38,6 @@ Feature: US1345335 - New UCM - Market_Products
   @TC618585
   @Manual
   @Functional
-  @US1345335
-  @2018.PI05
   Scenario: TC618585 - [RL3]
     Given market product groups exist in the CMD Product Description table
     When an authorized user provides a INVALID Contract Market Number and valid date
@@ -56,8 +47,6 @@ Feature: US1345335 - New UCM - Market_Products
   @TC618586
   @Manual
   @Functional
-  @US1345335
-  @2018.PI05
   Scenario: TC618586 - [RL4]
     Given market product groups exist in the CMD Product Description table
     When an authorized user provides a valid Contract Market Number and INVALID date
@@ -67,8 +56,6 @@ Feature: US1345335 - New UCM - Market_Products
   @TC618589
   @Manual
   @Functional
-  @US1345335
-  @2018.PI05
   Scenario: TC618589 - [RL7]
     Given a contract is in Active status within Exari
     When the user needs to update the Market Products included or excluded from the Contract
@@ -78,8 +65,6 @@ Feature: US1345335 - New UCM - Market_Products
   @TC592147
   @Manual
   @Functional
-  @US1345335
-  @2018.PI05
   Scenario: TC592147 - [RL0]
     Given market product groups exist in the CMD Product Description table
     When an authorized user needs to view the market products in the table
@@ -88,8 +73,6 @@ Feature: US1345335 - New UCM - Market_Products
   @TC618584
   @Manual
   @Functional
-  @US1345335
-  @2018.PI05
   Scenario: TC618584 - [RL2]
     Given market product groups exist in the CMD Product Description table for a market number
     When an authorized user does not provide a valid Contract Market Number or date as input
