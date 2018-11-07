@@ -20,6 +20,7 @@ import rest_api_test.util.IRestStep;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -203,6 +204,7 @@ public class PESSteps implements IRestStep {
                 log.info("Field: {} was not found in the response.", field);
             }
         }
+        assertEquals(200, response.statusCode());
         assertTrue("The response did not contain all of the necessary fields.", match);
     }
 

@@ -22,7 +22,7 @@ public class ContractRulesSteps implements IRestStep {
     private static final String ENDPOINT = "http://contract-rules-api-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_IPA_DETERMINATION = "/v1.0/rules/ipa_determination/validate_market_network_values";
     private static final String RESOURCE_PILOT_MARKET = "/v1.0/rules/pilot_market/validate";
-    private static final String RESOURCE_SILENT_INCLUSION = "";
+    private static final String RESOURCE_SILENT_INCLUSION = "/v1.0/rules/heritage_silent_inclusion/market_product_met";
 
 
     private RequestSpecification request;
@@ -34,9 +34,8 @@ public class ContractRulesSteps implements IRestStep {
     // US1368002 (silent inclusion)
 
     @Given("^\"([^\"]*)\" contains \"([^\"]*)\"$")
-    public void uhg_siteContains(String site) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void uhg_siteContains(String field, String value) throws Throwable {
+        requestBody.addProperty(field, value);
     }
 
     @And("^\"([^\"]*)\" = \"([^\"]*)\"$")
@@ -45,16 +44,41 @@ public class ContractRulesSteps implements IRestStep {
         requestBody.addProperty(field, value);
     }
 
-    @When("^\"([^\"]*)\" does contain the word \"([^\"]*)\"$")
-    public void doesContainTheWord(String arg0, String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @When("^\"([^\"]*)\" (does|does NOT) contain the word \"([^\"]*)\"$")
+    public void doesContainTheWord(String field, String doesContain, String value) throws Throwable {
+        if(doesContain.equalsIgnoreCase("does")){
+            requestBody.addProperty(field, value);
+        }else {
+            requestBody.addProperty(field, "");
+        }
+
     }
 
-    @Then("^\"([^\"]*)\" silent inclusion criteria has NOT been met for \"([^\"]*)\"$")
-    public void silentInclusionCriteriaHasNOTBeenMetFor(String siType, String marketProduct) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @Then("^\"([^\"]*)\" silent inclusion criteria (has|has NOT) been met for \"([^\"]*)\"$")
+    public void silentInclusionCriteriaHasNOTBeenMetFor(String siType, String hasBeenMet, String marketProduct) throws Throwable {
+        // Build out the request
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+
+        // Get the response
+        response = request.post(RESOURCE_SILENT_INCLUSION);
+
+        // Get the whole result element, then get the "result" JSON Object which contains the response data we need
+        JsonElement responseElement = parseJsonElementResponse(response);
+        JsonObject  responseObject = responseElement.getAsJsonObject().get("result").getAsJsonObject();
+
+        // Get the market product groups and boolean to see if silent inclusion is met
+        String  marketProductGroups = responseObject.get(siType).getAsString();
+        boolean silentInclusionMet = responseObject.get("silentInclusionMet").getAsBoolean();
+
+        if (hasBeenMet.equalsIgnoreCase("has")){
+            Assert.assertTrue("Market Product " + marketProduct + " is not included in the response", marketProductGroups.contains(marketProduct));
+            Assert.assertTrue("Silent inclusion is false when it should be true", silentInclusionMet);
+        } else {
+            Assert.assertTrue("Market Product " + marketProduct + " is not included in the response", marketProductGroups.contains(marketProduct));
+            Assert.assertFalse("Silent inclusion is true when it should be false", silentInclusionMet);
+        }
+
+        //log.info("SI RESPONSE: {}", response.asString());
     }
 
     // US1368004 (IPA Determination)
