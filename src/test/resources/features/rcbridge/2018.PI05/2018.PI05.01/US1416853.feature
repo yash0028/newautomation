@@ -15,11 +15,20 @@ Feature: US1416853 - Setup a new Contract Configuration Service
   @US1416853
   @2018.PI05
   @2018.PI05.01
-  Scenario Outline: TC629010 - [RL0]
+  Scenario: TC629010 - [RL0]
     Given that the Contract Configuration service has been setup
-    When a test calls the service passing in correct values for a previously installed contract
+    When a test calls the service passing in VALID values for a previously installed contract
     Then the Contract Configuration service return's that contract's configuration records
-    Examples:
-      |
-      |
+
+  @TC630952
+  @Manual
+  @Functional
+  @US1416853
+  @2018.PI05
+  @2018.PI05.01
+  Scenario: TC630952 - [RL1]
+    Given that the Contract Configuration service has been setup
+    When a test calls the service passing in INVALID values for a previously installed contract
+    Then the Contract Configuration service does not return a contract's configuration record
+    And a message generated stating 'INVALID OR MISSING SEARCH PARAMETER'
 

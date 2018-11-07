@@ -20,11 +20,21 @@ Feature: US1367999 - PCP Specialties Standard definition UHN
   @US1367999
   @2018.PI04
   @2018.PI04.04
-  Scenario: TC600523 - [RL0]
+  Scenario Outline: TC600523 - [RL0]
     Given the provider record "contractOrgCd" equals "UHN"
     And the NDB "providerRecordType" equals "P"
-    When the primary NDB Specialty Code value equals one of the qualifying NDB Specialty Code values
-    Then the provider record will be "flagged" as a PCP within the optum contract(coming from the Exari roster populated by PES information that will include the org. and/or spec code)
+    When the primary "ndbSpecialtyCode" value equals one of "<specialtyCode>"
+    Then the provider record will be "flagged" as a "PCP" within the optum contract
+    # (coming from the Exari roster populated by PES information that will include the org. and/or spec code)
+    Examples:
+      | specialtyCode |
+      | 001           |
+      | 008           |
+      | 011           |
+      | 037           |
+      | 038           |
+      | 258           |
+      | 276           |
 
   @TC600524
   @Manual
@@ -33,13 +43,24 @@ Feature: US1367999 - PCP Specialties Standard definition UHN
   @US1367999
   @2018.PI04
   @2018.PI04.04
-  Scenario: TC600524 - [RL1]
+  Scenario Outline: TC600524 - [RL1]
     Given the provider record "contractOrgCd" equals "UHN"
     And the NDB "providerRecordType" equals "P"
-    When the primary NDB Specialty Code value IS NOT equals one of the qualifying NDB Specialty Code values
-    Then the provider record will be "flagged" as a Specialist within the optum contract(coming from the Exari roster populated by PES information that will include the org. and/or spec code)
-    #Note: Rule only applies if it meets the PCP conditions, otherwise its a specialist or Not Applicable.
-    #Reference:Qualifying NDB Specialty Code values (IS THIS LIST CORRECT? In some state OBGYN is considered primary care by state regs.)Because its a state based exception for purposes of benefit administration they can get a pcp copay, #but their is no member attribution to OBGYN. Bc we have a stated based rule, at the product level we are not replicating tables in NDB . We are aware of these exceptions.
+    When the primary "ndbSpecialtyCode" value DOES NOT equal one of "<specialtyCode>"
+    Then the provider record will be "flagged" as a "Specialist" within the optum contract
+    # (coming from the Exari roster populated by PES information that will include the org. and/or spec code)
+    Examples:
+      | specialtyCode |
+      | 001           |
+      | 008           |
+      | 011           |
+      | 037           |
+      | 038           |
+      | 258           |
+      | 276           |
+    # Note: Rule only applies if it meets the PCP conditions, otherwise its a specialist or Not Applicable.
+    # Reference:Qualifying NDB Specialty Code values (IS THIS LIST CORRECT? In some state OBGYN is considered primary care by state regs.)Because its a state based exception for purposes of benefit administration they can get a pcp copay,
+    # but their is no member attribution to OBGYN. Bc we have a stated based rule, at the product level we are not replicating tables in NDB . We are aware of these exceptions.
     # 001 General Practice
     # 008 Family Practice
     # 011 Internal Medicine
