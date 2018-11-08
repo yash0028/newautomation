@@ -347,4 +347,52 @@ public class PESSteps implements IRestStep {
 
         Assert.assertTrue("Not all fields required for address match in the response for additional locations", allMatch);
     }
+
+    // US1416329 (Changes to Counterparty Search
+
+    @Given("^a user wants to find a Counter Party$")
+    public void aUserWantsToFindACounterParty() throws Throwable {
+        // noop
+    }
+
+    @When("^they search using a combo input parameter \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+    public void theySearchUsingAComboInputParameter(String field1, String field2, String value1, String value2) throws Throwable {
+        // Build out the request body
+        JsonObject requestParams = new JsonObject();
+
+        requestParams.addProperty(field1, value1);
+        requestParams.addProperty(field2, value2);
+
+        // Build the request
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestParams.toString());
+
+    }
+
+    @Then("^they get back all of the possible providers and each providers associated \"([^\"]*)\" number$")
+    public void theyGetBackAllOfThePossibleProvidersAndEachProvidersAssociatedNumber(String field) throws Throwable {
+        // Get the response
+        response = request.post(RESOURCE_COUNTER_PARTIES_SEARCH);
+
+        // Assert successful response
+        Assert.assertEquals("Service did not return a successful response", 200, response.getStatusCode());
+
+        // Get the response as a JsonArray
+        JsonElement responseElem = parseJsonElementResponse(response);
+        JsonArray responseArray = responseElem.getAsJsonObject().get("counterParties").getAsJsonArray();
+
+        boolean allMatch = true;
+
+        // Make sure each entry in the response has the required field
+        for(JsonElement elm: responseArray){
+            JsonObject curObj = elm.getAsJsonObject();
+
+            if(!curObj.has(field)){
+                allMatch = false;
+            }
+        }
+
+        // Assert the above check was successful
+        Assert.assertTrue("One of the returned counter party results did not contain field: " + field, allMatch);
+    }
+
 }
