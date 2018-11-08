@@ -9,9 +9,9 @@
 Feature: US1416329 - Changes to Counter Party Search
 
   @TC634260
-  @Manual
+  @Automated
   @Functional
-  Scenario Outline: TC634260 - [RL0]
+  Scenario Outline: TC634260 - [RL0] Validate corpMpin received on combo input searches
     Given a user wants to find a Counter Party
     When they search using a combo input parameter "<field1>" "<field2>" "<value1>" "<value2>"
     Then they get back all of the possible providers and each providers associated "corpMpin" number

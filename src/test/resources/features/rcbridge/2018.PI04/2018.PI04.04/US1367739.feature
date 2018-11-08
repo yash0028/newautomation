@@ -139,7 +139,7 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Functional
   @Contract_Rules
   Scenario: TC630781 - [RL4] Validate NOT in pilot for invalid site
-    When "uhgSite" does not equals one of Central UHN, Northeast UHN, Southeast UHN, West UHN
+    When "uhgSite" does not equal one of Central UHN, Northeast UHN, Southeast UHN, West UHN
     Then return the following message "The selected provider(s) is currently not in scope for Exari contracting."
 
   @TC630782
