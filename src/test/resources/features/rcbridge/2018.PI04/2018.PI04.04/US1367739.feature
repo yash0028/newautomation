@@ -26,11 +26,12 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Manual
   @Functional
   @Contract_Rules
-  Scenario: TC600525 - [RL0]
+  Scenario Outline: TC600525 - [RL0]
     Given "uhgSite" equals "Central UHN"
     When "uhgContractSubtypeHealthcare" equals one of "<uhgContractSubtypeHealthcare>"
     And "uhgMarketNumber" equals one of "<uhgMarketNumber>"
     Then contract is included in Pilot
+    Examples:
       | uhgContractSubtypeHealthcare            | uhgMarketNumber                         |
       | Practitioner Agreement                  | 03413                                   |
       | Practitioner Agreement                  | 13476                                   |
