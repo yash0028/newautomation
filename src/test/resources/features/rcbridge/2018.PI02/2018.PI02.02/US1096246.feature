@@ -32,7 +32,7 @@ Feature: US1096246 - Create contract query microservice (inquiry)
     Then The contract data is sent back to PIC or Examiner
 
   @TC564836
-  @Automated
+  @Manual
   @Functional
   @CLM_UAT
   Scenario: TC564836 - [RL2]

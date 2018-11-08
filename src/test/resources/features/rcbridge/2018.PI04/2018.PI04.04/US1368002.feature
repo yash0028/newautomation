@@ -13,7 +13,7 @@
 Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
 
   @TC608275
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC608275 - [RL1]
@@ -29,7 +29,7 @@ Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
       | Southeast           | HRTG SEL ADV OPTION |
 
   @TC600549
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC600549 - [RL0]

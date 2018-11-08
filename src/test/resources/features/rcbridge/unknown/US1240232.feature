@@ -1,9 +1,7 @@
 # Last updated on 
 @US1240232
-@2018.PI04
-@2018.PI04.04
-@releasePresent
-@iterationPresent
+@releaseUnknown
+@iterationUnknown
 Feature: US1240232 - Modify Contract Config record (UI)
 
   @TC615301
