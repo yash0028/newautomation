@@ -16,7 +16,7 @@ Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
   @Automated
   @Functional
   @Contract_Rules
-  Scenario: TC625448 - [RL3]
+  Scenario: TC625448 - [RL3] Validate bad request for payment policies being invalid
     Given "paymentPoliciesMcq" does NOT include "UnitedHealthcare River Valley%"
     Then return a Bad Request error
 
@@ -24,7 +24,7 @@ Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
   @Automated
   @Functional
   @Contract_Rules
-  Scenario: TC611124 - [RL1]
+  Scenario: TC611124 - [RL1] Validate receiving 705
     # reference: NDB PRODUCT_CD = EL and NDB MKT IPA 706 (Choice/UHC Evidence Based)
     Given silent inclusion criteria for "MARKET_PRODUCT" values "HRTG CHOICE RV" has been met
     When "paymentPoliciesMcq" does include "UnitedHealthcare River Valley%"
@@ -35,7 +35,7 @@ Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
   @Automated
   @Functional
   @Contract_Rules
-  Scenario: TC625449 - [RL4]
+  Scenario: TC625449 - [RL4] Validate bad request for market number being invalid
     Given "marketNumberDmcq" = "03413"
     Then return a Bad Request error
 
@@ -43,7 +43,7 @@ Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
   @Automated
   @Functional
   @Contract_Rules
-  Scenario: TC600537 - [RL0]
+  Scenario: TC600537 - [RL0] Validate receiving 706
     Given silent inclusion criteria for "MARKET_PRODUCT" values "HRTG CHOICE RV" has been met
     When "paymentPoliciesMcq" does NOT include "UnitedHealthcare River Valley%"
     And "marketNumberDmcq" = "03413"
@@ -53,7 +53,7 @@ Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
   @Automated
   @Functional
   @Contract_Rules
-  Scenario: TC611125 - [RL2]
+  Scenario: TC611125 - [RL2] Validate bad request for silent inclusion not met
     Given silent inclusion criteria for "MARKET_PRODUCT" values "HRTG CHOICE RV" has NOT been met
     Then return a Bad Request error
     # reference: NDB PRODUCT_CD = EL and NDB MKT IPA = 705 (Choice/RV Med Nec)
