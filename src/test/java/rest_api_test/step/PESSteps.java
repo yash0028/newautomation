@@ -386,7 +386,7 @@ public class PESSteps implements IRestStep {
         for(JsonElement elm: responseArray){
             JsonObject curObj = elm.getAsJsonObject();
 
-            if(!curObj.has("corpMpin")){
+            if(!curObj.has(field)){
                 allMatch = false;
             }
         }
