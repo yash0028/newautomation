@@ -214,26 +214,6 @@ Feature: US1412876 - Search via CMD UI
     When the user enters text in the contract name field in the UI
     Then the search parameters are valid
 
-  @RC_unlinked
-  @TC631464
-  @Manual
-  @Functional
-  Scenario: TC631464 - [RL36]
-    Given a user needs to search the CMD database
-    When the user enters an invalid contract number in the UI
-    Then the service DOES NOT responds with database record details
-    And a message generated 'NO RECORDS FOUND' and displayed through the UI page
-
-  @RC_unlinked
-  @TC631463
-  @Manual
-  @Functional
-  Scenario: TC631463 - [RL35]
-    Given a user needs to search the CMD database
-    When the user enters a valid contract number in the UI
-    Then the service responds with available database record details
-    And the information rendered through the UI page
-
   @TC631447
   @Manual
   @Functional
