@@ -1,13 +1,12 @@
 # Last updated on 
 @US1425332
-@2018.PI04
-@2018.PI04.04
+@2018.PI05
 @MVP
 @10/1_Physician
 @Priority_1
 @CMD
-@releasePresent
-@iterationPresent
+@releaseFuture
+@iterationUnknown
 Feature: US1425332 - Search via CMD UI (Search by Date)
 
   @TC634372
