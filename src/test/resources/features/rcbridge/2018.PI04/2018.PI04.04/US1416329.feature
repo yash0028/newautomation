@@ -1,4 +1,5 @@
 # Last updated on 
+@PES
 @US1416329
 @2018.PI04
 @2018.PI04.04
@@ -11,6 +12,7 @@ Feature: US1416329 - Changes to Counter Party Search
   @TC634260
   @Automated
   @Functional
+  @PES
   Scenario Outline: TC634260 - [RL0] Validate corpMpin received on combo input searches
     Given a user wants to find a Counter Party
     When they search using a combo input parameter "<field1>" "<field2>" "<value1>" "<value2>"
