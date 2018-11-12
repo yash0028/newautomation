@@ -87,7 +87,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
       | 01c37d87-0bd5-4a5c-9407-ddd11d9e7591 |
 
   @TC636098
-  @Manual
+  @Automated
   @Functional
   Scenario Outline: TC636098 - [RL8] query work objects <status>
     # Scenario Outline: query work objects

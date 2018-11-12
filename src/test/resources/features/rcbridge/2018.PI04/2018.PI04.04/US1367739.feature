@@ -13,7 +13,7 @@
 Feature: US1367739 - Identify UHC EI and MR Pilot Markets
 
   @TC600526
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC600526 - [RL1] Validate in pilot for Northeast UHN
@@ -50,7 +50,7 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
       | Simplified Medical Group Agreement      | 45597                                   |
 
   @TC600525
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC600525 - [RL0] Validate in pilot for Central UHN
@@ -87,7 +87,7 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
       | Simplified Medical Group Agreement      | 13634                                   |
 
   @TC630783
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario: TC630783 - [RL6] [RL5] Validate NOT in pilot for invalid market number
@@ -95,7 +95,7 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
     Then contract is NOT included in Pilot
 
   @TC627486
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC627486 - [RL3] Validate in pilot for West UHN
@@ -113,7 +113,7 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
       | Simplified Medical Group Agreement      | 36555                                   |
 
   @TC627485
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC627485 - [RL2] Validate in pilot for Southeast UHN
@@ -130,7 +130,7 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
       | Simplified Medical Group Agreement      | 03413                                   |
 
   @TC630781
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario: TC630781 - [RL4] Validate NOT in pilot for invalid site
@@ -138,7 +138,7 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
     Then contract is NOT included in Pilot
 
   @TC630782
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario: TC630782 - [RL5] Validate NOT in pilot for invalid contract subtype
