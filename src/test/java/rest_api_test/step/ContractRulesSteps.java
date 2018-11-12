@@ -23,7 +23,7 @@ public class ContractRulesSteps implements IRestStep {
     private static final String RESOURCE_IPA_DETERMINATION = "/v1.0/rules/ipa_determination/validate_market_network_values";
     private static final String RESOURCE_PILOT_MARKET = "/v1.0/rules/pilot_market/validate";
     private static final String RESOURCE_SILENT_INCLUSION = "/v1.0/rules/heritage_silent_inclusion/market_product_met";
-
+    private static final String RESOURCE_PCP_SPECIALTY = "/v1.0/rules/pcp_specialty/determine_network_value";
 
     private RequestSpecification request;
     private Response response;
@@ -147,4 +147,76 @@ public class ContractRulesSteps implements IRestStep {
         // Assert that the response contains the word 'error'
         Assert.assertTrue("The response does not contain an error", message.contains("error"));
     }
+
+    // US1367739 (Pilot Markets)
+
+    @Given("^\"([^\"]*)\" equals \"([^\"]*)\"$")
+    public void equals(String field, String value) throws Throwable {
+        requestBody.addProperty(field, value);
+    }
+
+    @When("^\"([^\"]*)\" equals one of \"([^\"]*)\"$")
+    public void equalsOneOf(String field, String value) throws Throwable {
+        requestBody.addProperty(field, value);
+    }
+
+    @Then("^contract (is|is NOT) included in Pilot$")
+    public void contractIsIncludedInPilot(String isOrIsNot) throws Throwable {
+        // Build out the request
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+
+        Thread.sleep(300);
+
+        // Get the response
+        response = request.post(RESOURCE_PILOT_MARKET);
+
+        // Assert successful response
+        Assert.assertEquals("Response did not return status code 200", 200, response.getStatusCode());
+
+        // Get the whole result element, then get the "result" JSON Object which contains the response data we need
+        JsonElement resultElement = parseJsonElementResponse(response);
+        JsonObject resultObject = resultElement.getAsJsonObject();
+
+        // Get the includedInPilot part of the response, should be either a Y or N
+        String includedInPilot = resultObject.get("result").getAsJsonObject().get("includedInPilot").getAsString();
+
+        if(isOrIsNot.equalsIgnoreCase("is")){
+            // Assert that includedInPilot is a Y
+            Assert.assertEquals("The result was not included in pilot market when it should have been.", "Y", includedInPilot);
+        }
+        else{
+            // Assert that includedInPilot is a N
+            Assert.assertEquals("The result was included in pilot market when it should not have been.", "N", includedInPilot);
+        }
+
+    }
+
+    @When("^\"([^\"]*)\" does not equal one of (?:.*)$")
+    public void doesNotEqualOneOf(String field) throws Throwable {
+
+        switch (field) {
+            case "uhgMarketNumber":
+                requestBody.addProperty(field, "");
+                requestBody.addProperty("uhgSite", "Central UHN");
+                requestBody.addProperty("uhgContractSubtypeHealthcare", "Medical Group Agreement");
+                break;
+            case "uhgSite":
+                requestBody.addProperty("uhgMarketNumber", "03413");
+                requestBody.addProperty(field, "");
+                requestBody.addProperty("uhgContractSubtypeHealthcare", "Medical Group Agreement");
+                break;
+            case "uhgContractSubtypeHealthcare":
+                requestBody.addProperty("uhgMarketNumber", "03413");
+                requestBody.addProperty("uhgSite", "Southeast UHN");
+                requestBody.addProperty(field, "");
+                break;
+            default:
+                requestBody.addProperty("uhgMarketNumber", "");
+                requestBody.addProperty("uhgSite", "");
+                requestBody.addProperty("uhgContractSubtypeHealthcare", "");
+                break;
+        }
+
+    }
+
 }
