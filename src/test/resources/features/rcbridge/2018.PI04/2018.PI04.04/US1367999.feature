@@ -16,7 +16,7 @@ Feature: US1367999 - PCP Specialties Standard definition UHN
   @Manual
   @Functional
   @Contract_Rules
-  Scenario Outline: TC600523 - [RL0]
+  Scenario Outline: TC600523 - [RL0] Validate PCP Results
     Given the provider record "contractOrgCd" equals "UHN"
     And the NDB "ndbProviderType" equals "P"
     When the primary "ndbSpecialtyCode" value equals one of "<specialtyCode>"
@@ -36,7 +36,7 @@ Feature: US1367999 - PCP Specialties Standard definition UHN
   @Manual
   @Functional
   @Contract_Rules
-  Scenario Outline: TC600524 - [RL1]
+  Scenario Outline: TC600524 - [RL1] Validate Specialist Results
     Given the provider record "contractOrgCd" equals "UHN"
     And the NDB "ndbProviderType" equals "P"
     When the primary "ndbSpecialtyCode" value equals one of invalid "<specialtyCode>"
