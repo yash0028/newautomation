@@ -91,8 +91,8 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   @Functional
   Scenario Outline: TC636098 - [RL8] query work objects <status>
     # Scenario Outline: query work objects
-    When I send the work object status <status> to the work object endpoint
-    Then the response includes a number of transaction ids with the status of <status>
+    When I send the work object status "<status>" to the work object endpoint
+    Then the response includes a number of transaction ids with the status of "<status>"
     Examples:
       | status          |
       | ACTION_REQUIRED |
