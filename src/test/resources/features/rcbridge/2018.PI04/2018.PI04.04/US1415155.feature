@@ -13,5 +13,5 @@ Feature: US1415155 - [Defect] No message displayed when there are no action requ
     # Scenario 1 (Action required information in database)
     Given I am on the CMD User Review and Input page
     When there are no Action required transactions
-    Then the following message: There are currently no contracts that require user review and input at this time
+    Then the following message: There are currently no contracts that require action at this time
 

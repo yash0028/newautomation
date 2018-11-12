@@ -12,7 +12,7 @@
 Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
 
   @TC597188
-  @Manual
+  @Automated
   @Functional
   @A_UI_Story
   Scenario: TC597188 - [RL3]
@@ -49,7 +49,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
     Then On the Completed button display 0 completed
 
   @TC597192
-  @Manual
+  @Automated
   @Functional
   @A_UI_Story
   Scenario: TC597192 - [RL7]
@@ -67,7 +67,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
     Then On the In Progress button display 0 In Progress
 
   @TC597190
-  @Manual
+  @Automated
   @Functional
   @A_UI_Story
   Scenario: TC597190 - [RL5]
@@ -77,7 +77,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
     Then On the Action Required button display the number of Action Required requests returned from the search
 
   @TC597186
-  @Manual
+  @Automated
   @Functional
   @A_UI_Story
   Scenario: TC597186 - [RL1]
