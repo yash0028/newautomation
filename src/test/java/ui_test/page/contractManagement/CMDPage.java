@@ -29,6 +29,18 @@ public class CMDPage implements IFactoryPage, IWebInteract {
 
     @FindBy(xpath = "//a[contains(@href,'/contract-summary/success')]")
     WebElement completedLink;
+
+    @FindBy(className = "navbar-brand")
+    WebElement headerContractManagemet;
+
+    @FindBy(tagName = "h3")
+    List<WebElement> actionItems;
+
+    @FindBy(className = "nav-item")
+    List<WebElement> navHeaders;
+
+    @FindBy(className = "statnumber")
+    List<WebElement> transCount;
     private WebDriver driver;
 
     /*
@@ -80,16 +92,29 @@ public class CMDPage implements IFactoryPage, IWebInteract {
     CLASS METHODS
      */
 
-    public List<WebElement> getSubHeaders() {
-        return findElements("tagName", "h3");
+    public String getHeaderContractManagement(){return headerContractManagemet.getText();}
+
+    public List<WebElement> getActionItems() {
+        return actionItems;
     }
 
     public List<WebElement> getNavHeaders() {
-        return findElements("className", "nav-item");
+        return navHeaders;
     }
 
-    public List<WebElement> getTransactionsCount() {
-        return findElements("className", "statnumber");
+    public int getTransactionsCount(String actionItem) {
+        switch(actionItem){
+            case "completed":
+                return Integer.parseInt(transCount.get(0).getText());
+            case "in-progress":
+                return Integer.parseInt(transCount.get(1).getText());
+            case "action required":
+                return Integer.parseInt(transCount.get(2).getText());
+            case "errors":
+                return Integer.parseInt(transCount.get(3).getText());
+            default:
+                return 0;
+        }
     }
 
     /**
