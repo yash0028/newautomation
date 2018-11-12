@@ -13,7 +13,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   @TC636097
   @Manual
   @Functional
-  Scenario Outline: TC636097 - [RL6]
+  Scenario Outline: TC636097 - [RL6] rerun work object <tid>
     # Scenario Outline: rerun work object
     When I send the transaction id <tid> to load contract endpoint
     Then the contract is rerun
@@ -24,7 +24,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   @TC636096
   @Manual
   @Functional
-  Scenario Outline: TC636096 - [RL5]
+  Scenario Outline: TC636096 - [RL5] query work object item <id>
     # Scenario Outline: query work object item
     When I send the id <id> to the work object items endpoint
     Then the response includes valid contract data
@@ -35,7 +35,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   @TC605561
   @Manual
   @Functional
-  Scenario Outline: TC605561 - [RL0]
+  Scenario Outline: TC605561 - [RL0] create work object <tid>
     # Scenario Outline: create work object
     When I send the following payload to create a work object
       | date          | 1234          |
@@ -49,7 +49,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   @TC636094
   @Manual
   @Functional
-  Scenario Outline: TC636094 - [RL3]
+  Scenario Outline: TC636094 - [RL3] query product group list by transaction id <tid>
     # Scenario Outline: query product group list by transaction id
     When I send the transaction id <tid> to products group endpoint
     Then the response includes valid product groups
@@ -60,7 +60,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   @TC636093
   @Manual
   @Functional
-  Scenario Outline: TC636093 - [RL2]
+  Scenario Outline: TC636093 - [RL2] update work object item contract master
     # Scenario Outline: update work object item contract master
     When I send the following payload to update contract master work object
       | contractMasterEffectiveDate   | <contractMasterEffectiveDate> |
@@ -78,7 +78,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   @TC636091
   @Manual
   @Functional
-  Scenario Outline: TC636091 - [RL1]
+  Scenario Outline: TC636091 - [RL1] query flag to load override <tid>
     # Scenario Outline: query flag to load override
     When I send the transaction id <tid> to work object complete endpoint
     Then the work object is completed
@@ -89,7 +89,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   @TC636098
   @Manual
   @Functional
-  Scenario Outline: TC636098 - [RL8]
+  Scenario Outline: TC636098 - [RL8] query work objects <status>
     # Scenario Outline: query work objects
     When I send the work object status <status> to the work object endpoint
     Then the response includes a number of transaction ids with the status of <status>
@@ -103,7 +103,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   @TC636095
   @Manual
   @Functional
-  Scenario Outline: TC636095 - [RL4]
+  Scenario Outline: TC636095 - [RL4] update work object item ready <id>
     # Scenario Outline: update work object item ready
     When I send the following payload to update work object ready state
       | id    | <id>  |

@@ -20,7 +20,7 @@ Feature: US1367999 - PCP Specialties Standard definition UHN
     Given the provider record "contractOrgCd" equals "UHN"
     And the NDB "ndbProviderType" equals "P"
     When the primary "ndbSpecialtyCode" value equals one of "<specialtyCode>"
-    Then the provider record will be "flagged" as a "PCP" within the optum contract
+    Then the provider record will be flagged as a "PCP" within the optum contract
     # (coming from the Exari roster populated by PES information that will include the org. and/or spec code)
     Examples:
       | specialtyCode |
@@ -40,7 +40,7 @@ Feature: US1367999 - PCP Specialties Standard definition UHN
     Given the provider record "contractOrgCd" equals "UHN"
     And the NDB "ndbProviderType" equals "P"
     When the primary "ndbSpecialtyCode" value equals one of invalid "<specialtyCode>"
-    Then the provider record will be "flagged" as a "Specialist" within the optum contract
+    Then the provider record will be flagged as a "Specialist" within the optum contract
     # (coming from the Exari roster populated by PES information that will include the org. and/or spec code)
     Examples:
       | specialtyCode |
