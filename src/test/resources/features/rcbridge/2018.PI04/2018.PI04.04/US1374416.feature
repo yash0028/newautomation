@@ -36,7 +36,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   @Manual
   @Functional
   Scenario Outline: TC605561 - [RL0]
-    #Scenario Outline: create work object
+    # Scenario Outline: create work object
     When I send the following payload to create a work object
       | date          | 1234          |
       | status        | asdf          |
@@ -61,7 +61,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   @Manual
   @Functional
   Scenario Outline: TC636093 - [RL2]
-    #Scenario Outline: update work object item contract master
+    # Scenario Outline: update work object item contract master
     When I send the following payload to update contract master work object
       | contractMasterEffectiveDate   | <contractMasterEffectiveDate> |
       | contractMasterName            | asdf                          |
@@ -106,7 +106,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   Scenario Outline: TC636095 - [RL4]
     # Scenario Outline: update work object item ready
     When I send the following payload to update work object ready state
-      | id    | <id>> |
+      | id    | <id>  |
       | ready | true  |
     Then the work object is ready
     Examples:
