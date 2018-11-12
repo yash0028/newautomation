@@ -14,7 +14,6 @@ import ui_test.util.SeleniumHelper;
 import java.util.List;
 
 import static ui_test.util.SeleniumHelper.findElement;
-import static ui_test.util.SeleniumHelper.findElements;
 
 public class CMDPage implements IFactoryPage, IWebInteract {
     private static Logger log = LoggerFactory.getLogger(CMDPage.class);
@@ -41,6 +40,7 @@ public class CMDPage implements IFactoryPage, IWebInteract {
 
     @FindBy(className = "statnumber")
     List<WebElement> transCount;
+
     private WebDriver driver;
 
     /*
