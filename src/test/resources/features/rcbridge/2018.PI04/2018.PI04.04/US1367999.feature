@@ -24,7 +24,6 @@ Feature: US1367999 - PCP Specialties Standard definition UHN
     # (coming from the Exari roster populated by PES information that will include the org. and/or spec code)
     Examples:
       | specialtyCode |
-      | 001           |
       | 008           |
       | 011           |
       | 037           |
@@ -48,7 +47,6 @@ Feature: US1367999 - PCP Specialties Standard definition UHN
       | 009           |
       | 013           |
       | 030           |
-      | 033           |
       | 260           |
       | 280           |
     # Note: Rule only applies if it meets the PCP conditions, otherwise its a specialist or Not Applicable.
