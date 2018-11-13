@@ -40,20 +40,6 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
       | tid                                  |
       | 01c37d87-0bd5-4a5c-9407-ddd11d9e7591 |
 
-  @TC638439
-  @Manual
-  @Functional
-  Scenario Outline: TC638439 - [RL8]
-    # Scenario Outline: query work objects
-    When I send the work object status "<status>" to the work object endpoint
-    Then the response includes a number of transaction ids with the status of <status>
-    Examples:
-      | status          |
-      | ACTION_REQUIRED |
-      | RESOLVED        |
-      | CANCELLED       |
-      | READY           |
-
   @TC636094
   @Manual
   @Functional
@@ -95,6 +81,20 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
     Examples:
       | contractMasterEffectiveDate |
       | 10/10/2018                  |
+
+  @TC636098
+  @Automated
+  @Functional
+  Scenario Outline: TC636098 - [RL8] query work objects <status>
+    # Scenario Outline: query work objects
+    When I send the work object status "<status>" to the work object endpoint
+    Then the response includes a number of transaction ids with the status of <status>
+    Examples:
+      | status          |
+      | ACTION_REQUIRED |
+      | RESOLVED        |
+      | CANCELLED       |
+      | READY           |
 
   @TC636095
   @Manual
