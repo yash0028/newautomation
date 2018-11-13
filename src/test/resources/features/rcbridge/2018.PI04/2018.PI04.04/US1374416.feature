@@ -80,7 +80,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
     Then the contract master is updated
     Examples:
       | contractMasterEffectiveDate |
-      | asdf                        |
+      | 10/10/2018                  |
 
   @TC636098
   @Automated
