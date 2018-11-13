@@ -30,7 +30,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
       | 01c37d87-0bd5-4a5c-9407-ddd11d9e7591 |
 
   @TC605561
-  @Manual
+  @Automated
   @Functional
   Scenario Outline: TC605561 - [RL0] query flag to load override <tid>
     # Scenario Outline: query flag to load override
