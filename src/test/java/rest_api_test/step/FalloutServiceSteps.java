@@ -1,14 +1,21 @@
 package rest_api_test.step;
 
 import com.google.gson.JsonElement;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
+import util.TimeKeeper;
+
+import java.time.temporal.ChronoField;
+import java.util.HashMap;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
@@ -57,5 +64,30 @@ public class FalloutServiceSteps implements IRestStep {
         } else {
             Assert.assertEquals("count should be zero since content array is missing", 0, count);
         }
+    }
+
+    //TEST CASE :: create work object
+
+    @When("^I send the following payload to create a work object$")
+    public void createWorkObject(DataTable payload) throws Throwable {
+        Map<String, String> requestParams = new HashMap<>(payload.asMap(String.class, String.class));
+
+        log.info(requestParams.toString());
+
+        //Replace date if now
+        if(requestParams.getOrDefault("date","").equalsIgnoreCase("now")){
+            String subDate = "" + System.currentTimeMillis();
+            requestParams.replace("date", subDate);
+        }
+
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestParams);
+        response = request.post(RESOURCE_WORKOBJECTS);
+    }
+
+    @Then("^the work object is created$")
+    public void verifyCreateWorkObject() throws Throwable {
+        Assert.assertEquals(200, response.getStatusCode(), 1);
+        JsonElement jsonElement = parseJsonElementResponse(response);
+        log.error("TODO::{}", jsonElement);
     }
 }
