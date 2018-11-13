@@ -23,7 +23,7 @@ public class ContractRulesSteps implements IRestStep {
     private static final String RESOURCE_IPA_DETERMINATION = "/v1.0/rules/ipa_determination/validate_market_network_values";
     private static final String RESOURCE_PILOT_MARKET = "/v1.0/rules/pilot_market/validate";
     private static final String RESOURCE_SILENT_INCLUSION = "/v1.0/rules/heritage_silent_inclusion/market_product_met";
-    private static final String RESOURCE_PCP_SPECIALTY = "/v1.0/rules/pcp_specialty/determine_network_value";
+    private static final String RESOURCE_PCP_SPECIALTY = "/v1.0/rules/pcp_specialty/validate_pcp";
 
     private RequestSpecification request;
     private Response response;
@@ -219,4 +219,48 @@ public class ContractRulesSteps implements IRestStep {
 
     }
 
+    // US1367999 (PCP Standards definition)
+
+    @Given("^the provider record \"([^\"]*)\" equals \"([^\"]*)\"$")
+    public void theProviderRecordEquals(String field, String value) throws Throwable {
+        requestBody.addProperty(field, value);
+
+    }
+
+    @And("^the NDB \"([^\"]*)\" equals \"([^\"]*)\"$")
+    public void theNDBEquals(String field, String value) throws Throwable {
+        requestBody.addProperty(field, value);
+    }
+
+    @When("^the primary \"([^\"]*)\" value equals one of (?:invalid )?\"([^\"]*)\"$")
+    public void thePrimaryValueEqualsOneOf(String field, String value) throws Throwable {
+        requestBody.addProperty(field, value);
+    }
+
+    @Then("^the provider record will be flagged as a \"([^\"]*)\" within the optum contract$")
+    public void theProviderRecordWillBeAsAWithinTheOptumContract(String result) throws Throwable {
+        // Build out the request
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+
+        // Get the response
+        response = request.post(RESOURCE_PCP_SPECIALTY);
+
+        // Assert successful response
+        Assert.assertEquals("Response did not return status code 200", 200, response.getStatusCode());
+
+        // Get the whole result element, then get the result as a JSON Object which contains the response data we need
+        JsonElement resultElement = parseJsonElementResponse(response);
+        JsonObject resultObject = resultElement.getAsJsonObject();
+
+        // Get the networkRole part of the response, should be either PCP or Specialist
+        String pcpResult = resultObject.get("result").getAsJsonObject().get("isPcp").getAsString();
+
+        if(result.equalsIgnoreCase("PCP")){
+            Assert.assertEquals("Network Role did not return what was expected", "Y", pcpResult);
+        }
+        else{
+            Assert.assertEquals("Network Role did not return what was expected", "N", pcpResult);
+        }
+
+    }
 }
