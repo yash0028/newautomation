@@ -40,6 +40,17 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
       | tid                                  |
       | 01c37d87-0bd5-4a5c-9407-ddd11d9e7591 |
 
+  @TC638439
+  @Manual
+  @Functional
+  Scenario Outline: TC638439 - [RL7] query work object ready
+    # Scenario Outline: query work object ready
+    When I send the transaction id "<tid>" to the ready work object endpoint
+    Then the response includes the ready status of the work object
+    Examples:
+      | tid                                  |
+      | 01c37d87-0bd5-4a5c-9407-ddd11d9e7591 |
+
   @TC636094
   @Manual
   @Functional
