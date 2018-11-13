@@ -32,20 +32,6 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
       | id   |
       | asdf |
 
-  @TC605561
-  @Manual
-  @Functional
-  Scenario Outline: TC605561 - [RL0] create work object <tid>
-    # Scenario Outline: create work object
-    When I send the following payload to create a work object
-      | date          | 1234          |
-      | status        | asdf          |
-      | transactionId | <tid>         |
-    Then the work object is created
-    Examples:
-      | tid                                  |
-      | 01c37d87-0bd5-4a5c-9407-ddd11d9e7591 |
-
   @TC636094
   @Manual
   @Functional
