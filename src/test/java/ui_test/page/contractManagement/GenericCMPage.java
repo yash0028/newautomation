@@ -43,6 +43,12 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
     @FindBy(xpath = "//table[1 and @class='mat-table']/tbody/tr[contains(@class, 'example-element-row')]")
     protected List<WebElement> primeTableRows;
 
+    @FindBy(xpath = "//table[1 and @class='mat-table']/tbody/tr[contains(@class, 'example-detail-row')]//*[contains(@class, 'example-element-row')]")
+    protected List<WebElement> secondaryTableRows;
+
+    @FindBy(xpath = "//table[@class='mat-table']/tbody/tr[contains(@class, 'example-detail-row')][1]//*[contains(@class, 'example-element-row')]")
+    protected List<WebElement> firstRowProductGroups;
+
     @FindBy(xpath = "//table[1 and @class='mat-table']/tbody/tr[contains(@class, 'example-element-row')]/td[contains(@class,'cdk-column-timestamp')]")
     protected List<WebElement> dateColumnList;
 
@@ -181,21 +187,24 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
             return dates.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList()).equals(dates);
         }
     }
+//
+//    /**
+//     * Gets the count of product groups for a single contract ID row.
+//     *
+//     * @param rowNumber The row number of the contract ID.
+//     * @return The count of product groups.
+//     */
+//    public int getProductGroupCount(int rowNumber) {
+//        return firstRowProductGroups.size();
+//    }
 
     /**
-     * Gets the count of product groups for a single contract ID row.
+     * Gets the count of product groups for the first contract ID row.
      *
-     * @param rowNumber The row number of the contract ID.
      * @return The count of product groups.
      */
-    public int getProductGroupCount(int rowNumber) {
-        WebElement row = getTableRows().get(rowNumber);
-
-        click("click table row", row);
-
-        //find by element and find table and count the number of tr in the table.
-
-        return 1;
+    public int getFirstRowProductGroupCount() {
+        return firstRowProductGroups.size();
     }
 //
 //    /**
