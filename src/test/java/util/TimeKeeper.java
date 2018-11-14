@@ -39,6 +39,10 @@ public class TimeKeeper {
     CLASS METHODS
      */
 
+    public ZonedDateTime getStartTime() {
+        return startTime;
+    }
+
     /**
      * get the ISO date format from local start time
      *
