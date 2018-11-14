@@ -19,6 +19,7 @@ Feature: US1407216 - Author SPA Contact UI Path
       | Paper Type         | SPA                |
       | HBP                | no                 |
       | Phycon             | 1234               |
+      | Fee Schedule       | IN 52716           |
       | Additional Manuals | no                 |
     Then I have an active contract in Exari
     Examples:

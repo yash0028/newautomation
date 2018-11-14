@@ -11,7 +11,7 @@ Feature: US1415079 - Defect - “Use selected contact master #: always” works 
   @Functional
   Scenario: TC630784 - [RL0]
     Given I am on the CMD Action Required page
-    When I entered in a contract master number, contract master name, contract system, contract master effective date
+    When I entered in a contract master number that only contains numeric values
     And I selected use this contract master "always"
     And I have clicked on the submit button
     Then The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me
