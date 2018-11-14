@@ -74,7 +74,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
         assert wizard.enterAppendix2();
 
         //Payment Appendix ::
-        assert wizard.enterPaymentAppendix();
+        assert wizard.enterPaymentAppendix(
+                contractParam.getOrDefault("Fee Schedule", "1234")
+        );
 
         //Regulatory Appendix :: Search for Regulator
         assert wizard.selectRegulatoryAppendix("iowa", 0);

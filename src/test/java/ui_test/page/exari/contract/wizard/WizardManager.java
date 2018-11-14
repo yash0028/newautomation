@@ -142,7 +142,7 @@ public class WizardManager {
         return test;
     }
 
-    public boolean enterPaymentAppendix() {
+    public boolean enterPaymentAppendix(String feeSchedule) {
         boolean test = true;
         //Handle Payment Appendix
         PaymentAppendixPage paymentAppendixPage = new PaymentAppendixPage(driver);
@@ -160,7 +160,7 @@ public class WizardManager {
 
         //Handle Fee Schedule ID
         if (paymentAppendixPage.confirmCurrentPage()) {
-            test &= paymentAppendixPage.enterFeeSchedule("1234");
+            test &= paymentAppendixPage.enterFeeSchedule(feeSchedule);
             paymentAppendixPage.clickNext();
         }
 
