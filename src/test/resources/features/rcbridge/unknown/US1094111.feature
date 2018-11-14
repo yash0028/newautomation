@@ -2,7 +2,6 @@
 @EXARI-11271
 @US1094111
 @Plus
-@F137658
 @releaseUnknown
 @iterationUnknown
 Feature: US1094111 - Approve Updated Entity Characteristic Info
@@ -11,7 +10,6 @@ Feature: US1094111 - Approve Updated Entity Characteristic Info
   @Automated
   @Functional
   @EXARI-11271
-  @US1094111
   Scenario: TC565740 - [RL0]
     Given I am a User with Approval Authority
     When a User updates a Entity Characteristic information and submits for approval

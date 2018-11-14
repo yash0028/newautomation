@@ -2,7 +2,6 @@
 @US1391616
 @MVP
 @Maintenance
-@F236489
 @releaseUnknown
 @iterationUnknown
 Feature: US1391616 - SPGA Removed Counterparty TIN Maintenance Event System Notification
@@ -10,7 +9,6 @@ Feature: US1391616 - SPGA Removed Counterparty TIN Maintenance Event System Noti
   @TC616930
   @Manual
   @Functional
-  @US1391616
   Scenario: TC616930 - [RL0]
     Given I am a User with access to maintain Contract information
     When I remove a Counterparty TIN from a SPGA Contract

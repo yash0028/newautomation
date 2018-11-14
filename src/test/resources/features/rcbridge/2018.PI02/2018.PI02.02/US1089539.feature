@@ -8,7 +8,6 @@
 @PIC
 @Parity
 @Examiner
-@F183241
 @releasePast
 @iterationPast
 Feature: US1089539 - Optum - Create Interface Specification for API service
@@ -16,9 +15,6 @@ Feature: US1089539 - Optum - Create Interface Specification for API service
   @TC564584
   @Manual
   @Functional
-  @US1089539
-  @2018.PI02
-  @2018.PI02.02
   Scenario: TC564584 - [RL0]
     Given an API exists for use
     When all Common data fields have been identified

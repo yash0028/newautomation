@@ -16,6 +16,12 @@ public class Appendix2Page extends GenericInputPage {
     @FindBy(xpath = "//p[contains(text(),'Appendix 2')]")
     private WebElement labelAppendix2;
 
+    @FindBy(xpath = "//input[contains(@value,'ALL Medicare Advantage')]")
+    private WebElement radioOptionAllMedicareAdvantage;
+
+    @FindBy(xpath = "//input[contains(@value,'No')]")
+    private WebElement radioOptionNo;
+
     /*
     CONSTRUCTOR
      */
@@ -36,5 +42,13 @@ public class Appendix2Page extends GenericInputPage {
     /*
     CLASS METHODS
      */
+
+    public boolean selectMedicareAdvantageIfAvailable() {
+        if (waitTillVisible(radioOptionNo, 120)) {
+            return click(radioOptionNo);
+        } else {
+            return true;
+        }
+    }
 
 }

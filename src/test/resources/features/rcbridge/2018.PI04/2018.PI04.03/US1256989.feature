@@ -8,18 +8,14 @@
 @Priority_1
 @CMD
 @Amrutha
-@F209320
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1256989 - Upload CLM Rule Table
 
   @TC603988
   @Manual
   @Functional
   @A_UI_Story
-  @US1256989
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC603988 - [RL1]
     Given the CLM Rules Tables service is up and running
     When A new spreadsheet is uploaded and stored in the database
@@ -31,9 +27,6 @@ Feature: US1256989 - Upload CLM Rule Table
   @Manual
   @Functional
   @A_UI_Story
-  @US1256989
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC603990 - [RL3]
     Given an update to the current version of the CLM Rules Table is needed
     When an administrator downloads a copy of the rules table template
@@ -43,9 +36,6 @@ Feature: US1256989 - Upload CLM Rule Table
   @Manual
   @Functional
   @A_UI_Story
-  @US1256989
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC603991 - [RL4]
     Given the existence of a web UI
     When an authorized user access the URL
@@ -55,9 +45,6 @@ Feature: US1256989 - Upload CLM Rule Table
   @Manual
   @Functional
   @A_UI_Story
-  @US1256989
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC615405 - [RL0]
     Given the CLM Rule Tables service is up and running
     When A new spreadsheet is uploaded and stored in the database
@@ -70,9 +57,6 @@ Feature: US1256989 - Upload CLM Rule Table
   @Manual
   @Functional
   @A_UI_Story
-  @US1256989
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC603989 - [RL2]
     Given more than one CLM Rules Table record exists in the database
     When access to a previous record version is needed

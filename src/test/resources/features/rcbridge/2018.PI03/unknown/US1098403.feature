@@ -3,7 +3,6 @@
 @2018.PI03
 @MVP
 @Parity
-@F185519
 @releasePast
 @iterationUnknown
 Feature: US1098403 - Request approval of Mass Action
@@ -11,8 +10,6 @@ Feature: US1098403 - Request approval of Mass Action
   @TC565601
   @Automated
   @Functional
-  @US1098403
-  @2018.PI03
   Scenario: TC565601 - [RL0]
     Given the amendment documents have been generated
     When the User determines there are no edits required

@@ -5,7 +5,6 @@
 @MVP
 @PI04
 @Plus
-@F165534
 @releasePresent
 @iterationUnknown
 Feature: US972034 - Retro Why can't move effective date
@@ -14,8 +13,6 @@ Feature: US972034 - Retro Why can't move effective date
   @Automated
   @Functional
   @Retro
-  @US972034
-  @Configuration_for_2/15/19
   Scenario: TC565550 - [RL0]
     Given A retro approval has been triggered.
     When I click on "Why can't the effective date be moved?"

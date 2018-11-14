@@ -5,7 +5,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137671
 @releaseUnknown
 @iterationUnknown
 Feature: US858668 - Capture Relationship Time Lining History
@@ -15,7 +14,6 @@ Feature: US858668 - Capture Relationship Time Lining History
   @Functional
   @MVP
   @EXARI-11273
-  @US858668
   Scenario: TC564645 - [RL0]
     Given I am the Entity Management Solution
     When a User adds a relationship between two Entities

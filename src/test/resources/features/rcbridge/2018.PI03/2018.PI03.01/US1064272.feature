@@ -7,7 +7,6 @@
 @10/1_Physician
 @Cosmos
 @Parity
-@F183530
 @releasePast
 @iterationPast
 Feature: US1064272 - Exari>COSMOS Physician Panel Add Transaction - Payload Data Mapping
@@ -15,9 +14,6 @@ Feature: US1064272 - Exari>COSMOS Physician Panel Add Transaction - Payload Data
   @TC565689
   @Manual
   @Functional
-  @US1064272
-  @2018.PI03
-  @2018.PI03.01
   Scenario: TC565689 - [RL0]
     Given the Exari payload extracts and maps the correct data fields in the Exari>COSMOS payload
     When COSMOS uploads the Physician Panel record into COSMOS

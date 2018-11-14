@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F183266
 @releaseUnknown
 @iterationUnknown
 Feature: US1089506 - Update Entity Alternate Name
@@ -17,7 +16,6 @@ Feature: US1089506 - Update Entity Alternate Name
   @MVP
   @EXARI-11267
   @CLM_UAT
-  @US1089506
   Scenario: TC564910 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to update an Entity Alternate Name

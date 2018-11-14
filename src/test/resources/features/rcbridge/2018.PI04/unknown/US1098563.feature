@@ -5,7 +5,6 @@
 @2018.PI04
 @MVP
 @Parity
-@F185543
 @releasePresent
 @iterationUnknown
 Feature: US1098563 - Scrub impacted providers against integration points
@@ -15,8 +14,6 @@ Feature: US1098563 - Scrub impacted providers against integration points
   @Functional
   @MVP
   @Plus
-  @US1098563
-  @2018.PI04
   Scenario: TC564557 - [RL0]
     Given I have identified target providers for the Mass Action Project
     When I want to validate their readiness for update

@@ -5,7 +5,6 @@
 @Priority_2
 @Amrutha
 @Parity
-@F205016
 @releaseFuture
 @iterationUnknown
 Feature: US1204446 - Editing the Physician Payload logic for Reassign fields
@@ -13,8 +12,6 @@ Feature: US1204446 - Editing the Physician Payload logic for Reassign fields
   @TC564515
   @Automated
   @Functional
-  @US1204446
-  @2018.PI05
   Scenario: TC564515 - [RL0]
     Given A roster event transaction is received
     And The roster contains a termination request
@@ -26,8 +23,6 @@ Feature: US1204446 - Editing the Physician Payload logic for Reassign fields
   @TC564516
   @Automated
   @Functional
-  @US1204446
-  @2018.PI05
   Scenario: TC564516 - [RL1]
     Given A roster event transaction is received
     And The roster contains a termination request

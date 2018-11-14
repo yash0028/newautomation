@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137662
 @releaseUnknown
 @iterationUnknown
 Feature: US858626 - Add Notes
@@ -17,7 +16,6 @@ Feature: US858626 - Add Notes
   @MVP
   @CLM_UAT
   @EXARI-11698
-  @US858626
   Scenario: TC565124 - [RL0]
     Given I am a User with access to maintain Entity information
     When I want to add a note to an Entity

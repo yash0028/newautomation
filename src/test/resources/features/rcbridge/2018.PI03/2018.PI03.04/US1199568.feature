@@ -7,7 +7,6 @@
 @Crosswalk
 @Priority_1
 @CMD
-@F201371
 @releasePast
 @iterationPast
 Feature: US1199568 - [Continued] Import Data from Spreadsheet into Table
@@ -15,9 +14,6 @@ Feature: US1199568 - [Continued] Import Data from Spreadsheet into Table
   @TC546801
   @Manual
   @Functional
-  @US1199568
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC546801 - Validate unsuccessful import of spreadsheet data
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
@@ -28,9 +24,6 @@ Feature: US1199568 - [Continued] Import Data from Spreadsheet into Table
   @TC615290
   @Manual
   @Functional
-  @US1199568
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC615290 - [RL1]
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
@@ -41,9 +34,6 @@ Feature: US1199568 - [Continued] Import Data from Spreadsheet into Table
   @TC546797
   @Manual
   @Functional
-  @US1199568
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC546797 - Validate successful import of spreadsheet data
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
@@ -55,9 +45,6 @@ Feature: US1199568 - [Continued] Import Data from Spreadsheet into Table
   @TC615289
   @Manual
   @Functional
-  @US1199568
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC615289 - [RL0]
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
@@ -69,9 +56,6 @@ Feature: US1199568 - [Continued] Import Data from Spreadsheet into Table
   @TC546803
   @Manual
   @Functional
-  @US1199568
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC546803 - Validate unsuccessful import of spreadsheet file
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database

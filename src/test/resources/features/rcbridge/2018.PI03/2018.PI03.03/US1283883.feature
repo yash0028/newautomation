@@ -9,7 +9,6 @@
 @10/1_Physician
 @CMD
 @CMD_Tables
-@F214484
 @releasePast
 @iterationPast
 Feature: US1283883 - [Unfinished] Maintain data using table template
@@ -20,9 +19,6 @@ Feature: US1283883 - [Unfinished] Maintain data using table template
   @MVP
   @10/1_Physician
   @CMD
-  @US1283883
-  @2018.PI03
-  @2018.PI03.03
   Scenario: TC605350 - [RL0]
     Given The table data service is up and running
     When new data is updated in the database
@@ -36,9 +32,6 @@ Feature: US1283883 - [Unfinished] Maintain data using table template
   @MVP
   @10/1_Physician
   @CMD
-  @US1283883
-  @2018.PI03
-  @2018.PI03.03
   Scenario: TC605351 - [RL1]
     Given The table data service is up and running
     When new data is updated in the database

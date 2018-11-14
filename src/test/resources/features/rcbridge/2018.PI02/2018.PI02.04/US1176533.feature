@@ -10,7 +10,6 @@
 @MVP
 @CLM_Exari
 @Parity
-@F137899
 @releasePast
 @iterationPast
 Feature: US1176533 - Enhancement to use new PES combined API (Counter Party) stub API
@@ -19,9 +18,6 @@ Feature: US1176533 - Enhancement to use new PES combined API (Counter Party) stu
   @Automated
   @Functional
   @PES
-  @US1176533
-  @2018.PI02
-  @2018.PI02.04
   Scenario: TC564928 - [RL1] Verify fields returned for facility
     #For Facility MPIN
     Given I am a User with access to add a Counterparty to an Interview
@@ -41,9 +37,6 @@ Feature: US1176533 - Enhancement to use new PES combined API (Counter Party) stu
   @Automated
   @Functional
   @PES
-  @US1176533
-  @2018.PI02
-  @2018.PI02.04
   Scenario: TC564927 - [RL0] Verify fields returned for physician
     #For Physician MPIN
     Given I am a User with access to add a Counterparty to an Interview

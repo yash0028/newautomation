@@ -5,7 +5,6 @@
 @MVP
 @Plus
 @Priority_2
-@F198810
 @releaseUnknown
 @iterationUnknown
 Feature: US1171454 - Update Validated Status Field
@@ -15,7 +14,6 @@ Feature: US1171454 - Update Validated Status Field
   @Functional
   @MVP
   @CLM_UAT
-  @US1171454
   Scenario: TC565209 - [RL0]
     Given I am the Entity Management Solution
     When a User uploads a Tax ID Validation File

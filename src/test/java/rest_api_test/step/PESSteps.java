@@ -20,6 +20,7 @@ import rest_api_test.util.IRestStep;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -200,139 +201,11 @@ public class PESSteps implements IRestStep {
 
             if (!responseString.contains(field.toLowerCase())) {
                 match = false;
-//               System.out.println("-----FAILED FIELD: " + field);
+                log.info("Field: {} was not found in the response.", field);
             }
         }
-        assertTrue(match);
-    }
-
-    //US1094026
-
-    @Given("^UHC will need to provide Exari with PES data$")
-    public void uhcWillNeedToProvideExariWithPESData() throws Throwable {
-        // Pending because manually tested
-        throw new PendingException();
-    }
-
-    @When("^Exari calls PES with MPIN and TIN$")
-    public void exariCallsPESWithMPINAndTIN() throws Throwable {
-        // Pending because manually tested
-        throw new PendingException();
-    }
-
-    @Then("^an external data query will return a list of responses with the following populated fields if the result is a physician:$")
-    public void anExternalDataQueryWillReturnAListOfResponsesWithTheFollowingPopulatedFieldsIfTheResultIsAPhysician(DataTable table) throws Throwable {
-        // Pending because manually tested
-        throw new PendingException();
-    }
-
-    @And("^an external data query will return a list of responses with the following populated fields if the result is a facility:$")
-    public void anExternalDataQueryWillReturnAListOfResponsesWithTheFollowingPopulatedFieldsIfTheResultIsAFacility(DataTable table) throws Throwable {
-        // Pending because manually tested
-        throw new PendingException();
-    }
-
-    //US1178363
-
-    @When("^a user calls the service and service is unable to fulfill the request$")
-    public void aUserCallsTheServiceAndServiceIsUnableToFulfillTheRequest() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("^it must respond back with appropriate error code$")
-    public void itMustRespondBackWithAppropriateErrorCode() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @And("^client must show the error details with sufficient information to guide them in order to take an action to resolve the error situation$")
-    public void clientMustShowTheErrorDetailsWithSufficientInformationToGuideThemInOrderToTakeAnActionToResolveTheErrorSituation() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    //US
-
-    @Given("that a user wants to get provider details from PES service")
-    public void that_a_user_wants_to_get_provider_details_from_PES_service() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @When("a request is sent with MPN andTIN to CLM microservice")
-    public void a_request_is_sent_with_MPN_andTIN_to_CLM_microservice() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("provider details will be returned to user")
-    public void provider_details_will_be_returned_to_user() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    //US
-
-    @Given("that PES has many API's")
-    public void that_PES_has_many_API_s() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @When("we call those APIs, we need to understand what can be returned")
-    public void we_call_those_APIs_we_need_to_understand_what_can_be_returned() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("the development team should understand the PES APIs.")
-    public void the_development_team_should_understand_the_PES_APIs() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-
-    //US1210131
-
-    @Given("^That PES needs to provide Exari with Bulk Provider Extract$")
-    public void thatPESNeedsToProvideExariWithBulkProviderExtract() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("^a developer will research how to provide Exari with the bulk provider extract\\.$")
-    public void aDeveloperWillResearchHowToProvideExariWithTheBulkProviderExtract() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    //US1194560
-
-    @When("^querying the Appendix (\\d+) Lookup external data query$")
-    public void queryingTheAppendixLookupExternalDataQuery(int arg0) throws Throwable {
-        // Keeping as pending, as this test is manually done
-        throw new PendingException();
-    }
-
-    @Then("^a valid response is returned to Exari$")
-    public void aValidResponseIsReturnedToExari() throws Throwable {
-        // Keeping as pending, as this test is manually done
-        throw new PendingException();
-    }
-
-    //US1100727
-
-    @Given("^I as a user have populated the Exari Provider Roster with MPIN, TAX ID, Provider Full Name \\(First, Last\\), and NPI$")
-    public void iAsAUserHavePopulatedTheExariProviderRosterWithMPINTAXIDProviderFullNameFirstLastAndNPI() throws Throwable {
-        // Keeping as pending, as this test is manually done
-        throw new PendingException();
-    }
-
-    @When("^Exari reaches out to CLM Roster Service with parameters of:$")
-    public void exariReachesOutToCLMRosterServiceWithParametersOf() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        assertEquals(200, response.statusCode());
+        assertTrue("The response did not contain all of the necessary fields.", match);
     }
 
     //US1253705
@@ -474,4 +347,52 @@ public class PESSteps implements IRestStep {
 
         Assert.assertTrue("Not all fields required for address match in the response for additional locations", allMatch);
     }
+
+    // US1416329 (Changes to Counterparty Search
+
+    @Given("^a user wants to find a Counter Party$")
+    public void aUserWantsToFindACounterParty() throws Throwable {
+        // noop
+    }
+
+    @When("^they search using a combo input parameter \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+    public void theySearchUsingAComboInputParameter(String field1, String field2, String value1, String value2) throws Throwable {
+        // Build out the request body
+        JsonObject requestParams = new JsonObject();
+
+        requestParams.addProperty(field1, value1);
+        requestParams.addProperty(field2, value2);
+
+        // Build the request
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestParams.toString());
+
+    }
+
+    @Then("^they get back all of the possible providers and each providers associated \"([^\"]*)\" number$")
+    public void theyGetBackAllOfThePossibleProvidersAndEachProvidersAssociatedNumber(String field) throws Throwable {
+        // Get the response
+        response = request.post(RESOURCE_COUNTER_PARTIES_SEARCH);
+
+        // Assert successful response
+        Assert.assertEquals("Service did not return a successful response", 200, response.getStatusCode());
+
+        // Get the response as a JsonArray
+        JsonElement responseElem = parseJsonElementResponse(response);
+        JsonArray responseArray = responseElem.getAsJsonObject().get("counterParties").getAsJsonArray();
+
+        boolean allMatch = true;
+
+        // Make sure each entry in the response has the required field
+        for(JsonElement elm: responseArray){
+            JsonObject curObj = elm.getAsJsonObject();
+
+            if(!curObj.has(field)){
+                allMatch = false;
+            }
+        }
+
+        // Assert the above check was successful
+        Assert.assertTrue("One of the returned counter party results did not contain field: " + field, allMatch);
+    }
+
 }

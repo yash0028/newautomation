@@ -2,7 +2,6 @@
 @US1391617
 @MVP
 @Maintenance
-@F236489
 @releaseUnknown
 @iterationUnknown
 Feature: US1391617 - SPA/PAT Added Counterparty TIN Maintenance Event System Notification
@@ -10,7 +9,6 @@ Feature: US1391617 - SPA/PAT Added Counterparty TIN Maintenance Event System Not
   @TC616920
   @Manual
   @Functional
-  @US1391617
   Scenario: TC616920 - [RL0]
     Given I am a User with access to maintain Contract information
     When I add a Counterparty TIN to a SPA/PAT Contract

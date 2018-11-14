@@ -5,7 +5,6 @@
 @2018.PI04.02
 @Priority_1
 @Scrum_Team_1
-@F232041
 @releasePresent
 @iterationPast
 Feature: US1364505 - PES Results Enhancements
@@ -14,9 +13,6 @@ Feature: US1364505 - PES Results Enhancements
   @Automated
   @Functional
   @PES
-  @US1364505
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC599658 - [RL0] Validation for Roster Results
     # For Roster
     Given a user wants to do a search for Roster
@@ -28,9 +24,6 @@ Feature: US1364505 - PES Results Enhancements
   @Automated
   @Functional
   @PES
-  @US1364505
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC608270 - [RL1] Validation for Appendix Results
     #For appendix
     Given a user wants to populate appendix 1 with addresses

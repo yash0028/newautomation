@@ -5,7 +5,6 @@
 @CMD
 @Priority_2
 @UCM
-@F231564
 @releaseFuture
 @iterationUnknown
 Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
@@ -14,8 +13,6 @@ Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
   @Manual
   @Functional
   @CMD
-  @US1356648
-  @2018.PI05
   Scenario: TC611979 - [RL1]
     Given a contract exists and is valid
     When the contract terms DO NOT include a rate differential
@@ -25,8 +22,6 @@ Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
   @Manual
   @Functional
   @CMD
-  @US1356648
-  @2018.PI05
   Scenario: TC611984 - [RL6]
     Given contract will NOT include a rate differential
     When the user needs to specify the contract will not include a rate differential
@@ -36,8 +31,6 @@ Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
   @Manual
   @Functional
   @CMD
-  @US1356648
-  @2018.PI05
   Scenario: TC596323 - [RL0]
     Given a contract exists and is valid
     When the contract terms include a rate differential
@@ -47,8 +40,6 @@ Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
   @Manual
   @Functional
   @CMD
-  @US1356648
-  @2018.PI05
   Scenario: TC611981 - [RL3]
     Given a contract does not include a rate differential
     When the UCM has been created
@@ -58,8 +49,6 @@ Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
   @Manual
   @Functional
   @CMD
-  @US1356648
-  @2018.PI05
   Scenario: TC611983 - [RL5]
     Given a list of permissible category values exists
     When a user needs to select one or more values from the list
@@ -69,8 +58,6 @@ Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
   @Manual
   @Functional
   @CMD
-  @US1356648
-  @2018.PI05
   Scenario: TC611982 - [RL4]
     Given a contract will include a rate differential
     When the user needs to specify the category used for the differential
@@ -80,8 +67,6 @@ Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
   @Manual
   @Functional
   @CMD
-  @US1356648
-  @2018.PI05
   Scenario: TC611980 - [RL2]
     Given a contract includes a rate differential
     When the UCM has been created

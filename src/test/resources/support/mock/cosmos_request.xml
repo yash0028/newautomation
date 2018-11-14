@@ -1,0 +1,45 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:cos="http://www.COSLINKC.Request.com" xmlns:chan="http://www.ibm.com/xmlns/prod/CICS/channel-instance">
+    <soap:Header/>
+    <soap:Body>
+        <cos:exaupd chan:channel="true">
+            <cos:COSLINKC-REQ chan:structuredContainer="true">
+                <cos:ps624_i_input>
+                    <cos:ps624_req_common>
+                        <cos:ps624_req_cosmos_trancode>PS624</cos:ps624_req_cosmos_trancode>
+                        <cos:ps624_req_cosmos_div>MSP</cos:ps624_req_cosmos_div>
+                        <cos:ps624_req_cosmos_userid>3116</cos:ps624_req_cosmos_userid>
+                    </cos:ps624_req_common>
+                    <cos:ps624_in_rec>
+                        <cos:ps624_i_tran_code>PS624</cos:ps624_i_tran_code>
+                        <cos:ps624_i_version_nbr>0101</cos:ps624_i_version_nbr>
+                        <cos:ps624_i_tran_type>C</cos:ps624_i_tran_type>
+                        <cos:ps624_i_source>45</cos:ps624_i_source>
+                        <cos:ps624_i_site_id>MSP</cos:ps624_i_site_id>
+                        <cos:ps624_i_provider_type>1</cos:ps624_i_provider_type>
+                        <cos:ps624_i_provider_nbr>7</cos:ps624_i_provider_nbr>
+                        <cos:ps624_i_panel_nbr>7</cos:ps624_i_panel_nbr>
+                        <cos:ps624_i_spec_agre_ind></cos:ps624_i_spec_agre_ind>
+                        <cos:ps624_i_spec_agre_nbr>0</cos:ps624_i_spec_agre_nbr>
+                        <cos:ps624_i_exari_cont_id>12222268</cos:ps624_i_exari_cont_id>
+                        <cos:ps624_i_ahld_eff_date>0</cos:ps624_i_ahld_eff_date>
+                        <cos:ps624_i_ahld_exp_date>0</cos:ps624_i_ahld_exp_date>
+                        <cos:ps624_i_ahld_rsn_cde>0</cos:ps624_i_ahld_rsn_cde>
+                        <cos:ps624_i_status>P</cos:ps624_i_status>
+                        <cos:ps624_i_role>G</cos:ps624_i_role>
+                        <cos:ps624_i_pcp_type></cos:ps624_i_pcp_type>
+                        <cos:ps624_i_pcp_nbr></cos:ps624_i_pcp_nbr>
+                        <cos:ps624_i_network>9008200</cos:ps624_i_network>
+                        <cos:ps624_i_new_ptnt>Y</cos:ps624_i_new_ptnt>
+                        <cos:ps624_i_cosmos_cont_nbr>294</cos:ps624_i_cosmos_cont_nbr>
+                        <cos:ps624_i_eff_date>20180101</cos:ps624_i_eff_date>
+                        <cos:ps624_i_exp_date>20190101</cos:ps624_i_exp_date>
+                        <cos:ps624_i_pnlt_tbl></cos:ps624_i_pnlt_tbl>
+                        <cos:ps624_i_ndb_mkt_nbr></cos:ps624_i_ndb_mkt_nbr>
+                        <cos:ps624_i_ndb_fee_sched_nbr></cos:ps624_i_ndb_fee_sched_nbr>
+                        <cos:ps624_i_ndb_contr_id></cos:ps624_i_ndb_contr_id>
+                    </cos:ps624_in_rec>
+                </cos:ps624_i_input>
+            </cos:COSLINKC-REQ>
+        </cos:exaupd>
+    </soap:Body>
+</soap:Envelope>

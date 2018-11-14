@@ -4,7 +4,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137675
 @releaseUnknown
 @iterationUnknown
 Feature: US858704 - Capture Business Rule Time Lining History
@@ -13,7 +12,6 @@ Feature: US858704 - Capture Business Rule Time Lining History
   @Automated
   @Functional
   @MVP
-  @US858704
   Scenario: TC565146 - [RL0]
     Given I am the Entity Management Solution
     When a User creates a business rule

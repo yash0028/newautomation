@@ -3,7 +3,6 @@
 @2018.PI05
 @MVP
 @Maintenance
-@F235963
 @releaseFuture
 @iterationUnknown
 Feature: US1387185 - Validate roster data - cancel
@@ -11,8 +10,6 @@ Feature: US1387185 - Validate roster data - cancel
   @TC616912
   @Manual
   @Functional
-  @US1387185
-  @2018.PI05
   Scenario: TC616912 - [RL3]
     Given a RosterUpdated business event is published
     When the provider(s) being added have an O-type classification
@@ -24,8 +21,6 @@ Feature: US1387185 - Validate roster data - cancel
   @TC614182
   @Manual
   @Functional
-  @US1387185
-  @2018.PI05
   Scenario: TC614182 - [RL0]
     Given a RosterUpdated business event is published
     When the provider(s) being added have a P-type classification
@@ -36,8 +31,6 @@ Feature: US1387185 - Validate roster data - cancel
   @TC616914
   @Manual
   @Functional
-  @US1387185
-  @2018.PI05
   Scenario: TC616914 - [RL5]
     Given a RosterUpdated business events is published
     When there are no providers to cancel included in the event
@@ -48,8 +41,6 @@ Feature: US1387185 - Validate roster data - cancel
   @TC616911
   @Manual
   @Functional
-  @US1387185
-  @2018.PI05
   Scenario: TC616911 - [RL2]
     Given a RosterUpdated business event is published
     When the provider(s) being added have a P-type classification
@@ -61,8 +52,6 @@ Feature: US1387185 - Validate roster data - cancel
   @TC616910
   @Manual
   @Functional
-  @US1387185
-  @2018.PI05
   Scenario: TC616910 - [RL1]
     Given a RosterUpdated business event is published
     When the provider(s) being added have an O-type classification
@@ -73,8 +62,6 @@ Feature: US1387185 - Validate roster data - cancel
   @TC616913
   @Manual
   @Functional
-  @US1387185
-  @2018.PI05
   Scenario: TC616913 - [RL4]
     Given a RosterUpdated business events is published
     When there are no providers on the roster

@@ -3,7 +3,6 @@
 @CLM_UAT
 @EXARI-11274
 @US949053
-@F207050
 @releaseUnknown
 @iterationUnknown
 Feature: US949053 - Check for Duplicate Name
@@ -14,7 +13,6 @@ Feature: US949053 - Check for Duplicate Name
   @MVP
   @CLM_UAT
   @EXARI-11274
-  @US949053
   Scenario: TC564459 - [RL0]
     Given I am the Entity Management Solution
     When A User adds an Entity

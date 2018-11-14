@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137678
 @releaseUnknown
 @iterationUnknown
 Feature: US1120329 - View Entity Structure by Relationship Role
@@ -17,7 +16,6 @@ Feature: US1120329 - View Entity Structure by Relationship Role
   @MVP
   @EXARI-10529
   @CLM_UAT
-  @US1120329
   Scenario: TC565894 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view only Entity components of a specified Relationship Role

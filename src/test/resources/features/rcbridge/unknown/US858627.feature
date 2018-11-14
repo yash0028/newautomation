@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137662
 @releaseUnknown
 @iterationUnknown
 Feature: US858627 - Add Attachments
@@ -17,7 +16,6 @@ Feature: US858627 - Add Attachments
   @MVP
   @EXARI-11643
   @CLM_UAT
-  @US858627
   Scenario: TC565610 - [RL0]
     Given I am a User with access to maintain Entity information
     When I want to associate a document to an Entity

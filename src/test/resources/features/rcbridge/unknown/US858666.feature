@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137671
 @releaseUnknown
 @iterationUnknown
 Feature: US858666 - Update Entity Relationship
@@ -17,7 +16,6 @@ Feature: US858666 - Update Entity Relationship
   @MVP
   @CLM_UAT
   @EXARI-11696
-  @US858666
   Scenario: TC564502 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to change a relationship between two Entities

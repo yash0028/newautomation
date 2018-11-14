@@ -10,7 +10,6 @@
 @Parity
 @Non-Deliverable
 @7.5_Release
-@F185542
 @releaseUnknown
 @iterationUnknown
 Feature: US1185895 - View project status summary
@@ -24,7 +23,6 @@ Feature: US1185895 - View project status summary
   @Non-Deliverable
   @EXARI-11545
   @7.5_Release
-  @US1185895
   Scenario: TC565926 - [RL0]
     Given I have access to an active Mass Action Project
     When I select to view the project status

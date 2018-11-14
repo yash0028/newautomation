@@ -5,7 +5,6 @@
 @2018.PI04
 @MVP
 @Parity
-@F185543
 @releasePresent
 @iterationUnknown
 Feature: US1100777 - Specify transaction values via spreadsheet
@@ -15,8 +14,6 @@ Feature: US1100777 - Specify transaction values via spreadsheet
   @Functional
   @MVP
   @Parity
-  @US1100777
-  @2018.PI04
   Scenario: TC565854 - [RL0]
     Given that a user has initiated a Mass Action
     When the user wants to specify the transaction values with a spreadsheet

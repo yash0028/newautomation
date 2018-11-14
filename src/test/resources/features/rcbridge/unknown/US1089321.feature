@@ -8,7 +8,6 @@
 @MVP
 @Plus
 @Priority_1
-@F152967
 @releaseUnknown
 @iterationUnknown
 Feature: US1089321 - Prevent Inactive Entity Maintenance
@@ -21,7 +20,6 @@ Feature: US1089321 - Prevent Inactive Entity Maintenance
   @EXARI-11270
   @EXARI-11249
   @CLM_UAT
-  @US1089321
   Scenario: TC565310 - [RL0]
     Given I am a User with access to maintain Entities
     When I want to modify an Entity that is currently inactive

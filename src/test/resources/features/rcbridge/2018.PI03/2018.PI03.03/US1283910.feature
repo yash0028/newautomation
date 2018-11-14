@@ -7,7 +7,6 @@
 @10/1_Physician
 @CMD
 @CMD_Tables
-@F214484
 @releasePast
 @iterationPast
 Feature: US1283910 - [Unfinished] Record Table data to Database
@@ -16,9 +15,6 @@ Feature: US1283910 - [Unfinished] Record Table data to Database
   @Manual
   @Functional
   @kumar,_Sachin
-  @US1283910
-  @2018.PI03
-  @2018.PI03.03
   Scenario: TC605376 - [RL1]
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database

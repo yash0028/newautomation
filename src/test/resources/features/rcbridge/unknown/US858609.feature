@@ -5,7 +5,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137659
 @releaseUnknown
 @iterationUnknown
 Feature: US858609 - Capture Import Time Lining History
@@ -15,7 +14,6 @@ Feature: US858609 - Capture Import Time Lining History
   @Functional
   @MVP
   @EXARI-11273
-  @US858609
   Scenario: TC564497 - [RL0]
     Given I am the Entity Management solution
     When A User imports Entity Structure or Entity Relationships from a template

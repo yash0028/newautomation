@@ -2,7 +2,6 @@
 @EXARI-11271
 @US1094095
 @Plus
-@F137658
 @releaseUnknown
 @iterationUnknown
 Feature: US1094095 - Approve Updated Entity
@@ -11,7 +10,6 @@ Feature: US1094095 - Approve Updated Entity
   @Automated
   @Functional
   @EXARI-11271
-  @US1094095
   Scenario: TC564611 - [RL0]
     Given I am a User with Approval Authority
     When a User updates an Entity and submits for approval

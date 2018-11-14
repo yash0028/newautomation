@@ -1,7 +1,6 @@
 # Last updated on 
 @MVP+1
 @US1211287
-@F205008
 @releaseUnknown
 @iterationUnknown
 Feature: US1211287 - Identify Product Group
@@ -10,7 +9,6 @@ Feature: US1211287 - Identify Product Group
   @Automated
   @Functional
   @MVP+1
-  @US1211287
   Scenario: TC564761 - [RL0]
     Given an Exari contract record exists
     When the contract includes product descriptions that meet contract master conditions
@@ -20,7 +18,6 @@ Feature: US1211287 - Identify Product Group
   @Automated
   @Functional
   @MVP+1
-  @US1211287
   Scenario: TC564762 - [RL1]
     Given an Exari contract record exists
     When the contract includes network descriptions that meet contract master conditions

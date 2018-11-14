@@ -1,6 +1,5 @@
 # Last updated on 
 @US1090067
-@F207077
 @releaseUnknown
 @iterationUnknown
 Feature: US1090067 - Inactivate Identifier Relationship with Entity
@@ -8,7 +7,6 @@ Feature: US1090067 - Inactivate Identifier Relationship with Entity
   @TC565142
   @Automated
   @Functional
-  @US1090067
   Scenario: TC565142 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to inactivate the relationship between an Identifier and an Entity

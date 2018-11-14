@@ -7,7 +7,6 @@
 @PI02_Top3
 @NDB
 @Parity
-@F185083
 @releasePast
 @iterationPast
 Feature: US1144455 - [Unfinished] NDB_Send Updates for Update Roster business event
@@ -16,9 +15,6 @@ Feature: US1144455 - [Unfinished] NDB_Send Updates for Update Roster business ev
   @Manual
   @Functional
   @CLM_UAT
-  @US1144455
-  @2018.PI02
-  @2018.PI02.02
   Scenario: TC605359 - [RL1]
     Given the NDB connector microservice has received a roster update event
     When all of the NDB edits are not successful
@@ -28,9 +24,6 @@ Feature: US1144455 - [Unfinished] NDB_Send Updates for Update Roster business ev
   @Manual
   @Functional
   @CLM_UAT
-  @US1144455
-  @2018.PI02
-  @2018.PI02.02
   Scenario: TC605360 - [RL2]
     Given The event MS processed NDB edits sucessfully
     When NDB completes the update / action successfully
@@ -41,9 +34,6 @@ Feature: US1144455 - [Unfinished] NDB_Send Updates for Update Roster business ev
   @Manual
   @Functional
   @CLM_UAT
-  @US1144455
-  @2018.PI02
-  @2018.PI02.02
   Scenario: TC605358 - [RL0]
     Given the NDB connector microservice has received a roster update event
     When all of the NDB edits are successful

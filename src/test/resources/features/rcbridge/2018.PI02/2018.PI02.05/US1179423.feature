@@ -8,7 +8,6 @@
 @PIC
 @Parity
 @Examiner
-@F183241
 @releasePast
 @iterationPast
 Feature: US1179423 - [Continued] Examiner implementation
@@ -16,9 +15,6 @@ Feature: US1179423 - [Continued] Examiner implementation
   @TC565241
   @Automated
   @Functional
-  @US1179423
-  @2018.PI02
-  @2018.PI02.05
   Scenario: TC565241 - [RL1]
     Given A contract inquiry request from PIC or Examiner
     When A REST Service call is made with invalid data
@@ -27,9 +23,6 @@ Feature: US1179423 - [Continued] Examiner implementation
   @TC565242
   @Automated
   @Functional
-  @US1179423
-  @2018.PI02
-  @2018.PI02.05
   Scenario: TC565242 - [RL2]
     Given A contract request from PIC or Examiner
     When The REST service is unavailable
@@ -38,9 +31,6 @@ Feature: US1179423 - [Continued] Examiner implementation
   @TC565240
   @Automated
   @Functional
-  @US1179423
-  @2018.PI02
-  @2018.PI02.05
   Scenario: TC565240 - [RL0]
     Given A contract inquiry request from PIC or Examiner
     When A REST Service call is made

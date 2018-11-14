@@ -3,7 +3,6 @@
 @US1311703
 @CMD2
 @Priority_2
-@F232444
 @releaseUnknown
 @iterationUnknown
 Feature: US1311703 - Med Nec clause table CMD UI - Facility
@@ -12,7 +11,6 @@ Feature: US1311703 - Med Nec clause table CMD UI - Facility
   @Automated
   @Functional
   @MVP
-  @US1311703
   Scenario: TC572210 - [RL0]
     Given the med nec clause information needs to be updated
     When a user has authorization to access the data

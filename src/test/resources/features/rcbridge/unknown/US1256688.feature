@@ -1,8 +1,5 @@
 # Last updated on 
 @US1256688
-@Priority_1
-@CMD2
-@F210192
 @releaseUnknown
 @iterationUnknown
 Feature: US1256688 - Upload Table template
@@ -10,7 +7,6 @@ Feature: US1256688 - Upload Table template
   @TC565163
   @Automated
   @Functional
-  @US1256688
   Scenario: TC565163 - [RL0]
     Given an update to the table is needed
     When an administrator accesses the table URL web service
@@ -19,7 +15,6 @@ Feature: US1256688 - Upload Table template
   @TC565164
   @Automated
   @Functional
-  @US1256688
   Scenario: TC565164 - [RL1]
     Given an update of a record within the table is required
     When an administrator has the information ready to record in the table
@@ -28,7 +23,6 @@ Feature: US1256688 - Upload Table template
   @TC565165
   @Automated
   @Functional
-  @US1256688
   Scenario: TC565165 - [RL2]
     Given an updated table file is ready to be uploaded
     When an administrator uploads the table file record

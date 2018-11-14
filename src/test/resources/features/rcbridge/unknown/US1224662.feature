@@ -3,7 +3,6 @@
 @MVP
 @Plus
 @Priority_1
-@F181492
 @releaseUnknown
 @iterationUnknown
 Feature: US1224662 - Terminated MPIN/TIN Relationship
@@ -11,7 +10,6 @@ Feature: US1224662 - Terminated MPIN/TIN Relationship
   @TC565015
   @Automated
   @Functional
-  @US1224662
   Scenario: TC565015 - [RL0]
     Given I am the Entity Management Solution
     When the MPIN/TIN relationship is terminated in NDB

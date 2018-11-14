@@ -7,7 +7,6 @@
 @Madhur
 @Priority_1
 @CMD
-@F218723
 @releasePresent
 @iterationPast
 Feature: US1388684 - [Unfinished] [Continued] CMD- User Input Required Page- View & Edit contract detail information (no search results found)
@@ -16,9 +15,6 @@ Feature: US1388684 - [Unfinished] [Continued] CMD- User Input Required Page- Vie
   @Manual
   @Functional
   @A_UI_Story
-  @US1388684
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC615284 - [RL2]
     # Scenario 4 (Select contract master- Use this once)
     Given I am on the CMD Action Required page
@@ -32,9 +28,6 @@ Feature: US1388684 - [Unfinished] [Continued] CMD- User Input Required Page- Vie
   @Manual
   @Functional
   @A_UI_Story
-  @US1388684
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC615286 - [RL4]
     # scenario 6 (contract load button)
     Given I have selected a contract master for a product grouping
@@ -45,9 +38,6 @@ Feature: US1388684 - [Unfinished] [Continued] CMD- User Input Required Page- Vie
   @Manual
   @Functional
   @A_UI_Story
-  @US1388684
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC615287 - [RL5]
     # Scenario 7 (click contract load button)
     Given I have selected a contract master for a product grouping
@@ -59,9 +49,6 @@ Feature: US1388684 - [Unfinished] [Continued] CMD- User Input Required Page- Vie
   @Manual
   @Functional
   @A_UI_Story
-  @US1388684
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC615285 - [RL3]
     # Scenario 5 (Select contract master- Use this always)
     Given I am on the CMD Action Required page

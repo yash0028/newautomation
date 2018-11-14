@@ -5,7 +5,6 @@
 @MVP
 @Plus
 @Priority_1
-@F184552
 @releaseUnknown
 @iterationUnknown
 Feature: US1096158 - Establish TIN Aggregation Maintenance
@@ -15,7 +14,6 @@ Feature: US1096158 - Establish TIN Aggregation Maintenance
   @Functional
   @MVP
   @CLM_UAT
-  @US1096158
   Scenario: TC565568 - [RL0]
     Given I am a User with access to maintain Entity information
     When I want to view and maintain aggregated TINs previously located in BIC

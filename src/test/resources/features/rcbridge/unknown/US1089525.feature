@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11274
 @US1089525
-@F207050
 @releaseUnknown
 @iterationUnknown
 Feature: US1089525 - Check for Duplicates - Updated Entity Identifier
@@ -10,7 +9,6 @@ Feature: US1089525 - Check for Duplicates - Updated Entity Identifier
   @Automated
   @Functional
   @EXARI-11274
-  @US1089525
   Scenario: TC565425 - [RL0]
     Given I am the Entity Management Solution
     When A User updates an Entity Identifier

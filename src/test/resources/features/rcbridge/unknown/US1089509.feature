@@ -1,6 +1,5 @@
 # Last updated on 
 @US1089509
-@F207058
 @releaseUnknown
 @iterationUnknown
 Feature: US1089509 - Update Entity Address Type
@@ -8,7 +7,6 @@ Feature: US1089509 - Update Entity Address Type
   @TC565903
   @Automated
   @Functional
-  @US1089509
   Scenario: TC565903 - [RL0]
     Given I am a User
     When I need to update an Entity Address Type

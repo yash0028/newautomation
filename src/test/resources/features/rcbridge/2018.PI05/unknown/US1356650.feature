@@ -4,7 +4,6 @@
 @CMD
 @Priority_2
 @UCM
-@F231564
 @releaseFuture
 @iterationUnknown
 Feature: US1356650 - New UCM - [ProductGroup] Rate condition
@@ -12,8 +11,6 @@ Feature: US1356650 - New UCM - [ProductGroup] Rate condition
   @TC618579
   @Manual
   @Functional
-  @US1356650
-  @2018.PI05
   Scenario: TC618579 - [RL4]
     Given a rate condition category property is NULL value
     When a rate condition property has a value
@@ -25,8 +22,6 @@ Feature: US1356650 - New UCM - [ProductGroup] Rate condition
   @TC596316
   @Manual
   @Functional
-  @US1356650
-  @2018.PI05
   Scenario: TC596316 - [RL0]
     Given a valid contract exists in Exari
     When a rate condition category property has one or more value
@@ -35,8 +30,6 @@ Feature: US1356650 - New UCM - [ProductGroup] Rate condition
   @TC618578
   @Manual
   @Functional
-  @US1356650
-  @2018.PI05
   Scenario: TC618578 - [RL3]
     Given a rate condition category property has one or more value
     When a rate condition property has NULL value
@@ -47,8 +40,6 @@ Feature: US1356650 - New UCM - [ProductGroup] Rate condition
   @TC618577
   @Manual
   @Functional
-  @US1356650
-  @2018.PI05
   Scenario: TC618577 - [RL2]
     Given a rate condition category property has one or more value
     When a rate condition property also has one or more valid values
@@ -57,8 +48,6 @@ Feature: US1356650 - New UCM - [ProductGroup] Rate condition
   @TC611977
   @Manual
   @Functional
-  @US1356650
-  @2018.PI05
   Scenario: TC611977 - [RL1]
     Given a valid contract exists in Exari
     When a rate condition category property is NULL value

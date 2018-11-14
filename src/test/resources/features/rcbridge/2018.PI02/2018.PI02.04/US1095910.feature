@@ -9,7 +9,6 @@
 @10/1_Physician
 @CLM_Exari
 @Exari_Microservice
-@F164312
 @releasePast
 @iterationPast
 Feature: US1095910 - External Data Query for RFP - Error Handling
@@ -18,9 +17,6 @@ Feature: US1095910 - External Data Query for RFP - Error Handling
   @Manual
   @Functional
   @RFP
-  @US1095910
-  @2018.PI02
-  @2018.PI02.04
   Scenario: TC493891 - [RL1] Catastrophic error validation
     Given a user needs to call RFP grid
     When the RFP system goes down
@@ -30,9 +26,6 @@ Feature: US1095910 - External Data Query for RFP - Error Handling
   @Manual
   @Functional
   @RFP
-  @US1095910
-  @2018.PI02
-  @2018.PI02.04
   Scenario: TC493890 - [RL0] Incorrect data input error validation
     Given a user needs to call RFP grid
     When a user incorrectly inputs RFP data
@@ -42,9 +35,6 @@ Feature: US1095910 - External Data Query for RFP - Error Handling
   @Manual
   @Functional
   @RFP
-  @US1095910
-  @2018.PI02
-  @2018.PI02.04
   Scenario: TC493892 - [RL2] System unavailable error validation
     Given a user needs to call RFP grid
     When a RFP catastrophic error occurs

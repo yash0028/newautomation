@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F188964
 @releaseUnknown
 @iterationUnknown
 Feature: US927842 - View Provider to Entity Relationship Time Lining History
@@ -17,7 +16,6 @@ Feature: US927842 - View Provider to Entity Relationship Time Lining History
   @MVP
   @CLM_UAT
   @EXARI-11273
-  @US927842
   Scenario: TC564713 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view relationship time line history between a Provider and an Entity

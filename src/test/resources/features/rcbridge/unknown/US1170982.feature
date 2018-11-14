@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F198722
 @releaseUnknown
 @iterationUnknown
 Feature: US1170982 - Retained Relationships
@@ -17,7 +16,6 @@ Feature: US1170982 - Retained Relationships
   @MVP
   @CLM_UAT
   @EXARI-11270
-  @US1170982
   Scenario: TC564494 - [RL0]
     Given I am the Entity Management Solution
     When an Entity is reactivated

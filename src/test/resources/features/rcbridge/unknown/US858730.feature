@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137679
 @releaseUnknown
 @iterationUnknown
 Feature: US858730 - View Provider Detail
@@ -17,7 +16,6 @@ Feature: US858730 - View Provider Detail
   @MVP
   @EXARI-10529
   @CLM_UAT
-  @US858730
   Scenario: TC565443 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I am viewing a Provider in the Entity Management Solution

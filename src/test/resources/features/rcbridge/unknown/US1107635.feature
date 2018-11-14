@@ -5,7 +5,6 @@
 @MVP
 @Plus
 @Priority_1
-@F186556
 @releaseUnknown
 @iterationUnknown
 Feature: US1107635 - Associate Contract ID to Provider upon Contract Execution
@@ -15,7 +14,6 @@ Feature: US1107635 - Associate Contract ID to Provider upon Contract Execution
   @Functional
   @MVP
   @CLM_UAT
-  @US1107635
   Scenario: TC565773 - [RL0]
     Given I am Entity Management Solution
     When a Contract is signed and executed by the Provider

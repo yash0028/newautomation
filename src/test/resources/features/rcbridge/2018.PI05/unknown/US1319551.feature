@@ -2,7 +2,6 @@
 @CMD
 @US1319551
 @2018.PI05
-@F205008
 @releaseFuture
 @iterationUnknown
 Feature: US1319551 - NDB Contract Master Validation Set (Type 2 error resolution)
@@ -11,8 +10,6 @@ Feature: US1319551 - NDB Contract Master Validation Set (Type 2 error resolution
   @Manual
   @Functional
   @CMD
-  @US1319551
-  @2018.PI05
   Scenario: TC576409 - [RL0]
     Given a valid contract event is published by Exari
     When contract configuration errors have been resolved

@@ -1,6 +1,5 @@
 # Last updated on 
 @US1089633
-@F207077
 @releaseUnknown
 @iterationUnknown
 Feature: US1089633 - Assign Owner to Identifier
@@ -8,7 +7,6 @@ Feature: US1089633 - Assign Owner to Identifier
   @TC565389
   @Automated
   @Functional
-  @US1089633
   Scenario: TC565389 - [RL0]
     Given I am a User with access to maintain Entity information
     When I want to add an Owner to an Identifier

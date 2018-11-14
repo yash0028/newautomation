@@ -1,8 +1,5 @@
 # Last updated on 
 @US1209261
-@Priority_1
-@CMD2
-@F210044
 @releaseUnknown
 @iterationUnknown
 Feature: US1209261 - Provider Network Group
@@ -10,7 +7,6 @@ Feature: US1209261 - Provider Network Group
   @TC565038
   @Automated
   @Functional
-  @US1209261
   Scenario: TC565038 - [RL0]
     Given an Exari contract is active
     When the contract requires a method to identify a group of individuals and/or organizations in order to administer the terms
@@ -19,7 +15,6 @@ Feature: US1209261 - Provider Network Group
   @TC565039
   @Automated
   @Functional
-  @US1209261
   Scenario: TC565039 - [RL1]
     Given an Exari contract is active
     When the contract requires a method to identify a group of individuals and/or organizations in order to administer the terms

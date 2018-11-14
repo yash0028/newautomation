@@ -29,34 +29,40 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
     @FindBy(xpath = "//img[@alt='Logo image']")
     protected WebElement safeClickPoint;
 
-    @FindBy(xpath = "//div[contains(@class,'hd topscrollbar')]")
-    protected WebElement filterScrollUp;
-
-    @FindBy(xpath = "//div[contains(@class, 'ft bottomscrollbar')]")
-    protected WebElement filterScrollDown;
-
-    //SMGAAmendment
     @FindBy(xpath = "//div[@class='toolbar flat-button']/div/span[3]")
-    protected WebElement filterSmartTemplate;
-
-    @FindBy(xpath = "//li[@index='61']/a[contains(text(),'SMGA')]")
-    protected WebElement filterSmartTemplateOptionSMGA;
+    protected WebElement dropdownFilterSmartTemplate;
 
     @FindBy(xpath = "//div[@class='toolbar flat-button']/div/span[6]")
-    protected WebElement filterStatus;
+    protected WebElement dropdownFilterStatus;
 
-    @FindBy(xpath = "//li[@index='10']/a[contains(text(),'Active')]")
-    protected WebElement filterStatusOptionActive;
-
-    //    @FindBy(xpath = ".//table[contains(@id,'yuievtautoid')]//tbody[2]/tr[1]//h4")
     @FindBy(xpath = "//table[contains(@id, 'yuievtautoid')]/tbody[@class='yui-dt-data']/tr[1 and contains(@class, 'yui-dt-first')]//h4/a")
     protected WebElement tableContractsFirstRow;
 
     @FindBy(xpath = "//td/span[text()='Click to start']")
-    protected WebElement contractCreateStart;
+    protected WebElement buttonContractCreateStart;
 
-    @FindBy(xpath = "//h3[@title='SMGA' and text()='SMGA.xml']//following-sibling::div/span[@title='Create New']/a")
-    protected WebElement contractCreateSMGATemplate;
+    /*
+    LOCATORS - FILTER OPTIONS
+     */
+
+    @FindBy(xpath = "//div[contains(@class,'hd topscrollbar')]")
+    protected WebElement buttonFilterScrollUp;
+
+    @FindBy(xpath = "//div[contains(@class, 'ft bottomscrollbar')]")
+    protected WebElement buttonFilterScrollDown;
+
+    @FindBy(xpath = "//li[@index='61']/a[contains(text(),'SMGA')]")
+    protected WebElement optionFilterSmartTemplateSMGA;
+
+    @FindBy(xpath = "//li[@index='10']/a[contains(text(),'Active')]")
+    protected WebElement optionFilterStatusActive;
+
+    /*
+    LOCATORS - CONTRACT TEMPLATES
+     */
+
+    @FindBy(xpath = "//h3[contains(text(),'Pilot Contract Wrapper')]//following-sibling::div/span[@title='Create New']/a")
+    protected WebElement buttonContractCreatePilotContractWrapper;
 
     /*
     CONSTRUCTOR
@@ -82,29 +88,30 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
      */
 
     public boolean selectSmartTemplateFilterOptionSMGA() {
-        click("smart template filter", filterSmartTemplate);
-        click("filter scroll down", filterScrollDown);
+        click("smart template filter", dropdownFilterSmartTemplate);
+        click("filter scroll down", buttonFilterScrollDown);
 
         //Scroll down for about 10 seconds
         pause(10);
 
         hover("safe click point", safeClickPoint);
-        return click("smart template smga option", filterSmartTemplateOptionSMGA);
+        return click("smart template smga option", optionFilterSmartTemplateSMGA);
     }
 
     public boolean selectStatusFilterOptionActive() {
-        click("status filter", filterStatus);
+        click("status filter", dropdownFilterStatus);
         hover("safe click point", safeClickPoint);
-        return click("status filter active option", filterStatusOptionActive);
+        return click("status filter active option", optionFilterStatusActive);
     }
 
     public boolean clickContractsTableFirstRow() {
         return click("contract in first row", tableContractsFirstRow);
     }
 
-    public boolean startContractWithSMGATemplate() {
-        click("contract start button", contractCreateStart);
-        return click("smga template", contractCreateSMGATemplate);
+    public boolean startContractAuthor() {
+        click("contract start button", buttonContractCreateStart);
+        //Give it some extra time since loading pilot contract wrapper can take some time
+        return click("pilot contract", buttonContractCreatePilotContractWrapper);
     }
 
     /*
@@ -118,4 +125,10 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
     public WizardManager getContractWizard() {
         return new WizardManager(driver);
     }
+
+    /*
+    HELPER METHOD
+     */
+
+
 }

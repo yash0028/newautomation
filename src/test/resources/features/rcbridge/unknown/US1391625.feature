@@ -2,7 +2,6 @@
 @US1391625
 @MVP
 @Maintenance
-@F236489
 @releaseUnknown
 @iterationUnknown
 Feature: US1391625 - SPGA Changed Counterparty TIN Maintenance Event System Notification
@@ -10,7 +9,6 @@ Feature: US1391625 - SPGA Changed Counterparty TIN Maintenance Event System Noti
   @TC616939
   @Manual
   @Functional
-  @US1391625
   Scenario: TC616939 - [RL0]
     Given I am a User with access to maintain Contract information
     When I change a Counterparty TIN on a SPGA Contract

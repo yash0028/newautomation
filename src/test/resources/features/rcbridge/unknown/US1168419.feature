@@ -5,7 +5,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137660
 @releaseUnknown
 @iterationUnknown
 Feature: US1168419 - Search Identifier
@@ -15,7 +14,6 @@ Feature: US1168419 - Search Identifier
   @Functional
   @MVP
   @CLM_UAT
-  @US1168419
   Scenario: TC565011 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to add an Identifier to an Entity

@@ -5,7 +5,6 @@
 @MVP
 @Plus
 @Priority_1
-@F198722
 @releaseUnknown
 @iterationUnknown
 Feature: US1170984 - Capture Timeline History
@@ -15,7 +14,6 @@ Feature: US1170984 - Capture Timeline History
   @Functional
   @MVP
   @EXARI-11273
-  @US1170984
   Scenario: TC565103 - [RL0]
     Given I am the Entity Management Solution
     When a User reactivates an Entity

@@ -10,7 +10,6 @@
 @Parity
 @Non-Deliverable
 @7.5_Release
-@F185542
 @releaseUnknown
 @iterationUnknown
 Feature: US1098392 - Define/derive project status
@@ -24,7 +23,6 @@ Feature: US1098392 - Define/derive project status
   @Parity
   @Non-Deliverable
   @7.5_Release
-  @US1098392
   Scenario: TC564790 - [RL0]
     Given the User has identified target providers
     When a Mass Action Project is in progress

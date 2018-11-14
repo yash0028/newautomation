@@ -7,7 +7,6 @@
 @Priority_1
 @Parity
 @Examiner
-@F171571
 @releasePast
 @iterationPast
 Feature: US1260989 - [Unfinished] Integrate CLM with Examiner (Continued)
@@ -16,9 +15,6 @@ Feature: US1260989 - [Unfinished] Integrate CLM with Examiner (Continued)
   @Manual
   @Functional
   @MVP
-  @US1260989
-  @2018.PI03
-  @2018.PI03.02
   Scenario: TC605433 - [RL2]
     Given A contract request from PIC or Examiner
     When The REST service is unavailable
@@ -28,9 +24,6 @@ Feature: US1260989 - [Unfinished] Integrate CLM with Examiner (Continued)
   @Manual
   @Functional
   @MVP
-  @US1260989
-  @2018.PI03
-  @2018.PI03.02
   Scenario: TC605432 - [RL1]
     Given A contract inquiry request from PIC or Examiner
     When A REST Service call is made with invalid data
@@ -40,9 +33,6 @@ Feature: US1260989 - [Unfinished] Integrate CLM with Examiner (Continued)
   @Manual
   @Functional
   @MVP
-  @US1260989
-  @2018.PI03
-  @2018.PI03.02
   Scenario: TC605431 - [RL0]
     Given A contract inquiry request from PIC or Examiner
     When A REST Service call is made

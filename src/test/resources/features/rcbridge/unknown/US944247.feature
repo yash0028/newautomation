@@ -7,7 +7,6 @@
 @MVP
 @Plus
 @Priority_1
-@F152967
 @releaseUnknown
 @iterationUnknown
 Feature: US944247 - Capture Reason for Entity Inactivation
@@ -19,7 +18,6 @@ Feature: US944247 - Capture Reason for Entity Inactivation
   @EXARI-11267
   @EXARI-11249
   @CLM_UAT
-  @US944247
   Scenario: TC564480 - [RL0]
     Given I am a User
     When I am inactivating an Entity

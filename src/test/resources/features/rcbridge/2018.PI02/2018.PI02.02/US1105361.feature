@@ -6,7 +6,6 @@
 @PI02_Top3
 @NDB
 @Parity
-@F185083
 @releasePast
 @iterationPast
 Feature: US1105361 - NDB Contract payload analysis SPIKE
@@ -14,9 +13,6 @@ Feature: US1105361 - NDB Contract payload analysis SPIKE
   @TC605374
   @Manual
   @Functional
-  @US1105361
-  @2018.PI02
-  @2018.PI02.02
   Scenario: TC605374 - [RL0]
     Given the need to know contact payload data elements
     Then an data payload document is created/updated

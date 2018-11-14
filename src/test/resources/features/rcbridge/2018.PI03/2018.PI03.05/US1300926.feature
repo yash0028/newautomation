@@ -7,7 +7,6 @@
 @Crosswalk
 @Priority_1
 @CMD
-@F201371
 @releasePast
 @iterationPast
 Feature: US1300926 - [Continued] Import Data from Spreadsheet into Table over2MB
@@ -15,9 +14,6 @@ Feature: US1300926 - [Continued] Import Data from Spreadsheet into Table over2MB
   @TC616495
   @Manual
   @Functional
-  @US1300926
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC616495 - [RL1]
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
@@ -29,9 +25,6 @@ Feature: US1300926 - [Continued] Import Data from Spreadsheet into Table over2MB
   @TC590075
   @Manual
   @Acceptance
-  @US1300926
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC590075 - Validate data in the database when the import fails
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
@@ -43,9 +36,6 @@ Feature: US1300926 - [Continued] Import Data from Spreadsheet into Table over2MB
   @TC589746
   @Manual
   @Acceptance
-  @US1300926
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC589746 - Validate the data in the database when import is successful
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database
@@ -57,9 +47,6 @@ Feature: US1300926 - [Continued] Import Data from Spreadsheet into Table over2MB
   @TC616494
   @Manual
   @Functional
-  @US1300926
-  @2018.PI03
-  @2018.PI03.05
   Scenario: TC616494 - [RL0]
     Given The product code service is up and running
     When A new spreadsheet is uploaded and stored in the database

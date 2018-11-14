@@ -5,7 +5,6 @@
 @2018.PI01.03
 @MVP
 @CLM_Exari
-@F137841
 @releasePast
 @iterationPast
 Feature: US1038286 - [CONTINUED] Setup initial SPA/PAT Contract Template
@@ -14,9 +13,6 @@ Feature: US1038286 - [CONTINUED] Setup initial SPA/PAT Contract Template
   @Automated
   @Functional
   @MVP
-  @US1038286
-  @2018.PI01
-  @2018.PI01.03
   Scenario: TC565052 - [RL0]
     Given I am a Business Administrator in Exari
     When I log into Power Author

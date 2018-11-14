@@ -2,7 +2,6 @@
 @EXARI-11271
 @US1094094
 @Plus
-@F137658
 @releaseUnknown
 @iterationUnknown
 Feature: US1094094 - Approve Added Entity
@@ -11,7 +10,6 @@ Feature: US1094094 - Approve Added Entity
   @Automated
   @Functional
   @EXARI-11271
-  @US1094094
   Scenario: TC565723 - [RL0]
     Given I am a User with Approval Authority
     When a User adds an Entity and submits for approval

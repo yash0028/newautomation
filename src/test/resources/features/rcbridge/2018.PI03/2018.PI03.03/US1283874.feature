@@ -8,7 +8,6 @@
 @10/1_Physician
 @CMD
 @CMD_Tables
-@F214484
 @releasePast
 @iterationPast
 Feature: US1283874 - [Unfinished] Store history and audit metadata
@@ -18,9 +17,6 @@ Feature: US1283874 - [Unfinished] Store history and audit metadata
   @Functional
   @kumar,_Sachin
   @Alex_M
-  @US1283874
-  @2018.PI03
-  @2018.PI03.03
   Scenario: TC605368 - [RL0]
     Given the application screen is ready
     When a table file is uploaded

@@ -11,7 +11,6 @@
 @Parity
 @Non-Deliverable
 @7.5_Release
-@F185542
 @releaseUnknown
 @iterationUnknown
 Feature: US1185914 - View contract status summary
@@ -26,7 +25,6 @@ Feature: US1185914 - View contract status summary
   @Plus
   @CLM_Exari
   @Parity
-  @US1185914
   Scenario: TC565961 - [RL0]
     Given I have access to an active Mass Action Project
     When I access the contract-level status

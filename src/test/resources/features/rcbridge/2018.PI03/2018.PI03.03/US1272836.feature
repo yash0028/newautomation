@@ -11,9 +11,6 @@ Feature: US1272836 - [Spike] Look at Services to determine Pagination
   @Manual
   @Functional
   @kumar,_Sachin
-  @US1272836
-  @2018.PI03
-  @2018.PI03.03
   Scenario: TC564525 - [RL0]
     Given a microservice might return a large data set
     When a large data set is return

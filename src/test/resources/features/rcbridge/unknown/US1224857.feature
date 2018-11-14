@@ -3,7 +3,6 @@
 @MVP
 @Plus
 @Priority_1
-@F181492
 @releaseUnknown
 @iterationUnknown
 Feature: US1224857 - Terminated NPI/TIN Relationship
@@ -11,7 +10,6 @@ Feature: US1224857 - Terminated NPI/TIN Relationship
   @TC565552
   @Automated
   @Functional
-  @US1224857
   Scenario: TC565552 - [RL0]
     Given I am the Entity Management Solution
     When a NPI/TIN relationship is terminated in NDB

@@ -5,7 +5,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137661
 @releaseUnknown
 @iterationUnknown
 Feature: US858624 - Capture Entity Characteristic Time Lining History
@@ -15,7 +14,6 @@ Feature: US858624 - Capture Entity Characteristic Time Lining History
   @Functional
   @MVP
   @EXARI-11273
-  @US858624
   Scenario: TC564766 - [RL0]
     Given I am the Entity Management Solution
     When a User adds characteristic detail to an Entity

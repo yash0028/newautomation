@@ -7,7 +7,6 @@
 @Madhur
 @Priority_1
 @CMD
-@F218723
 @releasePresent
 @iterationPast
 Feature: US1358442 - [Unfinished] CMD Single Sign On - UHG Enterprise SSO (MSid and Password )
@@ -16,9 +15,6 @@ Feature: US1358442 - [Unfinished] CMD Single Sign On - UHG Enterprise SSO (MSid 
   @Manual
   @Functional
   @A_UI_Story
-  @US1358442
-  @2018.PI04
-  @2018.PI04.01
   Scenario: TC597164 - [RL1]
     Given a CMD record does not exist
     When the user navigates to the CMD from within Exari contract record
@@ -29,9 +25,6 @@ Feature: US1358442 - [Unfinished] CMD Single Sign On - UHG Enterprise SSO (MSid 
   @Manual
   @Functional
   @A_UI_Story
-  @US1358442
-  @2018.PI04
-  @2018.PI04.01
   Scenario: TC597163 - [RL0]
     Given a CMD record exists
     When the user navigates to the CMD from within Exari contract record
@@ -41,9 +34,6 @@ Feature: US1358442 - [Unfinished] CMD Single Sign On - UHG Enterprise SSO (MSid 
   @Manual
   @Functional
   @A_UI_Story
-  @US1358442
-  @2018.PI04
-  @2018.PI04.01
   Scenario: TC597165 - [RL2]
     Given an CMD record exists
     When the user navigates to Exari from within the CMD contract record

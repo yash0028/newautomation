@@ -1,5 +1,6 @@
 package rest_api_test.step;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import cucumber.api.java.en.And;
@@ -12,28 +13,36 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
+import util.configuration.IConfigurable;
 import util.file.IFileReader;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
 /**
  * Created by aberns on 8/14/2018.
  */
-public class ContractQuerySteps implements IRestStep, IFileReader {
+public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable {
     private final static Logger log = LoggerFactory.getLogger(ContractQuerySteps.class);
 
     private static final String ENDPOINT = "http://contracts-query-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_ECM = "/v1.0/exari/ecm";
     private static final String RESOURCE_FACILITY = "/v1.0/exari/facilitycontracts";
     private static final String RESOURCE_CONTRACT_JSON = "/v1.0/exari/json";
+    private static final String ENDPOINT_EXARI = "https://uhgpoc-dev.exaricontracts.com";
+    private static final String RESOURCE_CONTRACT_SEARCH = "/exaricm/contracts-api/contracts/search";
 
     private String contractId;
+    private List<String> contractIds = new ArrayList<>();
     private JsonElement result;
-    //    private JsonObject payload;
     private RequestSpecification request;
     private Response response;
+    private List<Response> responses = new ArrayList<>();
+    private int numContracts;
 
 
     @Given("^the Domain Service has received a business event from Exari$")
@@ -115,7 +124,7 @@ public class ContractQuerySteps implements IRestStep, IFileReader {
 //        Assert.assertEquals("Failure", result.get("responseStatus").getAsString());
     }
 
-    //US1367884 (Exari Automation Testing using Contract Query API)
+    //US1367884 and US1384733 (Exari Automation Testing using Contract Query API)
 
     @Given("^a contract with Contract ID of \"([^\"]*)\"$")
     public void aContractWithContractIDOf(String contractId) throws Throwable {
@@ -151,5 +160,132 @@ public class ContractQuerySteps implements IRestStep, IFileReader {
         List<String> masterSet = getFileLines("/support/ecm/" + filename);
 
         Assert.assertTrue("Some fields in the contract JSON were blank or null when they shouldn't be", verifyFieldsNotNull(responseJson, masterSet, " "));
+    }
+
+    //US1384733
+
+    @Given("^the (\\d+) latest \"([^\"]*)\" contract IDs from Exari$")
+    public void theLatestContractIDsFromExari(int numContracts, String contractType) throws Throwable {
+        this.numContracts = numContracts;
+
+        // JSON request to get latest contracts from Exari (swagger page: https://uhgpoc-dev.exaricontracts.com/exaricm/contracts-api-ui/index.html)
+        String jsonRequestString = "{\n" +
+                "  \"anyFieldQuery\": \"" + contractType + "\",\n" +
+                "  \"filter\": {\n" +
+                "    \"filters\": {\n" +
+                "      \"status\": [\n" +
+                "        \"Active\"\n" +
+                "      ]\n" +
+                "    }\n" +
+                "  },\n" +
+                "  \"sort\": {\n" +
+                "    \"fieldName\": \"created\",\n" +
+                "    \"ascending\": false\n" +
+                "  },\n" +
+                "  \"pagination\": {\n" +
+                "    \"maxItems\": " + numContracts + "\n" +
+                "  },\n" +
+                "  \"includeExtraFields\": [\n" +
+                "    \"cm:created\"\n" +
+                "  ]\n" +
+                "}";
+        JsonElement requestBody = parseJsonElementString(jsonRequestString);
+
+        // Build out the request
+        this.request = given().baseUri(ENDPOINT_EXARI).header("Content-Type", "application/json").body(requestBody);
+        this.request.header("Authorization", configGetOptionalString("exari.searchAuthorization").orElse(""));
+
+        this.response = request.post(RESOURCE_CONTRACT_SEARCH);
+
+        this.result = parseJsonElementResponse(response);
+
+        // All the contract data we're interested in resides in the "entries" object
+        JsonArray entries = result.getAsJsonObject().get("entries").getAsJsonArray();
+
+        // Go through each entry and put each contract ID into an array list
+        for(JsonElement entry: entries){
+            JsonObject obj = entry.getAsJsonObject();
+            this.contractIds.add(obj.get("contractID").getAsString());
+        }
+
+    }
+
+    @When("^hitting Exari for each contract's JSON$")
+    public void hittingExariForEachContractSJSON() throws Throwable {
+        // Get JSON data for each contract ID, and store each result in another array list
+        for(String contractId: this.contractIds){
+            log.info("Hitting Exari to get JSON for Contract ID: {}", contractId);
+
+            this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").param("contractId", contractId);
+            this.response = request.get(RESOURCE_CONTRACT_JSON);
+            Assert.assertEquals(200, this.response.getStatusCode());
+
+            // Array list holding all of the response data for each contract ID
+            this.responses.add(response);
+        }
+
+    }
+
+    @Then("^the fields from file \"([^\"]*)\" are returned for each contract$")
+    public void theFieldsFromFileAreReturnedForEachContract(String filename) throws Throwable {
+        int count = 0;
+
+        // Go through each response and verify it has the necessary JSON fields/elements
+        for(Response resp: this.responses){
+            result = parseJsonElementResponse(resp);
+            Assert.assertTrue(result.isJsonObject());
+
+            // The data we need resides in the "responseMessage" object
+            String responseMessage = result.getAsJsonObject().get("responseMessage").getAsString();
+            JsonObject responseJson = parseJsonElementString(responseMessage).getAsJsonObject();
+
+            String contract = responseJson.get("contractID").getAsString();
+
+            List<String> masterSet = getFileLines("/support/ecm/" + filename);
+
+            // Verify the fields in the response against the master set
+            if(verifyFields(responseJson, masterSet, " ")){
+                count++;
+                log.info("All fields match for contract id {}", contract);
+            }else{
+                log.info("Not all fields match for contract id {}", contract);
+            }
+
+//            Assert.assertTrue("Not all required fields were returned in the Exari Contract JSON for Contract ID " + contract, verifyFields(responseJson, masterSet, " "));
+        }
+        log.info("Valid contracts: {} -- Invalid Contracts: {}", count, numContracts-count);
+
+        Assert.assertTrue("Not all required fields were returned in the Exari Contract JSON for at least half the contracts", count > numContracts/2);
+    }
+
+    @And("^the fields from file \"([^\"]*)\" are not null for each contract$")
+    public void theFieldsFromFileAreNotNullForEachContract(String filename) throws Throwable {
+        int count = 0;
+
+        // Go through each response and verify that fields that shouldn't be null/blank, aren't null/blank
+        for(Response resp: this.responses){
+            result = parseJsonElementResponse(resp);
+            Assert.assertTrue(result.isJsonObject());
+
+            // The data we need resides in the "responseMessage" object
+            String responseMessage = result.getAsJsonObject().get("responseMessage").getAsString();
+            JsonObject responseJson = parseJsonElementString(responseMessage).getAsJsonObject();
+
+            String contract = responseJson.get("contractID").getAsString();
+
+            List<String> masterSet = getFileLines("/support/ecm/" + filename);
+
+            // Verify the fields in the response against the master set
+            if(verifyFieldsNotNull(responseJson, masterSet, " ")){
+                count++;
+                log.info("All required non-null fields pass for contract id {}", contract);
+            }else{
+                log.info("Not all required non-null fields pass for contract id {}", contract);
+            }
+
+//            Assert.assertTrue("Some fields in the contract JSON were blank or null when they shouldn't be for Contract ID " + contract, verifyFieldsNotNull(responseJson, masterSet, " "));
+        }
+        Assert.assertTrue("Some fields in the contract JSON were blank or null when they shouldn't be", count > numContracts/2);
+
     }
 }

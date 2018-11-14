@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137675
 @releaseUnknown
 @iterationUnknown
 Feature: US1114664 - Parent Entity Relationships
@@ -17,7 +16,6 @@ Feature: US1114664 - Parent Entity Relationships
   @MVP
   @CLM_UAT
   @EXARI-11696
-  @US1114664
   Scenario: TC565031 - [RL0]
     Given I am the Entity Management Solution
     When a User is creating a Parent Child relationship between Entities

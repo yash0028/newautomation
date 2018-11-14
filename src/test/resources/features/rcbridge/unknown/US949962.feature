@@ -7,7 +7,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137674
 @releaseUnknown
 @iterationUnknown
 Feature: US949962 - Update Account Types
@@ -19,7 +18,6 @@ Feature: US949962 - Update Account Types
   @EXARI-11792
   @EXARI-11249
   @CLM_UAT
-  @US949962
   Scenario: TC565978 - [RL0]
     Given I am an Administrative User
     When I need to update an existing Account Type

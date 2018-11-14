@@ -5,7 +5,6 @@
 @2018.PI01
 @2018.PI01.02
 @MVP
-@F154532
 @releasePast
 @iterationPast
 Feature: US977681 - Setup Jenkins and CI/CD pipeline
@@ -15,9 +14,6 @@ Feature: US977681 - Setup Jenkins and CI/CD pipeline
   @Functional
   @MVP
   @Infrastructure
-  @US977681
-  @2018.PI01
-  @2018.PI01.02
   Scenario: TC564859 - [RL0]
     Given that code needs to be moved to dev environment
     When dev pushes code to release branch on Github

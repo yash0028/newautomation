@@ -5,7 +5,6 @@
 @MVP
 @Plus
 @Priority_1
-@F152967
 @releaseUnknown
 @iterationUnknown
 Feature: US944246 - Capture Entity Inactivation Time Lining History
@@ -15,7 +14,6 @@ Feature: US944246 - Capture Entity Inactivation Time Lining History
   @Functional
   @MVP
   @EXARI-11273
-  @US944246
   Scenario: TC565782 - [RL0]
     Given I am the Entity Management Solution
     When A User inactivates an Entity

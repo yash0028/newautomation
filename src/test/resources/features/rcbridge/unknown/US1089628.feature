@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11274
 @US1089628
-@F207050
 @releaseUnknown
 @iterationUnknown
 Feature: US1089628 - Perform Duplicate Check - Update Identifier
@@ -10,7 +9,6 @@ Feature: US1089628 - Perform Duplicate Check - Update Identifier
   @Automated
   @Functional
   @EXARI-11274
-  @US1089628
   Scenario: TC565432 - [RL0]
     Given I am the Entity Management Solution
     When a User updates an Identifier to an Entity

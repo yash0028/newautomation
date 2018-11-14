@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F188964
 @releaseUnknown
 @iterationUnknown
 Feature: US858699 - View Characteristics Time Lining History
@@ -17,7 +16,6 @@ Feature: US858699 - View Characteristics Time Lining History
   @MVP
   @CLM_UAT
   @EXARI-11273
-  @US858699
   Scenario: TC565258 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view time lining history for Entity Characteristics

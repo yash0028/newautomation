@@ -10,7 +10,6 @@
 @10/1_Physician
 @CLM_Exari
 @Exari_Microservice
-@F164312
 @releasePast
 @iterationPast
 Feature: US1082300 - Create microservice to obtain RFP data
@@ -20,9 +19,6 @@ Feature: US1082300 - Create microservice to obtain RFP data
   @Functional
   @CLM_UAT
   @RFP
-  @US1082300
-  @2018.PI02
-  @2018.PI02.03
   Scenario: TC565532 - [RL0] Happy Path Validation
     Given a request with the following fields:
       | Place of Service |

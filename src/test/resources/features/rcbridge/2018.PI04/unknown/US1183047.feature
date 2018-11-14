@@ -5,7 +5,6 @@
 @2018.PI04
 @MVP
 @Parity
-@F185543
 @releasePresent
 @iterationUnknown
 Feature: US1183047 - Filter search results
@@ -15,8 +14,6 @@ Feature: US1183047 - Filter search results
   @Functional
   @MVP
   @Parity
-  @US1183047
-  @2018.PI04
   Scenario: TC565171 - [RL0]
     Given I have initiated a search within the Mass Actions widget
     When I have received the results of my search

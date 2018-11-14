@@ -1,7 +1,6 @@
 # Last updated on 
 @MVP+1
 @US1211054
-@F205008
 @releaseUnknown
 @iterationUnknown
 Feature: US1211054 - Identify contract Market Number
@@ -10,7 +9,6 @@ Feature: US1211054 - Identify contract Market Number
   @Automated
   @Functional
   @MVP+1
-  @US1211054
   Scenario: TC565345 - [RL0]
     Given an Exari contract record exists
     When the contract record has a market number assigned
@@ -20,7 +18,6 @@ Feature: US1211054 - Identify contract Market Number
   @Automated
   @Functional
   @MVP+1
-  @US1211054
   Scenario: TC565346 - [RL1]
     Given an Exari contract record exists
     When the contract record does not have a market number assigned

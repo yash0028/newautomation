@@ -6,7 +6,6 @@
 @PI02_Top3
 @Plus
 @Parity
-@F182490
 @releasePast
 @iterationPast
 Feature: US1180600 - Implement Swagger on ETMA services
@@ -14,9 +13,6 @@ Feature: US1180600 - Implement Swagger on ETMA services
   @TC565748
   @Manual
   @Functional
-  @US1180600
-  @2018.PI02
-  @2018.PI02.05
   Scenario: TC565748 - [RL0] SwaggerUI Verification
     Given a need for documentation on connection to our services
     When visiting the swagger page for our service

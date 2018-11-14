@@ -7,7 +7,6 @@
 @Plus
 @Priority_1
 @Exari_Microservice
-@F159017
 @releasePast
 @iterationPast
 Feature: US1231695 - Create Service Providing Physician FS  Access Via Microservice
@@ -16,9 +15,6 @@ Feature: US1231695 - Create Service Providing Physician FS  Access Via Microserv
   @Automated
   @Acceptance
   @MSPS
-  @US1231695
-  @2018.PI03
-  @2018.PI03.02
   Scenario Outline: TC536761 - [RL0] Happy Path MSPS Physician Verification
     #Happy Path
     When the Exari interview calls for the facility fee schedules with Physician "<feeScheduleNumber>"
@@ -34,9 +30,6 @@ Feature: US1231695 - Create Service Providing Physician FS  Access Via Microserv
   @Automated
   @Acceptance
   @MSPS
-  @US1231695
-  @2018.PI03
-  @2018.PI03.02
   Scenario Outline: TC536762 - [RL1] Bad Path MSPS Physician Validation
     #Bad Path
     When the Exari interview calls for the facility fee schedules with Physician "<feeScheduleNumber>"

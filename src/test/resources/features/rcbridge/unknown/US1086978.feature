@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F181492
 @releaseUnknown
 @iterationUnknown
 Feature: US1086978 - Update NPI
@@ -17,7 +16,6 @@ Feature: US1086978 - Update NPI
   @MVP
   @EXARI-11249
   @CLM_UAT
-  @US1086978
   Scenario: TC564382 - [RL0]
     Given I am the Entity Management Solution
     When the NPI is updated in NDB

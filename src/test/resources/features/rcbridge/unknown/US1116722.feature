@@ -5,7 +5,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137674
 @releaseUnknown
 @iterationUnknown
 Feature: US1116722 - Expire Relationship Type
@@ -15,7 +14,6 @@ Feature: US1116722 - Expire Relationship Type
   @Functional
   @MVP
   @CLM_UAT
-  @US1116722
   Scenario: TC565849 - [RL0]
     Given I am an Administrative User
     When I need to expire a Relationship Type

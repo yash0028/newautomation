@@ -7,7 +7,6 @@
 @Plus
 @PI03
 @Priority_1
-@F137934
 @releaseUnknown
 @iterationUnknown
 Feature: US861136 - Export Entity Detail
@@ -18,7 +17,6 @@ Feature: US861136 - Export Entity Detail
   @MVP
   @CLM_UAT
   @EXARI-11453
-  @US861136
   Scenario: TC565159 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view Entity Detail data outside of the Entity Management Solution

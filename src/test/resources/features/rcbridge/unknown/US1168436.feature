@@ -4,7 +4,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137660
 @releaseUnknown
 @iterationUnknown
 Feature: US1168436 - Check for Contract Dependencies
@@ -13,7 +12,6 @@ Feature: US1168436 - Check for Contract Dependencies
   @Automated
   @Functional
   @MVP
-  @US1168436
   Scenario: TC565479 - [RL0]
     Given I am the Entity Management Solution
     When a User inactivates an Identifier relationship with an Entity

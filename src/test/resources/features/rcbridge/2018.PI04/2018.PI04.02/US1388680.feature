@@ -7,7 +7,6 @@
 @Madhur
 @Priority_1
 @CMD
-@F218723
 @releasePresent
 @iterationPast
 Feature: US1388680 - [Unfinished] CMD- User Input Required Page- Populate rows of data
@@ -16,9 +15,6 @@ Feature: US1388680 - [Unfinished] CMD- User Input Required Page- Populate rows o
   @Manual
   @Functional
   @A_UI_Story
-  @US1388680
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC615271 - [RL2]
     # Scenario 3 (Action required information in database-Default sort order)
     Given I have clicked on Action Required button on the CMD dashboard
@@ -29,9 +25,6 @@ Feature: US1388680 - [Unfinished] CMD- User Input Required Page- Populate rows o
   @Manual
   @Functional
   @A_UI_Story
-  @US1388680
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC615270 - [RL1]
     # Scenario 2 (Action required information in database)
     Given I have clicked on Action Required button on the CMD dashboard
@@ -52,9 +45,6 @@ Feature: US1388680 - [Unfinished] CMD- User Input Required Page- Populate rows o
   @Manual
   @Functional
   @A_UI_Story
-  @US1388680
-  @2018.PI04
-  @2018.PI04.02
   Scenario: TC615269 - [RL0]
     # Scenario 1 (Action required information in database)
     Given I am on the CMD User Review and Input page

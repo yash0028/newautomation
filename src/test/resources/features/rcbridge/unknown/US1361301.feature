@@ -1,6 +1,5 @@
 # Last updated on 
 @US1361301
-@F232442
 @releaseUnknown
 @iterationUnknown
 Feature: US1361301 - Add Hospital Specialties
@@ -8,7 +7,6 @@ Feature: US1361301 - Add Hospital Specialties
   @TC598301
   @Manual
   @Functional
-  @US1361301
   Scenario: TC598301 - [RL0]
     Given I am a User with access to maintain Entity information
     When I would like to add a specialty to a hospital

@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F181492
 @releaseUnknown
 @iterationUnknown
 Feature: US1086983 - Update TIN
@@ -17,7 +16,6 @@ Feature: US1086983 - Update TIN
   @MVP
   @EXARI-11249
   @CLM_UAT
-  @US1086983
   Scenario: TC564601 - [RL0]
     Given I am the Entity Management Solution
     When the TIN is updated in NDB

@@ -9,7 +9,6 @@
 @Parity
 @Non-Deliverable
 @7.5_Release
-@F185542
 @releaseUnknown
 @iterationUnknown
 Feature: US1098393 - Derive status of included providers
@@ -22,7 +21,6 @@ Feature: US1098393 - Derive status of included providers
   @CLM_Exari
   @Parity
   @Non-Deliverable
-  @US1098393
   Scenario: TC565090 - [RL0]
     Given the User has identified target providers
     When a Mass Action Project is in progress

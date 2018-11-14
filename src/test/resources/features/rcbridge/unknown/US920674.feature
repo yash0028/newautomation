@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137676
 @releaseUnknown
 @iterationUnknown
 Feature: US920674 - Perform Search by Active Entities
@@ -17,7 +16,6 @@ Feature: US920674 - Perform Search by Active Entities
   @MVP
   @CLM_UAT
   @EXARI-11274
-  @US920674
   Scenario: TC565751 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to find an Active Entity

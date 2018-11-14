@@ -4,7 +4,7 @@
 @MVP
 @Plus
 @Priority_2
-@F159195
+@Facility
 @releaseFuture
 @iterationUnknown
 Feature: US1070406 - CLM >COSMOS Add a Facility Contract - to existing contract - PIC DIV - PSH
@@ -12,8 +12,6 @@ Feature: US1070406 - CLM >COSMOS Add a Facility Contract - to existing contract 
   @TC565657
   @Automated
   @Functional
-  @US1070406
-  @2018.PI05
   Scenario: TC565657 - [RL0]
     Given the Exari > COSMOS Facility data within the Payload is correct
     When COSMOS receives the Exari Facility Payload data to add to an existing contract

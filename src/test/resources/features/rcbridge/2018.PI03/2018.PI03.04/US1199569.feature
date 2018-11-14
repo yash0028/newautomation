@@ -7,7 +7,6 @@
 @Crosswalk
 @Priority_1
 @CMD
-@F201371
 @releasePast
 @iterationPast
 Feature: US1199569 - [Continued] Validate Data
@@ -15,9 +14,6 @@ Feature: US1199569 - [Continued] Validate Data
   @TC546823
   @Manual
   @Functional
-  @US1199569
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC546823 - Validate Data_Invalid data
     Given a template is populated with data
     When the template is uploaded
@@ -27,9 +23,6 @@ Feature: US1199569 - [Continued] Validate Data
   @TC546822
   @Manual
   @Functional
-  @US1199569
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC546822 - Validate Data_Invalid file
     Given a template is populated with data
     When the template is uploaded
@@ -39,9 +32,6 @@ Feature: US1199569 - [Continued] Validate Data
   @TC615282
   @Manual
   @Functional
-  @US1199569
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC615282 - [RL0]
     Given a template is populated with data
     When the template is uploaded
@@ -51,9 +41,6 @@ Feature: US1199569 - [Continued] Validate Data
   @TC546821
   @Manual
   @Functional
-  @US1199569
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC546821 - Validate Data_valid
     Given a template is populated with data
     When the template is uploaded
@@ -63,9 +50,6 @@ Feature: US1199569 - [Continued] Validate Data
   @TC615283
   @Manual
   @Functional
-  @US1199569
-  @2018.PI03
-  @2018.PI03.04
   Scenario: TC615283 - [RL1]
     Given a template is populated with invalid data
     When the template is uploaded

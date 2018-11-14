@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137675
 @releaseUnknown
 @iterationUnknown
 Feature: US1152174 - Entity Type Conflict - PHO and IPA
@@ -17,7 +16,6 @@ Feature: US1152174 - Entity Type Conflict - PHO and IPA
   @MVP
   @CLM_UAT
   @EXARI-11792
-  @US1152174
   Scenario: TC565476 - [RL0]
     Given I am the Entity Management Solution
     When a User is selecting an Entity Type

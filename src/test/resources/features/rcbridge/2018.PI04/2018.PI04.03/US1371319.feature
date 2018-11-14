@@ -8,18 +8,14 @@
 @Priority_1
 @CMD
 @Amrutha
-@F209320
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1371319 - Download CLM Rule Table
 
   @TC603987
   @Manual
   @Functional
   @A_UI_Story
-  @US1371319
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC603987 - [RL2]
     Given the existence of a web UI
     When an authorized user access the URL
@@ -30,9 +26,6 @@ Feature: US1371319 - Download CLM Rule Table
   @Manual
   @Functional
   @A_UI_Story
-  @US1371319
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC603986 - [RL1]
     Given more than one CLM Rules Table record exists in the database
     When access to a previous record version is needed

@@ -6,7 +6,6 @@
 @Madhur
 @Priority_1
 @CMD
-@F218723
 @releasePresent
 @iterationPast
 Feature: US1358501 - [Unfinished] Contract Master Override work objects audits database schema
@@ -14,9 +13,6 @@ Feature: US1358501 - [Unfinished] Contract Master Override work objects audits d
   @TC597168
   @Manual
   @Functional
-  @US1358501
-  @2018.PI04
-  @2018.PI04.01
   Scenario: TC597168 - [RL1]
     # Scenario 2 (contract master error has been resolved- multiple contract masters)
     Given A business contractor is reviewing a contract master error
@@ -28,9 +24,6 @@ Feature: US1358501 - [Unfinished] Contract Master Override work objects audits d
   @TC597171
   @Manual
   @Functional
-  @US1358501
-  @2018.PI04
-  @2018.PI04.01
   Scenario: TC597171 - [RL4]
     # Scenario 5 (PCP reassignment information has been resolved- multiple reassign MPIN/IPA/Sequence number)
     Given A a business contractor is reviewing a PCP reassignment error
@@ -42,9 +35,6 @@ Feature: US1358501 - [Unfinished] Contract Master Override work objects audits d
   @TC597167
   @Manual
   @Functional
-  @US1358501
-  @2018.PI04
-  @2018.PI04.01
   Scenario: TC597167 - [RL0]
     # Scenario 1 (contract master error has been resolved- No contract master found error)
     Given A business contractor is reviewing a contract master error
@@ -56,9 +46,6 @@ Feature: US1358501 - [Unfinished] Contract Master Override work objects audits d
   @TC597170
   @Manual
   @Functional
-  @US1358501
-  @2018.PI04
-  @2018.PI04.01
   Scenario: TC597170 - [RL3]
     # Scenario 4 (PCP reassignment information has been resolved- single reassign MPIN/IPA/Sequence number)
     Given A a business contractor is reviewing a PCP reassignment error
@@ -70,9 +57,6 @@ Feature: US1358501 - [Unfinished] Contract Master Override work objects audits d
   @TC597169
   @Manual
   @Functional
-  @US1358501
-  @2018.PI04
-  @2018.PI04.01
   Scenario: TC597169 - [RL2]
     # Scenario 3 (contract master error has been resolved- multiple contract masters)
     Given A business contractor is reviewing a contract master error

@@ -6,7 +6,6 @@
 @MVP
 @Plus
 @Priority_1
-@F137674
 @releaseUnknown
 @iterationUnknown
 Feature: US929395 - Update Entity Type Definition
@@ -17,7 +16,6 @@ Feature: US929395 - Update Entity Type Definition
   @MVP
   @EXARI-11249
   @CLM_UAT
-  @US929395
   Scenario: TC564647 - [RL0]
     Given I am an Administrative User
     When I need to update an existing Entity Type Definition

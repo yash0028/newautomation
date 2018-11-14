@@ -7,19 +7,17 @@
 @Priority_1
 @CMD
 @Amrutha
-@F209320
 @releasePresent
-@iterationPresent
-Feature: US1256963 - Update user interface to accomodate new tables
+@iterationPast
+Feature: US1256963 - Update user interface to accommodate rules table
 
   @TC565856
   @Manual
   @Functional
-  @US1256963
-  @2018.PI04
-  @2018.PI04.03
   Scenario: TC565856 - [RL0]
     Given I have access to the Admin UI page
-    When I access the page
-    Then I can see a new page titled CLM Rule Catalog
+    When I click on the reference data link
+    And I click on the rules table from the drop down menu
+    And I click on the show table
+    Then I can see the rules table.
 

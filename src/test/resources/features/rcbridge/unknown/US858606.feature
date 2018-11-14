@@ -2,7 +2,6 @@
 @EXARI-11273
 @US858606
 @Plus
-@F137658
 @releaseUnknown
 @iterationUnknown
 Feature: US858606 - View Approval Time Lining History
@@ -11,7 +10,6 @@ Feature: US858606 - View Approval Time Lining History
   @Automated
   @Functional
   @EXARI-11273
-  @US858606
   Scenario: TC565729 - [RL0]
     Given I am a User with access to view and maintain Entity information
     When I want to view approvals for modifications made to Entities

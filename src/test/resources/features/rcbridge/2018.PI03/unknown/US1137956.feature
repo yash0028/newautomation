@@ -7,7 +7,6 @@
 @MVP
 @Plus
 @CLM_Exari
-@F192389
 @releasePast
 @iterationUnknown
 Feature: US1137956 - Define user access to Mass Action definitions
@@ -18,8 +17,6 @@ Feature: US1137956 - Define user access to Mass Action definitions
   @MVP
   @EXARI-11527
   @CLM_Exari
-  @US1137956
-  @2018.PI03
   Scenario: TC564540 - [RL0]
     Given I am a Mass Actions Administrator
     When I need to define user access

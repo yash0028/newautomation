@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11274
 @US1089625
-@F207050
 @releaseUnknown
 @iterationUnknown
 Feature: US1089625 - Perform Duplicate Check - Add Identifier
@@ -10,7 +9,6 @@ Feature: US1089625 - Perform Duplicate Check - Add Identifier
   @Automated
   @Functional
   @EXARI-11274
-  @US1089625
   Scenario: TC565596 - [RL0]
     Given I am the Entity Management Solution
     When a User adds an Identifier to an Entity

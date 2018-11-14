@@ -7,7 +7,6 @@
 @PI02_Top3
 @Plus
 @Parity
-@F175417
 @releasePast
 @iterationPast
 Feature: US1095937 - Approval Coordinator Microservice
@@ -16,9 +15,6 @@ Feature: US1095937 - Approval Coordinator Microservice
   @Automated
   @Functional
   @CLM_UAT
-  @US1095937
-  @2018.PI02
-  @2018.PI02.01
   Scenario: TC565890 - [RL1]
     Given A transaction is in progress
     When The business data is received
@@ -29,9 +25,6 @@ Feature: US1095937 - Approval Coordinator Microservice
   @Automated
   @Functional
   @CLM_UAT
-  @US1095937
-  @2018.PI02
-  @2018.PI02.01
   Scenario: TC565891 - [RL2]
     Given A transaction is in progress
     When The business data is received
@@ -42,9 +35,6 @@ Feature: US1095937 - Approval Coordinator Microservice
   @Automated
   @Functional
   @CLM_UAT
-  @US1095937
-  @2018.PI02
-  @2018.PI02.01
   Scenario: TC565889 - [RL0]
     Given A transaction is in progress
     When The business data is received
