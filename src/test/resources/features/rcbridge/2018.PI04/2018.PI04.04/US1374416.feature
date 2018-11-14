@@ -27,7 +27,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
     Then the contract is rerun
     Examples:
       | tid                                  |
-      | 01c37d87-0bd5-4a5c-9407-ddd11d9e7591 |
+      | d971bf9e-5b9d-4497-8ca6-99aa0adec47d |
 
   @TC605561
   @Automated
@@ -38,7 +38,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
     Then the work object is completed
     Examples:
       | tid                                  |
-      | 01c37d87-0bd5-4a5c-9407-ddd11d9e7591 |
+      | d971bf9e-5b9d-4497-8ca6-99aa0adec47d |
 
   @TC638439
   @Manual
@@ -49,7 +49,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
     Then the response includes the ready status of the work object
     Examples:
       | tid                                  |
-      | 01c37d87-0bd5-4a5c-9407-ddd11d9e7591 |
+      | d971bf9e-5b9d-4497-8ca6-99aa0adec47d |
 
   @TC636094
   @Manual
@@ -62,7 +62,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
     Then the work object is ready
     Examples:
       | id   |
-      | asdf |
+      | 1639 |
 
   @TC636093
   @Manual
@@ -73,7 +73,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
     Then the response includes valid product groups
     Examples:
       | tid                                  |
-      | 01c37d87-0bd5-4a5c-9407-ddd11d9e7591 |
+      | d971bf9e-5b9d-4497-8ca6-99aa0adec47d |
 
   @TC636091
   @Manual
@@ -99,7 +99,7 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   Scenario Outline: TC636098 - [RL8] query work objects <status>
     # Scenario Outline: query work objects
     When I send the work object status "<status>" to the work object endpoint
-    Then the response includes a number of transaction ids with the status of "<status>"
+    Then the response includes a number of transaction ids with the status of <status>
     Examples:
       | status          |
       | ACTION_REQUIRED |
@@ -116,5 +116,5 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
     Then the response includes valid contract data
     Examples:
       | id   |
-      | asdf |
+      | 1639 |
 

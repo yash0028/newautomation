@@ -13,7 +13,7 @@
 Feature: US1367999 - PCP Specialties Standard definition UHN
 
   @TC600523
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC600523 - [RL0] Validate PCP Results
@@ -32,7 +32,7 @@ Feature: US1367999 - PCP Specialties Standard definition UHN
       | 276           |
 
   @TC600524
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC600524 - [RL1] Validate Specialist Results
