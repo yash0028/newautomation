@@ -1,7 +1,5 @@
 # Last updated on 
 @US1391617
-@MVP
-@Maintenance
 @releaseUnknown
 @iterationUnknown
 Feature: US1391617 - SPA/PAT Added Counterparty TIN Maintenance Event System Notification

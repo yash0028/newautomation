@@ -1,7 +1,5 @@
 # Last updated on 
 @US1391623
-@MVP
-@Maintenance
 @releaseUnknown
 @iterationUnknown
 Feature: US1391623 - SMGA Changed Counterparty TIN Maintenance Event System Notification

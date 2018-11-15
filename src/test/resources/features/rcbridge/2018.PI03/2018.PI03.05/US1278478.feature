@@ -10,17 +10,6 @@
 @iterationPast
 Feature: US1278478 - Publish NDB API contract master null response
 
-  @TC589269
-  @Automated
-  @Functional
-  Scenario: TC589269 - [RL1] Check Single Null
-    # Scenario 1B (UNET search with mkt, fee schedule, and a single product code)
-    Given The NDB contract master look up API was executed with market number, fee schedule, and a single product code
-    And the fee schedule "96192" & the product code group "PPO" & the product code "P5"
-    When The API response was successful
-    Then The API returned no results
-    And the API returned a return code of "10"
-
   @TC589310
   @Automated
   @Functional
@@ -32,6 +21,17 @@ Feature: US1278478 - Publish NDB API contract master null response
     When The API response was successful
     Then The API returned no results
     And the API returned a return code of "2" and "10"
+
+  @TC589269
+  @Automated
+  @Functional
+  Scenario: TC589269 - [RL1] Check Single Null
+    # Scenario 1B (UNET search with mkt, fee schedule, and a single product code)
+    Given The NDB contract master look up API was executed with market number, fee schedule, and a single product code
+    And the fee schedule "96192" & the product code group "PPO" & the product code "P5"
+    When The API response was successful
+    Then The API returned no results
+    And the API returned a return code of "10"
 
   @TC565495
   @Automated

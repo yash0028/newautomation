@@ -7,6 +7,26 @@
 @iterationUnknown
 Feature: US1387185 - Validate roster data - cancel
 
+  @TC616914
+  @Manual
+  @Functional
+  Scenario: TC616914 - [RL5]
+    Given a RosterUpdated business events is published
+    When there are no providers to cancel included in the event
+    Then the transaction/event is not valid
+    And a Type 3 error is logged
+    And an error message reads, "No eligible providers were included in this cancel request - unable to process"
+
+  @TC616913
+  @Manual
+  @Functional
+  Scenario: TC616913 - [RL4]
+    Given a RosterUpdated business events is published
+    When there are no providers on the roster
+    Then the transaction/event is not valid
+    And a Type 3 error is logged
+    And an error message reads, "No providers were included in this request - unable to process"
+
   @TC616912
   @Manual
   @Functional
@@ -17,26 +37,6 @@ Feature: US1387185 - Validate roster data - cancel
     Then the transaction/event is not valid
     And a Type 3 error is logged
     And an error message reads, "One or more of the data elements required to complete this transaction is missing"
-
-  @TC614182
-  @Manual
-  @Functional
-  Scenario: TC614182 - [RL0]
-    Given a RosterUpdated business event is published
-    When the provider(s) being added have a P-type classification
-    And all of the required information is present, including cancelDate, tin, mpin, npi, providerName, providerSpecialtyCode, providerSpecialtyCodeDesc, cancelReasonCode, retroactiveReasonCode
-    Then the transaction/event is valid
-    And the transaction advances to determining if cancel contains a PCP
-
-  @TC616914
-  @Manual
-  @Functional
-  Scenario: TC616914 - [RL5]
-    Given a RosterUpdated business events is published
-    When there are no providers to cancel included in the event
-    Then the transaction/event is not valid
-    And a Type 3 error is logged
-    And an error message reads, "No eligible providers were included in this cancel request - unable to process"
 
   @TC616911
   @Manual
@@ -59,13 +59,13 @@ Feature: US1387185 - Validate roster data - cancel
     Then the transaction/event is valid
     And the transaction advances to process to subscribing platform(s)
 
-  @TC616913
+  @TC614182
   @Manual
   @Functional
-  Scenario: TC616913 - [RL4]
-    Given a RosterUpdated business events is published
-    When there are no providers on the roster
-    Then the transaction/event is not valid
-    And a Type 3 error is logged
-    And an error message reads, "No providers were included in this request - unable to process"
+  Scenario: TC614182 - [RL0]
+    Given a RosterUpdated business event is published
+    When the provider(s) being added have a P-type classification
+    And all of the required information is present, including cancelDate, tin, mpin, npi, providerName, providerSpecialtyCode, providerSpecialtyCodeDesc, cancelReasonCode, retroactiveReasonCode
+    Then the transaction/event is valid
+    And the transaction advances to determining if cancel contains a PCP
 

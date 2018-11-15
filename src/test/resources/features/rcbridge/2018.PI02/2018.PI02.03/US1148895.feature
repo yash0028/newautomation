@@ -22,15 +22,6 @@ Feature: US1148895 - Create contract query microservice Examiner (inquiry)
     When The REST service is unavailable
     Then An server error will be returned
 
-  @TC565194
-  @Automated
-  @Functional
-  @CLM_UAT
-  Scenario: TC565194 - [RL0]
-    Given A contract inquiry request from PIC or Examiner
-    When A REST Service call is made
-    Then The contract data is sent back to PIC or Examiner
-
   @TC565195
   @Automated
   @Functional
@@ -39,4 +30,13 @@ Feature: US1148895 - Create contract query microservice Examiner (inquiry)
     Given A contract inquiry request from PIC or Examiner
     When A REST Service call is made with invalid data
     Then The service will return an error
+
+  @TC565194
+  @Automated
+  @Functional
+  @CLM_UAT
+  Scenario: TC565194 - [RL0]
+    Given A contract inquiry request from PIC or Examiner
+    When A REST Service call is made
+    Then The contract data is sent back to PIC or Examiner
 

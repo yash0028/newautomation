@@ -1,7 +1,5 @@
 # Last updated on 
 @US1391616
-@MVP
-@Maintenance
 @releaseUnknown
 @iterationUnknown
 Feature: US1391616 - SPGA Removed Counterparty TIN Maintenance Event System Notification

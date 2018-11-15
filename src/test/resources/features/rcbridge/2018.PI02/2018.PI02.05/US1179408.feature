@@ -10,14 +10,6 @@
 @iterationPast
 Feature: US1179408 - [Continued] Cosmos Integration
 
-  @TC565591
-  @Automated
-  @Functional
-  Scenario: TC565591 - [RL0]
-    Given the NDB connector microservice has received a roster update event
-    When all of the NDB edits are successful
-    Then the NDB microservices are ready to update NDB
-
   @TC565593
   @Automated
   @Functional
@@ -34,4 +26,12 @@ Feature: US1179408 - [Continued] Cosmos Integration
     Given the NDB connector microservice has received a roster update event
     When all of the NDB edits are not successful
     Then the NDB microservices creates an error message
+
+  @TC565591
+  @Automated
+  @Functional
+  Scenario: TC565591 - [RL0]
+    Given the NDB connector microservice has received a roster update event
+    When all of the NDB edits are successful
+    Then the NDB microservices are ready to update NDB
 

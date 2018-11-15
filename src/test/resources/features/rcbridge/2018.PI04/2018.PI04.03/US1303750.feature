@@ -10,23 +10,6 @@
 @iterationPast
 Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View & Edit contract detail information (no search results found)
 
-  @TC593196
-  @Manual
-  @Functional
-  Scenario: TC593196 - [RL1]
-    # Scenario 2 (Multiple product grouping under contract ID- no contract master found for all)
-    Given I have clicked on the detail information on a contract ID
-    When The contract ID has more than one product grouping
-    And No contract master was found for all product groupings
-    Then For each product grouping under the contract ID I can see the following message: No contract master ID was found. Please make a selection to complete the contract load.
-    And I can see the latest input parameters for each product grouping underneath the search details column:
-    # NDB Market Number: XXXXXXXXXX
-    # NDB Fee Schedule: XXXXXXXXXX
-    # NDB Product Group: XX, XX, XX
-    # COSMOS DIV: XXX
-    # COSMOS Panel: XXXX
-    # COSMOS Contract Number: XXXXX
-
   @TC619012
   @Manual
   @Functional
@@ -37,34 +20,14 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
     Then The following message is displayed to me "The contract master for this product grouping has been recorded"
     And The product grouping row is removed from the display
 
-  @TC593198
+  @TC593201
   @Manual
   @Functional
-  Scenario: TC593198 - [RL3]
-    # Scenario 4 (Select contract master- Use this once)
-    Given I am on the CMD Action Required page
-    When I entered in a contract master number, contract master name, contract system, contract master effective date
-    And I selected use this contract master "once"
-    And I have clicked on the submit button
-    Then The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me
-    And The status of the contract master product grouping is changed to contract master selected
-
-  @TC564772
-  @Manual
-  @Functional
-  Scenario: TC564772 - [RL0]
-    # Scenario 1 (Single Product grouping under Contract ID- No contract master found)
-    Given I have clicked on the detail information on a contract ID
-    When The contract ID has a single product grouping
-    And No contract master was found
-    Then I can see the following message: "No contract master ID was found. Please make a selection to complete the contract load."
-    And I can see the latest input parameters underneath the Search details column
-    # NDB Market Number: XXXXXXXXXX
-    # NDB Fee Schedule: XXXXXXXXXX
-    # NDB Product Group: XX, XX, XX
-    # COSMOS DIV: XXX
-    # COSMOS Panel: XXXX
-    # COSMOS Contract Number: XXXXX
+  Scenario: TC593201 - [RL5]
+    # scenario 6 (contract load button)
+    Given I have selected a contract master for a product grouping
+    When The status of the contract master product grouping is 'contract master selected"
+    Then A proceed with contract load button appears
 
   @TC593200
   @Manual
@@ -78,14 +41,17 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
     Then The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me
     And The status of the contract master product grouping is changed to contract master selected
 
-  @TC593201
+  @TC593198
   @Manual
   @Functional
-  Scenario: TC593201 - [RL5]
-    # scenario 6 (contract load button)
-    Given I have selected a contract master for a product grouping
-    When The status of the contract master product grouping is 'contract master selected"
-    Then A proceed with contract load button appears
+  Scenario: TC593198 - [RL3]
+    # Scenario 4 (Select contract master- Use this once)
+    Given I am on the CMD Action Required page
+    When I entered in a contract master number, contract master name, contract system, contract master effective date
+    And I selected use this contract master "once"
+    And I have clicked on the submit button
+    Then The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me
+    And The status of the contract master product grouping is changed to contract master selected
 
   @TC593197
   @Manual
@@ -106,4 +72,38 @@ Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View
     # once
     # always
     # Submit button
+
+  @TC593196
+  @Manual
+  @Functional
+  Scenario: TC593196 - [RL1]
+    # Scenario 2 (Multiple product grouping under contract ID- no contract master found for all)
+    Given I have clicked on the detail information on a contract ID
+    When The contract ID has more than one product grouping
+    And No contract master was found for all product groupings
+    Then For each product grouping under the contract ID I can see the following message: No contract master ID was found. Please make a selection to complete the contract load.
+    And I can see the latest input parameters for each product grouping underneath the search details column:
+    # NDB Market Number: XXXXXXXXXX
+    # NDB Fee Schedule: XXXXXXXXXX
+    # NDB Product Group: XX, XX, XX
+    # COSMOS DIV: XXX
+    # COSMOS Panel: XXXX
+    # COSMOS Contract Number: XXXXX
+
+  @TC564772
+  @Manual
+  @Functional
+  Scenario: TC564772 - [RL0]
+    # Scenario 1 (Single Product grouping under Contract ID- No contract master found)
+    Given I have clicked on the detail information on a contract ID
+    When The contract ID has a single product grouping
+    And No contract master was found
+    Then I can see the following message: "No contract master ID was found. Please make a selection to complete the contract load."
+    And I can see the latest input parameters underneath the Search details column
+    # NDB Market Number: XXXXXXXXXX
+    # NDB Fee Schedule: XXXXXXXXXX
+    # NDB Product Group: XX, XX, XX
+    # COSMOS DIV: XXX
+    # COSMOS Panel: XXXX
+    # COSMOS Contract Number: XXXXX
 

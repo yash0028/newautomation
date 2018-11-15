@@ -10,6 +10,31 @@
 @iterationPast
 Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for Contract Management Dashboard
 
+  @TC636098
+  @Automated
+  @Functional
+  Scenario Outline: TC636098 - [RL8] query work objects <status>
+    # Scenario Outline: query work objects
+    When I send the work object status "<status>" to the work object endpoint
+    Then the response includes a number of transaction ids with the status of "<status>"
+    Examples:
+      | status          |
+      | ACTION_REQUIRED |
+      | RESOLVED        |
+      | CANCELLED       |
+      | READY           |
+
+  @TC638439
+  @Manual
+  @Functional
+  Scenario Outline: TC638439 - [RL7] query work object ready
+    # Scenario Outline: query work object ready
+    When I send the transaction id "<tid>" to the ready work object endpoint
+    Then the response includes the ready status of the work object
+    Examples:
+      | tid                                  |
+      | d971bf9e-5b9d-4497-8ca6-99aa0adec47d |
+
   @TC636097
   @Manual
   @Functional
@@ -29,27 +54,16 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
       | tid                                  |
       | d971bf9e-5b9d-4497-8ca6-99aa0adec47d |
 
-  @TC605561
-  @Automated
-  @Functional
-  Scenario Outline: TC605561 - [RL0] query flag to load override <tid>
-    # Scenario Outline: query flag to load override
-    When I send the transaction id "<tid>" to work object complete endpoint
-    Then the work object is completed
-    Examples:
-      | tid                                  |
-      | d971bf9e-5b9d-4497-8ca6-99aa0adec47d |
-
-  @TC638439
+  @TC636095
   @Manual
   @Functional
-  Scenario Outline: TC638439 - [RL7] query work object ready
-    # Scenario Outline: query work object ready
-    When I send the transaction id "<tid>" to the ready work object endpoint
-    Then the response includes the ready status of the work object
+  Scenario Outline: TC636095 - [RL4] query work object item <id>
+    # Scenario Outline: query work object item
+    When I send the id "<id>" to the work object items endpoint
+    Then the response includes valid contract data
     Examples:
-      | tid                                  |
-      | d971bf9e-5b9d-4497-8ca6-99aa0adec47d |
+      | id   |
+      | 1639 |
 
   @TC636094
   @Manual
@@ -93,28 +107,14 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
       | contractMasterEffectiveDate |
       | 10/10/2018                  |
 
-  @TC636098
+  @TC605561
   @Automated
   @Functional
-  Scenario Outline: TC636098 - [RL8] query work objects <status>
-    # Scenario Outline: query work objects
-    When I send the work object status "<status>" to the work object endpoint
-    Then the response includes a number of transaction ids with the status of "<status>"
+  Scenario Outline: TC605561 - [RL0] query flag to load override <tid>
+    # Scenario Outline: query flag to load override
+    When I send the transaction id "<tid>" to work object complete endpoint
+    Then the work object is completed
     Examples:
-      | status          |
-      | ACTION_REQUIRED |
-      | RESOLVED        |
-      | CANCELLED       |
-      | READY           |
-
-  @TC636095
-  @Manual
-  @Functional
-  Scenario Outline: TC636095 - [RL4] query work object item <id>
-    # Scenario Outline: query work object item
-    When I send the id "<id>" to the work object items endpoint
-    Then the response includes valid contract data
-    Examples:
-      | id   |
-      | 1639 |
+      | tid                                  |
+      | d971bf9e-5b9d-4497-8ca6-99aa0adec47d |
 

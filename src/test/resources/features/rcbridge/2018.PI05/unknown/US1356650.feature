@@ -19,14 +19,6 @@ Feature: US1356650 - New UCM - [ProductGroup] Rate condition
     And a message generated 'MISSING RATE CONDITION CATEGORY'
     ###
 
-  @TC596316
-  @Manual
-  @Functional
-  Scenario: TC596316 - [RL0]
-    Given a valid contract exists in Exari
-    When a rate condition category property has one or more value
-    Then a rate condition property also has one or more valid values
-
   @TC618578
   @Manual
   @Functional
@@ -52,4 +44,12 @@ Feature: US1356650 - New UCM - [ProductGroup] Rate condition
     Given a valid contract exists in Exari
     When a rate condition category property is NULL value
     Then a rate condition property also is NULL value
+
+  @TC596316
+  @Manual
+  @Functional
+  Scenario: TC596316 - [RL0]
+    Given a valid contract exists in Exari
+    When a rate condition category property has one or more value
+    Then a rate condition property also has one or more valid values
 

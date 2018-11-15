@@ -11,43 +11,6 @@
 @iterationPast
 Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
 
-  @TC597188
-  @Automated
-  @Functional
-  @A_UI_Story
-  Scenario: TC597188 - [RL3]
-    Given I am on the CMD dashboard
-    When There are In Progress contracts
-    Then On the In Progress button display the number of In Progress requests returned from the search
-
-  @TC597191
-  @Manual
-  @Functional
-  @A_UI_Story
-  Scenario: TC597191 - [RL6]
-    Given I am on the CMD dashboard
-    When There are no Error transactions
-    Then On the Failed button display 0 Errors
-
-  @TC597189
-  @Manual
-  @Functional
-  @A_UI_Story
-  Scenario: TC597189 - [RL4]
-    Given I am on the CMD dashboard
-    When There are no Action Required Required transactions
-    And There are no PCP reassignment transactions
-    Then On the Action Required Button button display 0 In Progress
-
-  @TC597185
-  @Manual
-  @Functional
-  @A_UI_Story
-  Scenario: TC597185 - [RL0]
-    Given I am on the CMD dashboard
-    When There are no completed contract requests
-    Then On the Completed button display 0 completed
-
   @TC597192
   @Automated
   @Functional
@@ -57,14 +20,14 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
     When There are Errors for contract requests
     Then On the Error button display the number of Error requests returned from the search
 
-  @TC597187
+  @TC597191
   @Manual
   @Functional
   @A_UI_Story
-  Scenario: TC597187 - [RL2]
+  Scenario: TC597191 - [RL6]
     Given I am on the CMD dashboard
-    When There are no In Progress transactions
-    Then On the In Progress button display 0 In Progress
+    When There are no Error transactions
+    Then On the Failed button display 0 Errors
 
   @TC597190
   @Automated
@@ -76,6 +39,34 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
     And There are PCP Reassignment transactions
     Then On the Action Required button display the number of Action Required requests returned from the search
 
+  @TC597189
+  @Manual
+  @Functional
+  @A_UI_Story
+  Scenario: TC597189 - [RL4]
+    Given I am on the CMD dashboard
+    When There are no Action Required Required transactions
+    And There are no PCP reassignment transactions
+    Then On the Action Required Button button display 0 In Progress
+
+  @TC597188
+  @Automated
+  @Functional
+  @A_UI_Story
+  Scenario: TC597188 - [RL3]
+    Given I am on the CMD dashboard
+    When There are In Progress contracts
+    Then On the In Progress button display the number of In Progress requests returned from the search
+
+  @TC597187
+  @Manual
+  @Functional
+  @A_UI_Story
+  Scenario: TC597187 - [RL2]
+    Given I am on the CMD dashboard
+    When There are no In Progress transactions
+    Then On the In Progress button display 0 In Progress
+
   @TC597186
   @Automated
   @Functional
@@ -84,4 +75,13 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
     Given I am on the CMD dashboard
     When There are completed contracts
     Then On the Completed button display the number of completed requests returned from the search
+
+  @TC597185
+  @Manual
+  @Functional
+  @A_UI_Story
+  Scenario: TC597185 - [RL0]
+    Given I am on the CMD dashboard
+    When There are no completed contract requests
+    Then On the Completed button display 0 completed
 

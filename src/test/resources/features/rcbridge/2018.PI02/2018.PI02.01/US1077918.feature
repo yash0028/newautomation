@@ -22,16 +22,6 @@ Feature: US1077918 - Transaction State Microservice
     And An error is logged to the logfile
     # An interface specification is defined for the service API
 
-  @TC564440
-  @Automated
-  @Functional
-  @CLM_UAT
-  Scenario: TC564440 - [RL0]
-    Given A business event is submitted
-    When A transaction is initialized
-    Then A new transaction id is generated
-    And A transaction initialization message is published to the transaction log topic
-
   @TC564442
   @Automated
   @Functional
@@ -50,4 +40,14 @@ Feature: US1077918 - Transaction State Microservice
     Given A transaction is in progress
     When A transaction state change is submitted
     Then A transaction state change message is published to the transaction log topic
+
+  @TC564440
+  @Automated
+  @Functional
+  @CLM_UAT
+  Scenario: TC564440 - [RL0]
+    Given A business event is submitted
+    When A transaction is initialized
+    Then A new transaction id is generated
+    And A transaction initialization message is published to the transaction log topic
 

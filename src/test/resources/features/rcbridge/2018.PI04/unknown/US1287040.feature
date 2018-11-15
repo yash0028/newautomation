@@ -5,13 +5,13 @@
 @iterationUnknown
 Feature: US1287040 - Contract Config SSO Integration with Exari - SSO RBA
 
-  @TC564987
+  @TC564989
   @Automated
   @Functional
-  Scenario: TC564987 - [RL0]
-    Given a CMD record exists for a contract
-    When the user navigates to the CMD from within Exari
-    Then the user is able to access the contract metadata details within CMD
+  Scenario: TC564989 - [RL2]
+    Given an CMD record exists
+    When the user navigates to Exari from within the CMD contract record
+    Then the user returns to Exari contract record
 
   @TC564988
   @Automated
@@ -22,11 +22,11 @@ Feature: US1287040 - Contract Config SSO Integration with Exari - SSO RBA
     Then a message is returned to the user stating CMD record does not exist
     And the user returned to the Exari contract record session from which they originated
 
-  @TC564989
+  @TC564987
   @Automated
   @Functional
-  Scenario: TC564989 - [RL2]
-    Given an CMD record exists
-    When the user navigates to Exari from within the CMD contract record
-    Then the user returns to Exari contract record
+  Scenario: TC564987 - [RL0]
+    Given a CMD record exists for a contract
+    When the user navigates to the CMD from within Exari
+    Then the user is able to access the contract metadata details within CMD
 

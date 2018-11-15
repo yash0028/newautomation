@@ -20,14 +20,6 @@ Feature: US1256905 - Create CLM Rule Table
     Then a table exists in the DB
     And the details for each rule is accessible
 
-  @TC615402
-  @Manual
-  @Functional
-  Scenario: TC615402 - [RL0]
-    Given rules exist
-    When the rules need to be stored
-    Then a table exists in the database
-
   @TC615403
   @Manual
   @Functional
@@ -36,4 +28,12 @@ Feature: US1256905 - Create CLM Rule Table
     When the rules need to be applied during contract processing
     Then the rules are cycled through
     And the results applied during the contract process
+
+  @TC615402
+  @Manual
+  @Functional
+  Scenario: TC615402 - [RL0]
+    Given rules exist
+    When the rules need to be stored
+    Then a table exists in the database
 
