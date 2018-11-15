@@ -16,7 +16,6 @@ import rest_api_test.util.IRestStep;
 import ui_test.page.contractManagement.CMDPage;
 import ui_test.util.IUiStep;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -41,9 +40,10 @@ public class CMDSteps implements IRestStep, IUiStep {
     }
 
     @Given("^I am on the CMD dashboard$")
-    public void navigateToCMDdashboardPage() {
+    public void navigateToCMDdashboardPage() throws InterruptedException {
         navigateToCMDdashboardUrl();
         isDashboardPageDisplayed();
+        TimeUnit.SECONDS.sleep(5);
     }
 
     @And("^I am recognized as a contract administrator with access to CMD$")
@@ -96,7 +96,7 @@ public class CMDSteps implements IRestStep, IUiStep {
 
     @When("^There are no PCP reassignment transactions$")
     public void getPcpReassignTransactions() {
-
+        //Out of scope for now or deferred
     }
 
     @When("^There are no Error transactions$")
@@ -125,7 +125,7 @@ public class CMDSteps implements IRestStep, IUiStep {
 
     @When("^There are PCP Reassignment transactions$")
     public void verifyPcpReassignTransactions() {
-
+        //Out of scope for now or deferred
     }
 
     @When("^There are Errors for contract requests$")
@@ -181,7 +181,7 @@ public class CMDSteps implements IRestStep, IUiStep {
         Assert.assertTrue("Transaction count doesn't match", transCountApp == getTransactionsCountService("FAILED"));
     }
 
-    public Integer getTransactionsCountService(final String transactionStatus){
+    public Integer getTransactionsCountService(String transactionStatus){
         Response response = RestAssured.given().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_SUMMARIES);
         JsonArray jsonArray = parseJsonElementResponse(response).getAsJsonArray();
         for(JsonElement element : jsonArray) {
