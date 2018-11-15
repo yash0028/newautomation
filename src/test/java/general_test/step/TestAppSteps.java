@@ -15,14 +15,10 @@ public class TestAppSteps {
     @When("^the Acceptance-Testing stage is executing on Jenkins$")
     public void theAcceptanceTestingStageIsExecutingOnJenkins() throws Throwable {
         log.info("when step of test app");
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
     }
 
     @Then("^this test will pass and it will move on to the next stage$")
     public void thisTestWillPassAndItWillMoveOnToTheNextStage() throws Throwable {
         log.error("then step of test app");
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
     }
 }
