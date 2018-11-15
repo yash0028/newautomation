@@ -9,7 +9,7 @@
 @kumar,_Sachin
 @CMD
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
 
   @TC608275

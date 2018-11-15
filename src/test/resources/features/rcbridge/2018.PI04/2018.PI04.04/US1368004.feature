@@ -9,7 +9,7 @@
 @kumar,_Sachin
 @CMD
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
 
   @TC625448

@@ -6,7 +6,7 @@
 @Priority_1
 @Scrum_Team_1
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1416329 - Changes to Counter Party Search
 
   @TC634260
