@@ -4,7 +4,7 @@
 @2018.PI04
 @2018.PI04.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1409941 - MSG Enhancements
 
   @TC631569

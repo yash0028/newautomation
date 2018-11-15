@@ -6,7 +6,7 @@
 @Priority_1
 @10/1_Physician
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1189845 - [Continued] [Continued][Continued] Downstream system specific validation handling
 
   @TC537148

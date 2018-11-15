@@ -7,7 +7,7 @@
 @Priority_2
 @Facility
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1427097 - SPIKE - COSMOS Facility Analysis - Architecture
 
   @TC635116

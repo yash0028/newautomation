@@ -8,7 +8,7 @@
 @Priority_1
 @CMD
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1236428 - [Continued] [Continued] CMD Single Sign On - UHG Enterprise SSO (MSid and Password )
 
   @TC564532

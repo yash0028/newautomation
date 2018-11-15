@@ -7,7 +7,7 @@
 @Priority_1
 @CMD
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1412876 - Search via CMD UI
 
   @TC631459

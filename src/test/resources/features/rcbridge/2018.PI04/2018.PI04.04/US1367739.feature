@@ -9,7 +9,7 @@
 @kumar,_Sachin
 @CMD
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1367739 - Identify UHC EI and MR Pilot Markets
 
   @TC600526

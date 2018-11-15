@@ -7,7 +7,7 @@
 @Priority_1
 @CMD
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1289549 - Contract Config Services - Update Contract Config record
 
   @TC624683
