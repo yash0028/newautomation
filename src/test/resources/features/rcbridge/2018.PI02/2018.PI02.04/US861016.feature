@@ -16,6 +16,23 @@
 @iterationPast
 Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data Requests To PES - Counter Party lookup
 
+  @TC565515
+  @Automated
+  @Functional
+  @CLM_UAT
+  @Provider_Demograhics
+  @PES
+  Scenario: TC565515 - [RL1] Validate Facility Fields
+    #for Facility
+    Given I am a User with access to add a Counterparty to an Interview
+    When I search for a Counterparty using MPIN of "6177192"
+    Then PES returns the following information:
+      | facilityName     |
+      | address          |
+      | mpin             |
+      | tin              |
+      | providerTypeCode |
+
   @TC565514
   @Automated
   @Functional
@@ -36,23 +53,6 @@ Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data R
       | providerTypeCode |
       | phoneNumbers     |
     #And the system displays results with the best match first (Need to clarify this)
-
-  @TC565515
-  @Automated
-  @Functional
-  @CLM_UAT
-  @Provider_Demograhics
-  @PES
-  Scenario: TC565515 - [RL1] Validate Facility Fields
-    #for Facility
-    Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "6177192"
-    Then PES returns the following information:
-      | facilityName     |
-      | address          |
-      | mpin             |
-      | tin              |
-      | providerTypeCode |
 
   @Functional
   @TC493888

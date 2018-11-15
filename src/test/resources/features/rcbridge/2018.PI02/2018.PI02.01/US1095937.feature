@@ -11,16 +11,6 @@
 @iterationPast
 Feature: US1095937 - Approval Coordinator Microservice
 
-  @TC565890
-  @Automated
-  @Functional
-  @CLM_UAT
-  Scenario: TC565890 - [RL1]
-    Given A transaction is in progress
-    When The business data is received
-    And One or more domain services send an error
-    Then The transaction is aborted with an error sent to the transaction log
-
   @TC565891
   @Automated
   @Functional
@@ -30,6 +20,16 @@ Feature: US1095937 - Approval Coordinator Microservice
     When The business data is received
     And One or more domain services does not acknowledge the business event
     Then The transaction is aborted with a time-out error sent to the transaction log
+
+  @TC565890
+  @Automated
+  @Functional
+  @CLM_UAT
+  Scenario: TC565890 - [RL1]
+    Given A transaction is in progress
+    When The business data is received
+    And One or more domain services send an error
+    Then The transaction is aborted with an error sent to the transaction log
 
   @TC565889
   @Automated

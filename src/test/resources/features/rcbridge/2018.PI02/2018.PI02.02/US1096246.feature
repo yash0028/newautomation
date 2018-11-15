@@ -13,6 +13,15 @@
 @iterationPast
 Feature: US1096246 - Create contract query microservice (inquiry)
 
+  @TC564836
+  @Manual
+  @Functional
+  @CLM_UAT
+  Scenario: TC564836 - [RL2]
+    Given A contract request from PIC or Examiner
+    When The REST service is unavailable
+    Then An server error will be returned
+
   @TC564835
   @Automated
   @Functional
@@ -30,13 +39,4 @@ Feature: US1096246 - Create contract query microservice (inquiry)
     Given A contract inquiry request from PIC or Examiner
     When A REST Service call is made
     Then The contract data is sent back to PIC or Examiner
-
-  @TC564836
-  @Manual
-  @Functional
-  @CLM_UAT
-  Scenario: TC564836 - [RL2]
-    Given A contract request from PIC or Examiner
-    When The REST service is unavailable
-    Then An server error will be returned
 

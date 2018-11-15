@@ -5,6 +5,15 @@
 @iterationUnknown
 Feature: US1211073 - Determine Contract Master condition applies
 
+  @TC565951
+  @Automated
+  @Functional
+  @MVP+1
+  Scenario: TC565951 - [RL3]
+    Given an Exari contract record exists
+    When the contract includes Healthcare Providers which bill on CMS-1500 claim forms
+    Then the contract meets the conditions to use contract master logic
+
   @TC565950
   @Automated
   @Functional
@@ -30,14 +39,5 @@ Feature: US1211073 - Determine Contract Master condition applies
   Scenario: TC565948 - [RL0]
     Given an Exari contract record exists
     When the contract includes one or more products administered on the UNET or COSMOS claim platforms
-    Then the contract meets the conditions to use contract master logic
-
-  @TC565951
-  @Automated
-  @Functional
-  @MVP+1
-  Scenario: TC565951 - [RL3]
-    Given an Exari contract record exists
-    When the contract includes Healthcare Providers which bill on CMS-1500 claim forms
     Then the contract meets the conditions to use contract master logic
 

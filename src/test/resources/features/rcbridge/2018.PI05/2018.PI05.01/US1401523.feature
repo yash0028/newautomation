@@ -3,21 +3,10 @@
 @2018.PI05
 @2018.PI05.01
 @MVP
-@Priority_2
-@NDB
-@CMD
+@Maintenance
 @releaseFuture
 @iterationFuture
 Feature: US1401523 - UI/UX- Populate Resolution button and comments on CMD errror page
-
-  @TC622442
-  @Manual
-  @Functional
-  Scenario: TC622442 - [RL1]
-    ### Scenario 2 (Resolution button and resolution text box validation)
-    Given I am on the CMD Error modal window
-    When I enter in at least one character in the resolution text box
-    Then The Resolution Button is active
 
   @TC622444
   @Manual
@@ -28,6 +17,15 @@ Feature: US1401523 - UI/UX- Populate Resolution button and comments on CMD errro
     When I have clicked the Resolution button
     And The error is removed from the CMD error UI
     Then The information I have entered in the resolution text box is added to the Resolution Text box in the TBD (need name) database.
+
+  @TC622442
+  @Manual
+  @Functional
+  Scenario: TC622442 - [RL1]
+    ### Scenario 2 (Resolution button and resolution text box validation)
+    Given I am on the CMD Error modal window
+    When I enter in at least one character in the resolution text box
+    Then The Resolution Button is active
 
   @TC622440
   @Manual

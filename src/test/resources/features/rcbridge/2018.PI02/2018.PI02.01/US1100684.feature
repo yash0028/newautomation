@@ -10,12 +10,12 @@
 @iterationPast
 Feature: US1100684 - Event Subscription and Publication Library Refinement
 
-  @TC565091
+  @TC565094
   @Automated
   @Functional
-  Scenario: TC565091 - [RL0]
-    Given the need to publish or subscribe to events
-    Then there is documentation available to understand how to use the library
+  Scenario: TC565094 - [RL2]
+    Given the need to publish events
+    Then there is a library available that standardizes how to publish
 
   @TC565093
   @Automated
@@ -24,10 +24,10 @@ Feature: US1100684 - Event Subscription and Publication Library Refinement
     Given the need to subscribe to events
     Then there is a library available that standardizes how to subscribe
 
-  @TC565094
+  @TC565091
   @Automated
   @Functional
-  Scenario: TC565094 - [RL2]
-    Given the need to publish events
-    Then there is a library available that standardizes how to publish
+  Scenario: TC565091 - [RL0]
+    Given the need to publish or subscribe to events
+    Then there is documentation available to understand how to use the library
 

@@ -19,15 +19,6 @@ Feature: US1077928 - Transaction Status Microservice
     And A database is not available
     Then An error message is returned
 
-  @TC565579
-  @Automated
-  @Functional
-  Scenario: TC565579 - [RL0]
-    Given No transaction is open
-    When The status is queried
-    And A given transaction id is not found
-    Then A not found error is returned
-
   @TC565580
   @Automated
   @Functional
@@ -36,4 +27,13 @@ Feature: US1077928 - Transaction Status Microservice
     When The status is queried
     And A given transaction id is found
     Then Then transaction status is returned
+
+  @TC565579
+  @Automated
+  @Functional
+  Scenario: TC565579 - [RL0]
+    Given No transaction is open
+    When The status is queried
+    And A given transaction id is not found
+    Then A not found error is returned
 

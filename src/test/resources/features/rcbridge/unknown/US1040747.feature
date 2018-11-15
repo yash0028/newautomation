@@ -8,14 +8,6 @@
 @iterationUnknown
 Feature: US1040747 - View Contract Summary to view Escalator Details
 
-  @TC564878
-  @Automated
-  @Functional
-  Scenario: TC564878 - [RL0]
-    Given a contract with an escalator
-    When I view the Contract Summary
-    Then I see Rate Escalator Summary
-
   @TC564879
   @Automated
   @Functional
@@ -27,4 +19,12 @@ Feature: US1040747 - View Contract Summary to view Escalator Details
     And I see the Inpatient Escalator Percent
     And I see the Outpatient Escalator Percent
     And I see Cumulative or non-cumulative
+
+  @TC564878
+  @Automated
+  @Functional
+  Scenario: TC564878 - [RL0]
+    Given a contract with an escalator
+    When I view the Contract Summary
+    Then I see Rate Escalator Summary
 

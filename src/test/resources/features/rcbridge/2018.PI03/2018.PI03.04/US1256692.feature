@@ -12,16 +12,6 @@
 @iterationPast
 Feature: US1256692 - [Continued] Store history and audit metadata
 
-  @TC556665
-  @Manual
-  @Functional
-  @kumar,_Sachin
-  @Alex_M
-  Scenario: TC556665 - Validate the history of taxonomy file
-    Given previous file versions exist
-    When an authorized user accesses the screen UI
-    Then the previous versions are view-able by the user
-
   @TC615401
   @Manual
   @Functional
@@ -48,6 +38,16 @@ Feature: US1256692 - [Continued] Store history and audit metadata
   @kumar,_Sachin
   @Alex_M
   Scenario: TC556671 - Validate the history of taxonomy file failure
+    Given previous file versions exist
+    When an authorized user accesses the screen UI
+    Then the previous versions are view-able by the user
+
+  @TC556665
+  @Manual
+  @Functional
+  @kumar,_Sachin
+  @Alex_M
+  Scenario: TC556665 - Validate the history of taxonomy file
     Given previous file versions exist
     When an authorized user accesses the screen UI
     Then the previous versions are view-able by the user

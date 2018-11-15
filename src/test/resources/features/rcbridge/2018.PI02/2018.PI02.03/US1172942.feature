@@ -21,22 +21,22 @@ Feature: US1172942 - [Unfinished] Benchmarking & Acceptance Testing
     Then I will see the latency of the response,
     And I will see how the consumer micro service performs.
 
-  @TC605434
-  @Manual
-  @Functional
-  @CLM_UAT
-  Scenario: TC605434 - [RL0]
-    Given the transaction state micro service is created,
-    When I send a payload to the micro service,
-    Then I will see the latency of the response,
-    And I will see how the consumer micro service performs.
-
   @TC605435
   @Manual
   @Functional
   @CLM_UAT
   Scenario: TC605435 - [RL1]
     Given the transaction coordinator micro service is created,
+    When I send a payload to the micro service,
+    Then I will see the latency of the response,
+    And I will see how the consumer micro service performs.
+
+  @TC605434
+  @Manual
+  @Functional
+  @CLM_UAT
+  Scenario: TC605434 - [RL0]
+    Given the transaction state micro service is created,
     When I send a payload to the micro service,
     Then I will see the latency of the response,
     And I will see how the consumer micro service performs.

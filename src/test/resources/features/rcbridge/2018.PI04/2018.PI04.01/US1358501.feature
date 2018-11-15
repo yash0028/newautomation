@@ -10,17 +10,6 @@
 @iterationPast
 Feature: US1358501 - [Unfinished] Contract Master Override work objects audits database schema
 
-  @TC597168
-  @Manual
-  @Functional
-  Scenario: TC597168 - [RL1]
-    # Scenario 2 (contract master error has been resolved- multiple contract masters)
-    Given A business contractor is reviewing a contract master error
-    When They have overridden the contract master
-    And They have selected one contract master that was displayed on the screen
-    Then Record the contract master information the business user entered
-    And Update the transaction ID with the date/timestamp the resolution was made.
-
   @TC597171
   @Manual
   @Functional
@@ -31,17 +20,6 @@ Feature: US1358501 - [Unfinished] Contract Master Override work objects audits d
     And They have clicked the proceed with reassignment button
     Then Record the transaction ID with the reassignment MPIN, IPA, address sequence number the user entered
     And Record the transaction ID with date/time stamp the resolution was made
-
-  @TC597167
-  @Manual
-  @Functional
-  Scenario: TC597167 - [RL0]
-    # Scenario 1 (contract master error has been resolved- No contract master found error)
-    Given A business contractor is reviewing a contract master error
-    When They overridden the contract master
-    And They have clicked the proceed with installation button
-    Then record the contract master information the business user entered
-    And Update the transaction ID with the date/timestamp the resolution was made.
 
   @TC597170
   @Manual
@@ -63,5 +41,27 @@ Feature: US1358501 - [Unfinished] Contract Master Override work objects audits d
     When They have overridden the contract master
     And They have manually entered in a contractor master ID
     Then Record the contract master information the business user entered
+    And Update the transaction ID with the date/timestamp the resolution was made.
+
+  @TC597168
+  @Manual
+  @Functional
+  Scenario: TC597168 - [RL1]
+    # Scenario 2 (contract master error has been resolved- multiple contract masters)
+    Given A business contractor is reviewing a contract master error
+    When They have overridden the contract master
+    And They have selected one contract master that was displayed on the screen
+    Then Record the contract master information the business user entered
+    And Update the transaction ID with the date/timestamp the resolution was made.
+
+  @TC597167
+  @Manual
+  @Functional
+  Scenario: TC597167 - [RL0]
+    # Scenario 1 (contract master error has been resolved- No contract master found error)
+    Given A business contractor is reviewing a contract master error
+    When They overridden the contract master
+    And They have clicked the proceed with installation button
+    Then record the contract master information the business user entered
     And Update the transaction ID with the date/timestamp the resolution was made.
 

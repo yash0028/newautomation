@@ -11,6 +11,14 @@
 @iterationPast
 Feature: US1059062 - [Continued]Common Pricing Solution - COSMOS Payload - Add Contract
 
+  @TC562745
+  @Manual
+  @Functional
+  Scenario: TC562745 - [RL1] Validate add contract with incorrect data
+    Given the COSMOS CPS payload is built with incorrect data
+    When the PPC Contract loads to COSMOS for CPS
+    Then the CPS Contract will fail to load to COSMOS
+
   @TC562744
   @Manual
   @Functional
@@ -26,14 +34,6 @@ Feature: US1059062 - [Continued]Common Pricing Solution - COSMOS Payload - Add C
   @Manual
   @Acceptance
   Scenario: TC584915 - TC-02_Validate COSMOS CPS payload with the incorrect data.
-    Given the COSMOS CPS payload is built with incorrect data
-    When the PPC Contract loads to COSMOS for CPS
-    Then the CPS Contract will fail to load to COSMOS
-
-  @TC562745
-  @Manual
-  @Functional
-  Scenario: TC562745 - [RL1] Validate add contract with incorrect data
     Given the COSMOS CPS payload is built with incorrect data
     When the PPC Contract loads to COSMOS for CPS
     Then the CPS Contract will fail to load to COSMOS

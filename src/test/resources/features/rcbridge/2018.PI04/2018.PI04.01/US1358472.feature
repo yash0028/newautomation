@@ -11,25 +11,6 @@
 @iterationPast
 Feature: US1358472 - [Unfinished] CMD- User Input Required Page- View & Edit contract detail information (no search results found)
 
-  @TC597144
-  @Manual
-  @Functional
-  @A_UI_Story
-  Scenario: TC597144 - [RL0]
-    # Scenario 1 (View contract master detail info- No results with message)
-    Given I am on the CMD Action required page
-    When I have clicked the down arrow on a contract summary row
-    And No contract results were found for the contract summary row
-    Then I am presented with a message. "No contract masters were found based on the below search parameters. In order to complete this contract installation, please enter applicable information in the fields listed below.
-    And I can see the input parameters below the message
-      | Market Number |
-      | Fee Schedule  |
-      | Product Group |
-    #Search parameters
-    #Market Number: XXXXXXXXXX
-    #Fee Schedule: XXXXXXXXXX
-    #Product Group: XX, XX, XX
-
   @TC597145
   @Manual
   @Functional
@@ -63,4 +44,23 @@ Feature: US1358472 - [Unfinished] CMD- User Input Required Page- View & Edit con
     # DIV (required if COSMOS is selected)
     # Panel (required if COSMOS is selected
     # Search for contract master button (button is not active until all required fields are entered)
+
+  @TC597144
+  @Manual
+  @Functional
+  @A_UI_Story
+  Scenario: TC597144 - [RL0]
+    # Scenario 1 (View contract master detail info- No results with message)
+    Given I am on the CMD Action required page
+    When I have clicked the down arrow on a contract summary row
+    And No contract results were found for the contract summary row
+    Then I am presented with a message. "No contract masters were found based on the below search parameters. In order to complete this contract installation, please enter applicable information in the fields listed below.
+    And I can see the input parameters below the message
+      | Market Number |
+      | Fee Schedule  |
+      | Product Group |
+    #Search parameters
+    #Market Number: XXXXXXXXXX
+    #Fee Schedule: XXXXXXXXXX
+    #Product Group: XX, XX, XX
 
