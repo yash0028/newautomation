@@ -166,19 +166,19 @@ public class CMDSteps implements IRestStep, IUiStep {
     @Then("^On the In Progress button display the number of In Progress requests returned from the search$")
     public void verifyInProgressCountGreaterThan0() {
         int transCountApp = cmdPage.getTransactionsCount("in-progress");
-        Assert.assertTrue("Transaction count doesn't match", transCountApp == getTransactionsCountService("in-progress"));
+        Assert.assertTrue("Transaction count doesn't match", transCountApp == getTransactionsCountService("PENDING"));
     }
 
     @Then("^On the Action Required button display the number of Action Required requests returned from the search$")
     public void verifyActionRequiredCountGreaterThan0() {
         int transCountApp = cmdPage.getTransactionsCount("action required");
-        Assert.assertTrue("Transaction count doesn't match", transCountApp == getTransactionsCountService("action required"));
+        Assert.assertTrue("Transaction count doesn't match", transCountApp == getTransactionsCountService("MANUAL_INPUT"));
     }
 
     @Then("^On the Error button display the number of Error requests returned from the search$")
     public void verifyErrorCountGreaterThan0() {
         int transCountApp = cmdPage.getTransactionsCount("errors");
-        Assert.assertTrue("Transaction count doesn't match", transCountApp == getTransactionsCountService("FAILED"));
+        Assert.assertTrue("Transaction count doesn't match", transCountApp == (getTransactionsCountService("FAILED") + getTransactionsCountService("PARTIAL_SUCCESS")));
     }
 
     public Integer getTransactionsCountService(String transactionStatus){
