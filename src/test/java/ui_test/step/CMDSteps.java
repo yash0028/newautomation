@@ -24,8 +24,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class CMDSteps implements IRestStep, IUiStep {
-    private final static String ENDPOINT = "https://transaction-status-clm-test.ocp-ctc-dmz-nonprod.optum.com";
+    private final static String ENDPOINT_TRANSACTION = "https://transaction-status-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private final static String RESOURCE_CONTRACT_SUMMARIES = "/v1.0/transactions/tx/counts-contract";
+    private final static String ENDPOINT_ACTIONREQUIRED = "https://fallout-service-clm-test.ocp-ctc-dmz-nonprod.optum.com";
+    private final static String RESOURCE_OPENCOUNT = "/v1.0/workobjects/open-count";
     private final static String CMD_DASHBOARD_URL = "https://contractmanagement-test.optum.com";
     private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
     private CMDPage cmdPage = null;
@@ -147,7 +149,8 @@ public class CMDSteps implements IRestStep, IUiStep {
 
     @Then("^On the Action Required Button button display 0 In Progress$")
     public void verifyActionRequiredCountEqualTo0() {
-        Assert.assertTrue("Transaction count doesn't match", 0 == getTransactionsCountService("action required"));
+        Response response = RestAssured.given().baseUri(ENDPOINT_ACTIONREQUIRED).get(RESOURCE_OPENCOUNT);
+        Assert.assertTrue("Transaction count doesn't match", 0 == parseJsonElementResponse(response).getAsJsonObject().get("count").getAsInt());
     }
 
     @Then("^On the Failed button display 0 Errors$")
@@ -158,8 +161,6 @@ public class CMDSteps implements IRestStep, IUiStep {
     @Then("^On the Completed button display the number of completed requests returned from the search$")
     public void verifyCompletedCountGreaterThan0() {
         int transCountApp = cmdPage.getTransactionsCount("completed");
-
-        System.out.println(getTransactionsCountService("SUCCESS"));
         Assert.assertTrue("Transaction count doesn't match", transCountApp == getTransactionsCountService("SUCCESS"));
     }
 
@@ -172,7 +173,8 @@ public class CMDSteps implements IRestStep, IUiStep {
     @Then("^On the Action Required button display the number of Action Required requests returned from the search$")
     public void verifyActionRequiredCountGreaterThan0() {
         int transCountApp = cmdPage.getTransactionsCount("action required");
-        Assert.assertTrue("Transaction count doesn't match", transCountApp == getTransactionsCountService("MANUAL_INPUT"));
+        Response response = RestAssured.given().baseUri(ENDPOINT_ACTIONREQUIRED).get(RESOURCE_OPENCOUNT);
+        Assert.assertTrue("Transaction count doesn't match", transCountApp == parseJsonElementResponse(response).getAsJsonObject().get("count").getAsInt());
     }
 
     @Then("^On the Error button display the number of Error requests returned from the search$")
@@ -181,13 +183,13 @@ public class CMDSteps implements IRestStep, IUiStep {
         Assert.assertTrue("Transaction count doesn't match", transCountApp == (getTransactionsCountService("FAILED") + getTransactionsCountService("PARTIAL_SUCCESS")));
     }
 
-    public Integer getTransactionsCountService(String transactionStatus){
-        Response response = RestAssured.given().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_SUMMARIES);
+    public int getTransactionsCountService(String transactionStatus){
+        Response response = RestAssured.given().baseUri(ENDPOINT_TRANSACTION).get(RESOURCE_CONTRACT_SUMMARIES);
         JsonArray jsonArray = parseJsonElementResponse(response).getAsJsonArray();
         for(JsonElement element : jsonArray) {
             if (element.getAsJsonObject().get("result").getAsString().equalsIgnoreCase(transactionStatus))
                 return element.getAsJsonObject().get("count").getAsInt();
         }
-        return null;
+        return 0;
     }
 }
