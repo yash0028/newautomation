@@ -95,17 +95,14 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   Scenario Outline: TC636091 - [RL1] update work object item contract master
     # Scenario Outline: update work object item contract master
     When I send the following payload to update contract master work object
-      | contractMasterEffectiveDate   | <contractMasterEffectiveDate> |
-      | contractMasterName            | asdf                          |
-      | contractMasterNumber          | asdf                          |
-      | contractSystem                | asdf                          |
-      | id                            | 1234                          |
-      | selectedContractMaster        | 1234                          |
-      | usage                         | asdf                          |
+      | id                       | <id>                     |
+      | selectedContractMaster   | <selectedContractMaster> |
+      | usage                    | <usage>                  |
     Then the contract master is updated
     Examples:
-      | contractMasterEffectiveDate |
-      | 10/10/2018                  |
+      | id                     | selectedContractMaster | usage                  |
+      | 1639                   | 1749076                | OVERRIDE_ALWAYS        |
+      | 1639                   | 1641                   | OVERRIDE_ALWAYS        |
 
   @TC605561
   @Automated
