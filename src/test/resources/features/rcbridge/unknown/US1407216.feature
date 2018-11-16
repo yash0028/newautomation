@@ -28,4 +28,5 @@ Feature: US1407216 - Author SPA Contact UI Path
       | northeast uhn | 1628713       | 510613164     | 45592         |
       | southeast uhn | 1628713       | 510613164     | 23503         |
       | west uhn      | 1628713       | 510613164     | 36555         |
+      | west uhn      | 1169005       | 510613164     | 36555         |
 

@@ -2,14 +2,14 @@
 @Contract_Rules
 @US1439048
 @2018.PI04
-@2018.PI04.04
+@2018.PI04.05
 @MVP
 @10/1_Physician
 @Priority_1
 @kumar,_Sachin
 @CMD
 @releasePresent
-@iterationPast
+@iterationPresent
 Feature: US1439048 - HERITAGE PRODUCT SILENT INCLUSION correction
 
   @TC644181
