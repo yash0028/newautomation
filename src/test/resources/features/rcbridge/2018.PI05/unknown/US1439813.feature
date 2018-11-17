@@ -1,9 +1,10 @@
 # Last updated on 
 @US1439813
+@2018.PI05
 @MVP
 @PI04
 @Plus
-@releaseUnknown
+@releaseFuture
 @iterationUnknown
 Feature: US1439813 - Integration - Obtain Fee Schedule Information
 

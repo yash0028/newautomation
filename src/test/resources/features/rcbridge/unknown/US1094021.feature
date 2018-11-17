@@ -1,6 +1,5 @@
 # Last updated on 
 @US1094021
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1094021 - Capture Inactivate and Void Time Lining History

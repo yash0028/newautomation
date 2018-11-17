@@ -1,6 +1,5 @@
 # Last updated on 
 @US950012
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US950012 - Void Identifier

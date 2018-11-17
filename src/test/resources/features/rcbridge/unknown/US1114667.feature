@@ -1,9 +1,7 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @EXARI-11696
 @US1114667
-@MVP
 @Plus
 @Priority_1
 @releaseUnknown
@@ -13,7 +11,6 @@ Feature: US1114667 - Child Entity Relationships
   @TC564547
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   @EXARI-11696
   Scenario: TC564547 - [RL0]

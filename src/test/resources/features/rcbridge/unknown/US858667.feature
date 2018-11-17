@@ -8,7 +8,7 @@
 @Priority_1
 @releaseUnknown
 @iterationUnknown
-Feature: US858667 - Remove Entity Relationship
+Feature: US858667 - Expire Relationship
 
   @TC564583
   @Automated
@@ -19,5 +19,6 @@ Feature: US858667 - Remove Entity Relationship
   Scenario: TC564583 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to end a relationship between two Entities
-    Then I can remove the relationship between two Entities
+    Then I can enter an expiration date on which to end the relationship
+    And the relationship expiration date is stored on each Entity that was in the relationship
 

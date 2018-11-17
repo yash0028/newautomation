@@ -1,6 +1,5 @@
 # Last updated on 
 @US1098134
-@Non_MVP
 @releaseUnknown
 @iterationUnknown
 Feature: US1098134 - Establish Update and Maintenance Process

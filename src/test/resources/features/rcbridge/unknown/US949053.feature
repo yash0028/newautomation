@@ -3,6 +3,7 @@
 @CLM_UAT
 @EXARI-11274
 @US949053
+@MVP
 @releaseUnknown
 @iterationUnknown
 Feature: US949053 - Check for Duplicate Name

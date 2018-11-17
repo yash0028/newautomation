@@ -1,5 +1,7 @@
 # Last updated on 
+@MVP
 @US1374510
+@MVP
 @Priority_1
 @releaseUnknown
 @iterationUnknown
@@ -8,6 +10,7 @@ Feature: US1374510 - Synchronize Deactivated MPIN
   @TC605567
   @Manual
   @Functional
+  @MVP
   Scenario: TC605567 - [RL0]
     Given I am the Entity Management Solution
     When an MPIN is deactivated from a Provider in a Legacy Application

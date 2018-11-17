@@ -1,6 +1,5 @@
 # Last updated on 
 @US1226817
-@MVP
 @Plus
 @Priority_1
 @releaseUnknown

@@ -1,6 +1,5 @@
 # Last updated on 
 @US1098232
-@Non_MVP
 @releaseUnknown
 @iterationUnknown
 Feature: US1098232 - Migrate MPIN/TIN/DLGT CD Data
