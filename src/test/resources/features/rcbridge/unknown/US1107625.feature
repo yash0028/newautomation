@@ -1,5 +1,4 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @US1107625
 @releaseUnknown
@@ -9,7 +8,6 @@ Feature: US1107625 - Associate Interview Contract ID to Provider
   @TC564798
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   Scenario: TC564798 - [RL0]
     Given I am the Entity Management Solution

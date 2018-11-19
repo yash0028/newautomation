@@ -1,11 +1,7 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @EXARI-11696
 @US858666
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858666 - Update Entity Relationship
@@ -13,7 +9,6 @@ Feature: US858666 - Update Entity Relationship
   @TC564502
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   @EXARI-11696
   Scenario: TC564502 - [RL0]

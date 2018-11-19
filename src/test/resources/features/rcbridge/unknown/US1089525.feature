@@ -1,6 +1,8 @@
 # Last updated on 
+@MVP
 @EXARI-11274
 @US1089525
+@MVP
 @releaseUnknown
 @iterationUnknown
 Feature: US1089525 - Check for Duplicates - Updated Entity Identifier
@@ -8,6 +10,7 @@ Feature: US1089525 - Check for Duplicates - Updated Entity Identifier
   @TC565425
   @Automated
   @Functional
+  @MVP
   @EXARI-11274
   Scenario: TC565425 - [RL0]
     Given I am the Entity Management Solution

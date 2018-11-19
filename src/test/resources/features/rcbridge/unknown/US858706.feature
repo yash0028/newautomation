@@ -1,5 +1,4 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @US858706
 @releaseUnknown
@@ -9,7 +8,6 @@ Feature: US858706 - View Business Rule Time Lining History
   @TC565850
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   Scenario: TC565850 - [RL0]
     Given I am a User with access to view and maintain Entity information

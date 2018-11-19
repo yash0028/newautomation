@@ -1,7 +1,6 @@
 # Last updated on 
 @US861079
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US861079 - Update and Validate Entity Data

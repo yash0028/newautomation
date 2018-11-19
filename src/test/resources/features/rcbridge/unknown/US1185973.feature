@@ -1,8 +1,5 @@
 # Last updated on 
 @US1185973
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1185973 - Select Characteristic Type

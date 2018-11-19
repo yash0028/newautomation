@@ -1,6 +1,8 @@
 # Last updated on 
+@MVP
 @EXARI-11274
 @US1089625
+@MVP
 @releaseUnknown
 @iterationUnknown
 Feature: US1089625 - Perform Duplicate Check - Add Identifier
@@ -8,6 +10,7 @@ Feature: US1089625 - Perform Duplicate Check - Add Identifier
   @TC565596
   @Automated
   @Functional
+  @MVP
   @EXARI-11274
   Scenario: TC565596 - [RL0]
     Given I am the Entity Management Solution

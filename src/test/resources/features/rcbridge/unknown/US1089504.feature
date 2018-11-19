@@ -1,11 +1,7 @@
 # Last updated on 
-@MVP
 @EXARI-11267
 @CLM_UAT
 @US1089504
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1089504 - Update Identifier
@@ -13,7 +9,6 @@ Feature: US1089504 - Update Identifier
   @TC564404
   @Automated
   @Functional
-  @MVP
   @EXARI-11267
   @CLM_UAT
   Scenario: TC564404 - [RL0]

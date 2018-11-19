@@ -1,5 +1,7 @@
 # Last updated on 
+@MVP
 @US1374513
+@MVP
 @Priority_1
 @releaseUnknown
 @iterationUnknown
@@ -8,6 +10,7 @@ Feature: US1374513 - Synchronize Updated TIN
   @TC605563
   @Manual
   @Functional
+  @MVP
   Scenario: TC605563 - [RL0]
     Given I am the Entity Management Solution
     When a TIN is updated in a Legacy Application

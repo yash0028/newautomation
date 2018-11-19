@@ -1,10 +1,6 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @US1185970
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1185970 - Select Relationship Type
@@ -12,7 +8,6 @@ Feature: US1185970 - Select Relationship Type
   @TC565271
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   Scenario: TC565271 - [RL0]
     Given I am a User with access to maintain Entity information

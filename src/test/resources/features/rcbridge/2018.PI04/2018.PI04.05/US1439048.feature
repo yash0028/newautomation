@@ -16,11 +16,15 @@ Feature: US1439048 - HERITAGE PRODUCT SILENT INCLUSION correction
   @Manual
   @Functional
   @Contract_Rules
-  Scenario: TC644181 - [RL1]
+  Scenario Outline: TC644181 - [RL1]
     Given "uhgSite" contains "<site>"
     And "marketNumber" = "03413"
     When "productServicesExcluded" does contain the word "Heritage"
-    Then "marketProductGroups" silent inclusion criteria has NOT been met for ""| HRTG CHOICE RV | HRTG OPTIONS RV |"
+    Then "marketProductGroups" silent inclusion criteria has NOT been met for "<marketProductGroups>"
+    Examples:
+      | marketProductGroups |
+      | HRTG CHOICE RV      |
+      | HRTG OPTIONS RV     |
 
   @TC644179
   @Manual
@@ -30,8 +34,9 @@ Feature: US1439048 - HERITAGE PRODUCT SILENT INCLUSION correction
     Given "uhgSite" contains "<site>"
     And "marketNumber" = "03413"
     When "productServicesExcluded" does NOT contain the word "Heritage"
-    Then "marketProductGroups" silent inclusion criteria has been met for "| HRTG CHOICE RV | HRTG OPTIONS RV |"
+    Then "marketProductGroups" silent inclusion criteria has been met for "<marketProductGroups>"
     Examples:
-      | HRTG CHOICE RV  |
-      | HRTG OPTIONS RV |
+      | marketProductGroups |
+      | HRTG CHOICE RV      |
+      | HRTG OPTIONS RV     |
 
