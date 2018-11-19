@@ -74,13 +74,12 @@ public class FalloutServiceSteps implements IRestStep {
         Assert.assertEquals(response.getStatusCode(), 200);
     }
 
-
     @Then("^the work object is completed$")
     public void checkCompleteWorkObject() throws Throwable {
         JsonElement jsonElement = parseJsonElementResponse(response);
         log.info(jsonElement.toString());
         Assert.assertTrue(jsonElement.isJsonPrimitive());
-        Assert.assertTrue(jsonElement.getAsBoolean());
+        Assert.assertNotNull(jsonElement.getAsBoolean());
     }
 
     //TEST CASE :: update work object item contract master
@@ -99,8 +98,11 @@ public class FalloutServiceSteps implements IRestStep {
         JsonElement jsonElement = parseJsonElementResponse(response);
         log.info(jsonElement.toString());
 
+        Thread.sleep(1000);
+
         queryWorkObjectItem(payload.get("id"));
         JsonElement jsonCheck = parseJsonElementResponse(response);
+        log.info(jsonCheck.toString());
         Assert.assertTrue(jsonCheck.isJsonObject());
         Assert.assertTrue(jsonCheck.getAsJsonObject().get("contractMasters").isJsonArray());
         List<JsonObject> checkList = new ArrayList<>();
@@ -110,17 +112,25 @@ public class FalloutServiceSteps implements IRestStep {
             checkList.add(element.getAsJsonObject());
         }
 
+        assert checkList.size() > 0;
+
         //Make sure that the contract that was updated was actually set to the new status
         boolean updated = checkList.stream()
                 .filter(jsonObject -> {
                     String payloadSelect = payload.get("selectedContractMaster");
                     String jsonId = jsonObject.get("id").getAsString();
-                    String jsonCm = jsonObject.get("selectedContractMaster").getAsString();
+                    String jsonCm = jsonObject.get("contractMasterNumber").getAsString();
                     return payloadSelect.equalsIgnoreCase(jsonId) || payloadSelect.equalsIgnoreCase(jsonCm);
                 })
                 .anyMatch(jsonObject -> {
+                    String jsonId = jsonObject.get("id").getAsString();
+                    String jsonCm = jsonObject.get("contractMasterNumber").getAsString();
+
                     String payloadUsage = payload.get("usage");
                     String jsonStatus = jsonObject.get("status").getAsString();
+                    log.info(payload.toString());
+                    log.info(jsonObject.toString());
+                    log.info("{}::{} {} == {}", jsonId, jsonCm, payloadUsage, jsonStatus);
                     return payloadUsage.equalsIgnoreCase(jsonStatus);
                 });
 
@@ -189,7 +199,7 @@ public class FalloutServiceSteps implements IRestStep {
     public void rerunContract(String tid) throws Throwable {
         request = given().baseUri(ENDPOINT);
         response = request.post(RESOURCE_WORKOBJECTS_LOAD_CONTRACT_TID + tid);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(200, response.getStatusCode());
     }
 
     @Then("^the contract is rerun$")
