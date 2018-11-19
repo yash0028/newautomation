@@ -1,6 +1,7 @@
 package rest_api_test.step;
 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
@@ -11,6 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -35,6 +38,7 @@ public class FalloutServiceSteps implements IRestStep {
 
     private RequestSpecification request;
     private Response response;
+    private Map<String, String> payload;
 
     //US1374416 - CMD - Create fallout-service REST endpoints for Contract Management Dashboard
 
@@ -70,31 +74,67 @@ public class FalloutServiceSteps implements IRestStep {
         Assert.assertEquals(response.getStatusCode(), 200);
     }
 
-
     @Then("^the work object is completed$")
     public void checkCompleteWorkObject() throws Throwable {
         JsonElement jsonElement = parseJsonElementResponse(response);
         log.info(jsonElement.toString());
         Assert.assertTrue(jsonElement.isJsonPrimitive());
-        Assert.assertTrue(jsonElement.getAsBoolean());
+        Assert.assertNotNull(jsonElement.getAsBoolean());
     }
 
     //TEST CASE :: update work object item contract master
 
     @When("^I send the following payload to update contract master work object$")
     public void updateWorkObject(DataTable dataTable) throws Throwable {
-        Map<String, String> payload = dataTable.asMap(String.class, String.class);
+        payload = dataTable.asMap(String.class, String.class);
 
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-        response = request.get(RESOURCE_WORKOBJECTS_ITEMS_CONTRACT_MASTER);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        response = request.put(RESOURCE_WORKOBJECTS_ITEMS_CONTRACT_MASTER);
+        Assert.assertEquals(200, response.getStatusCode());
     }
 
     @Then("^the contract master is updated$")
     public void verifyContractMasterUpdate() throws Throwable {
-        //TODO
-        log.error("TODO");
-        assert false;
+        JsonElement jsonElement = parseJsonElementResponse(response);
+        log.info(jsonElement.toString());
+
+        Thread.sleep(1000);
+
+        queryWorkObjectItem(payload.get("id"));
+        JsonElement jsonCheck = parseJsonElementResponse(response);
+        log.info(jsonCheck.toString());
+        Assert.assertTrue(jsonCheck.isJsonObject());
+        Assert.assertTrue(jsonCheck.getAsJsonObject().get("contractMasters").isJsonArray());
+        List<JsonObject> checkList = new ArrayList<>();
+
+        for (JsonElement element : jsonCheck.getAsJsonObject().get("contractMasters").getAsJsonArray()) {
+            Assert.assertTrue(element.isJsonObject());
+            checkList.add(element.getAsJsonObject());
+        }
+
+        assert checkList.size() > 0;
+
+        //Make sure that the contract that was updated was actually set to the new status
+        boolean updated = checkList.stream()
+                .filter(jsonObject -> {
+                    String payloadSelect = payload.get("selectedContractMaster");
+                    String jsonId = jsonObject.get("id").getAsString();
+                    String jsonCm = jsonObject.get("contractMasterNumber").getAsString();
+                    return payloadSelect.equalsIgnoreCase(jsonId) || payloadSelect.equalsIgnoreCase(jsonCm);
+                })
+                .anyMatch(jsonObject -> {
+                    String jsonId = jsonObject.get("id").getAsString();
+                    String jsonCm = jsonObject.get("contractMasterNumber").getAsString();
+
+                    String payloadUsage = payload.get("usage");
+                    String jsonStatus = jsonObject.get("status").getAsString();
+                    log.info(payload.toString());
+                    log.info(jsonObject.toString());
+                    log.info("{}::{} {} == {}", jsonId, jsonCm, payloadUsage, jsonStatus);
+                    return payloadUsage.equalsIgnoreCase(jsonStatus);
+                });
+
+        Assert.assertTrue(updated);
     }
 
     //TEST CASE :: query product group list by transaction id
@@ -120,21 +160,21 @@ public class FalloutServiceSteps implements IRestStep {
         Map<String, String> payload = dataTable.asMap(String.class, String.class);
 
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-        response = request.get(RESOURCE_WORKOBJECTS_ITEMS_READY);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        response = request.put(RESOURCE_WORKOBJECTS_ITEMS_READY);
+        Assert.assertEquals(200, response.getStatusCode());
     }
 
     @Then("^the work object is ready$")
     public void theWorkObjectIsReady() throws Throwable {
-        //TODO
-        log.error("TODO");
-        assert false;
+        JsonElement jsonElement = parseJsonElementResponse(response);
+        log.info(jsonElement.toString());
+        Assert.assertTrue(jsonElement.isJsonNull());
     }
 
     //TEST CASE :: query work object item
 
     @When("^I send the id \"([^\"]*)\" to the work object items endpoint$")
-    public void rerunWorkObject(String id) throws Throwable {
+    public void queryWorkObjectItem(String id) throws Throwable {
         request = given().baseUri(ENDPOINT);
         response = request.get(RESOURCE_WORKOBJECTS_ITEMS_ID + id);
         Assert.assertEquals(response.getStatusCode(), 200);
@@ -144,7 +184,13 @@ public class FalloutServiceSteps implements IRestStep {
     public void theResponseIncludesValidContractData() throws Throwable {
         JsonElement jsonElement = parseJsonElementResponse(response);
         log.info(jsonElement.toString());
-        Assert.assertTrue(jsonElement.isJsonPrimitive());
+        Assert.assertTrue(jsonElement.isJsonObject());
+
+        JsonObject jsonObject = jsonElement.getAsJsonObject();
+        Assert.assertTrue(jsonObject.has("id"));
+        Assert.assertTrue(jsonObject.has("status"));
+        Assert.assertTrue(jsonObject.has("type"));
+        Assert.assertTrue(jsonObject.has("feeSchedule"));
     }
 
     //TEST CASE :: rerun work object
@@ -153,14 +199,13 @@ public class FalloutServiceSteps implements IRestStep {
     public void rerunContract(String tid) throws Throwable {
         request = given().baseUri(ENDPOINT);
         response = request.post(RESOURCE_WORKOBJECTS_LOAD_CONTRACT_TID + tid);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(200, response.getStatusCode());
     }
 
     @Then("^the contract is rerun$")
     public void verifyContractRerun() throws Throwable {
         JsonElement jsonElement = parseJsonElementResponse(response);
         log.info(jsonElement.toString());
-        Assert.assertTrue(jsonElement.isJsonPrimitive());
     }
 
     //TEST CASE :: query work object count
@@ -186,14 +231,14 @@ public class FalloutServiceSteps implements IRestStep {
     @When("^I send the transaction id \"([^\"]*)\" to the ready work object endpoint$")
     public void iSendTheTransactionIdToTheReadyWorkObjectEndpoint(String tid) throws Throwable {
         request = given().baseUri(ENDPOINT);
-        response = request.post(RESOURCE_WORKOBJECTS_READ_TID + tid);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        response = request.get(RESOURCE_WORKOBJECTS_READ_TID + tid);
+        Assert.assertEquals(200, response.getStatusCode());
     }
 
     @Then("^the response includes the ready status of the work object$")
     public void theResponseIncludesTheReadyStatusOfTheWorkObject() throws Throwable {
         JsonElement jsonElement = parseJsonElementResponse(response);
         log.info(jsonElement.toString());
-        Assert.assertTrue(jsonElement.isJsonObject());
+        Assert.assertFalse(jsonElement.isJsonObject());
     }
 }

@@ -46,9 +46,9 @@ Feature: US1185585 - Contract Product Description Crosswalk
     When exchanging information about the products included or excluded from an Exari contract
     Then the crosswalk provides the product code identifiers of "<productCodeList1>" and "<productCodeList2>"
     Examples:
-      | productDescriptionId1 | productCodeList1      | productDescriptionId2 | productCodeList2      |
-      | 2000290               | S0 S1 S2              | 2000300               | C0 C1 C2 P3 S0 S1 S2  |
-      | 2000430               | DA                    | 2000500               | 009 531               |
+      | productDescriptionId1 | productCodeList1 | productDescriptionId2 | productCodeList2     |
+      | 2000290               | S0 S1 S2         | 2000300               | C0 C1 C2 P3 S0 S1 S2 |
+      | 2000430               | DA               | 2000500               | 009 531              |
 
   @TC575412
   @Automated

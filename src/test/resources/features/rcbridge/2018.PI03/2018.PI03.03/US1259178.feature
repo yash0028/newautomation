@@ -87,9 +87,9 @@ Feature: US1259178 - Taxonomy Grid table microservice
     And the user provides the optional value <optionalValue> for <optionalField>
     Then the query response provides the most recent record version attributes data
     Examples:
-      | reqField      | reqValue      | ndbRecValue   | optionalField | optionalValue |
-      | "ndbSpecCD"   | "21"          | "P"           | "ndbOrg"      | "21"          |
-      | "ndbOrg"      | "22"          | "O"           | "ndbSpecCD"   | "22"          |
+      | reqField    | reqValue | ndbRecValue | optionalField | optionalValue |
+      | "ndbSpecCD" | "21"     | "P"         | "ndbOrg"      | "21"          |
+      | "ndbOrg"    | "22"     | "O"         | "ndbSpecCD"   | "22"          |
 
   @TC565558
   @Automated

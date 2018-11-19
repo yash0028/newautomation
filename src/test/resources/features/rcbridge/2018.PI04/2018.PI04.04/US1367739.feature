@@ -23,31 +23,31 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
     Then contract is included in Pilot
     Examples:
       | uhgContractSubtypeHealthcare            | uhgMarketNumber                         |
-      | Practitioner Agreement                  | 13476                                   |
-      | Practitioner Agreement                  | 13477                                   |
-      | Practitioner Agreement                  | 13478                                   |
-      | Practitioner Agreement                  | 13479                                   |
-      | Practitioner Agreement                  | 13634                                   |
-      | Medical Group Agreement                 | 13476                                   |
-      | Medical Group Agreement                 | 13477                                   |
-      | Medical Group Agreement                 | 13478                                   |
-      | Medical Group Agreement                 | 13479                                   |
-      | Medical Group Agreement                 | 13634                                   |
-      | Simplified Physician Agreement          | 13476                                   |
-      | Simplified Physician Agreement          | 13477                                   |
-      | Simplified Physician Agreement          | 13478                                   |
-      | Simplified Physician Agreement          | 13479                                   |
-      | Simplified Physician Agreement          | 13634                                   |
-      | Simplified Practitioner Group Agreement | 13476                                   |
-      | Simplified Practitioner Group Agreement | 13477                                   |
-      | Simplified Practitioner Group Agreement | 13478                                   |
-      | Simplified Practitioner Group Agreement | 13479                                   |
-      | Simplified Practitioner Group Agreement | 13634                                   |
-      | Simplified Medical Group Agreement      | 13476                                   |
-      | Simplified Medical Group Agreement      | 13477                                   |
-      | Simplified Medical Group Agreement      | 13478                                   |
-      | Simplified Medical Group Agreement      | 13479                                   |
-      | Simplified Medical Group Agreement      | 13634                                   |
+      | Practitioner Agreement                  | 13476           |
+      | Practitioner Agreement                  | 13477           |
+      | Practitioner Agreement                  | 13478           |
+      | Practitioner Agreement                  | 13479           |
+      | Practitioner Agreement                  | 13634           |
+      | Medical Group Agreement                 | 13476           |
+      | Medical Group Agreement                 | 13477           |
+      | Medical Group Agreement                 | 13478           |
+      | Medical Group Agreement                 | 13479           |
+      | Medical Group Agreement                 | 13634           |
+      | Simplified Physician Agreement          | 13476           |
+      | Simplified Physician Agreement          | 13477           |
+      | Simplified Physician Agreement          | 13478           |
+      | Simplified Physician Agreement          | 13479           |
+      | Simplified Physician Agreement          | 13634           |
+      | Simplified Practitioner Group Agreement | 13476           |
+      | Simplified Practitioner Group Agreement | 13477           |
+      | Simplified Practitioner Group Agreement | 13478           |
+      | Simplified Practitioner Group Agreement | 13479           |
+      | Simplified Practitioner Group Agreement | 13634           |
+      | Simplified Medical Group Agreement      | 13476           |
+      | Simplified Medical Group Agreement      | 13477           |
+      | Simplified Medical Group Agreement      | 13478           |
+      | Simplified Medical Group Agreement      | 13479           |
+      | Simplified Medical Group Agreement      | 13634           |
 
   @TC600526
   @Automated
@@ -97,11 +97,11 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
     Then contract is included in Pilot
     Examples:
       | uhgContractSubtypeHealthcare            | uhgMarketNumber                         |
-      | Practitioner Agreement                  | 03413                                   |
-      | Medical Group Agreement                 | 03413                                   |
-      | Simplified Physician Agreement          | 03413                                   |
-      | Simplified Practitioner Group Agreement | 03413                                   |
-      | Simplified Medical Group Agreement      | 03413                                   |
+      | Practitioner Agreement                  | 03413           |
+      | Medical Group Agreement                 | 03413           |
+      | Simplified Physician Agreement          | 03413           |
+      | Simplified Practitioner Group Agreement | 03413           |
+      | Simplified Medical Group Agreement      | 03413           |
 
   @TC627486
   @Automated
@@ -114,12 +114,12 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
     Then contract is included in Pilot
     Examples:
     # --These fields are included in both the Exari and UCM contract model. (Note: OCM Model has more elements than the Exari Model)
-      | uhgContractSubtypeHealthcare            | uhgMarketNumber                         |
-      | Practitioner Agreement                  | 36555                                   |
-      | Medical Group Agreement                 | 36555                                   |
-      | Simplified Physician Agreement          | 36555                                   |
-      | Simplified Practitioner Group Agreement | 36555                                   |
-      | Simplified Medical Group Agreement      | 36555                                   |
+      | uhgContractSubtypeHealthcare            | uhgMarketNumber |
+      | Practitioner Agreement                  | 36555           |
+      | Medical Group Agreement                 | 36555           |
+      | Simplified Physician Agreement          | 36555           |
+      | Simplified Practitioner Group Agreement | 36555           |
+      | Simplified Medical Group Agreement      | 36555           |
 
   @TC630781
   @Automated
