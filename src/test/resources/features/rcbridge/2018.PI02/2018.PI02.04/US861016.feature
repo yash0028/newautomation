@@ -16,22 +16,26 @@
 @iterationPast
 Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data Requests To PES - Counter Party lookup
 
-  @TC565515
+  @Functional
+  @TC493888
   @Automated
   @Functional
   @CLM_UAT
   @Provider_Demograhics
   @PES
-  Scenario: TC565515 - [RL1] Validate Facility Fields
-    #for Facility
+  Scenario: TC493888 - Validate correct fields returned
     Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "6177192"
+    When I search for a Counterparty using MPIN of "12345"
     Then PES returns the following information:
-      | facilityName     |
       | address          |
       | mpin             |
       | tin              |
+      | firstName        |
+      | lastName         |
+      | specialties      |
       | providerTypeCode |
+      | phoneNumbers     |
+    #And the system displays results with the best match first (Need to clarify this)
 
   @TC565514
   @Automated
@@ -54,24 +58,20 @@ Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data R
       | phoneNumbers     |
     #And the system displays results with the best match first (Need to clarify this)
 
-  @Functional
-  @TC493888
+  @TC565515
   @Automated
   @Functional
   @CLM_UAT
   @Provider_Demograhics
   @PES
-  Scenario: TC493888 - Validate correct fields returned
+  Scenario: TC565515 - [RL1] Validate Facility Fields
+    #for Facility
     Given I am a User with access to add a Counterparty to an Interview
-    When I search for a Counterparty using MPIN of "12345"
+    When I search for a Counterparty using MPIN of "6177192"
     Then PES returns the following information:
+      | facilityName     |
       | address          |
       | mpin             |
       | tin              |
-      | firstName        |
-      | lastName         |
-      | specialties      |
       | providerTypeCode |
-      | phoneNumbers     |
-    #And the system displays results with the best match first (Need to clarify this)
 

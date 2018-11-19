@@ -4,13 +4,13 @@
 @iterationUnknown
 Feature: US1256688 - Upload Table template
 
-  @TC565165
+  @TC565163
   @Automated
   @Functional
-  Scenario: TC565165 - [RL2]
-    Given an updated table file is ready to be uploaded
-    When an administrator uploads the table file record
-    Then the file successfully loads to the database
+  Scenario: TC565163 - [RL0]
+    Given an update to the table is needed
+    When an administrator accesses the table URL web service
+    Then the web service page is available
 
   @TC565164
   @Automated
@@ -20,11 +20,11 @@ Feature: US1256688 - Upload Table template
     When an administrator has the information ready to record in the table
     Then the table is updated
 
-  @TC565163
+  @TC565165
   @Automated
   @Functional
-  Scenario: TC565163 - [RL0]
-    Given an update to the table is needed
-    When an administrator accesses the table URL web service
-    Then the web service page is available
+  Scenario: TC565165 - [RL2]
+    Given an updated table file is ready to be uploaded
+    When an administrator uploads the table file record
+    Then the file successfully loads to the database
 

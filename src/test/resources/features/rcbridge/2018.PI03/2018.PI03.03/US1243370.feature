@@ -9,11 +9,11 @@
 @iterationPast
 Feature: US1243370 - Contract Class Validation UHC table
 
-  @TC565115
-  @Automated
+  @TC549317
+  @Manual
   @Functional
   @MVP
-  Scenario: TC565115 - [RL0]
+  Scenario: TC549317 - Contract Class Validation UHC table
     Given a contract sub type value exists
     When a contract sub type is selected
     Then the edit table validates the correct sub type was selected
@@ -28,11 +28,11 @@ Feature: US1243370 - Contract Class Validation UHC table
     When a contract sub type is selected
     Then the edit table validates the correct sub type was selected
 
-  @TC549317
-  @Manual
+  @TC565115
+  @Automated
   @Functional
   @MVP
-  Scenario: TC549317 - Contract Class Validation UHC table
+  Scenario: TC565115 - [RL0]
     Given a contract sub type value exists
     When a contract sub type is selected
     Then the edit table validates the correct sub type was selected

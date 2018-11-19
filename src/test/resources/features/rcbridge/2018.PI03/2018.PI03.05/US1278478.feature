@@ -10,17 +10,16 @@
 @iterationPast
 Feature: US1278478 - Publish NDB API contract master null response
 
-  @TC589310
+  @TC565495
   @Automated
   @Functional
-  Scenario: TC589310 - [RL2] Check Multiple Null
-    # Scenario 2 (UNET search with mkt, fee schedule, and multiple product codes
-    Given The NDB contract master look up API was executed with market number, fee schedule, and more than one product code
+  Scenario: TC565495 - [RL0] Check Single Null
+    # Scenario 1A (UNET search with mkt, fee schedule, and a single product code) bad fee schedule
+    Given The NDB contract master look up API was executed with market number, fee schedule, and a single product code
     And the fee schedule "96192222222" & the product code group "1Net" & the product code "P1"
-    And the fee schedule "96192" & the product code group "PPO" & the product code "P5"
     When The API response was successful
     Then The API returned no results
-    And the API returned a return code of "2" and "10"
+    And the API returned a return code of "2"
 
   @TC589269
   @Automated
@@ -33,14 +32,15 @@ Feature: US1278478 - Publish NDB API contract master null response
     Then The API returned no results
     And the API returned a return code of "10"
 
-  @TC565495
+  @TC589310
   @Automated
   @Functional
-  Scenario: TC565495 - [RL0] Check Single Null
-    # Scenario 1A (UNET search with mkt, fee schedule, and a single product code) bad fee schedule
-    Given The NDB contract master look up API was executed with market number, fee schedule, and a single product code
+  Scenario: TC589310 - [RL2] Check Multiple Null
+    # Scenario 2 (UNET search with mkt, fee schedule, and multiple product codes
+    Given The NDB contract master look up API was executed with market number, fee schedule, and more than one product code
     And the fee schedule "96192222222" & the product code group "1Net" & the product code "P1"
+    And the fee schedule "96192" & the product code group "PPO" & the product code "P5"
     When The API response was successful
     Then The API returned no results
-    And the API returned a return code of "2"
+    And the API returned a return code of "2" and "10"
 

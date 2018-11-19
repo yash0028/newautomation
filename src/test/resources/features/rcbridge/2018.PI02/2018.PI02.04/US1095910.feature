@@ -13,14 +13,14 @@
 @iterationPast
 Feature: US1095910 - External Data Query for RFP - Error Handling
 
-  @TC493892
+  @TC493890
   @Manual
   @Functional
   @RFP
-  Scenario: TC493892 - [RL2] System unavailable error validation
+  Scenario: TC493890 - [RL0] Incorrect data input error validation
     Given a user needs to call RFP grid
-    When a RFP catastrophic error occurs
-    Then a RFP service ticket will need to be created.
+    When a user incorrectly inputs RFP data
+    Then the user receives a RFP bad input error message
 
   @TC493891
   @Manual
@@ -31,12 +31,12 @@ Feature: US1095910 - External Data Query for RFP - Error Handling
     When the RFP system goes down
     Then the user receives a RFP system error message
 
-  @TC493890
+  @TC493892
   @Manual
   @Functional
   @RFP
-  Scenario: TC493890 - [RL0] Incorrect data input error validation
+  Scenario: TC493892 - [RL2] System unavailable error validation
     Given a user needs to call RFP grid
-    When a user incorrectly inputs RFP data
-    Then the user receives a RFP bad input error message
+    When a RFP catastrophic error occurs
+    Then a RFP service ticket will need to be created.
 

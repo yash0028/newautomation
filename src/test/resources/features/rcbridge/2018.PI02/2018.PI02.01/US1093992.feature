@@ -15,15 +15,15 @@
 @iterationPast
 Feature: US1093992 - Handle Errors from PES
 
-  @TC565199
+  @TC565197
   @Automated
   @Functional
   @CLM_UAT
   @PES
-  Scenario: TC565199 - [RL2]
+  Scenario: TC565197 - [RL0]
     Given a user needs to call PES
-    When a catastrophic error occurs
-    Then a service ticket will need to be created.
+    When a user incorrectly inputs data
+    Then the user receives a bad input error message
 
   @TC565198
   @Automated
@@ -35,13 +35,13 @@ Feature: US1093992 - Handle Errors from PES
     When the system goes down
     Then the user receives a system error message
 
-  @TC565197
+  @TC565199
   @Automated
   @Functional
   @CLM_UAT
   @PES
-  Scenario: TC565197 - [RL0]
+  Scenario: TC565199 - [RL2]
     Given a user needs to call PES
-    When a user incorrectly inputs data
-    Then the user receives a bad input error message
+    When a catastrophic error occurs
+    Then a service ticket will need to be created.
 

@@ -6,16 +6,6 @@
 @iterationUnknown
 Feature: US1401398 - Execute PCP identificaiton and gatekeepr product business rule API
 
-  @TC627936
-  @Manual
-  @Functional
-  Scenario: TC627936 - [RL1]
-    ###Scenario 2 (Cancellations on roster request-PCP's found on roster)
-    Given The roster submitted contains providers with a cancellation
-    When The PCP Identification API is executed
-    And The response contains PCP's
-    Then Then each PCP returned from the response should be identified and logged as a type 1 error
-
   @TC627935
   @Manual
   @Functional
@@ -25,4 +15,14 @@ Feature: US1401398 - Execute PCP identificaiton and gatekeepr product business r
     When The PCP Identification API is executed
     And The response contains no PCP's
     Then Then the roster request should continue to process through existing process
+
+  @TC627936
+  @Manual
+  @Functional
+  Scenario: TC627936 - [RL1]
+    ###Scenario 2 (Cancellations on roster request-PCP's found on roster)
+    Given The roster submitted contains providers with a cancellation
+    When The PCP Identification API is executed
+    And The response contains PCP's
+    Then Then each PCP returned from the response should be identified and logged as a type 1 error
 

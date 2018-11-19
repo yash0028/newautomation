@@ -14,12 +14,12 @@
 @iterationPast
 Feature: US1082297 - Create External Data Query for RFP
 
-  @TC565304
+  @TC493889
   @Manual
   @Functional
   @CLM_UAT
   @RFP
-  Scenario: TC565304 - [RL0] RFP EDQ Validation
+  Scenario: TC493889 - Validate RFP external data query
     Given UHC will need to provide Exari with RFP data including:
       | Place of Service  |
       | Line of Business  |
@@ -34,12 +34,12 @@ Feature: US1082297 - Create External Data Query for RFP
       | Accepting Applications (C&S) |
       | Accepting Applications (M&V) |
 
-  @TC493889
+  @TC565304
   @Manual
   @Functional
   @CLM_UAT
   @RFP
-  Scenario: TC493889 - Validate RFP external data query
+  Scenario: TC565304 - [RL0] RFP EDQ Validation
     Given UHC will need to provide Exari with RFP data including:
       | Place of Service  |
       | Line of Business  |

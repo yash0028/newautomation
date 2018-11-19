@@ -12,6 +12,15 @@
 @iterationPast
 Feature: US1371319 - Download CLM Rule Table
 
+  @TC603986
+  @Manual
+  @Functional
+  @A_UI_Story
+  Scenario: TC603986 - [RL1]
+    Given more than one CLM Rules Table record exists in the database
+    When access to a previous record version is needed
+    Then the previous record versions are available
+
   @TC603987
   @Manual
   @Functional
@@ -21,13 +30,4 @@ Feature: US1371319 - Download CLM Rule Table
     When an authorized user access the URL
     Then the web UI for download is available
     ###
-
-  @TC603986
-  @Manual
-  @Functional
-  @A_UI_Story
-  Scenario: TC603986 - [RL1]
-    Given more than one CLM Rules Table record exists in the database
-    When access to a previous record version is needed
-    Then the previous record versions are available
 

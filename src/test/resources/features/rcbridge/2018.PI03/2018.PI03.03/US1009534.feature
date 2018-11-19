@@ -12,16 +12,6 @@
 @iterationPast
 Feature: US1009534 - Create External Data Query - MSPS Physician
 
-  @TC543857
-  @Manual
-  @Functional
-  @MSPS
-  @Andrew_B
-  Scenario: TC543857 - [RL0] Happy Path MSPS EDQ Validation
-    Given a contractor will need to be able to retrieve the MSPS fee schedule
-    When at this step in the interview process in Exari to retrieve a fee schedule
-    Then a fee schedule(s) are returned based on input criteria.
-
   @TC543858
   @Manual
   @Functional
@@ -32,4 +22,14 @@ Feature: US1009534 - Create External Data Query - MSPS Physician
     When at this step in the interview process to retrieve a fee schedule
     And entering invalid input criteria
     Then no fee schedule(s) are returned based on input criteria
+
+  @TC543857
+  @Manual
+  @Functional
+  @MSPS
+  @Andrew_B
+  Scenario: TC543857 - [RL0] Happy Path MSPS EDQ Validation
+    Given a contractor will need to be able to retrieve the MSPS fee schedule
+    When at this step in the interview process in Exari to retrieve a fee schedule
+    Then a fee schedule(s) are returned based on input criteria.
 

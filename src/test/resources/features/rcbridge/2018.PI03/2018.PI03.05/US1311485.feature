@@ -15,6 +15,27 @@
 @iterationPast
 Feature: US1311485 - PES Roster Call -Change Output Results
 
+  @TC572204
+  @Automated
+  @Functional
+  @PES
+  Scenario: TC572204 - [RL0]
+    # For Physician
+    Given a user wants to do a search for Roster
+    When a "tin" of "760027557" is passed to roster
+    Then PES returns the following information:
+      | mpin             |
+      | npi              |
+      | firstName        |
+      | middleName       |
+      | lastName         |
+      | providerDegree   |
+      | organization     |
+      | code             |
+      | description      |
+      | providerTypeCode |
+    # Note: "code" and "description" are for specialty
+
   @TC579704
   @Automated
   @Functional
@@ -36,26 +57,5 @@ Feature: US1311485 - PES Roster Call -Change Output Results
       | code                          |
       | description                   |
       | providerTypeCode              |
-    # Note: "code" and "description" are for specialty
-
-  @TC572204
-  @Automated
-  @Functional
-  @PES
-  Scenario: TC572204 - [RL0]
-    # For Physician
-    Given a user wants to do a search for Roster
-    When a "tin" of "760027557" is passed to roster
-    Then PES returns the following information:
-      | mpin             |
-      | npi              |
-      | firstName        |
-      | middleName       |
-      | lastName         |
-      | providerDegree   |
-      | organization     |
-      | code             |
-      | description      |
-      | providerTypeCode |
     # Note: "code" and "description" are for specialty
 
