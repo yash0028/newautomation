@@ -11,31 +11,11 @@
 @iterationPast
 Feature: US1256689 - [Continued] Validate Table data
 
-  @TC615299
+  @TC551940
   @Manual
   @Functional
   @kumar,_Sachin
-  Scenario: TC615299 - [RL1]
-    Given a template is populated with invalid data
-    When the template is uploaded
-    Then the file and data is validated
-    And a message(s) is returned to the user of all errors and notification that the process failed
-
-  @TC615298
-  @Manual
-  @Functional
-  @kumar,_Sachin
-  Scenario: TC615298 - [RL0]
-    Given a template has records populated with data
-    When the template is uploaded
-    Then the file and data is validated
-    And a message is returned to the user that the process was successful
-
-  @TC551937
-  @Manual
-  @Functional
-  @kumar,_Sachin
-  Scenario: TC551937 - Validate Data_valid
+  Scenario: TC551940 - Validate Data_Invalid data
     Given a template is populated with data
     When the template is uploaded
     Then the file and data is validated
@@ -51,13 +31,33 @@ Feature: US1256689 - [Continued] Validate Table data
     Then the file and data is validated
     And a message is returned to the user that the process was successful
 
-  @TC551940
+  @TC551937
   @Manual
   @Functional
   @kumar,_Sachin
-  Scenario: TC551940 - Validate Data_Invalid data
+  Scenario: TC551937 - Validate Data_valid
     Given a template is populated with data
     When the template is uploaded
     Then the file and data is validated
     And a message is returned to the user that the process was successful
+
+  @TC615298
+  @Manual
+  @Functional
+  @kumar,_Sachin
+  Scenario: TC615298 - [RL0]
+    Given a template has records populated with data
+    When the template is uploaded
+    Then the file and data is validated
+    And a message is returned to the user that the process was successful
+
+  @TC615299
+  @Manual
+  @Functional
+  @kumar,_Sachin
+  Scenario: TC615299 - [RL1]
+    Given a template is populated with invalid data
+    When the template is uploaded
+    Then the file and data is validated
+    And a message(s) is returned to the user of all errors and notification that the process failed
 

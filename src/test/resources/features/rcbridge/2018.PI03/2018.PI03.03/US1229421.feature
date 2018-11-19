@@ -11,21 +11,12 @@
 @iterationPast
 Feature: US1229421 - Markets table
 
-  @TC547622
+  @CLM_UAT
+  @TC554293
   @Manual
-  @Functional
+  @Acceptance
   @MVP
-  Scenario: TC547622 - [RL1] Query Markets table with invalid market number
-    Given the market number is not listed in the Market UHC table
-    When a query to the table is initiated
-    Then the query response does not return the market record information
-    And a record not found message is returned
-
-  @TC547621
-  @Manual
-  @Functional
-  @MVP
-  Scenario: TC547621 - [RL0] Query Markets table with valid market number
+  Scenario: TC554293 - Validate the query response when a valid market number is passed
     Given the market number is listed in the Market UHC table
     When a query to the table is initiated
     Then the query response includes the market record information
@@ -41,13 +32,22 @@ Feature: US1229421 - Markets table
     Then the query response does not return the market record information
     And a record not found message is returned
 
-  @CLM_UAT
-  @TC554293
+  @TC547621
   @Manual
-  @Acceptance
+  @Functional
   @MVP
-  Scenario: TC554293 - Validate the query response when a valid market number is passed
+  Scenario: TC547621 - [RL0] Query Markets table with valid market number
     Given the market number is listed in the Market UHC table
     When a query to the table is initiated
     Then the query response includes the market record information
+
+  @TC547622
+  @Manual
+  @Functional
+  @MVP
+  Scenario: TC547622 - [RL1] Query Markets table with invalid market number
+    Given the market number is not listed in the Market UHC table
+    When a query to the table is initiated
+    Then the query response does not return the market record information
+    And a record not found message is returned
 

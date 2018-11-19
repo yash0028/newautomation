@@ -14,14 +14,14 @@
 @iterationPast
 Feature: US1095936 - External Data Query for PES - Error Handling
 
-  @TC493895
+  @TC493893
   @Manual
   @Functional
   @PES
-  Scenario: TC493895 - [RL2] Catastrophic error validation
+  Scenario: TC493893 - [RL0] Incorrect data error validation
     Given a user needs to call PES
-    When a catastrophic error occurs
-    Then an error code will be logged.
+    When a user incorrectly inputs data
+    Then the user receives a bad input error message
 
   @TC493894
   @Manual
@@ -32,12 +32,12 @@ Feature: US1095936 - External Data Query for PES - Error Handling
     When the system goes down
     Then the user receives a system error message
 
-  @TC493893
+  @TC493895
   @Manual
   @Functional
   @PES
-  Scenario: TC493893 - [RL0] Incorrect data error validation
+  Scenario: TC493895 - [RL2] Catastrophic error validation
     Given a user needs to call PES
-    When a user incorrectly inputs data
-    Then the user receives a bad input error message
+    When a catastrophic error occurs
+    Then an error code will be logged.
 

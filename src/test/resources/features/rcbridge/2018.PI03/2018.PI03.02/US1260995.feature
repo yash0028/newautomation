@@ -10,13 +10,14 @@
 @iterationPast
 Feature: US1260995 - [Unfinished] PIC Implementation
 
-  @TC605423
+  @TC605421
   @Manual
   @Functional
-  Scenario: TC605423 - [RL2]
+  Scenario: TC605421 - [RL0]
     Given Exari has received a request to send data to PIC
-    When the micro service is unable to be reached by Exari
-    Then Exari will return a server error
+    When the micro service has received the data from Exari
+    And the micro service finds the data valid based on the selection criteria
+    Then the micro service sends the data to PIC
 
   @TC605422
   @Manual
@@ -27,12 +28,11 @@ Feature: US1260995 - [Unfinished] PIC Implementation
     And the micro service finds the data invalid based on the selection criteria
     Then the micro service returns a service error
 
-  @TC605421
+  @TC605423
   @Manual
   @Functional
-  Scenario: TC605421 - [RL0]
+  Scenario: TC605423 - [RL2]
     Given Exari has received a request to send data to PIC
-    When the micro service has received the data from Exari
-    And the micro service finds the data valid based on the selection criteria
-    Then the micro service sends the data to PIC
+    When the micro service is unable to be reached by Exari
+    Then Exari will return a server error
 

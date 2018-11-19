@@ -11,21 +11,6 @@
 @iterationPast
 Feature: US1231695 - Create Service Providing Physician FS  Access Via Microservice
 
-  @TC536762
-  @Automated
-  @Acceptance
-  @MSPS
-  Scenario Outline: TC536762 - [RL1] Bad Path MSPS Physician Validation
-    #Bad Path
-    When the Exari interview calls for the facility fee schedules with Physician "<feeScheduleNumber>"
-    Then the microservice will return a "404" error message
-    Examples:
-      | feeScheduleNumber |
-      | XXXXX             |
-      | ABCDE             |
-      | 012345            |
-      | AbC123            |
-
   @TC536761
   @Automated
   @Acceptance
@@ -40,4 +25,19 @@ Feature: US1231695 - Create Service Providing Physician FS  Access Via Microserv
       | 20060080302       |
       | NEWENG_6238       |
       | VA_9518PR         |
+
+  @TC536762
+  @Automated
+  @Acceptance
+  @MSPS
+  Scenario Outline: TC536762 - [RL1] Bad Path MSPS Physician Validation
+    #Bad Path
+    When the Exari interview calls for the facility fee schedules with Physician "<feeScheduleNumber>"
+    Then the microservice will return a "404" error message
+    Examples:
+      | feeScheduleNumber |
+      | XXXXX             |
+      | ABCDE             |
+      | 012345            |
+      | AbC123            |
 

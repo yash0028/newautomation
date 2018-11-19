@@ -10,14 +10,6 @@
 @iterationPast
 Feature: US1283905 - [Unfinished] [Continued] Contract Query API Implementation
 
-  @TC605394
-  @Manual
-  @Functional
-  Scenario: TC605394 - [RL1]
-    Given the Domain Service has received a business event from Exari
-    When the Domain Service queries for invalid contract details from Exari
-    Then the Domain Service returns a service error
-
   @TC605393
   @Manual
   @Functional
@@ -25,4 +17,12 @@ Feature: US1283905 - [Unfinished] [Continued] Contract Query API Implementation
     Given the Domain Service has received a business event from Exari
     When the Domain Service queries for additional contract details from Exari
     Then the Domain Service receives the Exari contract model
+
+  @TC605394
+  @Manual
+  @Functional
+  Scenario: TC605394 - [RL1]
+    Given the Domain Service has received a business event from Exari
+    When the Domain Service queries for invalid contract details from Exari
+    Then the Domain Service returns a service error
 

@@ -11,12 +11,12 @@
 @iterationPast
 Feature: US1172942 - [Unfinished] Benchmarking & Acceptance Testing
 
-  @TC605436
+  @TC605434
   @Manual
   @Functional
   @CLM_UAT
-  Scenario: TC605436 - [RL2]
-    Given the approval coordinator micro service is created,
+  Scenario: TC605434 - [RL0]
+    Given the transaction state micro service is created,
     When I send a payload to the micro service,
     Then I will see the latency of the response,
     And I will see how the consumer micro service performs.
@@ -31,12 +31,12 @@ Feature: US1172942 - [Unfinished] Benchmarking & Acceptance Testing
     Then I will see the latency of the response,
     And I will see how the consumer micro service performs.
 
-  @TC605434
+  @TC605436
   @Manual
   @Functional
   @CLM_UAT
-  Scenario: TC605434 - [RL0]
-    Given the transaction state micro service is created,
+  Scenario: TC605436 - [RL2]
+    Given the approval coordinator micro service is created,
     When I send a payload to the micro service,
     Then I will see the latency of the response,
     And I will see how the consumer micro service performs.
