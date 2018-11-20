@@ -1,5 +1,6 @@
 # Last updated on 
 @A_UI_Story
+@RC_unlinked
 @US1358444
 @2018.PI04
 @2018.PI04.01
@@ -15,6 +16,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
   @Manual
   @Functional
   @A_UI_Story
+  @RC_unlinked
   Scenario: TC597185 - [RL0]
     Given I am on the CMD dashboard
     When There are no completed contract requests
@@ -24,6 +26,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
   @Automated
   @Functional
   @A_UI_Story
+  @RC_unlinked
   Scenario: TC597186 - [RL1]
     Given I am on the CMD dashboard
     When There are completed contracts
@@ -33,6 +36,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
   @Manual
   @Functional
   @A_UI_Story
+  @RC_unlinked
   Scenario: TC597187 - [RL2]
     Given I am on the CMD dashboard
     When There are no In Progress transactions
@@ -42,6 +46,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
   @Automated
   @Functional
   @A_UI_Story
+  @RC_unlinked
   Scenario: TC597188 - [RL3]
     Given I am on the CMD dashboard
     When There are In Progress contracts
@@ -51,6 +56,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
   @Manual
   @Functional
   @A_UI_Story
+  @RC_unlinked
   Scenario: TC597189 - [RL4]
     Given I am on the CMD dashboard
     When There are no Action Required Required transactions
@@ -61,6 +67,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
   @Automated
   @Functional
   @A_UI_Story
+  @RC_unlinked
   Scenario: TC597190 - [RL5]
     Given I am on the CMD dashboard
     When There are Action Required contracts
@@ -71,6 +78,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
   @Manual
   @Functional
   @A_UI_Story
+  @RC_unlinked
   Scenario: TC597191 - [RL6]
     Given I am on the CMD dashboard
     When There are no Error transactions
@@ -80,6 +88,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
   @Automated
   @Functional
   @A_UI_Story
+  @RC_unlinked
   Scenario: TC597192 - [RL7]
     Given I am on the CMD dashboard
     When There are Errors for contract requests

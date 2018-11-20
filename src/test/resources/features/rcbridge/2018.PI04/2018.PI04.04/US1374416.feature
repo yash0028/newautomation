@@ -1,4 +1,4 @@
-# Last updated on
+# Last updated on 
 @US1374416
 @2018.PI04
 @2018.PI04.04
@@ -27,14 +27,14 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   Scenario Outline: TC636091 - [RL1] update work object item contract master
     # Scenario Outline: update work object item contract master
     When I send the following payload to update contract master work object
-      | id                     | <id>                     |
-      | selectedContractMaster | <selectedContractMaster> |
-      | usage                  | <usage>                  |
+      | id                       | <id>                     |
+      | selectedContractMaster   | <selectedContractMaster> |
+      | usage                    | <usage>                  |
     Then the contract master is updated
     Examples:
-      | id   | selectedContractMaster | usage           |
-      | 1639 | 1749076                | OVERRIDE_ALWAYS |
-      | 1639 | 1641                   | OVERRIDE_ALWAYS |
+      | id                     | selectedContractMaster | usage                  |
+      | 1639                   | 1749076                | OVERRIDE_ALWAYS        |
+      | 1639                   | 1641                   | OVERRIDE_ALWAYS        |
 
   @TC636093
   @Manual
@@ -53,8 +53,8 @@ Feature: US1374416 - [Continued] CMD - Create fallout-service REST endpoints for
   Scenario Outline: TC636094 - [RL3] update work object item ready <id>
     # Scenario Outline: update work object item ready
     When I send the following payload to update work object ready state
-      | id    | <id> |
-      | ready | true |
+      | id    | <id>  |
+      | ready | true  |
     Then the work object is ready
     Examples:
       | id   |
