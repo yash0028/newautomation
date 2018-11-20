@@ -1,10 +1,8 @@
 # Last updated on 
-@MVP
-@EXARI-11267
 @EXARI-11249
+@EXARI-11267
 @CLM_UAT
 @US1193286
-@MVP
 @Plus
 @Priority_1
 @releaseUnknown
@@ -14,9 +12,8 @@ Feature: US1193286 - Capture Reason for Reactivation
   @TC565269
   @Automated
   @Functional
-  @MVP
-  @EXARI-11267
   @EXARI-11249
+  @EXARI-11267
   @CLM_UAT
   Scenario: TC565269 - [RL0]
     Given I am a User

@@ -11,12 +11,11 @@
 @iterationPast
 Feature: US1059062 - [Continued]Common Pricing Solution - COSMOS Payload - Add Contract
 
-  @TC562744
+  @CLM_UAT
+  @TC584913
   @Manual
-  @Functional
-  Scenario: TC562744 - [RL0] Validate add contract with correct data
-    #Common Pricing Solution (CPS)
-    #Planned Percent Complete (PPC)
+  @Acceptance
+  Scenario: TC584913 - TC-01_Validate COSMOS CPS payload with the correct data.
     Given the COSMOS CPS payload is built with the correct data
     When the PPC Contract loads to COSMOS for CPS
     Then the CPS Contract will load successfully to COSMOS
@@ -30,6 +29,16 @@ Feature: US1059062 - [Continued]Common Pricing Solution - COSMOS Payload - Add C
     When the PPC Contract loads to COSMOS for CPS
     Then the CPS Contract will fail to load to COSMOS
 
+  @TC562744
+  @Manual
+  @Functional
+  Scenario: TC562744 - [RL0] Validate add contract with correct data
+    #Common Pricing Solution (CPS)
+    #Planned Percent Complete (PPC)
+    Given the COSMOS CPS payload is built with the correct data
+    When the PPC Contract loads to COSMOS for CPS
+    Then the CPS Contract will load successfully to COSMOS
+
   @TC562745
   @Manual
   @Functional
@@ -37,13 +46,4 @@ Feature: US1059062 - [Continued]Common Pricing Solution - COSMOS Payload - Add C
     Given the COSMOS CPS payload is built with incorrect data
     When the PPC Contract loads to COSMOS for CPS
     Then the CPS Contract will fail to load to COSMOS
-
-  @CLM_UAT
-  @TC584913
-  @Manual
-  @Acceptance
-  Scenario: TC584913 - TC-01_Validate COSMOS CPS payload with the correct data.
-    Given the COSMOS CPS payload is built with the correct data
-    When the PPC Contract loads to COSMOS for CPS
-    Then the CPS Contract will load successfully to COSMOS
 

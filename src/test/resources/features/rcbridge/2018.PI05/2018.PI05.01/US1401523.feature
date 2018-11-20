@@ -3,12 +3,19 @@
 @2018.PI05
 @2018.PI05.01
 @MVP
-@Priority_2
-@NDB
-@CMD
+@Maintenance
 @releaseFuture
 @iterationFuture
-Feature: US1401523 - UI/UX- Populate Resolution button and comments on CMD errror page
+Feature: US1401523 - UI/UX- Populate Resolution button and comments on CMD error page
+
+  @TC622440
+  @Manual
+  @Functional
+  Scenario: TC622440 - [RL0]
+    ### Scenario 1 (Resolution button and resolution text box on CMD error modal)
+    Given I am on the CMD Error page
+    When I click on an error row on the page
+    Then I can see a Resolution Button and Resolution text box in the modal window
 
   @TC622442
   @Manual
@@ -28,13 +35,4 @@ Feature: US1401523 - UI/UX- Populate Resolution button and comments on CMD errro
     When I have clicked the Resolution button
     And The error is removed from the CMD error UI
     Then The information I have entered in the resolution text box is added to the Resolution Text box in the TBD (need name) database.
-
-  @TC622440
-  @Manual
-  @Functional
-  Scenario: TC622440 - [RL0]
-    ### Scenario 1 (Resolution button and resolution text box on CMD error modal)
-    Given I am on the CMD Error page
-    When I click on an error row on the page
-    Then I can see a Resolution Button and Resolution text box in the modal window
 

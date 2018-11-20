@@ -8,16 +8,6 @@
 @iterationUnknown
 Feature: US1211464 - Contract Master search based on Service Location Market Number
 
-  @TC565711
-  @Automated
-  @Functional
-  @CMD2
-  Scenario: TC565711 - [RL2]
-    Given service location market numbers have been identified
-    When all market numbers ARE NOT the same as the contract market numbers
-    Then the contract market number assigned can not be used for contract configuration processes
-    And the service address for each roster provider record is used for contract configuration processes
-
   @TC565709
   @Automated
   @Functional
@@ -35,6 +25,16 @@ Feature: US1211464 - Contract Master search based on Service Location Market Num
     Given service location market numbers have been identified
     When all market numbers are the same as the contract market number
     Then the contract market number assigned is used for contract configuration processes
+
+  @TC565711
+  @Automated
+  @Functional
+  @CMD2
+  Scenario: TC565711 - [RL2]
+    Given service location market numbers have been identified
+    When all market numbers ARE NOT the same as the contract market numbers
+    Then the contract market number assigned can not be used for contract configuration processes
+    And the service address for each roster provider record is used for contract configuration processes
 
   @TC565712
   @Automated

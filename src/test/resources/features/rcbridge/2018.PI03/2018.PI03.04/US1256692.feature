@@ -22,15 +22,15 @@ Feature: US1256692 - [Continued] Store history and audit metadata
     When an authorized user accesses the screen UI
     Then the previous versions are view-able by the user
 
-  @TC615401
+  @TC556671
   @Manual
   @Functional
   @kumar,_Sachin
   @Alex_M
-  Scenario: TC615401 - [RL0]
-    Given the application screen is ready
-    When a table file is uploaded
-    Then the previous file record and audit log info is stored in the database
+  Scenario: TC556671 - Validate the history of taxonomy file failure
+    Given previous file versions exist
+    When an authorized user accesses the screen UI
+    Then the previous versions are view-able by the user
 
   @TC556658
   @Manual
@@ -42,13 +42,13 @@ Feature: US1256692 - [Continued] Store history and audit metadata
     When a file is uploaded
     Then the previous file record and audit log info is stored in the database
 
-  @TC556671
+  @TC615401
   @Manual
   @Functional
   @kumar,_Sachin
   @Alex_M
-  Scenario: TC556671 - Validate the history of taxonomy file failure
-    Given previous file versions exist
-    When an authorized user accesses the screen UI
-    Then the previous versions are view-able by the user
+  Scenario: TC615401 - [RL0]
+    Given the application screen is ready
+    When a table file is uploaded
+    Then the previous file record and audit log info is stored in the database
 

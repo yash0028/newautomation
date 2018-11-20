@@ -29,19 +29,19 @@ Feature: US1199569 - [Continued] Validate Data
     Then the file and data is validated
     And a message is returned to the user that the process was successful
 
-  @TC615282
+  @TC546821
   @Manual
   @Functional
-  Scenario: TC615282 - [RL0]
+  Scenario: TC546821 - Validate Data_valid
     Given a template is populated with data
     When the template is uploaded
     Then the file and data is validated
     And a message is returned to the user that the process was successful
 
-  @TC546821
+  @TC615282
   @Manual
   @Functional
-  Scenario: TC546821 - Validate Data_valid
+  Scenario: TC615282 - [RL0]
     Given a template is populated with data
     When the template is uploaded
     Then the file and data is validated

@@ -22,15 +22,6 @@ Feature: US1359131 - CMD user input-Page Edit Multiple contract masters per prod
     Then The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me
     And The status of the contract master product grouping is changed to contract master selected
 
-  @TC597174
-  @Manual
-  @Functional
-  Scenario: TC597174 - [RL2]
-    # scenario 3 (contract load button)
-    Given I have selected a contract master for a product grouping
-    When The status of of the contract master product grouping is 'contract master selected"
-    Then A proceed with contract load button appears
-
   @TC597173
   @Manual
   @Functional
@@ -42,6 +33,15 @@ Feature: US1359131 - CMD user input-Page Edit Multiple contract masters per prod
     And I have clicked on the submit button
     Then The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me
     And The status of the contract master product grouping is changed to contract master selected
+
+  @TC597174
+  @Manual
+  @Functional
+  Scenario: TC597174 - [RL2]
+    # scenario 3 (contract load button)
+    Given I have selected a contract master for a product grouping
+    When The status of of the contract master product grouping is 'contract master selected"
+    Then A proceed with contract load button appears
 
   @TC597175
   @Manual

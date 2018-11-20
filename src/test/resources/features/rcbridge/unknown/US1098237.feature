@@ -1,6 +1,5 @@
 # Last updated on 
 @US1098237
-@Non_MVP
 @releaseUnknown
 @iterationUnknown
 Feature: US1098237 - Establish Daily Update Process

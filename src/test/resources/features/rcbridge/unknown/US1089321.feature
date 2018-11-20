@@ -1,11 +1,9 @@
 # Last updated on 
-@MVP
 @EXARI-11267
 @EXARI-11270
 @EXARI-11249
 @CLM_UAT
 @US1089321
-@MVP
 @Plus
 @Priority_1
 @releaseUnknown
@@ -15,7 +13,6 @@ Feature: US1089321 - Prevent Inactive Entity Maintenance
   @TC565310
   @Automated
   @Functional
-  @MVP
   @EXARI-11267
   @EXARI-11270
   @EXARI-11249

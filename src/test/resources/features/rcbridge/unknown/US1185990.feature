@@ -1,8 +1,5 @@
 # Last updated on 
 @US1185990
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1185990 - Update Characteristic Type

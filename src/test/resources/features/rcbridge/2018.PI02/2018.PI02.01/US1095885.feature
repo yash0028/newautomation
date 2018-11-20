@@ -11,15 +11,6 @@
 @iterationPast
 Feature: US1095885 - Contract Gateway API
 
-  @TC565537
-  @Automated
-  @Functional
-  @CLM_UAT
-  Scenario: TC565537 - [RL1]
-    Given A business transaction
-    When Transaction is received from Exari but the transaction state service is down
-    Then An error is returned
-
   @TC565536
   @Automated
   @Functional
@@ -29,4 +20,13 @@ Feature: US1095885 - Contract Gateway API
     When Transaction is received from Exari
     Then A new transaction is created
     And The business is submitted to the business event topic
+
+  @TC565537
+  @Automated
+  @Functional
+  @CLM_UAT
+  Scenario: TC565537 - [RL1]
+    Given A business transaction
+    When Transaction is received from Exari but the transaction state service is down
+    Then An error is returned
 

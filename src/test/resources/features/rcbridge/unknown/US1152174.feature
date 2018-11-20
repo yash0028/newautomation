@@ -1,9 +1,7 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @EXARI-11792
 @US1152174
-@MVP
 @Plus
 @Priority_1
 @releaseUnknown
@@ -13,7 +11,6 @@ Feature: US1152174 - Entity Type Conflict - PHO and IPA
   @TC565476
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   @EXARI-11792
   Scenario: TC565476 - [RL0]

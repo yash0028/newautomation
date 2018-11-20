@@ -9,45 +9,8 @@
 @kumar,_Sachin
 @CMD
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1367739 - Identify UHC EI and MR Pilot Markets
-
-  @TC600526
-  @Automated
-  @Functional
-  @Contract_Rules
-  Scenario Outline: TC600526 - [RL1] Validate in pilot for Northeast UHN
-    Given "uhgSite" equals "Northeast UHN"
-    When "uhgContractSubtypeHealthcare" equals one of "<uhgContractSubtypeHealthcare>"
-    And "uhgMarketNumber" equals one of "<uhgMarketNumber>"
-    Then contract is included in Pilot
-    Examples:
-      | uhgContractSubtypeHealthcare            | uhgMarketNumber                         |
-      | Practitioner Agreement                  | 45592                                   |
-      | Practitioner Agreement                  | 45593                                   |
-      | Practitioner Agreement                  | 45594                                   |
-      | Practitioner Agreement                  | 45595                                   |
-      | Practitioner Agreement                  | 45597                                   |
-      | Medical Group Agreement                 | 45592                                   |
-      | Medical Group Agreement                 | 45593                                   |
-      | Medical Group Agreement                 | 45594                                   |
-      | Medical Group Agreement                 | 45595                                   |
-      | Medical Group Agreement                 | 45597                                   |
-      | Simplified Physician Agreement          | 45592                                   |
-      | Simplified Physician Agreement          | 45593                                   |
-      | Simplified Physician Agreement          | 45594                                   |
-      | Simplified Physician Agreement          | 45595                                   |
-      | Simplified Physician Agreement          | 45597                                   |
-      | Simplified Practitioner Group Agreement | 45592                                   |
-      | Simplified Practitioner Group Agreement | 45593                                   |
-      | Simplified Practitioner Group Agreement | 45594                                   |
-      | Simplified Practitioner Group Agreement | 45595                                   |
-      | Simplified Practitioner Group Agreement | 45597                                   |
-      | Simplified Medical Group Agreement      | 45592                                   |
-      | Simplified Medical Group Agreement      | 45593                                   |
-      | Simplified Medical Group Agreement      | 45594                                   |
-      | Simplified Medical Group Agreement      | 45595                                   |
-      | Simplified Medical Group Agreement      | 45597                                   |
 
   @TC600525
   @Automated
@@ -86,13 +49,59 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
       | Simplified Medical Group Agreement      | 13479                                   |
       | Simplified Medical Group Agreement      | 13634                                   |
 
-  @TC630783
+  @TC600526
   @Automated
   @Functional
   @Contract_Rules
-  Scenario: TC630783 - [RL6] [RL5] Validate NOT in pilot for invalid market number
-    When "uhgMarketNumber" does not equal one of 03413, 13476, 13477, 13478, 13479, 13634, 36555, 45592, 45593, 45594, 45595, 45597
-    Then contract is NOT included in Pilot
+  Scenario Outline: TC600526 - [RL1] Validate in pilot for Northeast UHN
+    Given "uhgSite" equals "Northeast UHN"
+    When "uhgContractSubtypeHealthcare" equals one of "<uhgContractSubtypeHealthcare>"
+    And "uhgMarketNumber" equals one of "<uhgMarketNumber>"
+    Then contract is included in Pilot
+    Examples:
+      | uhgContractSubtypeHealthcare            | uhgMarketNumber                         |
+      | Practitioner Agreement                  | 45592                                   |
+      | Practitioner Agreement                  | 45593                                   |
+      | Practitioner Agreement                  | 45594                                   |
+      | Practitioner Agreement                  | 45595                                   |
+      | Practitioner Agreement                  | 45597                                   |
+      | Medical Group Agreement                 | 45592                                   |
+      | Medical Group Agreement                 | 45593                                   |
+      | Medical Group Agreement                 | 45594                                   |
+      | Medical Group Agreement                 | 45595                                   |
+      | Medical Group Agreement                 | 45597                                   |
+      | Simplified Physician Agreement          | 45592                                   |
+      | Simplified Physician Agreement          | 45593                                   |
+      | Simplified Physician Agreement          | 45594                                   |
+      | Simplified Physician Agreement          | 45595                                   |
+      | Simplified Physician Agreement          | 45597                                   |
+      | Simplified Practitioner Group Agreement | 45592                                   |
+      | Simplified Practitioner Group Agreement | 45593                                   |
+      | Simplified Practitioner Group Agreement | 45594                                   |
+      | Simplified Practitioner Group Agreement | 45595                                   |
+      | Simplified Practitioner Group Agreement | 45597                                   |
+      | Simplified Medical Group Agreement      | 45592                                   |
+      | Simplified Medical Group Agreement      | 45593                                   |
+      | Simplified Medical Group Agreement      | 45594                                   |
+      | Simplified Medical Group Agreement      | 45595                                   |
+      | Simplified Medical Group Agreement      | 45597                                   |
+
+  @TC627485
+  @Automated
+  @Functional
+  @Contract_Rules
+  Scenario Outline: TC627485 - [RL2] Validate in pilot for Southeast UHN
+    Given "uhgSite" equals "Southeast UHN"
+    When "uhgContractSubtypeHealthcare" equals one of "<uhgContractSubtypeHealthcare>"
+    And "uhgMarketNumber" equals one of "<uhgMarketNumber>"
+    Then contract is included in Pilot
+    Examples:
+      | uhgContractSubtypeHealthcare            | uhgMarketNumber                         |
+      | Practitioner Agreement                  | 03413                                   |
+      | Medical Group Agreement                 | 03413                                   |
+      | Simplified Physician Agreement          | 03413                                   |
+      | Simplified Practitioner Group Agreement | 03413                                   |
+      | Simplified Medical Group Agreement      | 03413                                   |
 
   @TC627486
   @Automated
@@ -112,23 +121,6 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
       | Simplified Practitioner Group Agreement | 36555                                   |
       | Simplified Medical Group Agreement      | 36555                                   |
 
-  @TC627485
-  @Automated
-  @Functional
-  @Contract_Rules
-  Scenario Outline: TC627485 - [RL2] Validate in pilot for Southeast UHN
-    Given "uhgSite" equals "Southeast UHN"
-    When "uhgContractSubtypeHealthcare" equals one of "<uhgContractSubtypeHealthcare>"
-    And "uhgMarketNumber" equals one of "<uhgMarketNumber>"
-    Then contract is included in Pilot
-    Examples:
-      | uhgContractSubtypeHealthcare            | uhgMarketNumber                         |
-      | Practitioner Agreement                  | 03413                                   |
-      | Medical Group Agreement                 | 03413                                   |
-      | Simplified Physician Agreement          | 03413                                   |
-      | Simplified Practitioner Group Agreement | 03413                                   |
-      | Simplified Medical Group Agreement      | 03413                                   |
-
   @TC630781
   @Automated
   @Functional
@@ -143,5 +135,13 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Contract_Rules
   Scenario: TC630782 - [RL5] Validate NOT in pilot for invalid contract subtype
     When "uhgContractSubtypeHealthcare" does not equal one of Practitioner Agreement, Medical Group Agreement, Simplified Physician Agreement, Simplified Practitioner Group Agreement, Simplified Medical Group Agreement
+    Then contract is NOT included in Pilot
+
+  @TC630783
+  @Automated
+  @Functional
+  @Contract_Rules
+  Scenario: TC630783 - [RL6] [RL5] Validate NOT in pilot for invalid market number
+    When "uhgMarketNumber" does not equal one of 03413, 13476, 13477, 13478, 13479, 13634, 36555, 45592, 45593, 45594, 45595, 45597
     Then contract is NOT included in Pilot
 

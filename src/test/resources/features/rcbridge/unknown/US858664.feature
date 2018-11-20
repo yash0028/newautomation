@@ -1,11 +1,7 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @EXARI-11696
 @US858664
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858664 - Add Entity Relationship Role
@@ -13,7 +9,6 @@ Feature: US858664 - Add Entity Relationship Role
   @TC564683
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   @EXARI-11696
   Scenario: TC564683 - [RL0]

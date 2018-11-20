@@ -12,6 +12,14 @@
 @iterationPast
 Feature: US1179423 - [Continued] Examiner implementation
 
+  @TC565240
+  @Automated
+  @Functional
+  Scenario: TC565240 - [RL0]
+    Given A contract inquiry request from PIC or Examiner
+    When A REST Service call is made
+    Then The contract data is sent back to PIC or Examiner
+
   @TC565241
   @Automated
   @Functional
@@ -27,12 +35,4 @@ Feature: US1179423 - [Continued] Examiner implementation
     Given A contract request from PIC or Examiner
     When The REST service is unavailable
     Then An server error will be returned
-
-  @TC565240
-  @Automated
-  @Functional
-  Scenario: TC565240 - [RL0]
-    Given A contract inquiry request from PIC or Examiner
-    When A REST Service call is made
-    Then The contract data is sent back to PIC or Examiner
 

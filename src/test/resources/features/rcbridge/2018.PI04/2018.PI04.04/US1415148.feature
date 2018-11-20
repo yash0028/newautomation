@@ -3,7 +3,7 @@
 @2018.PI04
 @2018.PI04.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1415148 - [Defect] Unable to see message when clicked on Pending button under status column (Not related to user input required page)
 
   @TC633031

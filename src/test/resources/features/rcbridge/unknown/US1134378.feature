@@ -5,7 +5,6 @@
 @US1134378
 @MVP
 @Plus
-@PI03
 @Priority_1
 @releaseUnknown
 @iterationUnknown

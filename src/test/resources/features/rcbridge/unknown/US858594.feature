@@ -1,10 +1,8 @@
 # Last updated on 
-@MVP
-@EXARI-11267
 @EXARI-11249
+@EXARI-11267
 @CLM_UAT
 @US858594
-@MVP
 @Plus
 @Priority_1
 @releaseUnknown
@@ -14,9 +12,8 @@ Feature: US858594 - Inactivate Entity
   @TC565940
   @Automated
   @Functional
-  @MVP
-  @EXARI-11267
   @EXARI-11249
+  @EXARI-11267
   @CLM_UAT
   Scenario: TC565940 - [RL0]
     Given I am a User who has access to maintain an Entity

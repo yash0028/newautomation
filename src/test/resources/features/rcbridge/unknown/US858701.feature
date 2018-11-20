@@ -1,9 +1,7 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @EXARI-11792
 @US858701
-@MVP
 @Plus
 @Priority_1
 @releaseUnknown
@@ -13,7 +11,6 @@ Feature: US858701 - Create & Update Entity Rules
   @TC565691
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   @EXARI-11792
   Scenario: TC565691 - [RL0]

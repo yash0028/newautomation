@@ -10,23 +10,6 @@
 @iterationPast
 Feature: US1094080 - Transaction State Microservice - Transaction Configuration
 
-  @TC565454
-  @Automated
-  @Functional
-  Scenario: TC565454 - [RL2]
-    Given A transaction is in progress
-    When A transaction state change is submitted
-    Then A transaction state change message is published to the transaction log topic
-
-  @TC565455
-  @Automated
-  @Functional
-  Scenario: TC565455 - [RL3]
-    Given A transaction is in progress
-    When A transaction state change is submitted with an invalid transaction id
-    Then The REST api returns a not found error
-    And An error is logged to the logfile
-
   @TC565452
   @Automated
   @Functional
@@ -45,6 +28,23 @@ Feature: US1094080 - Transaction State Microservice - Transaction Configuration
     Given A business event is submitted
     When A transaction is initialized and the configuration lookup fails
     Then The REST api returns an internal server error
+    And An error is logged to the logfile
+
+  @TC565454
+  @Automated
+  @Functional
+  Scenario: TC565454 - [RL2]
+    Given A transaction is in progress
+    When A transaction state change is submitted
+    Then A transaction state change message is published to the transaction log topic
+
+  @TC565455
+  @Automated
+  @Functional
+  Scenario: TC565455 - [RL3]
+    Given A transaction is in progress
+    When A transaction state change is submitted with an invalid transaction id
+    Then The REST api returns a not found error
     And An error is logged to the logfile
 
   @TC565456

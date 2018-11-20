@@ -27,16 +27,6 @@ Feature: US1387184 - Validate roster data - add
     Then the transaction/event is valid
     And the transaction advances to process to subscribing platform(s)
 
-  @TC616501
-  @Manual
-  @Functional
-  Scenario: TC616501 - [RL4]
-    Given a RosterUpdated business events is published
-    When there are no providers on the roster
-    Then the transaction/event is not valid
-    And a Type 3 error is logged
-    And an error message reads, "No providers were included in this request - unable to process"
-
   @TC616499
   @Manual
   @Functional
@@ -58,6 +48,16 @@ Feature: US1387184 - Validate roster data - add
     Then the transaction/event is not valid
     And a Type 3 error is logged
     And an error message reads, "One or more of the data elements required to complete this transaction is missing"
+
+  @TC616501
+  @Manual
+  @Functional
+  Scenario: TC616501 - [RL4]
+    Given a RosterUpdated business events is published
+    When there are no providers on the roster
+    Then the transaction/event is not valid
+    And a Type 3 error is logged
+    And an error message reads, "No providers were included in this request - unable to process"
 
   @TC616502
   @Manual

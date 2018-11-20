@@ -2,9 +2,7 @@
 @US1425544
 @2018.PI05
 @MVP
-@Priority_2
-@NDB
-@CMD
+@Maintenance
 @releaseFuture
 @iterationUnknown
 Feature: US1425544 - Resend Type 2 error transactions to COSMOS after resolving

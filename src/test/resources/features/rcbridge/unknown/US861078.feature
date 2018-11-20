@@ -1,7 +1,6 @@
 # Last updated on 
 @US861078
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US861078 - Provide Consolidated Entities for Review

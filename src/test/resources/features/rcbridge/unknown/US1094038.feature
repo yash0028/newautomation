@@ -1,6 +1,5 @@
 # Last updated on 
 @US1094038
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1094038 - Capture Reason for Identifier Inactivation or Void

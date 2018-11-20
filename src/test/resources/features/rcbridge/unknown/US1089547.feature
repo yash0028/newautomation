@@ -1,11 +1,7 @@
 # Last updated on 
-@MVP
 @EXARI-11267
 @CLM_UAT
 @US1089547
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1089547 - Inactivate Entity Identifier
@@ -13,7 +9,6 @@ Feature: US1089547 - Inactivate Entity Identifier
   @TC565756
   @Automated
   @Functional
-  @MVP
   @EXARI-11267
   @CLM_UAT
   Scenario: TC565756 - [RL0]

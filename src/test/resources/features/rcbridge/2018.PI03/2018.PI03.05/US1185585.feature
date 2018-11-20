@@ -14,18 +14,6 @@
 @iterationPast
 Feature: US1185585 - Contract Product Description Crosswalk
 
-  @TC569866
-  @Automated
-  @Functional
-  @MVP
-  @Amrutha
-  @Priority
-  Scenario: TC569866 - [RL4] Validate empty list for passing in multiple bad product descriptions
-    # Passing in multiple invalid product descriptions
-    Given multiple product descriptions that do not exist
-    When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk provides an empty list
-
   @TC564546
   @Automated
   @Functional
@@ -62,6 +50,18 @@ Feature: US1185585 - Contract Product Description Crosswalk
       | 2000290               | S0 S1 S2              | 2000300               | C0 C1 C2 P3 S0 S1 S2  |
       | 2000430               | DA                    | 2000500               | 009 531               |
 
+  @TC575412
+  @Automated
+  @Functional
+  @MVP
+  @Amrutha
+  @Priority
+  Scenario: TC575412 - [RL2] Validate empty list for passing in one bad product description
+    # Passing in a single invalid product description
+    Given a product description that does not exist
+    When exchanging information about the products included or excluded from an Exari contract
+    Then the crosswalk provides an empty list
+
   @TC575413
   @Automated
   @Functional
@@ -74,15 +74,15 @@ Feature: US1185585 - Contract Product Description Crosswalk
     When exchanging information about the products included or excluded from an Exari contract
     Then the crosswalk only provides the product code identifier of "S0 S1 S2" for the valid product description
 
-  @TC575412
+  @TC569866
   @Automated
   @Functional
   @MVP
   @Amrutha
   @Priority
-  Scenario: TC575412 - [RL2] Validate empty list for passing in one bad product description
-    # Passing in a single invalid product description
-    Given a product description that does not exist
+  Scenario: TC569866 - [RL4] Validate empty list for passing in multiple bad product descriptions
+    # Passing in multiple invalid product descriptions
+    Given multiple product descriptions that do not exist
     When exchanging information about the products included or excluded from an Exari contract
     Then the crosswalk provides an empty list
 

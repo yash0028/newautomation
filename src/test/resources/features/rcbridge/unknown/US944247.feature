@@ -1,10 +1,8 @@
 # Last updated on 
-@MVP
-@EXARI-11267
 @EXARI-11249
+@EXARI-11267
 @CLM_UAT
 @US944247
-@MVP
 @Plus
 @Priority_1
 @releaseUnknown
@@ -14,9 +12,8 @@ Feature: US944247 - Capture Reason for Entity Inactivation
   @TC564480
   @Automated
   @Functional
-  @MVP
-  @EXARI-11267
   @EXARI-11249
+  @EXARI-11267
   @CLM_UAT
   Scenario: TC564480 - [RL0]
     Given I am a User

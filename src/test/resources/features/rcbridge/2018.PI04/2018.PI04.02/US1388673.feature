@@ -9,14 +9,14 @@
 @iterationPast
 Feature: US1388673 - [Unfinished] [Continued][Continued] Downstream system specific validation handling
 
-  @TC615266
+  @TC615264
   @Manual
   @Functional
-  Scenario: TC615266 - [RL2]
-    Given A business event is received by the event gateway that requires an update to COSMOS
-    And the associated contract data is valid for the COSMOS update
+  Scenario: TC615264 - [RL0]
+    Given A business event is received by the event gateway that requires an update to NDB
+    And the associated contract data is valid for the NDB update
     When The enriched business event is sent by the contract-domain service
-    Then It is validated and approved by the cosmos-validator service
+    Then It is validated and approved by the ndb-validator service
 
   @TC615265
   @Manual
@@ -27,14 +27,14 @@ Feature: US1388673 - [Unfinished] [Continued][Continued] Downstream system speci
     When The enriched business event is sent by the contract-domain service
     Then It is validated by the ndb-validator service and an error is reported to the transaction system
 
-  @TC615264
+  @TC615266
   @Manual
   @Functional
-  Scenario: TC615264 - [RL0]
-    Given A business event is received by the event gateway that requires an update to NDB
-    And the associated contract data is valid for the NDB update
+  Scenario: TC615266 - [RL2]
+    Given A business event is received by the event gateway that requires an update to COSMOS
+    And the associated contract data is valid for the COSMOS update
     When The enriched business event is sent by the contract-domain service
-    Then It is validated and approved by the ndb-validator service
+    Then It is validated and approved by the cosmos-validator service
 
   @TC615267
   @Manual

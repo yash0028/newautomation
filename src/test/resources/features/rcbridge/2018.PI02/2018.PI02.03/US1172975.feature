@@ -20,6 +20,15 @@ Feature: US1172975 - [Unfinished] [Continued] NDB_Send Updates for Update Roster
     When all of the NDB edits are successful
     Then the NDB microservices are ready to update NDB
 
+  @TC605399
+  @Manual
+  @Functional
+  @CLM_UAT
+  Scenario: TC605399 - [RL1]
+    Given the NDB connector microservice has received a roster update event
+    When all of the NDB edits are not successful
+    Then the NDB microservices creates an error message
+
   @TC605400
   @Manual
   @Functional
@@ -29,13 +38,4 @@ Feature: US1172975 - [Unfinished] [Continued] NDB_Send Updates for Update Roster
     When NDB completes the update / action successfully
     Then NDB initiates an event outcome message to the transaction state service
     And a transaction state service call indicating successful processing was made
-
-  @TC605399
-  @Manual
-  @Functional
-  @CLM_UAT
-  Scenario: TC605399 - [RL1]
-    Given the NDB connector microservice has received a roster update event
-    When all of the NDB edits are not successful
-    Then the NDB microservices creates an error message
 

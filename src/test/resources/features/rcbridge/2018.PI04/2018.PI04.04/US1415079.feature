@@ -3,7 +3,7 @@
 @2018.PI04
 @2018.PI04.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1415079 - Defect - “Use selected contact master #: always” works for a single product group however it does not work for multiple product groups.
 
   @TC630784

@@ -1,6 +1,5 @@
 # Last updated on 
 @US1098234
-@Non_MVP
 @releaseUnknown
 @iterationUnknown
 Feature: US1098234 - Migrate DLGT CDs and Descriptions

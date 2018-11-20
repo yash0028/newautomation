@@ -1,11 +1,7 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @EXARI-11696
 @US858665
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858665 - Add Entity Relationship Type
@@ -13,7 +9,6 @@ Feature: US858665 - Add Entity Relationship Type
   @TC564554
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   @EXARI-11696
   Scenario: TC564554 - [RL0]

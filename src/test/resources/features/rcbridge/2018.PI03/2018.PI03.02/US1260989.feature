@@ -11,14 +11,14 @@
 @iterationPast
 Feature: US1260989 - [Unfinished] Integrate CLM with Examiner (Continued)
 
-  @TC605433
+  @TC605431
   @Manual
   @Functional
   @MVP
-  Scenario: TC605433 - [RL2]
-    Given A contract request from PIC or Examiner
-    When The REST service is unavailable
-    Then An server error will be returned
+  Scenario: TC605431 - [RL0]
+    Given A contract inquiry request from PIC or Examiner
+    When A REST Service call is made
+    Then The contract data is sent back to PIC or Examiner
 
   @TC605432
   @Manual
@@ -29,12 +29,12 @@ Feature: US1260989 - [Unfinished] Integrate CLM with Examiner (Continued)
     When A REST Service call is made with invalid data
     Then The service will return an error
 
-  @TC605431
+  @TC605433
   @Manual
   @Functional
   @MVP
-  Scenario: TC605431 - [RL0]
-    Given A contract inquiry request from PIC or Examiner
-    When A REST Service call is made
-    Then The contract data is sent back to PIC or Examiner
+  Scenario: TC605433 - [RL2]
+    Given A contract request from PIC or Examiner
+    When The REST service is unavailable
+    Then An server error will be returned
 

@@ -1,10 +1,6 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @US1185971
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1185971 - Select Relationship Role
@@ -12,7 +8,6 @@ Feature: US1185971 - Select Relationship Role
   @TC565779
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   Scenario: TC565779 - [RL0]
     Given I am a User with access to maintain Entity information

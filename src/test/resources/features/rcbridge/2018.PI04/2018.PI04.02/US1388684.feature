@@ -24,6 +24,19 @@ Feature: US1388684 - [Unfinished] [Continued] CMD- User Input Required Page- Vie
     Then The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me
     And The status of the contract master product grouping is changed to contract master selected
 
+  @TC615285
+  @Manual
+  @Functional
+  @A_UI_Story
+  Scenario: TC615285 - [RL3]
+    # Scenario 5 (Select contract master- Use this always)
+    Given I am on the CMD Action Required page
+    When I entered in a contract master number, contract master name, contract system, contract master effective date
+    And I selected user this contract master "always"
+    And I have clicked on the submit button
+    Then The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me
+    And The status of the contract master product grouping is changed to contract master selected
+
   @TC615286
   @Manual
   @Functional
@@ -44,17 +57,4 @@ Feature: US1388684 - [Unfinished] [Continued] CMD- User Input Required Page- Vie
     When I click on the proceed with contract load button
     Then The following message is displayed to me "The contract master for this product grouping has been recorded"
     And The product grouping row is removed from the display
-
-  @TC615285
-  @Manual
-  @Functional
-  @A_UI_Story
-  Scenario: TC615285 - [RL3]
-    # Scenario 5 (Select contract master- Use this always)
-    Given I am on the CMD Action Required page
-    When I entered in a contract master number, contract master name, contract system, contract master effective date
-    And I selected user this contract master "always"
-    And I have clicked on the submit button
-    Then The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me
-    And The status of the contract master product grouping is changed to contract master selected
 

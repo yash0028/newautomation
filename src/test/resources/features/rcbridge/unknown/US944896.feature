@@ -1,6 +1,5 @@
 # Last updated on 
 @US944896
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US944896 - Inactivate Identifier

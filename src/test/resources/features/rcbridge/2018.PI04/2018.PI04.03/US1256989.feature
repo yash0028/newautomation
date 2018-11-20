@@ -12,6 +12,18 @@
 @iterationPast
 Feature: US1256989 - Upload CLM Rule Table
 
+  @TC615405
+  @Manual
+  @Functional
+  @A_UI_Story
+  Scenario: TC615405 - [RL0]
+    Given the CLM Rule Tables service is up and running
+    When A new spreadsheet is uploaded and stored in the database
+    And The import is processed successfully
+    Then The existing data is deleted
+    And The content of spreadsheet is parsed and stored in a database table
+    And The database is updated to indicate that the spreadsheet was processed successfully
+
   @TC603988
   @Manual
   @Functional
@@ -22,6 +34,15 @@ Feature: US1256989 - Upload CLM Rule Table
     And The import is fails
     Then The existing data is not deleted and not updated
     And The database is updated to indicate that the spreadsheet import failed
+
+  @TC603989
+  @Manual
+  @Functional
+  @A_UI_Story
+  Scenario: TC603989 - [RL2]
+    Given more than one CLM Rules Table record exists in the database
+    When access to a previous record version is needed
+    Then the previous record versions are available
 
   @TC603990
   @Manual
@@ -40,25 +61,4 @@ Feature: US1256989 - Upload CLM Rule Table
     Given the existence of a web UI
     When an authorized user access the URL
     Then the web UI for up/download is available
-
-  @TC615405
-  @Manual
-  @Functional
-  @A_UI_Story
-  Scenario: TC615405 - [RL0]
-    Given the CLM Rule Tables service is up and running
-    When A new spreadsheet is uploaded and stored in the database
-    And The import is processed successfully
-    Then The existing data is deleted
-    And The content of spreadsheet is parsed and stored in a database table
-    And The database is updated to indicate that the spreadsheet was processed successfully
-
-  @TC603989
-  @Manual
-  @Functional
-  @A_UI_Story
-  Scenario: TC603989 - [RL2]
-    Given more than one CLM Rules Table record exists in the database
-    When access to a previous record version is needed
-    Then the previous record versions are available
 

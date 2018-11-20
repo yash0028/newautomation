@@ -1,5 +1,4 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @US1149316
 @releaseUnknown
@@ -9,7 +8,6 @@ Feature: US1149316 - Entity Type Conflict - Health Organization Umbrella and Org
   @TC565286
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   Scenario: TC565286 - [RL0]
     Given I am the Entity Management Solution

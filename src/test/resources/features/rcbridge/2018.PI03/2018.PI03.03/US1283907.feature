@@ -45,16 +45,6 @@ Feature: US1283907 - Markets table microservice
       | "4430"       |
       | "4431"       |
 
-  @TC565431
-  @Automated
-  @Functional
-  @MVP
-  Scenario: TC565431 - [RL1]
-    Given the market number "1" is not listed in the Market UHC table
-    When a query to the table is initiated
-    Then the query response does not return the market record information
-    And a record not found message is returned
-
   @TC565430
   @Automated
   @Functional
@@ -78,4 +68,14 @@ Feature: US1283907 - Markets table microservice
       | "4423"       |
       | "4430"       |
       | "4431"       |
+
+  @TC565431
+  @Automated
+  @Functional
+  @MVP
+  Scenario: TC565431 - [RL1]
+    Given the market number "1" is not listed in the Market UHC table
+    When a query to the table is initiated
+    Then the query response does not return the market record information
+    And a record not found message is returned
 

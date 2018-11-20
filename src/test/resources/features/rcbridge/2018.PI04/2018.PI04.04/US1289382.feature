@@ -7,7 +7,7 @@
 @Priority_1
 @CMD
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1289382 - Contract Config Services - Contract Config search service
 
   @TC616506

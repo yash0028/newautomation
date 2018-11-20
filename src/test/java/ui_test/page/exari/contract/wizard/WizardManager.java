@@ -33,10 +33,10 @@ public class WizardManager {
         if (mpin != null && !mpin.isEmpty()) {
             test &= pesInputPage.enterMPIN(mpin);
         }
-
-        if (tin != null && !tin.isEmpty()) {
-            test &= pesInputPage.enterTIN(tin);
-        }
+//
+//        if (tin != null && !tin.isEmpty()) {
+//            test &= pesInputPage.enterTIN(tin);
+//        }
 
         pesInputPage.clickNext();
 
@@ -48,7 +48,8 @@ public class WizardManager {
         pesResponsePage.selectCounterPartyOption1();
         pesResponsePage.clickNext();
 
-        if (pesResponsePage.confirmCurrentPage()) {
+        while (pesResponsePage.confirmCurrentPage()) {
+            pesResponsePage.selectCounterPartyOption1();
             pesResponsePage.clickNext();
         }
 

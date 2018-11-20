@@ -11,17 +11,6 @@
 @iterationPast
 Feature: US1077918 - Transaction State Microservice
 
-  @TC564443
-  @Automated
-  @Functional
-  @CLM_UAT
-  Scenario: TC564443 - [RL3]
-    Given A transaction is in progress
-    When A transaction state change is submitted and the transaction state message cannot be published to Kafka
-    Then The REST api returns an internal server error
-    And An error is logged to the logfile
-    # An interface specification is defined for the service API
-
   @TC564440
   @Automated
   @Functional
@@ -31,6 +20,15 @@ Feature: US1077918 - Transaction State Microservice
     When A transaction is initialized
     Then A new transaction id is generated
     And A transaction initialization message is published to the transaction log topic
+
+  @TC564441
+  @Automated
+  @Functional
+  @CLM_UAT
+  Scenario: TC564441 - [RL1]
+    Given A transaction is in progress
+    When A transaction state change is submitted
+    Then A transaction state change message is published to the transaction log topic
 
   @TC564442
   @Automated
@@ -42,12 +40,14 @@ Feature: US1077918 - Transaction State Microservice
     Then The REST api returns a not found error
     And An error is logged to the logfile
 
-  @TC564441
+  @TC564443
   @Automated
   @Functional
   @CLM_UAT
-  Scenario: TC564441 - [RL1]
+  Scenario: TC564443 - [RL3]
     Given A transaction is in progress
-    When A transaction state change is submitted
-    Then A transaction state change message is published to the transaction log topic
+    When A transaction state change is submitted and the transaction state message cannot be published to Kafka
+    Then The REST api returns an internal server error
+    And An error is logged to the logfile
+    # An interface specification is defined for the service API
 

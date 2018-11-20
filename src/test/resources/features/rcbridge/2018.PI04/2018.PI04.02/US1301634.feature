@@ -11,14 +11,23 @@
 @iterationPast
 Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
 
-  @TC573546
+  @TC564578
   @Automated
   @Functional
   @A_UI_Story
-  Scenario: TC573546 - [RL7]
+  Scenario: TC564578 - [RL0]
     Given I am on the CMD dashboard
-    When There are Errors for contract requests
-    Then On the Error button display the number of Error requests returned from the search
+    When There are no completed contract requests
+    Then On the Completed button display 0 completed
+
+  @TC573540
+  @Automated
+  @Functional
+  @A_UI_Story
+  Scenario: TC573540 - [RL1]
+    Given I am on the CMD dashboard
+    When There are completed contracts
+    Then On the Completed button display the number of completed requests returned from the search
 
   @TC573541
   @Automated
@@ -29,14 +38,14 @@ Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
     When There are no In Progress transactions
     Then On the In Progress button display 0 In Progress
 
-  @TC573545
+  @TC573542
   @Automated
   @Functional
   @A_UI_Story
-  Scenario: TC573545 - [RL6]
+  Scenario: TC573542 - [RL3]
     Given I am on the CMD dashboard
-    When There are no Error transactions
-    Then On the Failed button display 0 Errors
+    When There are In Progress contracts
+    Then On the In Progress button display the number of In Progress requests returned from the search
 
   @TC573543
   @Automated
@@ -58,30 +67,21 @@ Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
     And There are PCP Reassignment transactions
     Then On the Action Required button display the number of Action Required requests returned from the search
 
-  @TC573540
+  @TC573545
   @Automated
   @Functional
   @A_UI_Story
-  Scenario: TC573540 - [RL1]
+  Scenario: TC573545 - [RL6]
     Given I am on the CMD dashboard
-    When There are completed contracts
-    Then On the Completed button display the number of completed requests returned from the search
+    When There are no Error transactions
+    Then On the Failed button display 0 Errors
 
-  @TC564578
+  @TC573546
   @Automated
   @Functional
   @A_UI_Story
-  Scenario: TC564578 - [RL0]
+  Scenario: TC573546 - [RL7]
     Given I am on the CMD dashboard
-    When There are no completed contract requests
-    Then On the Completed button display 0 completed
-
-  @TC573542
-  @Automated
-  @Functional
-  @A_UI_Story
-  Scenario: TC573542 - [RL3]
-    Given I am on the CMD dashboard
-    When There are In Progress contracts
-    Then On the In Progress button display the number of In Progress requests returned from the search
+    When There are Errors for contract requests
+    Then On the Error button display the number of Error requests returned from the search
 

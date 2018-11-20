@@ -10,14 +10,6 @@
 @iterationPast
 Feature: US1179417 - [Continued] Exari event producer [contracts-gateway-api]
 
-  @TC564722
-  @Automated
-  @Functional
-  Scenario: TC564722 - [RL1]
-    Given A business transaction
-    When Transaction is received from Exari but the transaction state service is down
-    Then An error is returned
-
   @TC564721
   @Automated
   @Functional
@@ -26,4 +18,12 @@ Feature: US1179417 - [Continued] Exari event producer [contracts-gateway-api]
     When Transaction is received from Exari
     Then A new transaction is created
     And The business is submitted to the business event topic
+
+  @TC564722
+  @Automated
+  @Functional
+  Scenario: TC564722 - [RL1]
+    Given A business transaction
+    When Transaction is received from Exari but the transaction state service is down
+    Then An error is returned
 

@@ -13,15 +13,6 @@
 @iterationPast
 Feature: US1095910 - External Data Query for RFP - Error Handling
 
-  @TC493891
-  @Manual
-  @Functional
-  @RFP
-  Scenario: TC493891 - [RL1] Catastrophic error validation
-    Given a user needs to call RFP grid
-    When the RFP system goes down
-    Then the user receives a RFP system error message
-
   @TC493890
   @Manual
   @Functional
@@ -30,6 +21,15 @@ Feature: US1095910 - External Data Query for RFP - Error Handling
     Given a user needs to call RFP grid
     When a user incorrectly inputs RFP data
     Then the user receives a RFP bad input error message
+
+  @TC493891
+  @Manual
+  @Functional
+  @RFP
+  Scenario: TC493891 - [RL1] Catastrophic error validation
+    Given a user needs to call RFP grid
+    When the RFP system goes down
+    Then the user receives a RFP system error message
 
   @TC493892
   @Manual

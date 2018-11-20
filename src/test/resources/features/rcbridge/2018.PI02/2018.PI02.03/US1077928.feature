@@ -10,15 +10,6 @@
 @iterationPast
 Feature: US1077928 - Transaction Status Microservice
 
-  @TC565581
-  @Automated
-  @Functional
-  Scenario: TC565581 - [RL2]
-    Given Transaction is open
-    When The status is queried
-    And A database is not available
-    Then An error message is returned
-
   @TC565579
   @Automated
   @Functional
@@ -36,4 +27,13 @@ Feature: US1077928 - Transaction Status Microservice
     When The status is queried
     And A given transaction id is found
     Then Then transaction status is returned
+
+  @TC565581
+  @Automated
+  @Functional
+  Scenario: TC565581 - [RL2]
+    Given Transaction is open
+    When The status is queried
+    And A database is not available
+    Then An error message is returned
 

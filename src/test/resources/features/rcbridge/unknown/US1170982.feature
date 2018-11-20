@@ -1,9 +1,7 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @EXARI-11270
 @US1170982
-@MVP
 @Plus
 @Priority_1
 @releaseUnknown
@@ -13,7 +11,6 @@ Feature: US1170982 - Retained Relationships
   @TC564494
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   @EXARI-11270
   Scenario: TC564494 - [RL0]

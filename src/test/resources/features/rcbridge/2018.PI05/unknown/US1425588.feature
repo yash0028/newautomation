@@ -3,9 +3,7 @@
 @US1425588
 @2018.PI05
 @MVP
-@Priority_2
-@NDB
-@CMD
+@Maintenance
 @releaseFuture
 @iterationUnknown
 Feature: US1425588 - Track resent Type 2 error transactions to COSMOS
