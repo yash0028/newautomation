@@ -31,7 +31,7 @@ public class ContractRulesSteps implements IRestStep {
     private JsonObject requestBody = new JsonObject();
 
 
-    // US1368002 (silent inclusion)
+    // US1439048 (silent inclusion)
 
     @Given("^\"([^\"]*)\" contains \"([^\"]*)\"$")
     public void uhg_siteContains(String field, String value) throws Throwable {
@@ -54,8 +54,8 @@ public class ContractRulesSteps implements IRestStep {
 
     }
 
-    @Then("^\"([^\"]*)\" silent inclusion criteria (has|has NOT) been met for \"([^\"]*)\"$")
-    public void silentInclusionCriteriaHasNOTBeenMetFor(String siType, String hasBeenMet, String marketProduct) throws Throwable {
+    @Then("^silent inclusion criteria has been met is \"([^\"]*)\"$")
+    public void silentInclusionCriteriaHasBeenMetIs(String result) throws Throwable {
         // Build out the request
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
 
@@ -67,18 +67,14 @@ public class ContractRulesSteps implements IRestStep {
         JsonObject  responseObject = responseElement.getAsJsonObject().get("result").getAsJsonObject();
 
         // Get the market product groups and boolean to see if silent inclusion is met
-        String  marketProductGroups = responseObject.get(siType).getAsString();
-        boolean silentInclusionMet = responseObject.get("silentInclusionMet").getAsBoolean();
+        String silentInclusionMet = responseObject.get("silentInclusionMet").getAsString();
 
-        if (hasBeenMet.equalsIgnoreCase("has")){
-            Assert.assertTrue("Market Product " + marketProduct + " is not included in the response", marketProductGroups.contains(marketProduct));
-            Assert.assertTrue("Silent inclusion is false when it should be true", silentInclusionMet);
+        // If result is true, silent inclusion met should be true, otherwise it should be false
+        if (result.equalsIgnoreCase("true")){
+            Assert.assertEquals("Silent inclusion is false when it should be true", result, silentInclusionMet);
         } else {
-            Assert.assertTrue("Market Product " + marketProduct + " is not included in the response", marketProductGroups.contains(marketProduct));
-            Assert.assertFalse("Silent inclusion is true when it should be false", silentInclusionMet);
+            Assert.assertEquals("Silent inclusion is true when it should be false", result, silentInclusionMet);
         }
-
-        //log.info("SI RESPONSE: {}", response.asString());
     }
 
     // US1368004 (IPA Determination)
@@ -263,4 +259,5 @@ public class ContractRulesSteps implements IRestStep {
         }
 
     }
+
 }
