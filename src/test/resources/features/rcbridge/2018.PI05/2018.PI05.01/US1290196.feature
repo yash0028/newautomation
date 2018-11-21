@@ -1,14 +1,14 @@
 # Last updated on 
 @US1290196
-@2018.PI04
-@2018.PI04.04
+@2018.PI05
+@2018.PI05.01
 @MVP
-@Madhur
-@Priority_1
+@Priority_2
+@NDB
 @CMD
-@releasePresent
-@iterationPast
-Feature: US1290196 - [Continued] Contract Master Override work objects audits database schema
+@releaseFuture
+@iterationFuture
+Feature: US1290196 - Contract Master Override Update Work Objects Table (Non PCP)
 
   @TC616486
   @Manual
@@ -43,6 +43,7 @@ Feature: US1290196 - [Continued] Contract Master Override work objects audits da
     Then Record the contract master information the business user entered
     And Update the transaction ID with the date/timestamp the resolution was made.
 
+  @RC_unlinked
   @TC616489
   @Manual
   @Functional
@@ -54,6 +55,7 @@ Feature: US1290196 - [Continued] Contract Master Override work objects audits da
     Then Record the transaction ID with the reassignment MPIN, IPA, address sequence number,
     And Record the transaction ID with date/time stamp the resolution was made
 
+  @RC_unlinked
   @TC616490
   @Manual
   @Functional
