@@ -31,7 +31,7 @@ public class ContractRulesSteps implements IRestStep {
     private JsonObject requestBody = new JsonObject();
 
 
-    // US1368002 (silent inclusion)
+    // US1439048 (silent inclusion)
 
     @Given("^\"([^\"]*)\" contains \"([^\"]*)\"$")
     public void uhg_siteContains(String field, String value) throws Throwable {
@@ -79,6 +79,29 @@ public class ContractRulesSteps implements IRestStep {
         }
 
         //log.info("SI RESPONSE: {}", response.asString());
+    }
+
+    @Then("^silent inclusion criteria has been met is \"([^\"]*)\"$")
+    public void silentInclusionCriteriaHasBeenMetIs(String result) throws Throwable {
+        // Build out the request
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+
+        // Get the response
+        response = request.post(RESOURCE_SILENT_INCLUSION);
+
+        // Get the whole result element, then get the "result" JSON Object which contains the response data we need
+        JsonElement responseElement = parseJsonElementResponse(response);
+        JsonObject  responseObject = responseElement.getAsJsonObject().get("result").getAsJsonObject();
+
+        // Get the market product groups and boolean to see if silent inclusion is met
+        String silentInclusionMet = responseObject.get("silentInclusionMet").getAsString();
+
+        // If result is true, silent inclusion met should be true, otherwise it should be false
+        if (result.equalsIgnoreCase("true")){
+            Assert.assertEquals("Silent inclusion is false when it should be true", result, silentInclusionMet);
+        } else {
+            Assert.assertEquals("Silent inclusion is true when it should be false", result, silentInclusionMet);
+        }
     }
 
     // US1368004 (IPA Determination)
@@ -263,4 +286,5 @@ public class ContractRulesSteps implements IRestStep {
         }
 
     }
+
 }
