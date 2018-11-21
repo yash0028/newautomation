@@ -54,33 +54,6 @@ public class ContractRulesSteps implements IRestStep {
 
     }
 
-    @Then("^\"([^\"]*)\" silent inclusion criteria (has|has NOT) been met for \"([^\"]*)\"$")
-    public void silentInclusionCriteriaHasNOTBeenMetFor(String siType, String hasBeenMet, String marketProduct) throws Throwable {
-        // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
-
-        // Get the response
-        response = request.post(RESOURCE_SILENT_INCLUSION);
-
-        // Get the whole result element, then get the "result" JSON Object which contains the response data we need
-        JsonElement responseElement = parseJsonElementResponse(response);
-        JsonObject  responseObject = responseElement.getAsJsonObject().get("result").getAsJsonObject();
-
-        // Get the market product groups and boolean to see if silent inclusion is met
-        String  marketProductGroups = responseObject.get(siType).getAsString();
-        boolean silentInclusionMet = responseObject.get("silentInclusionMet").getAsBoolean();
-
-        if (hasBeenMet.equalsIgnoreCase("has")){
-            Assert.assertTrue("Market Product " + marketProduct + " is not included in the response", marketProductGroups.contains(marketProduct));
-            Assert.assertTrue("Silent inclusion is false when it should be true", silentInclusionMet);
-        } else {
-            Assert.assertTrue("Market Product " + marketProduct + " is not included in the response", marketProductGroups.contains(marketProduct));
-            Assert.assertFalse("Silent inclusion is true when it should be false", silentInclusionMet);
-        }
-
-        //log.info("SI RESPONSE: {}", response.asString());
-    }
-
     @Then("^silent inclusion criteria has been met is \"([^\"]*)\"$")
     public void silentInclusionCriteriaHasBeenMetIs(String result) throws Throwable {
         // Build out the request
