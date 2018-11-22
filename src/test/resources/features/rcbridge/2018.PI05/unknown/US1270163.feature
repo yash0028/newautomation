@@ -1,7 +1,7 @@
 # Last updated on 
 @US1270163
-@2018.PI04
-@releasePresent
+@2018.PI05
+@releaseFuture
 @iterationUnknown
 Feature: US1270163 - Determine resolution pathway when more than one record exists for the same specCd and PartyTyp query
 

@@ -1,10 +1,12 @@
 # Last updated on 
 @US1189845
+@2018.PI04
+@2018.PI04.05
 @MVP
 @Priority_1
 @10/1_Physician
-@releaseUnknown
-@iterationUnknown
+@releasePresent
+@iterationPresent
 Feature: US1189845 - [Continued] [Continued][Continued] Downstream system specific validation handling
 
   @CLM_UAT
