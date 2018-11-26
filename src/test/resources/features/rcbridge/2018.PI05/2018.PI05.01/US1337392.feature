@@ -11,6 +11,6 @@ Feature: US1337392 - [Continued] [Continued] CPS lookup API Layer-7 implementati
   @Functional
   Scenario: TC587886 - [RL0]
     Given The COSMOS DIV is EVC and Contract package # is 22503
-    When COSMOS detects they cannot process (no op message) the request
-    Then COSMOS waits until NDB updates are complete, gets notified the NDB request is done, and then completes the request
+    When COSMOS updater requires additional information
+    Then COSMOS updater waits until NDB updates are complete, gets notified the NDB request is done, and then completes the request
 
