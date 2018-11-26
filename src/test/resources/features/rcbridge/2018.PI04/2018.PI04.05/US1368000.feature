@@ -20,7 +20,7 @@ Feature: US1368000 - ENW Indicator Determination
     Given "uhgSite" includes "<uhgSite>"
     # (checked against the provider on the roster)
     And "contractSubtypeHealthcare" is "<contractSubtype>"
-    When "productServicesExcluded" include one or more below the line "<productServicesExcluded>":
+    When "productServicesExcluded" include one or more below the line "<productServicesExcluded>"
     Then the ENW IND will be populated with "N" within the OCM Contract Model
     Examples:
       | uhgSite                                       | contractSubtype                               | productServicesExcluded                       |
@@ -194,11 +194,7 @@ Feature: US1368000 - ENW Indicator Determination
     # (Given the provider is active for one or more Employer & Individual products)
     # (checked against the provider on the roster)
     And "contractSubtypeHealthcare" is "<contractSubtype>"
-    When "productServicesExcluded" does not include one or more below the line:
-      | Charter  |
-      | Compass  |
-      | Core     |
-      | Navigate |
+    When "productServicesExcluded" does not include one or more below the line "Charter, Compass, Core, Navigate"
     Then the ENW IND will be populated with "Y" within the OCM Contract Model
     Examples:
     # Note: May not need to create a separate table. May be able to combine several user stories to one table. Product services excluded is equivalent to below the line. GIVEN UHG_Site includes UHN Northeast, UHN Southeast, UHN West, UHN Central or UHN National={Given the provider is active for one or more Employer & Individual products]
