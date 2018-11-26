@@ -1,6 +1,9 @@
 # Last updated on 
+@A_UI_Story
 @US1289476
 @2018.PI05
+@MVP
+@CMD_UI
 @releaseFuture
 @iterationUnknown
 Feature: US1289476 - View Contract Config Detail web page
@@ -8,6 +11,7 @@ Feature: US1289476 - View Contract Config Detail web page
   @TC616491
   @Manual
   @Functional
+  @A_UI_Story
   Scenario: TC616491 - [RL0]
     Given an contract configuration detail record exists
     When a contract configuration request is initiated
@@ -16,6 +20,7 @@ Feature: US1289476 - View Contract Config Detail web page
   @TC616492
   @Manual
   @Functional
+  @A_UI_Story
   Scenario: TC616492 - [RL1]
     Given an contract configuration detail record does not exist
     When a contract configuration request is initiatedi

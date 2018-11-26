@@ -1,12 +1,13 @@
 # Last updated on 
 @US1070742
 @2018.PI05
+@2018.PI05.04
 @MVP
 @Plus
 @Priority_2
 @Facility
 @releaseFuture
-@iterationUnknown
+@iterationFuture
 Feature: US1070742 - COSMOS Facility Acknowledgment Process - Production
 
   @TC564965

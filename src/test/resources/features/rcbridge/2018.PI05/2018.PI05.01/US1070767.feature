@@ -1,13 +1,13 @@
 # Last updated on 
 @US1070767
-@2018.PI04
-@2018.PI04.05
+@2018.PI05
+@2018.PI05.01
 @MVP
 @Plus
 @Priority_2
 @Facility
-@releasePresent
-@iterationPresent
+@releaseFuture
+@iterationFuture
 Feature: US1070767 - SPIKE - COSMOS API Facility Analysis
 
   @TC564759

@@ -1,6 +1,10 @@
 # Last updated on 
+@CMD2
+@A_UI_Story
 @US1289316
 @2018.PI05
+@MVP
+@CMD_UI
 @releaseFuture
 @iterationUnknown
 Feature: US1289316 - View Contract Config Summary web page
@@ -8,6 +12,8 @@ Feature: US1289316 - View Contract Config Summary web page
   @TC616509
   @Manual
   @Functional
+  @CMD2
+  @A_UI_Story
   Scenario: TC616509 - [RL0]
     Given an contract configuration summary record exists
     When a contract configuration request is initiated from within Exari
@@ -16,6 +22,8 @@ Feature: US1289316 - View Contract Config Summary web page
   @TC616510
   @Manual
   @Functional
+  @CMD2
+  @A_UI_Story
   Scenario: TC616510 - [RL1]
     Given an contract configuration summary record does not exist
     When a contract configuration request is initiated from within Exari

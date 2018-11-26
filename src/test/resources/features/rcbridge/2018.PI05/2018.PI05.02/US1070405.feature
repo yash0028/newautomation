@@ -1,18 +1,19 @@
 # Last updated on 
-@US1070428
+@US1070405
 @2018.PI05
+@2018.PI05.02
 @MVP
 @Plus
 @Priority_2
 @Facility
 @releaseFuture
-@iterationUnknown
-Feature: US1070428 - Exari>COSMOS Term/Cancel a Facility Contract - PSH
+@iterationFuture
+Feature: US1070405 - CLM >COSMOS Add a Facility Contract- PIC DIV - PSH (Header) - Design
 
-  @TC565745
+  @TC564945
   @Automated
   @Functional
-  Scenario: TC565745 - [RL0]
+  Scenario: TC564945 - [RL0]
     Given the Exari > COSMOS Facility data within the Payload is correct
     When COSMOS receives the Exari Facility Payload data
     Then a successful COSMOS Facility Panel should load to the PIC DIV

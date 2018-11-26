@@ -1,18 +1,19 @@
 # Last updated on 
-@US1358061
+@US1358064
 @2018.PI05
+@2018.PI05.04
 @MVP
 @Plus
 @Priority_2
 @Facility
 @releaseFuture
-@iterationUnknown
-Feature: US1358061 - CLM >COSMOS Add a Facility Contract - PIC DIV - PSD (Detail)
+@iterationFuture
+Feature: US1358064 - CLM >COSMOS Add a Facility Contract - PIC DIV - PSO (Criteria) - Coding & Unit Test
 
-  @TC597202
+  @TC597181
   @Manual
   @Functional
-  Scenario: TC597202 - [RL0]
+  Scenario: TC597181 - [RL0]
     Given the Exari > COSMOS Facility data within the Payload is correct
     When COSMOS receives the Exari Facility Payload data
     Then a successful COSMOS Facility Panel should load to the PIC DIV
