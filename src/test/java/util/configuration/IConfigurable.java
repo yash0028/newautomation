@@ -74,4 +74,8 @@ public interface IConfigurable {
     default Optional<String> configGetOptionalString(String key) {
         return Configuration.getInstance().getOption(key);
     }
+
+    default boolean configHasKey(String key) {
+        return this.configGetOptionalString(key).isPresent();
+    }
 }

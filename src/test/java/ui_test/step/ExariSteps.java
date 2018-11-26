@@ -110,7 +110,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
     private void loginAndGoToHomePage() {
         String url = configGetOptionalString("exari.devURL").orElse("");
         getDriver().get(url);
+        log.info(getDriver().getTitle());
         LoginPage loginPage = new LoginPage(getDriver());
+
         Assert.assertTrue(loginPage.confirmCurrentPage());
 
         Assert.assertTrue(loginPage.login());

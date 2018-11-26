@@ -1,5 +1,6 @@
 package ui_test.util;
 
+import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -8,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
 
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 public class LocalDriver implements IConfigurable, IFileReader {
@@ -88,10 +90,21 @@ public class LocalDriver implements IConfigurable, IFileReader {
     }
 
     private String getDriverPath() {
-        if (configCompare("os.name", "WINDOWS").orElse(false)) {
-            return getResourcePath("/drivers/chromedriver.exe");
+        Optional<String> os;
+        if (SystemUtils.IS_OS_WINDOWS) {
+            os = configGetOptionalString("windows32DriverName");
+        } else if (SystemUtils.IS_OS_MAC) {
+            os = configGetOptionalString("mac64DriverName");
+        } else if (SystemUtils.IS_OS_LINUX) {
+            os = configGetOptionalString("linux64DriverName");
         } else {
-            return getResourcePath("/drivers/chromedriver");
+            os = Optional.empty();
+        }
+
+        if (os.isPresent()) {
+            return getResourcePath("/drivers/" + os.get());
+        } else {
+            return "";
         }
     }
 
