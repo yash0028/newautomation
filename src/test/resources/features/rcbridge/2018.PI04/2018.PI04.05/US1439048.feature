@@ -13,7 +13,7 @@
 Feature: US1439048 - HERITAGE PRODUCT SILENT INCLUSION correction
 
   @TC644179
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC644179 - [RL0] Verify has been met
@@ -29,7 +29,7 @@ Feature: US1439048 - HERITAGE PRODUCT SILENT INCLUSION correction
       | West      |
 
   @TC644181
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC644181 - [RL1] Verify has not been met
