@@ -278,6 +278,7 @@ public interface IWebInteract {
             if (current == windowIndex) {
                 return switchWindowByName(windowHandle);
             }
+            current++;
         }
 
         return false;
