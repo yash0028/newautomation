@@ -16,5 +16,7 @@ Feature: US1439924 - Integration - Negotiation to Load form, docusign
   Scenario: TC644490 - [RL0]
     Given an agreement has all approvals
     When it is sent to the provider via DocuSign
-    Then the workflow is populated with
+    Then the field " This agreement was sent for signatures via DocuSign (From Exari) is populated
+    And the field "Provider Signature Received Date (DocuSign)" is populated
+    And the field "UHC Signature Received Date (DocuSign)" is populated
 

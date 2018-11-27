@@ -1,5 +1,6 @@
 package rest_api_test.step;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import cucumber.api.PendingException;
@@ -13,7 +14,6 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
-
 import static io.restassured.RestAssured.given;
 
 public class ContractRulesSteps implements IRestStep {
@@ -24,10 +24,11 @@ public class ContractRulesSteps implements IRestStep {
     private static final String RESOURCE_PILOT_MARKET = "/v1.0/rules/pilot_market/validate";
     private static final String RESOURCE_SILENT_INCLUSION = "/v1.0/rules/heritage_silent_inclusion/market_product_met";
     private static final String RESOURCE_PCP_SPECIALTY = "/v1.0/rules/pcp_specialty/validate_pcp";
+    private static final String RESOURCE_ENW_INDICATOR = "/v1.0/rules/enw_indicator/validate_enw";
+    private static final String RESOURCE_PENALTY_TABLE = "/v1.0/rules/penalty_table_determination/penalty_table_required";
 
     private RequestSpecification request;
     private Response response;
-
     private JsonObject requestBody = new JsonObject();
 
 
@@ -260,4 +261,98 @@ public class ContractRulesSteps implements IRestStep {
 
     }
 
+    // US1368000 (ENW Indicator)
+
+    @Given("^\"([^\"]*)\" includes \"([^\"]*)\"$")
+    public void includes(String field, String value) throws Throwable {
+        requestBody.addProperty(field, value);
+    }
+
+    @And("^\"([^\"]*)\" is \"([^\"]*)\"$")
+    public void is(String field, String value) throws Throwable {
+        requestBody.addProperty(field, value);
+
+    }
+
+    @When("^\"([^\"]*)\" (does not include|include) one or more below the line \"([^\"]*)\"$")
+    public void includeOneOrMoreBelowTheLine(String field, String includes, String value) throws Throwable {
+        if(includes.equals("include")){
+            requestBody.addProperty(field, value);
+        }
+        else{
+            requestBody.addProperty(field, "");
+        }
+    }
+
+    @Then("^the ENW IND will be populated with \"([^\"]*)\" within the OCM Contract Model$")
+    public void theENWINDWillBePopulatedWithWithinTheOCMContractModel(String result) throws Throwable {
+        // Build out the request
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+
+        Thread.sleep(500);
+
+        // Get the response
+        response = request.post(RESOURCE_ENW_INDICATOR);
+
+        // Assert successful response
+        Assert.assertEquals("Response did not return status code 200", 200, response.getStatusCode());
+
+        // Get the whole result element, then get the result as a JSON Object which contains the response data we need
+        JsonElement resultElement = parseJsonElementResponse(response);
+        JsonObject resultObject = resultElement.getAsJsonObject();
+
+        // Get the networkRole part of the response, should be either PCP or Specialist
+        String enwResult = resultObject.get("result").getAsJsonObject().get("isEnw").getAsString();
+
+        // Assert that the ENW result returns what was expected
+        Assert.assertEquals("ENW result did not return what was expected", result, enwResult);
+
+    }
+
+    // US1367998 - (Product Penalty Table)
+
+    @When("^\"([^\"]*)\" value (does not include|includes) one or more of \"([^\"]*)\"$")
+    public void valueIncludesOneOrMoreOf(String field, String includes, String value) throws Throwable {
+        // Create requestArray to hold the value for product
+        JsonArray requestArray = new JsonArray();
+
+        // Add the product to the array if it is supposed to be included
+        if(includes.equals("includes")){
+            requestArray.add(value);
+        }
+        else{
+            requestArray.add("");
+        }
+
+        // Add the array to the requestBody
+        requestBody.add(field, requestArray);
+    }
+
+    @Then("^Penalty Notification Table (is|is not) required in the OCM$")
+    public void penaltyNotificationTableIsRequiredInTheOCM(String isOrIsNot) throws Throwable {
+        // Build out the request
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+
+        Thread.sleep(500);
+
+        // Get the response
+        response = request.post(RESOURCE_PENALTY_TABLE);
+
+        // Assert successful response
+        Assert.assertEquals("Response did not return status code 200", 200, response.getStatusCode());
+
+        // Get the whole result element, then get the result as a JSON Object which contains the response data we need
+        JsonElement resultElement = parseJsonElementResponse(response);
+        JsonObject resultObject = resultElement.getAsJsonObject();
+
+        // Get the penaltyTable part of the response, should be either true or false
+        boolean penaltyTableRequired = resultObject.get("result").getAsJsonObject().get("penaltyTableRequired").getAsBoolean();
+
+        if(isOrIsNot.equals("is")){
+            Assert.assertTrue("Penalty Table Required was false when it should be true", penaltyTableRequired);
+        }
+        else{
+            Assert.assertFalse("Penalty Table Required was true when it should be false", penaltyTableRequired);
+        }
+    }
 }

@@ -17,109 +17,109 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Functional
   @Contract_Rules
   Scenario Outline: TC600525 - [RL0] Validate in pilot for Central UHN
-    Given "uhgSite" equals "Central UHN"
+    Given "uhgSite" equals "Central"
     When "uhgContractSubtypeHealthcare" equals one of "<uhgContractSubtypeHealthcare>"
     And "uhgMarketNumber" equals one of "<uhgMarketNumber>"
     Then contract is included in Pilot
     Examples:
-      | uhgContractSubtypeHealthcare            | uhgMarketNumber                         |
-      | Practitioner Agreement                  | 13476                                   |
-      | Practitioner Agreement                  | 13477                                   |
-      | Practitioner Agreement                  | 13478                                   |
-      | Practitioner Agreement                  | 13479                                   |
-      | Practitioner Agreement                  | 13634                                   |
-      | Medical Group Agreement                 | 13476                                   |
-      | Medical Group Agreement                 | 13477                                   |
-      | Medical Group Agreement                 | 13478                                   |
-      | Medical Group Agreement                 | 13479                                   |
-      | Medical Group Agreement                 | 13634                                   |
-      | Simplified Physician Agreement          | 13476                                   |
-      | Simplified Physician Agreement          | 13477                                   |
-      | Simplified Physician Agreement          | 13478                                   |
-      | Simplified Physician Agreement          | 13479                                   |
-      | Simplified Physician Agreement          | 13634                                   |
-      | Simplified Practitioner Group Agreement | 13476                                   |
-      | Simplified Practitioner Group Agreement | 13477                                   |
-      | Simplified Practitioner Group Agreement | 13478                                   |
-      | Simplified Practitioner Group Agreement | 13479                                   |
-      | Simplified Practitioner Group Agreement | 13634                                   |
-      | Simplified Medical Group Agreement      | 13476                                   |
-      | Simplified Medical Group Agreement      | 13477                                   |
-      | Simplified Medical Group Agreement      | 13478                                   |
-      | Simplified Medical Group Agreement      | 13479                                   |
-      | Simplified Medical Group Agreement      | 13634                                   |
+      | uhgContractSubtypeHealthcare | uhgMarketNumber              |
+      | PAT                          | 13476                        |
+      | PAT                          | 13477                        |
+      | PAT                          | 13478                        |
+      | PAT                          | 13479                        |
+      | PAT                          | 13634                        |
+      | MGA                          | 13476                        |
+      | MGA                          | 13477                        |
+      | MGA                          | 13478                        |
+      | MGA                          | 13479                        |
+      | MGA                          | 13634                        |
+      | SPA                          | 13476                        |
+      | SPA                          | 13477                        |
+      | SPA                          | 13478                        |
+      | SPA                          | 13479                        |
+      | SPA                          | 13634                        |
+      | SPG                          | 13476                        |
+      | SPG                          | 13477                        |
+      | SPG                          | 13478                        |
+      | SPG                          | 13479                        |
+      | SPG                          | 13634                        |
+      | SMG                          | 13476                        |
+      | SMG                          | 13477                        |
+      | SMG                          | 13478                        |
+      | SMG                          | 13479                        |
+      | SMG                          | 13634                        |
 
   @TC600526
   @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC600526 - [RL1] Validate in pilot for Northeast UHN
-    Given "uhgSite" equals "Northeast UHN"
+    Given "uhgSite" equals "Northeast"
     When "uhgContractSubtypeHealthcare" equals one of "<uhgContractSubtypeHealthcare>"
     And "uhgMarketNumber" equals one of "<uhgMarketNumber>"
     Then contract is included in Pilot
     Examples:
-      | uhgContractSubtypeHealthcare            | uhgMarketNumber                         |
-      | Practitioner Agreement                  | 45592                                   |
-      | Practitioner Agreement                  | 45593                                   |
-      | Practitioner Agreement                  | 45594                                   |
-      | Practitioner Agreement                  | 45595                                   |
-      | Practitioner Agreement                  | 45597                                   |
-      | Medical Group Agreement                 | 45592                                   |
-      | Medical Group Agreement                 | 45593                                   |
-      | Medical Group Agreement                 | 45594                                   |
-      | Medical Group Agreement                 | 45595                                   |
-      | Medical Group Agreement                 | 45597                                   |
-      | Simplified Physician Agreement          | 45592                                   |
-      | Simplified Physician Agreement          | 45593                                   |
-      | Simplified Physician Agreement          | 45594                                   |
-      | Simplified Physician Agreement          | 45595                                   |
-      | Simplified Physician Agreement          | 45597                                   |
-      | Simplified Practitioner Group Agreement | 45592                                   |
-      | Simplified Practitioner Group Agreement | 45593                                   |
-      | Simplified Practitioner Group Agreement | 45594                                   |
-      | Simplified Practitioner Group Agreement | 45595                                   |
-      | Simplified Practitioner Group Agreement | 45597                                   |
-      | Simplified Medical Group Agreement      | 45592                                   |
-      | Simplified Medical Group Agreement      | 45593                                   |
-      | Simplified Medical Group Agreement      | 45594                                   |
-      | Simplified Medical Group Agreement      | 45595                                   |
-      | Simplified Medical Group Agreement      | 45597                                   |
+      | uhgContractSubtypeHealthcare | uhgMarketNumber              |
+      | PAT                          | 45592                        |
+      | PAT                          | 45593                        |
+      | PAT                          | 45594                        |
+      | PAT                          | 45595                        |
+      | PAT                          | 45597                        |
+      | MGA                          | 45592                        |
+      | MGA                          | 45593                        |
+      | MGA                          | 45594                        |
+      | MGA                          | 45595                        |
+      | MGA                          | 45597                        |
+      | SPA                          | 45592                        |
+      | SPA                          | 45593                        |
+      | SPA                          | 45594                        |
+      | SPA                          | 45595                        |
+      | SPA                          | 45597                        |
+      | SPG                          | 45592                        |
+      | SPG                          | 45593                        |
+      | SPG                          | 45594                        |
+      | SPG                          | 45595                        |
+      | SPG                          | 45597                        |
+      | SMG                          | 45592                        |
+      | SMG                          | 45593                        |
+      | SMG                          | 45594                        |
+      | SMG                          | 45595                        |
+      | SMG                          | 45597                        |
 
   @TC627485
   @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC627485 - [RL2] Validate in pilot for Southeast UHN
-    Given "uhgSite" equals "Southeast UHN"
+    Given "uhgSite" equals "Southeast"
     When "uhgContractSubtypeHealthcare" equals one of "<uhgContractSubtypeHealthcare>"
     And "uhgMarketNumber" equals one of "<uhgMarketNumber>"
     Then contract is included in Pilot
     Examples:
-      | uhgContractSubtypeHealthcare            | uhgMarketNumber                         |
-      | Practitioner Agreement                  | 03413                                   |
-      | Medical Group Agreement                 | 03413                                   |
-      | Simplified Physician Agreement          | 03413                                   |
-      | Simplified Practitioner Group Agreement | 03413                                   |
-      | Simplified Medical Group Agreement      | 03413                                   |
+      | uhgContractSubtypeHealthcare | uhgMarketNumber              |
+      | PAT                          | 03413                        |
+      | MGA                          | 03413                        |
+      | SPA                          | 03413                        |
+      | SPG                          | 03413                        |
+      | SMG                          | 03413                        |
 
   @TC627486
   @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC627486 - [RL3] Validate in pilot for West UHN
-    Given "uhgSite" equals "West UHN"
+    Given "uhgSite" equals "West"
     When "uhgContractSubtypeHealthcare" equals one of "<uhgContractSubtypeHealthcare>"
     And "uhgMarketNumber" equals one of "<uhgMarketNumber>"
     Then contract is included in Pilot
     Examples:
     # --These fields are included in both the Exari and UCM contract model. (Note: OCM Model has more elements than the Exari Model)
-      | uhgContractSubtypeHealthcare            | uhgMarketNumber                         |
-      | Practitioner Agreement                  | 36555                                   |
-      | Medical Group Agreement                 | 36555                                   |
-      | Simplified Physician Agreement          | 36555                                   |
-      | Simplified Practitioner Group Agreement | 36555                                   |
-      | Simplified Medical Group Agreement      | 36555                                   |
+      | uhgContractSubtypeHealthcare | uhgMarketNumber              |
+      | PAT                          | 36555                        |
+      | MGA                          | 36555                        |
+      | SPA                          | 36555                        |
+      | SPG                          | 36555                        |
+      | SMG                          | 36555                        |
 
   @TC630781
   @Automated

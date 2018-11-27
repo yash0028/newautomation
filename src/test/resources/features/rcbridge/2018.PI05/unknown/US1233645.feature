@@ -1,6 +1,8 @@
 # Last updated on 
 @US1233645
 @2018.PI05
+@MVP
+@CMD_UI
 @releaseFuture
 @iterationUnknown
 Feature: US1233645 - Create Contract Config Summary web page template
