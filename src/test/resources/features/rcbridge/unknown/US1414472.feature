@@ -16,16 +16,18 @@ Feature: US1414472 - Author SMGA Contact UI Path
       | MPIN               | <mpin>             |
       | TIN                | <tin>              |
       | Market Number      | <market number>    |
+      | State              | <state>            |
       | Paper Type         | SMGA               |
       | HBP                | no                 |
-      | Phycon             | 1234               |
-      | Fee Schedule       | IN 52716           |
+      | Phycon             | <phycon>           |
+      | Fee Schedule       | <fee>              |
+      | Product            | <product>          |
       | Additional Manuals | no                 |
     Then I have an active contract in Exari
     Examples:
-      | site          | mpin          | tin           | market number |
-      | central uhn   | 1169005       | 351314341     | 13476         |
-      | northeast uhn | 1628713       | 510613164     | 45592         |
-      | southeast uhn | 1628713       | 510613164     | 23503         |
-      | west uhn      | 1628713       | 510613164     | 36555         |
+      | site          | mpin          | tin           | state         | market number | phycon        | fee           | product       |
+      | central uhn   | 2239924       | 731624480     | IA            | 13476         | 1234          | IN 52716      | 1             |
+      | northeast uhn | 2239924       | 731624480     | NY            | 45592         | 1234          | IN 52716      | 1             |
+      | southeast uhn | 2239924       | 731624480     | AR            | 23503         | 1234          | AR 7725       | 1             |
+      | west uhn      | 2239924       | 731624480     | CA            | 36555         | 1234          | AR 7725       | 1             |
 
