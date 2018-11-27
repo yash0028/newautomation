@@ -72,6 +72,18 @@ public class SiteManager {
                 return NORTHEAST;
             }
 
+            if (site.contains(SOUTHEAST.name())) {
+                return SOUTHEAST;
+            }
+
+            if (site.contains(WEST.name())) {
+                return WEST;
+            }
+
+            if (site.contains(NATIONAL.name())) {
+                return NATIONAL;
+            }
+
             return TEST;
         }
     }

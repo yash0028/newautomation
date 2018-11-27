@@ -6,30 +6,24 @@ import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Appendix1Page extends GenericInputPage {
-    private static final Logger log = LoggerFactory.getLogger(Appendix1Page.class);
+public class AdditionalLocationPage extends GenericInputPage {
+    private static final Logger log = LoggerFactory.getLogger(AdditionalLocationPage.class);
 
     /*
     LOCATORS
      */
 
-    @FindBy(xpath = "//p[contains(text(),'Appendix 1')]")
+    @FindBy(xpath = "//p[contains(text(),'Additional Locations')]")
     private WebElement labelAppendix1;
 
-    @FindBy(xpath = "//b[contains(text(),'Will additional manuals apply')]")
+    @FindBy(xpath = "//b[contains(text(),'additional service locations')]")
     private WebElement labelDescription;
-
-    @FindBy(xpath = "//input[@value='0_Yes']")
-    private WebElement radioOptionYes;
-
-    @FindBy(xpath = "//input[@value='1_No']")
-    private WebElement radioOptionNo;
 
     /*
     CONSTRUCTOR
      */
 
-    public Appendix1Page(WebDriver driver) {
+    public AdditionalLocationPage(WebDriver driver) {
         super(driver);
     }
 
@@ -46,11 +40,4 @@ public class Appendix1Page extends GenericInputPage {
     CLASS METHODS
      */
 
-    public boolean selectAdditonalManualOptionYes() {
-        return click("yes readio button", radioOptionYes);
-    }
-
-    public boolean selectAdditionalManualOptionNo() {
-        return click("no radio button", radioOptionNo);
-    }
 }

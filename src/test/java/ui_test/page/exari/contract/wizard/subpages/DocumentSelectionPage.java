@@ -32,6 +32,9 @@ public class DocumentSelectionPage extends GenericInputPage {
     @FindBy(xpath = "//input[contains(@value,'SMGA')]")
     private WebElement radioOptionSMGA;
 
+    @FindBy(xpath = "//input[contains(@value,'SPGA')]")
+    private WebElement radioOptionSPGA;
+
     /*
     CONSTRUCTOR
      */
@@ -61,6 +64,14 @@ public class DocumentSelectionPage extends GenericInputPage {
         return click("smga radio button", radioOptionSMGA);
     }
 
+    public boolean selectPaperTypeOptionalPAT() {
+        return click("pat radio button", radioOptionPAT);
+    }
+
+    public boolean selectPaperTypeOptionalSPGA() {
+        return click("spga radio button", radioOptionSPGA);
+    }
+
     public boolean selectRadioOption(String option) {
         if (option.equalsIgnoreCase("spa") || option.equalsIgnoreCase("Simplified Physician Agreement")) {
             return selectPaperTypeOptionSPA();
@@ -68,6 +79,14 @@ public class DocumentSelectionPage extends GenericInputPage {
 
         if (option.equalsIgnoreCase("smga") || option.equalsIgnoreCase("Simplified Medical Group Agreement")) {
             return selectPaperTypeOptionalSMGA();
+        }
+
+        if (option.equalsIgnoreCase("pat") || option.equalsIgnoreCase("Practitioner Agreement")) {
+            return selectPaperTypeOptionalPAT();
+        }
+
+        if (option.equalsIgnoreCase("spga") || option.equalsIgnoreCase("Simplified Practitioner Group Agreement")) {
+            return selectPaperTypeOptionalSPGA();
         }
 
         return false;
