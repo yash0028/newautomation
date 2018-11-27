@@ -1,9 +1,8 @@
 # Last updated on 
 @US1403497
-@2018.PI05
 @MVP
 @Maintenance
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1403497 - Receive and recognize rate updated events/transactions from Exari
 

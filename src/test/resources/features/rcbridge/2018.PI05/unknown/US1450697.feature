@@ -1,8 +1,9 @@
 # Last updated on 
 @US1450697
+@2018.PI05
 @MVP
 @Exari
-@releaseUnknown
+@releaseFuture
 @iterationUnknown
 Feature: US1450697 - Calculate disposition
 

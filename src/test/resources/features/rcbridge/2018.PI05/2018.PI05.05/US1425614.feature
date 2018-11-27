@@ -1,10 +1,11 @@
 # Last updated on 
 @US1425614
 @2018.PI05
+@2018.PI05.05
 @MVP
 @Maintenance
 @releaseFuture
-@iterationUnknown
+@iterationFuture
 Feature: US1425614 - Resend Type 2 error transactions to NDB after resolving
 
   @TC634356

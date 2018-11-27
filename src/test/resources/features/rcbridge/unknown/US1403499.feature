@@ -1,9 +1,8 @@
 # Last updated on 
 @US1403499
-@2018.PI05
 @MVP
 @Maintenance
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1403499 - Receive and recognize term update events/transactions from Exari
 

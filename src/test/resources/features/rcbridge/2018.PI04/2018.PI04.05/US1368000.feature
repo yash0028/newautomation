@@ -23,167 +23,147 @@ Feature: US1368000 - ENW Indicator Determination
     When "productServicesExcluded" include one or more below the line "<productServicesExcluded>"
     Then the ENW IND will be populated with "N" within the OCM Contract Model
     Examples:
-      | uhgSite                                       | contractSubtype                               | productServicesExcluded                       |
-      | UHN Northeast                                 | Medical Group Agreement                       | Charter                                       |
-      | UHN Northeast                                 | Medical Group Agreement                       | Compass                                       |
-      | UHN Northeast                                 | Medical Group Agreement                       | Core                                          |
-      | UHN Northeast                                 | Medical Group Agreement                       | Navigate                                      |
-      | UHN Northeast                                 | Medical Group National Agreement              | Charter                                       |
-      | UHN Northeast                                 | Medical Group National Agreement              | Compass                                       |
-      | UHN Northeast                                 | Medical Group National Agreement              | Core                                          |
-      | UHN Northeast                                 | Medical Group National Agreement              | Navigate                                      |
-      | UHN Northeast                                 | Practitioner Agreement                        | Charter                                       |
-      | UHN Northeast                                 | Practitioner Agreement                        | Compass                                       |
-      | UHN Northeast                                 | Practitioner Agreement                        | Core                                          |
-      | UHN Northeast                                 | Practitioner Agreement                        | Navigate                                      |
-      | UHN Northeast                                 | Provider Organization Participation Agreement | Charter                                       |
-      | UHN Northeast                                 | Provider Organization Participation Agreement | Compass                                       |
-      | UHN Northeast                                 | Provider Organization Participation Agreement | Core                                          |
-      | UHN Northeast                                 | Provider Organization Participation Agreement | Navigate                                      |
-      | UHN Northeast                                 | Simplified Medical Group Agreement            | Charter                                       |
-      | UHN Northeast                                 | Simplified Medical Group Agreement            | Compass                                       |
-      | UHN Northeast                                 | Simplified Medical Group Agreement            | Core                                          |
-      | UHN Northeast                                 | Simplified Medical Group Agreement            | Navigate                                      |
-      | UHN Northeast                                 | Simplified Physician Agreement                | Charter                                       |
-      | UHN Northeast                                 | Simplified Physician Agreement                | Compass                                       |
-      | UHN Northeast                                 | Simplified Physician Agreement                | Core                                          |
-      | UHN Northeast                                 | Simplified Physician Agreement                | Navigate                                      |
-      | UHN Northeast                                 | Simplified Practitioner Group Agreement       | Charter                                       |
-      | UHN Northeast                                 | Simplified Practitioner Group Agreement       | Compass                                       |
-      | UHN Northeast                                 | Simplified Practitioner Group Agreement       | Core                                          |
-      | UHN Northeast                                 | Simplified Practitioner Group Agreement       | Navigate                                      |
-      | UHN Northeast                                 | Simplified Physician Agreement                | Charter                                       |
-      | UHN Northeast                                 | Simplified Physician Agreement                | Compass                                       |
-      | UHN Northeast                                 | Simplified Physician Agreement                | Core                                          |
-      | UHN Northeast                                 | Simplified Physician Agreement                | Navigate                                      |
-      | UHN Southeast                                 | Medical Group Agreement                       | Charter                                       |
-      | UHN Southeast                                 | Medical Group Agreement                       | Compass                                       |
-      | UHN Southeast                                 | Medical Group Agreement                       | Core                                          |
-      | UHN Southeast                                 | Medical Group Agreement                       | Navigate                                      |
-      | UHN Southeast                                 | Medical Group National Agreement              | Charter                                       |
-      | UHN Southeast                                 | Medical Group National Agreement              | Compass                                       |
-      | UHN Southeast                                 | Medical Group National Agreement              | Core                                          |
-      | UHN Southeast                                 | Medical Group National Agreement              | Navigate                                      |
-      | UHN Southeast                                 | Practitioner Agreement                        | Charter                                       |
-      | UHN Southeast                                 | Practitioner Agreement                        | Compass                                       |
-      | UHN Southeast                                 | Practitioner Agreement                        | Core                                          |
-      | UHN Southeast                                 | Practitioner Agreement                        | Navigate                                      |
-      | UHN Southeast                                 | Provider Organization Participation Agreement | Charter                                       |
-      | UHN Southeast                                 | Provider Organization Participation Agreement | Compass                                       |
-      | UHN Southeast                                 | Provider Organization Participation Agreement | Core                                          |
-      | UHN Southeast                                 | Provider Organization Participation Agreement | Navigate                                      |
-      | UHN Southeast                                 | Simplified Medical Group Agreement            | Charter                                       |
-      | UHN Southeast                                 | Simplified Medical Group Agreement            | Compass                                       |
-      | UHN Southeast                                 | Simplified Medical Group Agreement            | Core                                          |
-      | UHN Southeast                                 | Simplified Medical Group Agreement            | Navigate                                      |
-      | UHN Southeast                                 | Simplified Physician Agreement                | Charter                                       |
-      | UHN Southeast                                 | Simplified Physician Agreement                | Compass                                       |
-      | UHN Southeast                                 | Simplified Physician Agreement                | Core                                          |
-      | UHN Southeast                                 | Simplified Physician Agreement                | Navigate                                      |
-      | UHN Southeast                                 | Simplified Practitioner Group Agreement       | Charter                                       |
-      | UHN Southeast                                 | Simplified Practitioner Group Agreement       | Compass                                       |
-      | UHN Southeast                                 | Simplified Practitioner Group Agreement       | Core                                          |
-      | UHN Southeast                                 | Simplified Practitioner Group Agreement       | Navigate                                      |
-      | UHN Southeast                                 | Simplified Physician Agreement                | Charter                                       |
-      | UHN Southeast                                 | Simplified Physician Agreement                | Compass                                       |
-      | UHN Southeast                                 | Simplified Physician Agreement                | Core                                          |
-      | UHN Southeast                                 | Simplified Physician Agreement                | Navigate                                      |
-      | UHN West                                      | Medical Group Agreement                       | Charter                                       |
-      | UHN West                                      | Medical Group Agreement                       | Compass                                       |
-      | UHN West                                      | Medical Group Agreement                       | Core                                          |
-      | UHN West                                      | Medical Group Agreement                       | Navigate                                      |
-      | UHN West                                      | Medical Group National Agreement              | Charter                                       |
-      | UHN West                                      | Medical Group National Agreement              | Compass                                       |
-      | UHN West                                      | Medical Group National Agreement              | Core                                          |
-      | UHN West                                      | Medical Group National Agreement              | Navigate                                      |
-      | UHN West                                      | Practitioner Agreement                        | Charter                                       |
-      | UHN West                                      | Practitioner Agreement                        | Compass                                       |
-      | UHN West                                      | Practitioner Agreement                        | Core                                          |
-      | UHN West                                      | Practitioner Agreement                        | Navigate                                      |
-      | UHN West                                      | Provider Organization Participation Agreement | Charter                                       |
-      | UHN West                                      | Provider Organization Participation Agreement | Compass                                       |
-      | UHN West                                      | Provider Organization Participation Agreement | Core                                          |
-      | UHN West                                      | Provider Organization Participation Agreement | Navigate                                      |
-      | UHN West                                      | Simplified Medical Group Agreement            | Charter                                       |
-      | UHN West                                      | Simplified Medical Group Agreement            | Compass                                       |
-      | UHN West                                      | Simplified Medical Group Agreement            | Core                                          |
-      | UHN West                                      | Simplified Medical Group Agreement            | Navigate                                      |
-      | UHN West                                      | Simplified Physician Agreement                | Charter                                       |
-      | UHN West                                      | Simplified Physician Agreement                | Compass                                       |
-      | UHN West                                      | Simplified Physician Agreement                | Core                                          |
-      | UHN West                                      | Simplified Physician Agreement                | Navigate                                      |
-      | UHN West                                      | Simplified Practitioner Group Agreement       | Charter                                       |
-      | UHN West                                      | Simplified Practitioner Group Agreement       | Compass                                       |
-      | UHN West                                      | Simplified Practitioner Group Agreement       | Core                                          |
-      | UHN West                                      | Simplified Practitioner Group Agreement       | Navigate                                      |
-      | UHN West                                      | Simplified Physician Agreement                | Charter                                       |
-      | UHN West                                      | Simplified Physician Agreement                | Compass                                       |
-      | UHN West                                      | Simplified Physician Agreement                | Core                                          |
-      | UHN West                                      | Simplified Physician Agreement                | Navigate                                      |
-      | UHN Central                                   | Medical Group Agreement                       | Charter                                       |
-      | UHN Central                                   | Medical Group Agreement                       | Compass                                       |
-      | UHN Central                                   | Medical Group Agreement                       | Core                                          |
-      | UHN Central                                   | Medical Group Agreement                       | Navigate                                      |
-      | UHN Central                                   | Medical Group National Agreement              | Charter                                       |
-      | UHN Central                                   | Medical Group National Agreement              | Compass                                       |
-      | UHN Central                                   | Medical Group National Agreement              | Core                                          |
-      | UHN Central                                   | Medical Group National Agreement              | Navigate                                      |
-      | UHN Central                                   | Practitioner Agreement                        | Charter                                       |
-      | UHN Central                                   | Practitioner Agreement                        | Compass                                       |
-      | UHN Central                                   | Practitioner Agreement                        | Core                                          |
-      | UHN Central                                   | Practitioner Agreement                        | Navigate                                      |
-      | UHN Central                                   | Provider Organization Participation Agreement | Charter                                       |
-      | UHN Central                                   | Provider Organization Participation Agreement | Compass                                       |
-      | UHN Central                                   | Provider Organization Participation Agreement | Core                                          |
-      | UHN Central                                   | Provider Organization Participation Agreement | Navigate                                      |
-      | UHN Central                                   | Simplified Medical Group Agreement            | Charter                                       |
-      | UHN Central                                   | Simplified Medical Group Agreement            | Compass                                       |
-      | UHN Central                                   | Simplified Medical Group Agreement            | Core                                          |
-      | UHN Central                                   | Simplified Medical Group Agreement            | Navigate                                      |
-      | UHN Central                                   | Simplified Physician Agreement                | Charter                                       |
-      | UHN Central                                   | Simplified Physician Agreement                | Compass                                       |
-      | UHN Central                                   | Simplified Physician Agreement                | Core                                          |
-      | UHN Central                                   | Simplified Physician Agreement                | Navigate                                      |
-      | UHN Central                                   | Simplified Practitioner Group Agreement       | Charter                                       |
-      | UHN Central                                   | Simplified Practitioner Group Agreement       | Compass                                       |
-      | UHN Central                                   | Simplified Practitioner Group Agreement       | Core                                          |
-      | UHN Central                                   | Simplified Practitioner Group Agreement       | Navigate                                      |
-      | UHN Central                                   | Simplified Physician Agreement                | Charter                                       |
-      | UHN Central                                   | Simplified Physician Agreement                | Compass                                       |
-      | UHN Central                                   | Simplified Physician Agreement                | Core                                          |
-      | UHN Central                                   | Simplified Physician Agreement                | Navigate                                      |
-      | UHN National                                  | Medical Group Agreement                       | Charter                                       |
-      | UHN National                                  | Medical Group Agreement                       | Compass                                       |
-      | UHN National                                  | Medical Group Agreement                       | Core                                          |
-      | UHN National                                  | Medical Group Agreement                       | Navigate                                      |
-      | UHN National                                  | Medical Group National Agreement              | Charter                                       |
-      | UHN National                                  | Medical Group National Agreement              | Compass                                       |
-      | UHN National                                  | Medical Group National Agreement              | Core                                          |
-      | UHN National                                  | Medical Group National Agreement              | Navigate                                      |
-      | UHN National                                  | Practitioner Agreement                        | Charter                                       |
-      | UHN National                                  | Practitioner Agreement                        | Compass                                       |
-      | UHN National                                  | Practitioner Agreement                        | Core                                          |
-      | UHN National                                  | Practitioner Agreement                        | Navigate                                      |
-      | UHN National                                  | Provider Organization Participation Agreement | Charter                                       |
-      | UHN National                                  | Provider Organization Participation Agreement | Compass                                       |
-      | UHN National                                  | Provider Organization Participation Agreement | Core                                          |
-      | UHN National                                  | Provider Organization Participation Agreement | Navigate                                      |
-      | UHN National                                  | Simplified Medical Group Agreement            | Charter                                       |
-      | UHN National                                  | Simplified Medical Group Agreement            | Compass                                       |
-      | UHN National                                  | Simplified Medical Group Agreement            | Core                                          |
-      | UHN National                                  | Simplified Medical Group Agreement            | Navigate                                      |
-      | UHN National                                  | Simplified Physician Agreement                | Charter                                       |
-      | UHN National                                  | Simplified Physician Agreement                | Compass                                       |
-      | UHN National                                  | Simplified Physician Agreement                | Core                                          |
-      | UHN National                                  | Simplified Physician Agreement                | Navigate                                      |
-      | UHN National                                  | Simplified Practitioner Group Agreement       | Charter                                       |
-      | UHN National                                  | Simplified Practitioner Group Agreement       | Compass                                       |
-      | UHN National                                  | Simplified Practitioner Group Agreement       | Core                                          |
-      | UHN National                                  | Simplified Practitioner Group Agreement       | Navigate                                      |
-      | UHN National                                  | Simplified Physician Agreement                | Charter                                       |
-      | UHN National                                  | Simplified Physician Agreement                | Compass                                       |
-      | UHN National                                  | Simplified Physician Agreement                | Core                                          |
-      | UHN National                                  | Simplified Physician Agreement                | Navigate                                      |
+      | uhgSite                 | contractSubtype         | productServicesExcluded |
+      | Northeast               | MGA                     | Charter                 |
+      | Northeast               | MGA                     | Compass                 |
+      | Northeast               | MGA                     | Core                    |
+      | Northeast               | MGA                     | Navigate                |
+      | Northeast               | IPA                     | Charter                 |
+      | Northeast               | IPA                     | Compass                 |
+      | Northeast               | IPA                     | Core                    |
+      | Northeast               | IPA                     | Navigate                |
+      | Northeast               | PAT                     | Charter                 |
+      | Northeast               | PAT                     | Compass                 |
+      | Northeast               | PAT                     | Core                    |
+      | Northeast               | PAT                     | Navigate                |
+      | Northeast               | PHO                     | Charter                 |
+      | Northeast               | PHO                     | Compass                 |
+      | Northeast               | PHO                     | Core                    |
+      | Northeast               | PHO                     | Navigate                |
+      | Northeast               | SMG                     | Charter                 |
+      | Northeast               | SMG                     | Compass                 |
+      | Northeast               | SMG                     | Core                    |
+      | Northeast               | SMG                     | Navigate                |
+      | Northeast               | SPA                     | Charter                 |
+      | Northeast               | SPA                     | Compass                 |
+      | Northeast               | SPA                     | Core                    |
+      | Northeast               | SPA                     | Navigate                |
+      | Northeast               | SPG                     | Charter                 |
+      | Northeast               | SPG                     | Compass                 |
+      | Northeast               | SPG                     | Core                    |
+      | Northeast               | SPG                     | Navigate                |
+      | Southeast               | MGA                     | Charter                 |
+      | Southeast               | MGA                     | Compass                 |
+      | Southeast               | MGA                     | Core                    |
+      | Southeast               | MGA                     | Navigate                |
+      | Southeast               | IPA                     | Charter                 |
+      | Southeast               | IPA                     | Compass                 |
+      | Southeast               | IPA                     | Core                    |
+      | Southeast               | IPA                     | Navigate                |
+      | Southeast               | PAT                     | Charter                 |
+      | Southeast               | PAT                     | Compass                 |
+      | Southeast               | PAT                     | Core                    |
+      | Southeast               | PAT                     | Navigate                |
+      | Southeast               | PHO                     | Charter                 |
+      | Southeast               | PHO                     | Compass                 |
+      | Southeast               | PHO                     | Core                    |
+      | Southeast               | PHO                     | Navigate                |
+      | Southeast               | SMG                     | Charter                 |
+      | Southeast               | SMG                     | Compass                 |
+      | Southeast               | SMG                     | Core                    |
+      | Southeast               | SMG                     | Navigate                |
+      | Southeast               | SPA                     | Charter                 |
+      | Southeast               | SPA                     | Compass                 |
+      | Southeast               | SPA                     | Core                    |
+      | Southeast               | SPA                     | Navigate                |
+      | Southeast               | SPG                     | Charter                 |
+      | Southeast               | SPG                     | Compass                 |
+      | Southeast               | SPG                     | Core                    |
+      | Southeast               | SPG                     | Navigate                |
+      | West                    | MGA                     | Charter                 |
+      | West                    | MGA                     | Compass                 |
+      | West                    | MGA                     | Core                    |
+      | West                    | MGA                     | Navigate                |
+      | West                    | IPA                     | Charter                 |
+      | West                    | IPA                     | Compass                 |
+      | West                    | IPA                     | Core                    |
+      | West                    | IPA                     | Navigate                |
+      | West                    | PAT                     | Charter                 |
+      | West                    | PAT                     | Compass                 |
+      | West                    | PAT                     | Core                    |
+      | West                    | PAT                     | Navigate                |
+      | West                    | PHO                     | Charter                 |
+      | West                    | PHO                     | Compass                 |
+      | West                    | PHO                     | Core                    |
+      | West                    | PHO                     | Navigate                |
+      | West                    | SMG                     | Charter                 |
+      | West                    | SMG                     | Compass                 |
+      | West                    | SMG                     | Core                    |
+      | West                    | SMG                     | Navigate                |
+      | West                    | SPA                     | Charter                 |
+      | West                    | SPA                     | Compass                 |
+      | West                    | SPA                     | Core                    |
+      | West                    | SPA                     | Navigate                |
+      | West                    | SPG                     | Charter                 |
+      | West                    | SPG                     | Compass                 |
+      | West                    | SPG                     | Core                    |
+      | West                    | SPG                     | Navigate                |
+      | Central                 | MGA                     | Charter                 |
+      | Central                 | MGA                     | Compass                 |
+      | Central                 | MGA                     | Core                    |
+      | Central                 | MGA                     | Navigate                |
+      | Central                 | IPA                     | Charter                 |
+      | Central                 | IPA                     | Compass                 |
+      | Central                 | IPA                     | Core                    |
+      | Central                 | IPA                     | Navigate                |
+      | Central                 | PAT                     | Charter                 |
+      | Central                 | PAT                     | Compass                 |
+      | Central                 | PAT                     | Core                    |
+      | Central                 | PAT                     | Navigate                |
+      | Central                 | PHO                     | Charter                 |
+      | Central                 | PHO                     | Compass                 |
+      | Central                 | PHO                     | Core                    |
+      | Central                 | PHO                     | Navigate                |
+      | Central                 | SMG                     | Charter                 |
+      | Central                 | SMG                     | Compass                 |
+      | Central                 | SMG                     | Core                    |
+      | Central                 | SMG                     | Navigate                |
+      | Central                 | SPA                     | Charter                 |
+      | Central                 | SPA                     | Compass                 |
+      | Central                 | SPA                     | Core                    |
+      | Central                 | SPA                     | Navigate                |
+      | Central                 | SPG                     | Charter                 |
+      | Central                 | SPG                     | Compass                 |
+      | Central                 | SPG                     | Core                    |
+      | Central                 | SPG                     | Navigate                |
+      | National                | MGA                     | Charter                 |
+      | National                | MGA                     | Compass                 |
+      | National                | MGA                     | Core                    |
+      | National                | MGA                     | Navigate                |
+      | National                | IPA                     | Charter                 |
+      | National                | IPA                     | Compass                 |
+      | National                | IPA                     | Core                    |
+      | National                | IPA                     | Navigate                |
+      | National                | PAT                     | Charter                 |
+      | National                | PAT                     | Compass                 |
+      | National                | PAT                     | Core                    |
+      | National                | PAT                     | Navigate                |
+      | National                | PHO                     | Charter                 |
+      | National                | PHO                     | Compass                 |
+      | National                | PHO                     | Core                    |
+      | National                | PHO                     | Navigate                |
+      | National                | SMG                     | Charter                 |
+      | National                | SMG                     | Compass                 |
+      | National                | SMG                     | Core                    |
+      | National                | SMG                     | Navigate                |
+      | National                | SPA                     | Charter                 |
+      | National                | SPA                     | Compass                 |
+      | National                | SPA                     | Core                    |
+      | National                | SPA                     | Navigate                |
+      | National                | SPG                     | Charter                 |
+      | National                | SPG                     | Compass                 |
+      | National                | SPG                     | Core                    |
+      | National                | SPG                     | Navigate                |
 
   @TC600519
   @Manual
@@ -198,45 +178,40 @@ Feature: US1368000 - ENW Indicator Determination
     Then the ENW IND will be populated with "Y" within the OCM Contract Model
     Examples:
     # Note: May not need to create a separate table. May be able to combine several user stories to one table. Product services excluded is equivalent to below the line. GIVEN UHG_Site includes UHN Northeast, UHN Southeast, UHN West, UHN Central or UHN National={Given the provider is active for one or more Employer & Individual products]
-      | uhgSite                                       | contractSubtype                               |
-      | UHN Northeast                                 | Medical Group Agreement                       |
-      | UHN Northeast                                 | Medical Group National Agreement              |
-      | UHN Northeast                                 | Practitioner Agreement                        |
-      | UHN Northeast                                 | Provider Organization Participation Agreement |
-      | UHN Northeast                                 | Simplified Medical Group Agreement            |
-      | UHN Northeast                                 | Simplified Physician Agreement                |
-      | UHN Northeast                                 | Simplified Practitioner Group Agreement       |
-      | UHN Northeast                                 | Simplified Physician Agreement                |
-      | UHN Southeast                                 | Medical Group Agreement                       |
-      | UHN Southeast                                 | Medical Group National Agreement              |
-      | UHN Southeast                                 | Practitioner Agreement                        |
-      | UHN Southeast                                 | Provider Organization Participation Agreement |
-      | UHN Southeast                                 | Simplified Medical Group Agreement            |
-      | UHN Southeast                                 | Simplified Physician Agreement                |
-      | UHN Southeast                                 | Simplified Practitioner Group Agreement       |
-      | UHN Southeast                                 | Simplified Physician Agreement                |
-      | UHN West                                      | Medical Group Agreement                       |
-      | UHN West                                      | Medical Group National Agreement              |
-      | UHN West                                      | Practitioner Agreement                        |
-      | UHN West                                      | Provider Organization Participation Agreement |
-      | UHN West                                      | Simplified Medical Group Agreement            |
-      | UHN West                                      | Simplified Physician Agreement                |
-      | UHN West                                      | Simplified Practitioner Group Agreement       |
-      | UHN West                                      | Simplified Physician Agreement                |
-      | UHN Central                                   | Medical Group Agreement                       |
-      | UHN Central                                   | Medical Group National Agreement              |
-      | UHN Central                                   | Practitioner Agreement                        |
-      | UHN Central                                   | Provider Organization Participation Agreement |
-      | UHN Central                                   | Simplified Medical Group Agreement            |
-      | UHN Central                                   | Simplified Physician Agreement                |
-      | UHN Central                                   | Simplified Practitioner Group Agreement       |
-      | UHN Central                                   | Simplified Physician Agreement                |
-      | UHN National                                  | Medical Group Agreement                       |
-      | UHN National                                  | Medical Group National Agreement              |
-      | UHN National                                  | Practitioner Agreement                        |
-      | UHN National                                  | Provider Organization Participation Agreement |
-      | UHN National                                  | Simplified Medical Group Agreement            |
-      | UHN National                                  | Simplified Physician Agreement                |
-      | UHN National                                  | Simplified Practitioner Group Agreement       |
-      | UHN National                                  | Simplified Physician Agreement                |
+      | uhgSite         | contractSubtype |
+      | Northeast       | MGA             |
+      | Northeast       | IPA             |
+      | Northeast       | PAT             |
+      | Northeast       | PHO             |
+      | Northeast       | SMG             |
+      | Northeast       | SPA             |
+      | Northeast       | SPG             |
+      | Southeast       | MGA             |
+      | Southeast       | IPA             |
+      | Southeast       | PAT             |
+      | Southeast       | PHO             |
+      | Southeast       | SMG             |
+      | Southeast       | SPA             |
+      | Southeast       | SPG             |
+      | West            | MGA             |
+      | West            | IPA             |
+      | West            | PAT             |
+      | West            | PHO             |
+      | West            | SMG             |
+      | West            | SPA             |
+      | West            | SPG             |
+      | Central         | MGA             |
+      | Central         | IPA             |
+      | Central         | PAT             |
+      | Central         | PHO             |
+      | Central         | SMG             |
+      | Central         | SPA             |
+      | Central         | SPG             |
+      | National        | MGA             |
+      | National        | IPA             |
+      | National        | PAT             |
+      | National        | PHO             |
+      | National        | SMG             |
+      | National        | SPA             |
+      | National        | SPG             |
 

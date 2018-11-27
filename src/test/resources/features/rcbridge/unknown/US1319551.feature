@@ -1,8 +1,7 @@
 # Last updated on 
 @CMD
 @US1319551
-@2018.PI05
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1319551 - NDB Contract Master Validation Set (Type 2 error resolution)
 

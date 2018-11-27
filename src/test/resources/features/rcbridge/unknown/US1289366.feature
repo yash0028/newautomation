@@ -1,7 +1,10 @@
 # Last updated on 
 @US1289366
-@2018.PI04
-@releasePresent
+@MVP
+@10/1_Physician
+@Priority_1
+@CMD
+@releaseUnknown
 @iterationUnknown
 Feature: US1289366 - Create multi-Contract Config Summary web page template
 

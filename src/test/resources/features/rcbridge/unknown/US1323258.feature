@@ -1,7 +1,6 @@
 # Last updated on 
 @US1323258
-@2018.PI05
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1323258 - Contract Configuration Service - Configuration Details
 

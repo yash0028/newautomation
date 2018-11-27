@@ -1,10 +1,10 @@
 # Last updated on 
 @MVP
 @US1285745
-@2018.PI04
+@2019.PI06
 @MVP
 @Priority_1
-@releasePresent
+@releaseFuture
 @iterationUnknown
 Feature: US1285745 - Synchronize Updated MPIN
 

@@ -2,10 +2,9 @@
 @MVP
 @Parity
 @US1183047
-@2018.PI04
 @MVP
 @Parity
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US1183047 - Filter search results
 

@@ -1,7 +1,10 @@
 # Last updated on 
 @US1287040
-@2018.PI04
-@releasePresent
+@MVP
+@10/1_Physician
+@Priority_1
+@CMD
+@releaseUnknown
 @iterationUnknown
 Feature: US1287040 - Contract Config SSO Integration with Exari - SSO RBA
 
