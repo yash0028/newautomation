@@ -288,7 +288,7 @@ public class ContractRulesSteps implements IRestStep {
         // Build out the request
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
 
-        Thread.sleep(500);
+        Thread.sleep(700);
 
         // Get the response
         response = request.post(RESOURCE_ENW_INDICATOR);
@@ -331,7 +331,7 @@ public class ContractRulesSteps implements IRestStep {
         // Build out the request
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
 
-        Thread.sleep(500);
+        Thread.sleep(700);
 
         // Get the response
         response = request.post(RESOURCE_PENALTY_TABLE);
