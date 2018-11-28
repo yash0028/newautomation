@@ -23,7 +23,6 @@ public class LocalDriver implements IConfigurable, IFileReader {
     CONSTRUCTOR
      */
     private LocalDriver() {
-
         init();
     }
 

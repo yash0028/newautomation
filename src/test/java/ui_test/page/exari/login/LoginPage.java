@@ -54,7 +54,7 @@ public class LoginPage implements IWebInteract, IFactoryPage, IConfigurable {
 
     @Override
     public boolean confirmCurrentPage() {
-        return getDriver().getCurrentUrl().matches("^.+exaricm/page/$");
+        return isVisible(textBoxUsername);
     }
 
     @Override

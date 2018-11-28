@@ -3,7 +3,6 @@ package rest_api_test.step;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -14,6 +13,7 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
+
 import static io.restassured.RestAssured.given;
 
 public class ContractRulesSteps implements IRestStep {
@@ -276,10 +276,9 @@ public class ContractRulesSteps implements IRestStep {
 
     @When("^\"([^\"]*)\" (does not include|include) one or more below the line \"([^\"]*)\"$")
     public void includeOneOrMoreBelowTheLine(String field, String includes, String value) throws Throwable {
-        if(includes.equals("include")){
+        if (includes.equals("include")) {
             requestBody.addProperty(field, value);
-        }
-        else{
+        } else {
             requestBody.addProperty(field, "");
         }
     }
@@ -317,10 +316,9 @@ public class ContractRulesSteps implements IRestStep {
         JsonArray requestArray = new JsonArray();
 
         // Add the product to the array if it is supposed to be included
-        if(includes.equals("includes")){
+        if (includes.equals("includes")) {
             requestArray.add(value);
-        }
-        else{
+        } else {
             requestArray.add("");
         }
 
@@ -348,10 +346,9 @@ public class ContractRulesSteps implements IRestStep {
         // Get the penaltyTable part of the response, should be either true or false
         boolean penaltyTableRequired = resultObject.get("result").getAsJsonObject().get("penaltyTableRequired").getAsBoolean();
 
-        if(isOrIsNot.equals("is")){
+        if (isOrIsNot.equals("is")) {
             Assert.assertTrue("Penalty Table Required was false when it should be true", penaltyTableRequired);
-        }
-        else{
+        } else {
             Assert.assertFalse("Penalty Table Required was true when it should be false", penaltyTableRequired);
         }
     }
