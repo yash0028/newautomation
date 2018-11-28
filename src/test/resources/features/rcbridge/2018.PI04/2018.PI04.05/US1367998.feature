@@ -13,7 +13,7 @@
 Feature: US1367998 - Determine Product Penalty Table requirement
 
   @TC600540
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC600540 - [RL0]
@@ -90,7 +90,7 @@ Feature: US1367998 - Determine Product Penalty Table requirement
       | National                          | AllRiverValleyproducts            |
 
   @TC611128
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC611128 - [RL1]

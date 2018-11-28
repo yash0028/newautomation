@@ -13,7 +13,7 @@
 Feature: US1368000 - ENW Indicator Determination
 
   @TC600518
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC600518 - [RL0]
@@ -166,7 +166,7 @@ Feature: US1368000 - ENW Indicator Determination
       | National                | SPG                     | Navigate                |
 
   @TC600519
-  @Manual
+  @Automated
   @Functional
   @Contract_Rules
   Scenario Outline: TC600519 - [RL1]
