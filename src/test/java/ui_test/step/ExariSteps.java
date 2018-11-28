@@ -75,6 +75,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
                 contractParam.getOrDefault("Product", "none")
         );
 
+        //Additional Locations :: no operation
+        assert wizard.skipAdditionalLocations();
+
         //Payment Appendix ::
         assert wizard.enterPaymentAppendix(
                 false,
@@ -90,6 +93,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
                 contractParam.getOrDefault("Regulator", "iowa"),
                 0
         );
+
+        //Additional Locations :: no operation
+        assert wizard.skipAdditionalLocations();
 
         //Provider Roster :: Select Roster Action
         assert wizard.selectProviderRoster(
