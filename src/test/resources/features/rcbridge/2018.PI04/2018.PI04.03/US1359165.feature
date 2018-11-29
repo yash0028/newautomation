@@ -6,7 +6,7 @@
 @Madhur
 @Priority_1
 @CMD
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1359165 - Update status of contract ID installation status.
 

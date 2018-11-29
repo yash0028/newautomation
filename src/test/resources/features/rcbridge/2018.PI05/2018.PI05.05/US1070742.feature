@@ -6,7 +6,7 @@
 @Plus
 @Priority_2
 @Facility
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1070742 - COSMOS Facility Acknowledgment Process - Production
 

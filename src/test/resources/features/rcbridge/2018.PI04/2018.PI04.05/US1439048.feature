@@ -8,8 +8,8 @@
 @Priority_1
 @kumar,_Sachin
 @CMD
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1439048 - HERITAGE PRODUCT SILENT INCLUSION correction
 
   @TC644179

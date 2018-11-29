@@ -6,7 +6,7 @@
 @10/1_Physician
 @Priority_1
 @CMD
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1289549 - Contract Config Services - Update Contract Config record
 

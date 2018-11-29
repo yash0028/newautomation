@@ -1,7 +1,7 @@
 # Last updated on 
 @US1418696
 @2018.PI05
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1418696 - Search - based on Contract Dates (effstart/effend date)
 

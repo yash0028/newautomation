@@ -5,7 +5,7 @@
 @2018.PI05.05
 @MVP
 @Maintenance
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1425617 - Track resent Type 2 error transactions to NDB
 

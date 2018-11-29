@@ -5,7 +5,7 @@
 @MVP
 @PI04
 @Plus
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1439924 - Integration - Negotiation to Load form, docusign
 

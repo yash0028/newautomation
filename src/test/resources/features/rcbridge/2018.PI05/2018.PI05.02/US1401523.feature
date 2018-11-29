@@ -4,9 +4,9 @@
 @2018.PI05.02
 @MVP
 @Maintenance
-@releaseFuture
+@releasePresent
 @iterationFuture
-Feature: US1401523 - UI/UX- Populate Resolution button and comments on CMD error page
+Feature: US1401523 - UI/UX- Populate Resolution button and comments on CMD page displaying Type 2 errors
 
   @TC622440
   @Manual

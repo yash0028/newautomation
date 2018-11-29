@@ -6,7 +6,7 @@
 @Madhur
 @Priority_1
 @CMD
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1390743 - [Unfinished] CMD- Update database schema for parital contract master updates
 

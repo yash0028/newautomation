@@ -4,7 +4,7 @@
 @2018.PI05.03
 @MVP
 @Maintenance
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1387185 - Validate roster data - cancel
 

@@ -6,7 +6,7 @@
 @Plus
 @Priority_2
 @Facility
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1070428 - Exari>COSMOS Term/Cancel a Facility Contract - PSH - Coding & Unit Test
 

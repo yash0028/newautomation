@@ -4,7 +4,7 @@
 @2018.PI05.04
 @MVP
 @Maintenance
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1402778 - Allow Duplicate Edit 1 and 2 overrides on Active contracts
 

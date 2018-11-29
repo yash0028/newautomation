@@ -8,7 +8,7 @@
 @Madhur
 @Priority_1
 @CMD
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1204297 - NDB Common Pricing Solution Lookup API
 

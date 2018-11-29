@@ -2,7 +2,7 @@
 @US1389017
 @2018.PI05
 @2018.PI05.02
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1389017 - MSPS Fee Schedule External Link
 

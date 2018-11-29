@@ -6,8 +6,8 @@
 @Plus
 @Priority_2
 @Facility
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1070767 - SPIKE - COSMOS API Facility Analysis
 
   @TC564759

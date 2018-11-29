@@ -8,7 +8,7 @@
 @Priority_1
 @kumar,_Sachin
 @CMD
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1367999 - PCP Specialties Standard definition UHN
 

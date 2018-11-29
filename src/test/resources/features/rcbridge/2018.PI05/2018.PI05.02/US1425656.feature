@@ -4,9 +4,9 @@
 @2018.PI05.02
 @MVP
 @Maintenance
-@releaseFuture
+@releasePresent
 @iterationFuture
-Feature: US1425656 - UI/UX- Enable resend select button from CMD error page
+Feature: US1425656 - UI/UX- Enable Type 2 Error resend select button from CMD error page
 
   @TC634353
   @Manual

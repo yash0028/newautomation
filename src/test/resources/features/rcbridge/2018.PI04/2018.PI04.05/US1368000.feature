@@ -8,8 +8,8 @@
 @Priority_1
 @kumar,_Sachin
 @CMD
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1368000 - ENW Indicator Determination
 
   @TC600518

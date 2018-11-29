@@ -7,7 +7,7 @@
 @Madhur
 @Priority_1
 @CMD
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1301966 - CMD- Dashboard transaction search and update Service call
 

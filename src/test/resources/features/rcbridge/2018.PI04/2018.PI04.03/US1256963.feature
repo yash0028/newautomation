@@ -7,7 +7,7 @@
 @Priority_1
 @CMD
 @Amrutha
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1256963 - Update user interface to accommodate rules table
 

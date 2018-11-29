@@ -4,7 +4,7 @@
 @MVP
 @Priority_1
 @Parity
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US861129 - NDAR_Exari_Payer_Benefit_Plans_YYYYMMDD
 

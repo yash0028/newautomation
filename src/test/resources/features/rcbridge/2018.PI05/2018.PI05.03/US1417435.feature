@@ -4,7 +4,7 @@
 @2018.PI05.03
 @MVP
 @Maintenance
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1417435 - Retrieve a Contract's configuration for a Market Product Group
 

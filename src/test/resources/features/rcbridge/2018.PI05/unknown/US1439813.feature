@@ -4,7 +4,7 @@
 @MVP
 @PI04
 @Plus
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1439813 - Integration - Obtain Fee Schedule Information
 

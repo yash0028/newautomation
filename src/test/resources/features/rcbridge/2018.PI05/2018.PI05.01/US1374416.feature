@@ -6,8 +6,8 @@
 @Madhur
 @Priority_1
 @CMD
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1374416 - [Continued] [Continued] CMD - Create fallout-service REST endpoints for Contract Management Dashboard
 
   @TC605561

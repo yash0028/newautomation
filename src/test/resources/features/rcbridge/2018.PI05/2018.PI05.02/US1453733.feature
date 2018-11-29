@@ -5,9 +5,9 @@
 @2018.PI05.02
 @MVP
 @Maintenance
-@releaseFuture
+@releasePresent
 @iterationFuture
-Feature: US1453733 - UI/UX- New web Page for CMD error page and related activities
+Feature: US1453733 - UI/UX- New web Page for CMD page displaying all Type 2 errors and related activities
 
   @TC652718
   @Manual

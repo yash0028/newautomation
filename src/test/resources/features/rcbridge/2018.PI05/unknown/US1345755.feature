@@ -4,7 +4,7 @@
 @CMD
 @Priority_2
 @UCM
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1345755 - New UCM - [ProductGroup] Rate Percentage
 

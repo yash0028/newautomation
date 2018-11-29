@@ -3,7 +3,7 @@
 @2018.PI05
 @MVP
 @Maintenance
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1403774 - Receive and recognize contract terminated events/transactions from Exari
 

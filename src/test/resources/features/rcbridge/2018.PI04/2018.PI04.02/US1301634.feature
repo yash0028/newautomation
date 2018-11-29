@@ -7,7 +7,7 @@
 @10/1_Physician
 @Priority_1
 @CMD
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
 

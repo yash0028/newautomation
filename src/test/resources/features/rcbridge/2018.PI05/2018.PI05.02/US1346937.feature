@@ -6,7 +6,7 @@
 @Priority_2
 @NDB
 @CMD
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1346937 - [Continued] CMD- Update database schema for parital contract master updates
 

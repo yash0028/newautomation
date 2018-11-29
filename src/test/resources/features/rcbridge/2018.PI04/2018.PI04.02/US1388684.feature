@@ -7,7 +7,7 @@
 @Madhur
 @Priority_1
 @CMD
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1388684 - [Unfinished] [Continued] CMD- User Input Required Page- View & Edit contract detail information (no search results found)
 

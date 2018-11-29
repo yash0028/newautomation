@@ -8,7 +8,7 @@
 @Priority_1
 @CMD
 @Amrutha
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1256989 - Upload CLM Rule Table
 

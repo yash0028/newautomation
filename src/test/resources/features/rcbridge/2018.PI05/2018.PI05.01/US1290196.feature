@@ -6,8 +6,8 @@
 @Priority_2
 @NDB
 @CMD
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1290196 - Contract Master Override Update Work Objects Table (Non PCP)
 
   @TC616486

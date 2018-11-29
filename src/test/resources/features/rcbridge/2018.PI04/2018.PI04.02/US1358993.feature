@@ -5,7 +5,7 @@
 @2018.PI04.02
 @Priority_1
 @Scrum_Team_1
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1358993 - PES - Appendix Address Relationships
 

@@ -3,7 +3,7 @@
 @2018.PI05
 @2018.PI05.04
 @CMD
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1446143 - Contract Master Override work objects audits database schema  (PCP)
 

@@ -5,8 +5,8 @@
 @MVP
 @Priority_1
 @10/1_Physician
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1189845 - [Continued] [Continued][Continued] Downstream system specific validation handling
 
   @CLM_UAT

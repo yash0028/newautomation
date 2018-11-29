@@ -5,7 +5,7 @@
 @MVP
 @Scrum_Team_1
 @Maintenance
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1398671 - Validation Process Add transacton to applicable platform(s)
 

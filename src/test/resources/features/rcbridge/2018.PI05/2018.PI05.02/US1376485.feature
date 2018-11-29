@@ -5,7 +5,7 @@
 @MVP
 @Priority_2
 @Parity
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1376485 - Extract 1 - NDB Physician (Product) based on migration parameters - Team 4 knowledge transfer and shared support for ongoing runs
 
