@@ -1,8 +1,6 @@
 # Last updated on 
-@MVP
 @EXARI-11274
 @US1089628
-@MVP
 @releaseUnknown
 @iterationUnknown
 Feature: US1089628 - Perform Duplicate Check - Update Identifier
@@ -10,7 +8,6 @@ Feature: US1089628 - Perform Duplicate Check - Update Identifier
   @TC565432
   @Automated
   @Functional
-  @MVP
   @EXARI-11274
   Scenario: TC565432 - [RL0]
     Given I am the Entity Management Solution

@@ -5,7 +5,7 @@
 @MVP
 @releaseUnknown
 @iterationUnknown
-Feature: US1089625 - Perform Duplicate Check - Add Identifier
+Feature: US1089625 - Perform Duplicate Check - Identifier
 
   @TC565596
   @Automated
@@ -15,9 +15,7 @@ Feature: US1089625 - Perform Duplicate Check - Add Identifier
   Scenario: TC565596 - [RL0]
     Given I am the Entity Management Solution
     When a User adds an Identifier to an Entity
-    And I have performed field validation
-    Then I check for duplicate Identifiers
-    And if Identifier exists, the User receives a notification to use existing Identifier
-    And if Identifier does not exist, the User is allowed to proceed and create new
-    And the User is required to assign an Owner to the Identifier
+    Then I check against all active and inactive records for duplicate Identifiers
+    And if duplicate Identifier exists, the User receives a notification to use existing Identifier
+    And if duplicate Identifier does not exist, the User is allowed to proceed and create new
 

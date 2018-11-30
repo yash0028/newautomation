@@ -1,9 +1,7 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @EXARI-11274
 @US949053
-@MVP
 @releaseUnknown
 @iterationUnknown
 Feature: US949053 - Check for Duplicate Name
@@ -11,7 +9,6 @@ Feature: US949053 - Check for Duplicate Name
   @TC564459
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   @EXARI-11274
   Scenario: TC564459 - [RL0]

@@ -17,4 +17,5 @@ Feature: US1285744 - Synchronize Updated Name
     When an Entity Name is updated in a Legacy Application
     And the Entity Name also resides in the Entity Management Solution
     Then the matching record in the Entity Management Solution is updated to reflect the change
+    And effective and expiration dates are updated in the Entity Management Solution
 
