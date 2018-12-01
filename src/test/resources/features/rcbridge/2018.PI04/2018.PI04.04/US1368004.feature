@@ -18,7 +18,7 @@ Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
   @Contract_Rules
   Scenario: TC600537 - [RL0] Validate receiving 706
     Given silent inclusion criteria for "MARKET_PRODUCT" values "HRTG CHOICE RV" has been met
-    When "paymentPoliciesMcq" does NOT include "UnitedHealthcare River Valley%"
+    When "paymentPoliciesMcq" does NOT include "UnitedHealthcare River Valley"
     And "marketNumberDmcq" = "03413"
     Then "marketProductIncluded" value "HRTG CHOICE RV" and "marketProductNetwork" value of "706" recorded in the OCM record
 
@@ -29,7 +29,7 @@ Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
   Scenario: TC611124 - [RL1] Validate receiving 705
     # reference: NDB PRODUCT_CD = EL and NDB MKT IPA 706 (Choice/UHC Evidence Based)
     Given silent inclusion criteria for "MARKET_PRODUCT" values "HRTG CHOICE RV" has been met
-    When "paymentPoliciesMcq" does include "UnitedHealthcare River Valley%"
+    When "paymentPoliciesMcq" does include "UnitedHealthcare River Valley"
     And "marketNumberDmcq" = "03413"
     Then "marketProductIncluded" value "HRTG CHOICE RV" and "marketProductNetwork" value of "705" recorded in the OCM record
 
