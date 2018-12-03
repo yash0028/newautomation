@@ -37,3 +37,13 @@ Feature: US1391148 - Validate contract data - add
     Then the CONTRACT TERMS UPDATED TRANSACTION passes validation
     And the CONTRACT TERMS UPDATED TRANSACTION continues to applicable next step in process
 
+  @TC616909
+  @Manual
+  @Functional
+  Scenario: TC616909 - [RL3]
+    Given a CONTRACT TERMS UPDATED TRANSACTION event is received
+    When the CONTRACT TERMS UPDATED TRANSACTION record does not contain one or more PRODUCT GROUP records to add, cancel or update
+    Then the CONTRACT TERMS UPDATED TRANSACTION does not pass validation
+    And a Type 3 error generated and logged
+    And a message generated 'CONTRACT TERMS UPDATED TRANSACTION RECORD MISSING ACTION TYPE'
+
