@@ -1,5 +1,5 @@
 # Last updated on 
-@activity-api
+@activiti-api
 @US1456884
 @2018.PI05
 @2018.PI05.01
@@ -13,8 +13,8 @@ Feature: US1456884 - Create API to store Activiti process data
   @TC659917
   @Manual
   @Functional
-  @activity-api
-  Scenario Outline: TC659917 - [RL0]
+  @activiti-api
+  Scenario Outline: TC659917 - [RL0] Verify POST to service
     When hitting the activity-api with "contractID" of "<contractId>"
     And "processId" of "<processId>"
     And "processName" of "<processName>"

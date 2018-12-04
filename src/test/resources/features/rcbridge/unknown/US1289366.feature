@@ -1,8 +1,6 @@
 # Last updated on 
 @US1289366
 @MVP
-@10/1_Physician
-@Priority_1
 @CMD
 @releaseUnknown
 @iterationUnknown
