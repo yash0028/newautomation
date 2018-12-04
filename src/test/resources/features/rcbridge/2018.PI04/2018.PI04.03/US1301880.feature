@@ -1,4 +1,5 @@
 # Last updated on 
+@A_UI_Story
 @US1301880
 @2018.PI04
 @2018.PI04.03
@@ -8,20 +9,22 @@
 @CMD
 @releasePast
 @iterationPast
-Feature: US1301880 - [Continued] CMD- User Input Required Page- Populate rows of data
+Feature: US1301880 - [Continued] CMD - User Input Required Page - Populate rows of data
 
   @TC564483
-  @Manual
+  @Automated
   @Functional
+  @A_UI_Story
   Scenario: TC564483 - [RL0]
     # Scenario 1 (Action required information in database)
-    Given I am on the CMD User Review and Input page
+    Given I have clicked on Action Required button on the CMD dashboard
     When there are no Action required transactions
-    Then the following message: There are currently no contracts that require user review and input at this time
+    Then display the following message: There are currently no contracts that require user review and input at this time
 
   @TC593156
-  @Manual
+  @Automated
   @Functional
+  @A_UI_Story
   Scenario: TC593156 - [RL1]
     # Scenario 2 (Action required information in database)
     Given I have clicked on Action Required button on the CMD dashboard
@@ -39,8 +42,9 @@ Feature: US1301880 - [Continued] CMD- User Input Required Page- Populate rows of
     # Date
 
   @TC593157
-  @Manual
+  @Automated
   @Functional
+  @A_UI_Story
   Scenario: TC593157 - [RL2]
     # Scenario 3 (Action required information in database-Default sort order)
     Given I have clicked on Action Required button on the CMD dashboard
