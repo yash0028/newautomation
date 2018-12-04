@@ -30,23 +30,21 @@ public class CMDActionRequiredSteps implements IUiStep {
     private List<WebElement> tableRows = null;
 
     /*
-    US1301880: CMD- User Input Required Page- Populate rows of data
+    US1301880: CMD - User Input Required Page- Populate rows of data
      */
 
     @Given("^I have clicked on Action Required button on the CMD dashboard$")
     public void ClickActionRequiredButtonOnCMDDashboard() throws Throwable {
-        driver = SeleniumHelper.launchBrowser();
-        driver.get(CMD_DASHBOARD_URL);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        cmdPage = new CMDPage(driver);
+        getDriver().get(CMD_DASHBOARD_URL);
+        log.info(getDriver().getTitle());
+        cmdPage = new CMDPage(getDriver());
+
         Assert.assertTrue("CMD page could not be displayed", cmdPage.confirmCurrentPage());
         Assert.assertTrue("Action required link could not be clicked", cmdPage.clickActionRequiredLink());
+        log.info("Successfully clicked action required page.");
 
-        actionRequiredPage = new ActionRequiredPage(driver);
+        actionRequiredPage = new ActionRequiredPage(getDriver());
         Assert.assertTrue("URL for in progress page does not match", actionRequiredPage.confirmCurrentPage());
-
-//        getRemoteDriver().get(CMD_DASHBOARD_URL); // Navigate to the CMD page
-//        cmdPage = new CMDPage(getRemoteDriver());
     }
 
     @When("^there are Action Required transactions$")
@@ -80,10 +78,16 @@ public class CMDActionRequiredSteps implements IUiStep {
         throw new PendingException();
     }
 
-    @Then("^the following message \"([^\"]*)\" appears on the page$")
-    public void theFollowingMessageAppearsOnThePage(String arg0) throws Throwable {
-        driver.close();
+    @Then("^the following message: There are currently no contracts that require user review and input at this time$")
+    public void theFollowingMessageThereAreCurrentlyNoContractsThatRequireUserReviewAndInputAtThisTime() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 
+    @Given("^I am on the CMD User Review and Input page$")
+    public void iAmOnTheCMDUserReviewAndInputPage() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 
     /*
@@ -238,6 +242,5 @@ public class CMDActionRequiredSteps implements IUiStep {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
-
 
 }
