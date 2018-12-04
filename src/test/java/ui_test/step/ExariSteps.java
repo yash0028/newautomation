@@ -54,7 +54,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
 
         //Document Selection :: Select Paper Type
         assert wizard.selectPaperType(
-                contractParam.getOrDefault("Paper Type", null)
+                contractParam.getOrDefault("Paper Type", "")
         );
 
         //Select HBP option
@@ -64,25 +64,36 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
 
         //Enter Phycon
         assert wizard.enterPhyconNumber(
-                contractParam.getOrDefault("Phycon", null)
+                contractParam.getOrDefault("Phycon", "1234")
         );
 
         //Appendix 1 :: Select Additional Manuals
         assert wizard.enterAppendix1();
 
         //Appendix 2 ::
-        assert wizard.enterAppendix2();
+        assert wizard.enterAppendix2(
+                contractParam.getOrDefault("Product", "none")
+        );
 
         //Payment Appendix ::
         assert wizard.enterPaymentAppendix(
+                false,
+                "all",
                 contractParam.getOrDefault("Fee Schedule", "1234")
         );
 
+        //Additional Locations :: no operation
+        assert wizard.skipAdditionalLocations();
+
         //Regulatory Appendix :: Search for Regulator
-        assert wizard.selectRegulatoryAppendix("iowa", 0);
+        assert wizard.selectRegulatoryAppendix(
+                contractParam.getOrDefault("Regulator", "iowa"),
+                0
+        );
 
         //Provider Roster :: Select Roster Action
         assert wizard.selectProviderRoster(
+                contractParam.getOrDefault("Roster Action", "add one"),
                 contractParam.getOrDefault("TIN", null)
         );
 
@@ -110,7 +121,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
     private void loginAndGoToHomePage() {
         String url = configGetOptionalString("exari.devURL").orElse("");
         getDriver().get(url);
+        log.info(getDriver().getTitle());
         LoginPage loginPage = new LoginPage(getDriver());
+
         Assert.assertTrue(loginPage.confirmCurrentPage());
 
         Assert.assertTrue(loginPage.login());

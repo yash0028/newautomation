@@ -33,7 +33,7 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
     private static final String RESOURCE_ECM = "/v1.0/exari/ecm";
     private static final String RESOURCE_FACILITY = "/v1.0/exari/facilitycontracts";
     private static final String RESOURCE_CONTRACT_JSON = "/v1.0/exari/json";
-    private static final String ENDPOINT_EXARI = "https://uhgpoc-dev.exaricontracts.com";
+    private static final String ENDPOINT_EXARI = "https://uhgpoc-dev-nonsso.exaricontracts.com";
     private static final String RESOURCE_CONTRACT_SEARCH = "/exaricm/contracts-api/contracts/search";
 
     private String contractId;

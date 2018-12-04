@@ -1,9 +1,7 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @EXARI-11274
 @US1080995
-@MVP
 @releaseUnknown
 @iterationUnknown
 Feature: US1080995 - Check for Duplicates - Updated Entity Name
@@ -11,7 +9,6 @@ Feature: US1080995 - Check for Duplicates - Updated Entity Name
   @TC565040
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   @EXARI-11274
   Scenario: TC565040 - [RL0]

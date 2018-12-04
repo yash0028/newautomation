@@ -6,7 +6,7 @@
 @Madhur
 @Priority_1
 @CMD
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1301880 - [Continued] CMD- User Input Required Page- Populate rows of data
 

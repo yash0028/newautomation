@@ -1,9 +1,5 @@
 # Last updated on 
-@MVP
 @US950017
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US950017 - Void Identifier Relationship with Entity
@@ -11,7 +7,6 @@ Feature: US950017 - Void Identifier Relationship with Entity
   @TC564729
   @Automated
   @Functional
-  @MVP
   Scenario: TC564729 - [RL0]
     Given I am a User with access to maintain Entity information
     When I need to void the relationship between an Identifier and an Entity

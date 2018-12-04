@@ -6,7 +6,7 @@
 @Madhur
 @Priority_1
 @CMD
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1308272 - [Continued] CMD- User Input Required Page- View detail information (more than one contract master returned )
 

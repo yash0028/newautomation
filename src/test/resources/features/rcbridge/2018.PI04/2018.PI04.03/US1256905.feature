@@ -7,7 +7,7 @@
 @Priority_1
 @CMD
 @Amrutha
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1256905 - Create CLM Rule Table
 

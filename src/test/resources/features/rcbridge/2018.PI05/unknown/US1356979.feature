@@ -4,7 +4,7 @@
 @CMD
 @Priority_2
 @UCM
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1356979 - New UCM - Market_Products_Excluded
 

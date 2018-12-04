@@ -3,7 +3,7 @@
 @2018.PI05
 @MVP
 @Maintenance
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1404696 - Receive and recognize contract amendment events/transactions from Exari
 

@@ -6,7 +6,7 @@
 @Madhur
 @Priority_1
 @CMD
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1359131 - CMD user input-Page Edit Multiple contract masters per product group detail info
 

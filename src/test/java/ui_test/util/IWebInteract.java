@@ -278,6 +278,7 @@ public interface IWebInteract {
             if (current == windowIndex) {
                 return switchWindowByName(windowHandle);
             }
+            current++;
         }
 
         return false;
@@ -294,10 +295,14 @@ public interface IWebInteract {
         return true;
     }
 
-    default boolean acceptAlert() {
+    default boolean handleAlert(boolean accept) {
         try {
             Alert alert = this.getDriver().switchTo().alert();
-            alert.accept();
+            if (accept) {
+                alert.accept();
+            } else {
+                alert.dismiss();
+            }
         } catch (Exception e) {
             log.error("alert accept failed", e);
             return false;

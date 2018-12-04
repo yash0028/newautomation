@@ -6,7 +6,7 @@
 @10/1_Physician
 @Priority_1
 @CMD
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1412876 - Search via CMD UI (Landing Page)
 

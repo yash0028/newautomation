@@ -2,7 +2,6 @@
 @US1203508
 @MVP
 @Priority_1
-@10/1_Physician
 @releaseUnknown
 @iterationUnknown
 Feature: US1203508 - Transaction scoped key-value store (Resource Store)

@@ -8,7 +8,7 @@
 @Priority_1
 @CMD
 @Amrutha
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1371319 - Download CLM Rule Table
 

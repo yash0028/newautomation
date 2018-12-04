@@ -5,7 +5,7 @@
 @2018.PI04
 @MVP
 @Parity
-@releasePresent
+@releasePast
 @iterationUnknown
 Feature: US1098385 - Search & filter Exari database to identify target providers
 

@@ -2,7 +2,6 @@
 @US1210707
 @MVP
 @Priority_1
-@10/1_Physician
 @releaseUnknown
 @iterationUnknown
 Feature: US1210707 - Resource Store Cleanup Service

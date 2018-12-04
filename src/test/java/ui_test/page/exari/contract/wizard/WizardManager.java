@@ -131,19 +131,19 @@ public class WizardManager {
         return test;
     }
 
-    public boolean enterAppendix2() {
+    public boolean enterAppendix2(String includeList) {
         boolean test = true;
         //Handle Appendix 2 Page
         Appendix2Page appendix2Page = new Appendix2Page(driver);
         assert appendix2Page.confirmCurrentPage();
 
-        test &= appendix2Page.selectMedicareAdvantageIfAvailable();
+        test &= appendix2Page.selectProductByIndex(includeList);
         appendix2Page.clickNext();
 
         return test;
     }
 
-    public boolean enterPaymentAppendix(String feeSchedule) {
+    public boolean enterPaymentAppendix(boolean nonStandard, String payIndexList, String feeSchedule) {
         boolean test = true;
         //Handle Payment Appendix
         PaymentAppendixPage paymentAppendixPage = new PaymentAppendixPage(driver);
@@ -168,6 +168,15 @@ public class WizardManager {
         return test;
     }
 
+    public boolean skipAdditionalLocations() {
+        AdditionalLocationPage additionalLocationPage = new AdditionalLocationPage(driver);
+        if (additionalLocationPage.confirmCurrentPage()) {
+            additionalLocationPage.clickNext();
+        }
+
+        return true;
+    }
+
     public boolean selectRegulatoryAppendix(String search, int index) {
         boolean test = true;
         //Handle Regulatory Appendix
@@ -180,13 +189,13 @@ public class WizardManager {
         return test;
     }
 
-    public boolean selectProviderRoster(String tin) {
+    public boolean selectProviderRoster(String rosterAction, String tin) {
         boolean test = true;
         //Handle Provider Roster
         ProviderRosterPage providerRosterPage = new ProviderRosterPage(driver);
         assert providerRosterPage.confirmCurrentPage();
 
-        if (tin == null || tin.isEmpty()) {
+        if (tin == null || tin.isEmpty() || rosterAction.equalsIgnoreCase("none")) {
             test &= providerRosterPage.selectRosterActionNone();
         } else {
             test &= providerRosterPage.selectRosterActionAdd();

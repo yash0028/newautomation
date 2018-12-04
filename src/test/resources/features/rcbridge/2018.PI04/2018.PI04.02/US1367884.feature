@@ -3,7 +3,7 @@
 @US1367884
 @2018.PI04
 @2018.PI04.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1367884 - Automate Exari API Testing
 

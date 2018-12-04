@@ -4,7 +4,7 @@
 @CMD
 @Priority_2
 @UCM
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1356650 - New UCM - [ProductGroup] Rate condition
 
