@@ -22,5 +22,4 @@ Feature: US1456884 - Create API to store Activiti process data
     Examples:
       | contractId                     | processId                      | processName                    |
       | 23534123                       | df6sdf9-sdfk454453-sdfkjsd3434 | Retro                          |
-      | 23534123                       | df6sdf9-sdfk454453-sdfkjsd3434 | PES                            |
 
