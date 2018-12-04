@@ -18,5 +18,5 @@ Feature: US1453122 - Author SPGA Contact UI Path
     Then I have an active contract in Exari asdf
     Examples:
       | site        | mpin    | tin       | state | market number | phycon | fee      | product |
-      | central uhn | 2239924 | 731624480 | IA    | 13476         | 1234   | IN 52716 | 1       |
+      | central uhn | 1628713 | 731624480 | IA    | 13476         | 1234   | IN 52716 | 1       |
 

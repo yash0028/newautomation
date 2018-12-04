@@ -4,8 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.contract.interview.flow.Flow;
+import ui_test.page.exari.contract.interview.flow.FlowContract;
 import ui_test.page.exari.contract.interview.flow.FlowItem;
-import ui_test.page.exari.contract.interview.flow.FlowMap;
 
 public class InterviewManager {
     private static final Logger log = LoggerFactory.getLogger(InterviewManager.class);
@@ -13,15 +13,15 @@ public class InterviewManager {
 
     private WebDriver driver;
 
-    private FlowMap flowMap;
+    private FlowContract flowContract;
 
     /*
     CONSTRUCTOR
      */
 
-    public InterviewManager(WebDriver driver, FlowMap flowMap) {
+    public InterviewManager(WebDriver driver, FlowContract flowContract) {
         this.driver = driver;
-        this.flowMap = flowMap;
+        this.flowContract = flowContract;
     }
 
     /*
@@ -31,20 +31,18 @@ public class InterviewManager {
     public boolean startFlow() {
         boolean test = true;
         boolean isInterview = true;
-        boolean isWizardComplete = false;
-        boolean isReview = false;
 
         String previousTopic = "";
         int counter = 0;
 
         //While within interview wizard
-        while (isInterview || isWizardComplete || isReview) {
+        while (isInterview) {
             InterviewPage page = new InterviewPage(driver);
             isInterview = page.confirmCurrentPage();
 
             //Use topic to load up flow
             log.info("current topic: {}", page.getTopicText());
-            Flow flow = flowMap.get(page.getTopicText());
+            Flow flow = flowContract.getFlowMap().get(page.getTopicText());
 
             //If flow exists for page, perform it
             if (flow != null) {

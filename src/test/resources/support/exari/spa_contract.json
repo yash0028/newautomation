@@ -1,55 +1,61 @@
-[
-    {
-        "topic": "PES Inputs",
-        "questions": [
-            {
-                "question": "MPIN",
-                "action": "TEXT-BASIC",
-                "answers": [
-                    "2239924"
-                ]
-            }
-        ]
-    },
-    {
-        "topic": "PES Response",
-        "questions": [
-            {
-                "question": "Specify approach for counterparty",
-                "action": "RADIO-INDEX",
-                "answers": [
-                    "0"
-                ]
-            }
-        ]
-    },
-    {
-        "topic": "Provider Details",
-        "questions": [
-            {
-                "question": "Select Market Number",
-                "action": "TEXT-DROPDOWN",
-                "answers": [
-                    "13476",
-                    "0"
-                ]
-            }
-        ]
-    },
-    {
-        "topic": "Request For Participation Response",
-        "questions": []
-    },
-    {
-        "topic": "Document Selection",
-        "questions": [
-            {
-                "question": "Based on the Provider you've selected, below are the Paper Types available. Please select one:",
-                "action": "RADIO-INDEX",
-                "answers": [
-                    "0"
-                ]
-            }
-        ]
-    }
-]
+{
+    "name": "author spa",
+    "authors": [
+        "Alex Berns"
+    ],
+    "flows": [
+        {
+            "topic": "PES Inputs",
+            "questions": [
+                {
+                    "question": "MPIN",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "<MPIN>"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "PES Response",
+            "questions": [
+                {
+                    "question": "Specify approach for counterparty",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "0"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Provider Details",
+            "questions": [
+                {
+                    "question": "Select Market Number",
+                    "action": "TEXT-DROPDOWN",
+                    "answers": [
+                        "13476",
+                        "0"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Request For Participation Response",
+            "questions": []
+        },
+        {
+            "topic": "Document Selection",
+            "questions": [
+                {
+                    "question": "Based on the Provider you've selected, below are the Paper Types available. Please select one:",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "0"
+                    ]
+                }
+            ]
+        }
+    ]
+}

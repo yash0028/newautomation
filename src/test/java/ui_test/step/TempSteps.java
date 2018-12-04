@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import ui_test.page.exari.contract.ContractPage;
 import ui_test.page.exari.contract.interview.InterviewManager;
 import ui_test.page.exari.contract.interview.InterviewPage;
-import ui_test.page.exari.contract.interview.flow.FlowMap;
+import ui_test.page.exari.contract.interview.flow.FlowContract;
 import ui_test.page.exari.contract.wizard.WizardManager;
 import ui_test.page.exari.home.DashboardPage;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
@@ -22,6 +22,8 @@ import ui_test.page.exari.login.LoginPage;
 import ui_test.util.IUiStep;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
+
+import java.util.Map;
 
 
 public class TempSteps implements IUiStep, IFileReader, IConfigurable {
@@ -32,18 +34,18 @@ public class TempSteps implements IUiStep, IFileReader, IConfigurable {
     private GenericSitePage sitePage;
     private InterviewPage iPage;
 
-    private FlowMap flowMap;
+    private FlowContract flowContract;
 
     @Before("@temp")
     public void loadFlow() {
         //Open flow data
         JsonElement flowData = getJsonElementFromFile("/support/exari/spa_contract.json");
         Gson gson = new GsonBuilder()
-                .registerTypeAdapter(FlowMap.class, new FlowMap.Deserializer())
+                .registerTypeAdapter(FlowContract.class, new FlowContract.Deserializer())
                 .create();
 
         //Convert json flow data into a flow map
-        flowMap = gson.fromJson(flowData, FlowMap.class);
+        flowContract = gson.fromJson(flowData, FlowContract.class);
     }
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site asdf$")
@@ -54,10 +56,11 @@ public class TempSteps implements IUiStep, IFileReader, IConfigurable {
 
     @When("^I author a contract using the following contract information asdf$")
     public void authorContract(DataTable contractDataTable) {
-//        Map<String, String> contractParam = contractDataTable.asMap(String.class, String.class);
+        Map<String, String> contractParam = contractDataTable.asMap(String.class, String.class);
         sitePage.startContractAuthor();
+        flowContract.substituteGherkinData(contractParam);
 
-        InterviewManager manager = new InterviewManager(getDriver(), flowMap);
+        InterviewManager manager = new InterviewManager(getDriver(), flowContract);
         manager.startFlow();
 
         //Perform QA analysis and set status as active

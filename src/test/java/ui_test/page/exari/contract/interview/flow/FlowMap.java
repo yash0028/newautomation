@@ -30,11 +30,17 @@ public class FlowMap extends HashMap<String, Flow> {
     public static class Deserializer implements JsonDeserializer<FlowMap> {
         @Override
         public FlowMap deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext ctx) throws JsonParseException {
-            Gson gson = new GsonBuilder()
-                    .registerTypeAdapter(Flow.class, new Flow.Deserializer())
-                    .create();
-            Flow[] flows = gson.fromJson(json, Flow[].class);
-            return new FlowMap(flows);
+            if (json.isJsonArray()) {
+                Gson gson = new GsonBuilder()
+                        .registerTypeAdapter(Flow.class, new Flow.Deserializer())
+                        .create();
+                Flow[] flows = gson.fromJson(json, Flow[].class);
+                return new FlowMap(flows);
+            }
+
+            Gson gson = new Gson();
+            return gson.fromJson(json, FlowMap.class);
+
         }
     }
 }
