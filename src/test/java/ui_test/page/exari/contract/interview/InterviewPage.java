@@ -10,9 +10,7 @@ import org.slf4j.LoggerFactory;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class InterviewPage implements IFactoryPage, IWebInteract {
     private static final Logger log = LoggerFactory.getLogger(InterviewPage.class);
@@ -100,8 +98,8 @@ public class InterviewPage implements IFactoryPage, IWebInteract {
         return click("fast forward button", navigationFastForward);
     }
 
-    public Map<String, InterviewItem> getInterviewMap() {
-        Map<String, InterviewItem> interviewMap = new HashMap<>();
+    public InterviewMap getInterviewMap() {
+        InterviewMap interviewMap = new InterviewMap();
 
         for (WebElement item : interviewElementList) {
             InterviewItem interviewItem = new InterviewItem(driver, item);

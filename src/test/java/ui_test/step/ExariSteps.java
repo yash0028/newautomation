@@ -13,7 +13,6 @@ import ui_test.page.exari.home.DashboardPage;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.page.exari.login.LoginPage;
 import ui_test.util.IUiStep;
-import ui_test.util.IWebInteract;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
 
@@ -21,7 +20,7 @@ import java.util.Map;
 
 
 public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
-    private static final Logger log = LoggerFactory.getLogger(IWebInteract.class);
+    private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
 
     private DashboardPage dashboardPage;
     private ContractPage contractPage;
