@@ -5,7 +5,6 @@
 @US1107632
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1107632 - Associate Contract ID to Counterparty upon Contract Execution

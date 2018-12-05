@@ -13,7 +13,7 @@ Feature: US1165644 - Create Service Providing Facility FS  Access Via Microservi
 
   @TC519085
   @Automated
-  @Acceptance
+  @Regression
   @MSPS
   Scenario Outline: TC519085 - [RL0] Create Service Providing Facility FS Access Via Microservice
     When the Exari interview calls for the facility fee schedules with Facility "<feeScheduleNumber>"

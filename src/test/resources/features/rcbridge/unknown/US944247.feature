@@ -4,7 +4,6 @@
 @CLM_UAT
 @US944247
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US944247 - Capture Reason for Entity Inactivation

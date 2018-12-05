@@ -8,7 +8,7 @@
 @Priority_1
 @releaseUnknown
 @iterationUnknown
-Feature: US920675 - Perform Search by Inactive Entities
+Feature: US920675 - Search by Inactive Entities
 
   @TC564747
   @Automated

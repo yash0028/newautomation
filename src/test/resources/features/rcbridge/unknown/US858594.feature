@@ -4,7 +4,6 @@
 @CLM_UAT
 @US858594
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858594 - Inactivate Entity

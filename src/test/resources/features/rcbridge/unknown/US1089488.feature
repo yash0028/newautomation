@@ -1,11 +1,7 @@
 # Last updated on 
-@MVP
 @EXARI-11267
 @CLM_UAT
 @US1089488
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1089488 - Update Operating License Type
@@ -13,7 +9,6 @@ Feature: US1089488 - Update Operating License Type
   @TC565855
   @Automated
   @Functional
-  @MVP
   @EXARI-11267
   @CLM_UAT
   Scenario: TC565855 - [RL0]

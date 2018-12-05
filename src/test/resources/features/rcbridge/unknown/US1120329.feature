@@ -5,7 +5,6 @@
 @US1120329
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1120329 - View Entity Structure by Relationship Role

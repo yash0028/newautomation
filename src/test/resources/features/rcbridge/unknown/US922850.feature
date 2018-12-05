@@ -1,10 +1,8 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @US922850
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US922850 - Inactivate Entity Characteristic Detail
@@ -12,7 +10,6 @@ Feature: US922850 - Inactivate Entity Characteristic Detail
   @TC565624
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   Scenario: TC565624 - [RL0]
     Given I am a User with access to maintain Entities

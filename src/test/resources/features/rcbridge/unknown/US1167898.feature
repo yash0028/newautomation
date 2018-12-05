@@ -1,12 +1,10 @@
 # Last updated on 
-@MVP
 @EXARI-11249
 @CLM_UAT
 @EXARI-10726
 @US1167898
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1167898 - Add Alternate Name
@@ -14,7 +12,6 @@ Feature: US1167898 - Add Alternate Name
   @TC565738
   @Automated
   @Functional
-  @MVP
   @EXARI-11249
   @CLM_UAT
   @EXARI-10726

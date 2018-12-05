@@ -1,17 +1,17 @@
 # Last updated on 
-@US1450697
+@US1469831
 @2018.PI05
 @MVP
 @Optum
 @Exari
 @releasePresent
 @iterationUnknown
-Feature: US1450697 - Calculate disposition - NAR Physician using AM, 1/1 effective date
+Feature: US1469831 - Calculate disposition - NAR Physician using AM, Non-1/1 effective date
 
-  @TC651738
+  @TC666354
   @Manual
   @Functional
-  Scenario Outline: TC651738 - [RL0]
+  Scenario Outline: TC666354 - [RL0]
     Given a workflow exists
     When it is submitted for load
     Then the "Timeliness Disposition" is calculated

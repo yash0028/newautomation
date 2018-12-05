@@ -2,7 +2,6 @@
 @EXARI-11273
 @US1170984
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1170984 - Capture Timeline History

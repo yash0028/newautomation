@@ -2,7 +2,6 @@
 @EXARI-11273
 @US944246
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US944246 - Capture Entity Inactivation Time Lining History

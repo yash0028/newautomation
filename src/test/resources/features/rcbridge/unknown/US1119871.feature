@@ -1,11 +1,7 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @EXARI-11765
 @US1119871
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1119871 - Filter by Entity Relationship Role
@@ -13,7 +9,6 @@ Feature: US1119871 - Filter by Entity Relationship Role
   @TC565471
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   @EXARI-11765
   Scenario: TC565471 - [RL0]

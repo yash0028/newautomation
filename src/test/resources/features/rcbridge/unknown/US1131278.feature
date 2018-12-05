@@ -5,7 +5,6 @@
 @US1131278
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1131278 - View Contracts Associated to a Provider

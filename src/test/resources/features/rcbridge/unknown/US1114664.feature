@@ -3,7 +3,6 @@
 @EXARI-11696
 @US1114664
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1114664 - Parent Entity Relationships

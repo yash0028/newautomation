@@ -5,7 +5,6 @@
 @US858724
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858724 - View Entity Detail

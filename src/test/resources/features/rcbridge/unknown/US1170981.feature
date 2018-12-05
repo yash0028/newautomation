@@ -4,7 +4,6 @@
 @CLM_UAT
 @US1170981
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1170981 - Reactivate Entity

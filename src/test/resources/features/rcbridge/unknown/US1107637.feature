@@ -4,7 +4,6 @@
 @US1107637
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1107637 - Remove Contract ID from Provider upon Contract Termination

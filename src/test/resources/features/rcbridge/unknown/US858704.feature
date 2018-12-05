@@ -1,7 +1,6 @@
 # Last updated on 
 @US858704
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858704 - Capture Business Rule Time Lining History

@@ -4,7 +4,6 @@
 @US1202994
 @MVP
 @Plus
-@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US1202994 - Export Tax IDs

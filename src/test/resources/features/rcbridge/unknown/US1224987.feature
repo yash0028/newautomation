@@ -1,7 +1,6 @@
 # Last updated on 
 @US1224987
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1224987 - Created UHC ID/Provider Relationship

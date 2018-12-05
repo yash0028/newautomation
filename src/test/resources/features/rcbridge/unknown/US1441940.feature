@@ -3,7 +3,6 @@
 @US1441940
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1441940 - View Graphical Visualization of Entity Relationships

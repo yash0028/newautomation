@@ -1,11 +1,9 @@
 # Last updated on 
-@MVP
 @EXARI-11267
 @CLM_UAT
 @US1089506
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1089506 - Update Entity Alternate Name
@@ -13,7 +11,6 @@ Feature: US1089506 - Update Entity Alternate Name
   @TC564910
   @Automated
   @Functional
-  @MVP
   @EXARI-11267
   @CLM_UAT
   Scenario: TC564910 - [RL0]

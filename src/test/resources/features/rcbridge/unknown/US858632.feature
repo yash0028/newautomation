@@ -5,7 +5,6 @@
 @US858632
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858632 - View Supplemental Detail Time Lining History

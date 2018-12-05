@@ -1,11 +1,7 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @EXARI-11274
 @US1093316
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1093316 - Search Identifier
@@ -13,7 +9,6 @@ Feature: US1093316 - Search Identifier
   @TC565829
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   @EXARI-11274
   Scenario: TC565829 - [RL0]

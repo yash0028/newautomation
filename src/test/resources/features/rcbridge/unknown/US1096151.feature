@@ -4,7 +4,6 @@
 @US1096151
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1096151 - Migrate BIC Entity Components

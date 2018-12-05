@@ -6,7 +6,7 @@
 @Priority_1
 @releaseUnknown
 @iterationUnknown
-Feature: US1185963 - Select Identifier Type
+Feature: US1185963 - Display Identifier Type
 
   @TC564820
   @Automated
@@ -15,5 +15,5 @@ Feature: US1185963 - Select Identifier Type
   Scenario: TC564820 - [RL0]
     Given I am a User with access to maintain Entity information
     When I am adding an Identifier to an Entity
-    Then I must select an Identifier Type
+    Then the Entity Management Solution displays the Identifier Type of the selected Identifier
 

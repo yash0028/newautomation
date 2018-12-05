@@ -5,7 +5,6 @@
 @US858607
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858607 - Import Structure from Template

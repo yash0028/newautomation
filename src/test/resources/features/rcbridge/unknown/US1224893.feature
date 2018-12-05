@@ -1,7 +1,6 @@
 # Last updated on 
 @US1224893
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1224893 - Terminated UHC ID/Provider Relationship

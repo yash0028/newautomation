@@ -1,7 +1,6 @@
 # Last updated on 
 @US1226816
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1226816 - Terminated BSAR/Provider Relationship

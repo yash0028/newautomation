@@ -5,7 +5,6 @@
 @US858726
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858726 - Compare Entity Information

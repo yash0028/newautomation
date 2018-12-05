@@ -3,7 +3,6 @@
 @EXARI-11792
 @US1152174
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1152174 - Entity Type Conflict - PHO and IPA

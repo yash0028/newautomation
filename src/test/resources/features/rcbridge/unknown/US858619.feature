@@ -5,7 +5,6 @@
 @US858619
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858619 - View Identifier Time Lining History

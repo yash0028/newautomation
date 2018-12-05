@@ -17,9 +17,9 @@ Feature: US1311485 - PES Roster Call -Change Output Results
 
   @TC572204
   @Automated
-  @Functional
+  @Regression
   @PES
-  Scenario: TC572204 - [RL0]
+  Scenario: TC572204 - [RL0] Verify Roster Results for Physician
     # For Physician
     Given a user wants to do a search for Roster
     When a "tin" of "760027557" is passed to roster
@@ -38,9 +38,9 @@ Feature: US1311485 - PES Roster Call -Change Output Results
 
   @TC579704
   @Automated
-  @Functional
+  @Regression
   @PES
-  Scenario: TC579704 - [RL1]
+  Scenario: TC579704 - [RL1] Verify Roster Results for Facility
     # For Facility
     Given a user wants to do a search for Roster
     When a "mpin" of "6177192" is passed to roster

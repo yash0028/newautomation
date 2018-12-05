@@ -11,7 +11,7 @@
 Feature: US1456884 - Create API to store Activiti process data
 
   @TC659917
-  @Manual
+  @Automated
   @Functional
   @activiti-api
   Scenario Outline: TC659917 - [RL0] Verify POST to service

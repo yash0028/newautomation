@@ -8,7 +8,7 @@ Feature: US1384733 - Exari API Testing for New Contract JSON
 
   @TC612451
   @Automated
-  @Functional
+  @Regression
   @Exari_Automation
   Scenario Outline: TC612451 - [RL0] Verify Contracts are Using New JSON
     Given a contract with Contract ID of "<contractId>"
@@ -23,10 +23,10 @@ Feature: US1384733 - Exari API Testing for New Contract JSON
       | 69494430   |
 
   @TC625885
-  @Manual
-  @Functional
+  @Automated
+  @Regression
   @Exari_Automation
-  Scenario: TC625885 - [RL1]
+  Scenario: TC625885 - [RL1] Verify Latest SPA Contracts Using New JSON and Do Null Checks
     Given the 10 latest "SPA" contract IDs from Exari
     When hitting Exari for each contract's JSON
     Then the fields from file "ExariContractJsonFieldsNew.txt" are returned for each contract

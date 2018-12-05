@@ -1,11 +1,9 @@
 # Last updated on 
-@MVP
 @EXARI-11267
 @CLM_UAT
 @US912901
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US912901 - Inactivate Alternate Name/Alias
@@ -13,7 +11,6 @@ Feature: US912901 - Inactivate Alternate Name/Alias
   @TC565377
   @Automated
   @Functional
-  @MVP
   @EXARI-11267
   @CLM_UAT
   Scenario: TC565377 - [RL0]

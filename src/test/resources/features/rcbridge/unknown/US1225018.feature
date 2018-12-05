@@ -1,7 +1,6 @@
 # Last updated on 
 @US1225018
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1225018 - Process Mass Updates

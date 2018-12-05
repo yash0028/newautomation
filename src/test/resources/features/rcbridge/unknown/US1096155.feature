@@ -4,7 +4,6 @@
 @US1096155
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1096155 - Flag Entities with Special Characteristics

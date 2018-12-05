@@ -5,7 +5,6 @@
 @US858723
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858723 - View Entity Structure by Relationship Type
