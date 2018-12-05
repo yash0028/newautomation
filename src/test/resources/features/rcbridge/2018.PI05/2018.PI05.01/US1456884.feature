@@ -15,7 +15,7 @@ Feature: US1456884 - Create API to store Activiti process data
   @Functional
   @activiti-api
   Scenario Outline: TC659917 - [RL0] Verify POST to service
-    When hitting the activity-api with "contractID" of "<contractId>"
+    When hitting the activity-api with "contractId" of "<contractId>"
     And "processId" of "<processId>"
     And "processName" of "<processName>"
     Then a 201 response code is received
