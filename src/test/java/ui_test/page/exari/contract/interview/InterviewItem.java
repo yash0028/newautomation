@@ -13,13 +13,13 @@ import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class InterviewItem implements IFactoryPage, IWebInteract {
     private static final Logger log = LoggerFactory.getLogger(InterviewItem.class);
 
 
     private WebDriver driver;
-    private PageFactory pageFactory;
     private InterviewElements elements;
 
     /*
@@ -62,7 +62,8 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
      */
 
     public String getQuestion() {
-        return labelQuestion.getText();
+        String q = labelQuestion.getText();
+        return q.contains(":") ? q.substring(0, q.indexOf(":")) : q;
     }
 
     public WebElement getBlockAnswer() {
@@ -87,26 +88,92 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
 
     private boolean enterAnswer(String action, List<String> answers) {
         if (action.equalsIgnoreCase("TEXT-BASIC")) {
-//            WebElement textBox = getBlockAnswer().findElement(By.xpath(".//input"));
             return sendKeys("text input", elements.textbox_basic, answers.get(0));
         }
 
         if (action.equalsIgnoreCase("RADIO-INDEX")) {
-//            WebElement textBox = getBlockAnswer().findElement(By.xpath(".//input[@type='radio' and contains(@value,'" + answers.get(0) + "')]"));
-            int index = Integer.valueOf(answers.get(0));
-            return click("radio input", elements.radio_indexes.get(index));
+            return radio_index(answers);
+        }
+
+        if (action.equalsIgnoreCase("CHECKBOX-INDEX")) {
+            return checkbox_index(answers);
         }
 
         if (action.equalsIgnoreCase("TEXT-DROPDOWN")) {
-//            WebElement dropdownArrow = getBlockAnswer().findElement(By.xpath(".//span[@class='select2-selection__arrow']"));
-            click("dropdown open", elements.dropdown_open);
-            sendKeys("dropdown textbox", elements.dropdown_textbox, answers.get(0));
-            pause(1);
-            int index = Integer.valueOf(answers.get(1));
-            return click("dropdown option", elements.dropdown_selection.get(index));
+            return text_dropdown(answers);
+        }
+
+        if (action.equalsIgnoreCase("TEXT-AUTOFILL")) {
+            return text_autofill(answers);
         }
 
         return false;
+    }
+
+    private boolean radio_index(List<String> answers) {
+        int index = Integer.valueOf(answers.get(0));
+        return click("radio input", elements.radio_indexes.get(index));
+    }
+
+    private boolean checkbox_index(List<String> answers) {
+        boolean test = true;
+
+        //Check for empty
+        if (answers.isEmpty()) {
+            return true;
+        }
+
+        //Check for Check All answer
+        if (answers.get(0).equalsIgnoreCase("all")) {
+            //Select All Checkboxes
+            for (WebElement checkbox : elements.checkbox_indexes) {
+                if (!checkbox.isSelected()) {
+                    test &= click("checkbox", checkbox);
+                }
+            }
+            return test;
+        }
+
+        //Check for Check None answer
+        if (answers.get(0).equalsIgnoreCase("none")) {
+            //Unselect all Checkboxes
+            for (WebElement checkbox : elements.checkbox_indexes) {
+                if (checkbox.isSelected()) {
+                    test &= click("checkbox", checkbox);
+                }
+            }
+            return test;
+        }
+
+        //Handle all other answers
+        List<Integer> indexes = answers.stream().map(Integer::valueOf).collect(Collectors.toList());
+        for (Integer index : indexes) {
+            test &= click("checkbox", elements.checkbox_indexes.get(index));
+        }
+        return test;
+    }
+
+    private boolean text_dropdown(List<String> answers) {
+        //Open dropdown search
+        click("dropdown open", elements.dropdown_open);
+
+        //Enter search term
+        sendKeys("dropdown textbox", elements.dropdown_textbox, answers.get(0));
+        pause(1);
+
+        //Click index option
+        int index = Integer.valueOf(answers.get(1));
+        return click("dropdown option", elements.dropdown_selection.get(index));
+    }
+
+    private boolean text_autofill(List<String> answers) {
+        //Enter search term
+        sendKeys("dropdown textbox", elements.dropdown_textbox, answers.get(0));
+        pause(1);
+
+        //Click index option
+        int index = Integer.valueOf(answers.get(1));
+        return click("dropdown option", elements.dropdown_selection.get(index));
     }
 
     /*
@@ -120,6 +187,9 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
 
         @FindBy(xpath = ".//input[@type='radio']")
         public List<WebElement> radio_indexes;
+
+        @FindBy(xpath = ".//input[@type='checkbox']")
+        public List<WebElement> checkbox_indexes;
 
         @FindBy(xpath = ".//span[@class='select2-selection__arrow']")
         public WebElement dropdown_open;

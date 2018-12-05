@@ -32,7 +32,7 @@ public class FlowItem {
      */
 
     public String getQuestion() {
-        return question;
+        return question.contains(":") ? question.substring(0, question.indexOf(":")) : question;
     }
 
     public String getAction() {
@@ -45,6 +45,6 @@ public class FlowItem {
 
     @Override
     public String toString() {
-        return this.question + " -> " + this.action + " -> " + answers;
+        return this.getQuestion() + " -> " + this.action + " -> " + answers;
     }
 }

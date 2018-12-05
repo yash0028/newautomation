@@ -62,9 +62,29 @@ public class TempSteps implements IUiStep, IFileReader, IConfigurable {
 
         InterviewManager manager = new InterviewManager(getDriver(), flowContract);
         manager.startFlow();
+        log.info("flow complete");
+        manager.finishContract();
 
-        //Perform QA analysis and set status as active
-        assert markContractActive();
+        //Back to contract page
+        contractPage = sitePage.getContractPage();
+        assert contractPage.confirmCurrentPage();
+
+        //set Edit Status
+        contractPage.setEditStatus("Final Pending QA");
+
+        //click Final Capture
+        contractPage.clickFinalCapture();
+
+        //Start flow for final capture
+        manager.startFlow();
+        manager.finishContract();
+
+        //Back to Contract Page
+        contractPage = sitePage.getContractPage();
+        assert contractPage.confirmCurrentPage();
+
+        //set Edit Status
+        assert contractPage.setEditStatus("Active");
     }
 
     @Then("^I have an active contract in Exari asdf$")

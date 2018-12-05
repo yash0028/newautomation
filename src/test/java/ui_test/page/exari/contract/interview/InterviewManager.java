@@ -30,15 +30,28 @@ public class InterviewManager {
 
     public boolean startFlow() {
         boolean test = true;
-        boolean isInterview = true;
+        InterviewPage page = new InterviewPage(driver);
 
         String previousTopic = "";
         int counter = 0;
 
         //While within interview wizard
-        while (isInterview) {
-            InterviewPage page = new InterviewPage(driver);
-            isInterview = page.confirmCurrentPage();
+        while (page.confirmCurrentPage()) {
+
+            //Check for infinite repeating pages
+            if (previousTopic.equals(page.getTopicText())) {
+                counter++;
+                log.warn("topic {} has been repeated {} times", previousTopic, counter);
+            } else {
+                counter = 0;
+                previousTopic = page.getTopicText();
+            }
+
+            //Kill after repeating 6 times
+            if (counter > 6) {
+                log.error("same topic repeated too many times");
+                return false;
+            }
 
             //Use topic to load up flow
             log.info("current topic: {}", page.getTopicText());
@@ -63,35 +76,24 @@ public class InterviewManager {
                 return false;
             }
 
-            if (previousTopic.equals(page.getTopicText())) {
-                counter++;
-                log.warn("topic {} has been repeated {} times", previousTopic, counter);
-            } else {
-                counter = 0;
-                previousTopic = page.getTopicText();
-            }
-
-            if (counter > 6) {
-                log.error("same topic repeated too many times");
-                return false;
-            }
+            //Get next page
+            page = new InterviewPage(driver);
         }
 
         return test;
     }
 
+    public boolean finishContract() {
+        ContractPreviewPage previewPage = new ContractPreviewPage(driver);
+        assert previewPage.confirmCurrentPage();
+        previewPage.clickNext();
+
+        WizardCompletePage completePage = new WizardCompletePage(driver);
+        assert completePage.confirmCurrentPage();
+        return completePage.clickWizardNext();
+    }
+
     /*
     HELPER METHODS
      */
-
-    private boolean doNextItem(InterviewPage page) {
-
-        return false;
-    }
-
-    private boolean searchPES(InterviewPage page) {
-        boolean test = true;
-
-        return test;
-    }
 }
