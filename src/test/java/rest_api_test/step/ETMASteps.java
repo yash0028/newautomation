@@ -26,7 +26,7 @@ import static org.junit.Assert.assertTrue;
 public class ETMASteps implements IRestStep {
     private final static Logger log = LoggerFactory.getLogger(ETMASteps.class);
 
-    private static final String ENDPOINT = "http://exari-table-maint-api-clm-stage.ocp-ctc-core-nonprod.optum.com";
+    private static final String ENDPOINT = "http://exari-table-maint-api-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_MARKETS = "/v1.0/markets";
     private static final String RESOURCE_CONTRACT_CLASSES_SEARCH = "/v1.0/contract_classes/search";
     private static final String RESOURCE_CONTRACT_VALIDATION = "/v1.0/contract_validations";
