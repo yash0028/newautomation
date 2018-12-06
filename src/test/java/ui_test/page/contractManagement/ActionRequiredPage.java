@@ -1,6 +1,8 @@
 package ui_test.page.contractManagement;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,6 +12,8 @@ import org.slf4j.LoggerFactory;
 public class ActionRequiredPage extends GenericCMPage {
     private static final Logger log = LoggerFactory.getLogger(ActionRequiredPage.class);
 
+    @FindBy(xpath = "//p[contains(.,' There are currently no contracts that require action at this time ')]")
+    protected WebElement noActionRequiredMessage;
 
     /*
     CONSTRUCTOR
@@ -34,7 +38,12 @@ public class ActionRequiredPage extends GenericCMPage {
      * @return True if on the in progress page or false otherwise.
      */
     public boolean confirmCurrentPage() {
-        return isVisible(buttonBack) && driver.getCurrentUrl().matches("^.+reassignment$");
+        return isVisible(buttonBack);
+//        return isVisible(buttonBack) && getDriver().getCurrentUrl().matches("^.+reassignment$");
+    }
+
+    public boolean confirmNoActionRequiredMessage() {
+        return isVisible(noActionRequiredMessage);
     }
 
 

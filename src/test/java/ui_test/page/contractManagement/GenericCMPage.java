@@ -40,6 +40,18 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
     @FindBy(how = How.XPATH, using = "//table[@class='mat-table']")
     protected WebElement table;
 
+    @FindBy(xpath = "//table[1 and @class='mat-table']/tbody/tr[contains(@class, 'example-element-row')]")
+    protected List<WebElement> primeTableRows;
+
+    @FindBy(xpath = "//table[1 and @class='mat-table']/tbody/tr[contains(@class, 'example-detail-row')]//*[contains(@class, 'example-element-row')]")
+    protected List<WebElement> secondaryTableRows;
+
+    @FindBy(xpath = "//table[@class='mat-table']/tbody/tr[contains(@class, 'example-detail-row')][1]//*[contains(@class, 'example-element-row')]")
+    protected List<WebElement> firstRowProductGroups;
+
+    @FindBy(xpath = "//table[1 and @class='mat-table']/tbody/tr[contains(@class, 'example-element-row')]/td[contains(@class,'cdk-column-timestamp')]")
+    protected List<WebElement> dateColumnList;
+
     @FindBy(xpath = "//div[@class = 'mat-select-arrow']")
     protected WebElement tableSizeSelectorButton;
 
@@ -54,7 +66,6 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
 
     @FindBy(xpath = "//button[contains(text(),'Back')]")
     protected WebElement buttonBack;
-
 
     /*
     CONSTRUCTOR
@@ -86,25 +97,45 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      */
 
     /**
-     * Gets the rows in the table.
-     *
+     * Gets all of the rows in the table.
      * @return A list of WebElements with the rows in the table.
      */
     public List<WebElement> getTableRows() {
-        return this.table.findElements(By.xpath("//tbody/tr[contains(@class, 'example-element-row')]"));
+        return primeTableRows;
+
     }
 
-    public boolean verifyMultipleRandomRowContent() {
-        List<WebElement> allRows = getTableRows();
+    /**
+     * Verify that all fields in a single row in the table contains data and is not empty.
+     *
+     * @param element A WebElement containing the row data for a table row.
+     * @return True if the all of the fields contain data in the table row or false otherwise.
+     */
+    public Boolean verifySingleRow(WebElement element) {
+        return element.findElements(By.xpath("//td")).stream().noneMatch(element1 -> element1.getText().isEmpty());
+    }
 
-        //select rows 1, 2, 3, 5, 8 in the table and verify that each row has data in each column.
-        //select the first row and verify its columns
-        WebElement firstRow = allRows.get(0);
+    /**
+     * Verify that for a single row in the table contains data for each field specified by the list of indexes.
+     *
+     * @param element      A WebElement containing the row data for a table row.
+     * @param confirmIndex list containing the indexes that we want to verify its contents.
+     * @return True if the specified fields contain data in the table row of false otherwise.
+     */
+    public Boolean verifySingleRow(WebElement element, List<Integer> confirmIndex) {
+        Boolean result = true;
+        List<WebElement> tableRowData = element.findElements(By.xpath("//td"));
 
-        //Get each column in the row as strings and store them in a List. Then verify that each position in the
-        // list is not empty.
+        // check if text is found at the specified index
+        for (Integer i : confirmIndex) {
+            if (tableRowData.get(i).getText().isEmpty()) ;
+            result = false;
+        }
+        return result;
+    }
 
-        return false;
+    public boolean verifyAllTableRowFieldContents() {
+        return primeTableRows.stream().allMatch(this::verifySingleRow);
     }
 
     /**
@@ -113,7 +144,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      * @return A list of WebElements with the dates from the date column.
      */
     public List<WebElement> getDateColumn() {
-        return this.table.findElements(By.xpath("//tbody/tr/td[contains(@class,'cdk-column-timestamp')]"));
+        return this.dateColumnList;
     }
 
     /**
@@ -134,7 +165,10 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
     }
 
     /**
-     * @return
+     * Verifies that the rows in the table are sorted in ascending order or descending order by date.
+     *
+     * @param sortAccending True if verifying that the rows are sorted by date in ascending order or false if descending order.
+     * @return true if dates
      */
     public boolean verifyTableDateSordOrder(Boolean sortAccending) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
@@ -152,6 +186,52 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
             // Verify that the rows in the table are sorted by date from newest to oldest
             return dates.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList()).equals(dates);
         }
+    }
+//
+//    /**
+//     * Gets the count of product groups for a single contract ID row.
+//     *
+//     * @param rowNumber The row number of the contract ID.
+//     * @return The count of product groups.
+//     */
+//    public int getProductGroupCount(int rowNumber) {
+//        return firstRowProductGroups.size();
+//    }
+
+    /**
+     * Gets the count of product groups for the first contract ID row.
+     *
+     * @return The count of product groups.
+     */
+    public int getFirstRowProductGroupCount() {
+        return firstRowProductGroups.size();
+    }
+//
+//    /**
+//     *
+//     * @param rowNumber
+//     * @return
+//     */
+//    public List<WebElement> getProductGroups(int rowNumber) {
+//        WebElement row = getTableRows().get(rowNumber);
+//
+//        click("click table row", row);
+//
+//        //find by element and find table and count the number of tr in the table.
+//        WebElement tableInRow = row.findElement(By.xpath("//table[@class='mat-table']"));
+//        List<WebElement> productGroups = tableInRow.findElements(By.xpath("//tbody/tr[contains(@class, 'example-element-row')]"));
+//
+//        return productGroups;
+//    }
+
+    /**
+     * Clicks a single row on the table.
+     *
+     * @param rowNumber The row number to click.
+     * @return True if the row was clicked or false otherwise.
+     */
+    public boolean clickTableRow(int rowNumber) {
+        return click("click table row: " + rowNumber, primeTableRows.get(rowNumber));
     }
 
 //    public boolean clickBackButton() {

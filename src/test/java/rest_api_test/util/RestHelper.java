@@ -3,12 +3,9 @@ package rest_api_test.util;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.stream.MalformedJsonException;
 import io.restassured.response.Response;
-import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rest_api_test.step.ContractQuerySteps;
 
 import java.util.Arrays;
 import java.util.List;
@@ -122,7 +119,7 @@ class RestHelper {
         return verifySingleKey(keySet, index + 1, nextJson, traveledPath);
     }
 
-    boolean verifyFieldsNotNull(JsonElement ecmRoot, List<String> masterSet, String regex){
+    boolean verifyFieldsNotNull(JsonElement ecmRoot, List<String> masterSet, String regex) {
         int failCount = 0;
 
         for (String masterKey : masterSet) {
@@ -139,7 +136,7 @@ class RestHelper {
         return failCount == 0;
     }
 
-    boolean verifyElementNotNull(List<String> keySet, int index, JsonElement currJson, StringBuilder traveledPath){
+    boolean verifyElementNotNull(List<String> keySet, int index, JsonElement currJson, StringBuilder traveledPath) {
         JsonElement nextJson;
         JsonParser parser = new JsonParser();
 
@@ -155,7 +152,7 @@ class RestHelper {
                 currJson = parser.parse(currJson.getAsJsonPrimitive().getAsString());
             }
 
-        } catch (Exception e){
+        } catch (Exception e) {
             // Do nothing
         }
 
@@ -174,12 +171,12 @@ class RestHelper {
         traveledPath.append(".").append(keySet.get(index));
 
         String nullErrorMessage = "Element <" + keySet.get(index) + "> in " + traveledPath.toString() + " is null";
-        if (nextJson.isJsonNull()){
+        if (nextJson.isJsonNull()) {
             log.error(nullErrorMessage);
             return false;
         }
 
-        if (nextJson.isJsonPrimitive() && (nextJson.getAsString().isEmpty() || nextJson.getAsString().equals("null")) ){
+        if (nextJson.isJsonPrimitive() && (nextJson.getAsString().isEmpty() || nextJson.getAsString().equals("null"))) {
             log.error(nullErrorMessage);
             return false;
         }

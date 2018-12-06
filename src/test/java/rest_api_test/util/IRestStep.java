@@ -46,7 +46,7 @@ public interface IRestStep {
         return RestHelper.getInstance().verifySingleKey(keySet, index, currJson, traveledPath);
     }
 
-    default boolean verifyFieldsNotNull(JsonElement ecmRoot, List<String> masterSet, String regex){
+    default boolean verifyFieldsNotNull(JsonElement ecmRoot, List<String> masterSet, String regex) {
         return RestHelper.getInstance().verifyFieldsNotNull(ecmRoot, masterSet, regex);
     }
 
