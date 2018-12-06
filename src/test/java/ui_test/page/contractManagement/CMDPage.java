@@ -20,7 +20,7 @@ public class CMDPage implements IFactoryPage, IWebInteract {
     @FindBy(xpath = "//a[contains(@href,'/contract-summary/in-progress')]")
     WebElement inProgressLink;
 
-    @FindBy(xpath = "//a[contains(@href,'/reassignment')]")
+    @FindBy(xpath = "//h3[contains(text(),'Action')]/ancestor::mat-card/p/a")
     WebElement actionRequiredLink;
 
     @FindBy(xpath = "//a[contains(@href,'/contract-summary/failed')]")
@@ -115,6 +115,10 @@ public class CMDPage implements IFactoryPage, IWebInteract {
             default:
                 return 0;
         }
+    }
+
+    public ActionRequiredPage getActionRequiredPage() {
+        return new ActionRequiredPage(driver);
     }
 
     /**
