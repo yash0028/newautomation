@@ -5,7 +5,6 @@
 @US861136
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US861136 - Export Entity Detail

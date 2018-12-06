@@ -13,7 +13,7 @@ Feature: US1231695 - Create Service Providing Physician FS  Access Via Microserv
 
   @TC536761
   @Automated
-  @Acceptance
+  @Regression
   @MSPS
   Scenario Outline: TC536761 - [RL0] Happy Path MSPS Physician Verification
     #Happy Path
@@ -28,7 +28,7 @@ Feature: US1231695 - Create Service Providing Physician FS  Access Via Microserv
 
   @TC536762
   @Automated
-  @Acceptance
+  @Regression
   @MSPS
   Scenario Outline: TC536762 - [RL1] Bad Path MSPS Physician Validation
     #Bad Path

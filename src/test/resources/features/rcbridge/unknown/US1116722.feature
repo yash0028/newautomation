@@ -7,7 +7,7 @@
 @Priority_1
 @releaseUnknown
 @iterationUnknown
-Feature: US1116722 - Expire Relationship Type
+Feature: US1116722 - Expire Relationship Options
 
   @TC565849
   @Automated
@@ -16,8 +16,8 @@ Feature: US1116722 - Expire Relationship Type
   @CLM_UAT
   Scenario: TC565849 - [RL0]
     Given I am an Administrative User
-    When I need to expire a Relationship Type
-    Then I can expire an existing Relationship Type
-    And Users can no longer select that Relationship Type to define an Entity relationship
-    And all records using that Relationship Type retain the historical value
+    When I need to expire a Relationship option
+    Then I can expire an existing Relationship option
+    And Users can no longer select that Relationship option to define a relationship
+    And all records using that Relationship option retain the value
 

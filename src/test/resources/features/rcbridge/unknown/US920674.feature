@@ -8,7 +8,7 @@
 @Priority_1
 @releaseUnknown
 @iterationUnknown
-Feature: US920674 - Perform Search by Active Entities
+Feature: US920674 - Search by Active Entities
 
   @TC565751
   @Automated

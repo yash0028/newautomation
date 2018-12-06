@@ -1,23 +1,18 @@
 # Last updated on 
-@MVP
-@EXARI-11792
 @EXARI-11249
 @CLM_UAT
+@EXARI-11792
 @US858695
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
-Feature: US858695 - Setup Entity Characteristic Type
+Feature: US858695 - Setup Entity Attributes
 
   @TC564774
   @Automated
   @Functional
-  @MVP
-  @EXARI-11792
   @EXARI-11249
   @CLM_UAT
+  @EXARI-11792
   Scenario: TC564774 - [RL0]
     Given I am an Administrative User
     When I want to setup a new Characteristic Type

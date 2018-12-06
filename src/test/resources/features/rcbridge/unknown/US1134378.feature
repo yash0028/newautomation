@@ -5,7 +5,6 @@
 @US1134378
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1134378 - Export Entity Relationships

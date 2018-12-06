@@ -1,11 +1,7 @@
 # Last updated on 
-@MVP
 @EXARI-11249
 @CLM_UAT
 @US929399
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US929399 - Update Identifier Type
@@ -13,7 +9,6 @@ Feature: US929399 - Update Identifier Type
   @TC565615
   @Automated
   @Functional
-  @MVP
   @EXARI-11249
   @CLM_UAT
   Scenario: TC565615 - [RL0]

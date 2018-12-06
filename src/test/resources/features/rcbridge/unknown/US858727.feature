@@ -5,7 +5,6 @@
 @US858727
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858727 - View Relationships within Entity

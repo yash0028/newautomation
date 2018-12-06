@@ -1,7 +1,6 @@
 # Last updated on 
 @US1222431
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1222431 - Update UHC ID

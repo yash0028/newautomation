@@ -1,7 +1,6 @@
 # Last updated on 
 @US1105127
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1105127 - Default Relationship Type

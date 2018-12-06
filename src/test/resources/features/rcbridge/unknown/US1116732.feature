@@ -1,10 +1,6 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @US1116732
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1116732 - Expire Account Type
@@ -12,7 +8,6 @@ Feature: US1116732 - Expire Account Type
   @TC564545
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   Scenario: TC564545 - [RL0]
     Given I am an Administrative User

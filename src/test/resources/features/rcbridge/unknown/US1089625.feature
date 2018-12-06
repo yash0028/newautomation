@@ -3,6 +3,8 @@
 @EXARI-11274
 @US1089625
 @MVP
+@Plus
+@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1089625 - Perform Duplicate Check - Identifier

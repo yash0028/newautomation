@@ -5,7 +5,6 @@
 @US1096149
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1096149 - Migrate Owned TINs

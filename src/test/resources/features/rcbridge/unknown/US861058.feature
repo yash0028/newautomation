@@ -5,7 +5,6 @@
 @US861058
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US861058 - Publish Events When Entity Structures Change

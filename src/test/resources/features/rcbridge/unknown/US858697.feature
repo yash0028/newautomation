@@ -1,11 +1,7 @@
 # Last updated on 
-@MVP
 @EXARI-11249
 @CLM_UAT
 @US858697
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858697 - Setup Identifier Type
@@ -13,7 +9,6 @@ Feature: US858697 - Setup Identifier Type
   @TC564941
   @Automated
   @Functional
-  @MVP
   @EXARI-11249
   @CLM_UAT
   Scenario: TC564941 - [RL0]

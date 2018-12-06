@@ -1,7 +1,6 @@
 # Last updated on 
 @US1225052
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1225052 - Create TIN Termination Workflow

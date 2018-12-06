@@ -5,7 +5,6 @@
 @US1096156
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1096156 - Establish Validation Schedule

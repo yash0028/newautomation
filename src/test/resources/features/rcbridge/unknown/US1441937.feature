@@ -3,7 +3,6 @@
 @US1441937
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1441937 - View Graphical Visualization of Entity Structure

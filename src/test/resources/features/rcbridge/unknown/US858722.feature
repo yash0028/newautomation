@@ -5,7 +5,6 @@
 @US858722
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858722 - View Entire Entity Structure

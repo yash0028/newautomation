@@ -1,10 +1,6 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @US1116731
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1116731 - Expire Identifier Type
@@ -12,7 +8,6 @@ Feature: US1116731 - Expire Identifier Type
   @TC565704
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   Scenario: TC565704 - [RL0]
     Given I am an Administrative User

@@ -2,6 +2,8 @@
 @MVP
 @US1458136
 @MVP
+@Plus
+@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1458136 - Perform Duplicate Check - Entity

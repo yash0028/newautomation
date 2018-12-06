@@ -5,7 +5,6 @@
 @US858608
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858608 - Import Relationships from Template

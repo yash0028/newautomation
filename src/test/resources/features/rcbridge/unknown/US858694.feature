@@ -7,7 +7,7 @@
 @Priority_1
 @releaseUnknown
 @iterationUnknown
-Feature: US858694 - Setup Relationship Types
+Feature: US858694 - Setup Relationship Options
 
   @TC565707
   @Automated
@@ -16,7 +16,7 @@ Feature: US858694 - Setup Relationship Types
   @CLM_UAT
   Scenario: TC565707 - [RL0]
     Given I am an Administrative User
-    When I want to setup a new Relationship Type
-    Then I can setup a Relationship Type
-    And Users can select that Relationship Type to define an Entity relationship
+    When I want to setup a new Relationship option
+    Then I can setup a Relationship option
+    And Users can select that Relationship option to define a connection between Entities
 

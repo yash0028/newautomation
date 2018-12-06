@@ -5,7 +5,6 @@
 @US858729
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858729 - View Providers Associated to an Entity

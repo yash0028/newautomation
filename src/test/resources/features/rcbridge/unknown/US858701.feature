@@ -3,7 +3,6 @@
 @EXARI-11792
 @US858701
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858701 - Create & Update Entity Rules

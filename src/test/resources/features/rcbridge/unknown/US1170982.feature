@@ -3,7 +3,6 @@
 @EXARI-11270
 @US1170982
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1170982 - Retained Relationships

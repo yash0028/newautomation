@@ -5,7 +5,6 @@
 @US922855
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US922855 - View Alternate Name/Alias Time Lining History

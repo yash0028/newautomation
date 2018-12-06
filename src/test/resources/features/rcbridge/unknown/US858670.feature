@@ -5,7 +5,6 @@
 @US858670
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858670 - View Relationship Time Lining History

@@ -1,11 +1,9 @@
 # Last updated on 
-@MVP
 @EXARI-11249
 @CLM_UAT
 @US912898
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US912898 - Update Entity Characteristic Detail
@@ -13,7 +11,6 @@ Feature: US912898 - Update Entity Characteristic Detail
   @TC565962
   @Automated
   @Functional
-  @MVP
   @EXARI-11249
   @CLM_UAT
   Scenario: TC565962 - [RL0]

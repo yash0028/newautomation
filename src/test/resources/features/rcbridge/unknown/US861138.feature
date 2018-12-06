@@ -5,7 +5,6 @@
 @US861138
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US861138 - Export Entity Structure

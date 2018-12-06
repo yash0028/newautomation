@@ -3,7 +3,6 @@
 @US1171457
 @MVP
 @Plus
-@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US1171457 - Capture Time Lining History

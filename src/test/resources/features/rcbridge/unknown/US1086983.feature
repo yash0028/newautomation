@@ -3,7 +3,6 @@
 @CLM_UAT
 @US1086983
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1086983 - Update TIN

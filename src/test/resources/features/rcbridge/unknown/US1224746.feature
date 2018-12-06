@@ -1,7 +1,6 @@
 # Last updated on 
 @US1224746
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1224746 - Created TIN

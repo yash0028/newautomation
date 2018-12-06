@@ -5,7 +5,6 @@
 @CLM_UAT
 @US1089321
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1089321 - Prevent Inactive Entity Maintenance

@@ -1,7 +1,6 @@
 # Last updated on 
 @US1225013
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1225013 - Process Single Updates

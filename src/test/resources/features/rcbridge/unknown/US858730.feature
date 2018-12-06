@@ -5,7 +5,6 @@
 @US858730
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858730 - View Provider Detail

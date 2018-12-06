@@ -5,7 +5,6 @@
 @US858600
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858600 - View Entity Time Lining History

@@ -5,7 +5,6 @@
 @US927842
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US927842 - View Provider to Entity Relationship Time Lining History

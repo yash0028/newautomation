@@ -1,11 +1,7 @@
 # Last updated on 
-@MVP
 @EXARI-11249
 @CLM_UAT
 @US929394
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US929394 - Update Entity Type
@@ -13,7 +9,6 @@ Feature: US929394 - Update Entity Type
   @TC564638
   @Automated
   @Functional
-  @MVP
   @EXARI-11249
   @CLM_UAT
   Scenario: TC564638 - [RL0]

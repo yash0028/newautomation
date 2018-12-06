@@ -2,10 +2,11 @@
 @US1450697
 @2018.PI05
 @MVP
+@Optum
 @Exari
 @releasePresent
 @iterationUnknown
-Feature: US1450697 - Calculate disposition
+Feature: US1450697 - Calculate disposition - NAR Physician using AM, 1/1 effective date
 
   @TC651738
   @Manual

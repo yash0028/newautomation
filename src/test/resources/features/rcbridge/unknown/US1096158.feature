@@ -4,7 +4,6 @@
 @US1096158
 @MVP
 @Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1096158 - Establish TIN Aggregation Maintenance

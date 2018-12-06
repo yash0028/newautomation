@@ -8,7 +8,7 @@
 @Priority_1
 @releaseUnknown
 @iterationUnknown
-Feature: US858715 - Perform Search by Provider ID
+Feature: US858715 - Search by Identifier
 
   @TC565084
   @Automated
@@ -18,7 +18,7 @@ Feature: US858715 - Perform Search by Provider ID
   @EXARI-11274
   Scenario: TC565084 - [RL0]
     Given I am a User with access to view and maintain Entity information
-    When I want to find out which Entities a Provider is associated to
-    Then I can search by Provider ID
-    And the system displays all Entities related to that Provider
+    When I want to search for an Identifier or all Entities related to an Identifier
+    Then I can search by Identifier
+    And the system displays the Identifier record first and all Entities related to that Identifier
 
