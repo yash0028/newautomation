@@ -21,5 +21,5 @@ Feature: US1116715 - Expire Entity Type
     When I need to expire an Entity Type
     Then I can expire an existing Entity Type
     And Users can no longer select that Entity Type to define an Entity
-    And all records using that Entity Type retain the historical value
+    And all records using that Entity Type retain the value
 

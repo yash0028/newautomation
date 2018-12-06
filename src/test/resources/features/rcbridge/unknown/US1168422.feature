@@ -2,9 +2,6 @@
 @MVP
 @CLM_UAT
 @US1168422
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1168422 - Select Identifier Type

@@ -14,6 +14,6 @@ Feature: US1185963 - Display Identifier Type
   @MVP
   Scenario: TC564820 - [RL0]
     Given I am a User with access to maintain Entity information
-    When I am adding an Identifier to an Entity
+    When I am associating an Identifier to an Entity
     Then the Entity Management Solution displays the Identifier Type of the selected Identifier
 

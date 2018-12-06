@@ -2,9 +2,6 @@
 @MVP
 @CLM_UAT
 @US1116723
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1116723 - Expire Relationship Role

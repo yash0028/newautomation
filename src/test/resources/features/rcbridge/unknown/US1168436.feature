@@ -1,9 +1,6 @@
 # Last updated on 
 @MVP
 @US1168436
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1168436 - Check for Contract Dependencies

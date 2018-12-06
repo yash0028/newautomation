@@ -3,9 +3,6 @@
 @CLM_UAT
 @EXARI-11274
 @US858713
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US858713 - Search by Entity Attributes

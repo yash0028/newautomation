@@ -1,10 +1,6 @@
 # Last updated on 
-@MVP
 @CLM_UAT
 @US929397
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US929397 - Update Relationship Type
@@ -12,7 +8,6 @@ Feature: US929397 - Update Relationship Type
   @TC564811
   @Automated
   @Functional
-  @MVP
   @CLM_UAT
   Scenario: TC564811 - [RL0]
     Given I am an Administrative User

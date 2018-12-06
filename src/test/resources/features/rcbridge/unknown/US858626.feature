@@ -8,7 +8,7 @@
 @Priority_1
 @releaseUnknown
 @iterationUnknown
-Feature: US858626 - Add Notes
+Feature: US858626 - User Notes
 
   @TC565124
   @Automated

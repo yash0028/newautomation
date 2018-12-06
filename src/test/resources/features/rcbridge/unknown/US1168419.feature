@@ -2,9 +2,6 @@
 @MVP
 @CLM_UAT
 @US1168419
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1168419 - Search Identifier
