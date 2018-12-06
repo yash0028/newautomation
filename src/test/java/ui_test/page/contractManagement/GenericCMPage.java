@@ -112,7 +112,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      * @return True if the all of the fields contain data in the table row or false otherwise.
      */
     public Boolean verifySingleRow(WebElement element) {
-        return element.findElements(By.xpath("//td")).stream().noneMatch(element1 -> element.getText().isEmpty());
+        return element.findElements(By.xpath("//td")).stream().noneMatch(element1 -> element1.getText().isEmpty());
     }
 
     /**
