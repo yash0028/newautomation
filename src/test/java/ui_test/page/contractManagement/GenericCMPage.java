@@ -209,7 +209,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
     public int getFirstRowProductGroupCount() {
         return firstRowProductGroups.size();
     }
-//
+
 //    /**
 //     *
 //     * @param rowNumber
@@ -237,16 +237,20 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
         return click("Click table row: " + rowNumber, primeTableRows.get(rowNumber));
     }
 
-//    public boolean clickBackButton() {
-//
-//    }
+    /**
+     * Clicks the back button to go back to the previous page.
+     * @return True if the back button was clicked or false otherwise.
+     */
+    public boolean clickBackButton() {
+        return click("Click back button", buttonBack);
+    }
 
     /**
      * Clicks the next page button to advance to the next page of rows in the table.
      * @return True if the next page button was clicked or false otherwise.
      */
     public boolean clickNextPageButton() {
-        return click("Click next page button: ", nextPageButton);
+        return click("Click next page button", nextPageButton);
     }
 
 
