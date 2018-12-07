@@ -70,6 +70,9 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
     @FindBy(xpath = "//button[@aria-label='Next page']")
     protected WebElement nextPageButton;
 
+    @FindBy(xpath = "//button[@aria-label='Previous page']")
+    protected WebElement previousPageButton;
+
     /*
     CONSTRUCTOR
      */
@@ -251,6 +254,14 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      */
     public boolean clickNextPageButton() {
         return click("Click next page button", nextPageButton);
+    }
+
+    /**
+     * Clicks the previous page button to return to the previous page of rows in the table.
+     * @return True if the previous page button was clicked or false otherwise.
+     */
+    public boolean clickPreviousPageButton() {
+        return click("Click previous page button", previousPageButton);
     }
 
 
