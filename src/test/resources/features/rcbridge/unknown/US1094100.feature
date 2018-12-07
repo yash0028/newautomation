@@ -1,6 +1,5 @@
 # Last updated on 
 @US1094100
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1094100 - Approve Inactivated Identifier Relationship with Entity

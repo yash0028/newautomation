@@ -2,7 +2,7 @@
 @MVP
 @US861056
 @MVP
-@Plus
+@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US861056 - Map Entity Data Elements for Downstream Consumption

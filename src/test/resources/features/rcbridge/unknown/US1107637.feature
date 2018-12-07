@@ -3,7 +3,6 @@
 @CLM_UAT
 @US1107637
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1107637 - Remove Contract ID from Provider upon Contract Termination

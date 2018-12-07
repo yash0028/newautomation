@@ -2,8 +2,7 @@
 @MVP
 @US1374509
 @MVP
-@Plus
-@Priority_1
+@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US1374509 - Synchronize Added MPIN

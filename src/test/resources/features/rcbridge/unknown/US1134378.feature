@@ -4,7 +4,6 @@
 @EXARI-11453
 @US1134378
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1134378 - Export Entity Relationships

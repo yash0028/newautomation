@@ -3,7 +3,6 @@
 @CLM_UAT
 @US1089506
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1089506 - Update Entity Alternate Name

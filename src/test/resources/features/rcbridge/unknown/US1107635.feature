@@ -3,7 +3,6 @@
 @CLM_UAT
 @US1107635
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1107635 - Associate Contract ID to Provider upon Contract Execution

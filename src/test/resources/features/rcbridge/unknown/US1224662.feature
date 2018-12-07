@@ -1,6 +1,5 @@
 # Last updated on 
 @US1224662
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1224662 - Terminated MPIN/TIN Relationship

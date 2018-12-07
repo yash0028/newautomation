@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11273
 @US1170984
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1170984 - Capture Timeline History

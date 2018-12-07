@@ -3,7 +3,6 @@
 @CLM_UAT
 @US1171451
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1171451 - Upload Tax ID File

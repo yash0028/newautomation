@@ -4,7 +4,6 @@
 @EXARI-11273
 @US927842
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US927842 - View Provider to Entity Relationship Time Lining History

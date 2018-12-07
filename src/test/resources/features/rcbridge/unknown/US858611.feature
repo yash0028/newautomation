@@ -4,7 +4,6 @@
 @EXARI-11273
 @US858611
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US858611 - View Importation Time Lining History

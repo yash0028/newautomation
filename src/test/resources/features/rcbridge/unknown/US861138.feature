@@ -4,7 +4,7 @@
 @EXARI-11453
 @US861138
 @MVP
-@Plus
+@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US861138 - Export Entity Structure

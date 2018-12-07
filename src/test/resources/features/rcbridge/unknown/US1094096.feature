@@ -1,6 +1,5 @@
 # Last updated on 
 @US1094096
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1094096 - Approve Inactivated Entity

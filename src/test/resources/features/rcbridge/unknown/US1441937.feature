@@ -2,10 +2,10 @@
 @MVP
 @US1441937
 @MVP
-@Plus
+@Priority_2
 @releaseUnknown
 @iterationUnknown
-Feature: US1441937 - View Graphical Visualization of Entity Structure
+Feature: US1441937 - View Graphical Representation of Entity Structure
 
   @TC658870
   @Manual

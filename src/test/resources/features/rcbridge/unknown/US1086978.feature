@@ -2,7 +2,6 @@
 @EXARI-11249
 @CLM_UAT
 @US1086978
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1086978 - Update NPI

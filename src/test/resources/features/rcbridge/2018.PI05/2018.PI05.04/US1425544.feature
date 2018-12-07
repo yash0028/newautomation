@@ -6,7 +6,7 @@
 @Maintenance
 @releasePresent
 @iterationFuture
-Feature: US1425544 - Resend Type 2 error transactions to COSMOS after resolving
+Feature: US1425544 - Demostrate resolving a Type 2 error transactions in COSMOS
 
   @TC634357
   @Manual

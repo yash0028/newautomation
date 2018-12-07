@@ -4,7 +4,6 @@
 @CLM_UAT
 @US858725
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US858725 - View Entity Summary

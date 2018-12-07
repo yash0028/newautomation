@@ -3,7 +3,6 @@
 @CLM_UAT
 @US948350
 @MVP
-@Plus
 @Priority_1
 @releaseUnknown
 @iterationUnknown

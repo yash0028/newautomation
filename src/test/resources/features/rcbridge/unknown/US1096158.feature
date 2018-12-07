@@ -3,7 +3,6 @@
 @CLM_UAT
 @US1096158
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1096158 - Establish TIN Aggregation Maintenance

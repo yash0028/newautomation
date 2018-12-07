@@ -4,7 +4,6 @@
 @EXARI-11453
 @US861136
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US861136 - Export Entity Detail

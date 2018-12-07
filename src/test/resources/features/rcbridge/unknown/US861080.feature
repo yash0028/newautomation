@@ -1,6 +1,5 @@
 # Last updated on 
 @US861080
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US861080 - Make Entity Data Available

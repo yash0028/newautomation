@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11271
 @US1094099
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1094099 - Approve Updated Identifier

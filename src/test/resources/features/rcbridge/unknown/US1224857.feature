@@ -1,6 +1,5 @@
 # Last updated on 
 @US1224857
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1224857 - Terminated NPI/TIN Relationship

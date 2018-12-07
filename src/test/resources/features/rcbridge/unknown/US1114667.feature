@@ -2,7 +2,6 @@
 @CLM_UAT
 @EXARI-11696
 @US1114667
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1114667 - Child Entity Relationships

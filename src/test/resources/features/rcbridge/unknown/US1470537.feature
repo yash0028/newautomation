@@ -2,8 +2,7 @@
 @MVP
 @US1470537
 @MVP
-@Plus
-@Priority_1
+@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US1470537 - Terminated MPIN/TIN Relationship Source

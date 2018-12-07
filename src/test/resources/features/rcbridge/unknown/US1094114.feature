@@ -1,6 +1,5 @@
 # Last updated on 
 @US1094114
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1094114 - Approve Identifier Owner Inactivation

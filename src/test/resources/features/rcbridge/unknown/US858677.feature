@@ -1,6 +1,5 @@
 # Last updated on 
 @US858677
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US858677 - Remove Provider Relationship

@@ -1,7 +1,6 @@
 # Last updated on 
 @US1185991
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1185991 - Update Account Type

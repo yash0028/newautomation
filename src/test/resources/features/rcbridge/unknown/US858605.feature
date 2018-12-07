@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11271
 @US858605
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US858605 - Capture Approval Time Lining History

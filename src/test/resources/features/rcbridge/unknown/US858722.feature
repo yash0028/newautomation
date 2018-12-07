@@ -4,7 +4,6 @@
 @CLM_UAT
 @US858722
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US858722 - View Entire Entity Structure

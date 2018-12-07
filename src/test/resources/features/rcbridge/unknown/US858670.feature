@@ -4,7 +4,6 @@
 @EXARI-11273
 @US858670
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US858670 - View Relationship Time Lining History

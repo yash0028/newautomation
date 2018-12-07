@@ -4,7 +4,6 @@
 @CLM_UAT
 @US858726
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US858726 - Compare Entity Information

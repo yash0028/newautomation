@@ -1,6 +1,5 @@
 # Last updated on 
 @US1224846
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1224846 - Terminated TIN

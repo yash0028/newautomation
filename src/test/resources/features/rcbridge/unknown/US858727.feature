@@ -4,7 +4,6 @@
 @CLM_UAT
 @US858727
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US858727 - View Relationships within Entity

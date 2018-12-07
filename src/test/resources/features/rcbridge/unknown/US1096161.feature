@@ -3,7 +3,6 @@
 @CLM_UAT
 @US1096161
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1096161 - Establish Provider Relationship Maintenance

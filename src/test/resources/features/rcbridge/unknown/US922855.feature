@@ -4,7 +4,6 @@
 @EXARI-11273
 @US922855
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US922855 - View Alternate Name/Alias Time Lining History

@@ -2,7 +2,6 @@
 @CLM_UAT
 @EXARI-11270
 @US1170982
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1170982 - Retained Relationships

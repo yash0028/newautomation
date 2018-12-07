@@ -3,7 +3,6 @@
 @CLM_UAT
 @US912901
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US912901 - Inactivate Alternate Name/Alias

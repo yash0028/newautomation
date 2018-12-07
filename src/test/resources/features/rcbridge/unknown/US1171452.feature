@@ -2,7 +2,6 @@
 @MVP
 @US1171452
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1171452 - Identify Matching Tax IDs

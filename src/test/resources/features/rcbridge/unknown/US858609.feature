@@ -3,7 +3,7 @@
 @EXARI-11273
 @US858609
 @MVP
-@Plus
+@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US858609 - Capture Import Time Lining History

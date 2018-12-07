@@ -1,7 +1,6 @@
 # Last updated on 
 @EXARI-11249
 @US980944
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US980944 - Add Provider Relationship Role

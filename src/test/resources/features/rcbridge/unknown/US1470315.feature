@@ -1,9 +1,5 @@
 # Last updated on 
-@MVP
 @US1470315
-@MVP
-@Plus
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1470315 - Filter by Region
@@ -11,7 +7,6 @@ Feature: US1470315 - Filter by Region
   @TC666520
   @Manual
   @Functional
-  @MVP
   Scenario: TC666520 - [RL0]
     Given I am a User with access to view Entity information
     When I want to view all Entities within one or more specific Regions

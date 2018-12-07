@@ -3,7 +3,6 @@
 @CLM_UAT
 @US1171480
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1171480 - Generate Error Log

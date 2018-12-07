@@ -3,7 +3,6 @@
 @EXARI-11267
 @CLM_UAT
 @US1193286
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1193286 - Capture Reason for Reactivation

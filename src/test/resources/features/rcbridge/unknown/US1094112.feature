@@ -1,6 +1,5 @@
 # Last updated on 
 @US1094112
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1094112 - Approve Inactivated Entity Characteristic Info

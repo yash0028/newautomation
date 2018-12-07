@@ -3,8 +3,7 @@
 @US1285744
 @2019.PI06
 @MVP
-@Plus
-@Priority_1
+@Priority_2
 @releaseFuture
 @iterationUnknown
 Feature: US1285744 - Synchronize Updated Name

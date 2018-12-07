@@ -1,6 +1,5 @@
 # Last updated on 
 @US1094107
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1094107 - Approve Inactivated Entity Demographic Info

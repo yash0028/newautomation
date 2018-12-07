@@ -1,6 +1,5 @@
 # Last updated on 
 @US861077
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US861077 - Consolidate Entity Data

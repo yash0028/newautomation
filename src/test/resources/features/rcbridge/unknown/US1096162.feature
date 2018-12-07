@@ -2,7 +2,6 @@
 @MVP
 @US1096162
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1096162 - Establish Naming Convention

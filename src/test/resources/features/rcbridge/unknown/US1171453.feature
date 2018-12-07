@@ -3,7 +3,6 @@
 @CLM_UAT
 @US1171453
 @MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1171453 - Update Date Validated Field

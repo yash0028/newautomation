@@ -1,6 +1,5 @@
 # Last updated on 
 @US1224873
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US1224873 - Created NPI/TIN Relationship

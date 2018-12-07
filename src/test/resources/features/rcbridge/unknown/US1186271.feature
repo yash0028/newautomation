@@ -4,7 +4,6 @@
 @EXARI-11274
 @US1186271
 @MVP
-@Plus
 @Priority_1
 @releaseUnknown
 @iterationUnknown
