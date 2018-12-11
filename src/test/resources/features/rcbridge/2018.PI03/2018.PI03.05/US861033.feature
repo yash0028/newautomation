@@ -37,7 +37,7 @@ Feature: US861033 - [Continued][Continued] Integrate CLM with Examiner (Continue
       | "123,456,789"  | "2"            |
 
   @TC564593
-  @Automated
+  @Manual
   @Functional
   @MVP
   @Siraj
