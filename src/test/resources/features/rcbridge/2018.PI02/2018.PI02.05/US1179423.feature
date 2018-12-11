@@ -29,7 +29,7 @@ Feature: US1179423 - [Continued] Examiner implementation
     Then The service will return an error
 
   @TC565242
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565242 - [RL2]
     Given A contract request from PIC or Examiner

@@ -13,8 +13,8 @@ Feature: US1107637 - Remove Contract ID from Provider upon Contract Termination
   @MVP
   @CLM_UAT
   Scenario: TC564537 - [RL0]
-    Given I am the Entity Management Solution
-    When the Contracting process is cancelled with a Provider
-    Then I need the Contract ID status to change to an "Inactive" status
+    Given I am a User with access to view and maintain Entity information
+    When a contract with a Provider is terminated
+    Then I need the Contract ID status to change to an "Inactive" status in the Entity Management Solution
     And the Contract ID has an inactivation date
 

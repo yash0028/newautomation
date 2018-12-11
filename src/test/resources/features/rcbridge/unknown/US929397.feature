@@ -3,7 +3,7 @@
 @US929397
 @releaseUnknown
 @iterationUnknown
-Feature: US929397 - Update Relationship Type
+Feature: US929397 - Update Relationship
 
   @TC564811
   @Automated
@@ -11,7 +11,7 @@ Feature: US929397 - Update Relationship Type
   @CLM_UAT
   Scenario: TC564811 - [RL0]
     Given I am an Administrative User
-    When I need to update an existing Relationship Type
-    Then I can update an existing Relationship Type
-    And I have the ability to cascade update to all records using that Relationship Type
+    When I need to update an existing Relationship option
+    Then I can update an existing Relationship option
+    And I have the ability to cascade update to all records using that Relationship option
 

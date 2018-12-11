@@ -32,7 +32,7 @@ Feature: US1148878 - Create contract query microservice PIC (inquiry)
     Then The service will return an error
 
   @TC565909
-  @Automated
+  @Manual
   @Functional
   @CLM_UAT
   Scenario: TC565909 - [RL2]

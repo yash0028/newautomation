@@ -32,7 +32,7 @@ Feature: US1148895 - Create contract query microservice Examiner (inquiry)
     Then The service will return an error
 
   @TC565196
-  @Automated
+  @Manual
   @Functional
   @CLM_UAT
   Scenario: TC565196 - [RL2]

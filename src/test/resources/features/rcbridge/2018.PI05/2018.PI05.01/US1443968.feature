@@ -15,7 +15,7 @@ Feature: US1443968 - [Enhancement] User Input Required Page - View & Edit contra
     And I selected use this contract master "always"
     And I have clicked on the submit button
     Then The modal window closes and I am brought back to the CMD action required page with the product grouping information I was editing displayed to me
-    And The status of the contract master product grouping is changed to contract master selected
+    And The status of the contract master product grouping is changed to Resolved
 
   @TC647702
   @Manual
@@ -24,7 +24,7 @@ Feature: US1443968 - [Enhancement] User Input Required Page - View & Edit contra
     Given I am on the CMD Action Required page
     When I entered in a contract master number that includes anything other than numeric values
     And I selected use this contract master "always"
-    And I have clicked on the submit button
     Then the contract master number is invalid
+    And the Submit button is not clickable
     And a message is displayed stating 'CONTRACT MASTER NUMBER MUST ONLY INCLUDE NUMERIC DIGITS'
 
