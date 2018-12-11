@@ -21,8 +21,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ExaminerSteps implements IRestStep {
-    private static final Logger log = LoggerFactory.getLogger(ExaminerSteps.class);
+public class PicExaminerSteps implements IRestStep {
+    private static final Logger log = LoggerFactory.getLogger(PicExaminerSteps.class);
 
     private static final String ENDPOINT = "http://contracts-query-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_EXARI_ACO_CONTRACTS = "/v1.0/exari/acocontracts";
@@ -45,14 +45,30 @@ public class ExaminerSteps implements IRestStep {
         response = request.param("contractNumbers", "124319").get(RESOURCE_EXARI_ACO_CONTRACTS);
     }
 
+    @When("^A REST Service call is made with invalid data$")
+    public void getInValidResponse() {
+
+        response = request.param("contractNumbers", "abc123").get(RESOURCE_EXARI_ACO_CONTRACTS);
+    }
+
+    @Then("^The service will return an error$")
+    public void validateInValidReponse() {
+        int errorCode = parseJsonElementResponse(response).getAsJsonObject().get("responseCode").getAsInt();
+
+        Assert.assertNotEquals("Wrong status code returned", 200, errorCode);
+    }
+
     @When("^A REST Service call is made with invalid data \"([^\"]*)\"$")
-    public void getInValidResponse(String inputData) {
-        response = request.param("contractNumbers", inputData).get(RESOURCE_EXARI_ACO_CONTRACTS);
+    public void getInValidResponse2(String data) {
+
+        response = request.param("contractNumbers", data).get(RESOURCE_EXARI_ACO_CONTRACTS);
     }
 
     @Then("^The service will return an error \"([^\"]*)\"$")
-    public void validateInValidReponse(String responseCode) {
-        Assert.assertEquals("Wrong Error code displayed", Integer.valueOf(responseCode).longValue(), parseJsonResponse(response).get("responseCode").getAsLong());
+    public void validateInValidReponse2(String error) {
+        int errorCode = parseJsonElementResponse(response).getAsJsonObject().get("responseCode").getAsInt();
+
+        Assert.assertEquals("Wrong status code returned", Integer.parseInt(error), errorCode);
     }
 
     @Then("^The contract data is sent back to PIC or Examiner$")
@@ -61,7 +77,7 @@ public class ExaminerSteps implements IRestStep {
         setOfRequiredKeys.addAll(Arrays.asList(new String[]{"lob", "contractNumber", "legalEntityName", "agreementEffDate", "agreementCancelDate", "legalDocumentStatus", "associatedAgreements"}));
         Set<String> setOfAssociatedRequiredKeys = new HashSet<>();
         setOfAssociatedRequiredKeys.addAll(Arrays.asList(new String[]{"legalDocumentStatus", "associatedAgreementLegalDocId", "associatedAgreementEffDate", "associatedAgreementEndDate", "associatedLegalEntityName", "associatedRegionNumber", "associatedMarketNumber"}));
-        JsonArray responseArray = parseJsonResponse(response).get("responseData").getAsJsonArray();
+        JsonArray responseArray = parseJsonElementResponse(response).getAsJsonObject().get("responseData").getAsJsonArray();
         Set<String> setOfKeys = null;
         for (JsonElement element : responseArray) {
             setOfKeys = ((JsonObject) element).keySet();
