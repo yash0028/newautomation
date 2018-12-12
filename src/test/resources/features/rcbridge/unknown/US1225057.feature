@@ -1,5 +1,7 @@
 # Last updated on 
 @US1225057
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1225057 - Create MPIN Termination Workflow

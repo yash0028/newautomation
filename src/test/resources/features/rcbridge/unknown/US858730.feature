@@ -4,6 +4,7 @@
 @CLM_UAT
 @US858730
 @MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US858730 - View Provider Detail

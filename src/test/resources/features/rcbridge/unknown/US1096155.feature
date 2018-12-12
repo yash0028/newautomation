@@ -3,6 +3,7 @@
 @CLM_UAT
 @US1096155
 @MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US1096155 - Flag Entities with Special Characteristics

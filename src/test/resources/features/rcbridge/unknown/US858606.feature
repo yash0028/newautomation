@@ -1,6 +1,8 @@
 # Last updated on 
 @EXARI-11273
 @US858606
+@MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US858606 - View Approval Time Lining History

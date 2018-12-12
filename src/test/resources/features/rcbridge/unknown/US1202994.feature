@@ -3,6 +3,7 @@
 @CLM_UAT
 @US1202994
 @MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1202994 - Export Tax IDs

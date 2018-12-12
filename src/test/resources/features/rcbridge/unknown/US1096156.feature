@@ -4,6 +4,7 @@
 @EXARI-11266
 @US1096156
 @MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US1096156 - Establish Validation Schedule

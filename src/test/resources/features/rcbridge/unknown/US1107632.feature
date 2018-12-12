@@ -4,6 +4,7 @@
 @EXARI-10713
 @US1107632
 @MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US1107632 - Associate Contract ID to Counterparty upon Contract Execution

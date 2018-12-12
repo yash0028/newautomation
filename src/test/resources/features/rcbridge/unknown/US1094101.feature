@@ -1,5 +1,7 @@
 # Last updated on 
 @US1094101
+@MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US1094101 - Approve Voided Identifier

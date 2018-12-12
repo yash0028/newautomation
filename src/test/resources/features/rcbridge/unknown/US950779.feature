@@ -1,6 +1,8 @@
 # Last updated on 
 @EXARI-8603
 @US950779
+@MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US950779 - Assign Entity Workflow Status for Added Entities

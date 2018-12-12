@@ -1,5 +1,7 @@
 # Last updated on 
 @US1098133
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1098133 - Establish Naming Convention

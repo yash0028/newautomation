@@ -4,6 +4,7 @@
 @EXARI-11399
 @US1096149
 @MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US1096149 - Migrate Owned TINs

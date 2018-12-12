@@ -4,6 +4,7 @@
 @EXARI-11273
 @US858632
 @MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US858632 - View Supplemental Detail Time Lining History

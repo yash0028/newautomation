@@ -15,6 +15,7 @@ Feature: US1337392 - [Continued] [Continued] CPS lookup API Layer-7 implementati
     And COSMOS updater waits until NDB updates are complete, gets notified the NDB request returns valid values
     Then The CPS Lookup API will respond with valid NDB values
 
+  @RC_unlinked
   @TC666057
   @Manual
   @Functional

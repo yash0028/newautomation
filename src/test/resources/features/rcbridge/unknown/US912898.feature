@@ -3,6 +3,7 @@
 @CLM_UAT
 @US912898
 @MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US912898 - Update Entity Characteristic Detail

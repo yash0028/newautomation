@@ -1,6 +1,7 @@
 # Last updated on 
 @US1478185
 @MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US1478185 - Add Account Type

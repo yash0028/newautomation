@@ -2,6 +2,8 @@
 @CLM_UAT
 @EXARI-11696
 @US1114664
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1114664 - Parent Entity Relationships

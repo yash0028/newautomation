@@ -1,6 +1,8 @@
 # Last updated on 
 @CLM_UAT
 @US1170983
+@MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US1170983 - Approve Reactivated Entity

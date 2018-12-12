@@ -3,6 +3,8 @@
 @EXARI-11267
 @CLM_UAT
 @US944247
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US944247 - Capture Reason for Entity Inactivation

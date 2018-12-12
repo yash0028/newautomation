@@ -2,6 +2,8 @@
 @EXARI-11249
 @CLM_UAT
 @US929395
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US929395 - Update Entity Type Definition

@@ -1,12 +1,12 @@
 # Last updated on 
 @US1416853
 @2018.PI05
-@2018.PI05.01
+@2018.PI05.02
 @MVP
 @Maintenance
 @releasePresent
-@iterationPresent
-Feature: US1416853 - Setup a new Contract Configuration Service
+@iterationFuture
+Feature: US1416853 - [Continued] Setup a new Contract Configuration Service
 
   @TC629010
   @Manual

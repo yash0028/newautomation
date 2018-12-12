@@ -1,6 +1,8 @@
 # Last updated on 
 @EXARI-11271
 @US1094113
+@MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US1094113 - Approve Identifier Owner Assignment

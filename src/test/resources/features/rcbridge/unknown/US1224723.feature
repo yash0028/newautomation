@@ -1,5 +1,7 @@
 # Last updated on 
 @US1224723
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1224723 - Created MPIN/TIN Relationship

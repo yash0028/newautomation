@@ -2,6 +2,7 @@
 @EXARI-11273
 @US858624
 @MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US858624 - Capture Entity Characteristic Time Lining History

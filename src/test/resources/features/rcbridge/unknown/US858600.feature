@@ -4,6 +4,7 @@
 @EXARI-11273
 @US858600
 @MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US858600 - View Entity Time Lining History

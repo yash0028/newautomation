@@ -1,5 +1,7 @@
 # Last updated on 
 @US1226817
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1226817 - Created BSAR/Provider Relationship

@@ -3,6 +3,7 @@
 @CLM_UAT
 @US912897
 @MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US912897 - Add Entity Characteristic Detail

@@ -1,6 +1,8 @@
 # Last updated on 
 @EXARI-11271
 @US858603
+@MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US858603 - Follow Approval Process

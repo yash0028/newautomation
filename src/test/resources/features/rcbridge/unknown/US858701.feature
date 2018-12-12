@@ -2,6 +2,8 @@
 @CLM_UAT
 @EXARI-11792
 @US858701
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US858701 - Create & Update Entity Rules

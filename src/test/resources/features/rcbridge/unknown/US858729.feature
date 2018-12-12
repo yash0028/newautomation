@@ -4,6 +4,7 @@
 @CLM_UAT
 @US858729
 @MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US858729 - View Providers Associated to an Entity

@@ -1,5 +1,7 @@
 # Last updated on 
 @US1225008
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1225008 - Created NPI/Provider Relationship

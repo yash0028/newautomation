@@ -1,6 +1,8 @@
 # Last updated on 
 @CLM_UAT
 @US929397
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US929397 - Update Relationship
