@@ -1,16 +1,18 @@
 # Last updated on 
+@A_UI_Story
 @US1401523
 @2018.PI05
 @2018.PI05.02
 @MVP
 @Maintenance
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1401523 - UI/UX- Populate Resolution button and comments on CMD page displaying Type 2 errors
 
   @TC622440
   @Manual
   @Functional
+  @A_UI_Story
   Scenario: TC622440 - [RL0]
     ### Scenario 1 (Resolution button and resolution text box on CMD error modal)
     Given I am on the CMD Error page
@@ -20,6 +22,7 @@ Feature: US1401523 - UI/UX- Populate Resolution button and comments on CMD page 
   @TC622442
   @Manual
   @Functional
+  @A_UI_Story
   Scenario: TC622442 - [RL1]
     ### Scenario 2 (Resolution button and resolution text box validation)
     Given I am on the CMD Error modal window

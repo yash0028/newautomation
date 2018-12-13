@@ -3,7 +3,7 @@
 @2018.PI05
 @2018.PI05.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1445600 - Call outputs to pass where user enters FS ID
 
   @TC648743

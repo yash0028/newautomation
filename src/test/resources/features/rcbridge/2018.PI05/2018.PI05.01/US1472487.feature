@@ -7,7 +7,7 @@
 @PI04
 @Plus
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1472487 - Calculate number of days to Planned Effective Date
 
   @TC669308

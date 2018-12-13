@@ -5,7 +5,7 @@
 @MVP
 @Maintenance
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1416853 - [Continued] Setup a new Contract Configuration Service
 
   @TC629010

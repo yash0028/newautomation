@@ -5,7 +5,7 @@
 @MVP
 @Maintenance
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1458125 - Look-up CPS Contract Masters
 
   @TC658865

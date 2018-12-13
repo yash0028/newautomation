@@ -7,7 +7,7 @@
 @PI04
 @Plus
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1456884 - Create API to store Activiti process data
 
   @TC659917

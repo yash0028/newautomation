@@ -6,7 +6,7 @@
 @PI04
 @Plus
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1472459 - Integration - Physician Landing Page
 
   @TC669306
