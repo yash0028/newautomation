@@ -1,14 +1,12 @@
 # Last updated on 
 @US1290196
 @2018.PI05
-@2018.PI05.01
+@2018.PI05.02
 @MVP
-@Priority_2
-@NDB
-@CMD
+@Maintenance
 @releasePresent
-@iterationPast
-Feature: US1290196 - Contract Master Override Update Work Objects Table (Non PCP)
+@iterationPresent
+Feature: US1290196 - [Continued]Contract Master Override Update Work Objects Table (Non PCP)
 
   @TC616486
   @Manual

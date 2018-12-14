@@ -13,5 +13,5 @@ Feature: US1452090 - Market Number
     Then the Market Number is updated
     And the Region is systematically updated to match the new Market Number
     And the BIC Market is systematically updated to match the new Market Number
-    And the UNET Market Name is systematically updated to match the new Market Number
+    And the Market Name is systematically updated to match the new Market Number
 

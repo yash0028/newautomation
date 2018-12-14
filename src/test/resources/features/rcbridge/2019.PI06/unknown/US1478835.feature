@@ -6,7 +6,7 @@
 @CMD_UI
 @releaseFuture
 @iterationUnknown
-Feature: US1478835 - CMD UTILITY TABLE - Our Legal Entities table microservice
+Feature: US1478835 - CMD UTILITIES LIST - Our Legal Entities list and microservice
 
   @TC672208
   @Manual

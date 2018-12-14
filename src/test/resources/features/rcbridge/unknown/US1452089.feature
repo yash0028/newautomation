@@ -3,7 +3,7 @@
 @US1452089
 @releaseUnknown
 @iterationUnknown
-Feature: US1452089 - Provider System Name
+Feature: US1452089 - Update Provider System Name
 
   @TC672171
   @Manual

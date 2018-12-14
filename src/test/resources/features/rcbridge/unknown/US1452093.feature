@@ -2,7 +2,7 @@
 @US1452093
 @releaseUnknown
 @iterationUnknown
-Feature: US1452093 - UNET Market Name
+Feature: US1452093 - Market Name
 
   @TC672162
   @Manual
