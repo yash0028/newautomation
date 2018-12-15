@@ -1,12 +1,12 @@
 # Last updated on 
 @US1391147
 @2018.PI05
-@2018.PI05.02
+@2018.PI05.03
 @MVP
 @Scrum_Team_1
 @Maintenance
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1391147 - Receive and recognize contract update terms from Exari
 
   @TC616508

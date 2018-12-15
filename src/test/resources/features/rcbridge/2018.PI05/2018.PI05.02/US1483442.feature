@@ -16,6 +16,6 @@ Feature: US1483442 - Implement product rate condition changes to contract config
   Scenario: TC674585 - [RL0]
     Given a contract includes product group rate conditions
     When the contract product group rate details have been captured
-    Then the product group rate conditions are processed during contract installation
+    Then the product group rate conditions are captured.
     ###
 
