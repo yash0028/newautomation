@@ -4,7 +4,6 @@
 @CLM_UAT
 @US1116715
 @MVP
-@Plus
 @Priority_1
 @releaseUnknown
 @iterationUnknown

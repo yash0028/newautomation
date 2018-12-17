@@ -3,9 +3,11 @@
 @CLM_UAT
 @EXARI-11792
 @US929398
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
-Feature: US929398 - Update Entity Characteristic Type
+Feature: US929398 - Update Entity Characteristic
 
   @TC564856
   @Automated
@@ -15,7 +17,7 @@ Feature: US929398 - Update Entity Characteristic Type
   @EXARI-11792
   Scenario: TC564856 - [RL0]
     Given I am an Administrative User
-    When I need to update an existing Entity Characteristic Type
-    Then I can update an existing Entity Characteristic Type
-    And I have the ability to cascade update to all records using that Entity Characteristic Type
+    When I need to update an existing Entity Characteristic
+    Then I can update an existing Entity Characteristic
+    And I have the ability to cascade update to all records using that Entity Characteristic
 

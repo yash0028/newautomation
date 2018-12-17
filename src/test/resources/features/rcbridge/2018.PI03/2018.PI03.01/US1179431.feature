@@ -28,7 +28,7 @@ Feature: US1179431 - [Continued] PIC Implementation
     Then The service will return an error
 
   @TC565440
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565440 - [RL2]
     Given A contract request from PIC or Examiner

@@ -2,7 +2,7 @@
 @MVP
 @US1458800
 @MVP
-@Plus
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1458800 - View Entities Associated to a Provider

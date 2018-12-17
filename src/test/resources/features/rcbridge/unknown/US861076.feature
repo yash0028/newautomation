@@ -1,6 +1,5 @@
 # Last updated on 
 @US861076
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US861076 - Acquire Entity Data from existing Sources

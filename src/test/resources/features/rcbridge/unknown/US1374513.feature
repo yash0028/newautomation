@@ -2,8 +2,7 @@
 @MVP
 @US1374513
 @MVP
-@Plus
-@Priority_1
+@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US1374513 - Synchronize Updated TIN

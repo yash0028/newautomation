@@ -1,7 +1,8 @@
 # Last updated on 
 @EXARI-11271
 @US858604
-@Plus
+@MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US858604 - Approve Entity Updates

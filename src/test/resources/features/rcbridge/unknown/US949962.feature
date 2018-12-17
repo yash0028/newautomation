@@ -3,6 +3,8 @@
 @CLM_UAT
 @EXARI-11792
 @US949962
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US949962 - Update Account Types

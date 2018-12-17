@@ -2,7 +2,8 @@
 @CLM_UAT
 @EXARI-8603
 @US950780
-@Plus
+@MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US950780 - Assign Entity Workflow Status for Updated Entities

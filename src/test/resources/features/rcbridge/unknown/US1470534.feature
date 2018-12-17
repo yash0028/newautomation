@@ -2,8 +2,7 @@
 @MVP
 @US1470534
 @MVP
-@Plus
-@Priority_1
+@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US1470534 - Created MPIN/TIN Relationship Source

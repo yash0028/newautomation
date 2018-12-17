@@ -3,7 +3,8 @@
 @EXARI-11267
 @CLM_UAT
 @US858594
-@Plus
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US858594 - Inactivate Entity

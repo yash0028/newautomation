@@ -4,7 +4,7 @@
 @EXARI-11399
 @US858607
 @MVP
-@Plus
+@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US858607 - Import Structure from Template

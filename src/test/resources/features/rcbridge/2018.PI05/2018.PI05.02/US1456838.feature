@@ -5,7 +5,7 @@
 @MVP
 @Priority_1
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1456838 - Serialize Contract Updates
 
   @TC663203

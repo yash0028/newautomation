@@ -1,6 +1,5 @@
 # Last updated on 
 @US858675
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US858675 - Update Provider Relationship

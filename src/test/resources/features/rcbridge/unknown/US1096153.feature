@@ -3,7 +3,7 @@
 @CLM_UAT
 @US1096153
 @MVP
-@Plus
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US1096153 - Create Reporting Entities

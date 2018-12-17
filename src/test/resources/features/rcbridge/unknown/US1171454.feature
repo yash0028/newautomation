@@ -3,7 +3,7 @@
 @CLM_UAT
 @US1171454
 @MVP
-@Plus
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1171454 - Update Validated Status Field

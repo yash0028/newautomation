@@ -1,6 +1,7 @@
 # Last updated on 
 @US1225002
-@Plus
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1225002 - Terminated NPI/Provider Relationship

@@ -2,7 +2,7 @@
 @MVP
 @US1354411
 @MVP
-@Plus
+@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US1354411 - Export Entities without a Relationship

@@ -4,7 +4,7 @@
 @EXARI-10713
 @US1131278
 @MVP
-@Plus
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1131278 - View Contracts Associated to a Provider

@@ -5,7 +5,7 @@
 @MVP
 @Maintenance
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1396749 - Allow Duplicate Edit 1 and 2 overrides on Draft contracts
 
   @TC619292

@@ -1,6 +1,7 @@
 # Last updated on 
 @US1224873
-@Plus
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1224873 - Created NPI/TIN Relationship

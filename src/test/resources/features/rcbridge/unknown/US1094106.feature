@@ -1,7 +1,8 @@
 # Last updated on 
 @EXARI-11271
 @US1094106
-@Plus
+@MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US1094106 - Approve Updated Entity Demographic Info

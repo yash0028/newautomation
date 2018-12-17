@@ -5,7 +5,7 @@
 @MVP
 @Maintenance
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1458096 - Clarify COSMOS Contract Master Lookups
 
   @TC658866

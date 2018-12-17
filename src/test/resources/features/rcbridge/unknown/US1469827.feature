@@ -2,8 +2,7 @@
 @MVP
 @US1469827
 @MVP
-@Plus
-@Priority_1
+@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US1469827 - Synchronize Removed MPIN TIN Relationship

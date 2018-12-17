@@ -1,12 +1,11 @@
 # Last updated on 
 @US1425544
-@2018.PI05
-@2018.PI05.04
+@2019.PI06
 @MVP
 @Maintenance
-@releasePresent
-@iterationFuture
-Feature: US1425544 - Resend Type 2 error transactions to COSMOS after resolving
+@releaseFuture
+@iterationUnknown
+Feature: US1425544 - Demostrate resolving a Type 2 error transactions in COSMOS
 
   @TC634357
   @Manual

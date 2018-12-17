@@ -2,47 +2,36 @@
 
 This is the main project for CLM acceptance testing automation. It uses the Cucumber testing framework to test acceptance tests written in CA Agile Central.
 
-RC-Bridge will pull any acceptance criteria from Agile Central and place any created Feature files into the src/test/resources/features folder.
 
-This project can be nested as a subtree inside of any repository that will have acceptance tests run against it.
-
-All Feature files and Step Definition files should be written in this project, then pulled down from any parent repository when needed.
 
 This repo is used on Jenkins by the job titled "acceptance-testing-param" where it takes in the service name and tags as parameters to build this repo using gradle.
 
-## Creating a Subtree
+## Running Locally via Gradle
 
-To nest this as a subtree into another repository, do the following: 
+To run tests locally using gradle, open terminal in IntelliJ and use the following command:
 
-1. Clone the repository that will be the parent
+`gradlew test -PcucumberTags="@tags"`
 
-2. Change into the root directory of the parent project
+If on Mac, you need to append `./` to the command as follows:
 
-3. Type the following command to add the subtree:
-    ```git
-    git subtree add --prefix=src/acceptance-test https://github.optum.com/Contract-Lifecycle-Management/acceptance-testing.git master --squash
-    ```
-    
-## Pulling Subtree Changes
+`./gradlew test -PcucumberTags="@tags"`
 
-Whenever the root project is updated, you will need to pull the changes from the parent project.
+You can also supply multiple tags using the following format:
 
-1. Change into the parent project's directory
+`./gradlew test -PcucumberTags="@tags and @more_tags or (@this_tag and @that_tag)"`
 
-2. Type the following command: 
-    ```git
-    git subtree pull --prefix=src/acceptance-test https://github.optum.com/Contract-Lifecycle-Management/acceptance-testing.git master --squash
-    ```
+## Common Folders / Locations
 
-## Pushing Subtree Changes
+#### Feature Files
 
-Changes to the subtree can be pushed to the root subtree branch by doing the following:
+* RC-Bridge will pull any acceptance criteria from Agile Central and place the created Feature files into the **src/test/resources/features/rcbridge** folder.
 
-1. Commit any changes made 
+* Cucumber feature files can also be written locally (If they are not in Rally/CA Agile Central) in the **src/test/resources/features/local** folder.
 
-2. Change into the parent project's directory
+#### Step Definition Files
 
-3. Type the following command:
-    ```git
-    git subtree push --prefix=src/acceptance-test https://github.optum.com/Contract-Lifecycle-Management/acceptance-testing.git master
-    ```
+Step Definition files are split into different packages depending on what type of tests they are
+
+* _General_ tests are located in **src/test/java/general_test/step**
+* _REST API_ tests are located in **src/test/java/rest_api_test/step**
+* _UI_ tests are located in **src/test/java/ui_test/step**

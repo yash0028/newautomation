@@ -3,7 +3,7 @@
 @CLM_UAT
 @US1107635
 @MVP
-@Plus
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US1107635 - Associate Contract ID to Provider upon Contract Execution
@@ -14,8 +14,9 @@ Feature: US1107635 - Associate Contract ID to Provider upon Contract Execution
   @MVP
   @CLM_UAT
   Scenario: TC565773 - [RL0]
-    Given I am Entity Management Solution
-    When a Contract is signed and executed by the Provider
+    Given I am a User with access to view and maintain Entity information
+    When a Contract is signed and executed for a Provider
     Then the Contract ID is visible on the Provider record in "Active" status in the Entity Management Solution
     And the Contract ID has an effective date
+    And the Contract ID has a renewal date
 

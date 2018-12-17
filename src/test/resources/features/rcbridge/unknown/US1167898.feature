@@ -4,7 +4,7 @@
 @EXARI-10726
 @US1167898
 @MVP
-@Plus
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US1167898 - Add Alternate Name

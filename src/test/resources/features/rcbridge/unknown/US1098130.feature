@@ -1,5 +1,7 @@
 # Last updated on 
 @US1098130
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1098130 - Migrate Examiner MPINs

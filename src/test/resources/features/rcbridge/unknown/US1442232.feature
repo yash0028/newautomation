@@ -2,7 +2,6 @@
 @MVP
 @US1442232
 @MVP
-@Plus
 @Priority_1
 @releaseUnknown
 @iterationUnknown

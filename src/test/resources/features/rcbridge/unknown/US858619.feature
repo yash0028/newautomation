@@ -4,7 +4,7 @@
 @EXARI-11273
 @US858619
 @MVP
-@Plus
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US858619 - View Identifier Time Lining History

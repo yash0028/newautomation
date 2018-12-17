@@ -1,6 +1,5 @@
 # Last updated on 
 @US980966
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US980966 - Add Provider Relationship Type

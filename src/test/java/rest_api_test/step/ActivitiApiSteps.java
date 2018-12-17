@@ -26,17 +26,17 @@ public class ActivitiApiSteps implements IRestStep {
 
     // US1456884
 
-    @When("^hitting the activity-api with \"([^\"]*)\" of \"([^\"]*)\"$")
+    @When("^hitting the activiti-api with \"([^\"]*)\" of \"([^\"]*)\"$")
     public void hittingTheActivityApiWithOf(String field, String value) throws Throwable {
         requestBody.addProperty(field, value);
     }
 
-    @And("^\"([^\"]*)\" of \"([^\"]*)\"$")
+    @And("^activiti field \"([^\"]*)\" of \"([^\"]*)\"$")
     public void of(String field, String value) throws Throwable {
         requestBody.addProperty(field, value);
     }
 
-    @Then("^a (\\d+) response code is received$")
+    @Then("^a (\\d+) response code is received from the activiti-api$")
     public void aResponseCodeIsReceived(int responseCode) throws Throwable {
         // Build out the request
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);

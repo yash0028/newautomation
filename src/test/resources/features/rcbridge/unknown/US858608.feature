@@ -3,8 +3,6 @@
 @CLM_UAT
 @EXARI-11399
 @US858608
-@MVP
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US858608 - Import Relationships from Template

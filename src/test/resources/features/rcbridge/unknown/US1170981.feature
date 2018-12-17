@@ -3,7 +3,8 @@
 @EXARI-11267
 @CLM_UAT
 @US1170981
-@Plus
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1170981 - Reactivate Entity

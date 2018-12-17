@@ -2,7 +2,7 @@
 @CLM_UAT
 @US922850
 @MVP
-@Plus
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US922850 - Inactivate Entity Characteristic Detail

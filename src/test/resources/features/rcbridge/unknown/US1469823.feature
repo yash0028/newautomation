@@ -2,8 +2,7 @@
 @MVP
 @US1469823
 @MVP
-@Plus
-@Priority_1
+@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US1469823 - Synchronize Created MPIN TIN Relationship

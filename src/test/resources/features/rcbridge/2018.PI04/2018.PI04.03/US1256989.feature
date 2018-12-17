@@ -1,4 +1,4 @@
-# Last updated on
+# Last updated on 
 @A_UI_Story
 @US1256989
 @2018.PI04

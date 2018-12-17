@@ -1,6 +1,7 @@
 # Last updated on 
 @US1224846
-@Plus
+@MVP
+@Priority_4
 @releaseUnknown
 @iterationUnknown
 Feature: US1224846 - Terminated TIN

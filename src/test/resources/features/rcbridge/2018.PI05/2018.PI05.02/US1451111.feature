@@ -7,7 +7,7 @@
 @Priority_2
 @Facility
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1451111 - CLM >COSMOS Add a Facility Contract - PIC DIV - PSD (Detail) - Design
 
   @TC651737

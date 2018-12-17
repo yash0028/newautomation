@@ -1,6 +1,5 @@
 # Last updated on 
 @US927841
-@Plus
 @releaseUnknown
 @iterationUnknown
 Feature: US927841 - Capture Relationship Time Lining History

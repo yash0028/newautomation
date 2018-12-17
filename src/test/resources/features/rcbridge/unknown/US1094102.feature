@@ -1,7 +1,8 @@
 # Last updated on 
 @EXARI-11271
 @US1094102
-@Plus
+@MVP
+@Priority_3
 @releaseUnknown
 @iterationUnknown
 Feature: US1094102 - Approve Imported Entity Structure
