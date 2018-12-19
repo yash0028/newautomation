@@ -11,21 +11,21 @@
 @iterationPast
 Feature: US1301880 - [Continued] CMD - User Input Required Page - Populate rows of data
 
-  @TC564483
-  @Automated
+  @TC678783
+  @Manual
   @Functional
   @A_UI_Story
-  Scenario: TC564483 - [RL0]
+  Scenario: TC678783 - [RL0]
     # Scenario 1 (Action required information in database)
     Given I have clicked on Action Required button on the CMD dashboard
     When there are no Action required transactions
     Then display the following message: There are currently no contracts that require user review and input at this time
 
-  @TC593156
-  @Automated
+  @TC678784
+  @Manual
   @Functional
   @A_UI_Story
-  Scenario: TC593156 - [RL1]
+  Scenario: TC678784 - [RL1]
     # Scenario 2 (Action required information in database)
     Given I have clicked on Action Required button on the CMD dashboard
     When there are Action Required transactions
@@ -41,11 +41,11 @@ Feature: US1301880 - [Continued] CMD - User Input Required Page - Populate rows 
     # Action Required
     # Date
 
-  @TC593157
-  @Automated
+  @TC678785
+  @Manual
   @Functional
   @A_UI_Story
-  Scenario: TC593157 - [RL2]
+  Scenario: TC678785 - [RL2]
     # Scenario 3 (Action required information in database-Default sort order)
     Given I have clicked on Action Required button on the CMD dashboard
     When there are Action Required transactions
