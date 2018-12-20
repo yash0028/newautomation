@@ -1,7 +1,9 @@
 package rest_api_test.step;
 
 import com.google.gson.JsonObject;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
@@ -47,5 +49,4 @@ public class ActivitiApiSteps implements IRestStep {
         // Assert that the expected response code is received
         Assert.assertEquals("The response did not return the expected status code", responseCode, response.getStatusCode());
     }
-
 }
