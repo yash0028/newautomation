@@ -10,7 +10,7 @@
 Feature: US1483467 - Implement contract config api “providerproductstatus” with contractID,TIN,MPIN and productgroup parameters.
 
   @TC674586
-  @Manual
+  @Automated
   @Functional
   @CMD
   Scenario Outline: TC674586 - [RL0]
