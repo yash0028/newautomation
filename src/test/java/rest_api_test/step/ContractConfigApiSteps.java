@@ -5,12 +5,15 @@ import com.google.gson.JsonObject;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
+
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 /**
@@ -25,6 +28,7 @@ public class ContractConfigApiSteps implements IRestStep {
     private RequestSpecification request;
     private Response response;
     private JsonObject requestBody = new JsonObject();
+    private Map<String, String> payload;
 
     //US1483467 Implement contract config api providerproductstatus
 
@@ -35,12 +39,10 @@ public class ContractConfigApiSteps implements IRestStep {
 
 
     @When("^the contract configuration api is envoked$")
-    public void sendRequestToContractConfigurationApi() throws Throwable {
-        requestBody.addProperty("contractID", "96026180");
-        requestBody.addProperty("mPin", "002856515");
-        requestBody.addProperty("tin", "261307881");
-        requestBody.addProperty("npi", "1023292885");
-        requestBody.addProperty("productGroup", "MEDADV");
+    public void sendRequestToContractConfigurationApi(DataTable dataTable) throws Throwable {
+        payload = dataTable.asMap(String.class, String.class);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+        response = request.post(RESOURCE_PROVIDER_STATUS);
         // Note: Automate this by setting up a datatable in Rally, then pass in as a parameter
         // to this method, then store in a hashmap. then can make multiple requests and do multiple test
         // at a time.
@@ -49,19 +51,16 @@ public class ContractConfigApiSteps implements IRestStep {
 
     @Then("^the contract configuration api includes provider product status data$")
     public void verifyResponseFromContractConfigurationApi() throws Throwable {
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
-
-        response = request.post(RESOURCE_PROVIDER_STATUS);
 
         System.out.println(response.getStatusCode());
 
         JsonElement result = parseJsonElementResponse(response);
         Assert.assertTrue(result.isJsonObject());
 
-        String status = result.getAsJsonObject().getAsJsonArray("content").get(0).getAsJsonObject().get("status").getAsString();
+        String productStatus = result.getAsJsonObject().getAsJsonArray("content").get(0).getAsJsonObject().get("status").getAsString();
 
         //Note: pass in a parameter called expectedResult with the expected response. E.g. expected loadStatus.
         Assert.assertEquals("The expected provider status was not returned",
-                "INSTALLED", status);
+                "INSTALLED", productStatus);
     }
 }
