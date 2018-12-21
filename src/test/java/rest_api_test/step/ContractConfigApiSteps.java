@@ -37,13 +37,11 @@ public class ContractConfigApiSteps implements IRestStep {
         // call has been made.
     }
 
-
     @When("^the contract configuration api is invoked with the following data$")
     public void sendRequestToContractConfigurationApi(DataTable dataTable) throws Throwable {
         payload = dataTable.asMap(String.class, String.class);
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
         response = request.post(RESOURCE_PROVIDER_STATUS);
-
     }
 
     @Then("^the contract configuration api includes provider product status data$")
@@ -59,6 +57,4 @@ public class ContractConfigApiSteps implements IRestStep {
         Assert.assertEquals("The expected provider status was not returned",
                 "INSTALLED", productStatus);
     }
-
-
 }
