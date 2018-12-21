@@ -38,29 +38,27 @@ public class ContractConfigApiSteps implements IRestStep {
     }
 
 
-    @When("^the contract configuration api is envoked$")
+    @When("^the contract configuration api is invoked with the following data$")
     public void sendRequestToContractConfigurationApi(DataTable dataTable) throws Throwable {
         payload = dataTable.asMap(String.class, String.class);
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
         response = request.post(RESOURCE_PROVIDER_STATUS);
-        // Note: Automate this by setting up a datatable in Rally, then pass in as a parameter
-        // to this method, then store in a hashmap. then can make multiple requests and do multiple test
-        // at a time.
 
     }
 
     @Then("^the contract configuration api includes provider product status data$")
     public void verifyResponseFromContractConfigurationApi() throws Throwable {
-
-        System.out.println(response.getStatusCode());
+        Assert.assertEquals(200, response.getStatusCode());
 
         JsonElement result = parseJsonElementResponse(response);
         Assert.assertTrue(result.isJsonObject());
 
-        String productStatus = result.getAsJsonObject().getAsJsonArray("content").get(0).getAsJsonObject().get("status").getAsString();
+        String productStatus = result.getAsJsonObject().getAsJsonArray("content")
+                .get(0).getAsJsonObject().get("status").getAsString();
 
-        //Note: pass in a parameter called expectedResult with the expected response. E.g. expected loadStatus.
         Assert.assertEquals("The expected provider status was not returned",
                 "INSTALLED", productStatus);
     }
+
+
 }
