@@ -11,11 +11,11 @@
 @iterationPast
 Feature: US1301716 - CMD Dashboard Navigation Bar
 
-  @TC574134
-  @Automated
+  @TC681335
+  @Manual
   @Functional
   @A_UI_Story
-  Scenario: TC574134 - [RL0]
+  Scenario: TC681335 - [RL0]
     Given I have entered the CMD dashboard URL
     And I am recognized as a contract administrator with access to CMD
     When The dashboard page loads
