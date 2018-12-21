@@ -2,8 +2,6 @@ package rest_api_test.step;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import cucumber.api.PendingException;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -60,12 +58,10 @@ public class ContractConfigApiSteps implements IRestStep {
         JsonElement result = parseJsonElementResponse(response);
         Assert.assertTrue(result.isJsonObject());
 
-
-//        System.out.println(result.getAsJsonObject().get("loadResult").getAsString());
-
+        String status = result.getAsJsonObject().getAsJsonArray("content").get(0).getAsJsonObject().get("status").getAsString();
 
         //Note: pass in a parameter called expectedResult with the expected response. E.g. expected loadStatus.
-//        Assert.assertEquals("The expected provider status was not returned",
-//                expectedResult, result.getAsJsonObject().get("loadResult").getAsString());
+        Assert.assertEquals("The expected provider status was not returned",
+                "INSTALLED", status);
     }
 }
