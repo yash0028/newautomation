@@ -1,72 +1,72 @@
 # Last updated on 
-@US1387184
+@US1387185
 @2018.PI05
-@2018.PI05.03
+@2018.PI05.04
 @MVP
 @Maintenance
 @releasePresent
 @iterationFuture
-Feature: US1387184 - Validate roster data - add
+Feature: US1387185 - Validate roster data - cancel
 
-  @TC614183
+  @TC614182
   @Manual
   @Functional
-  Scenario: TC614183 - [RL0]
+  Scenario: TC614182 - [RL0]
     Given a RosterUpdated business event is published
     When the provider(s) being added have a P-type classification
-    And all of the required information is present, including StartDate, tin, mpin, npi, providerName, providerSpecialtyCode, providerSpecialtyCodeDesc, retroactiveReasonCode (only required if the start date is prior to today's date)
+    And all of the required information is present, including cancelDate, tin, mpin, npi, providerName, providerSpecialtyCode, providerSpecialtyCodeDesc, cancelReasonCode, retroactiveReasonCode
     Then the transaction/event is valid
-    And the transaction advances to process to subscribing platform(s)
+    And the transaction advances to determining if cancel contains a PCP
 
-  @TC616498
+  @TC616910
   @Manual
   @Functional
-  Scenario: TC616498 - [RL1]
+  Scenario: TC616910 - [RL1]
     Given a RosterUpdated business event is published
     When the provider(s) being added have an O-type classification
-    And all of the required information is present, including StartDate, tin, mpin, npi, providerName, providerOrgTypeCode, providerOrgTypeCodeDesc, retroactiveReasonCode (only required if the start date is prior to today's date)
+    And all of the required information is present, including StartDate, tin, mpin, npi, providerName, providerOrgTypeCode, providerOrgTypeCodeDesc, cancelReasonCode, retroactiveReasonCode
     Then the transaction/event is valid
     And the transaction advances to process to subscribing platform(s)
 
-  @TC616499
+  @TC616911
   @Manual
   @Functional
-  Scenario: TC616499 - [RL2]
+  Scenario: TC616911 - [RL2]
     Given a RosterUpdated business event is published
     When the provider(s) being added have a P-type classification
-    And some of the required information is not present, including StartDate, tin, mpin, npi, providerName, providerSpecialtyCode, providerSpecialtyCodeDesc, retroactiveReasonCode (only required if the start date is prior to today's date)
+    And some of the required information is not present, including StartDate, tin, mpin, npi, providerName, providerSpecialtyCode, providerSpecialtyCodeDesc, cancelReasonCode, retroactiveReasonCode
     Then the transaction/event is not valid
     And a Type 3 error is logged
     And an error message reads, "One or more of the data elements required to complete this transaction is missing"
 
-  @TC616500
+  @TC616912
   @Manual
   @Functional
-  Scenario: TC616500 - [RL3]
+  Scenario: TC616912 - [RL3]
     Given a RosterUpdated business event is published
     When the provider(s) being added have an O-type classification
-    And some of the required information is not present, including StartDate, tin, mpin, npi, providerName, providerOrgTypeCode, providerOrgTypeCodeDesc, retroactiveReasonCode (only required if the start date is prior to today's date)
+    And some of the required information is not present, including StartDate, tin, mpin, npi, providerName, providerOrgTypeCode, providerOrgTypeCodeDesc, cancelReasonCode, retroactiveReasonCode
     Then the transaction/event is not valid
     And a Type 3 error is logged
     And an error message reads, "One or more of the data elements required to complete this transaction is missing"
 
-  @TC616501
+  @TC616913
   @Manual
   @Functional
-  Scenario: TC616501 - [RL4]
+  Scenario: TC616913 - [RL4]
     Given a RosterUpdated business events is published
     When there are no providers on the roster
     Then the transaction/event is not valid
     And a Type 3 error is logged
     And an error message reads, "No providers were included in this request - unable to process"
 
-  @TC616502
+  @TC616914
   @Manual
   @Functional
-  Scenario: TC616502 - [RL5]
+  Scenario: TC616914 - [RL5]
     Given a RosterUpdated business events is published
-    When there are no providers adds included in the event
+    When there are no providers to cancel included in the event
     Then the transaction/event is not valid
     And a Type 3 error is logged
-    And an error message reads, "No eligible providers were included in this add request - unable to process"
+    And an error message reads, "No eligible providers were included in this cancel request - unable to process"
 

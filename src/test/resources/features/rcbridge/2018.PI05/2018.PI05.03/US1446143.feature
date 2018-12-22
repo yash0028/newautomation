@@ -1,11 +1,11 @@
 # Last updated on 
 @US1446143
 @2018.PI05
-@2018.PI05.04
+@2018.PI05.03
 @CMD
 @releasePresent
 @iterationFuture
-Feature: US1446143 - Contract Master Override work objects audits database schema  (PCP)
+Feature: US1446143 - PCP reassignment work objects audits database schema  (PCP)
 
   @TC648741
   @Manual
