@@ -6,7 +6,7 @@
 @MVP
 @Maintenance
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1499284 - [Unfinished] UI/UX- New web Page for CMD page displaying all Type 2 errors and related activities Wire frames only
 
   @TC683866

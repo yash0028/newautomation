@@ -5,7 +5,7 @@
 @MVP
 @Maintenance
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1337392 - [Continued] [Continued] CPS lookup API Layer-7 implementation
 
   @TC587886

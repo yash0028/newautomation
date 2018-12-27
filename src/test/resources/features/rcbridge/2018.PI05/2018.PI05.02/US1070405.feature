@@ -7,7 +7,7 @@
 @Priority_2
 @Facility
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1070405 - CLM >COSMOS Add a Facility Contract- PIC DIV - PSH (Header) - Design
 
   @TC564945

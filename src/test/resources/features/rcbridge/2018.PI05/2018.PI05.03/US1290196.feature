@@ -5,7 +5,7 @@
 @MVP
 @Maintenance
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1290196 - [Continued]Contract Master Override Update Work Objects Table (Non PCP)
 
   @TC616486

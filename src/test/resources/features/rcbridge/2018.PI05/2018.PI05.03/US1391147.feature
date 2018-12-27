@@ -6,7 +6,7 @@
 @Scrum_Team_1
 @Maintenance
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1391147 - Receive and recognize contract update terms from Exari
 
   @TC616508
