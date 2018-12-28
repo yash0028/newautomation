@@ -6,7 +6,7 @@
 @Priority_1
 @releasePresent
 @iterationPresent
-Feature: US1456838 - Serialize Contract Updates
+Feature: US1456838 - [SPIKE]Serialize Contract Updates
 
   @TC663203
   @Manual
