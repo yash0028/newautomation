@@ -17,6 +17,7 @@ Feature: US1446143 - PCP reassignment work objects audits database schema  (PCP)
     And They have clicked the proceed with reassignment button
     Then Record the transaction ID with the reassignment MPIN, IPA, address sequence number,
     And Record the transaction ID with date/time stamp the resolution was made
+    And the transaction record is available for reporting/export
 
   @TC648744
   @Manual
@@ -28,4 +29,5 @@ Feature: US1446143 - PCP reassignment work objects audits database schema  (PCP)
     And They have clicked the proceed with reassignment button
     Then Record the transaction ID with the reassignment MPIN, IPA, address sequence number the user entered
     And Record the transaction ID with date/time stamp the resolution was made
+    And the transaction record is available for reporting/export
 
