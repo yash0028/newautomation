@@ -24,5 +24,4 @@ Feature: US1483467 - Implement contract config api “providerproductstatus” w
     Then the contract configuration api includes provider product status data
     Examples:
       | contractID   | mpin         | tin          | npi          | productGroup |
-      | 96026180     | 002856515    | 261307881    | npi          | MEDADV       |
-
+      | 96026180   | 002856515 | 261307881 | npi | MEDADV       |
