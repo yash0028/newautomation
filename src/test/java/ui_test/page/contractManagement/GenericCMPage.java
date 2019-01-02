@@ -67,6 +67,12 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
     @FindBy(xpath = "//button[contains(text(),'Back')]")
     protected WebElement buttonBack;
 
+    @FindBy(xpath = "//button[@aria-label='Next page']")
+    protected WebElement nextPageButton;
+
+    @FindBy(xpath = "//button[@aria-label='Previous page']")
+    protected WebElement previousPageButton;
+
     /*
     CONSTRUCTOR
      */
@@ -206,7 +212,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
     public int getFirstRowProductGroupCount() {
         return firstRowProductGroups.size();
     }
-//
+
 //    /**
 //     *
 //     * @param rowNumber
@@ -231,12 +237,32 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      * @return True if the row was clicked or false otherwise.
      */
     public boolean clickTableRow(int rowNumber) {
-        return click("click table row: " + rowNumber, primeTableRows.get(rowNumber));
+        return click("Click table row: " + rowNumber, primeTableRows.get(rowNumber));
     }
 
-//    public boolean clickBackButton() {
-//
-//    }
+    /**
+     * Clicks the back button to go back to the previous page.
+     * @return True if the back button was clicked or false otherwise.
+     */
+    public boolean clickBackButton() {
+        return click("Click back button", buttonBack);
+    }
+
+    /**
+     * Clicks the next page button to advance to the next page of rows in the table.
+     * @return True if the next page button was clicked or false otherwise.
+     */
+    public boolean clickNextPageButton() {
+        return click("Click next page button", nextPageButton);
+    }
+
+    /**
+     * Clicks the previous page button to return to the previous page of rows in the table.
+     * @return True if the previous page button was clicked or false otherwise.
+     */
+    public boolean clickPreviousPageButton() {
+        return click("Click previous page button", previousPageButton);
+    }
 
 
 }
