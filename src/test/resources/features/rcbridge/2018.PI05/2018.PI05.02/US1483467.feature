@@ -6,11 +6,11 @@
 @MVP
 @Maintenance
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1483467 - Implement contract config api “providerproductstatus” with contractID,TIN,MPIN and productgroup parameters.
 
   @TC674586
-  @Manual
+  @Automated
   @Functional
   @CMD
   Scenario Outline: TC674586 - [RL0]
@@ -24,4 +24,5 @@ Feature: US1483467 - Implement contract config api “providerproductstatus” w
     Then the contract configuration api includes provider product status data
     Examples:
       | contractID   | mpin         | tin          | npi          | productGroup |
-      | 96026180   | 002856515 | 261307881 |     | MEDADV       |
+      | 96026180     | 002856515    | 261307881    | npi          | MEDADV       |
+

@@ -6,7 +6,7 @@
 @MVP
 @Maintenance
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1483442 - Implement product rate condition changes to contract config service.
 
   @TC674585

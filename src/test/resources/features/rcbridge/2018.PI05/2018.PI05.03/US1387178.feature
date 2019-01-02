@@ -5,7 +5,7 @@
 @MVP
 @Maintenance
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1387178 - Receive and recognize roster events/transactions from Exari
 
   @TC614184

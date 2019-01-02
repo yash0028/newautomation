@@ -1,12 +1,12 @@
 # Last updated on 
 @US1456838
 @2018.PI05
-@2018.PI05.04
+@2018.PI05.03
 @MVP
 @Priority_1
 @releasePresent
-@iterationFuture
-Feature: US1456838 - Serialize Contract Updates
+@iterationPresent
+Feature: US1456838 - [SPIKE]Serialize Contract Updates
 
   @TC663203
   @Manual
