@@ -1,7 +1,6 @@
 package rest_api_test.step;
 
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -27,7 +26,6 @@ public class ContractConfigApiSteps implements IRestStep {
 
     private RequestSpecification request;
     private Response response;
-    private JsonObject requestBody = new JsonObject();
     private Map<String, String> payload;
 
     //US1483467 Implement contract config api providerproductstatus
