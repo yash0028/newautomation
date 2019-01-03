@@ -191,7 +191,11 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
 
         //Click index option
         int index = Integer.valueOf(answers.get(1));
-        return click("dropdown option", elements.dropdown_selection.get(index));
+        try {
+            return click("dropdown option", elements.dropdown_selection.get(index));
+        } catch (IndexOutOfBoundsException e) {
+            return false;
+        }
     }
 
     private boolean text_autofill(List<String> answers) {

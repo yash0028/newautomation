@@ -79,7 +79,9 @@ public class InterviewPage implements IFactoryPage, IWebInteract {
     }
 
     public boolean clickNext() {
-        return click("next button", navigationNext);
+//        return waitTillClickable(navigationNext) && click("next button", navigationNext);
+        return click("next button", navigationNext)
+                || (pauseSilent(15) && click("next button try 2", navigationNext));
     }
 
     public boolean clickBack() {
