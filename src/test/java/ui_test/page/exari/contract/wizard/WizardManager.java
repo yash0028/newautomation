@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import ui_test.page.exari.contract.wizard.subpages.*;
 import util.TimeKeeper;
 
+@Deprecated
 public class WizardManager {
     private static final Logger log = LoggerFactory.getLogger(WizardManager.class);
 
