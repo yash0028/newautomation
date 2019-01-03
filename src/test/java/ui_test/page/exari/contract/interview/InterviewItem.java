@@ -132,7 +132,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
         String id = answers.get(0);
         Optional<WebElement> element = elements.radio_indexes.stream().filter(e -> e.getAttribute("value").contains(id)).findFirst();
         //Click if present, else send false
-        return element.filter(webElement -> click("radio label", webElement)).isPresent();
+        return element.filter(webElement -> click("radio id", webElement)).isPresent();
 
     }
 

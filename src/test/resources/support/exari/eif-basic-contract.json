@@ -197,7 +197,7 @@
             "questions": [
                 {
                     "question": "Roster Action",
-                    "action": "RADIO_INDEX",
+                    "action": "RADIO-INDEX",
                     "answers": [
                         "0"
                     ]
@@ -209,7 +209,7 @@
             "questions": [
                 {
                     "question": "Select approach for provider entry",
-                    "action": "RADIO_INDEX",
+                    "action": "RADIO-INDEX",
                     "answers": [
                         "1"
                     ]

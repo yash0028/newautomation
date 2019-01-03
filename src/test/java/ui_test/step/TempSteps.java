@@ -39,7 +39,7 @@ public class TempSteps implements IUiStep, IFileReader, IConfigurable {
     @Before("@temp")
     public void loadFlow() {
         //Open flow data
-        JsonElement flowData = getJsonElementFromFile("/support/exari/spa_contract.json");
+        JsonElement flowData = getJsonElementFromFile("/support/exari/eif-basic-contract.json");
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(FlowContract.class, new FlowContract.Deserializer())
                 .create();
