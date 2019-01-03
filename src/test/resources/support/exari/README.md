@@ -5,7 +5,7 @@ This lookup keeps EIF flexible and capable of handling a change in the interview
 Using Cucumber Style Substitution, a single generic EIF script can also be created and have test specific values injected at runtime.
 
 Example of a EIF Json File
-```json
+```json5
 {
     "name": "name of flow. can be what ever you want",
     "authors": [
