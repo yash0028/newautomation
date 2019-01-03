@@ -38,8 +38,20 @@
                     "question": "Select Market Number",
                     "action": "TEXT-DROPDOWN",
                     "answers": [
-                        "13476",
+                        "<Market Number>",
                         "0"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "HBPs Red Door",
+            "questions": [
+                {
+                    "question": "Is this contract for Hospital Based Providers only AND United agrees to use one of the Red Door Alternate clauses?",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
                     ]
                 }
             ]
@@ -53,9 +65,9 @@
             "questions": [
                 {
                     "question": "Based on the Provider you've selected, below are the Paper Types available. Please select one:",
-                    "action": "RADIO-INDEX",
+                    "action": "RADIO-ID",
                     "answers": [
-                        "0"
+                        "<Paper Type>"
                     ]
                 }
             ]
@@ -64,7 +76,26 @@
             "topic": "Practice Locations",
             "questions": [
                 {
-                    "question": "The primary service/practice location for the counterparty held in NDB is: 12230 IRONBRIDGE RD STE D CHESTER VA 23831",
+                    "question": "The primary service/practice location for the counterparty held in NDB is:",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "0"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "MEG",
+            "questions": [
+                {
+                    "question": "Task",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "0"
+                    ]
+                },
+                {
+                    "question": "Task (revisit this question to see MEG detail)",
                     "action": "RADIO-INDEX",
                     "answers": [
                         "0"
@@ -125,6 +156,13 @@
                     "action": "CHECKBOX-INDEX",
                     "answers": [
                         "0"
+                    ]
+                },
+                {
+                    "question": "What is the fee schedule ID for All Payer?",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "<Fee Schedule>"
                     ]
                 }
             ]
@@ -198,7 +236,7 @@
             "questions": [
                 {
                     "question": "Contract Effective Date",
-                    "action": "TEXT-BASIC",
+                    "action": "TEXT-DATE",
                     "answers": [
                         "October 10, 2019"
                     ]
@@ -217,7 +255,7 @@
                 },
                 {
                     "question": "Provider Signatory Date",
-                    "action": "TEXT-BASIC",
+                    "action": "TEXT-DATE",
                     "answers": [
                         "October 10, 2019"
                     ]
@@ -228,12 +266,7 @@
                     "answers": [
                         "alex.berns@optum.com"
                     ]
-                }
-            ]
-        },
-        {
-            "topic": "Provider Signatory",
-            "questions": [
+                },
                 {
                     "question": "Print Name",
                     "action": "TEXT-BASIC",
@@ -243,7 +276,7 @@
                 },
                 {
                     "question": "Our Signatory Date",
-                    "action": "TEXT-BASIC",
+                    "action": "TEXT-DATE",
                     "answers": [
                         "October 10, 2019"
                     ]

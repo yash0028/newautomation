@@ -28,7 +28,7 @@ public class InterviewPage implements IFactoryPage, IWebInteract {
     @FindBy(xpath = "//p[@class='topic']")
     private WebElement topic;
 
-    @FindBy(xpath = "//div[contains(@class,'interview-item--abovebelow')]")
+    @FindBy(xpath = "//div[contains(@class,'interview-item--')]")
     private List<WebElement> interviewElementList;
 
     @FindBy(xpath = "//button[contains(text(),'next')]")

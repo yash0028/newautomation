@@ -111,6 +111,7 @@ public class TempSteps implements IUiStep, IFileReader, IConfigurable {
 
     private void setSite(String siteOption) {
         Assert.assertTrue(dashboardPage.confirmCurrentPage());
+        dashboardPage.dismissFailure();
         sitePage = dashboardPage.getNavigationPanel().setSiteEnvironment(siteOption);
 
         assert sitePage.confirmCurrentPage();

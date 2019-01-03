@@ -13,6 +13,7 @@ import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class InterviewItem implements IFactoryPage, IWebInteract {
@@ -29,7 +30,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
     @FindBy(xpath = ".//p[@class='Question']/label")
     private WebElement labelQuestion;
 
-    @FindBy(xpath = ".//div[contains(@class,'AnswerAboveAndBelow')]")
+    @FindBy(xpath = ".//div[contains(@class,'Answer')]")
     private WebElement blockAnswer;
 
     /*
@@ -91,8 +92,20 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
             return sendKeys("text input", elements.textbox_basic, answers.get(0));
         }
 
+        if (action.equalsIgnoreCase("TEXT-DATE")) {
+            return sendKeys("date input", elements.textbox_basic, answers.get(0));
+        }
+
         if (action.equalsIgnoreCase("RADIO-INDEX")) {
             return radio_index(answers);
+        }
+
+        if (action.equalsIgnoreCase("RADIO-ID")) {
+            return radio_id(answers);
+        }
+
+        if (action.equalsIgnoreCase("RADIO-LABEL")) {
+            return radio_label(answers);
         }
 
         if (action.equalsIgnoreCase("CHECKBOX-INDEX")) {
@@ -113,6 +126,21 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
     private boolean radio_index(List<String> answers) {
         int index = Integer.valueOf(answers.get(0));
         return click("radio input", elements.radio_indexes.get(index));
+    }
+
+    private boolean radio_id(List<String> answers) {
+        String id = answers.get(0);
+        Optional<WebElement> element = elements.radio_indexes.stream().filter(e -> e.getAttribute("value").contains(id)).findFirst();
+        //Click if present, else send false
+        return element.filter(webElement -> click("radio label", webElement)).isPresent();
+
+    }
+
+    private boolean radio_label(List<String> answers) {
+        String answer = answers.get(0);
+        Optional<WebElement> element = elements.radio_labels.stream().filter(e -> e.getText().contains(answer)).findFirst();
+        //Click if present, else send false
+        return element.filter(webElement -> click("radio label", webElement)).isPresent();
     }
 
     private boolean checkbox_index(List<String> answers) {
@@ -187,6 +215,9 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
 
         @FindBy(xpath = ".//input[@type='radio']")
         public List<WebElement> radio_indexes;
+
+        @FindBy(xpath = ".//input[@type='radio']/following-sibling::label")
+        public List<WebElement> radio_labels;
 
         @FindBy(xpath = ".//input[@type='checkbox']")
         public List<WebElement> checkbox_indexes;

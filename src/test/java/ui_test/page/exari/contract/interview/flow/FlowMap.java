@@ -16,8 +16,9 @@ public class FlowMap extends HashMap<String, Flow> {
             boolean needsMerge = this.containsKey(f.getTopic());
             if (needsMerge) {
                 Flow oldFlow = this.get(f.getTopic());
+                log.info("duplicate \"{}\" topics found, automatically merging {} + {} questions.", oldFlow.getTopic(), oldFlow.getQuestions().size(), f.getQuestions().size());
                 oldFlow.addQuestions(f.getQuestions());
-
+                log.info("\"{}\" topic now contains {} questions::{}", oldFlow.getTopic(), oldFlow.getQuestions().size(), oldFlow.getQuestions().toString());
             } else {
                 this.put(f.getTopic(), f);
             }
