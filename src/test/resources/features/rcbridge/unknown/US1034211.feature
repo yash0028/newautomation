@@ -1,10 +1,8 @@
 # Last updated on 
 @US1034211
-@Configuration_for_4/1/19
 @MVP
-@PI04
 @Plus
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US1034211 - Identify contract with a chargemaster via Compliance Manager
 

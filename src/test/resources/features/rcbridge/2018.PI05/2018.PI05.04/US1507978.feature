@@ -1,17 +1,17 @@
 # Last updated on 
-@US1387178
+@US1507978
 @2018.PI05
-@2018.PI05.03
+@2018.PI05.04
 @MVP
 @Maintenance
 @releasePresent
-@iterationPresent
-Feature: US1387178 - [Spike]Receive and recognize roster events/transactions from Exari
+@iterationFuture
+Feature: US1507978 - Receive and recognize roster events/transactions from Exari
 
-  @TC614184
+  @TC690155
   @Manual
   @Functional
-  Scenario: TC614184 - [RL0]
+  Scenario: TC690155 - [RL0]
     Given the OCM is subscribed to the Exari Business Event Type "RosterUpdated"
     When an "UpdateRoster" transaction is published
     Then OCM will recognize this transaction

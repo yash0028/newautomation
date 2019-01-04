@@ -1,10 +1,8 @@
 # Last updated on 
 @US1039748
-@Configuration_for_2/15/19
 @MVP
-@PI04
 @Plus
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US1039748 - Prevent execution of contract if retro and no approval
 

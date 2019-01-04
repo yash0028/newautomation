@@ -1,10 +1,8 @@
 # Last updated on 
 @US1040747
-@Configuration_for_2/15/19
 @MVP
-@PI04
 @Plus
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US1040747 - View Contract Summary to view Escalator Details
 

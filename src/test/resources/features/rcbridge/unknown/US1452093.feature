@@ -10,5 +10,5 @@ Feature: US1452093 - Market Name
   Scenario: TC672162 - [RL0]
     Given I am an Administrative User
     When I update the Market Number on an Entity record
-    Then the UNET Market Name is systematically updated to match the new Market Number
+    Then the Market Name is systematically updated to match the new Market Number
 

@@ -1,10 +1,8 @@
 # Last updated on 
 @US1221993
-@Configuration_for_4/1/19
 @MVP
-@PI04
 @Plus
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US1221993 - Capture 'Expected Completion' date - rate update
 
