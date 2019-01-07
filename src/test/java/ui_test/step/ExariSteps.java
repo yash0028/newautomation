@@ -43,6 +43,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
     public void loadFlow(String fileInResourceFolder) {
         String path = "/support/exari/" + fileInResourceFolder;
         //Open flow data
+        log.info("opening eif {}", path);
         JsonElement flowData = getJsonElementFromFile(path);
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(FlowContract.class, new FlowContract.Deserializer())

@@ -116,6 +116,18 @@
             ]
         },
         {
+            "topic": "Appendix 1",
+            "questions": [
+                {
+                    "question": "Will Additional Manuals Apply?",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
+                    ]
+                }
+            ]
+        },
+        {
             "topic": "Appendix 2",
             "questions": [
                 {
@@ -223,7 +235,7 @@
                 },
                 {
                     "question": "Select Providers",
-                    "action": "TEXT-DROPDOWN",
+                    "action": "TEXT-AUTOFILL",
                     "answers": [
                         "",
                         "0"
