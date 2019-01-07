@@ -3,7 +3,6 @@ package ui_test.step;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -28,22 +27,34 @@ import java.util.Map;
 public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
 
+    private static final String DEFAULT_FLOW = "eif-basic-contract.json";
+
     private DashboardPage dashboardPage;
     private ContractPage contractPage;
     private GenericSitePage sitePage;
 
     private FlowContract flowContract;
 
-    @Before("@Exari_UI_Test")
+    //    @Before("@Exari_UI_Test")
     public void loadFlow() {
+        loadFlow(DEFAULT_FLOW);
+    }
+
+    public void loadFlow(String fileInResourceFolder) {
+        String path = "/support/exari/" + fileInResourceFolder;
         //Open flow data
-        JsonElement flowData = getJsonElementFromFile("/support/exari/eif-basic-contract.json");
+        JsonElement flowData = getJsonElementFromFile(path);
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(FlowContract.class, new FlowContract.Deserializer())
                 .create();
 
         //Convert json flow data into a flow map
         flowContract = gson.fromJson(flowData, FlowContract.class);
+    }
+
+    @Given("^I am using the \"([^\"]*)\" flow$")
+    public void prepareEIF(String fileName) {
+        loadFlow(fileName);
     }
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
@@ -56,6 +67,13 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
     public void authorContract(DataTable contractDataTable) {
         Map<String, String> contractParam = contractDataTable.asMap(String.class, String.class);
         sitePage.startContractAuthor();
+
+        //check if flowContract has be init
+        if (flowContract == null) {
+            log.info("loading default flow {}", DEFAULT_FLOW);
+            loadFlow();
+        }
+
         flowContract.substituteGherkinData(contractParam);
 
         InterviewManager manager = new InterviewManager(getDriver(), flowContract);
