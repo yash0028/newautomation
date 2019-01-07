@@ -223,7 +223,7 @@
                 },
                 {
                     "question": "Select Providers",
-                    "action": "TEXT-DROPDOWN",
+                    "action": "TEXT-AUTOFILL",
                     "answers": [
                         "",
                         "0"
