@@ -2,11 +2,11 @@
 @Optum
 @US1439813
 @2018.PI05
-@2018.PI05.02
+@2018.PI05.04
 @MVP
 @Plus
 @releasePresent
-@iterationPast
+@iterationFuture
 Feature: US1439813 - Integration - Obtain Fee Schedule Information
 
   @TC644489

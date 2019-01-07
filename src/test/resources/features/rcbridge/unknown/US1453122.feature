@@ -12,6 +12,7 @@ Feature: US1453122 - Author SPGA Contact UI Path
   @A_UI_Story
   Scenario Outline: TC652719 - [RL0]
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    And I am using the "eif-basic-contract.json" flow
     When I author a contract using the following contract information
       | MPIN               | <mpin>             |
       | TIN                | <tin>              |
