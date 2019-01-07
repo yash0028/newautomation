@@ -125,6 +125,23 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
 
     private boolean radio_index(List<String> answers) {
         int index = Integer.valueOf(answers.get(0));
+
+        //Check for extra answer
+        if (answers.size() > 1) {
+            //click only if already unchecked
+            if (answers.get(1).equalsIgnoreCase("select")
+                    && !elements.radio_indexes.get(index).isSelected()) {
+                return click("radio input", elements.radio_indexes.get(index));
+            }
+
+            //click only if already checked
+            if (answers.get(1).equalsIgnoreCase("unselect")
+                    && elements.radio_indexes.get(index).isSelected()) {
+                return click("radio input", elements.radio_indexes.get(index));
+            }
+        }
+
+        //just click if no other valid answer
         return click("radio input", elements.radio_indexes.get(index));
     }
 
@@ -200,13 +217,17 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
     }
 
     private boolean text_autofill(List<String> answers) {
+        //Open autofill search
+        click("autofill open", elements.dropdown_textbox);
+        pause(1);
+
         //Enter search term
-        sendKeys("dropdown textbox", elements.dropdown_textbox, answers.get(0));
+        sendKeys("autofill textbox", elements.dropdown_textbox, answers.get(0));
         pause(1);
 
         //Click index option
         int index = Integer.valueOf(answers.get(1));
-        return click("dropdown option", elements.dropdown_selection.get(index));
+        return click("autofill option", elements.dropdown_selection.get(index));
     }
 
     /*
