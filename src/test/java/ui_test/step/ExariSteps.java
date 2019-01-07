@@ -1,5 +1,9 @@
 package ui_test.step;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -8,12 +12,13 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.contract.ContractPage;
+import ui_test.page.exari.contract.interview.InterviewManager;
+import ui_test.page.exari.contract.interview.flow.FlowContract;
 import ui_test.page.exari.contract.wizard.WizardManager;
 import ui_test.page.exari.home.DashboardPage;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.page.exari.login.LoginPage;
 import ui_test.util.IUiStep;
-import ui_test.util.IWebInteract;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
 
@@ -21,11 +26,25 @@ import java.util.Map;
 
 
 public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
-    private static final Logger log = LoggerFactory.getLogger(IWebInteract.class);
+    private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
 
     private DashboardPage dashboardPage;
     private ContractPage contractPage;
     private GenericSitePage sitePage;
+
+    private FlowContract flowContract;
+
+    @Before("@Exari_UI_Test")
+    public void loadFlow() {
+        //Open flow data
+        JsonElement flowData = getJsonElementFromFile("/support/exari/eif-basic-contract.json");
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(FlowContract.class, new FlowContract.Deserializer())
+                .create();
+
+        //Convert json flow data into a flow map
+        flowContract = gson.fromJson(flowData, FlowContract.class);
+    }
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
     public void loginSitePage(String siteOption) {
@@ -36,76 +55,34 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
     @When("^I author a contract using the following contract information$")
     public void authorContract(DataTable contractDataTable) {
         Map<String, String> contractParam = contractDataTable.asMap(String.class, String.class);
-
         sitePage.startContractAuthor();
-        WizardManager wizard = sitePage.getContractWizard();
+        flowContract.substituteGherkinData(contractParam);
 
-        //PES Input & PES Response :: Search PES for MPIN or TIN
-        assert wizard.searchPES(
-                contractParam.getOrDefault("MPIN", null),
-                contractParam.getOrDefault("TIN", null),
-                1
-        );
-
-        //Provider Details :: Enter the Market number to use
-        assert wizard.enterMarketNumber(
-                contractParam.getOrDefault("Market Number", null)
-        );
-
-        //Document Selection :: Select Paper Type
-        assert wizard.selectPaperType(
-                contractParam.getOrDefault("Paper Type", "")
-        );
-
-        //Select HBP option
-        assert wizard.selectHBPOption(
-                contractParam.getOrDefault("HBP", "no")
-        );
-
-        //Enter Phycon
-        assert wizard.enterPhyconNumber(
-                contractParam.getOrDefault("Phycon", "1234")
-        );
-
-        //Appendix 1 :: Select Additional Manuals
-        assert wizard.enterAppendix1();
-
-        //Appendix 2 ::
-        assert wizard.enterAppendix2(
-                contractParam.getOrDefault("Product", "none")
-        );
-
-        //Payment Appendix ::
-        assert wizard.enterPaymentAppendix(
-                false,
-                "all",
-                contractParam.getOrDefault("Fee Schedule", "1234")
-        );
-
-        //Additional Locations :: no operation
-        assert wizard.skipAdditionalLocations();
-
-        //Regulatory Appendix :: Search for Regulator
-        assert wizard.selectRegulatoryAppendix(
-                contractParam.getOrDefault("Regulator", "iowa"),
-                0
-        );
-
-        //Provider Roster :: Select Roster Action
-        assert wizard.selectProviderRoster(
-                contractParam.getOrDefault("Roster Action", "add one"),
-                contractParam.getOrDefault("TIN", null)
-        );
-
-        //Preview Contact & Wizard Complete :: no operation
-        assert wizard.previewContractAndComplete();
+        InterviewManager manager = new InterviewManager(getDriver(), flowContract);
+        manager.startFlow();
+        log.info("flow complete");
+        manager.finishContract();
 
         //Back to contract page
         contractPage = sitePage.getContractPage();
         assert contractPage.confirmCurrentPage();
 
-        //Perform QA analysis and set status as active
-        assert markContractActive();
+        //set Edit Status
+        contractPage.setEditStatus("Final Pending QA");
+
+        //click Final Capture
+        contractPage.clickFinalCapture();
+
+        //Start flow for final capture
+        manager.startFlow();
+        manager.finishContract();
+
+        //Back to Contract Page
+        contractPage = sitePage.getContractPage();
+        assert contractPage.confirmCurrentPage();
+
+        //set Edit Status
+        assert contractPage.setEditStatus("Active");
     }
 
     @Then("^I have an active contract in Exari$")
@@ -123,23 +100,23 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
         getDriver().get(url);
         log.info(getDriver().getTitle());
         LoginPage loginPage = new LoginPage(getDriver());
-
         Assert.assertTrue(loginPage.confirmCurrentPage());
 
         Assert.assertTrue(loginPage.login());
-        log.info("login successful");
 
         dashboardPage = loginPage.getHomePage();
     }
 
     private void setSite(String siteOption) {
         Assert.assertTrue(dashboardPage.confirmCurrentPage());
+        dashboardPage.dismissFailure();
         sitePage = dashboardPage.getNavigationPanel().setSiteEnvironment(siteOption);
 
         assert sitePage.confirmCurrentPage();
         log.info("moved to {} site", siteOption);
     }
 
+    @Deprecated
     private boolean markContractActive() {
         WizardManager wizard = contractPage.getContractWizard();
 
@@ -148,6 +125,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
 
         //click Final Capture
         contractPage.clickFinalCapture();
+
+        log.info("final capture finished");
 
         assert wizard.finalCapture();
 

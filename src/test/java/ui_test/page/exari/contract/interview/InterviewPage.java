@@ -1,4 +1,4 @@
-package ui_test.page.exari.contract.wizard.subpages;
+package ui_test.page.exari.contract.interview;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,9 +10,10 @@ import org.slf4j.LoggerFactory;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
-@Deprecated
-public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
-    private static final Logger log = LoggerFactory.getLogger(GenericInputPage.class);
+import java.util.List;
+
+public class InterviewPage implements IFactoryPage, IWebInteract {
+    private static final Logger log = LoggerFactory.getLogger(InterviewPage.class);
 
     /*
     PROTECTED VARIABLES
@@ -21,8 +22,14 @@ public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
     protected final WebDriver driver;
 
     /*
-    LOCATORS - NAVIGATION
+    LOCATORS
      */
+
+    @FindBy(xpath = "//p[@class='topic']")
+    private WebElement topic;
+
+    @FindBy(xpath = "//div[contains(@class,'interview-item--')]")
+    private List<WebElement> interviewElementList;
 
     @FindBy(xpath = "//button[contains(text(),'next')]")
     private WebElement navigationNext;
@@ -43,7 +50,7 @@ public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
     CONSTRUCTOR
      */
 
-    public GenericInputPage(WebDriver driver) {
+    public InterviewPage(WebDriver driver) {
         AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, IWebInteract.TIMEOUT);
         PageFactory.initElements(factory, this);
         this.driver = driver;
@@ -58,12 +65,23 @@ public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
         return driver;
     }
 
+    @Override
+    public boolean confirmCurrentPage() {
+        return isVisible(topic) && isVisible(navigationNext);
+    }
+
     /*
     CLASS METHODS
      */
 
+    public String getTopicText() {
+        return topic.getText();
+    }
+
     public boolean clickNext() {
-        return click("next button", navigationNext);
+//        return waitTillClickable(navigationNext) && click("next button", navigationNext);
+        return click("next button", navigationNext)
+                || (pauseSilent(15) && click("next button try 2", navigationNext));
     }
 
     public boolean clickBack() {
@@ -80,5 +98,16 @@ public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
 
     public boolean clickFastForward() {
         return click("fast forward button", navigationFastForward);
+    }
+
+    public InterviewMap getInterviewMap() {
+        InterviewMap interviewMap = new InterviewMap();
+
+        for (WebElement item : interviewElementList) {
+            InterviewItem interviewItem = new InterviewItem(driver, item);
+            interviewMap.put(interviewItem.getQuestion(), interviewItem);
+        }
+
+        return interviewMap;
     }
 }

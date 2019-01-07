@@ -26,6 +26,9 @@ public class DashboardPage implements IFactoryPage, IWebInteract, IExariNavigati
     @FindBy(xpath = "//span[contains(@title,'Dashboard')]")
     private WebElement labelDashboard;
 
+    @FindBy(xpath = "//div[@id='prompt']/div[contains(text(),'Fail')]/following::div//button")
+    private WebElement buttonDismissFailure;
+
     /*
     CONSTRUCTOR
      */
@@ -63,6 +66,10 @@ public class DashboardPage implements IFactoryPage, IWebInteract, IExariNavigati
     /*
     CLASS METHODS
      */
+
+    public boolean dismissFailure() {
+        return !isVisible(buttonDismissFailure) || click("button dismiss failure", buttonDismissFailure);
+    }
 
 
 
