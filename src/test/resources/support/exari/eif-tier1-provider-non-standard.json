@@ -1,10 +1,11 @@
 {
-    "name": "author spa",
+    "name": "Pick a provider with tier 1 and create a contract  Non-standard Fee schedule : YES and check for approvals",
     "authors": [
-        "Alex Berns"
+        "Alex Berns",
+        "Suruchi Sinha"
     ],
     "notes": [
-        "This is the first example"
+        "Create  a Tier-1  SPA Contract and then check for Contract and pricing level Approvals "
     ],
     "flows": [
         {
@@ -14,7 +15,14 @@
                     "question": "MPIN",
                     "action": "TEXT-BASIC",
                     "answers": [
-                        "<MPIN>"
+                        "000268632"
+                    ]
+                },
+                {
+                    "question": "TIN",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "351747218"
                     ]
                 }
             ]
@@ -22,6 +30,14 @@
         {
             "topic": "PES Response",
             "questions": [
+                {
+                    "question": "Select the Counterparty",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "0",
+                        "select"
+                    ]
+                },
                 {
                     "question": "Specify approach for counterparty",
                     "action": "RADIO-INDEX",
@@ -67,7 +83,7 @@
                     "question": "Based on the Provider you've selected, below are the Paper Types available. Please select one:",
                     "action": "RADIO-ID",
                     "answers": [
-                        "<Paper Type>"
+                        "SPA"
                     ]
                 }
             ]
@@ -110,7 +126,7 @@
                     "question": "Enter PhyCon Number:",
                     "action": "TEXT-BASIC",
                     "answers": [
-                        "<Phycon>"
+                        "PH 123"
                     ]
                 }
             ]
@@ -134,14 +150,14 @@
                     "question": "Which of the following products will be included in Appendix 2?",
                     "action": "CHECKBOX-INDEX",
                     "answers": [
-                        "1"
+                        "all"
                     ]
                 },
                 {
                     "question": "Which of the following products will be excluded in Appendix 2?",
                     "action": "CHECKBOX-INDEX",
                     "answers": [
-                        "1"
+                        "all"
                     ]
                 }
             ]
@@ -153,28 +169,29 @@
                     "question": "Will any fee schedules be non-standard?",
                     "action": "RADIO-INDEX",
                     "answers": [
-                        "1"
+                        "0"
                     ]
                 },
                 {
                     "question": "Which of the following Payment Appendices will be included?",
                     "action": "CHECKBOX-INDEX",
                     "answers": [
-                        "0"
+                        "all"
                     ]
                 },
                 {
                     "question": "Select the payment appendix whose increases/decreases have been negotiated for the initial term:",
                     "action": "CHECKBOX-INDEX",
                     "answers": [
-                        "0"
+                        "all"
                     ]
                 },
                 {
                     "question": "What is the fee schedule ID for All Payer?",
                     "action": "TEXT-BASIC",
                     "answers": [
-                        "<Fee Schedule>"
+                        "<Fee Schedule>",
+                        "TODO"
                     ]
                 }
             ]

@@ -1,10 +1,7 @@
 package ui_test.page.exari.home.site;
 
 import org.openqa.selenium.WebDriver;
-import ui_test.page.exari.home.site.subpages.CentralUHNSitePage;
-import ui_test.page.exari.home.site.subpages.GenericSitePage;
-import ui_test.page.exari.home.site.subpages.NortheastUHNSitePage;
-import ui_test.page.exari.home.site.subpages.TestSitePage;
+import ui_test.page.exari.home.site.subpages.*;
 
 public class SiteManager {
 
@@ -34,12 +31,31 @@ public class SiteManager {
         return new CentralUHNSitePage(driver);
     }
 
+    public WestUHNSitePage getWestUHNSitePage() {
+        return new WestUHNSitePage(driver);
+    }
+
+    public SouthEastUHNSitePage getSouthEastUHNSitePage() {
+        return new SouthEastUHNSitePage(driver);
+    }
+
+    public NationalUHNSitePage getNationalUHNSitePage() {
+        return new NationalUHNSitePage(driver);
+    }
+
     public GenericSitePage getSitePage(Site site) {
         switch (site) {
             case CENTRAL:
                 return getCentralUHNSitePage();
             case NORTHEAST:
                 return getNortheastUHNSitePage();
+            case WEST:
+                return getWestUHNSitePage();
+            case SOUTHEAST:
+                return getSouthEastUHNSitePage();
+            case NATIONAL:
+                return getNationalUHNSitePage();
+            case TEST:
             default:
                 return getTestSitePage();
         }
