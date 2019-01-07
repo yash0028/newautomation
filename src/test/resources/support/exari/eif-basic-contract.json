@@ -225,7 +225,7 @@
                     "question": "Select Providers",
                     "action": "TEXT-DROPDOWN",
                     "answers": [
-                        "E",
+                        "",
                         "0"
                     ]
                 }
