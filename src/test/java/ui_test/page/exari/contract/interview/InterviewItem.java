@@ -184,6 +184,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
     private boolean text_dropdown(List<String> answers) {
         //Open dropdown search
         click("dropdown open", elements.dropdown_open);
+        pause(1);
 
         //Enter search term
         sendKeys("dropdown textbox", elements.dropdown_textbox, answers.get(0));
