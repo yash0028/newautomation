@@ -18,4 +18,5 @@ Feature: US1439813 - Integration - Obtain Fee Schedule Information
     When I am working on the Pricing Form
     Then I am able to see a list of the Fee Schedules (from Exari) on the current agreement where each entry includes the following:
     And Fee Schedule ID (From Exari)
+    And Fee Schedule Name
 

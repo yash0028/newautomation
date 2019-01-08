@@ -1,11 +1,10 @@
 # Last updated on 
 @US1387185
 @2018.PI05
-@2018.PI05.04
 @MVP
 @Maintenance
 @releasePresent
-@iterationFuture
+@iterationUnknown
 Feature: US1387185 - Validate roster data - cancel
 
   @TC614182

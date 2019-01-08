@@ -3,8 +3,6 @@
 @A_UI_Story
 @US1289455
 @2019.PI06
-@MVP
-@CMD_UI
 @releaseFuture
 @iterationUnknown
 Feature: US1289455 - Create Contract Config Detail web page template

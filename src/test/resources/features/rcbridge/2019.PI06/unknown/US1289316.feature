@@ -3,8 +3,6 @@
 @A_UI_Story
 @US1289316
 @2019.PI06
-@MVP
-@CMD_UI
 @releaseFuture
 @iterationUnknown
 Feature: US1289316 - View Contract Config Summary web page

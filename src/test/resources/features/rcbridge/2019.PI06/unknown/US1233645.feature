@@ -2,8 +2,6 @@
 @A_UI_Story
 @US1233645
 @2019.PI06
-@MVP
-@CMD_UI
 @releaseFuture
 @iterationUnknown
 Feature: US1233645 - Create Contract Config Summary web page template

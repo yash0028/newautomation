@@ -1,11 +1,10 @@
 # Last updated on 
 @US1387184
 @2018.PI05
-@2018.PI05.04
 @MVP
 @Maintenance
 @releasePresent
-@iterationFuture
+@iterationUnknown
 Feature: US1387184 - Validate roster data - add
 
   @TC614183

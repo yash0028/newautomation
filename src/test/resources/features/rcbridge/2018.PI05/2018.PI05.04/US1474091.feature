@@ -1,12 +1,13 @@
 # Last updated on 
 @CMD
 @US1474091
-@2019.PI06
+@2018.PI05
+@2018.PI05.04
 @MVP
 @CMD_UI
-@releaseFuture
-@iterationUnknown
-Feature: US1474091 - CMD UTILITY TABLE - Provider Category Type table and microservice
+@releasePresent
+@iterationFuture
+Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
 
   @TC672163
   @Manual

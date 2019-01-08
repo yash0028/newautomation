@@ -2,8 +2,6 @@
 @CMD2
 @US1211464
 @2019.PI06
-@MVP
-@CMD_UI
 @releaseFuture
 @iterationUnknown
 Feature: US1211464 - Contract Master search based on Service Location Market Number

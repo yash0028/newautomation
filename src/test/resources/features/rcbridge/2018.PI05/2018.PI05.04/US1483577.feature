@@ -1,12 +1,13 @@
 # Last updated on 
 @CMD
 @US1483577
-@2019.PI06
+@2018.PI05
+@2018.PI05.04
 @MVP
 @CMD_UI
-@releaseFuture
-@iterationUnknown
-Feature: US1483577 - CMD UTILITIES LIST - Affiliated Entity Type code list and microservice
+@releasePresent
+@iterationFuture
+Feature: US1483577 - CMD UTILITY - Affiliation Type code list and microservice
 
   @TC674588
   @Manual

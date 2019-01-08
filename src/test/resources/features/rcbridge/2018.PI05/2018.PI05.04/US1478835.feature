@@ -1,12 +1,13 @@
 # Last updated on 
 @CMD
 @US1478835
-@2019.PI06
+@2018.PI05
+@2018.PI05.04
 @MVP
 @CMD_UI
-@releaseFuture
-@iterationUnknown
-Feature: US1478835 - CMD UTILITIES LIST - Our Legal Entities list and microservice
+@releasePresent
+@iterationFuture
+Feature: US1478835 - CMD UTILITY - Our Legal Entities list and microservice
 
   @TC672208
   @Manual
