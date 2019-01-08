@@ -1,11 +1,10 @@
 # Last updated on 
 @US1518148
-@2018.PI05
-@2018.PI05.04
+@2019.PI06
 @MVP
 @CMD_UI
-@releasePresent
-@iterationFuture
+@releaseFuture
+@iterationUnknown
 Feature: US1518148 - CMD UTILITY -Provider Category Type CMD UI maintenance work
 
   @TC693615

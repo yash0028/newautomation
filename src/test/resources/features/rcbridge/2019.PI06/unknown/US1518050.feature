@@ -1,11 +1,10 @@
 # Last updated on 
 @US1518050
-@2018.PI05
-@2018.PI05.04
+@2019.PI06
 @MVP
 @CMD_UI
-@releasePresent
-@iterationFuture
+@releaseFuture
+@iterationUnknown
 Feature: US1518050 - CMD UTILITY -Affiliation Type code list CMD UI maintenance work
 
   @TC693620

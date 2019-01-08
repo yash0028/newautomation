@@ -1,11 +1,10 @@
 # Last updated on 
 @US1483691
-@2018.PI05
-@2018.PI05.04
+@2019.PI06
 @MVP
 @CMD_UI
-@releasePresent
-@iterationFuture
+@releaseFuture
+@iterationUnknown
 Feature: US1483691 - CMD UTILITY - Provider Category Type microservice integration with Exari
 
   @TC674587

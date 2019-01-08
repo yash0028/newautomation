@@ -1,12 +1,11 @@
 # Last updated on 
 @CMD
 @US1259301
-@2018.PI05
-@2018.PI05.04
+@2019.PI06
 @MVP
 @CMD_UI
-@releasePresent
-@iterationFuture
+@releaseFuture
+@iterationUnknown
 Feature: US1259301 - CMD UTILITY - Zip to Market table and microservice
 
   @TC616925

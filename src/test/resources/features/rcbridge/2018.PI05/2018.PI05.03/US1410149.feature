@@ -13,9 +13,8 @@ Feature: US1410149 - Bulk provider Roster EXTRACT from PES to Exari - Optum Work
   @Functional
   @PES
   Scenario Outline: TC692784 - [RL0] Verify pagination of demographics Roster
-    Given a search for provider roster
-    When I search for roster with "zip" of value "55421"
-    And I search for roster with "page" of value "<pageNum>"
+    When I search for provider roster with "zip" of value "55421"
+    And I search for provider roster with "page" of value "<pageNum>"
     Then I see 50 results returned on each page
     Examples:
       | pageNum |

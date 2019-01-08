@@ -1,11 +1,10 @@
 # Last updated on 
 @US1517676
-@2018.PI05
-@2018.PI05.04
+@2019.PI06
 @MVP
 @CMD_UI
-@releasePresent
-@iterationFuture
+@releaseFuture
+@iterationUnknown
 Feature: US1517676 - CMD UTILITY - Affiliation Type microservice integration with Exari
 
   @TC693618
