@@ -395,4 +395,40 @@ public class PESSteps implements IRestStep {
         Assert.assertTrue("One of the returned counter party results did not contain field: " + field, allMatch);
     }
 
+    // US1410149
+
+    @When("^I search for provider roster with \"([^\"]*)\" of value \"([^\"]*)\"$")
+    public void iSearchForProviderRosterWithOfValue(String property, String value) throws Throwable {
+        // Build out the request body
+        JsonObject requestParams = new JsonObject();
+
+        requestParams.addProperty(property, value);
+
+        // Build the request
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestParams.toString());
+    }
+
+    @And("^I search using query parameter \"([^\"]*)\" of value \"([^\"]*)\"$")
+    public void iSearchUsingQueryParameterOfValue(String param, String value) throws Throwable {
+        // Add the pagination query param to the request
+        request.queryParam(param, value);
+    }
+
+    @Then("^I see (\\d+) results returned on each page$")
+    public void iSeeResultsReturnedOnEachPage(int numResults) throws Throwable {
+        // Get the response
+        response = request.post(RESOURCE_ROSTER_SEARCH);
+
+        // Get the content element of the response as a JsonArray
+        JsonArray resArray = parseJsonElementResponse(response).getAsJsonObject().get("content").getAsJsonArray();
+
+        // Log the page number the test is on for debug purposes
+        String curPage = parseJsonElementResponse(response).getAsJsonObject().get("number").getAsString();
+        log.info("Current page: {}", curPage);
+
+        // Assert that the number of results in the array are as expected
+        Assert.assertEquals("The response did not contain the correct number of results. ", numResults, resArray.size());
+    }
+
+
 }
