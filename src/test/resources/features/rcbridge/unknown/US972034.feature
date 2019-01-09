@@ -1,11 +1,9 @@
 # Last updated on 
 @Retro
 @US972034
-@Configuration_for_2/15/19
 @MVP
-@PI04
 @Plus
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US972034 - Retro Why can't move effective date
 

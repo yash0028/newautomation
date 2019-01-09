@@ -20,7 +20,7 @@ Feature: US1165644 - Create Service Providing Facility FS  Access Via Microservi
     Then the microservice will return the requested fee schedules in a zip file
     Examples:
       | feeScheduleNumber |
-      | 9596              |
-      | 9875              |
-      | 2705              |
+      | 12321             |
+      | FACAZCOP          |
+      | 0806              |
 

@@ -6,7 +6,7 @@
 @CMD_UI
 @releaseFuture
 @iterationUnknown
-Feature: US1474091 - CMD UTILITY TABLE - Provider Category Type table and microservice
+Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
 
   @TC672163
   @Manual

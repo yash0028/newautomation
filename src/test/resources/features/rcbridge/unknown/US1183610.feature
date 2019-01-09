@@ -1,10 +1,8 @@
 # Last updated on 
 @US1183610
-@Configuration_for_2/15/19
 @MVP
-@PI04
 @Plus
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US1183610 - Identify agreement with an escalator via Compliance Manager
 

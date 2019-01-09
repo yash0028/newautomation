@@ -12,6 +12,7 @@ Feature: US1407216 - Author SPA Contact UI Path
   @A_UI_Story
   Scenario Outline: TC624355 - [RL0] Author SPA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    And I am using the "eif-basic-contract.json" flow
     When I author a contract using the following contract information
       | MPIN               | <mpin>             |
       | TIN                | <tin>              |

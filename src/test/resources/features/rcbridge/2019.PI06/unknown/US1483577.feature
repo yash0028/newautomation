@@ -6,7 +6,7 @@
 @CMD_UI
 @releaseFuture
 @iterationUnknown
-Feature: US1483577 - CMD UTILITIES LIST - Affiliated Entity Type code list and microservice
+Feature: US1483577 - CMD UTILITY - Affiliation Type code list and microservice
 
   @TC674588
   @Manual

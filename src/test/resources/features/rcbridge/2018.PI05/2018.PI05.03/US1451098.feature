@@ -8,7 +8,7 @@
 @Facility
 @releasePresent
 @iterationPresent
-Feature: US1451098 - CLM >COSMOS Add a Facility Contract- PIC DIV - PSH (Header) - Coding & Unit Test
+Feature: US1451098 - CLM >COSMOS Add a Facility Contract- PIC DIV - PSH (Header) - Coding
 
   @TC651739
   @Manual

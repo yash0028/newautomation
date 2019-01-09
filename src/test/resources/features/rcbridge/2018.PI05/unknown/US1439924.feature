@@ -3,7 +3,6 @@
 @US1439924
 @2018.PI05
 @MVP
-@PI04
 @Plus
 @releasePresent
 @iterationUnknown

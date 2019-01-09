@@ -1,10 +1,8 @@
 # Last updated on 
 @US1034167
-@Configuration_for_4/1/19
 @MVP
-@PI04
 @Plus
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US1034167 - Provide chargemaster summary via the 'Contract Summary'
 

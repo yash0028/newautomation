@@ -70,6 +70,20 @@ public interface IWebInteract {
         return waitTillVisible(element, TIMEOUT);
     }
 
+    default boolean waitTillClickable(WebElement element, int timeout) {
+        try {
+            WebDriverWait wait = new WebDriverWait(this.getDriver(), timeout);
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            return isVisible(element);
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    default boolean waitTillClickable(WebElement element) {
+        return waitTillClickable(element, TIMEOUT);
+    }
+
     /**
      * Clicks a given web element and logs the element name
      *

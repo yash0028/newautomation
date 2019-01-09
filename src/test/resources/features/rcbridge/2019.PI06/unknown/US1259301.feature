@@ -6,7 +6,7 @@
 @CMD_UI
 @releaseFuture
 @iterationUnknown
-Feature: US1259301 - CMD UTILITY TABLE - Zip to Market table microservice
+Feature: US1259301 - CMD UTILITY - Zip to Market table and microservice
 
   @TC616925
   @Manual
