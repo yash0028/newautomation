@@ -1,10 +1,11 @@
 {
-    "name": "author spa",
+    "name": "author basic contract",
     "authors": [
         "Alex Berns"
     ],
     "notes": [
-        "This is the first example"
+        "authors an exari contract using cucumber parameters.",
+        "Created as a test of the EIF system"
     ],
     "flows": [
         {
@@ -119,7 +120,8 @@
             "topic": "Appendix 1",
             "questions": [
                 {
-                    "question": "Will Additional Manuals Apply?",
+                    "question": "will additional manuals apply?",
+                    "matchMethod": "equals-ignore-case",
                     "action": "RADIO-INDEX",
                     "answers": [
                         "1"
@@ -140,6 +142,14 @@
                 {
                     "question": "Which of the following products will be excluded in Appendix 2?",
                     "action": "CHECKBOX-INDEX",
+                    "answers": [
+                        "1"
+                    ]
+                },
+                {
+                    "question": "Is this contract only for",
+                    "matchMethod": "start",
+                    "action": "RADIO-INDEX",
                     "answers": [
                         "1"
                     ]

@@ -92,14 +92,14 @@ class SauceLabs implements IConfigurable {
     /**
      * Send job passed command to sauce labs
      */
-    void testPassed() {
+    void testPassed() throws Throwable {
         sauceREST.jobPassed(jobId);
     }
 
     /**
      * Send job failed command to sauce labs
      */
-    void testFailed() {
+    void testFailed() throws Throwable {
         sauceREST.jobFailed(jobId);
     }
 

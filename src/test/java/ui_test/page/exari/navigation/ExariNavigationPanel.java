@@ -8,10 +8,7 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.home.site.SiteManager;
-import ui_test.page.exari.home.site.subpages.CentralUHNSitePage;
-import ui_test.page.exari.home.site.subpages.GenericSitePage;
-import ui_test.page.exari.home.site.subpages.NortheastUHNSitePage;
-import ui_test.page.exari.home.site.subpages.TestSitePage;
+import ui_test.page.exari.home.site.subpages.*;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
@@ -40,7 +37,14 @@ public class ExariNavigationPanel implements IWebInteract, IFactoryPage {
     @FindBy(xpath = "//a[@title='Central UHN']")
     private WebElement headerTabSiteOptionCentralUHN;
 
+    @FindBy(xpath = "//a[@title='West UHN']")
+    private WebElement headerTabSiteOptionWestUHN;
 
+    @FindBy(xpath = "//a[@title='Southeast UHN']")
+    private WebElement headerTabSiteOptionSouthEastUHN;
+
+    @FindBy(xpath = "//a[@title='National']")
+    private WebElement headerTabSiteOptionNationalUHN;
 
     /*
     CONSTRUCTOR
@@ -88,12 +92,36 @@ public class ExariNavigationPanel implements IWebInteract, IFactoryPage {
         return getSiteManager().getCentralUHNSitePage();
     }
 
+    public WestUHNSitePage setSiteEnvironment2WestUHN() {
+        click("site tab", headerTabSite);
+        click("central uhn", headerTabSiteOptionWestUHN);
+        return getSiteManager().getWestUHNSitePage();
+    }
+
+    public SouthEastUHNSitePage setSiteEnvironment2SouthEastUHN() {
+        click("site tab", headerTabSite);
+        click("central uhn", headerTabSiteOptionSouthEastUHN);
+        return getSiteManager().getSouthEastUHNSitePage();
+    }
+
+    public NationalUHNSitePage setSiteEnvironment2NationalUHN() {
+        click("site tab", headerTabSite);
+        click("central uhn", headerTabSiteOptionNationalUHN);
+        return getSiteManager().getNationalUHNSitePage();
+    }
+
     public GenericSitePage setSiteEnvironment(SiteManager.Site site) {
         switch (site) {
             case CENTRAL:
                 return setSiteEnvironment2CentralUHN();
             case NORTHEAST:
                 return setSiteEnvironment2NortheastUHN();
+            case SOUTHEAST:
+                return setSiteEnvironment2SouthEastUHN();
+            case WEST:
+                return setSiteEnvironment2WestUHN();
+            case NATIONAL:
+                return setSiteEnvironment2NationalUHN();
             default:
                 return setSiteEnvironment2Test();
         }

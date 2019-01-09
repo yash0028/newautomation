@@ -33,6 +33,22 @@ public class Flow {
         return questions;
     }
 
+    public FlowItem lookupQuestion(String questionText) {
+
+        // do basic match
+        if (questions.containsKey(questionText)) {
+            return questions.get(questionText);
+        }
+
+        for (FlowItem flowItem : questions.values()) {
+            if (flowItem.check4Match(questionText)) {
+                return flowItem;
+            }
+        }
+
+        return null;
+    }
+
     public void addQuestions(Map<String, FlowItem> questionsToAdd) {
         for (String key : questionsToAdd.keySet()) {
             questions.putIfAbsent(key, questionsToAdd.get(key));
