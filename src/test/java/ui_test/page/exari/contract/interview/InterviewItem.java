@@ -72,7 +72,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
     }
 
     public int performFlow(FlowItem flowItem) {
-        if (flowItem == null || !flowItem.getQuestion().equals(this.getQuestion())) {
+        if (flowItem == null || !flowItem.check4Match(this.getQuestion())) {
             log.trace(" missing flow item \"{}\"", this.getQuestion());
             return 0;
         }
@@ -81,6 +81,12 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
         log.info("flow item: {}", flowItem.toString());
 
         return enterAnswer(flowItem.getAction(), flowItem.getAnswers()) ? 1 : -1;
+    }
+
+    public int performFlow(Optional<FlowItem> optionalFlowItem) {
+        //Do flow if present, else return 0
+        log.trace("{}", optionalFlowItem);
+        return performFlow(optionalFlowItem.orElse(null));
     }
 
     /*
@@ -195,6 +201,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
         for (Integer index : indexes) {
             test &= click("checkbox", elements.checkbox_indexes.get(index));
         }
+
         return test;
     }
 
