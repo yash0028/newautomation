@@ -9,7 +9,7 @@
 Feature: US1410149 - Bulk provider Roster EXTRACT from PES to Exari - Optum Work
 
   @TC692784
-  @Manual
+  @Automated
   @Functional
   @PES
   Scenario Outline: TC692784 - [RL0] Verify pagination of demographics Roster

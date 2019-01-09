@@ -1,16 +1,16 @@
 # Last updated on 
-@US1403774
-@2018.PI05
+@US1404696
+@2019.PI06
 @MVP
 @Maintenance
-@releasePresent
+@releaseFuture
 @iterationUnknown
-Feature: US1403774 - Receive and recognize contract terminated events/transactions from Exari
+Feature: US1404696 - Receive and recognize contract amendment events/transactions from Exari
 
-  @TC622673
+  @TC623344
   @Manual
   @Functional
-  Scenario: TC622673 - [RL0]
+  Scenario: TC623344 - [RL0]
     Given the OCM is subscribed to the Exari Business Event Type "ContractTerminated"
     When an "ContractTerminated" transaction is published
     Then OCM will recognize this transaction

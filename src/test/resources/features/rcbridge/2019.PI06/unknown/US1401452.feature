@@ -1,11 +1,11 @@
 # Last updated on 
 @US1401452
-@2018.PI05
+@2019.PI06
 @MVP
 @Priority_2
 @Amrutha
 @Parity
-@releasePresent
+@releaseFuture
 @iterationUnknown
 Feature: US1401452 - Execute NDB PCP Reassignment API with PCP Reassignment information user entered in CMD UI
 
