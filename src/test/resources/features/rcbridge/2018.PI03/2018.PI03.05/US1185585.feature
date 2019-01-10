@@ -31,7 +31,7 @@ Feature: US1185585 - Contract Product Description Crosswalk
       | Empire             | P3                 |
       | MEDICAID           | D0                 |
       | CHARTER            | SG,SH,SI           |
-      | Medicare Select    | 62 STM             |
+      | VA Medicaid        | XX                 |
 
   @TC569883
   @Automated
@@ -48,7 +48,7 @@ Feature: US1185585 - Contract Product Description Crosswalk
     Examples:
       | productDescriptionId1 | productCodeList1      | productDescriptionId2 | productCodeList2      |
       | Empire                | P3                    | MEDICAID              | D0                    |
-      | CHARTER               | SG,SH,SI              | Medicare Select       | 62 STM                |
+      | CHARTER               | SG,SH,SI              | VA Medicaid           | XX                    |
 
   @TC575412
   @Automated
@@ -70,9 +70,9 @@ Feature: US1185585 - Contract Product Description Crosswalk
   @Priority
   Scenario: TC575413 - [RL3] Validate only single valid product code list for passing in one good and one bad product description
     # Passing in one valid and one invalid product description
-    Given a product description from the corresponding "2000290" and an invalid product description
+    Given a product description from the corresponding "Empire" and an invalid product description
     When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk only provides the product code identifier of "S0 S1 S2" for the valid product description
+    Then the crosswalk only provides the product code identifier of "P3" for the valid product description
 
   @TC569866
   @Automated
