@@ -2,7 +2,6 @@ package rest_api_test.step;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -64,44 +63,37 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
         response = request.param("productDescriptions", productDescriptions).get(RESOURCE_PRODUCT_CODE);
         Assert.assertEquals(200, response.getStatusCode());
 
-        ArrayList<String> expectedProductCodeArr = new ArrayList<>(Arrays.asList(expectedProductCodes.split(" ")));
-
         JsonArray result = parseJsonElementResponse(response).getAsJsonObject().get("content").getAsJsonArray();
-
         System.out.println("RESPONSE****: " + result.toString());
-
 
         Assert.assertTrue(result.isJsonArray());
 
         // Check that the result is a valid json object and returns list of product codes
-        // Check if response is a json array with one object that contains key value pair of productCodeList
-        // and an array.
-//        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result);
+        String actualProductCodes = checkAndParseProductCodeResult(result, 0);
 
         // check that the expected product code list is equal to the result/actual one.
-//        testProductCodeList(expectedProductCodeArr, resultProductCodeArr);
+        Assert.assertEquals(expectedProductCodes, actualProductCodes);
     }
 
     //verify multiple product Code lists Was returned For multiple ProductDescriptions
     @Then("^the crosswalk provides the product code identifiers of \"([^\"]*)\" and \"([^\"]*)\"$")
     public void verifyMultipleProductCodeList(String expectedProductCodes1, String expectedProductCodes2) throws Throwable {
-        // Make post request and store response
-        response = request.post(RESOURCE_PRODUCT_CODE);
+        // Make GET request and store response
+        response = request.param("productDescriptions", productDescriptions).get(RESOURCE_PRODUCT_CODE);
+        Assert.assertEquals(200, response.getStatusCode());
 
-        ArrayList<String> expectedProductCodeArr1 = new ArrayList<>(Arrays.asList(expectedProductCodes1.split(" ")));
-        ArrayList<String> expectedProductCodeArr2 = new ArrayList<>(Arrays.asList(expectedProductCodes2.split(" ")));
+        JsonArray result = parseJsonElementResponse(response).getAsJsonObject().get("content").getAsJsonArray();
+        System.out.println("RESPONSE for multiple product groups****: " + result.toString());
 
-        JsonElement result = parseJsonElementResponse(response);
         Assert.assertTrue(result.isJsonArray());
 
-        // Check that the result is a valid json array and returns list of product codes
-        // Check if response is a json array with two objects. Each object contains key value pairs of productCodeList
-        // and an array.
-//        JsonArray resultProductCodeArr1 = checkAndParseProductCodeResult(result.getAsJsonArray());
-//        JsonArray resultProductCodeArr2 = checkAndParseProductCodeResult(result.getAsJsonArray());
+        // Check that the result is a valid json object and returns list of product codes
+        String actualProductCodes1 = checkAndParseProductCodeResult(result, 0);
+        String actualProductCodes2 = checkAndParseProductCodeResult(result, 1);
 
-//        testProductCodeList(expectedProductCodeArr1, resultProductCodeArr1);
-//        testProductCodeList(expectedProductCodeArr2, resultProductCodeArr2);
+        // check that the expected product code list is equal to the result/actual one.
+        Assert.assertEquals(expectedProductCodes1, actualProductCodes1);
+        Assert.assertEquals(expectedProductCodes2, actualProductCodes2);
     }
 
     // Verify single product description does not exist
@@ -148,32 +140,14 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
     }
 
     /**
-     * Check that the expect product code list is equal to the actual product code list.
-     *
-     * @param expected An array list with the expected product codes
-     * @param result   A json array with the actual product codes
-     */
-    private void testProductCodeList(ArrayList<String> expected, JsonArray result) throws Throwable {
-
-        // check that each value of result product code array is present in the expected product code array
-        for (JsonElement pCode : result.getAsJsonArray()) {
-            Assert.assertTrue(expected.contains(pCode.getAsString()));
-        }
-
-        // Check to make sure both arrays are the same size
-        Assert.assertEquals(expected.size(), result.getAsJsonArray().size());
-    }
-
-
-    /**
      * Check that the result is a valid json array.
      *
      * @param result the json element that we want to check
      * @return returns a list of product codes
      */
-    private JsonElement checkAndParseProductCodeResult(JsonArray result) throws Throwable {
+    private String checkAndParseProductCodeResult(JsonElement result, int index) throws Throwable {
         // get index of result array
-        JsonElement resultIndex = result.get(0);
+        JsonElement resultIndex = result.getAsJsonArray().get(index);
 
         // check if productCodeList element exists
         Assert.assertTrue(resultIndex.getAsJsonObject().has("productCodeList"));
@@ -181,27 +155,8 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
         // get the values of the product codes
         JsonElement resultProductCode = resultIndex.getAsJsonObject().get("productCodeList");
 
-        return resultProductCode;
+        System.out.println("Product codes ****: " + resultProductCode.getAsString());
+
+        return resultProductCode.getAsString();
     }
-
-//    /**
-//     * Takes in a product description id, then searches in the csv file for the product description that corresponds to
-//     * that id.
-//     *
-//     * @param id product description id
-//     * @return product description
-//     */
-//    private String getProductDescription(String id) {
-//        List<String> lines = getFileLines(CSV_FILE);
-//
-//        for (String line : lines) {
-//            String[] currentLine = line.split("\\|");
-//
-//            if (currentLine[0].trim().equals(id)) {
-//                return currentLine[1].trim();
-//            }
-//        }
-//        return "";
-//    }
-
 }
