@@ -6,7 +6,7 @@
 @Scrum_Team_1
 @Maintenance
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1391149 - Validate contract data - cancel
 
   @TC616921

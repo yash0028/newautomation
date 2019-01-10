@@ -13,6 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.configuration.IConfigurable;
 
+import java.net.SocketTimeoutException;
+
 /**
  * Utility Cucumber steps for UI Stories to start and close SauceLabs connection
  */
@@ -60,10 +62,16 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
     @After(value = "@A_UI_Story", order = -1 * BookendOrder.UI)
     public void closeConnection(Scenario scenario) {
         if (isRemoteDriver()) {
-            if (scenario.getStatus() == Result.Type.PASSED) {
-                SauceLabs.getInstance().testPassed();
-            } else {
-                SauceLabs.getInstance().testFailed();
+            try {
+                if (scenario.getStatus() == Result.Type.PASSED) {
+                    SauceLabs.getInstance().testPassed();
+                } else {
+                    SauceLabs.getInstance().testFailed();
+                }
+            } catch (SocketTimeoutException ste) {
+                log.error("Unable to report result to SauceLabs");
+            } catch (Throwable throwable) {
+                log.error("Unknown error: {}", throwable.getMessage());
             }
 
             SauceLabs.getInstance().close();

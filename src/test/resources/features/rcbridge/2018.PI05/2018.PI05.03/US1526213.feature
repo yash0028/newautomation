@@ -1,16 +1,16 @@
 # Last updated on 
-@US1446143
+@US1526213
 @2018.PI05
 @2018.PI05.03
 @CMD
 @releasePresent
 @iterationPast
-Feature: US1446143 - PCP reassignment work objects audits database schema  (PCP)
+Feature: US1526213 - PCP reassignment work objects audits database schema  (PCP) - addendum
 
-  @TC648741
+  @TC695695
   @Manual
   @Functional
-  Scenario: TC648741 - [RL0]
+  Scenario: TC695695 - [RL0]
     # Scenario 4 (PCP reassignment information has been resolved- single reassign MPIN/IPA/Sequence number)
     Given A a business contractor is reviewing a PCP reassignment error
     When They have entered a reassign MPIN, IPA, address sequence number
@@ -19,10 +19,10 @@ Feature: US1446143 - PCP reassignment work objects audits database schema  (PCP)
     And Record the transaction ID with date/time stamp the resolution was made
     And the transaction record is available for reporting/export
 
-  @TC648744
+  @TC695697
   @Manual
   @Functional
-  Scenario: TC648744 - [RL1]
+  Scenario: TC695697 - [RL1]
     # Scenario 5 (PCP reassignment information has been resolved- multiple reassign MPIN/IPA/Sequence number)
     Given A a business contractor is reviewing a PCP reassignment error
     When They have entered more than one reassign MPIN, IPA, address sequence number

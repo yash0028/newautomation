@@ -5,7 +5,7 @@
 @MVP
 @Maintenance
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1518109 - Identify contract master selection
 
   @TC693621

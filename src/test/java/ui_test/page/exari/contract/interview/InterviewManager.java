@@ -65,7 +65,8 @@ public class InterviewManager {
                 //Handle all questions on page, using flow
                 for (String question : iMap.keySet()) {
                     InterviewItem interviewItem = iMap.get(question);
-                    FlowItem flowItem = flow.getQuestions().get(question);
+                    FlowItem flowItem = flow.lookupQuestion(question);
+
                     //Perform flow item on corresponding interview item
                     test &= interviewItem.performFlow(flowItem) >= 0;
                 }
@@ -96,4 +97,5 @@ public class InterviewManager {
     /*
     HELPER METHODS
      */
+
 }

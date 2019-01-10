@@ -23,15 +23,15 @@ Feature: US1185585 - Contract Product Description Crosswalk
   Scenario Outline: TC564546 - [RL0] Validate that the crosswalk provides the product code list for a single corresponding product description
     # Passing in a single valid product description
     Given a product description to product code crosswalk exists
-    And using product description from the corresponding "<productDescriptionId>"
+    And using product description from the corresponding "<productDescription>"
     When exchanging information about the products included or excluded from an Exari contract
     Then the crosswalk provides the product code identifier of "<productCodeList>"
     Examples:
-      | productDescriptionId | productCodeList      |
-      | 2000290              | S0 S1 S2             |
-      | 2000300              | C0 C1 C2 P3 S0 S1 S2 |
-      | 2000430              | DA                   |
-      | 2000500              | 009 531              |
+      | productDescription | productCodeList    |
+      | Empire             | P3                 |
+      | MEDICAID           | D0                 |
+      | CHARTER            | SG,SH,SI           |
+      | VA Medicaid        | XX                 |
 
   @TC569883
   @Automated
@@ -42,13 +42,13 @@ Feature: US1185585 - Contract Product Description Crosswalk
   Scenario Outline: TC569883 - [RL1] Validate that the crosswalk provides the product code list for multiple corresponding product descriptions
     # Passing in multiple valid product descriptions
     Given a product description to product code crosswalk exists
-    And using product descriptions from the corresponding "<productDescriptionId1>" and "<productDescriptionId2>"
+    And using product descriptions from the corresponding "<productDescription1>" and "<productDescription2>"
     When exchanging information about the products included or excluded from an Exari contract
     Then the crosswalk provides the product code identifiers of "<productCodeList1>" and "<productCodeList2>"
     Examples:
       | productDescriptionId1 | productCodeList1      | productDescriptionId2 | productCodeList2      |
-      | 2000290               | S0 S1 S2              | 2000300               | C0 C1 C2 P3 S0 S1 S2  |
-      | 2000430               | DA                    | 2000500               | 009 531               |
+      | Empire                | P3                    | MEDICAID              | D0                    |
+      | CHARTER               | SG,SH,SI              | VA Medicaid           | XX                    |
 
   @TC575412
   @Automated
@@ -70,9 +70,9 @@ Feature: US1185585 - Contract Product Description Crosswalk
   @Priority
   Scenario: TC575413 - [RL3] Validate only single valid product code list for passing in one good and one bad product description
     # Passing in one valid and one invalid product description
-    Given a product description from the corresponding "2000290" and an invalid product description
+    Given a product description from the corresponding "Empire" and an invalid product description
     When exchanging information about the products included or excluded from an Exari contract
-    Then the crosswalk only provides the product code identifier of "S0 S1 S2" for the valid product description
+    Then the crosswalk only provides the product code identifier of "P3" for the valid product description
 
   @TC569866
   @Automated

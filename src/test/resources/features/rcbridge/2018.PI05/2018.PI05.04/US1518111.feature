@@ -5,7 +5,7 @@
 @MVP
 @Maintenance
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1518111 - Identify manually entered contract masters
 
   @TC693614

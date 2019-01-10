@@ -7,7 +7,7 @@
 @Priority_2
 @Facility
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1070732 - Exari>COSMOS Term an individual Facility Contract- existing contract - PSH
 
   @TC565216

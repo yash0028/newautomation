@@ -1,12 +1,11 @@
 # Last updated on 
 @US1376493
 @2018.PI05
-@2018.PI05.03
 @MVP
 @Priority_2
 @Parity
 @releasePresent
-@iterationPresent
+@iterationUnknown
 Feature: US1376493 - Extract 2 - COSMOS Physician (Product) based on migration parameters - Team 4 knowledge transfer and shared support for ongoing runs
 
   @TC608267
