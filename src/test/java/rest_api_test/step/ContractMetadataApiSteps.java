@@ -15,7 +15,6 @@ import rest_api_test.util.IRestStep;
 import util.file.IFileReader;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static io.restassured.RestAssured.given;
 
@@ -64,7 +63,6 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
         Assert.assertEquals(200, response.getStatusCode());
 
         JsonArray result = parseJsonElementResponse(response).getAsJsonObject().get("content").getAsJsonArray();
-        System.out.println("RESPONSE****: " + result.toString());
 
         Assert.assertTrue(result.isJsonArray());
 
@@ -83,8 +81,6 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
         Assert.assertEquals(200, response.getStatusCode());
 
         JsonArray result = parseJsonElementResponse(response).getAsJsonObject().get("content").getAsJsonArray();
-        System.out.println("RESPONSE for multiple product groups****: " + result.toString());
-
         Assert.assertTrue(result.isJsonArray());
 
         // Check that the result is a valid json object and returns list of product codes
@@ -99,22 +95,32 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
     // Verify single product description does not exist
     @Given("^a product description that does not exist$")
     public void aProductDescriptionThatDoesNotExist() throws Throwable {
-        // Assume product description does not exist
+        productDescriptions = new ArrayList<>();
+
+        String invalidProductDescription = "this is not a valid product description";
+        productDescriptions.add(invalidProductDescription);
     }
 
     // Verify multiple product description does not exist
     @Given("^multiple product descriptions that do not exist$")
     public void multipleProductDescriptionsThatDoNotExist() throws Throwable {
-        // Assume product descriptions do not exist
+        productDescriptions = new ArrayList<>();
+
+        String invalidProductDescription1 = "this is not a invalid product description";
+        String invalidProductDescription2 = "this is another a invalid product description";
+        productDescriptions.add(invalidProductDescription1);
+        productDescriptions.add(invalidProductDescription2);
     }
+
 
     @Then("^the crosswalk provides an empty list$")
     public void theCrosswalkProvidesAnEmptyList() throws Throwable {
-        response = request.post(RESOURCE_PRODUCT_CODE);
-        JsonElement result = parseJsonElementResponse(response);
+        // Make GET request and store response
+        response = request.param("productDescriptions", productDescriptions).get(RESOURCE_PRODUCT_CODE);
+        Assert.assertEquals(200, response.getStatusCode());
 
-        Assert.assertTrue(result.isJsonArray());
-        Assert.assertEquals(0, result.getAsJsonArray().size());
+        JsonElement result = parseJsonElementResponse(response).getAsJsonObject().get("totalElements");
+        Assert.assertEquals(0, result.getAsInt());
     }
 
     // Verify one valid and one invalid product description
@@ -126,17 +132,21 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
 
     @Then("^the crosswalk only provides the product code identifier of \"([^\"]*)\" for the valid product description$")
     public void theCrosswalkOnlyProvidesTheProductCodeIdentifierOfForTheValidProductDescription(String expectedProductCodes) throws Throwable {
-        ArrayList<String> expectedProductCodeArr = new ArrayList<>(Arrays.asList(expectedProductCodes.split(" ")));
+        // Make GET request and store response
+        response = request.param("productDescriptions", productDescriptions).get(RESOURCE_PRODUCT_CODE);
+        Assert.assertEquals(200, response.getStatusCode());
 
-        // Make post request and store response
-        response = request.post(RESOURCE_PRODUCT_CODE);
-        JsonElement result = parseJsonElementResponse(response);
+        JsonArray result = parseJsonElementResponse(response).getAsJsonObject().get("content").getAsJsonArray();
         Assert.assertTrue(result.isJsonArray());
 
-        // Check that the result is a valid json array and returns list of product codes
-//        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result.getAsJsonArray(), 1, 0);
+        JsonElement numProdDesc = parseJsonElementResponse(response).getAsJsonObject().get("totalElements");
+        Assert.assertEquals(1, numProdDesc.getAsInt());
 
-//        testProductCodeList(expectedProductCodeArr, resultProductCodeArr);
+        // Check that the result is a valid json object and returns list of product codes
+        String actualProductCodes = checkAndParseProductCodeResult(result, 0);
+
+        // check that the expected product code list is equal to the result/actual one.
+        Assert.assertEquals(expectedProductCodes, actualProductCodes);
     }
 
     /**
