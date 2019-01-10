@@ -1,11 +1,12 @@
 # Last updated on 
 @A_UI_Story
 @US1518160
-@2019.PI06
+@2018.PI05
+@2018.PI05.04
 @MVP
 @CMD_UI
-@releaseFuture
-@iterationUnknown
+@releasePresent
+@iterationPresent
 Feature: US1518160 - CMD UTILITY - Provider Category Type CMD maintenance upload/download
 
   @TC693619

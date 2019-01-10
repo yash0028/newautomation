@@ -15,7 +15,7 @@ Feature: US1483467 - Implement contract config api “providerproductstatus” w
   @Functional
   @CMD
   @contract-config-service
-  Scenario Outline: TC674586 - [RL0]
+  Scenario Outline: TC674586 - [RL0] Verify provider product status
     Given a valid contract installation transaction has been received from Exari
     When the contract configuration api is invoked with the following data
       | contractID     | <contractID>   |
