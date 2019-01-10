@@ -7,7 +7,7 @@
 @Priority_2
 @Facility
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1070428 - Exari>COSMOS Term/Cancel a Facility Contract - PSH - Coding
 
   @TC565745

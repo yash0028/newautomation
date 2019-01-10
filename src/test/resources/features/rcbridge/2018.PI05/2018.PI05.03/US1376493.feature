@@ -6,7 +6,7 @@
 @Priority_2
 @Parity
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1376493 - Extract 2 - COSMOS Physician (Product) based on migration parameters - Team 4 knowledge transfer and shared support for ongoing runs
 
   @TC608267

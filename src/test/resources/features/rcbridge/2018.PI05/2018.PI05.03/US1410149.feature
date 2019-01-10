@@ -5,7 +5,7 @@
 @2018.PI05.03
 @Scrum_Team_1
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1410149 - Bulk provider Roster EXTRACT from PES to Exari - Optum Work
 
   @TC692784

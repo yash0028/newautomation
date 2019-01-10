@@ -5,7 +5,7 @@
 @MVP
 @Maintenance
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1402778 - Allow Duplicate Edit 1 and 2 overrides on Active contracts
 
   @TC622456

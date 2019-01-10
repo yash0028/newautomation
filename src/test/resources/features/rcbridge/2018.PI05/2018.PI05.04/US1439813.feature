@@ -6,7 +6,7 @@
 @MVP
 @Plus
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1439813 - Integration - Obtain Fee Schedule Information
 
   @TC644489

@@ -5,7 +5,7 @@
 @Plus
 @releaseUnknown
 @iterationUnknown
-Feature: US972034 - Retro Why can't move effective date
+Feature: US972034 - Field on Initiate Retro Form - Retro Why can't move effective date
 
   @TC565550
   @Automated
