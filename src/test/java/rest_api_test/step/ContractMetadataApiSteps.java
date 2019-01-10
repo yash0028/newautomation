@@ -2,6 +2,7 @@ package rest_api_test.step;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -65,19 +66,20 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
 
         ArrayList<String> expectedProductCodeArr = new ArrayList<>(Arrays.asList(expectedProductCodes.split(" ")));
 
-        JsonElement result = parseJsonElementResponse(response);
+        JsonArray result = parseJsonElementResponse(response).getAsJsonObject().get("content").getAsJsonArray();
 
         System.out.println("RESPONSE****: " + result.toString());
 
+
         Assert.assertTrue(result.isJsonArray());
 
-        // Check that the result is a valid json array and returns list of product codes
+        // Check that the result is a valid json object and returns list of product codes
         // Check if response is a json array with one object that contains key value pair of productCodeList
         // and an array.
-        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result.getAsJsonArray(), 1, 0);
+//        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result);
 
         // check that the expected product code list is equal to the result/actual one.
-        testProductCodeList(expectedProductCodeArr, resultProductCodeArr);
+//        testProductCodeList(expectedProductCodeArr, resultProductCodeArr);
     }
 
     //verify multiple product Code lists Was returned For multiple ProductDescriptions
@@ -95,11 +97,11 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
         // Check that the result is a valid json array and returns list of product codes
         // Check if response is a json array with two objects. Each object contains key value pairs of productCodeList
         // and an array.
-        JsonArray resultProductCodeArr1 = checkAndParseProductCodeResult(result.getAsJsonArray(), 2, 0);
-        JsonArray resultProductCodeArr2 = checkAndParseProductCodeResult(result.getAsJsonArray(), 2, 1);
+//        JsonArray resultProductCodeArr1 = checkAndParseProductCodeResult(result.getAsJsonArray());
+//        JsonArray resultProductCodeArr2 = checkAndParseProductCodeResult(result.getAsJsonArray());
 
-        testProductCodeList(expectedProductCodeArr1, resultProductCodeArr1);
-        testProductCodeList(expectedProductCodeArr2, resultProductCodeArr2);
+//        testProductCodeList(expectedProductCodeArr1, resultProductCodeArr1);
+//        testProductCodeList(expectedProductCodeArr2, resultProductCodeArr2);
     }
 
     // Verify single product description does not exist
@@ -140,9 +142,9 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
         Assert.assertTrue(result.isJsonArray());
 
         // Check that the result is a valid json array and returns list of product codes
-        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result.getAsJsonArray(), 1, 0);
+//        JsonArray resultProductCodeArr = checkAndParseProductCodeResult(result.getAsJsonArray(), 1, 0);
 
-        testProductCodeList(expectedProductCodeArr, resultProductCodeArr);
+//        testProductCodeList(expectedProductCodeArr, resultProductCodeArr);
     }
 
     /**
@@ -166,27 +168,20 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
     /**
      * Check that the result is a valid json array.
      *
-     * @param result          the json element that we want to check
-     * @param expectedSize    verifies that the json array has the expected number of elements
-     * @param indexToRetrieve the index in the json array that we want to retrieve
+     * @param result the json element that we want to check
      * @return returns a list of product codes
      */
-    private JsonArray checkAndParseProductCodeResult(JsonArray result, int expectedSize, int indexToRetrieve) throws Throwable {
-        // check for correct size
-        Assert.assertEquals(expectedSize, result.getAsJsonArray().size());
-
+    private JsonElement checkAndParseProductCodeResult(JsonArray result) throws Throwable {
         // get index of result array
-        JsonElement resultIndex = result.get(indexToRetrieve);
-        Assert.assertTrue(resultIndex.isJsonObject());
+        JsonElement resultIndex = result.get(0);
 
         // check if productCodeList element exists
         Assert.assertTrue(resultIndex.getAsJsonObject().has("productCodeList"));
 
-        // get value of product code list which is an array
-        JsonElement resultProductCodeArr = resultIndex.getAsJsonObject().get("productCodeList");
-        Assert.assertTrue(resultProductCodeArr.isJsonArray());
+        // get the values of the product codes
+        JsonElement resultProductCode = resultIndex.getAsJsonObject().get("productCodeList");
 
-        return resultProductCodeArr.getAsJsonArray();
+        return resultProductCode;
     }
 
 //    /**
