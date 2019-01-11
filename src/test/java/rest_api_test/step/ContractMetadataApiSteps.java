@@ -63,11 +63,11 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
         Assert.assertEquals(200, response.getStatusCode());
 
         JsonArray result = parseJsonElementResponse(response).getAsJsonObject().get("content").getAsJsonArray();
-
         Assert.assertTrue(result.isJsonArray());
 
         // Check that the result is a valid json object and returns list of product codes
         String actualProductCodes = checkAndParseProductCodeResult(result, 0);
+        log.info("Actual product codes for single product description: {}", actualProductCodes);
 
         // check that the expected product code list is equal to the result/actual one.
         Assert.assertEquals(expectedProductCodes, actualProductCodes);
@@ -85,7 +85,10 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
 
         // Check that the result is a valid json object and returns list of product codes
         String actualProductCodes1 = checkAndParseProductCodeResult(result, 0);
+        log.info("Actual product codes for multiple product description: {}", actualProductCodes1);
+
         String actualProductCodes2 = checkAndParseProductCodeResult(result, 1);
+        log.info("Actual product codes for multiple product description: {}", actualProductCodes2);
 
         // check that the expected product code list is equal to the result/actual one.
         Assert.assertEquals(expectedProductCodes1, actualProductCodes1);
@@ -121,6 +124,7 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
 
         JsonElement result = parseJsonElementResponse(response).getAsJsonObject().get("totalElements");
         Assert.assertEquals(0, result.getAsInt());
+        log.info("total elements when no product codes exists: {}", result.getAsInt());
     }
 
     // Verify one valid and one invalid product description
@@ -144,6 +148,7 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
 
         // Check that the result is a valid json object and returns list of product codes
         String actualProductCodes = checkAndParseProductCodeResult(result, 0);
+        log.info("Product codes for one valid and one invalid product description: {}", actualProductCodes);
 
         // check that the expected product code list is equal to the result/actual one.
         Assert.assertEquals(expectedProductCodes, actualProductCodes);
@@ -164,8 +169,6 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
 
         // get the values of the product codes
         JsonElement resultProductCode = resultIndex.getAsJsonObject().get("productCodeList");
-
-        System.out.println("Product codes ****: " + resultProductCode.getAsString());
 
         return resultProductCode.getAsString();
     }
