@@ -1,5 +1,6 @@
 # Last updated on 
 @MVP
+@contract-metadata-api
 @Amrutha
 @Priority
 @US1185585
@@ -14,13 +15,14 @@
 @iterationPast
 Feature: US1185585 - Contract Product Description Crosswalk
 
-  @TC564546
-  @Automated
+  @TC697427
+  @Manual
   @Functional
   @MVP
+  @contract-metadata-api
   @Amrutha
   @Priority
-  Scenario Outline: TC564546 - [RL0] Validate that the crosswalk provides the product code list for a single corresponding product description
+  Scenario Outline: TC697427 - [RL0]
     # Passing in a single valid product description
     Given a product description to product code crosswalk exists
     And using product description from the corresponding "<productDescription>"
@@ -33,13 +35,14 @@ Feature: US1185585 - Contract Product Description Crosswalk
       | CHARTER            | SG,SH,SI           |
       | VA Medicaid        | XX                 |
 
-  @TC569883
-  @Automated
+  @TC697437
+  @Manual
   @Functional
   @MVP
+  @contract-metadata-api
   @Amrutha
   @Priority
-  Scenario Outline: TC569883 - [RL1] Validate that the crosswalk provides the product code list for multiple corresponding product descriptions
+  Scenario Outline: TC697437 - [RL1]
     # Passing in multiple valid product descriptions
     Given a product description to product code crosswalk exists
     And using product descriptions from the corresponding "<productDescription1>" and "<productDescription2>"
@@ -50,37 +53,40 @@ Feature: US1185585 - Contract Product Description Crosswalk
       | Empire              | P3                  | MEDICAID            | D0                  |
       | CHARTER             | SG,SH,SI            | VA Medicaid         | XX                  |
 
-  @TC575412
-  @Automated
+  @TC697441
+  @Manual
   @Functional
   @MVP
+  @contract-metadata-api
   @Amrutha
   @Priority
-  Scenario: TC575412 - [RL2] Validate empty list for passing in one bad product description
+  Scenario: TC697441 - [RL2]
     # Passing in a single invalid product description
     Given a product description that does not exist
     When exchanging information about the products included or excluded from an Exari contract
     Then the crosswalk provides an empty list
 
-  @TC575413
-  @Automated
+  @TC697442
+  @Manual
   @Functional
   @MVP
+  @contract-metadata-api
   @Amrutha
   @Priority
-  Scenario: TC575413 - [RL3] Validate only single valid product code list for passing in one good and one bad product description
+  Scenario: TC697442 - [RL3]
     # Passing in one valid and one invalid product description
     Given a product description from the corresponding "Empire" and an invalid product description
     When exchanging information about the products included or excluded from an Exari contract
     Then the crosswalk only provides the product code identifier of "P3" for the valid product description
 
-  @TC569866
-  @Automated
+  @TC697443
+  @Manual
   @Functional
   @MVP
+  @contract-metadata-api
   @Amrutha
   @Priority
-  Scenario: TC569866 - [RL4] Validate empty list for passing in multiple bad product descriptions
+  Scenario: TC697443 - [RL4]
     # Passing in multiple invalid product descriptions
     Given multiple product descriptions that do not exist
     When exchanging information about the products included or excluded from an Exari contract

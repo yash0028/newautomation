@@ -1,8 +1,8 @@
 # Last updated on 
 @US1401398
-@2018.PI05
+@2019.PI06
 @CMD
-@releasePresent
+@releaseFuture
 @iterationUnknown
 Feature: US1401398 - Execute PCP identificaiton and gatekeepr product business rule API
 
@@ -11,7 +11,7 @@ Feature: US1401398 - Execute PCP identificaiton and gatekeepr product business r
   @Functional
   Scenario: TC627935 - [RL0]
     ###Scenario 1 (Cancellations on roster request- No PCP's found on roster)
-    Given The roster submitted contains providers with a cancellation
+    Given conditions have been met for PCP reassignment workflow : The roster submitted contains providers with a cancellation
     When The PCP Identification API is executed
     And The response contains no PCP's
     Then Then the roster request should continue to process through existing process
