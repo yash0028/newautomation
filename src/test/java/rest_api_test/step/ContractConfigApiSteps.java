@@ -19,7 +19,7 @@ import static io.restassured.RestAssured.given;
  * Created by dtimaul on 12/20/18.
  */
 public class ContractConfigApiSteps implements IRestStep {
-    private static final Logger log = LoggerFactory.getLogger(ActivitiApiSteps.class);
+    private static final Logger log = LoggerFactory.getLogger(ContractConfigApiSteps.class);
 
     private static final String ENDPOINT = "http://contract-config-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_PROVIDER_STATUS = "/v1.0/contract-config/products/providerstatus";
