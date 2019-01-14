@@ -1,10 +1,10 @@
 # Last updated on 
 @US1526213
 @2018.PI05
-@2018.PI05.03
+@2018.PI05.04
 @CMD
 @releasePresent
-@iterationPast
+@iterationPresent
 Feature: US1526213 - PCP reassignment work objects audits database schema  (PCP) - addendum
 
   @TC695695

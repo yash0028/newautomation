@@ -1,12 +1,10 @@
 # Last updated on 
 @US1391148
-@2018.PI05
-@2018.PI05.04
 @MVP
 @Scrum_Team_1
 @Maintenance
-@releasePresent
-@iterationPresent
+@releaseUnknown
+@iterationUnknown
 Feature: US1391148 - Validate contract data - add
 
   @TC616906

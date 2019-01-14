@@ -16,7 +16,7 @@
 Feature: US1185585 - Contract Product Description Crosswalk
 
   @TC697427
-  @Manual
+  @Automated
   @Functional
   @MVP
   @contract-metadata-api
@@ -36,7 +36,7 @@ Feature: US1185585 - Contract Product Description Crosswalk
       | VA Medicaid        | XX                 |
 
   @TC697437
-  @Manual
+  @Automated
   @Functional
   @MVP
   @contract-metadata-api
@@ -54,7 +54,7 @@ Feature: US1185585 - Contract Product Description Crosswalk
       | CHARTER             | SG,SH,SI            | VA Medicaid         | XX                  |
 
   @TC697441
-  @Manual
+  @Automated
   @Functional
   @MVP
   @contract-metadata-api
@@ -67,7 +67,7 @@ Feature: US1185585 - Contract Product Description Crosswalk
     Then the crosswalk provides an empty list
 
   @TC697442
-  @Manual
+  @Automated
   @Functional
   @MVP
   @contract-metadata-api
@@ -80,7 +80,7 @@ Feature: US1185585 - Contract Product Description Crosswalk
     Then the crosswalk only provides the product code identifier of "P3" for the valid product description
 
   @TC697443
-  @Manual
+  @Automated
   @Functional
   @MVP
   @contract-metadata-api
