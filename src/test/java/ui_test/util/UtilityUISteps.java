@@ -26,7 +26,7 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
      *
      * @param scenario the cucumber scenario automatically given by cucumber runner
      */
-    @Before(value = "@A_UI_Story", order = BookendOrder.UI)
+    @Before(value = "@User_Interface", order = BookendOrder.UI)
     public void openConnection(Scenario scenario) {
 
         if (isRemoteDriver()) {
@@ -38,7 +38,7 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
         }
     }
 
-    @After(value = "@A_UI_Story", order = -1 * (BookendOrder.UI - 1))
+    @After(value = "@User_Interface", order = -1 * (BookendOrder.UI - 1))
     public void takeScreenshot() {
         Scenario scenario = UtilityGeneralSteps.scenario;
 
@@ -58,7 +58,7 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
      *
      * @param scenario the cucumber scenario automatically given by cucumber runner
      */
-    @After(value = "@A_UI_Story", order = -1 * BookendOrder.UI)
+    @After(value = "@User_Interface", order = -1 * BookendOrder.UI)
     public void closeConnection(Scenario scenario) {
         if (isRemoteDriver()) {
             try {
