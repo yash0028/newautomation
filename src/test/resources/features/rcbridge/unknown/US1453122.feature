@@ -8,7 +8,7 @@ Feature: US1453122 - Author SPGA Contact UI Path
 
   @TC652719
   @Manual
-  @Functional
+  @User_Interface
   @A_UI_Story
   Scenario Outline: TC652719 - [RL0]
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site

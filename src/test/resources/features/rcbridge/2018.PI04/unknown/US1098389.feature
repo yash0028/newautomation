@@ -3,8 +3,6 @@
 @Plus
 @US1098389
 @2018.PI04
-@MVP
-@Parity
 @releasePast
 @iterationUnknown
 Feature: US1098389 - Specify transactions values via UI

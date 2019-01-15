@@ -3,8 +3,6 @@
 @Parity
 @US1100777
 @2018.PI04
-@MVP
-@Parity
 @releasePast
 @iterationUnknown
 Feature: US1100777 - Specify transaction values via spreadsheet
