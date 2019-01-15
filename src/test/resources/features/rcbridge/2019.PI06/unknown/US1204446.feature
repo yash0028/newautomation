@@ -5,10 +5,10 @@
 @iterationUnknown
 Feature: US1204446 - Editing the Physician Payload logic for Reassign fields
 
-  @TC564515
-  @Automated
+  @TC701662
+  @Manual
   @Functional
-  Scenario: TC564515 - [RL0]
+  Scenario: TC701662 - [RL0]
     Given A roster event transaction is received
     And The roster contains a termination request
     And At least one provider is a PCP
@@ -16,10 +16,10 @@ Feature: US1204446 - Editing the Physician Payload logic for Reassign fields
     When the reassignment data is available in the database
     Then The data is included in the payload
 
-  @TC564516
-  @Automated
+  @TC701705
+  @Manual
   @Functional
-  Scenario: TC564516 - [RL1]
+  Scenario: TC701705 - [RL1]
     Given A roster event transaction is received
     And The roster contains a termination request
     And At least one provider is a PCP

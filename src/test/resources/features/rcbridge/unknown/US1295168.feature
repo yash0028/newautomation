@@ -4,10 +4,10 @@
 @iterationUnknown
 Feature: US1295168 - Update OSE Templates
 
-  @TC565149
-  @Automated
+  @TC701664
+  @Manual
   @Functional
-  Scenario: TC565149 - [RL0]
+  Scenario: TC701664 - [RL0]
     Given I choose an image and OSE environmnet,
     When I deploy to given environment,
     Then the template has ll the correct tags and presets.

@@ -7,11 +7,11 @@
 @iterationPast
 Feature: US860755 - [UNFINISHED] Setup initial SPA/PAT Contract Template
 
-  @TC564519
-  @Automated
+  @TC701660
+  @Manual
   @Functional
   @MVP
-  Scenario: TC564519 - [RL0]
+  Scenario: TC701660 - [RL0]
     Given I am a Business Administrator in Exari
     When I log into Power Author
     Then I am able to create a SPA and PAT contract template, referencing the provided UHN drafting tools, and apply the style, body and initial logic.

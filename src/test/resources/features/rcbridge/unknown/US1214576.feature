@@ -4,10 +4,10 @@
 @iterationUnknown
 Feature: US1214576 - CLM Base Docker Image
 
-  @TC565671
-  @Automated
+  @TC701669
+  @Manual
   @Functional
-  Scenario: TC565671 - [RL0]
+  Scenario: TC701669 - [RL0]
     Given a developer wants to build a new clm service,
     When they use the clm base docker image,
     Then they will have the necessary pieces to deploy with Monitoring, logging, etc.

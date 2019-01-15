@@ -7,11 +7,11 @@
 @iterationPast
 Feature: US860745 - Setup Business Organizations
 
-  @TC564565
-  @Automated
+  @TC701665
+  @Manual
   @Functional
   @MVP
-  Scenario: TC564565 - [RL0]
+  Scenario: TC701665 - [RL0]
     Given I am logged into Exari as a Business Administrator,
     When I select the Create Site button,
     Then I am able to enter the Name, Description, and Visibility, and select save.

@@ -4,10 +4,10 @@
 @iterationUnknown
 Feature: US1239950 - F5 GTMs for Production
 
-  @TC564756
-  @Automated
+  @TC701657
+  @Manual
   @Functional
-  Scenario: TC564756 - [RL0]
+  Scenario: TC701657 - [RL0]
     Given a service is exposed through layer 7,
     When multiple requests come into that service,
     Then the requests are spread out between ELR and CTC datacenters
