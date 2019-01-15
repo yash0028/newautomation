@@ -2,11 +2,6 @@
 @US1256905
 @2018.PI04
 @2018.PI04.03
-@MVP
-@10/1_Physician
-@Priority_1
-@CMD
-@Amrutha
 @releasePast
 @iterationPast
 Feature: US1256905 - Create CLM Rule Table

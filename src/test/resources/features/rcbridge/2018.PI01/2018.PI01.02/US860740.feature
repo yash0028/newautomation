@@ -3,8 +3,6 @@
 @US860740
 @2018.PI01
 @2018.PI01.02
-@MVP
-@CLM_Exari
 @releasePast
 @iterationPast
 Feature: US860740 - [Continued] Setup User Groups for Contract Authoring

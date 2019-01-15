@@ -4,10 +4,6 @@
 @US1097032
 @2018.PI02
 @2018.PI02.02
-@MVP
-@PI02_Top3
-@Plus
-@Parity
 @releasePast
 @iterationPast
 Feature: US1097032 - Error - Org type is on table and paper type is not correct

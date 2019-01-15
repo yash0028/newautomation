@@ -4,10 +4,6 @@
 @US1129434
 @2018.PI02
 @2018.PI02.02
-@MVP
-@PI02_Top3
-@Plus
-@Parity
 @releasePast
 @iterationPast
 Feature: US1129434 - Error - Specialty Indicator or Org Type not found for given Provider on Roster

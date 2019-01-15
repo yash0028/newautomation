@@ -2,8 +2,6 @@
 @US1057716
 @2018.PI01
 @2018.PI01.04
-@MVP
-@PES
 @releasePast
 @iterationPast
 Feature: US1057716 - Micro Service connecting to Provider Search Services

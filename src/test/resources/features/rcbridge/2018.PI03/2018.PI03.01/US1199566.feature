@@ -3,11 +3,6 @@
 @US1199566
 @2018.PI03
 @2018.PI03.01
-@MVP
-@10/1_Physician
-@Crosswalk
-@Priority_1
-@CMD
 @releasePast
 @iterationPast
 Feature: US1199566 - Create Table Structure and Data Types

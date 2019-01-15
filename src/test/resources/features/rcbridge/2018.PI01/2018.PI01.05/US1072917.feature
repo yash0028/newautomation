@@ -3,7 +3,6 @@
 @US1072917
 @2018.PI01
 @2018.PI01.05
-@MVP
 @releasePast
 @iterationPast
 Feature: US1072917 - Exari>NDB UNET Physician Payload Data Field Mapping  - API

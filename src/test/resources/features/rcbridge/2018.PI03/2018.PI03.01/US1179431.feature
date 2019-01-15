@@ -2,11 +2,6 @@
 @US1179431
 @2018.PI03
 @2018.PI03.01
-@MVP
-@PI02_Top3
-@Domain_Microservice
-@Parity
-@Contract_Query
 @releasePast
 @iterationPast
 Feature: US1179431 - [Continued] PIC Implementation

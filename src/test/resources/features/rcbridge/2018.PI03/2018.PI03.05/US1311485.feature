@@ -3,14 +3,6 @@
 @US1311485
 @2018.PI03
 @2018.PI03.05
-@PI02_Top3
-@PES
-@Exari_Microservice
-@MVP
-@10/1_Physician
-@Priority_1
-@CLM_Exari
-@Parity
 @releasePast
 @iterationPast
 Feature: US1311485 - PES Roster Call -Change Output Results

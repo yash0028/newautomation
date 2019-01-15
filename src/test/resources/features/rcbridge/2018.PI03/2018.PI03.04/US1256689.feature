@@ -3,10 +3,6 @@
 @US1256689
 @2018.PI03
 @2018.PI03.04
-@MVP
-@10/1_Physician
-@CMD
-@CMD_Tables
 @releasePast
 @iterationPast
 Feature: US1256689 - [Continued] Validate Table data

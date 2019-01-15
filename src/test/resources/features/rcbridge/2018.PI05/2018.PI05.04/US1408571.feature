@@ -2,10 +2,6 @@
 @US1408571
 @2018.PI05
 @2018.PI05.04
-@MVP
-@Priority_2
-@NDB
-@CMD
 @releasePresent
 @iterationPresent
 Feature: US1408571 - Identify sanction error code from NDB as Type 2 error

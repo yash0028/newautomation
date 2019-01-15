@@ -1,8 +1,6 @@
 # Last updated on 
 @US1387308
 @2018.PI05
-@MVP
-@Maintenance
 @releasePresent
 @iterationUnknown
 Feature: US1387308 - Process ADD transaction to subscribing platform(s)

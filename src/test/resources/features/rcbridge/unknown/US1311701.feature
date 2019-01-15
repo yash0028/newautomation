@@ -1,8 +1,6 @@
 # Last updated on 
 @MVP
 @US1311701
-@CMD2
-@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US1311701 - Med Nec clause table audit trail  - Facility

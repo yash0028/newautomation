@@ -2,8 +2,6 @@
 @A_UI_Story
 @US1517956
 @2019.PI06
-@MVP
-@CMD_UI
 @releaseFuture
 @iterationUnknown
 Feature: US1517956 - CMD UTILITY -Affiliation Type code list CMD maintenance upload/download

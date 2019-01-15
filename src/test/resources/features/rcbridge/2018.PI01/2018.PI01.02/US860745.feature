@@ -3,8 +3,6 @@
 @US860745
 @2018.PI01
 @2018.PI01.02
-@MVP
-@CLM_Exari
 @releasePast
 @iterationPast
 Feature: US860745 - Setup Business Organizations

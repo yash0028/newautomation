@@ -4,10 +4,6 @@
 @US1270195
 @2018.PI03
 @2018.PI03.05
-@MVP
-@PI02_Top3
-@Plus
-@Parity
 @releasePast
 @iterationPast
 Feature: US1270195 - Point to new ETMA DB

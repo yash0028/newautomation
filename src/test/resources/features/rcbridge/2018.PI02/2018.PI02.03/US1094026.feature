@@ -4,13 +4,6 @@
 @US1094026
 @2018.PI02
 @2018.PI02.03
-@PI02_Top3
-@AUTO-PES
-@PES
-@Exari_Microservice
-@MVP
-@CLM_Exari
-@Parity
 @releasePast
 @iterationPast
 Feature: US1094026 - [Continued] Create External Data Query for PES

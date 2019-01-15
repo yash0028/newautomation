@@ -1,7 +1,5 @@
 # Last updated on 
 @US1203508
-@MVP
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1203508 - Transaction scoped key-value store (Resource Store)

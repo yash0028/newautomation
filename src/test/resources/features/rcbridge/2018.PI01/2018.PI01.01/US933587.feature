@@ -3,8 +3,6 @@
 @US933587
 @2018.PI01
 @2018.PI01.01
-@MVP
-@CLM_Exari
 @releasePast
 @iterationPast
 Feature: US933587 - Setup Standard Configuration Settings

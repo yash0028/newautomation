@@ -3,7 +3,6 @@
 @US1289622
 @2018.PI03
 @2018.PI03.04
-@MVP
 @releasePast
 @iterationPast
 Feature: US1289622 - Initialize events from contract transaction changes in Event Trigger

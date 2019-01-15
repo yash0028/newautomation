@@ -2,11 +2,6 @@
 @US1260992
 @2018.PI03
 @2018.PI03.02
-@MVP
-@10/1_Physician
-@Priority_1
-@Transaction
-@Parity
 @releasePast
 @iterationPast
 Feature: US1260992 - [Unfinished] Downstream system specific validation handling

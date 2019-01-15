@@ -2,10 +2,6 @@
 @US1261002
 @2018.PI03
 @2018.PI03.02
-@MVP
-@Priority_1
-@Parity
-@Examiner
 @releasePast
 @iterationPast
 Feature: US1261002 - [Unfinished] Contract Query API Implementation

@@ -2,10 +2,6 @@
 @US1410130
 @2018.PI05
 @2018.PI05.04
-@MVP
-@Priority_2
-@NDB
-@CMD
 @releasePresent
 @iterationPresent
 Feature: US1410130 - Identify Invalid COSMOS network number as Type 2 error

@@ -2,10 +2,6 @@
 @US1100684
 @2018.PI02
 @2018.PI02.01
-@MVP
-@PI02_Top3
-@Plus
-@Parity
 @releasePast
 @iterationPast
 Feature: US1100684 - Event Subscription and Publication Library Refinement

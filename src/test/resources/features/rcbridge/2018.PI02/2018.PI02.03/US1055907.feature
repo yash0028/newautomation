@@ -2,10 +2,6 @@
 @US1055907
 @2018.PI02
 @2018.PI02.03
-@MVP
-@PI02_Top3
-@Plus
-@Parity
 @releasePast
 @iterationPast
 Feature: US1055907 - Kafka Consumer Library Test Cases

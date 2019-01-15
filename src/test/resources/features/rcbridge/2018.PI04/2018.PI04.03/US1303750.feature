@@ -2,10 +2,6 @@
 @US1303750
 @2018.PI04
 @2018.PI04.03
-@MVP
-@Madhur
-@Priority_1
-@CMD
 @releasePast
 @iterationPast
 Feature: US1303750 - [Continued] [Continued] CMD- User Input Required Page- View & Edit contract detail information (no search results found)

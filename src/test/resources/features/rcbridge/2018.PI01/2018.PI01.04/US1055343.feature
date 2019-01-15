@@ -2,7 +2,6 @@
 @US1055343
 @2018.PI01
 @2018.PI01.04
-@MVP
 @releasePast
 @iterationPast
 Feature: US1055343 - Integrate Openshift Deployments with Jenkins Pipeline

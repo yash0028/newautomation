@@ -1,8 +1,6 @@
 # Last updated on 
 @MVP
 @US1229512
-@CMD2
-@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US1229512 - Med Nec clause table update NDB service - Facility

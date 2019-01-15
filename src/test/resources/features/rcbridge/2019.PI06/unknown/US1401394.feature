@@ -1,7 +1,6 @@
 # Last updated on 
 @US1401394
 @2019.PI06
-@CMD
 @releaseFuture
 @iterationUnknown
 Feature: US1401394 - Analyze Roster submission for cancelations- Logic

@@ -3,8 +3,6 @@
 @US1038286
 @2018.PI01
 @2018.PI01.03
-@MVP
-@CLM_Exari
 @releasePast
 @iterationPast
 Feature: US1038286 - [CONTINUED] Setup initial SPA/PAT Contract Template

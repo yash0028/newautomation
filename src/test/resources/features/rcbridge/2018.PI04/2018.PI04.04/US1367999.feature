@@ -3,11 +3,6 @@
 @US1367999
 @2018.PI04
 @2018.PI04.04
-@MVP
-@10/1_Physician
-@Priority_1
-@kumar,_Sachin
-@CMD
 @releasePast
 @iterationPast
 Feature: US1367999 - PCP Specialties Standard definition UHN

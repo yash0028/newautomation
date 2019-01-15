@@ -2,10 +2,6 @@
 @US1199511
 @2018.PI03
 @2018.PI03.05
-@MVP
-@Priority_1
-@PIC
-@Parity
 @releasePast
 @iterationPast
 Feature: US1199511 - [Continued] PIC Implementation

@@ -3,10 +3,6 @@
 @US1295290
 @2018.PI03
 @2018.PI03.05
-@MVP
-@Plus
-@Priority_1
-@Exari_Microservice
 @releasePast
 @iterationPast
 Feature: US1295290 - Allow user to specify version number

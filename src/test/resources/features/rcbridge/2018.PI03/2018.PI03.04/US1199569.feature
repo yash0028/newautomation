@@ -2,11 +2,6 @@
 @US1199569
 @2018.PI03
 @2018.PI03.04
-@MVP
-@10/1_Physician
-@Crosswalk
-@Priority_1
-@CMD
 @releasePast
 @iterationPast
 Feature: US1199569 - [Continued] Validate Data

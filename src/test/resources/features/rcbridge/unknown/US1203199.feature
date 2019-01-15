@@ -1,7 +1,5 @@
 # Last updated on 
 @US1203199
-@MVP
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1203199 - Detect transaction timeouts

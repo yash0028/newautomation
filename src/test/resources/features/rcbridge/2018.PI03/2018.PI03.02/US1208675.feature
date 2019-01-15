@@ -2,9 +2,6 @@
 @US1208675
 @2018.PI03
 @2018.PI03.02
-@MVP
-@PI03
-@10/1_Physician
 @releasePast
 @iterationPast
 Feature: US1208675 - [Continued] Attend Alfresco Training

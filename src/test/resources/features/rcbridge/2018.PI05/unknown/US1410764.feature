@@ -1,8 +1,6 @@
 # Last updated on 
 @US1410764
 @2018.PI05
-@MVP
-@Maintenance
 @releasePresent
 @iterationUnknown
 Feature: US1410764 - Handle Roster Update Event

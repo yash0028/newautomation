@@ -2,12 +2,6 @@
 @US1098621
 @2018.PI02
 @2018.PI02.01
-@MVP
-@PI02_Top3
-@Domain_Microservice
-@PIC
-@Parity
-@Examiner
 @releasePast
 @iterationPast
 Feature: US1098621 - Examiner needs analysis - Spike

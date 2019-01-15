@@ -2,13 +2,6 @@
 @US1178363
 @2018.PI02
 @2018.PI02.05
-@PI02_Top3
-@AUTO-PES
-@PES
-@Exari_Microservice
-@MVP
-@CLM_Exari
-@Parity
 @releasePast
 @iterationPast
 Feature: US1178363 - Error and Exception Handling framework

@@ -2,10 +2,6 @@
 @US1289382
 @2018.PI04
 @2018.PI04.04
-@MVP
-@10/1_Physician
-@Priority_1
-@CMD
 @releasePast
 @iterationPast
 Feature: US1289382 - Contract Config Services - Contract Config search service

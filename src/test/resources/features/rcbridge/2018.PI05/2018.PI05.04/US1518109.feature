@@ -3,8 +3,6 @@
 @US1518109
 @2018.PI05
 @2018.PI05.04
-@MVP
-@Maintenance
 @releasePresent
 @iterationPresent
 Feature: US1518109 - Identify contract master selection

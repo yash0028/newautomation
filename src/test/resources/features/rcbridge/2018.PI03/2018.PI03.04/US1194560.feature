@@ -4,14 +4,6 @@
 @US1194560
 @2018.PI03
 @2018.PI03.04
-@PI02_Top3
-@PES
-@Exari_Microservice
-@MVP
-@10/1_Physician
-@Priority_1
-@CLM_Exari
-@Parity
 @releasePast
 @iterationPast
 Feature: US1194560 - PES ExternaI Data Query (Appendix 1 lookup)

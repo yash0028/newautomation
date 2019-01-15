@@ -3,10 +3,6 @@
 @US1301613
 @2018.PI03
 @2018.PI03.05
-@MVP
-@10/1_Physician
-@Priority_1
-@CMD
 @releasePast
 @iterationPast
 Feature: US1301613 - CMD Dashboard buttons

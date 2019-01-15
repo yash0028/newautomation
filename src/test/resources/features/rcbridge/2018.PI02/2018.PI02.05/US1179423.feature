@@ -2,12 +2,6 @@
 @US1179423
 @2018.PI02
 @2018.PI02.05
-@MVP
-@PI02_Top3
-@Domain_Microservice
-@PIC
-@Parity
-@Examiner
 @releasePast
 @iterationPast
 Feature: US1179423 - [Continued] Examiner implementation

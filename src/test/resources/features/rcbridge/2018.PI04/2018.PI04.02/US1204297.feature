@@ -4,10 +4,6 @@
 @US1204297
 @2018.PI04
 @2018.PI04.02
-@MVP
-@Madhur
-@Priority_1
-@CMD
 @releasePast
 @iterationPast
 Feature: US1204297 - NDB Common Pricing Solution Lookup API

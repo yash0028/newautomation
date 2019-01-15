@@ -4,10 +4,6 @@
 @US1358444
 @2018.PI04
 @2018.PI04.01
-@MVP
-@10/1_Physician
-@Priority_1
-@CMD
 @releasePast
 @iterationPast
 Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)

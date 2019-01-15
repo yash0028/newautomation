@@ -1,8 +1,6 @@
 # Last updated on 
 @US1387184
 @2018.PI05
-@MVP
-@Maintenance
 @releasePresent
 @iterationUnknown
 Feature: US1387184 - Validate roster data - add

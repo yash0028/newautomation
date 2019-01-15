@@ -2,10 +2,6 @@
 @US1179417
 @2018.PI02
 @2018.PI02.05
-@MVP
-@PI02_Top3
-@NDB
-@Parity
 @releasePast
 @iterationPast
 Feature: US1179417 - [Continued] Exari event producer [contracts-gateway-api]

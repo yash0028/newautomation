@@ -3,10 +3,6 @@
 @US1388680
 @2018.PI04
 @2018.PI04.02
-@MVP
-@Madhur
-@Priority_1
-@CMD
 @releasePast
 @iterationPast
 Feature: US1388680 - [Unfinished] CMD- User Input Required Page- Populate rows of data

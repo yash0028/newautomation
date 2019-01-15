@@ -3,10 +3,6 @@
 @US1256687
 @2018.PI03
 @2018.PI03.03
-@MVP
-@10/1_Physician
-@CMD
-@CMD_Tables
 @releasePast
 @iterationPast
 Feature: US1256687 - Populate initial Provider Taxonomy Grid table

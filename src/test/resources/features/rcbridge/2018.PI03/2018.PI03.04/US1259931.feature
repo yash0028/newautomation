@@ -5,10 +5,6 @@
 @US1259931
 @2018.PI03
 @2018.PI03.04
-@MVP
-@10/1_Physician
-@CMD
-@CMD_Tables
 @releasePast
 @iterationPast
 Feature: US1259931 - [Continued] Maintain data using table template

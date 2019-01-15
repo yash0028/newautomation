@@ -1,7 +1,6 @@
 # Last updated on 
 @US1385535
 @2019.PI06
-@CMD
 @releaseFuture
 @iterationUnknown
 Feature: US1385535 - Update Contract service to check for PCP Reassignment and add to canonical contract update request

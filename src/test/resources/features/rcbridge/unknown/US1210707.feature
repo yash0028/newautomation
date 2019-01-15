@@ -1,7 +1,5 @@
 # Last updated on 
 @US1210707
-@MVP
-@Priority_1
 @releaseUnknown
 @iterationUnknown
 Feature: US1210707 - Resource Store Cleanup Service

@@ -2,11 +2,6 @@
 @US1199538
 @2018.PI03
 @2018.PI03.01
-@MVP
-@10/1_Physician
-@Priority_1
-@Transaction
-@Parity
 @releasePast
 @iterationPast
 Feature: US1199538 - Event Gateway API Spike

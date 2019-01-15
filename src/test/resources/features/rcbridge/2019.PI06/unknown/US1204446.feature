@@ -1,10 +1,6 @@
 # Last updated on 
 @US1204446
 @2019.PI06
-@MVP
-@Priority_2
-@Amrutha
-@Parity
 @releaseFuture
 @iterationUnknown
 Feature: US1204446 - Editing the Physician Payload logic for Reassign fields

@@ -2,10 +2,6 @@
 @US1077963
 @2018.PI02
 @2018.PI02.03
-@MVP
-@PI02_Top3
-@Plus
-@Parity
 @releasePast
 @iterationPast
 Feature: US1077963 - Transaction Status Update and Connect Database

@@ -4,14 +4,6 @@
 @US1253705
 @2018.PI03
 @2018.PI03.04
-@PI02_Top3
-@PES
-@Exari_Microservice
-@MVP
-@10/1_Physician
-@Priority_1
-@CLM_Exari
-@Parity
 @releasePast
 @iterationPast
 Feature: US1253705 - Create Appendix 1 Search Demographics API

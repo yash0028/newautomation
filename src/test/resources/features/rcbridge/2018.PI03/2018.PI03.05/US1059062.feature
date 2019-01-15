@@ -2,11 +2,6 @@
 @US1059062
 @2018.PI03
 @2018.PI03.05
-@MVP
-@Plus
-@10/1_Physician
-@Cosmos
-@Parity
 @releasePast
 @iterationPast
 Feature: US1059062 - [Continued]Common Pricing Solution - COSMOS Payload - Add Contract

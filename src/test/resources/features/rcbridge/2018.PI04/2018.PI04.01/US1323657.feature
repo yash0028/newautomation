@@ -5,14 +5,6 @@
 @US1323657
 @2018.PI04
 @2018.PI04.01
-@PI02_Top3
-@PES
-@Exari_Microservice
-@MVP
-@10/1_Physician
-@Priority_1
-@CLM_Exari
-@Parity
 @releasePast
 @iterationPast
 Feature: US1323657 - PES Automation of Add. locations for all other contracts

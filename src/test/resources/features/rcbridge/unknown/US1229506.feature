@@ -1,7 +1,5 @@
 # Last updated on 
 @US1229506
-@CMD2
-@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US1229506 - Med Nec clause table - Facility

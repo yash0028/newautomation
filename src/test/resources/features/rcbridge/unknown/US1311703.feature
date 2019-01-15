@@ -1,8 +1,6 @@
 # Last updated on 
 @MVP
 @US1311703
-@CMD2
-@Priority_2
 @releaseUnknown
 @iterationUnknown
 Feature: US1311703 - Med Nec clause table CMD UI - Facility

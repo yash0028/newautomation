@@ -2,11 +2,6 @@
 @US1285441
 @2018.PI03
 @2018.PI03.05
-@MVP
-@10/1_Physician
-@Crosswalk
-@Priority_1
-@CMD
 @releasePast
 @iterationPast
 Feature: US1285441 - [Continued]Identify new Product Codes

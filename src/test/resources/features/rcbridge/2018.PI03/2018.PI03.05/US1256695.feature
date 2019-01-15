@@ -2,10 +2,6 @@
 @US1256695
 @2018.PI03
 @2018.PI03.05
-@MVP
-@10/1_Physician
-@CMD
-@CMD_Tables
 @releasePast
 @iterationPast
 Feature: US1256695 - User Interface for up and download

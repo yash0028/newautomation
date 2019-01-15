@@ -3,8 +3,6 @@
 @US1474091
 @2018.PI05
 @2018.PI05.04
-@MVP
-@CMD_UI
 @releasePresent
 @iterationPresent
 Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice

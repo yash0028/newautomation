@@ -3,11 +3,6 @@
 @US1064673
 @2018.PI03
 @2018.PI03.05
-@MVP
-@Plus
-@10/1_Physician
-@Cosmos
-@Parity
 @releasePast
 @iterationPast
 Feature: US1064673 - [Continued]Exari>COSMOS Physician Panel Add to Existing Provider Panel Record
