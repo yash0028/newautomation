@@ -2,7 +2,6 @@
 @US1058710
 @2018.PI01
 @2018.PI01.04
-@MVP
 @releasePast
 @iterationPast
 Feature: US1058710 - [Spike] Research Splunk for Dashboard Solution

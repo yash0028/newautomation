@@ -3,10 +3,6 @@
 @US1172975
 @2018.PI02
 @2018.PI02.03
-@MVP
-@PI02_Top3
-@NDB
-@Parity
 @releasePast
 @iterationPast
 Feature: US1172975 - [Unfinished] [Continued] NDB_Send Updates for Update Roster business event

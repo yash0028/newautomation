@@ -2,10 +2,6 @@
 @US1410154
 @2018.PI05
 @2018.PI05.04
-@MVP
-@Priority_2
-@NDB
-@CMD
 @releasePresent
 @iterationPresent
 Feature: US1410154 - Identify when a contract line is already present with the same Contractual information (Market,IPA,FeesSched And product code  Type 2 error

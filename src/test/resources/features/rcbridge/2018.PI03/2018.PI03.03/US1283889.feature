@@ -4,11 +4,6 @@
 @US1283889
 @2018.PI03
 @2018.PI03.03
-@MVP
-@10/1_Physician
-@Crosswalk
-@Priority_1
-@CMD
 @releasePast
 @iterationPast
 Feature: US1283889 - [Unfinished] [Continued] Contract Product Description Crosswalk

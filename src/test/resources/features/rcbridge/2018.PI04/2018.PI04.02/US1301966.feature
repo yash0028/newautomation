@@ -3,10 +3,6 @@
 @US1301966
 @2018.PI04
 @2018.PI04.02
-@MVP
-@Madhur
-@Priority_1
-@CMD
 @releasePast
 @iterationPast
 Feature: US1301966 - CMD- Dashboard transaction search and update Service call

@@ -1,7 +1,6 @@
 # Last updated on 
 @US1385538
 @2019.PI06
-@CMD
 @releaseFuture
 @iterationUnknown
 Feature: US1385538 - 8. Modify the Update Contract Configuration service to write any PCP reassignments to the Contract Configuration database

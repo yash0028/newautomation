@@ -2,8 +2,6 @@
 @US1458125
 @2018.PI05
 @2018.PI05.01
-@MVP
-@Maintenance
 @releasePresent
 @iterationPast
 Feature: US1458125 - Look-up CPS Contract Masters

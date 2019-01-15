@@ -4,10 +4,6 @@
 @US1169960
 @2018.PI02
 @2018.PI02.04
-@MVP
-@PI02_Top3
-@Plus
-@Parity
 @releasePast
 @iterationPast
 Feature: US1169960 - [Continued] Build External Data Query to retrieve retroactive reason codes (ETMA)

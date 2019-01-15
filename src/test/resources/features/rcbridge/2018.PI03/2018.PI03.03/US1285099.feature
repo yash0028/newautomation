@@ -4,10 +4,6 @@
 @US1285099
 @2018.PI03
 @2018.PI03.03
-@MVP
-@Plus
-@Priority_1
-@Exari_Microservice
 @releasePast
 @iterationPast
 Feature: US1285099 - [Unfinished] Build External Data Query - MEG

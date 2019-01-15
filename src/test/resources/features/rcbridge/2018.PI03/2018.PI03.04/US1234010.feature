@@ -2,10 +2,6 @@
 @US1234010
 @2018.PI03
 @2018.PI03.04
-@MVP
-@Priority_1
-@Parity
-@Examiner
 @releasePast
 @iterationPast
 Feature: US1234010 - [Continued] Exari Search API Implementation

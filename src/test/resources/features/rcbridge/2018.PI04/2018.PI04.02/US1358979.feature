@@ -3,8 +3,6 @@
 @US1358979
 @2018.PI04
 @2018.PI04.02
-@Priority_1
-@Scrum_Team_1
 @releasePast
 @iterationPast
 Feature: US1358979 - PES - TPSM Indicator(UHC_AgreementAcct_PlatniumAcctField) Exari/OptumOptum/Exari

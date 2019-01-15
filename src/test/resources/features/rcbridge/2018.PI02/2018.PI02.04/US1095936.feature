@@ -3,13 +3,6 @@
 @US1095936
 @2018.PI02
 @2018.PI02.04
-@PI02_Top3
-@AUTO-PES
-@PES
-@Exari_Microservice
-@MVP
-@CLM_Exari
-@Parity
 @releasePast
 @iterationPast
 Feature: US1095936 - External Data Query for PES - Error Handling

@@ -3,11 +3,6 @@
 @US1439048
 @2018.PI04
 @2018.PI04.05
-@MVP
-@10/1_Physician
-@Priority_1
-@kumar,_Sachin
-@CMD
 @releasePast
 @iterationPast
 Feature: US1439048 - HERITAGE PRODUCT SILENT INCLUSION correction

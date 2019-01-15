@@ -3,11 +3,6 @@
 @US1368004
 @2018.PI04
 @2018.PI04.04
-@MVP
-@10/1_Physician
-@Priority_1
-@kumar,_Sachin
-@CMD
 @releasePast
 @iterationPast
 Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION

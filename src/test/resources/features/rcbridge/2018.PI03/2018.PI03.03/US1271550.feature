@@ -3,13 +3,6 @@
 @US1271550
 @2018.PI03
 @2018.PI03.03
-@Unet_Cosmos
-@MVP
-@Plus
-@10/1_Physician
-@Priority_1
-@CMD
-@Parity
 @releasePast
 @iterationPast
 Feature: US1271550 - [Spike] NDB Contract Master Lookup API

@@ -2,10 +2,6 @@
 @US1180600
 @2018.PI02
 @2018.PI02.05
-@MVP
-@PI02_Top3
-@Plus
-@Parity
 @releasePast
 @iterationPast
 Feature: US1180600 - Implement Swagger on ETMA services

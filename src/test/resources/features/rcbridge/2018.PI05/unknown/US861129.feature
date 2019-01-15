@@ -1,17 +1,14 @@
 # Last updated on 
 @US861129
 @2018.PI05
-@MVP
-@Priority_1
-@Parity
 @releasePresent
 @iterationUnknown
 Feature: US861129 - NDAR_Exari_Payer_Benefit_Plans_YYYYMMDD
 
-  @TC565941
-  @Automated
+  @TC701699
+  @Manual
   @Functional
-  Scenario: TC565941 - [RL0]
+  Scenario: TC701699 - [RL0]
     Given that the required fields for NDAR file are pulled
     When extracting the Data from Exari,
     Then the required fields that meet selection criteria are extracted from Exari and returned in the proper file format.

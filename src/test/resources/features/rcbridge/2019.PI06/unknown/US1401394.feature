@@ -1,7 +1,6 @@
 # Last updated on 
 @US1401394
 @2019.PI06
-@CMD
 @releaseFuture
 @iterationUnknown
 Feature: US1401394 - Analyze Roster submission for cancelations- Logic
@@ -14,15 +13,4 @@ Feature: US1401394 - Analyze Roster submission for cancelations- Logic
     Given a Contract Correction notification has been received / submitted
     When there are no cancellation transactions in the ProviderRoster_Cancelations_JSON identified on the roster
     Then conditions have not been met for PROVIDER CANCEL process
-
-  @TC697440
-  @Manual
-  @Functional
-  Scenario: TC697440 - [RL1]
-    ###Scenario 2 (Cancellations on roster request- execute PCP Identification API)
-    Given a Contract Correction notification has been received / submitted
-    When there are no cancellation transactions in the ProviderRoster_Cancelations_JSON identified on the roster
-    Then conditions have been met for PROVIDER CANCEL process
-    And the process should continue to the next step in CMD Cancel Process
-    ###
 

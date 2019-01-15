@@ -3,14 +3,12 @@
 @US1232963
 @2018.PI03
 @2018.PI03.03
-@CMD2
-@Priority_2
 @releasePast
 @iterationPast
 Feature: US1232963 - Retroactive Reason Codes table
 
   @TC549318
-  @Automated
+  @Manual
   @Functional
   @MVP
   Scenario: TC549318 - Retroactive Reason Codes table
@@ -29,7 +27,7 @@ Feature: US1232963 - Retroactive Reason Codes table
     Then the query response returns the list of active codes and code descriptions
 
   @TC564604
-  @Automated
+  @Manual
   @Functional
   @MVP
   Scenario: TC564604 - [RL0]
@@ -38,7 +36,7 @@ Feature: US1232963 - Retroactive Reason Codes table
     Then the query response returns the list of active codes and code descriptions
 
   @TC564605
-  @Automated
+  @Manual
   @Functional
   @MVP
   Scenario: TC564605 - [RL1]
@@ -48,7 +46,7 @@ Feature: US1232963 - Retroactive Reason Codes table
     Then the inquiry response/verification response returns the code and code description
 
   @TC564606
-  @Automated
+  @Manual
   @Functional
   @MVP
   Scenario: TC564606 - [RL2]
@@ -57,11 +55,11 @@ Feature: US1232963 - Retroactive Reason Codes table
     Then the inquiry response/verification response does not return the code and code description
 
   @TC549319
-  @Automated
+  @Manual
   @Functional
   @MVP
   @TC549319
-  @Automated
+  @Manual
   @Functional
   @MVP
   Scenario: TC549319::1 - get code and description
@@ -71,7 +69,7 @@ Feature: US1232963 - Retroactive Reason Codes table
     Then the inquiry response/verification response returns the code and code description
 
   @TC549320
-  @Automated
+  @Manual
   @Functional
   @MVP
   Scenario: TC549320 - negative case

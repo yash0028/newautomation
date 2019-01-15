@@ -4,10 +4,6 @@
 @US1009534
 @2018.PI03
 @2018.PI03.03
-@MVP
-@Plus
-@Priority_1
-@Exari_Microservice
 @releasePast
 @iterationPast
 Feature: US1009534 - Create External Data Query - MSPS Physician

@@ -3,10 +3,6 @@
 @US1234808
 @2018.PI03
 @2018.PI03.04
-@MVP
-@Plus
-@Priority_1
-@Exari_Microservice
 @releasePast
 @iterationPast
 Feature: US1234808 - Enhancement to Fee Schedule External Data Query

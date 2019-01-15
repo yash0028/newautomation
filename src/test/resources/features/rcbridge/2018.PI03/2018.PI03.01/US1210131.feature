@@ -2,14 +2,6 @@
 @US1210131
 @2018.PI03
 @2018.PI03.01
-@PI02_Top3
-@PES
-@Exari_Microservice
-@MVP
-@10/1_Physician
-@Priority_1
-@CLM_Exari
-@Parity
 @releasePast
 @iterationPast
 Feature: US1210131 - [SPIKE] Bulk Provider Extract - PES

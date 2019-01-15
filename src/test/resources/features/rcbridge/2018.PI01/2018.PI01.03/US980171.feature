@@ -2,7 +2,6 @@
 @US980171
 @2018.PI01
 @2018.PI01.03
-@MVP
 @releasePast
 @iterationPast
 Feature: US980171 - [Continued] (Retry) Build retry microservice mechanism

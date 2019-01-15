@@ -2,10 +2,6 @@
 @US1292129
 @2018.PI03
 @2018.PI03.04
-@MVP
-@CMD_UI
-@NDB
-@CMD
 @releasePast
 @iterationPast
 Feature: US1292129 - [Spike] Dev Analysis

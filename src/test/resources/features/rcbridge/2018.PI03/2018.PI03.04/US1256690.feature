@@ -3,10 +3,6 @@
 @US1256690
 @2018.PI03
 @2018.PI03.04
-@MVP
-@10/1_Physician
-@CMD
-@CMD_Tables
 @releasePast
 @iterationPast
 Feature: US1256690 - [Continued] Record Table data to Database

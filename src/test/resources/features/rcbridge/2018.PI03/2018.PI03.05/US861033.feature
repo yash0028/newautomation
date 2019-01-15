@@ -4,10 +4,6 @@
 @US861033
 @2018.PI03
 @2018.PI03.05
-@MVP
-@Priority_1
-@Parity
-@Examiner
 @releasePast
 @iterationPast
 Feature: US861033 - [Continued][Continued] Integrate CLM with Examiner (Continued)

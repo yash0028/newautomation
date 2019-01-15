@@ -2,10 +2,6 @@
 @US1260995
 @2018.PI03
 @2018.PI03.02
-@MVP
-@Priority_1
-@PIC
-@Parity
 @releasePast
 @iterationPast
 Feature: US1260995 - [Unfinished] PIC Implementation

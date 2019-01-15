@@ -2,10 +2,6 @@
 @US1289549
 @2018.PI04
 @2018.PI04.04
-@MVP
-@10/1_Physician
-@Priority_1
-@CMD
 @releasePast
 @iterationPast
 Feature: US1289549 - Contract Config Services - Update Contract Config record

@@ -2,10 +2,6 @@
 @US1374416
 @2018.PI05
 @2018.PI05.03
-@MVP
-@Madhur
-@Priority_1
-@CMD
 @releasePresent
 @iterationPast
 Feature: US1374416 - [Continued] [Continued] CMD - Create fallout-service REST endpoints for Contract Management Dashboard

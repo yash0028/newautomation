@@ -2,11 +2,6 @@
 @US1256963
 @2018.PI04
 @2018.PI04.03
-@MVP
-@10/1_Physician
-@Priority_1
-@CMD
-@Amrutha
 @releasePast
 @iterationPast
 Feature: US1256963 - Update user interface to accommodate rules table

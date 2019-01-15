@@ -2,16 +2,12 @@
 @US1094080
 @2018.PI02
 @2018.PI02.02
-@MVP
-@PI02_Top3
-@Plus
-@Parity
 @releasePast
 @iterationPast
 Feature: US1094080 - Transaction State Microservice - Transaction Configuration
 
   @TC565452
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565452 - [RL0]
     Given A business event is submitted
@@ -22,7 +18,7 @@ Feature: US1094080 - Transaction State Microservice - Transaction Configuration
     And A transaction initialization message is published to the transaction log topic
 
   @TC565453
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565453 - [RL1]
     Given A business event is submitted
@@ -31,7 +27,7 @@ Feature: US1094080 - Transaction State Microservice - Transaction Configuration
     And An error is logged to the logfile
 
   @TC565454
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565454 - [RL2]
     Given A transaction is in progress
@@ -39,7 +35,7 @@ Feature: US1094080 - Transaction State Microservice - Transaction Configuration
     Then A transaction state change message is published to the transaction log topic
 
   @TC565455
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565455 - [RL3]
     Given A transaction is in progress
@@ -48,7 +44,7 @@ Feature: US1094080 - Transaction State Microservice - Transaction Configuration
     And An error is logged to the logfile
 
   @TC565456
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565456 - [RL4]
     Given A transaction is in progress

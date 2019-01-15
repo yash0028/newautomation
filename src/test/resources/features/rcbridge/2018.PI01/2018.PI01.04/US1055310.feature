@@ -3,7 +3,6 @@
 @US1055310
 @2018.PI01
 @2018.PI01.04
-@MVP
 @releasePast
 @iterationPast
 Feature: US1055310 - Implement Docker push to Optum Docker Hub

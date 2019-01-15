@@ -2,11 +2,6 @@
 @US1064272
 @2018.PI03
 @2018.PI03.01
-@MVP
-@Plus
-@10/1_Physician
-@Cosmos
-@Parity
 @releasePast
 @iterationPast
 Feature: US1064272 - Exari>COSMOS Physician Panel Add Transaction - Payload Data Mapping

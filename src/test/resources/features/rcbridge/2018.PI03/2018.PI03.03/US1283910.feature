@@ -3,10 +3,6 @@
 @US1283910
 @2018.PI03
 @2018.PI03.03
-@MVP
-@10/1_Physician
-@CMD
-@CMD_Tables
 @releasePast
 @iterationPast
 Feature: US1283910 - [Unfinished] Record Table data to Database

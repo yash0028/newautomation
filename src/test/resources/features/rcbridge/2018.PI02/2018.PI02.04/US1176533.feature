@@ -3,13 +3,6 @@
 @US1176533
 @2018.PI02
 @2018.PI02.04
-@PI02_Top3
-@AUTO-PES
-@PES
-@Exari_Microservice
-@MVP
-@CLM_Exari
-@Parity
 @releasePast
 @iterationPast
 Feature: US1176533 - Enhancement to use new PES combined API (Counter Party) stub API

@@ -64,10 +64,15 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
         setSite(siteOption);
     }
 
+    @Given("^I author a contract using the \"([^\"]*)\" flow$")
+    public void authorContract(String fileName) {
+        loadFlow(fileName);
+        authorContract();
+    }
+
     @When("^I author a contract using the following contract information$")
     public void authorContract(DataTable contractDataTable) {
         Map<String, String> contractParam = contractDataTable.asMap(String.class, String.class);
-        sitePage.startContractAuthor();
 
         //check if flowContract has be init
         if (flowContract == null) {
@@ -77,6 +82,24 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
 
         flowContract.substituteGherkinData(contractParam);
 
+        authorContract();
+    }
+
+    @Then("^I have an active contract in Exari$")
+    public void checkActiveContact() {
+        log.info("checking for active status");
+        assert contractPage.checkActiveStatus();
+    }
+
+    /*
+    HELPER METHODS
+     */
+
+    private void authorContract() {
+        //Start contract author
+        sitePage.startContractAuthor();
+
+        //Start interview phase
         InterviewManager manager = new InterviewManager(getDriver(), flowContract);
         manager.startFlow();
         log.info("flow complete");
@@ -103,16 +126,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
         //set Edit Status
         assert contractPage.setEditStatus("Active");
     }
-
-    @Then("^I have an active contract in Exari$")
-    public void checkActiveContact() {
-        log.info("checking for active status");
-        assert contractPage.checkActiveStatus();
-    }
-
-    /*
-    HELPER METHODS
-     */
 
     private void loginAndGoToHomePage() {
         String url = configGetOptionalString("exari.devURL").orElse("");

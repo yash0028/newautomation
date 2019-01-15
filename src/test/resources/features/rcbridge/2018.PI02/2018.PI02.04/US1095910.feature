@@ -3,12 +3,6 @@
 @US1095910
 @2018.PI02
 @2018.PI02.04
-@MVP
-@PI02_Top3
-@Plus
-@10/1_Physician
-@CLM_Exari
-@Exari_Microservice
 @releasePast
 @iterationPast
 Feature: US1095910 - External Data Query for RFP - Error Handling

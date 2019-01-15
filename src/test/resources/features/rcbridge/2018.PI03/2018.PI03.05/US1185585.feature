@@ -6,11 +6,6 @@
 @US1185585
 @2018.PI03
 @2018.PI03.05
-@MVP
-@10/1_Physician
-@Crosswalk
-@Priority_1
-@CMD
 @releasePast
 @iterationPast
 Feature: US1185585 - Contract Product Description Crosswalk
@@ -65,6 +60,19 @@ Feature: US1185585 - Contract Product Description Crosswalk
     Given a product description that does not exist
     When exchanging information about the products included or excluded from an Exari contract
     Then the crosswalk provides an empty list
+
+  @TC701612
+  @Manual
+  @Functional
+  @MVP
+  @contract-metadata-api
+  @Amrutha
+  @Priority
+  Scenario: TC701612 - [RL3]
+    # Passing in one valid and one invalid product description
+    Given a product description from the corresponding "Empire" and an invalid product description
+    When exchanging information about the products included or excluded from an Exari contract
+    Then the crosswalk only provides the product code identifier of "P3" for the valid product description
 
   @TC697442
   @Automated

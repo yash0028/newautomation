@@ -2,9 +2,6 @@
 @US1388673
 @2018.PI04
 @2018.PI04.02
-@MVP
-@Priority_1
-@10/1_Physician
 @releasePast
 @iterationPast
 Feature: US1388673 - [Unfinished] [Continued][Continued] Downstream system specific validation handling

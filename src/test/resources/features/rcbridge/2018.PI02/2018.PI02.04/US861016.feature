@@ -5,13 +5,6 @@
 @US861016
 @2018.PI02
 @2018.PI02.04
-@PI02_Top3
-@AUTO-PES
-@PES
-@Exari_Microservice
-@MVP
-@CLM_Exari
-@Parity
 @releasePast
 @iterationPast
 Feature: US861016 - (Provider) Create Micro Service Providing Demographic Data Requests To PES - Counter Party lookup

@@ -2,12 +2,6 @@
 @US1089539
 @2018.PI02
 @2018.PI02.02
-@MVP
-@PI02_Top3
-@Domain_Microservice
-@PIC
-@Parity
-@Examiner
 @releasePast
 @iterationPast
 Feature: US1089539 - Optum - Create Interface Specification for API service

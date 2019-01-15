@@ -2,10 +2,6 @@
 @US1412876
 @2018.PI04
 @2018.PI04.04
-@MVP
-@10/1_Physician
-@Priority_1
-@CMD
 @releasePast
 @iterationPast
 Feature: US1412876 - Search via CMD UI (Landing Page)

@@ -5,18 +5,18 @@
 @iterationUnknown
 Feature: US1159428 - Jenkins Job for OpenShift Cleanup
 
-  @TC564687
-  @Automated
+  @TC701674
+  @Manual
   @Functional
-  Scenario: TC564687 - [RL0]
+  Scenario: TC701674 - [RL0]
     Given that the job is running
     When there is an old replication controller
     Then the job will delete it within a 1 hour window
 
-  @TC564688
-  @Automated
+  @TC701710
+  @Manual
   @Functional
-  Scenario: TC564688 - [RL1]
+  Scenario: TC701710 - [RL1]
     Given that the job is running
     When there is an old failed pod
     Then the job will delete it within a 1 hour window

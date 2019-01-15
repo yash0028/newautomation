@@ -3,11 +3,6 @@
 @US1371319
 @2018.PI04
 @2018.PI04.03
-@MVP
-@10/1_Physician
-@Priority_1
-@CMD
-@Amrutha
 @releasePast
 @iterationPast
 Feature: US1371319 - Download CLM Rule Table

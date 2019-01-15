@@ -3,8 +3,6 @@
 @US1084490
 @2018.PI02
 @2018.PI02.01
-@10/1_Physician
-@Parity
 @releasePast
 @iterationPast
 Feature: US1084490 - Setup OpenShift Test environment

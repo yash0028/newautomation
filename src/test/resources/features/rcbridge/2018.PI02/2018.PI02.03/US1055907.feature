@@ -2,26 +2,22 @@
 @US1055907
 @2018.PI02
 @2018.PI02.03
-@MVP
-@PI02_Top3
-@Plus
-@Parity
 @releasePast
 @iterationPast
 Feature: US1055907 - Kafka Consumer Library Test Cases
 
-  @TC565653
-  @Automated
+  @TC701621
+  @Manual
   @Functional
-  Scenario: TC565653 - [RL0]
+  Scenario: TC701621 - [RL0]
     Given a message is produced
     When the processing fails
     Then the processing is retried
 
-  @TC565654
-  @Automated
+  @TC701634
+  @Manual
   @Functional
-  Scenario: TC565654 - [RL1]
+  Scenario: TC701634 - [RL1]
     Given a message is retried
     When the retry attempts exhaust limit threshold is met
     Then the event is dead-lettered for manual operations

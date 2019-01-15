@@ -2,11 +2,6 @@
 @US1260999
 @2018.PI03
 @2018.PI03.02
-@MVP
-@PI02_Top3
-@Cosmos
-@NDB_Roster_Update
-@Parity
 @releasePast
 @iterationPast
 Feature: US1260999 - [Unfinished] NDB Layer 7 Implementation

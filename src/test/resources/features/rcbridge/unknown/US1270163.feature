@@ -4,10 +4,10 @@
 @iterationUnknown
 Feature: US1270163 - Determine resolution pathway when more than one record exists for the same specCd and PartyTyp query
 
-  @TC564958
-  @Automated
+  @TC701680
+  @Manual
   @Functional
-  Scenario: TC564958 - [RL0]
+  Scenario: TC701680 - [RL0]
     Given a user needs to query the table
     When the user provides a value for "ndbSpecCD" and "P" for "ndbRec"
     And more than one record exists for the same "ndbSpecCD" and "ndbRec"

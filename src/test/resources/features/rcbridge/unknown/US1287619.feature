@@ -1,7 +1,5 @@
 # Last updated on 
 @US1287619
-@MVP
-@CMD
 @releaseUnknown
 @iterationUnknown
 Feature: US1287619 - Create CMD Contract Config database (This for PCP) - Pending move to PI05

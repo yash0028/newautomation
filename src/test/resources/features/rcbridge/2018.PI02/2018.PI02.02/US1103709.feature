@@ -4,10 +4,6 @@
 @US1103709
 @2018.PI02
 @2018.PI02.02
-@MVP
-@PI02_Top3
-@Plus
-@Parity
 @releasePast
 @iterationPast
 Feature: US1103709 - Counter-party Provider Specialty Code is found and paper type is returned

@@ -1,8 +1,5 @@
 # Last updated on 
 @US1398671
-@MVP
-@Scrum_Team_1
-@Maintenance
 @releaseUnknown
 @iterationUnknown
 Feature: US1398671 - Validation Process Add transacton to applicable platform(s)

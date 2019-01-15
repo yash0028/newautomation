@@ -1,7 +1,5 @@
 # Last updated on 
 @US1289366
-@MVP
-@CMD
 @releaseUnknown
 @iterationUnknown
 Feature: US1289366 - Create multi-Contract Config Summary web page template

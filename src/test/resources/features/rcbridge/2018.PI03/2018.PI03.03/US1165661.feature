@@ -3,10 +3,6 @@
 @US1165661
 @2018.PI03
 @2018.PI03.03
-@MVP
-@Plus
-@Priority_1
-@Exari_Microservice
 @releasePast
 @iterationPast
 Feature: US1165661 - [Continued] Create External Data Query - Facility MSPS

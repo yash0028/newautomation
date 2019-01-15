@@ -2,11 +2,6 @@
 @US1236601
 @2018.PI03
 @2018.PI03.02
-@MVP
-@10/1_Physician
-@Priority_1
-@Transaction
-@Parity
 @releasePast
 @iterationPast
 Feature: US1236601 - Code Coverage Test Cases

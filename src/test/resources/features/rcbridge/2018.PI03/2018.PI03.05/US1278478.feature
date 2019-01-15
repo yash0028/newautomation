@@ -2,10 +2,6 @@
 @US1278478
 @2018.PI03
 @2018.PI03.05
-@MVP
-@CMD_UI
-@NDB
-@CMD
 @releasePast
 @iterationPast
 Feature: US1278478 - Publish NDB API contract master null response

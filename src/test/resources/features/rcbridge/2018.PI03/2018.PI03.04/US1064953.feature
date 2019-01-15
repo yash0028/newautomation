@@ -2,11 +2,6 @@
 @US1064953
 @2018.PI03
 @2018.PI03.04
-@MVP
-@Plus
-@10/1_Physician
-@Cosmos
-@Parity
 @releasePast
 @iterationPast
 Feature: US1064953 - Exari>COSMOS Physician Panel Cancel/Term one Panel from existing Provider Contract

@@ -1,8 +1,5 @@
 # Last updated on 
 @US1391149
-@MVP
-@Scrum_Team_1
-@Maintenance
 @releaseUnknown
 @iterationUnknown
 Feature: US1391149 - Validate contract data - cancel

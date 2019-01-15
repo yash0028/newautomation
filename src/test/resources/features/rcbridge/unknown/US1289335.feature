@@ -1,7 +1,5 @@
 # Last updated on 
 @US1289335
-@MVP
-@CMD
 @releaseUnknown
 @iterationUnknown
 Feature: US1289335 - View multi-Contract Config Summary web page

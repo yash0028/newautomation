@@ -3,8 +3,6 @@
 @US1416329
 @2018.PI04
 @2018.PI04.04
-@Priority_1
-@Scrum_Team_1
 @releasePast
 @iterationPast
 Feature: US1416329 - Changes to Counter Party Search

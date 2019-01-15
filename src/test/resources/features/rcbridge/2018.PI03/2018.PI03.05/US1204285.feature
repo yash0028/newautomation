@@ -4,13 +4,6 @@
 @US1204285
 @2018.PI03
 @2018.PI03.05
-@Unet_Cosmos
-@MVP
-@Plus
-@10/1_Physician
-@Priority_1
-@CMD
-@Parity
 @releasePast
 @iterationPast
 Feature: US1204285 - [Continued]Implement NDB Contract Master Lookup API

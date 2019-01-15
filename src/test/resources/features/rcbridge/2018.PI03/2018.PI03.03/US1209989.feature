@@ -4,10 +4,6 @@
 @US1209989
 @2018.PI03
 @2018.PI03.03
-@MVP
-@Plus
-@Priority_1
-@Exari_Microservice
 @releasePast
 @iterationPast
 Feature: US1209989 - [Continued] (MEG) Create microservice exposing Market Exception grid data
