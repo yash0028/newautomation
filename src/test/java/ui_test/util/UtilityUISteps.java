@@ -32,7 +32,6 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
         if (isRemoteDriver()) {
             SauceLabs.reset(scenario.getName());
             log.info("SauceLabs Test Video: {}", SauceLabs.getInstance().getSauceLink());
-
         } else {
             LocalDriver.reset();
             log.info("Running local ui test");

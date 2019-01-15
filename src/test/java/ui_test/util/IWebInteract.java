@@ -19,7 +19,10 @@ import java.util.concurrent.TimeUnit;
 
 public interface IWebInteract {
     Logger log = LoggerFactory.getLogger(IWebInteract.class);
+
+    @Deprecated
     int TIMEOUT = 90;
+    //Use AbstractElementPage.TIMEOUT if you need the timeout
 
     /*
     INTERFACE METHODS

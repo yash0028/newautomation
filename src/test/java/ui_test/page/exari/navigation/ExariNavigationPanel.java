@@ -1,14 +1,14 @@
 package ui_test.page.exari.navigation;
 
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.home.site.SiteManager;
 import ui_test.page.exari.home.site.subpages.*;
+import ui_test.util.AbstractElementPage;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
@@ -16,44 +16,15 @@ public class ExariNavigationPanel implements IWebInteract, IFactoryPage {
     private static final Logger log = LoggerFactory.getLogger(ExariNavigationPanel.class);
 
     private final WebDriver driver;
-
-    /*
-    LOCATORS - HEADER TABS
-     */
-
-    @FindBy(xpath = "//span[text()='Sites']")
-    private WebElement headerTabSite;
-
-    /*
-    LOCATORS - SITE OPTION
-     */
-
-    @FindBy(xpath = "//a[@title='Test']")
-    private WebElement headerTabSiteOptionTest;
-
-    @FindBy(xpath = "//a[@title='Northeast UHN']")
-    private WebElement headerTabSiteOptionNortheastUHN;
-
-    @FindBy(xpath = "//a[@title='Central UHN']")
-    private WebElement headerTabSiteOptionCentralUHN;
-
-    @FindBy(xpath = "//a[@title='West UHN']")
-    private WebElement headerTabSiteOptionWestUHN;
-
-    @FindBy(xpath = "//a[@title='Southeast UHN']")
-    private WebElement headerTabSiteOptionSouthEastUHN;
-
-    @FindBy(xpath = "//a[@title='National']")
-    private WebElement headerTabSiteOptionNationalUHN;
+    private final PageElements elements;
 
     /*
     CONSTRUCTOR
      */
 
     public ExariNavigationPanel(WebDriver driver) {
-        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, IWebInteract.TIMEOUT);
-        PageFactory.initElements(factory, this);
         this.driver = driver;
+        this.elements = new PageElements(driver);
     }
 
     /*
@@ -62,7 +33,7 @@ public class ExariNavigationPanel implements IWebInteract, IFactoryPage {
 
     @Override
     public boolean confirmCurrentPage() {
-        return isVisible(headerTabSite);
+        return isVisible(elements.headerTabSite);
     }
 
     @Override
@@ -75,38 +46,38 @@ public class ExariNavigationPanel implements IWebInteract, IFactoryPage {
      */
 
     public TestSitePage setSiteEnvironment2Test() {
-        click("site tab", headerTabSite);
-        click("test site", headerTabSiteOptionTest);
+        click("site tab", elements.headerTabSite);
+        click("test site", elements.headerTabSiteOptionTest);
         return getSiteManager().getTestSitePage();
     }
 
     public NortheastUHNSitePage setSiteEnvironment2NortheastUHN() {
-        click("site tab", headerTabSite);
-        click("northeast uhn", headerTabSiteOptionNortheastUHN);
+        click("site tab", elements.headerTabSite);
+        click("northeast uhn", elements.headerTabSiteOptionNortheastUHN);
         return getSiteManager().getNortheastUHNSitePage();
     }
 
     public CentralUHNSitePage setSiteEnvironment2CentralUHN() {
-        click("site tab", headerTabSite);
-        click("central uhn", headerTabSiteOptionCentralUHN);
+        click("site tab", elements.headerTabSite);
+        click("central uhn", elements.headerTabSiteOptionCentralUHN);
         return getSiteManager().getCentralUHNSitePage();
     }
 
     public WestUHNSitePage setSiteEnvironment2WestUHN() {
-        click("site tab", headerTabSite);
-        click("central uhn", headerTabSiteOptionWestUHN);
+        click("site tab", elements.headerTabSite);
+        click("central uhn", elements.headerTabSiteOptionWestUHN);
         return getSiteManager().getWestUHNSitePage();
     }
 
     public SouthEastUHNSitePage setSiteEnvironment2SouthEastUHN() {
-        click("site tab", headerTabSite);
-        click("central uhn", headerTabSiteOptionSouthEastUHN);
+        click("site tab", elements.headerTabSite);
+        click("central uhn", elements.headerTabSiteOptionSouthEastUHN);
         return getSiteManager().getSouthEastUHNSitePage();
     }
 
     public NationalUHNSitePage setSiteEnvironment2NationalUHN() {
-        click("site tab", headerTabSite);
-        click("central uhn", headerTabSiteOptionNationalUHN);
+        click("site tab", elements.headerTabSite);
+        click("central uhn", elements.headerTabSiteOptionNationalUHN);
         return getSiteManager().getNationalUHNSitePage();
     }
 
@@ -137,6 +108,38 @@ public class ExariNavigationPanel implements IWebInteract, IFactoryPage {
 
     public SiteManager getSiteManager() {
         return new SiteManager(driver);
+    }
+
+    /*
+    ELEMENT CLASS
+     */
+
+    private class PageElements extends AbstractElementPage {
+
+        @FindBy(xpath = "//span[text()='Sites']")
+        private WebElement headerTabSite;
+
+        @FindBy(xpath = "//a[@title='Test']")
+        private WebElement headerTabSiteOptionTest;
+
+        @FindBy(xpath = "//a[@title='Northeast UHN']")
+        private WebElement headerTabSiteOptionNortheastUHN;
+
+        @FindBy(xpath = "//a[@title='Central UHN']")
+        private WebElement headerTabSiteOptionCentralUHN;
+
+        @FindBy(xpath = "//a[@title='West UHN']")
+        private WebElement headerTabSiteOptionWestUHN;
+
+        @FindBy(xpath = "//a[@title='Southeast UHN']")
+        private WebElement headerTabSiteOptionSouthEastUHN;
+
+        @FindBy(xpath = "//a[@title='National']")
+        private WebElement headerTabSiteOptionNationalUHN;
+
+        public PageElements(SearchContext context) {
+            super(context);
+        }
     }
 
 
