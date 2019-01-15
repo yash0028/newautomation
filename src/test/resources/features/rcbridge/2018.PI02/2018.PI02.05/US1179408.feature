@@ -6,26 +6,26 @@
 @iterationPast
 Feature: US1179408 - [Continued] Cosmos Integration
 
-  @TC565591
-  @Automated
+  @TC494260
+  @Manual
   @Functional
-  Scenario: TC565591 - [RL0]
+  Scenario: TC494260 - [RL0] TC01 : When NDB edits are successful
     Given the NDB connector microservice has received a roster update event
     When all of the NDB edits are successful
     Then the NDB microservices are ready to update NDB
 
-  @TC565592
-  @Automated
+  @TC494269
+  @Manual
   @Functional
-  Scenario: TC565592 - [RL1]
+  Scenario: TC494269 - [RL1] TC02: When NDB edits are not successful
     Given the NDB connector microservice has received a roster update event
     When all of the NDB edits are not successful
     Then the NDB microservices creates an error message
 
-  @TC565593
-  @Automated
+  @TC498727
+  @Manual
   @Functional
-  Scenario: TC565593 - [RL2]
+  Scenario: TC498727 - [RL2] TC03: When NDB initiates an event outcome message to the transaction state service
     Given The event MS processed NDB edits sucessfully
     When NDB completes the update / action successfully
     Then NDB initiates an event outcome message to the transaction state service
