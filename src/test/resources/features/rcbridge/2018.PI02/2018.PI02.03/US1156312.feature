@@ -7,7 +7,7 @@
 Feature: US1156312 - OSAM Assessment
 
   @TC565426
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565426 - [RL0]
     Given Optum wants to know how well the team is practicing agile methodology

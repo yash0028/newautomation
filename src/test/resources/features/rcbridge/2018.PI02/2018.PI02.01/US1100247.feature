@@ -11,20 +11,20 @@
 @iterationPast
 Feature: US1100247 - Domain service stub
 
-  @TC565356
-  @Automated
+  @TC701617
+  @Manual
   @Functional
   @#MVP
-  Scenario: TC565356 - [RL0]
+  Scenario: TC701617 - [RL0]
     Given an event processes an update request event
     When the scenario simulates an update is ok
     Then a returned event transaction state
 
-  @TC565357
-  @Automated
+  @TC701626
+  @Manual
   @Functional
   @#MVP
-  Scenario: TC565357 - [RL1]
+  Scenario: TC701626 - [RL1]
     Given an event processes an update request event
     When the scenario simulates an update has aborted
     Then a returned event transaction state

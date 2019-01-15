@@ -11,20 +11,20 @@
 @iterationPast
 Feature: US1100194 - Downstream NBD updater service stub
 
-  @TC565416
-  @Automated
+  @TC701613
+  @Manual
   @Functional
   @CLM_UAT
-  Scenario: TC565416 - [RL0]
+  Scenario: TC701613 - [RL0]
     Given an event processes an update request event
     When the scenario simulates an update is successful
     Then a returned event transaction state
 
-  @TC565417
-  @Automated
+  @TC701629
+  @Manual
   @Functional
   @CLM_UAT
-  Scenario: TC565417 - [RL1]
+  Scenario: TC701629 - [RL1]
     Given an event processes an update request event
     When the scenario simulates an update has failed
     Then a returned event transaction state

@@ -6,28 +6,6 @@
 @iterationUnknown
 Feature: US1287619 - Create CMD Contract Config database (This for PCP) - Pending move to PI05
 
-  @TC616513
-  @Manual
-  @Functional
-  Scenario: TC616513 - [RL0]
-    # Scenario 1 (PCP reassignment information is needed)
-    Given A roster event transaction is received
-    And The roster contains a termination request
-    And At least one provider is a PCP
-    And At least one product is a gatekeeper product
-    When the provider does not have reassignment MPIN, IPA, address sequence number
-    Then The following data is available in the table for use in the transaction
-      | Contract ID                |
-      | Transaction ID             |
-      | Product Group              |
-      | Termination TIN            |
-      | Termination MPIN           |
-      | Termination Date/timestamp |
-      | Reassign TIN               |
-      | Reassign MPIN              |
-      | Reassign IPA               |
-      | Reassign Address Seq       |
-
   @TC616514
   @Manual
   @Functional
