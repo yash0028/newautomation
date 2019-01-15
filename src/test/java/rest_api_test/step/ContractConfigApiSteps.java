@@ -28,7 +28,7 @@ public class ContractConfigApiSteps implements IRestStep {
     private Response response;
     private Map<String, String> payload;
 
-    //US1483467 Implement contract config api provider product status
+    //US1483467 Implement contract config api providerproductstatus
 
     @Given("^a valid contract installation transaction has been received from Exari$")
     public void aValidContractInstallationTransactionHasBeenReceivedFromExari() throws Throwable {
