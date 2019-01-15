@@ -1,10 +1,11 @@
 # Last updated on 
 @US1410764
-@2018.PI05
-@releasePresent
+@2019.PI06
+@releaseFuture
 @iterationUnknown
 Feature: US1410764 - Handle Roster Update Event
 
+  @RC_unlinked
   @TC701599
   @Manual
   @Functional

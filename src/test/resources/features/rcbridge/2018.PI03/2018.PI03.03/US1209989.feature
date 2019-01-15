@@ -10,7 +10,7 @@ Feature: US1209989 - [Continued] (MEG) Create microservice exposing Market Excep
 
   @TC536741
   @Automated
-  @Acceptance
+  @Functional
   @CLM_UAT
   @MEG
   Scenario: TC536741 - [RL0] Happy Path Validation for MEG
