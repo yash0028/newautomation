@@ -20,6 +20,7 @@ public class UtilityGeneralSteps {
     @Before(order = BookendOrder.ALPHA)
     public void getScenario(Scenario scenario) {
         UtilityGeneralSteps.scenario = scenario;
+        SharedValueStore.getInstance().reset();
     }
 
     /**
