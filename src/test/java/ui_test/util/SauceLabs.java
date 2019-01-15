@@ -59,7 +59,8 @@ class SauceLabs implements IConfigurable {
      * Reset connection to default
      */
     static void reset() {
-        INSTANCE.close();
+        if (INSTANCE != null)
+            INSTANCE.close();
         INSTANCE = new SauceLabs();
     }
 
@@ -81,7 +82,8 @@ class SauceLabs implements IConfigurable {
      * @param scenarioName name of the scenario to run
      */
     static void reset(SauceLabs.SupportedBrowsers browser, String scenarioName) {
-        INSTANCE.close();
+        if (INSTANCE != null)
+            INSTANCE.close();
         INSTANCE = new SauceLabs(browser, scenarioName);
     }
 
@@ -133,7 +135,7 @@ class SauceLabs implements IConfigurable {
                 }
             }
         } catch (Exception e) {
-            log.error("Unable to quit web driver");
+            log.error("Unable to quit web driver b/c '{}'", e.getMessage());
             return;
         }
 

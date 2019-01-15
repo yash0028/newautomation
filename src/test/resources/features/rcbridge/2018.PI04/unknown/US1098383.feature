@@ -3,8 +3,6 @@
 @Parity
 @US1098383
 @2018.PI04
-@MVP
-@Parity
 @releasePast
 @iterationUnknown
 Feature: US1098383 - Upload spreadsheet to identify target providers

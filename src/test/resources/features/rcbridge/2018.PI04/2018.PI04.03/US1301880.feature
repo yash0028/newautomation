@@ -1,5 +1,4 @@
 # Last updated on 
-@A_UI_Story
 @US1301880
 @2018.PI04
 @2018.PI04.03
@@ -12,9 +11,8 @@
 Feature: US1301880 - [Continued] CMD - User Input Required Page - Populate rows of data
 
   @TC678783
-  @Manual
-  @Functional
-  @A_UI_Story
+  @Automated
+  @User_Interface
   Scenario: TC678783 - [RL0]
     # Scenario 1 (Action required information in database)
     Given I have clicked on Action Required button on the CMD dashboard
@@ -22,9 +20,8 @@ Feature: US1301880 - [Continued] CMD - User Input Required Page - Populate rows 
     Then display the following message: There are currently no contracts that require user review and input at this time
 
   @TC678784
-  @Manual
-  @Functional
-  @A_UI_Story
+  @Automated
+  @User_Interface
   Scenario: TC678784 - [RL1]
     # Scenario 2 (Action required information in database)
     Given I have clicked on Action Required button on the CMD dashboard
@@ -42,9 +39,8 @@ Feature: US1301880 - [Continued] CMD - User Input Required Page - Populate rows 
     # Date
 
   @TC678785
-  @Manual
-  @Functional
-  @A_UI_Story
+  @Automated
+  @User_Interface
   Scenario: TC678785 - [RL2]
     # Scenario 3 (Action required information in database-Default sort order)
     Given I have clicked on Action Required button on the CMD dashboard

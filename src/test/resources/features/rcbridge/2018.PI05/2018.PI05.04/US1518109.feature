@@ -1,4 +1,5 @@
 # Last updated on 
+@CMD
 @US1518109
 @2018.PI05
 @2018.PI05.04
@@ -11,6 +12,7 @@ Feature: US1518109 - Identify contract master selection
   @TC693621
   @Manual
   @Functional
+  @CMD
   Scenario: TC693621 - [RL0]
     Given multiple contract masters were found
     When the user selects a contract maser to be used

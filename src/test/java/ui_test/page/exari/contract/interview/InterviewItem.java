@@ -9,6 +9,7 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.contract.interview.flow.FlowItem;
+import ui_test.util.AbstractElementPage;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
@@ -41,7 +42,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
         AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(interviewBox, IWebInteract.TIMEOUT);
         PageFactory.initElements(factory, this);
         this.driver = driver;
-        this.elements = new InterviewElements(driver, blockAnswer);
+        this.elements = new InterviewElements(blockAnswer);
     }
 
     /*
@@ -241,7 +242,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
     UTILITY CLASS
      */
 
-    private class InterviewElements {
+    private class InterviewElements extends AbstractElementPage {
 
         @FindBy(xpath = ".//input")
         public WebElement textbox_basic;
@@ -264,15 +265,9 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
         @FindBy(xpath = "//span[@class='select2-results']//li")
         public List<WebElement> dropdown_selection;
 
-        private WebDriver driver;
-        private SearchContext context;
 
-
-        public InterviewElements(WebDriver driver, SearchContext context) {
-            AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(context, IWebInteract.TIMEOUT);
-            PageFactory.initElements(factory, this);
-            this.driver = driver;
-            this.context = context;
+        public InterviewElements(SearchContext context) {
+            super(context);
         }
     }
 

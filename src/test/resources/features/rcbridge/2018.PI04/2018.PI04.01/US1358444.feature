@@ -24,7 +24,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
 
   @TC597186
   @Automated
-  @Functional
+  @User_Interface
   @A_UI_Story
   @RC_unlinked
   Scenario: TC597186 - [RL1]
@@ -44,7 +44,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
 
   @TC597188
   @Automated
-  @Functional
+  @User_Interface
   @A_UI_Story
   @RC_unlinked
   Scenario: TC597188 - [RL3]
@@ -65,7 +65,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
 
   @TC597190
   @Automated
-  @Functional
+  @User_Interface
   @A_UI_Story
   @RC_unlinked
   Scenario: TC597190 - [RL5]
@@ -86,7 +86,7 @@ Feature: US1358444 - [Unfinished] CMD Dashboard buttons (Populate data)
 
   @TC597192
   @Automated
-  @Functional
+  @User_Interface
   @A_UI_Story
   @RC_unlinked
   Scenario: TC597192 - [RL7]

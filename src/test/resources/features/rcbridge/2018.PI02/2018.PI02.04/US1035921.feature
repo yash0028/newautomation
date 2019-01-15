@@ -15,7 +15,7 @@ Feature: US1035921 - [Continued] Error - Org type or Specialty is not found in R
 
   @TC493884
   @Automated
-  @Acceptance
+  @Functional
   @RFP
   Scenario: TC493884 - [RL0] Testing bad specialty code
     Given the provider's Specialty "abc123" is passed to the RFP service
@@ -24,7 +24,7 @@ Feature: US1035921 - [Continued] Error - Org type or Specialty is not found in R
 
   @TC493885
   @Automated
-  @Acceptance
+  @Functional
   @RFP
   Scenario: TC493885 - [RL1] Testing bad org type
     Given the provider's Org Type "abc123" is passed to the RFP service
