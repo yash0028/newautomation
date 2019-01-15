@@ -145,6 +145,10 @@ public class ContractPage implements IWebInteract, IFactoryPage, IExariNavigatio
         return click("master contract", buttonMasterContract);
     }
 
+    public String getContractNumber() {
+        return "TODO";
+    }
+
 
     /* ********************************  PAGES **************************************** */
 

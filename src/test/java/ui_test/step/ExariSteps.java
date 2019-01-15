@@ -6,6 +6,7 @@ import com.google.gson.JsonElement;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import general_test.util.ISharedValuePoster;
 import io.cucumber.datatable.DataTable;
 import org.junit.Assert;
 import org.slf4j.Logger;
@@ -24,7 +25,7 @@ import util.file.IFileReader;
 import java.util.Map;
 
 
-public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
+public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster {
     private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
 
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
@@ -125,6 +126,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable {
 
         //set Edit Status
         assert contractPage.setEditStatus("Active");
+
+        putSharedObject("contractNumber", contractPage.getContractNumber());
     }
 
     private void loginAndGoToHomePage() {
