@@ -9,7 +9,7 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.contract.interview.flow.FlowItem;
-import ui_test.util.AbstractElementPage;
+import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
@@ -22,17 +22,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
 
 
     private WebDriver driver;
-    private InterviewElements elements;
-
-    /*
-    LOCATORS
-     */
-
-    @FindBy(xpath = ".//p[@class='Question']/label")
-    private WebElement labelQuestion;
-
-    @FindBy(xpath = ".//div[contains(@class,'Answer')]")
-    private WebElement blockAnswer;
+    private PageElements elements;
 
     /*
     CONSTRUCTOR
@@ -42,7 +32,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
         AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(interviewBox, IWebInteract.TIMEOUT);
         PageFactory.initElements(factory, this);
         this.driver = driver;
-        this.elements = new InterviewElements(blockAnswer);
+        this.elements = new PageElements(elements.blockAnswer);
     }
 
     /*
@@ -51,7 +41,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
 
     @Override
     public boolean confirmCurrentPage() {
-        return isVisible(labelQuestion) && isVisible(blockAnswer);
+        return isVisible(elements.labelQuestion) && isVisible(elements.blockAnswer);
     }
 
     @Override
@@ -60,17 +50,8 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
     }
 
     /*
-    CLASS METHODS
+    PAGE ACTION METHOD
      */
-
-    public String getQuestion() {
-        String q = labelQuestion.getText();
-        return q.contains(":") ? q.substring(0, q.indexOf(":")) : q;
-    }
-
-    public WebElement getBlockAnswer() {
-        return this.blockAnswer;
-    }
 
     public int performFlow(FlowItem flowItem) {
         if (flowItem == null || !flowItem.check4Match(this.getQuestion())) {
@@ -88,6 +69,19 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
         //Do flow if present, else return 0
         log.trace("{}", optionalFlowItem);
         return performFlow(optionalFlowItem.orElse(null));
+    }
+
+    /*
+    CLASS METHODS
+     */
+
+    public String getQuestion() {
+        String q = elements.labelQuestion.getText();
+        return q.contains(":") ? q.substring(0, q.indexOf(":")) : q;
+    }
+
+    public WebElement getBlockAnswer() {
+        return elements.blockAnswer;
     }
 
     /*
@@ -239,10 +233,16 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
     }
 
     /*
-    UTILITY CLASS
+    ELEMENT CLASS
      */
 
-    private class InterviewElements extends AbstractElementPage {
+    private class PageElements extends AbstractPageElements {
+
+        @FindBy(xpath = ".//p[@class='Question']/label")
+        private WebElement labelQuestion;
+
+        @FindBy(xpath = ".//div[contains(@class,'Answer')]")
+        private WebElement blockAnswer;
 
         @FindBy(xpath = ".//input")
         public WebElement textbox_basic;
@@ -266,7 +266,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
         public List<WebElement> dropdown_selection;
 
 
-        public InterviewElements(SearchContext context) {
+        PageElements(SearchContext context) {
             super(context);
         }
     }

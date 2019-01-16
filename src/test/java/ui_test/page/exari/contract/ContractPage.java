@@ -6,10 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui_test.page.exari.contract.wizard.WizardManager;
 import ui_test.page.exari.navigation.ExariNavigationPanel;
 import ui_test.page.exari.navigation.IExariNavigation;
-import ui_test.util.AbstractElementPage;
+import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
@@ -61,7 +60,7 @@ public class ContractPage implements IWebInteract, IFactoryPage, IExariNavigatio
     }
 
     /*
-    CLASS METHODS
+    ACTION METHODS
      */
 
     public boolean setEditStatus(String value) {
@@ -104,19 +103,16 @@ public class ContractPage implements IWebInteract, IFactoryPage, IExariNavigatio
         return click("master contract", elements.buttonMasterContract);
     }
 
+    /*
+    CLASS METHODS
+     */
+
     public String getContractNumber() {
         String[] arr = elements.headerContract.getText().split("\\s");
         if (arr.length == 0) {
             return "";
         }
         return arr[arr.length - 1];
-    }
-
-
-    /* ********************************  PAGES **************************************** */
-
-    public WizardManager getContractWizard() {
-        return new WizardManager(driver);
     }
 
     /*
@@ -126,7 +122,7 @@ public class ContractPage implements IWebInteract, IFactoryPage, IExariNavigatio
     /**
      * private class to contain the webelements. This allows us to reload the context as needed and keeps the code clean.
      */
-    private class PageElements extends AbstractElementPage {
+    private class PageElements extends AbstractPageElements {
 
         @FindBy(xpath = "//div[contains(@class, 'contract-header')]//h1")
         private WebElement headerContract;
@@ -173,7 +169,7 @@ public class ContractPage implements IWebInteract, IFactoryPage, IExariNavigatio
         @FindBy(xpath = "//button[contains(text(),'Create')]")
         private WebElement buttonCreateAmendmentDialogueCreate;
 
-        public PageElements(SearchContext context) {
+        PageElements(SearchContext context) {
             super(context);
         }
     }

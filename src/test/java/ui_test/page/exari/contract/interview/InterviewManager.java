@@ -3,6 +3,8 @@ package ui_test.page.exari.contract.interview;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ui_test.page.exari.contract.ContractPreviewPage;
+import ui_test.page.exari.contract.WizardCompletePage;
 import ui_test.page.exari.contract.interview.flow.Flow;
 import ui_test.page.exari.contract.interview.flow.FlowContract;
 import ui_test.page.exari.contract.interview.flow.FlowItem;

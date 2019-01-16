@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui_test.util.AbstractElementPage;
+import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
@@ -69,8 +69,21 @@ public class TemplatePage implements IFactoryPage, IWebInteract {
      *
      * @return
      */
-    private boolean isFirstNameEmpty() {
+    public boolean isFirstNameEmpty() {
         return elements.firstNameInput.getText().isEmpty();
+    }
+
+    /*
+    PAGE METHODS
+     */
+
+    /**
+     * Methods that return instances of other pages that this one could navirgate to
+     *
+     * @return instance of another page, using same driver
+     */
+    public TemplatePage getDiffrentPage() {
+        return new TemplatePage(driver);
     }
 
     /*
@@ -88,12 +101,12 @@ public class TemplatePage implements IFactoryPage, IWebInteract {
     /**
      * private class to contain the webelements. This allows us to reload the context as needed and keeps the code clean.
      */
-    private class PageElements extends AbstractElementPage {
+    private class PageElements extends AbstractPageElements {
 
         @FindBy(xpath = "//input[@name='firstname']")
         public WebElement firstNameInput;
 
-        public PageElements(SearchContext context) {
+        PageElements(SearchContext context) {
             super(context);
         }
     }

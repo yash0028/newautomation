@@ -1,13 +1,13 @@
 package ui_test.page.exari.login;
 
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.home.DashboardPage;
+import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 import util.configuration.IConfigurable;
@@ -15,37 +15,17 @@ import util.configuration.IConfigurable;
 public class LoginPage implements IWebInteract, IFactoryPage, IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(LoginPage.class);
 
-
-    /* ********************************  LOCATORS **************************************** */
-
     private final WebDriver driver;
+    private final PageElements elements;
 
-    @FindBy(xpath = "//input[@name='username']")
-    public WebElement textBoxUsername;
-
-    @FindBy(xpath = "//input[@name='password']")
-    public WebElement textBoxPassword;
-
-    @FindBy(xpath = "//button[text()='Sign In']")
-    public WebElement buttonSignIn;
-
-    @FindBy(xpath = "//div[@title='Home']")
-    public WebElement headerTabHome;
-
-    @FindBy(xpath = "//*[@id='tablist']/li[1]/a")
-    public WebElement DocumentTab;
-
-    @FindBy(xpath = "//html/body//font")
-    public WebElement err_Msg;
 
     /*
     CONSTRUCTOR
      */
 
     public LoginPage(WebDriver driver) {
-        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, IWebInteract.TIMEOUT);
-        PageFactory.initElements(factory, this);
         this.driver = driver;
+        elements = new PageElements(driver);
     }
 
     /*
@@ -54,7 +34,7 @@ public class LoginPage implements IWebInteract, IFactoryPage, IConfigurable {
 
     @Override
     public boolean confirmCurrentPage() {
-        return isVisible(textBoxUsername);
+        return isVisible(elements.textBoxUsername);
     }
 
     @Override
@@ -63,16 +43,16 @@ public class LoginPage implements IWebInteract, IFactoryPage, IConfigurable {
     }
 
     /*
-    CLASS METHODS
+    PAGE ACTIONS METHODS
      */
 
 
     public boolean login() {
-        sendKeys("username", textBoxUsername, configGetOptionalString("exari.username").orElse(""));
-        sendKeys("password", textBoxPassword, configGetOptionalString("exari.password").orElse(""));
-        click("sign in", buttonSignIn);
+        sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
+        sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
+        click("sign in", elements.buttonSignIn);
 
-        if (isVisible(headerTabHome)) {
+        if (isVisible(elements.headerTabHome)) {
             log.info("login successful");
         } else {
             log.error("login failed");
@@ -87,8 +67,40 @@ public class LoginPage implements IWebInteract, IFactoryPage, IConfigurable {
      */
 
     public DashboardPage getHomePage() {
-        highlight(headerTabHome);
+        highlight(elements.headerTabHome);
         return new DashboardPage(getDriver());
+    }
+
+    /*
+    ELEMENT CLASS
+     */
+
+    /**
+     * private class to contain the webelements. This allows us to reload the context as needed and keeps the code clean.
+     */
+    private class PageElements extends AbstractPageElements {
+
+        @FindBy(xpath = "//input[@name='username']")
+        public WebElement textBoxUsername;
+
+        @FindBy(xpath = "//input[@name='password']")
+        public WebElement textBoxPassword;
+
+        @FindBy(xpath = "//button[text()='Sign In']")
+        public WebElement buttonSignIn;
+
+        @FindBy(xpath = "//div[@title='Home']")
+        public WebElement headerTabHome;
+
+        @FindBy(xpath = "//*[@id='tablist']/li[1]/a")
+        public WebElement DocumentTab;
+
+        @FindBy(xpath = "//html/body//font")
+        public WebElement err_Msg;
+
+        PageElements(SearchContext context) {
+            super(context);
+        }
     }
 
 

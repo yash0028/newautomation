@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.home.site.SiteManager;
 import ui_test.page.exari.home.site.subpages.*;
-import ui_test.util.AbstractElementPage;
+import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
@@ -42,7 +42,7 @@ public class ExariNavigationPanel implements IWebInteract, IFactoryPage {
     }
 
     /*
-    CLASS METHODS
+    PAGE ACTION METHODS
      */
 
     public TestSitePage setSiteEnvironment2Test() {
@@ -114,7 +114,10 @@ public class ExariNavigationPanel implements IWebInteract, IFactoryPage {
     ELEMENT CLASS
      */
 
-    private class PageElements extends AbstractElementPage {
+    /**
+     * private class to contain the webelements. This allows us to reload the context as needed and keeps the code clean.
+     */
+    private class PageElements extends AbstractPageElements {
 
         @FindBy(xpath = "//span[text()='Sites']")
         private WebElement headerTabSite;
@@ -137,7 +140,7 @@ public class ExariNavigationPanel implements IWebInteract, IFactoryPage {
         @FindBy(xpath = "//a[@title='National']")
         private WebElement headerTabSiteOptionNationalUHN;
 
-        public PageElements(SearchContext context) {
+        PageElements(SearchContext context) {
             super(context);
         }
     }

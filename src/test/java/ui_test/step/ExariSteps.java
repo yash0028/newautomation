@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import ui_test.page.exari.contract.ContractPage;
 import ui_test.page.exari.contract.interview.InterviewManager;
 import ui_test.page.exari.contract.interview.flow.FlowContract;
-import ui_test.page.exari.contract.wizard.WizardManager;
 import ui_test.page.exari.home.DashboardPage;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.page.exari.login.LoginPage;
@@ -149,26 +148,5 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
         assert sitePage.confirmCurrentPage();
         log.info("moved to {} site", siteOption);
-    }
-
-    @Deprecated
-    private boolean markContractActive() {
-        WizardManager wizard = contractPage.getContractWizard();
-
-        //set Edit Status
-        contractPage.setEditStatus("Final Pending QA");
-
-        //click Final Capture
-        contractPage.clickFinalCapture();
-
-        log.info("final capture finished");
-
-        assert wizard.finalCapture();
-
-        //Back to Contract Page
-        assert contractPage.confirmCurrentPage();
-
-        //set Edit Status
-        return contractPage.setEditStatus("Active");
     }
 }
