@@ -10,8 +10,8 @@ Feature: US1337392 - [Continued] [Continued] CPS lookup API Layer-7 implementati
   @Automated
   @User_Interface
   Scenario: TC587886 - [RL0] Verify CPS Lookup API returns valid values
-    Given I am logged into Exari Dev as a valid user and go to the "central uhn" site
-    And I author a contract using the "eif-cps-lookup.json" flow
+#    Given I am logged into Exari Dev as a valid user and go to the "central uhn" site
+#    And I author a contract using the "eif-cps-lookup.json" flow
     When COSMOS updater requires additional information
     And COSMOS updater waits until NDB updates are complete
     And COSMS gets notified the NDB request returns valid values

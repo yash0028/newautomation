@@ -1,6 +1,7 @@
 package ui_test.page.contractManagement;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ui_test.util.AbstractElementPage;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
@@ -31,47 +33,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      */
 
     protected final WebDriver driver;
-
-    /*
-    LOCATORS
-     */
-
-
-    @FindBy(how = How.XPATH, using = "//table[@class='mat-table']")
-    protected WebElement table;
-
-    @FindBy(xpath = "//table[1 and @class='mat-table']/tbody/tr[contains(@class, 'example-element-row')]")
-    protected List<WebElement> primeTableRows;
-
-    @FindBy(xpath = "//table[1 and @class='mat-table']/tbody/tr[contains(@class, 'example-detail-row')]//*[contains(@class, 'example-element-row')]")
-    protected List<WebElement> secondaryTableRows;
-
-    @FindBy(xpath = "//table[@class='mat-table']/tbody/tr[contains(@class, 'example-detail-row')][1]//*[contains(@class, 'example-element-row')]")
-    protected List<WebElement> firstRowProductGroups;
-
-    @FindBy(xpath = "//table[1 and @class='mat-table']/tbody/tr[contains(@class, 'example-element-row')]/td[contains(@class,'cdk-column-timestamp')]")
-    protected List<WebElement> dateColumnList;
-
-    @FindBy(xpath = "//div[@class = 'mat-select-arrow']")
-    protected WebElement tableSizeSelectorButton;
-
-    @FindBy(xpath = "//span[@class = 'mat-option-text' and text()='5']")
-    protected WebElement tableSize5Button;
-
-    @FindBy(xpath = "//span[@class = 'mat-option-text' and text()='10']")
-    protected WebElement tableSize10Button;
-
-    @FindBy(xpath = "//span[@class='mat-option-text' and text()='25']")
-    protected WebElement tableSize25Button;
-
-    @FindBy(xpath = "//button[contains(text(),'Back')]")
-    protected WebElement buttonBack;
-
-    @FindBy(xpath = "//button[@aria-label='Next page']")
-    protected WebElement nextPageButton;
-
-    @FindBy(xpath = "//button[@aria-label='Previous page']")
-    protected WebElement previousPageButton;
+    private final PageElements elements;
 
     /*
     CONSTRUCTOR
@@ -84,9 +46,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      */
     public GenericCMPage(WebDriver driver) {
         this.driver = driver;
-        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, IWebInteract.TIMEOUT);
-        //create all web elements on the CMD page
-        PageFactory.initElements(factory, this);
+        elements = new PageElements(driver);
     }
 
     /*
@@ -98,16 +58,29 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
         return driver;
     }
 
+    @Override
+    public boolean confirmCurrentPage() {
+        return false;
+    }
+
     /*
     CLASS METHODS
      */
+
+    /**
+     * Verifies that the back button on the current page is visible.
+     * @return if back button is visible or false otherwise.
+     */
+    public boolean verifyBackButton() {
+        return isVisible(elements.buttonBack);
+    }
 
     /**
      * Gets all of the rows in the table.
      * @return A list of WebElements with the rows in the table.
      */
     public List<WebElement> getTableRows() {
-        return primeTableRows;
+        return elements.primeTableRows;
 
     }
 
@@ -141,7 +114,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
     }
 
     public boolean verifyAllTableRowFieldContents() {
-        return primeTableRows.stream().allMatch(this::verifySingleRow);
+        return elements.primeTableRows.stream().allMatch(this::verifySingleRow);
     }
 
     /**
@@ -150,7 +123,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      * @return A list of WebElements with the dates from the date column.
      */
     public List<WebElement> getDateColumn() {
-        return this.dateColumnList;
+        return this.elements.dateColumnList;
     }
 
     /**
@@ -160,10 +133,10 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      */
     public boolean selectTableSize25() {
         try {
-            this.tableSizeSelectorButton.click();
+            this.elements.tableSizeSelectorButton.click();
             WebDriverWait wait = new WebDriverWait(driver, 100);
-            wait.until(ExpectedConditions.visibilityOf(tableSize25Button));
-            tableSize25Button.click();
+            wait.until(ExpectedConditions.visibilityOf(elements.tableSize25Button));
+            elements.tableSize25Button.click();
         } catch (Exception e) {
             return false;
         }
@@ -193,7 +166,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
             return dates.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList()).equals(dates);
         }
     }
-//
+
 //    /**
 //     * Gets the count of product groups for a single contract ID row.
 //     *
@@ -210,7 +183,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      * @return The count of product groups.
      */
     public int getFirstRowProductGroupCount() {
-        return firstRowProductGroups.size();
+        return elements.firstRowProductGroups.size();
     }
 
 //    /**
@@ -237,7 +210,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      * @return True if the row was clicked or false otherwise.
      */
     public boolean clickTableRow(int rowNumber) {
-        return click("Click table row: " + rowNumber, primeTableRows.get(rowNumber));
+        return click("Click table row: " + rowNumber, elements.primeTableRows.get(rowNumber));
     }
 
     /**
@@ -245,7 +218,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      * @return True if the back button was clicked or false otherwise.
      */
     public boolean clickBackButton() {
-        return click("Click back button", buttonBack);
+        return click("Click back button", elements.buttonBack);
     }
 
     /**
@@ -253,7 +226,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      * @return True if the next page button was clicked or false otherwise.
      */
     public boolean clickNextPageButton() {
-        return click("Click next page button", nextPageButton);
+        return click("Click next page button", elements.nextPageButton);
     }
 
     /**
@@ -261,7 +234,57 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
      * @return True if the previous page button was clicked or false otherwise.
      */
     public boolean clickPreviousPageButton() {
-        return click("Click previous page button", previousPageButton);
+        return click("Click previous page button", elements.previousPageButton);
+    }
+
+    /*
+    ELEMENT CLASS
+     */
+
+    /**
+     * private class to contain the webelements. This allows us to reload the context as needed and keeps the code clean.
+     */
+    private class PageElements extends AbstractElementPage {
+
+        @FindBy(how = How.XPATH, using = "//table[@class='mat-table']")
+        protected WebElement table;
+
+        @FindBy(xpath = "//table[1 and @class='mat-table']/tbody/tr[contains(@class, 'example-element-row')]")
+        protected List<WebElement> primeTableRows;
+
+        @FindBy(xpath = "//table[1 and @class='mat-table']/tbody/tr[contains(@class, 'example-detail-row')]//*[contains(@class, 'example-element-row')]")
+        protected List<WebElement> secondaryTableRows;
+
+        @FindBy(xpath = "//table[@class='mat-table']/tbody/tr[contains(@class, 'example-detail-row')][1]//*[contains(@class, 'example-element-row')]")
+        protected List<WebElement> firstRowProductGroups;
+
+        @FindBy(xpath = "//table[1 and @class='mat-table']/tbody/tr[contains(@class, 'example-element-row')]/td[contains(@class,'cdk-column-timestamp')]")
+        protected List<WebElement> dateColumnList;
+
+        @FindBy(xpath = "//div[@class = 'mat-select-arrow']")
+        protected WebElement tableSizeSelectorButton;
+
+        @FindBy(xpath = "//span[@class = 'mat-option-text' and text()='5']")
+        protected WebElement tableSize5Button;
+
+        @FindBy(xpath = "//span[@class = 'mat-option-text' and text()='10']")
+        protected WebElement tableSize10Button;
+
+        @FindBy(xpath = "//span[@class='mat-option-text' and text()='25']")
+        protected WebElement tableSize25Button;
+
+        @FindBy(xpath = "//button[contains(text(),'Back')]")
+        protected WebElement buttonBack;
+
+        @FindBy(xpath = "//button[@aria-label='Next page']")
+        protected WebElement nextPageButton;
+
+        @FindBy(xpath = "//button[@aria-label='Previous page']")
+        protected WebElement previousPageButton;
+
+        PageElements(SearchContext context) {
+            super(context);
+        }
     }
 
 
