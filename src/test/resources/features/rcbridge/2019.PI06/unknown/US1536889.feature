@@ -1,43 +1,44 @@
 # Last updated on 
-@US1391149
-@releaseUnknown
+@US1536889
+@2019.PI06
+@releaseFuture
 @iterationUnknown
-Feature: US1391149 - Validate contract data - cancel
+Feature: US1536889 - Validate contract data - cancel
 
-  @TC616921
+  @TC703939
   @Manual
   @Functional
-  Scenario: TC616921 - [RL0]
+  Scenario: TC703939 - [RL0]
     Given an CONTRACT TERMS UPDATED TRANSACTION is received
     When the AMENDMENT contains at least one PRODUCT GROUP
     Then the AMENDMENT passes validation
     And the AMENDMENT continues to applicable next step
 
-  @TC616922
+  @TC703941
   @Manual
   @Functional
-  Scenario: TC616922 - [RL1]
+  Scenario: TC703941 - [RL1]
     Given an CONTRACT TERMS UPDATED TRANSACTION is received
     When the AMENDMENT Does Not contain at least one PRODUCT GROUP
     Then the AMENDMENT Does NOT pass validation
     And a Type 3 error generated and logged
     And a message generated 'AMENDMENT MISSING PRODUCT GROUP'
 
-  @TC616923
+  @TC703942
   @Manual
   @Functional
-  Scenario: TC616923 - [RL2]
+  Scenario: TC703942 - [RL2]
     Given a CONTRACT TERMS UPDATED TRANSACTION event is received
-    When the CONTRACT TERMS UPDATED TRANSACTION record includes at least one PRODUCT GROUP to add, cancel or update
+    When the CONTRACT TERMS UPDATED TRANSACTION record includes at least one PRODUCT GROUP to cancel
     Then the CONTRACT TERMS UPDATED TRANSACTION passes validation
     And the CONTRACT TERMS UPDATED TRANSACTION continues to applicable next step in process
 
-  @TC616924
+  @TC703943
   @Manual
   @Functional
-  Scenario: TC616924 - [RL3]
+  Scenario: TC703943 - [RL3]
     Given a CONTRACT TERMS UPDATED TRANSACTION event is received
-    When the CONTRACT TERMS UPDATED TRANSACTION record does not contain one or more PRODUCT GROUP records to add, cancel or update
+    When the CONTRACT TERMS UPDATED TRANSACTION record does not contain one or more PRODUCT GROUP records to cancel
     Then the CONTRACT TERMS UPDATED TRANSACTION does not pass validation
     And a Type 3 error generated and logged
     And a message generated 'CONTRACT TERMS UPDATED TRANSACTION RECORD MISSING ACTION TYPE
