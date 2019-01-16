@@ -14,6 +14,7 @@ import ui_test.util.SeleniumHelper;
 import static ui_test.util.SeleniumHelper.findElement;
 import static ui_test.util.SeleniumHelper.waitForElementToLoad;
 
+@Deprecated
 public class CrosswalkPage implements IFactoryPage, IWebInteract {
 
     private static Logger log = LoggerFactory.getLogger(CrosswalkPage.class);

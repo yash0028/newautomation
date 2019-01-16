@@ -1,4 +1,4 @@
-package ui_test.page.exari.home.site.subpages;
+package ui_test.page.exari.contract;
 
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -8,8 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.util.AbstractPageElements;
 
-public class CentralUHNSitePage extends GenericSitePage {
-    private static final Logger log = LoggerFactory.getLogger(CentralUHNSitePage.class);
+public class ContractPreviewPage extends GenericInputPage {
+    private static final Logger log = LoggerFactory.getLogger(ContractPreviewPage.class);
 
     private final PageElements elements;
 
@@ -17,7 +17,7 @@ public class CentralUHNSitePage extends GenericSitePage {
     CONSTRUCTOR
      */
 
-    public CentralUHNSitePage(WebDriver driver) {
+    public ContractPreviewPage(WebDriver driver) {
         super(driver);
         elements = new PageElements(driver);
     }
@@ -28,11 +28,23 @@ public class CentralUHNSitePage extends GenericSitePage {
 
     @Override
     public boolean confirmCurrentPage() {
-        return isVisible(elements.labelCentralUHN);
+        return isVisible(elements.labelBoxPreviewInstructions);
     }
 
     /*
+    ACTION METHODS
+     */
+
+    /*
     CLASS METHODS
+     */
+
+    /*
+    PAGE METHODS
+     */
+
+    /*
+    HELPER METHODS
      */
 
     /*
@@ -44,8 +56,8 @@ public class CentralUHNSitePage extends GenericSitePage {
      */
     private class PageElements extends AbstractPageElements {
 
-        @FindBy(xpath = "//a[contains(@title,'Central UHN')]")
-        WebElement labelCentralUHN;
+        @FindBy(xpath = "//div[@id='previewInstructions']")
+        private WebElement labelBoxPreviewInstructions;
 
         PageElements(SearchContext context) {
             super(context);

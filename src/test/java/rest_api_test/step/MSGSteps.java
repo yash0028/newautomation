@@ -1,7 +1,6 @@
 package rest_api_test.step;
 
-import com.google.gson.JsonObject;
-import cucumber.api.PendingException;
+import com.google.gson.JsonElement;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -55,12 +54,13 @@ public class MSGSteps implements IRestStep {
         response = request.get(RESOURCE_PRODUCTS);
 //        String responseString = response.asString();
 
-        JsonObject responseJson = parseJsonResponse(response);
+        JsonElement result = parseJsonElementResponse(response);
 
 //        System.out.println("RESPONSE: " + responseString);
 
         assertEquals(200, response.getStatusCode());
-        assertTrue(!responseJson.get("content").toString().equals("[]"));
+        assert result.isJsonObject();
+        assertTrue(!result.getAsJsonObject().get("content").toString().equals("[]"));
     }
 
     @Then("^I receive a response with empty content$")
@@ -68,12 +68,13 @@ public class MSGSteps implements IRestStep {
         response = request.get(RESOURCE_PRODUCTS);
         String responseString = response.asString();
 
-        JsonObject responseJson = parseJsonResponse(response);
+        JsonElement result = parseJsonElementResponse(response);
 
-        System.out.println("RESPONSE: " + responseString);
+        log.trace("RESPONSE: {}", responseString);
 
         assertEquals(200, response.getStatusCode());
-        assertTrue(responseJson.get("content").toString().equals("[]"));
+        assert result.isJsonObject();
+        assertEquals("[]", result.getAsJsonObject().get("content").toString());
     }
 
 

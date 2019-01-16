@@ -6,14 +6,14 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class AbstractElementPage {
+public class AbstractPageElements {
     public static final int TIMEOUT = 90;
-    private static final Logger log = LoggerFactory.getLogger(AbstractElementPage.class);
+    private static final Logger log = LoggerFactory.getLogger(AbstractPageElements.class);
 
     private SearchContext context;
 
 
-    public AbstractElementPage(SearchContext context) {
+    public AbstractPageElements(SearchContext context) {
         this.context = context;
         relocateFactory();
     }

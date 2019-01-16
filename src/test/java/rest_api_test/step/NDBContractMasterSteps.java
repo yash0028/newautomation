@@ -50,7 +50,7 @@ public class NDBContractMasterSteps implements IRestStep {
     }
 
     @And("^the fee schedule \"([^\"]*)\" & the product code group \"([^\"]*)\" & the product code \"([^\"]*)\"$")
-    public void createLookupObject(String feeSchedule, String productCodeGroup, String productCode){
+    public void createLookupObject(String feeSchedule, String productCodeGroup, String productCode) {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("feeSchedule", feeSchedule);
         jsonObject.addProperty("productGroupCode", productCodeGroup);
@@ -62,8 +62,9 @@ public class NDBContractMasterSteps implements IRestStep {
     @When("^The API response was successful$")
     public void responseSuccessful() throws Throwable {
         sendUnet();
-        JsonObject result = parseJsonResponse(response);
-        Assert.assertTrue(result.get("status").getAsBoolean());
+        JsonElement result = parseJsonElementResponse(response);
+        Assert.assertTrue(result.isJsonObject());
+        Assert.assertTrue(result.getAsJsonObject().get("status").getAsBoolean());
     }
 
 
@@ -78,10 +79,11 @@ public class NDBContractMasterSteps implements IRestStep {
 
     @Then("^The API returned no results$")
     public void returnedNoResults() throws Throwable {
-        JsonObject result = parseJsonResponse(this.response);
+        JsonElement result = parseJsonElementResponse(this.response);
 
-        Assert.assertTrue(result.get("data").isJsonArray());
-        for(JsonElement jsonElement : result.get("data").getAsJsonArray()){
+        assert result.isJsonObject();
+        Assert.assertTrue(result.getAsJsonObject().get("data").isJsonArray());
+        for (JsonElement jsonElement : result.getAsJsonObject().get("data").getAsJsonArray()) {
             Assert.assertTrue(jsonElement.isJsonObject());
             Integer returnCode = Integer.parseInt(jsonElement.getAsJsonObject().get("returnCode").getAsString());
             Assert.assertTrue(returnCode < 1000);
@@ -91,33 +93,35 @@ public class NDBContractMasterSteps implements IRestStep {
 
     @And("^the API returned a return code of \"([^\"]*)\"$")
     public void checkSingleReturnCode(String returnCode) throws Throwable {
-        JsonObject result = parseJsonResponse(this.response);
+        JsonElement result = parseJsonElementResponse(this.response);
         boolean foundOne = false;
 
-        Assert.assertTrue(result.get("data").isJsonArray());
-        for(JsonElement jsonElement : result.get("data").getAsJsonArray()){
+        assert result.isJsonObject();
+        Assert.assertTrue(result.getAsJsonObject().get("data").isJsonArray());
+        for (JsonElement jsonElement : result.getAsJsonObject().get("data").getAsJsonArray()) {
             Assert.assertTrue(jsonElement.isJsonObject());
             foundOne |= jsonElement.getAsJsonObject().get("returnCode").getAsString().equals(returnCode);
         }
 
-        Assert.assertTrue("Unable to find any object with expected return code of " + returnCode ,foundOne);
+        Assert.assertTrue("Unable to find any object with expected return code of " + returnCode, foundOne);
     }
 
     @And("^the API returned a return code of \"([^\"]*)\" and \"([^\"]*)\"$")
     public void CheckMultipleReturnCode(String returnCodeA, String returnCodeB) throws Throwable {
-        JsonObject result = parseJsonResponse(this.response);
+        JsonElement result = parseJsonElementResponse(this.response);
         boolean foundA = false;
         boolean foundB = false;
 
-        Assert.assertTrue(result.get("data").isJsonArray());
-        for(JsonElement jsonElement : result.get("data").getAsJsonArray()){
+        assert result.isJsonObject();
+        Assert.assertTrue(result.getAsJsonObject().get("data").isJsonArray());
+        for (JsonElement jsonElement : result.getAsJsonObject().get("data").getAsJsonArray()) {
             Assert.assertTrue(jsonElement.isJsonObject());
             foundA |= jsonElement.getAsJsonObject().get("returnCode").getAsString().equals(returnCodeA);
             foundB |= jsonElement.getAsJsonObject().get("returnCode").getAsString().equals(returnCodeB);
         }
 
-        Assert.assertTrue("Unable to find any object with expected return code of " + returnCodeA ,foundA);
-        Assert.assertTrue("Unable to find any object with expected return code of " + returnCodeB ,foundB);
+        Assert.assertTrue("Unable to find any object with expected return code of " + returnCodeA, foundA);
+        Assert.assertTrue("Unable to find any object with expected return code of " + returnCodeB, foundB);
     }
 
     /*
@@ -126,11 +130,12 @@ public class NDBContractMasterSteps implements IRestStep {
 
     @Then("^The API returned one or more contract masters$")
     public void MultipleContractMaster() throws Throwable {
-        JsonObject result = parseJsonResponse(this.response);
+        JsonElement result = parseJsonElementResponse(this.response);
         System.out.println(result);
 
-        Assert.assertTrue(result.get("data").isJsonArray());
-        for(JsonElement jsonElement : result.get("data").getAsJsonArray()){
+        assert result.isJsonObject();
+        Assert.assertTrue(result.getAsJsonObject().get("data").isJsonArray());
+        for (JsonElement jsonElement : result.getAsJsonObject().get("data").getAsJsonArray()) {
             Assert.assertTrue(jsonElement.isJsonObject());
             Integer returnCode = Integer.parseInt(jsonElement.getAsJsonObject().get("returnCode").getAsString());
             Assert.assertTrue(returnCode >= 1000);
@@ -140,7 +145,7 @@ public class NDBContractMasterSteps implements IRestStep {
     /*
     US1204285 - [Continued]Implement NDB Contract Master Lookup API
      */
-    
+
     @Given("^the Exari / CLM>NDB contract master Lookup API payload data is correct$")
     public void theExariCLMNDBContractMasterLookupAPIPayloadDataIsCorrect() throws Throwable {
         singleContract();
