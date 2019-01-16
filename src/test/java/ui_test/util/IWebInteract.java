@@ -22,7 +22,7 @@ public interface IWebInteract {
 
     @Deprecated
     int TIMEOUT = 90;
-    //Use AbstractElementPage.TIMEOUT if you need the timeout
+    //Use AbstractPageElements.TIMEOUT if you need the timeout
 
     /*
     INTERFACE METHODS

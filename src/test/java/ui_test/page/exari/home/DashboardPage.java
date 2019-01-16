@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.navigation.ExariNavigationPanel;
 import ui_test.page.exari.navigation.IExariNavigation;
-import ui_test.util.AbstractElementPage;
+import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
@@ -64,7 +64,7 @@ public class DashboardPage implements IFactoryPage, IWebInteract, IExariNavigati
     ELEMENT CLASS
      */
 
-    private class PageElements extends AbstractElementPage {
+    private class PageElements extends AbstractPageElements {
 
         @FindBy(xpath = "//span[contains(@title,'Dashboard')]")
         public WebElement labelDashboard;
@@ -72,7 +72,7 @@ public class DashboardPage implements IFactoryPage, IWebInteract, IExariNavigati
         @FindBy(xpath = "//div[@id='prompt']/div[contains(text(),'Fail')]/following::div//button")
         public WebElement buttonDismissFailure;
 
-        public PageElements(SearchContext context) {
+        PageElements(SearchContext context) {
             super(context);
         }
     }
