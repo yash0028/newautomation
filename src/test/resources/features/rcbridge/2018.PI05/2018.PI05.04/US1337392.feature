@@ -14,7 +14,7 @@ Feature: US1337392 - [Continued] [Continued] CPS lookup API Layer-7 implementati
     And I author a contract using the "eif-cps-lookup.json" flow
     When COSMOS updater requires additional information
     And COSMOS updater waits until NDB updates are complete
-    And COSMS gets notified the NDB request returns valid values
+    And COSMOS gets notified that the NDB request returns valid values
     Then The CPS Lookup API will respond with valid NDB values
     And The COSMOS DIV is "EVC" and Contract package # is "22503"
 

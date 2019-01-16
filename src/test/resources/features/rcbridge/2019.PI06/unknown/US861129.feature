@@ -1,7 +1,7 @@
 # Last updated on 
 @US861129
-@2018.PI05
-@releasePresent
+@2019.PI06
+@releaseFuture
 @iterationUnknown
 Feature: US861129 - NDAR_Exari_Payer_Benefit_Plans_YYYYMMDD
 
