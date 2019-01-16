@@ -1,5 +1,6 @@
 package rest_api_test.step;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -29,7 +30,7 @@ public class TransactionSteps implements IRestStep {
 
     @Given("^A business event is received by the event gateway that requires an update to NDB$")
     public void aBusinessEventIsReceivedByTheEventGatewayThatRequiresAnUpdateToNDB() throws Throwable {
-        JsonObject jsonResponse;
+        JsonElement result;
         JsonObject businessEvent = new JsonObject();
         JsonObject ndbModel = new JsonObject();
         payload = new JsonObject();
@@ -90,8 +91,9 @@ public class TransactionSteps implements IRestStep {
 
 //        System.out.println(response.getBody().asString());
 
-        jsonResponse = parseJsonResponse(response);
-        System.out.println(jsonResponse.get("transactionId").getAsString());
+        result = parseJsonElementResponse(response);
+        assert result.isJsonObject();
+        log.trace(result.getAsJsonObject().get("transactionId").getAsString());
 
     }
 

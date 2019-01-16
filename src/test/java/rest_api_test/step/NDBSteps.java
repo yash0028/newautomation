@@ -1,5 +1,6 @@
 package rest_api_test.step;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import cucumber.api.PendingException;
@@ -149,7 +150,7 @@ public class NDBSteps implements IRestStep {
         UtilityGeneralSteps.scenario.write("Transaction ID: " + tID);
 
         JsonParser parser = new JsonParser();
-        JsonObject responseJson;
+        JsonElement result;
         long startTime = System.currentTimeMillis();
 
         //Loop until request finishes
@@ -161,18 +162,19 @@ public class NDBSteps implements IRestStep {
             System.out.println(response.getContentType());
             System.out.println(response.getBody().asString());
             System.out.println("---");
-            responseJson = parseJsonResponse(response);
+            result = parseJsonElementResponse(response);
 
             if(System.currentTimeMillis() > startTime + TIMEOUTMS){
                 fail("Reached timeout for Transaction ID");
                 return;
             }
-        } while (responseJson.toString().contains("404") || responseJson.toString().contains("PENDING"));
-        UtilityGeneralSteps.scenario.write(responseJson.toString());
+        } while (result.toString().contains("404") || result.toString().contains("PENDING"));
+        UtilityGeneralSteps.scenario.write(result.toString());
 
 //        assertTrue(result.toString().contains("THERE IS AN EXISTING CONTRACT WITHIN THIS DATE RANGE")
 //                || result.get("result").getAsString().equalsIgnoreCase("successful"));
-        String statusCode = responseJson.get("messages").getAsJsonArray().get(0).getAsJsonObject().get("code").getAsString();
+        assert result.isJsonObject();
+        String statusCode = result.getAsJsonObject().get("messages").getAsJsonArray().get(0).getAsJsonObject().get("code").getAsString();
         assertTrue(statusCode.contains("100") || statusCode.contains("200"));
     }
     
