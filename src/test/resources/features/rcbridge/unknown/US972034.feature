@@ -5,11 +5,11 @@
 @iterationUnknown
 Feature: US972034 - Field on Initiate Retro Form - Retro Why can't move effective date
 
-  @TC565550
-  @Automated
+  @TC703879
+  @Manual
   @Functional
   @Retro
-  Scenario: TC565550 - [RL0]
+  Scenario: TC703879 - [RL0]
     Given A retro approval has been triggered.
     When I click on "Why can't the effective date be moved?"
     Then A free form long text box is available for input.

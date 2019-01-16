@@ -4,19 +4,19 @@
 @iterationUnknown
 Feature: US1039748 - Prevent execution of contract if retro and no approval
 
-  @TC565764
-  @Automated
+  @TC703883
+  @Manual
   @Functional
-  Scenario: TC565764 - [RL0]
+  Scenario: TC703883 - [RL0]
     Given a FAC/ANC contract and the planned effective date is within 15 calendar days or in the past
     When it is being executed
     And no retro approval exists
     Then tell user that they need to obtain retro approval
 
-  @TC565765
-  @Automated
+  @TC703886
+  @Manual
   @Functional
-  Scenario: TC565765 - [RL1]
+  Scenario: TC703886 - [RL1]
     Given a Physician contract and the planned effective date is within 15 calendar days or in the past
     When it is being executed
     And no retro approval exists
