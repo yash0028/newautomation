@@ -6,11 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ui_test.util.AbstractElementPage;
+import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
@@ -244,7 +242,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
     /**
      * private class to contain the webelements. This allows us to reload the context as needed and keeps the code clean.
      */
-    private class PageElements extends AbstractElementPage {
+    private class PageElements extends AbstractPageElements {
 
         @FindBy(how = How.XPATH, using = "//table[@class='mat-table']")
         protected WebElement table;

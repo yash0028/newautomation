@@ -79,9 +79,4 @@ public class CMDActionRequiredSteps implements IUiStep {
         }
     }
 
-    /*
-    US1303750: CMD - User Input Required Page - View & Edit contract detail information (no search results found)
-     */
-
-
 }

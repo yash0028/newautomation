@@ -1,7 +1,9 @@
 package rest_api_test.step;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -45,9 +47,10 @@ public class CPSLookupSteps implements IRestStep, ISharedValueReader{
         // Do nothing here
     }
 
-    @And("^COSMS gets notified the NDB request returns valid values$")
-    public void cosmsGetsNotifiedTheNDBRequestReturnsValidValues() throws Throwable {
-        // Do nothing here
+    @And("^COSMOS gets notified that the NDB request returns valid values$")
+    public void cosmosGetsNotifiedThatTheNDBRequestReturnsValidValues() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 
     @Then("^The CPS Lookup API will respond with valid NDB values$")
@@ -56,7 +59,7 @@ public class CPSLookupSteps implements IRestStep, ISharedValueReader{
     }
 
     @And("^The COSMOS DIV is \"([^\"]*)\" and Contract package # is \"([^\"]*)\"$")
-    public void theCOSMOSDIVIsAndContractPackageIs(String arg0, String arg1) throws Throwable {
+    public void verifyDivAndPackageNumber(String arg0, String arg1) throws Throwable {
 //        String contractNumber = getSharedString("contractNumber").orElse(" ");
         String contractNumber = "23134405";
 
@@ -93,6 +96,13 @@ public class CPSLookupSteps implements IRestStep, ISharedValueReader{
         log.trace("OCM JSON response: {}", OCMJson);
 
         // Verify OCM Json contains "marketDivRegion": "DIV" and "contractOrPackage": "22503"
+        String expectedMarketDivRegion = arg0;
+        String expectedDIV = arg1;
+
+        JsonArray feeScheduleDetails = falloutResultElement.getAsJsonObject().get("feeScheduleDetails").getAsJsonArray();
+
+        log.trace("feeScheduleDetails: {}", feeScheduleDetails.toString());
 
     }
+
 }
