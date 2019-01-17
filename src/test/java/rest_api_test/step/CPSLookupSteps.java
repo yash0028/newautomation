@@ -25,7 +25,7 @@ public class CPSLookupSteps implements IRestStep, ISharedValueReader{
     private static final String ENDPOINT_EVENT_GATEWAY = "http://event-gateway-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_EVENT_GATEWAY_CONTRACT_INSTALLED = "/v1.0/events/contract-installed";
     private static final String ENDPOINT_FALLOUT_SERVICE = "https://fallout-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String RESOURCE_FALLOUT_SERVICE_CONTRACT_DETAILS = "/v1.0/contract-details";
+    private static final String RESOURCE_FALLOUT_SERVICE_CONTRACT_DETAILS = "/v1.0/contract-details/";
 
     private RequestSpecification eventGatewayRequest;
     private RequestSpecification falloutRequest;
@@ -62,7 +62,7 @@ public class CPSLookupSteps implements IRestStep, ISharedValueReader{
         // get the contract id from the contract that was created by Selenium during the previous steps.
         String contractNumber = getSharedString("contractNumber").orElse(" ");
 
-        // Make a POST request to the evengit t gateway API with the contract number
+        // Make a POST request to the event gateway API with the contract number
         // and get back the transaction status number
         payload.addProperty("eventName", "ContractInstalled");
         payload.addProperty("userId", "QE Test three");
@@ -86,7 +86,7 @@ public class CPSLookupSteps implements IRestStep, ISharedValueReader{
         // Make a GET request to the fallout service with the transaction id
         // to get the OCM json
         falloutRequest = given().baseUri(ENDPOINT_FALLOUT_SERVICE).header("Content-Type", "application/json").relaxedHTTPSValidation();
-        falloutResponse = falloutRequest.get(RESOURCE_FALLOUT_SERVICE_CONTRACT_DETAILS + "/9eb2a03a-d7e5-4e6c-9212-99167bb127bf");
+        falloutResponse = falloutRequest.get(RESOURCE_FALLOUT_SERVICE_CONTRACT_DETAILS + transactionId);
         Assert.assertEquals(200, falloutResponse.getStatusCode());
 
         // retrieve the OCM Json
@@ -99,7 +99,6 @@ public class CPSLookupSteps implements IRestStep, ISharedValueReader{
         boolean packageNumberFound = false;
 
         JsonArray feeScheduleDetails = falloutResultElement.getAsJsonObject().get("feeScheduleDetails").getAsJsonArray();
-
         log.trace("feeScheduleDetails: {}", feeScheduleDetails.toString());
 
         for (int i = 0; i < feeScheduleDetails.size(); i++) {
@@ -113,8 +112,6 @@ public class CPSLookupSteps implements IRestStep, ISharedValueReader{
 
         Assert.assertTrue("The specified marketDivRegion was not found", marketDivRegionFound);
         Assert.assertTrue("The specified package number was not found", packageNumberFound);
-
-
     }
 
 }
