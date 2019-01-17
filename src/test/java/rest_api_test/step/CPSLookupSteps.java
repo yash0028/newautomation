@@ -3,7 +3,6 @@ package rest_api_test.step;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -49,8 +48,7 @@ public class CPSLookupSteps implements IRestStep, ISharedValueReader{
 
     @And("^COSMOS gets notified that the NDB request returns valid values$")
     public void cosmosGetsNotifiedThatTheNDBRequestReturnsValidValues() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        // Do nothing here
     }
 
     @Then("^The CPS Lookup API will respond with valid NDB values$")
@@ -59,11 +57,12 @@ public class CPSLookupSteps implements IRestStep, ISharedValueReader{
     }
 
     @And("^The COSMOS DIV is \"([^\"]*)\" and Contract package # is \"([^\"]*)\"$")
-    public void verifyDivAndPackageNumber(String arg0, String arg1) throws Throwable {
-//        String contractNumber = getSharedString("contractNumber").orElse(" ");
-        String contractNumber = "23134405";
+    public void verifyDivAndPackageNumber(String expectedMarketDivRegion, String expectedPackageNumber) throws Throwable {
 
-        // Make a POST request to the event gateway API with the contract number
+        // get the contract id from the contract that was created by Selenium during the previous steps.
+        String contractNumber = getSharedString("contractNumber").orElse(" ");
+
+        // Make a POST request to the evengit t gateway API with the contract number
         // and get back the transaction status number
         payload.addProperty("eventName", "ContractInstalled");
         payload.addProperty("userId", "QE Test three");
@@ -96,12 +95,25 @@ public class CPSLookupSteps implements IRestStep, ISharedValueReader{
         log.trace("OCM JSON response: {}", OCMJson);
 
         // Verify OCM Json contains "marketDivRegion": "DIV" and "contractOrPackage": "22503"
-        String expectedMarketDivRegion = arg0;
-        String expectedDIV = arg1;
+        boolean marketDivRegionFound = false;
+        boolean packageNumberFound = false;
 
         JsonArray feeScheduleDetails = falloutResultElement.getAsJsonObject().get("feeScheduleDetails").getAsJsonArray();
 
         log.trace("feeScheduleDetails: {}", feeScheduleDetails.toString());
+
+        for (int i = 0; i < feeScheduleDetails.size(); i++) {
+            String marketDivRegion = feeScheduleDetails.get(i).getAsJsonObject().get("marketDivRegion").getAsString();
+            if (marketDivRegion.equals(expectedMarketDivRegion))
+                marketDivRegionFound = true;
+            String packageNumber = feeScheduleDetails.get(i).getAsJsonObject().get("contractOrPackage").getAsString();
+            if (packageNumber.equals(expectedPackageNumber))
+                packageNumberFound = true;
+        }
+
+        Assert.assertTrue("The specified marketDivRegion was not found", marketDivRegionFound);
+        Assert.assertTrue("The specified package number was not found", packageNumberFound);
+
 
     }
 
