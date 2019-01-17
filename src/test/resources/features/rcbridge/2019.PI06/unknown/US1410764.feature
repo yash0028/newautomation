@@ -3,7 +3,7 @@
 @2019.PI06
 @releaseFuture
 @iterationUnknown
-Feature: US1410764 - Handle Roster Update Event
+Feature: US1410764 - Handle Roster Update Event --> Happy path
 
   @RC_unlinked
   @TC701599
