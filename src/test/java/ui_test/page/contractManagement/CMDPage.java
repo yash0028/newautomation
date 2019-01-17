@@ -9,11 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
-import ui_test.util.SeleniumHelper;
-
 import java.util.List;
-
-import static ui_test.util.SeleniumHelper.findElement;
 
 public class CMDPage implements IFactoryPage, IWebInteract {
     private static Logger log = LoggerFactory.getLogger(CMDPage.class);
@@ -52,20 +48,6 @@ public class CMDPage implements IFactoryPage, IWebInteract {
         AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, 100);
         //create all web elements on the CMD page
         PageFactory.initElements(factory, this);
-    }
-
-    /*
-    STATIC METHODS
-     */
-
-    @Deprecated
-    public static CMDPage getCMDPage() {
-        return (getHeaderContractMetadata().getText().equalsIgnoreCase("getContractPage Management")) ? new CMDPage(SeleniumHelper.getWebDriver()) : null;
-    }
-
-    @Deprecated
-    public static WebElement getHeaderContractMetadata() {
-        return findElement("className", "navbar-brand");
     }
 
     /*

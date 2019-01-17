@@ -11,7 +11,9 @@ import org.junit.runner.RunWith;
 		plugin = {
 				"pretty",
 				"json:build/json-reports/json-report.json",
-                "junit:build/xml-reports/xml-report.xml"}
+				"junit:build/xml-reports/xml-report.xml"},
+        dryRun = true
+//		tags = {"@US1337392"}
 )
 public class TestRunner {
 
