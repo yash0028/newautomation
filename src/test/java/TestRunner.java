@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 				"json:build/json-reports/json-report.json",
 				"junit:build/xml-reports/xml-report.xml"},
         dryRun = true
-//		tags = {"@US1185585"}
+//		tags = {"@US1337392"}
 )
 public class TestRunner {
 

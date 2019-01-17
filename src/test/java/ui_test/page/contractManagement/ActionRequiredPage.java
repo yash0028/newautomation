@@ -38,7 +38,7 @@ public class ActionRequiredPage extends GenericCMPage {
      * @return True if on the in progress page or false otherwise.
      */
     public boolean confirmCurrentPage() {
-        return isVisible(buttonBack);
+        return verifyBackButton();
 //        return isVisible(buttonBack) && getDriver().getCurrentUrl().matches("^.+reassignment$");
     }
 
