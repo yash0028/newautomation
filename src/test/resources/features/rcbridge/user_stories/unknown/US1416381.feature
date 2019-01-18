@@ -7,7 +7,7 @@
 Feature: US1416381 - Author PAT Contact UI Path
 
   @TC628786
-  @Manual
+  @Automated
   @User_Interface
   @A_UI_Story
   Scenario Outline: TC628786 - [RL0]
