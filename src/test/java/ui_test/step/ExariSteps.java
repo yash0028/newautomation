@@ -35,7 +35,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     private FlowContract flowContract;
 
-    //    @Before("@Exari_UI_Test")
     public void loadFlow() {
         loadFlow(DEFAULT_FLOW);
     }
@@ -68,6 +67,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void authorContract(String fileName) {
         loadFlow(fileName);
         authorContract();
+        finalCapture();
     }
 
     @When("^I author a contract using the following contract information$")
@@ -83,6 +83,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         flowContract.substituteGherkinData(contractParam);
 
         authorContract();
+        finalCapture();
     }
 
     @Then("^I have an active contract in Exari$")
@@ -111,6 +112,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
         //set Edit Status
         contractPage.setEditStatus("Final Pending QA");
+    }
+
+    private void finalCapture() {
+        InterviewManager manager = new InterviewManager(getDriver(), flowContract);
 
         //click Final Capture
         contractPage.clickFinalCapture();

@@ -1,0 +1,314 @@
+{
+    "name": "author basic contract",
+    "authors": [
+        "Alex Berns"
+    ],
+    "notes": [
+        "authors an exari contract using cucumber parameters.",
+        "Created as a test of the EIF system"
+    ],
+    "flows": [
+        {
+            "topic": "PES Inputs",
+            "questions": [
+                {
+                    "question": "MPIN",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "<MPIN>"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "PES Response",
+            "questions": [
+                {
+                    "question": "Specify approach for counterparty",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "0"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Provider Details",
+            "questions": [
+                {
+                    "question": "Select Market Number",
+                    "action": "TEXT-DROPDOWN",
+                    "answers": [
+                        "<Market Number>",
+                        "0"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "HBPs Red Door",
+            "questions": [
+                {
+                    "question": "Is this contract for Hospital Based Providers only AND United agrees to use one of the Red Door Alternate clauses?",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Request For Participation Response",
+            "questions": []
+        },
+        {
+            "topic": "Document Selection",
+            "questions": [
+                {
+                    "question": "Based on the Provider you've selected, below are the Paper Types available. Please select one:",
+                    "action": "RADIO-ID",
+                    "answers": [
+                        "<Paper Type>"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Practice Locations",
+            "questions": [
+                {
+                    "question": "The primary service/practice location for the counterparty held in NDB is:",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "0"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "MEG",
+            "questions": [
+                {
+                    "question": "Task",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "0"
+                    ]
+                },
+                {
+                    "question": "Task (revisit this question to see MEG detail)",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "0"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Contract Details",
+            "questions": [
+                {
+                    "question": "Enter PhyCon Number:",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "<Phycon>"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Appendix 1",
+            "questions": [
+                {
+                    "question": "will additional manuals apply?",
+                    "matchMethod": "equals-ignore-case",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Appendix 2",
+            "questions": [
+                {
+                    "question": "Which of the following products will be included in Appendix 2?",
+                    "action": "CHECKBOX-INDEX",
+                    "answers": [
+                        "1"
+                    ]
+                },
+                {
+                    "question": "Which of the following products will be excluded in Appendix 2?",
+                    "action": "CHECKBOX-INDEX",
+                    "answers": [
+                        "1"
+                    ]
+                },
+                {
+                    "question": "Is this contract only for",
+                    "matchMethod": "start",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Payment Appendix",
+            "questions": [
+                {
+                    "question": "Will any fee schedules be non-standard?",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
+                    ]
+                },
+                {
+                    "question": "Which of the following Payment Appendices will be included?",
+                    "action": "CHECKBOX-INDEX",
+                    "answers": [
+                        "0"
+                    ]
+                },
+                {
+                    "question": "Select the payment appendix whose increases/decreases have been negotiated for the initial term:",
+                    "action": "CHECKBOX-INDEX",
+                    "answers": [
+                        "0"
+                    ]
+                },
+                {
+                    "question": "What is the fee schedule ID for All Payer?",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "<Fee Schedule>"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Additional Locations",
+            "questions": [
+                {
+                    "question": "How would you like to select the additional location(s)?",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "0"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Regulatory Appendices",
+            "questions": [
+                {
+                    "question": "Please select a Regulatory Appendix",
+                    "action": "TEXT-AUTOFILL",
+                    "answers": [
+                        "iowa",
+                        "0"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "PROVIDER ROSTER",
+            "questions": [
+                {
+                    "question": "Roster Action",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "0"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Provider Roster",
+            "questions": [
+                {
+                    "question": "Select approach for provider entry",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
+                    ]
+                },
+                {
+                    "question": "TIN",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "<TIN>"
+                    ]
+                },
+                {
+                    "question": "Select Providers",
+                    "action": "TEXT-AUTOFILL",
+                    "answers": [
+                        "",
+                        "0"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Contract Details",
+            "questions": [
+                {
+                    "question": "Contract Effective Date",
+                    "action": "TEXT-DATE",
+                    "answers": [
+                        "October 10, 2019"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Provider Signatory",
+            "questions": [
+                {
+                    "question": "Print Name and Title:",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "Alex Berns"
+                    ]
+                },
+                {
+                    "question": "Provider Signatory Date",
+                    "action": "TEXT-DATE",
+                    "answers": [
+                        "October 10, 2019"
+                    ]
+                },
+                {
+                    "question": "Provider Signatory Email",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "clmqe1@optum.com"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Our Signatory",
+            "questions": [
+                {
+                    "question": "Print Name",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "Suruchi Sinha"
+                    ]
+                },
+                {
+                    "question": "Our Signatory Date",
+                    "action": "TEXT-DATE",
+                    "answers": [
+                        "October 10, 2019"
+                    ]
+                }
+            ]
+        }
+    ]
+}
