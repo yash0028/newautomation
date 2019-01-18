@@ -7,7 +7,7 @@
 Feature: US1453122 - Author SPGA Contact UI Path
 
   @TC652719
-  @Manual
+  @Automated
   @User_Interface
   @A_UI_Story
   Scenario Outline: TC652719 - [RL0]

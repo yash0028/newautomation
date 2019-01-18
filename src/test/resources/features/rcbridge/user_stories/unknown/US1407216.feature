@@ -7,7 +7,7 @@
 Feature: US1407216 - Author SPA Contact UI Path
 
   @TC624355
-  @Manual
+  @Automated
   @User_Interface
   @A_UI_Story
   Scenario Outline: TC624355 - [RL0] Author SPA contract in <site>
