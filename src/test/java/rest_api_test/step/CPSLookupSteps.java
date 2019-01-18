@@ -19,7 +19,7 @@ import static io.restassured.RestAssured.given;
 /**
  * Created by dtimaul on 1/15/19.
  */
-public class CPSLookupSteps implements IRestStep, ISharedValueReader{
+public class CPSLookupSteps implements IRestStep, ISharedValueReader {
     private static final Logger log = LoggerFactory.getLogger(CPSLookupSteps.class);
 
     private static final String ENDPOINT_EVENT_GATEWAY = "http://event-gateway-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";

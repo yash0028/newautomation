@@ -4,8 +4,6 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.contract.interview.flow.FlowItem;
@@ -22,17 +20,17 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
 
 
     private WebDriver driver;
-    private PageElements elements;
+    private PageElements pageElements;
+    private InterviewElements interviewElements;
 
     /*
     CONSTRUCTOR
      */
 
     public InterviewItem(WebDriver driver, WebElement interviewBox) {
-        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(interviewBox, IWebInteract.TIMEOUT);
-        PageFactory.initElements(factory, this);
         this.driver = driver;
-        this.elements = new PageElements(elements.blockAnswer);
+        this.pageElements = new PageElements(interviewBox);
+        this.interviewElements = new InterviewElements(interviewBox);
     }
 
     /*
@@ -41,7 +39,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
 
     @Override
     public boolean confirmCurrentPage() {
-        return isVisible(elements.labelQuestion) && isVisible(elements.blockAnswer);
+        return isVisible(pageElements.labelQuestion) && isVisible(pageElements.blockAnswer);
     }
 
     @Override
@@ -76,12 +74,12 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
      */
 
     public String getQuestion() {
-        String q = elements.labelQuestion.getText();
+        String q = pageElements.labelQuestion.getText();
         return q.contains(":") ? q.substring(0, q.indexOf(":")) : q;
     }
 
     public WebElement getBlockAnswer() {
-        return elements.blockAnswer;
+        return pageElements.blockAnswer;
     }
 
     /*
@@ -90,11 +88,11 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
 
     private boolean enterAnswer(String action, List<String> answers) {
         if (action.equalsIgnoreCase("TEXT-BASIC")) {
-            return sendKeys("text input", elements.textbox_basic, answers.get(0));
+            return sendKeys("text input", interviewElements.textbox_basic, answers.get(0));
         }
 
         if (action.equalsIgnoreCase("TEXT-DATE")) {
-            return sendKeys("date input", elements.textbox_basic, answers.get(0));
+            return sendKeys("date input", interviewElements.textbox_basic, answers.get(0));
         }
 
         if (action.equalsIgnoreCase("RADIO-INDEX")) {
@@ -131,24 +129,24 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
         if (answers.size() > 1) {
             //click only if already unchecked
             if (answers.get(1).equalsIgnoreCase("select")
-                    && !elements.radio_indexes.get(index).isSelected()) {
-                return click("radio input", elements.radio_indexes.get(index));
+                    && !interviewElements.radio_indexes.get(index).isSelected()) {
+                return click("radio input", interviewElements.radio_indexes.get(index));
             }
 
             //click only if already checked
             if (answers.get(1).equalsIgnoreCase("unselect")
-                    && elements.radio_indexes.get(index).isSelected()) {
-                return click("radio input", elements.radio_indexes.get(index));
+                    && interviewElements.radio_indexes.get(index).isSelected()) {
+                return click("radio input", interviewElements.radio_indexes.get(index));
             }
         }
 
         //just click if no other valid answer
-        return click("radio input", elements.radio_indexes.get(index));
+        return click("radio input", interviewElements.radio_indexes.get(index));
     }
 
     private boolean radio_id(List<String> answers) {
         String id = answers.get(0);
-        Optional<WebElement> element = elements.radio_indexes.stream().filter(e -> e.getAttribute("value").contains(id)).findFirst();
+        Optional<WebElement> element = interviewElements.radio_indexes.stream().filter(e -> e.getAttribute("value").contains(id)).findFirst();
         //Click if present, else send false
         return element.filter(webElement -> click("radio id", webElement)).isPresent();
 
@@ -156,7 +154,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
 
     private boolean radio_label(List<String> answers) {
         String answer = answers.get(0);
-        Optional<WebElement> element = elements.radio_labels.stream().filter(e -> e.getText().contains(answer)).findFirst();
+        Optional<WebElement> element = interviewElements.radio_labels.stream().filter(e -> e.getText().contains(answer)).findFirst();
         //Click if present, else send false
         return element.filter(webElement -> click("radio label", webElement)).isPresent();
     }
@@ -172,7 +170,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
         //Check for Check All answer
         if (answers.get(0).equalsIgnoreCase("all")) {
             //Select All Checkboxes
-            for (WebElement checkbox : elements.checkbox_indexes) {
+            for (WebElement checkbox : interviewElements.checkbox_indexes) {
                 if (!checkbox.isSelected()) {
                     test &= click("checkbox", checkbox);
                 }
@@ -183,7 +181,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
         //Check for Check None answer
         if (answers.get(0).equalsIgnoreCase("none")) {
             //Unselect all Checkboxes
-            for (WebElement checkbox : elements.checkbox_indexes) {
+            for (WebElement checkbox : interviewElements.checkbox_indexes) {
                 if (checkbox.isSelected()) {
                     test &= click("checkbox", checkbox);
                 }
@@ -194,7 +192,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
         //Handle all other answers
         List<Integer> indexes = answers.stream().map(Integer::valueOf).collect(Collectors.toList());
         for (Integer index : indexes) {
-            test &= click("checkbox", elements.checkbox_indexes.get(index));
+            test &= click("checkbox", interviewElements.checkbox_indexes.get(index));
         }
 
         return test;
@@ -202,17 +200,17 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
 
     private boolean text_dropdown(List<String> answers) {
         //Open dropdown search
-        click("dropdown open", elements.dropdown_open);
+        click("dropdown open", interviewElements.dropdown_open);
         pause(1);
 
         //Enter search term
-        sendKeys("dropdown textbox", elements.dropdown_textbox, answers.get(0));
+        sendKeys("dropdown textbox", interviewElements.dropdown_textbox, answers.get(0));
         pause(1);
 
         //Click index option
         int index = Integer.valueOf(answers.get(1));
         try {
-            return click("dropdown option", elements.dropdown_selection.get(index));
+            return click("dropdown option", interviewElements.dropdown_selection.get(index));
         } catch (IndexOutOfBoundsException e) {
             return false;
         }
@@ -220,16 +218,16 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
 
     private boolean text_autofill(List<String> answers) {
         //Open autofill search
-        click("autofill open", elements.dropdown_textbox);
+        click("autofill open", interviewElements.dropdown_textbox);
         pause(1);
 
         //Enter search term
-        sendKeys("autofill textbox", elements.dropdown_textbox, answers.get(0));
+        sendKeys("autofill textbox", interviewElements.dropdown_textbox, answers.get(0));
         pause(1);
 
         //Click index option
         int index = Integer.valueOf(answers.get(1));
-        return click("autofill option", elements.dropdown_selection.get(index));
+        return click("autofill option", interviewElements.dropdown_selection.get(index));
     }
 
     /*
@@ -243,6 +241,13 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
 
         @FindBy(xpath = ".//div[contains(@class,'Answer')]")
         private WebElement blockAnswer;
+
+        PageElements(SearchContext context) {
+            super(context);
+        }
+    }
+
+    private class InterviewElements extends AbstractPageElements {
 
         @FindBy(xpath = ".//input")
         public WebElement textbox_basic;
@@ -266,7 +271,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
         public List<WebElement> dropdown_selection;
 
 
-        PageElements(SearchContext context) {
+        InterviewElements(SearchContext context) {
             super(context);
         }
     }
