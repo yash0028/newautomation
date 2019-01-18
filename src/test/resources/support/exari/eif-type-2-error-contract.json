@@ -15,7 +15,7 @@
                     "question": "MPIN",
                     "action": "TEXT-BASIC",
                     "answers": [
-                        "<MPIN>"
+                        "368489"
                     ]
                 }
             ]
@@ -39,7 +39,7 @@
                     "question": "Select Market Number",
                     "action": "TEXT-DROPDOWN",
                     "answers": [
-                        "<Market Number>",
+                        "23503",
                         "0"
                     ]
                 }
@@ -68,7 +68,7 @@
                     "question": "Based on the Provider you've selected, below are the Paper Types available. Please select one:",
                     "action": "RADIO-ID",
                     "answers": [
-                        "<Paper Type>"
+                        "SMGA"
                     ]
                 }
             ]
@@ -111,7 +111,7 @@
                     "question": "Enter PhyCon Number:",
                     "action": "TEXT-BASIC",
                     "answers": [
-                        "<Phycon>"
+                        "1234"
                     ]
                 }
             ]
@@ -138,21 +138,6 @@
                     "answers": [
                         "1"
                     ]
-                },
-                {
-                    "question": "Which of the following products will be excluded in Appendix 2?",
-                    "action": "CHECKBOX-INDEX",
-                    "answers": [
-                        "1"
-                    ]
-                },
-                {
-                    "question": "Is this contract only for",
-                    "matchMethod": "start",
-                    "action": "RADIO-INDEX",
-                    "answers": [
-                        "1"
-                    ]
                 }
             ]
         },
@@ -170,21 +155,36 @@
                     "question": "Which of the following Payment Appendices will be included?",
                     "action": "CHECKBOX-INDEX",
                     "answers": [
-                        "0"
+                        "0",
+                        "2"
                     ]
                 },
                 {
-                    "question": "Select the payment appendix whose increases/decreases have been negotiated for the initial term:",
-                    "action": "CHECKBOX-INDEX",
+                    "question": "Will there be separate fee schedules by specialty type for All Payer?",
+                    "action": "RADIO-INDEX",
                     "answers": [
-                        "0"
+                        "1"
+                    ]
+                },
+                {
+                    "question": "Will there be separate fee schedules by specialty type for Medicare Advantage?",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
                     ]
                 },
                 {
                     "question": "What is the fee schedule ID for All Payer?",
                     "action": "TEXT-BASIC",
                     "answers": [
-                        "<Fee Schedule>"
+                        "20060080302"
+                    ]
+                },
+                {
+                    "question": "What is the fee schedule ID for Medicare Advantage?",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "IN 52716"
                     ]
                 }
             ]
@@ -208,7 +208,7 @@
                     "question": "Please select a Regulatory Appendix",
                     "action": "TEXT-AUTOFILL",
                     "answers": [
-                        "iowa",
+                        "alaska",
                         "0"
                     ]
                 }
@@ -217,13 +217,6 @@
         {
             "topic": "PROVIDER ROSTER",
             "questions": [
-                {
-                    "question": "Roster Action",
-                    "action": "RADIO-INDEX",
-                    "answers": [
-                        "0"
-                    ]
-                }
             ]
         },
         {
@@ -272,14 +265,14 @@
                     "question": "Print Name and Title:",
                     "action": "TEXT-BASIC",
                     "answers": [
-                        "Alex Berns"
+                        "Joe Wacker"
                     ]
                 },
                 {
                     "question": "Provider Signatory Date",
                     "action": "TEXT-DATE",
                     "answers": [
-                        "October 10, 2019"
+                        "October 10, 2099"
                     ]
                 },
                 {
@@ -305,7 +298,7 @@
                     "question": "Our Signatory Date",
                     "action": "TEXT-DATE",
                     "answers": [
-                        "October 10, 2019"
+                        "October 10, 2099"
                     ]
                 }
             ]
