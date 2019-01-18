@@ -3,6 +3,7 @@ package ui_test.step;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -68,6 +69,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         loadFlow(fileName);
         authorContract();
         finalCapture();
+    }
+
+    @And("^I author a contract using the \"([^\"]*)\" flow without final capture$")
+    public void authorContractNoCapture(String fileName) {
+        loadFlow(fileName);
+        authorContract();
     }
 
     @When("^I author a contract using the following contract information$")

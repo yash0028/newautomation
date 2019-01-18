@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
+
 import java.util.List;
 
 public class CMDPage implements IFactoryPage, IWebInteract {

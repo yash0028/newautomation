@@ -67,6 +67,7 @@ public abstract class GenericCMPage implements IFactoryPage, IWebInteract {
 
     /**
      * Verifies that the back button on the current page is visible.
+     *
      * @return if back button is visible or false otherwise.
      */
     public boolean verifyBackButton() {
