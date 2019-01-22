@@ -3,7 +3,6 @@
 This is the main project for CLM acceptance testing automation. It uses the Cucumber testing framework to test acceptance tests written in CA Agile Central.
 
 
-
 This repo is used on Jenkins by the job titled "acceptance-testing-param" where it takes in the service name and tags as parameters to build this repo using gradle.
 
 ## Running Locally via Gradle
