@@ -11,20 +11,14 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @Manual
   @Functional
   @CMD
-  Scenario: TC672163 - [RL0]
+  Scenario Outline: TC672163 - [RL0]
     Given a user needs to query the table
-    When the user provides Specialty Code and Prov Type
+    When the user provides "<Specialty Code>" and "<Prov Type>"
     Then the query response provides the matching table records data
-
-  @TC672168
-  @Manual
-  @Functional
-  @CMD
-  Scenario: TC672168 - [RL1]
-    Given a user needs to query the table
-    When the user does not provide Specialty Code and Prov Type
-    Then the service does not initiate a query
-    And returns a message of 'SPECIALTY AND PROV TYPE REQUIRED'
+    Examples:
+      | Specialty Code | Prov Type      |
+      | 9              | P              |
+      | 23             | P              |
 
   @TC672204
   @Manual
@@ -32,7 +26,7 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @CMD
   Scenario: TC672204 - [RL2]
     Given a user provides at least 7 characters of Specialty Code Description
-    And a user provides "P" for the provider type value
+    And a user provides "P" for the provider type value and "Psych Social Worker" for Specialty Code Description
     When the query/service interrogates the table data
     Then it searches for Specialty Code Description column for records that contain the input text
     And returns a list of matching table records data
@@ -53,7 +47,7 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @CMD
   Scenario: TC672220 - [RL5]
     Given a user needs to query the table
-    When the user provides a valid PhysCategory code value
+    When the user provides a valid PhysCategory "Specialists" code value
     Then the query response provides a list of matching table records data
 
   @TC672223
@@ -62,7 +56,7 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @CMD
   Scenario: TC672223 - [RL6]
     Given a user needs to query the table
-    When the user provides a valid PhysCategory2 code value
+    When the user provides a valid PhysCategory2 "Other Specialists" code value
     Then the query response provides a list of matching table records data
 
   @TC672227
@@ -71,7 +65,7 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @CMD
   Scenario: TC672227 - [RL7]
     Given a user needs to query the table
-    When the user provides a valid AlliedCategory code value
+    When the user provides a valid AlliedCategory "Behavioral Health" code value
     Then the query response provides a list of matching table records data
 
   @TC672228
@@ -80,7 +74,7 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @CMD
   Scenario: TC672228 - [RL8]
     Given a user needs to query the table
-    When the user provides a valid AlliedCategory2 code value
+    When the user provides a valid AlliedCategory2 "Behavioral Health Clinicians" code value
     Then the query response provides a list of matching table records data
 
   @TC672229
@@ -89,6 +83,6 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @CMD
   Scenario: TC672229 - [RL9]
     Given a user needs to query the table
-    When the user provides a valid SpecialtyGrouping code value
+    When the user provides a valid SpecialtyGrouping "Behavioral Health" code value
     Then the query response provides a list of matching table records data
 
