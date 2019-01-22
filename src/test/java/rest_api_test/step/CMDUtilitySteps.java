@@ -46,9 +46,9 @@ public class CMDUtilitySteps implements IRestStep {
     public void verifyReponse(String responseMessage) {
         JsonElement result = parseJsonElementResponse(response);
         if (responseMessage.equalsIgnoreCase("verify matching response")) {
-            int totalElementsCount = Integer.parseInt(result.getAsJsonObject().get("totalElements").getAsString());
-            Assert.assertTrue("Expected result is displayed", totalElementsCount > 0);
+            int totalElementsCount = result.getAsJsonArray().size();
+            Assert.assertTrue("Expected result is not displayed", totalElementsCount > 0);
         } else
-            Assert.assertTrue("Expected result is displayed", responseMessage.equalsIgnoreCase(result.getAsJsonObject().get("message").getAsString()));
+            Assert.assertTrue("Expected result is not displayed", responseMessage.equalsIgnoreCase(result.getAsJsonObject().get("message").getAsString()));
     }
 }
