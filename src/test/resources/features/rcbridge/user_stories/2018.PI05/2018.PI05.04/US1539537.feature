@@ -11,16 +11,8 @@ Feature: US1539537 - Bulk provider Roster EXTRACT from PES to Exari - Deploy and
   @Manual
   @Functional
   @PES
-  Scenario Outline: TC705159 - [RL0]
-    When I search for provider roster with "zip" of value "55421"
-    And I search using query parameter "page" of value "<pageNum>"
-    Then I see 50 results returned on each page
-    Examples:
-      | pageNum |
-      | 1       |
-      | 2       |
-      | 3       |
-      | 4       |
-      | 5       |
-      | 6       |
+  Scenario: TC705159 - [RL0]
+    Given I need to populate a roster
+    When I search for provider roster with "firstName" of value "Xavier"
+    Then I see 153 results returned in Exari
 
