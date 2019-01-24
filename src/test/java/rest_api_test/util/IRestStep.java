@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import io.restassured.response.Response;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Interface for all Rest API Cucumber steps created with several default methods that allows any class that
@@ -35,4 +36,7 @@ public interface IRestStep {
         return RestHelper.getInstance().verifyFieldsNotNull(ecmRoot, masterSet, regex);
     }
 
+    default JsonElement subJsonStringValues(JsonElement base, Map<String, String> subs) {
+        return RestHelper.getInstance().subJsonStringValues(base, subs);
+    }
 }

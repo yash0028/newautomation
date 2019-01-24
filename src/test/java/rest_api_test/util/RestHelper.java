@@ -1,14 +1,13 @@
 package rest_api_test.util;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -66,7 +65,7 @@ class RestHelper {
         return true;
     }
 
-    boolean verifyFields(JsonElement ecmRoot, List<String> masterSet, String regex){
+    boolean verifyFields(JsonElement ecmRoot, List<String> masterSet, String regex) {
         int failCount = 0;
 
         for (String masterKey : masterSet) {
@@ -83,7 +82,7 @@ class RestHelper {
         return failCount == 0;
     }
 
-    boolean verifySingleKey(List<String> keySet, int index, JsonElement currJson, StringBuilder traveledPath){
+    boolean verifySingleKey(List<String> keySet, int index, JsonElement currJson, StringBuilder traveledPath) {
         JsonElement nextJson;
         JsonParser parser = new JsonParser();
 
@@ -99,7 +98,7 @@ class RestHelper {
                 currJson = parser.parse(currJson.getAsJsonPrimitive().getAsString());
             }
 
-        } catch (Exception e){
+        } catch (Exception e) {
             // Do nothing
         }
 
@@ -232,5 +231,36 @@ class RestHelper {
         JsonParser parser = new JsonParser();
 
         return parser.parse(string);
+    }
+
+    JsonElement subJsonStringValues(JsonElement base, Map<String, String> subs) {
+
+        //handle object recursively
+        if (base.isJsonObject()) {
+            JsonObject json = base.getAsJsonObject();
+            for (String key : json.keySet()) {
+                json.add(key, subJsonStringValues(json.get(key), subs));
+            }
+        }
+
+        //handle array recursively
+        if (base.isJsonArray()) {
+            JsonArray json = base.getAsJsonArray();
+            for (int i = 0; i < json.size(); i++) {
+                json.set(i, subJsonStringValues(json.get(i), subs));
+            }
+        }
+
+        //handle string
+        if (base.isJsonPrimitive() && base.getAsJsonPrimitive().isString()) {
+            String s = base.getAsJsonPrimitive().getAsString();
+            for (String key : subs.keySet()) {
+                String keySub = "<" + key + ">";
+                s = s.replace(keySub, subs.get(key));
+            }
+            return new JsonPrimitive(s);
+        }
+
+        return base;
     }
 }
