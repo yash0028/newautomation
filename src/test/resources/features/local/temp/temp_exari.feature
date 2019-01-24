@@ -7,15 +7,4 @@ Feature: temp
     Given I am logged into Exari Dev as a valid user and go to the "southeast uhn" site
     And I author a contract using the "eif-cps-lookup.json" flow without final capture
 
-  @PG
-  Scenario Outline: Playground code
-    Then I do something
-      | Right  | ""             |
-      | Left   | <EMPTY_STRING> |
-      | Center | <subA>         |
-
-    Examples:
-      | subA |
-      | A    |
-      | ""   |
 

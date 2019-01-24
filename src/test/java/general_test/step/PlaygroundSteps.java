@@ -8,23 +8,14 @@ import util.map.IMapSub;
 
 import java.util.Map;
 
-/**
- * Created by jwacker on 8/1/2018.
- */
 public class PlaygroundSteps implements IMapSub {
     private static final Logger log = LoggerFactory.getLogger(PlaygroundSteps.class);
 
 
     @Then("^I do something$")
-    public void playground(DataTable dt) throws Throwable {
-        Map<String, String> base = dt.asMap(String.class, String.class);
+    public void playground(DataTable dataTable) throws Throwable {
+        Map<String, String> map = subMapStringValues(dataTable.asMap(String.class, String.class));
 
-        base.entrySet().forEach(e -> log.info("{} : {}", e.getKey(), e.getValue()));
-
-        base = subMapStringValues(base);
-
-        base.entrySet().forEach(e -> log.info("'{}' : '{}'", e.getKey(), e.getValue()));
-
-
+        map.entrySet().forEach(e -> log.info("'{}' : '{}'", e.getKey(), e.getValue()));
     }
 }
