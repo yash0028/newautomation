@@ -155,6 +155,10 @@ class SauceLabs implements IConfigurable {
             this.driver = new RemoteWebDriver(new URL(getURL()), capabilities);
         } catch (MalformedURLException e) {
             log.error("Invalid SauceLabs URL <{}>", getURL());
+        } catch (Exception e) {
+            log.error("unable to start remote web driver");
+            log.trace(e.getMessage());
+            return;
         }
 
         // Get Session ID
@@ -172,7 +176,7 @@ class SauceLabs implements IConfigurable {
      */
     private DesiredCapabilities generateCapabilities() {
         SupportedBrowsers browser = SupportedBrowsers.getFromString(configGetOptionalString("defaultBrowserName").orElse("CHROME"));
-        String name = configGetOptionalString("defaultJobName").orElse("CLM UI headerTabSiteOptionTest");
+        String name = configGetOptionalString("defaultJobName").orElse("CLM UI Test");
         return generateCapabilities(browser, name);
     }
 
@@ -221,10 +225,10 @@ class SauceLabs implements IConfigurable {
 
         // Configure SauceLabs Integration
         capabilities.setCapability("autoAcceptsAlerts", true);
-        capabilities.setCapability("parentTunnel", "sauce_admin");
-        capabilities.setCapability("tunnelIdentifier", "OptumSharedTunnel-Prd");
-//        capabilities.setCapability("parentTunnel", "optumtest");
-//        capabilities.setCapability("tunnelIdentifier", "Optum-Prd");
+//        capabilities.setCapability("parentTunnel", "sauce_admin");
+//        capabilities.setCapability("tunnelIdentifier", "OptumSharedTunnel-Prd");
+        capabilities.setCapability("parentTunnel", "optumtest");
+        capabilities.setCapability("tunnelIdentifier", "Optum-Prd");
 
 
         capabilities.setCapability("name", genName(scenarioName, browser.commonName));
@@ -262,7 +266,13 @@ class SauceLabs implements IConfigurable {
      * @return sauce url
      */
     private String getURL() {
-        return "http://" + getUsername() + ":" + getAccessKey() + "@ondemand.saucelabs.com:80/wd/hub";
+        StringBuilder builder = new StringBuilder("http://");
+        builder.append(getUsername());
+        builder.append(":");
+        builder.append(getAccessKey());
+        builder.append("@ondemand.saucelabs.com:80/wd/hub");
+        log.trace("sauce url :: {}", builder.toString());
+        return builder.toString();
     }
 
     /**

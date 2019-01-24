@@ -18,8 +18,9 @@ import java.util.List;
  * Created by dtimaul on 9/26/18.
  */
 public class CMDActionRequiredSteps implements IUiStep {
-    private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
-    private String CMD_DASHBOARD_URL = "http://contract-admin-ui-clm-test.ocp-ctc-dmz-nonprod.optum.com/contract-status";
+    private static final Logger log = LoggerFactory.getLogger(CMDActionRequiredSteps.class);
+    private static final String CMD_DASHBOARD_URL = "http://contract-admin-ui-clm-test.ocp-ctc-dmz-nonprod.optum.com/contract-status";
+
     private CMDPage cmdPage = null;
     private ActionRequiredPage actionRequiredPage = null;
     private WebDriver driver;
@@ -32,7 +33,7 @@ public class CMDActionRequiredSteps implements IUiStep {
     @Given("^I have clicked on Action Required button on the CMD dashboard$")
     public void ClickActionRequiredButtonOnCMDDashboard() throws Throwable {
         getDriver().get(CMD_DASHBOARD_URL);
-        log.info(getDriver().getTitle());
+        log.info("page title {}", getDriver().getTitle());
         cmdPage = new CMDPage(getDriver());
 
         Assert.assertTrue("CMD page could not be displayed", cmdPage.confirmCurrentPage());
