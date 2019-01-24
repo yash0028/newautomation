@@ -4,7 +4,7 @@
 @2018.PI05
 @2018.PI05.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1523606 - Integration - Add paper type to Physician Landing Page
 
   @TC694732

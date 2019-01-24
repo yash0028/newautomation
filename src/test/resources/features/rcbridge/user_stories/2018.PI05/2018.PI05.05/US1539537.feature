@@ -2,7 +2,7 @@
 @PES
 @US1539537
 @2018.PI05
-@2018.PI05.04
+@2018.PI05.05
 @releasePresent
 @iterationPresent
 Feature: US1539537 - Bulk provider Roster EXTRACT from PES to Exari - Deploy and Test

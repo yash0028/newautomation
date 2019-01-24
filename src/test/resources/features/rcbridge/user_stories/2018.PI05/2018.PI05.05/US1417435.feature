@@ -3,7 +3,7 @@
 @2018.PI05
 @2018.PI05.05
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1417435 - Retrieve a Contract's configuration for a Market Product Group
 
   @TC647355

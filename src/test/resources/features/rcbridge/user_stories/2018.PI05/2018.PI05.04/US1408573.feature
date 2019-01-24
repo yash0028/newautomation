@@ -3,7 +3,7 @@
 @2018.PI05
 @2018.PI05.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1408573 - Identify no active UHC-ID's error code from COSMOS or NDB as Type 2 error
 
   @TC697428

@@ -4,7 +4,7 @@
 @2018.PI05
 @2018.PI05.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1439813 - Integration - Obtain Fee Schedule Information
 
   @TC644489
