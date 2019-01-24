@@ -3,7 +3,7 @@
 @2018.PI05
 @2018.PI05.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1410059 - Identify invalid date code from COSMOS as Type 2 error
 
   @TC705158

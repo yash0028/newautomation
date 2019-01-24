@@ -3,7 +3,7 @@
 @2018.PI05
 @2018.PI05.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1410123 - Identify No master with effective date input error as Type 2 error
 
   @TC706028

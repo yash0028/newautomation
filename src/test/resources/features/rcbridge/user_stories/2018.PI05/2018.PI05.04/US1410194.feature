@@ -3,7 +3,7 @@
 @2018.PI05
 @2018.PI05.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1410194 - Identify Duplicate contract is found in NDB as Type 2 error
 
   @TC706022

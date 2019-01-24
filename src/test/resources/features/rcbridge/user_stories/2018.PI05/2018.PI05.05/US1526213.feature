@@ -3,7 +3,7 @@
 @2018.PI05
 @2018.PI05.05
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1526213 - [Spike]PCP reassignment work objects audits database schema  (PCP) - addendum
 
   @TC695695

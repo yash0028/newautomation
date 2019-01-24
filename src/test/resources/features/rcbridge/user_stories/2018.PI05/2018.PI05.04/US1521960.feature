@@ -3,7 +3,7 @@
 @2018.PI05
 @2018.PI05.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1521960 - Type 2 Manual Hold mechanisms
 
   @TC703889

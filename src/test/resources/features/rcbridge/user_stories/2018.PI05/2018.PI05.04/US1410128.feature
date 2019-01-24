@@ -3,7 +3,7 @@
 @2018.PI05
 @2018.PI05.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1410128 - Identify UHCID Not effective as Type 2 error
 
   @TC706020
