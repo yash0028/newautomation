@@ -100,7 +100,7 @@ public interface IWebInteract {
             element.click();
             log.trace("clicked on {}", elementName);
         } catch (Exception e) {
-            log.error("click failed for {}", elementName, e);
+            log.error("click failed for {}", elementName);
             return false;
         }
 

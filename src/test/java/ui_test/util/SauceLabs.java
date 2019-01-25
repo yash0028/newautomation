@@ -230,7 +230,6 @@ class SauceLabs implements IConfigurable {
         capabilities.setCapability("parentTunnel", "optumtest");
         capabilities.setCapability("tunnelIdentifier", "Optum-Prd");
 
-
         capabilities.setCapability("name", genName(scenarioName, browser.commonName));
         capabilities.setCapability("build", genBuild());
         capabilities.setCapability("tags", genTags());

@@ -111,7 +111,7 @@
                     ]
                 },
                 {
-                    "question": "Task (revisit this question to see MEG detail)",
+                    "question": "Task (revisit this question to see Market Exception Grid detail)",
                     "action": "RADIO-INDEX",
                     "answers": [
                         "0"
