@@ -9,7 +9,7 @@ Feature: US1547238 - Routing-NPPP Approves Retro
   @Manual
   @Functional
   Scenario: TC709184 - [RL0]
-    Given NPPP has Approved a retro request
-    When the task is completed
-    Then the retro request is in the monitor stage
+    Given the task is completed and reviewed by NPPP
+    When NPPP selects "Approve" on a retro request
+    Then the retro request by passes COO review and is directly in the monitor stage
 

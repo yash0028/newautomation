@@ -9,7 +9,7 @@ Feature: US1544665 - Routing- NPPP Denies Retro
   @Manual
   @Functional
   Scenario: TC709187 - [RL0]
-    Given a retro approval request exists with the NPPP
-    When NPPP denies the retro request
-    Then the retro approval request is assigned and routed to the retro request initator
+    Given the task is completed and reviewed by NPPP
+    When NPPP selects "Deny" on the retro request
+    Then the retro request is routed to the retro request initiator's queue
 
