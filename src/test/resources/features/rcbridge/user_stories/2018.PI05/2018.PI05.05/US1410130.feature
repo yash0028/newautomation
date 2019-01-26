@@ -1,9 +1,9 @@
 # Last updated on 
 @US1410130
 @2018.PI05
-@2018.PI05.04
+@2018.PI05.05
 @releasePresent
-@iterationPast
+@iterationPresent
 Feature: US1410130 - Identify Invalid COSMOS network number as Type 2 error
 
   @TC697429

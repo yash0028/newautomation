@@ -2,7 +2,7 @@
 @US1396604
 @releaseUnknown
 @iterationUnknown
-Feature: US1396604 - Automate databse import/export
+Feature: US1396604 - Automate databse import/export- LIQUIBASE WILL COVER THIS, NOT NEEDED
 
   @TC669307
   @Manual

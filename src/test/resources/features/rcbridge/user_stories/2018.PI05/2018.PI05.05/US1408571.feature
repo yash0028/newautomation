@@ -1,9 +1,9 @@
 # Last updated on 
 @US1408571
 @2018.PI05
-@2018.PI05.04
+@2018.PI05.05
 @releasePresent
-@iterationPast
+@iterationPresent
 Feature: US1408571 - Identify sanction error code from NDB as Type 2 error
 
   @TC697432

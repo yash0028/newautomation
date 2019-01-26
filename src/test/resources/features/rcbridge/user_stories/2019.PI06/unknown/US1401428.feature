@@ -12,9 +12,9 @@ Feature: US1401428 - UI/UX - Allow CMD user to make PCP Reassignment selection
     Given a cancel transaction has been received
     When the transaction includes a PCP requiring reassignment
     Then the canceling provider information should be displayed, including transaction ID, contract name, state(s), market #(s), MPIN, TIN, Provider name, Primary Specialty, Cancel Code, Cancel Reason, Cancel Date
-    And data capture fields should be present, including MPIN, product group, state, market, address sequence ID
+    And data capture fields should be present, including MPIN, address sequence ID
     And all data capture fields are required
-    And a user can enter 1 or 2+ reassignments per canceling provider
+    And a user can enter reassignment info for the/a cancelling provider
 
   @TC697439
   @Manual

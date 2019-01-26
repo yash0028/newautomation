@@ -1,9 +1,9 @@
 # Last updated on 
 @US1337392
 @2018.PI05
-@2018.PI05.04
+@2018.PI05.05
 @releasePresent
-@iterationPast
+@iterationPresent
 Feature: US1337392 - [Continued] [Continued] CPS lookup API Layer-7 implementation
 
   @TC587886

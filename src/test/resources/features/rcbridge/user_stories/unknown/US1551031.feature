@@ -2,13 +2,13 @@
 @US1551031
 @releaseUnknown
 @iterationUnknown
-Feature: US1551031 - Validation Process RateUpdated transaction to downstream systems
+Feature: US1551031 - Store the Product Group's updated Contract Master in the Contract's permanent configuration record
 
   @TC710724
   @Manual
   @Functional
   Scenario: TC710724 - [RL0]
-    Given a contract master has been updated for the contract
-    When the contract is active
-    Then contract masters are updated for each qualified provider record on the roster.
+    Given a contracting event that is replacing the current fee schedule used by one Product Group in a successfully installed active Contract
+    When the transaction is successfully completed
+    Then the new Contract Master that references the affected Product Group & updated fee schedule is stored as part of the Contract's permanent configuration record
 

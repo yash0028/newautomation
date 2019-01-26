@@ -2,9 +2,9 @@
 @Optum
 @US1523606
 @2018.PI05
-@2018.PI05.04
+@2018.PI05.05
 @releasePresent
-@iterationPast
+@iterationPresent
 Feature: US1523606 - Integration - Add paper type to Physician Landing Page
 
   @TC694732
