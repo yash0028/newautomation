@@ -14,6 +14,8 @@ public class FlowItem {
 
     private String matchMethod = "equal";
 
+    private boolean noOverride = false;
+
     private String action;
 
     @SerializedName(value = "answers", alternate = {"answer"})
@@ -43,6 +45,10 @@ public class FlowItem {
     public String getQuestion() {
         //remove everything after and including first :
         return question.contains(":") ? question.substring(0, question.indexOf(":")) : question;
+    }
+
+    public boolean isNoOverride() {
+        return this.noOverride;
     }
 
     public String getMatchMethod() {

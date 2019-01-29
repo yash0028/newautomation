@@ -1,8 +1,5 @@
 package ui_test.step;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -15,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import ui_test.page.exari.contract.ContractPage;
 import ui_test.page.exari.contract.interview.InterviewManager;
 import ui_test.page.exari.contract.interview.flow.FlowContract;
+import ui_test.page.exari.contract.interview.flow.IFlowContractLoader;
 import ui_test.page.exari.home.DashboardPage;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.page.exari.login.LoginPage;
@@ -25,7 +23,7 @@ import util.file.IFileReader;
 import java.util.Map;
 
 
-public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster {
+public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster, IFlowContractLoader {
     private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
 
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
@@ -36,26 +34,26 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     private FlowContract flowContract;
 
-    public void loadFlow() {
-        loadFlow(DEFAULT_FLOW);
-    }
-
-    public void loadFlow(String fileInResourceFolder) {
-        String path = "/support/exari/" + fileInResourceFolder;
-        //Open flow data
-        log.info("opening eif {}", path);
-        JsonElement flowData = getJsonElementFromFile(path);
-        Gson gson = new GsonBuilder()
-                .registerTypeAdapter(FlowContract.class, new FlowContract.Deserializer())
-                .create();
-
-        //Convert json flow data into a flow map
-        flowContract = gson.fromJson(flowData, FlowContract.class);
-    }
+//    public void loadFlow() {
+//        flowContract = loadFlowContract(DEFAULT_FLOW);
+//    }
+//
+//    public void loadFlow(String fileInResourceFolder) {
+//        String path = "/support/exari/" + fileInResourceFolder;
+//        //Open flow data
+//        log.info("opening eif {}", path);
+//        JsonElement flowData = getJsonElementFromFile(path);
+//        Gson gson = new GsonBuilder()
+//                .registerTypeAdapter(FlowContract.class, new FlowContract.Deserializer())
+//                .create();
+//
+//        //Convert json flow data into a flow map
+//        flowContract = gson.fromJson(flowData, FlowContract.class);
+//    }
 
     @Given("^I am using the \"([^\"]*)\" flow$")
     public void prepareEIF(String fileName) {
-        loadFlow(fileName);
+        flowContract = loadFlowContract(fileName);
     }
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
@@ -66,14 +64,14 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
     public void authorContract(String fileName) {
-        loadFlow(fileName);
+        flowContract = loadFlowContract(fileName);
         authorContract();
         finalCapture();
     }
 
     @And("^I author a contract using the \"([^\"]*)\" flow without final capture$")
     public void authorContractNoCapture(String fileName) {
-        loadFlow(fileName);
+        flowContract = loadFlowContract(fileName);
         authorContract();
     }
 
@@ -84,7 +82,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         //check if flowContract has be init
         if (flowContract == null) {
             log.info("loading default flow {}", DEFAULT_FLOW);
-            loadFlow();
+            flowContract = loadFlowContract(DEFAULT_FLOW);
         }
 
         flowContract.substituteGherkinData(contractParam);
