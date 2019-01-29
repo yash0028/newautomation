@@ -1,5 +1,6 @@
 # Last updated on 
 @US1508222
+@N/A
 @releaseUnknown
 @iterationUnknown
 Feature: US1508222 - PEX Approval for DBs

@@ -1,5 +1,6 @@
 # Last updated on 
 @US1469327
+@N/A
 @releaseUnknown
 @iterationUnknown
 Feature: US1469327 - Autoscale OpenShift Environment Job

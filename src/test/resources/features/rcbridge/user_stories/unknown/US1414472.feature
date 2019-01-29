@@ -1,7 +1,9 @@
 # Last updated on 
 @A_UI_Story
 @US1414472
+@N/A
 @Exari_UI_Test
+@Non_MVP
 @releaseUnknown
 @iterationUnknown
 Feature: US1414472 - Author SMGA Contact UI Path

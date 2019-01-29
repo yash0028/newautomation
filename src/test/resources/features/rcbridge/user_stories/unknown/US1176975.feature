@@ -1,6 +1,7 @@
 # Last updated on 
 @RCBridge
 @US1176975
+@N/A
 @releaseUnknown
 @iterationUnknown
 Feature: US1176975 - RC Bridge Enhancement

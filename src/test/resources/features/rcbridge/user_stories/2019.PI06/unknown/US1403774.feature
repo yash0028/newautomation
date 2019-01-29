@@ -13,4 +13,5 @@ Feature: US1403774 - Receive and recognize contract terminated events/transactio
     When an "ContractTerminated" transaction is published
     Then OCM will recognize this transaction
     And OCM will trigger the data validation of the published roster data
+    ###
 

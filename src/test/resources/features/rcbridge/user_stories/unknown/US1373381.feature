@@ -1,5 +1,6 @@
 # Last updated on 
 @US1373381
+@N/A
 @releaseUnknown
 @iterationUnknown
 Feature: US1373381 - Documentation for User Rights in Git, Jenkins, Docker, OpenShift

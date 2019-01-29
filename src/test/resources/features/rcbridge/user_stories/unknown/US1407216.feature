@@ -1,7 +1,9 @@
 # Last updated on 
 @A_UI_Story
 @US1407216
+@N/A
 @Exari_UI_Test
+@Non_MVP
 @releaseUnknown
 @iterationUnknown
 Feature: US1407216 - Author SPA Contact UI Path

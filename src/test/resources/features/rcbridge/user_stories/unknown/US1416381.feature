@@ -1,7 +1,9 @@
 # Last updated on 
 @A_UI_Story
 @US1416381
+@N/A
 @Exari_UI_Test
+@Non_MVP
 @releaseUnknown
 @iterationUnknown
 Feature: US1416381 - Author PAT Contact UI Path

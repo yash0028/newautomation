@@ -1,5 +1,6 @@
 # Last updated on 
 @US1396604
+@N/A
 @releaseUnknown
 @iterationUnknown
 Feature: US1396604 - Automate databse import/export- LIQUIBASE WILL COVER THIS, NOT NEEDED

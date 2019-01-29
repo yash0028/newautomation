@@ -2,6 +2,7 @@
 @US1388133
 @2018.PI04
 @2018.PI04.03
+@N/A
 @releasePast
 @iterationPast
 Feature: US1388133 - Create health check report for lower Environments Kafka/Zookeeper servers
