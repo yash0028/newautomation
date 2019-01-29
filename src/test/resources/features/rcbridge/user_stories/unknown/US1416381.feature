@@ -21,7 +21,6 @@ Feature: US1416381 - Author PAT Contact UI Path
       | Paper Type      | PAT             |
       | Phycon          | <phycon>        |
       | Fee Schedule    | <fee>           |
-      | Product         | <product>       |
     Then I have an active contract in Exari
     Examples:
       | site          | mpin          | tin           | market number | phycon        | fee           | county        |

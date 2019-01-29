@@ -21,7 +21,6 @@ Feature: US1407216 - Author SPA Contact UI Path
       | Paper Type      | SPA             |
       | Phycon          | <phycon>        |
       | Fee Schedule    | <fee>           |
-      | Product         | <product>       |
     Then I have an active contract in Exari
     Examples:
       | site          | mpin          | tin           | market number | phycon        | fee           | county        |

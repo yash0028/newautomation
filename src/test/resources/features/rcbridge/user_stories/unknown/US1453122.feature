@@ -21,7 +21,6 @@ Feature: US1453122 - Author SPGA Contact UI Path
       | Paper Type      | SPGA            |
       | Phycon          | <phycon>        |
       | Fee Schedule    | <fee>           |
-      | Product         | <product>       |
     Then I have an active contract in Exari
     Examples:
       | site          | mpin          | tin           | market number | phycon        | fee           | county        |
