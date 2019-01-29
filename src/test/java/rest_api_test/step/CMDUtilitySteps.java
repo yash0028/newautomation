@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.cucumber.datatable.DataTable;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -12,8 +13,9 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
+import util.map.IMapSub;
 
-public class CMDUtilitySteps implements IRestStep {
+public class CMDUtilitySteps implements IRestStep, IMapSub {
 
     private final static Logger log = LoggerFactory.getLogger(CMDUtilitySteps.class);
 
@@ -28,17 +30,9 @@ public class CMDUtilitySteps implements IRestStep {
         request = RestAssured.given().baseUri(ENDPOINT);
     }
 
-    @When("^the user provides \"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\" values$")
-    public void requestInputData(String providerType, String specialityCode, String specialtyDescription, String physCategory, String physCategory2, String alliedCategory, String alliedCategory2, String specialtyGrouping) {
-        requestBody.addProperty("providerType", providerType);
-        requestBody.addProperty("specialityCode", specialityCode);
-        requestBody.addProperty("specialtyDescription", specialtyDescription);
-        requestBody.addProperty("physCategory", physCategory);
-        requestBody.addProperty("physCategory2", physCategory2);
-        requestBody.addProperty("alliedCategory", alliedCategory);
-        requestBody.addProperty("alliedCategory2", alliedCategory2);
-        requestBody.addProperty("specialtyGrouping", specialtyGrouping);
-        request.header("Content-Type", "application/json").body(requestBody);
+    @When("^the user provides values$")
+    public void requestInputData(DataTable dataTable) {
+        request.header("Content-Type", "application/json").body(subMapStringValues(dataTable.asMap(String.class, String.class)));
         response = request.post(RESOURCE_PROVIDER_CATEGORY);
     }
 
