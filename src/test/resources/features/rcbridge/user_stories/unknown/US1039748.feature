@@ -17,7 +17,7 @@ Feature: US1039748 - Prevent execution of contract if retro and no approval
   @Manual
   @Functional
   Scenario: TC703886 - [RL1]
-    Given a Physician contract and the planned effective date is within 15 calendar days or in the past
+    Given a Physician contract and the planned effective date is within 30 calendar days or in the past
     When it is being executed
     And no retro approval exists
     Then tell user that they need to obtain retro approval

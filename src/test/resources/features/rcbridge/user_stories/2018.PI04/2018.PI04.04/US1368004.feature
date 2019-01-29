@@ -15,7 +15,7 @@ Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
     Given silent inclusion criteria for "MARKET_PRODUCT" values "HRTG CHOICE RV" has been met
     When "paymentPoliciesMcq" does NOT include "UnitedHealthcare River Valley"
     And "marketNumberDmcq" = "03413"
-    Then "marketProductIncluded" value "HRTG CHOICE RV" and "marketProductNetwork" value of "706" recorded in the OCM record
+    Then "marketProductNetwork" value of "706" recorded in the OCM record
 
   @TC611124
   @Automated
@@ -26,7 +26,7 @@ Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
     Given silent inclusion criteria for "MARKET_PRODUCT" values "HRTG CHOICE RV" has been met
     When "paymentPoliciesMcq" does include "UnitedHealthcare River Valley"
     And "marketNumberDmcq" = "03413"
-    Then "marketProductIncluded" value "HRTG CHOICE RV" and "marketProductNetwork" value of "705" recorded in the OCM record
+    Then "marketProductNetwork" value of "705" recorded in the OCM record
 
   @TC611125
   @Automated

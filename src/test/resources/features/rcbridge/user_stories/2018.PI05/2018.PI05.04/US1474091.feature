@@ -17,13 +17,22 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
     Then the query response provides the matching table records data
 
   @TC710989
-  @Manual
+  @Automated
   @Functional
   @CMD
   Scenario Outline: TC710989 - [RL10]
     ##Automation scenarios
     Given a user needs to query the table data
-    When the user provides "<providerType>","<specialityCode>","<specialtyDescription>","<physCategory>","<physCategory2>","<alliedCategory>","<alliedCategory2>","<specialtyGrouping>" values
+    When the user provides values
+      | providerType           | <providerType>         |
+      | specialityCode         | <specialityCode>       |
+      | specialtyDescription   | <specialtyDescription> |
+      | physCategory           | <physCategory>         |
+      | physCategory2          | <physCategory2>        |
+      | alliedCategory         | <alliedCategory>       |
+      | alliedCategory2        | <alliedCategory2>      |
+      | specialtyGrouping      | <specialtyGrouping>    |
+      | response               | <response>             |
     Then the query "<response>" provides the matching table records data
     Examples:
       | providerType                                                                       | specialityCode                                                                     | specialtyDescription                                                               | physCategory                                                                       | physCategory2                                                                      | alliedCategory                                                                     | alliedCategory2                                                                    | specialtyGrouping                                                                  | response                                                                           |

@@ -17,11 +17,11 @@ Feature: US1439048 - HERITAGE PRODUCT SILENT INCLUSION correction
     When "productServicesExcluded" does NOT contain the word "Heritage"
     Then silent inclusion criteria has been met is "true"
     Examples:
-      | site      |
-      | Northeast |
-      | Southeast |
-      | Central   |
-      | West      |
+      | site          |
+      | Northeast UHN |
+      | Southeast UHN |
+      | Central UHN   |
+      | West UHN      |
 
   @TC644181
   @Automated
@@ -33,9 +33,9 @@ Feature: US1439048 - HERITAGE PRODUCT SILENT INCLUSION correction
     When "productServicesExcluded" does contain the word "Heritage"
     Then silent inclusion criteria has been met is "false"
     Examples:
-      | site      |
-      | Northeast |
-      | Southeast |
-      | Central   |
-      | West      |
+      | site          |
+      | Northeast UHN |
+      | Southeast UHN |
+      | Central UHN   |
+      | West UHN      |
 

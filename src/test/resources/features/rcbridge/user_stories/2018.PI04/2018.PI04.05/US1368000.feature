@@ -19,146 +19,146 @@ Feature: US1368000 - ENW Indicator Determination
     Then the ENW IND will be populated with "N" within the OCM Contract Model
     Examples:
       | uhgSite                 | contractSubtype         | productServicesExcluded |
-      | Northeast               | MGA                     | Charter                 |
-      | Northeast               | MGA                     | Compass                 |
-      | Northeast               | MGA                     | Core                    |
-      | Northeast               | MGA                     | Navigate                |
-      | Northeast               | IPA                     | Charter                 |
-      | Northeast               | IPA                     | Compass                 |
-      | Northeast               | IPA                     | Core                    |
-      | Northeast               | IPA                     | Navigate                |
-      | Northeast               | PAT                     | Charter                 |
-      | Northeast               | PAT                     | Compass                 |
-      | Northeast               | PAT                     | Core                    |
-      | Northeast               | PAT                     | Navigate                |
-      | Northeast               | PHO                     | Charter                 |
-      | Northeast               | PHO                     | Compass                 |
-      | Northeast               | PHO                     | Core                    |
-      | Northeast               | PHO                     | Navigate                |
-      | Northeast               | SMG                     | Charter                 |
-      | Northeast               | SMG                     | Compass                 |
-      | Northeast               | SMG                     | Core                    |
-      | Northeast               | SMG                     | Navigate                |
-      | Northeast               | SPA                     | Charter                 |
-      | Northeast               | SPA                     | Compass                 |
-      | Northeast               | SPA                     | Core                    |
-      | Northeast               | SPA                     | Navigate                |
-      | Northeast               | SPG                     | Charter                 |
-      | Northeast               | SPG                     | Compass                 |
-      | Northeast               | SPG                     | Core                    |
-      | Northeast               | SPG                     | Navigate                |
-      | Southeast               | MGA                     | Charter                 |
-      | Southeast               | MGA                     | Compass                 |
-      | Southeast               | MGA                     | Core                    |
-      | Southeast               | MGA                     | Navigate                |
-      | Southeast               | IPA                     | Charter                 |
-      | Southeast               | IPA                     | Compass                 |
-      | Southeast               | IPA                     | Core                    |
-      | Southeast               | IPA                     | Navigate                |
-      | Southeast               | PAT                     | Charter                 |
-      | Southeast               | PAT                     | Compass                 |
-      | Southeast               | PAT                     | Core                    |
-      | Southeast               | PAT                     | Navigate                |
-      | Southeast               | PHO                     | Charter                 |
-      | Southeast               | PHO                     | Compass                 |
-      | Southeast               | PHO                     | Core                    |
-      | Southeast               | PHO                     | Navigate                |
-      | Southeast               | SMG                     | Charter                 |
-      | Southeast               | SMG                     | Compass                 |
-      | Southeast               | SMG                     | Core                    |
-      | Southeast               | SMG                     | Navigate                |
-      | Southeast               | SPA                     | Charter                 |
-      | Southeast               | SPA                     | Compass                 |
-      | Southeast               | SPA                     | Core                    |
-      | Southeast               | SPA                     | Navigate                |
-      | Southeast               | SPG                     | Charter                 |
-      | Southeast               | SPG                     | Compass                 |
-      | Southeast               | SPG                     | Core                    |
-      | Southeast               | SPG                     | Navigate                |
-      | West                    | MGA                     | Charter                 |
-      | West                    | MGA                     | Compass                 |
-      | West                    | MGA                     | Core                    |
-      | West                    | MGA                     | Navigate                |
-      | West                    | IPA                     | Charter                 |
-      | West                    | IPA                     | Compass                 |
-      | West                    | IPA                     | Core                    |
-      | West                    | IPA                     | Navigate                |
-      | West                    | PAT                     | Charter                 |
-      | West                    | PAT                     | Compass                 |
-      | West                    | PAT                     | Core                    |
-      | West                    | PAT                     | Navigate                |
-      | West                    | PHO                     | Charter                 |
-      | West                    | PHO                     | Compass                 |
-      | West                    | PHO                     | Core                    |
-      | West                    | PHO                     | Navigate                |
-      | West                    | SMG                     | Charter                 |
-      | West                    | SMG                     | Compass                 |
-      | West                    | SMG                     | Core                    |
-      | West                    | SMG                     | Navigate                |
-      | West                    | SPA                     | Charter                 |
-      | West                    | SPA                     | Compass                 |
-      | West                    | SPA                     | Core                    |
-      | West                    | SPA                     | Navigate                |
-      | West                    | SPG                     | Charter                 |
-      | West                    | SPG                     | Compass                 |
-      | West                    | SPG                     | Core                    |
-      | West                    | SPG                     | Navigate                |
-      | Central                 | MGA                     | Charter                 |
-      | Central                 | MGA                     | Compass                 |
-      | Central                 | MGA                     | Core                    |
-      | Central                 | MGA                     | Navigate                |
-      | Central                 | IPA                     | Charter                 |
-      | Central                 | IPA                     | Compass                 |
-      | Central                 | IPA                     | Core                    |
-      | Central                 | IPA                     | Navigate                |
-      | Central                 | PAT                     | Charter                 |
-      | Central                 | PAT                     | Compass                 |
-      | Central                 | PAT                     | Core                    |
-      | Central                 | PAT                     | Navigate                |
-      | Central                 | PHO                     | Charter                 |
-      | Central                 | PHO                     | Compass                 |
-      | Central                 | PHO                     | Core                    |
-      | Central                 | PHO                     | Navigate                |
-      | Central                 | SMG                     | Charter                 |
-      | Central                 | SMG                     | Compass                 |
-      | Central                 | SMG                     | Core                    |
-      | Central                 | SMG                     | Navigate                |
-      | Central                 | SPA                     | Charter                 |
-      | Central                 | SPA                     | Compass                 |
-      | Central                 | SPA                     | Core                    |
-      | Central                 | SPA                     | Navigate                |
-      | Central                 | SPG                     | Charter                 |
-      | Central                 | SPG                     | Compass                 |
-      | Central                 | SPG                     | Core                    |
-      | Central                 | SPG                     | Navigate                |
-      | National                | MGA                     | Charter                 |
-      | National                | MGA                     | Compass                 |
-      | National                | MGA                     | Core                    |
-      | National                | MGA                     | Navigate                |
-      | National                | IPA                     | Charter                 |
-      | National                | IPA                     | Compass                 |
-      | National                | IPA                     | Core                    |
-      | National                | IPA                     | Navigate                |
-      | National                | PAT                     | Charter                 |
-      | National                | PAT                     | Compass                 |
-      | National                | PAT                     | Core                    |
-      | National                | PAT                     | Navigate                |
-      | National                | PHO                     | Charter                 |
-      | National                | PHO                     | Compass                 |
-      | National                | PHO                     | Core                    |
-      | National                | PHO                     | Navigate                |
-      | National                | SMG                     | Charter                 |
-      | National                | SMG                     | Compass                 |
-      | National                | SMG                     | Core                    |
-      | National                | SMG                     | Navigate                |
-      | National                | SPA                     | Charter                 |
-      | National                | SPA                     | Compass                 |
-      | National                | SPA                     | Core                    |
-      | National                | SPA                     | Navigate                |
-      | National                | SPG                     | Charter                 |
-      | National                | SPG                     | Compass                 |
-      | National                | SPG                     | Core                    |
-      | National                | SPG                     | Navigate                |
+      | Northeast UHN           | Medical Group Agreement | Charter                 |
+      | Northeast UHN           | Medical Group Agreement | Compass                 |
+      | Northeast UHN           | Medical Group Agreement | Core                    |
+      | Northeast UHN           | Medical Group Agreement | Navigate                |
+      | Northeast UHN           | IPA                     | Charter                 |
+      | Northeast UHN           | IPA                     | Compass                 |
+      | Northeast UHN           | IPA                     | Core                    |
+      | Northeast UHN           | IPA                     | Navigate                |
+      | Northeast UHN           | PAT                     | Charter                 |
+      | Northeast UHN           | PAT                     | Compass                 |
+      | Northeast UHN           | PAT                     | Core                    |
+      | Northeast UHN           | PAT                     | Navigate                |
+      | Northeast UHN           | PHO                     | Charter                 |
+      | Northeast UHN           | PHO                     | Compass                 |
+      | Northeast UHN           | PHO                     | Core                    |
+      | Northeast UHN           | PHO                     | Navigate                |
+      | Northeast UHN           | SMG                     | Charter                 |
+      | Northeast UHN           | SMG                     | Compass                 |
+      | Northeast UHN           | SMG                     | Core                    |
+      | Northeast UHN           | SMG                     | Navigate                |
+      | Northeast UHN           | SPA                     | Charter                 |
+      | Northeast UHN           | SPA                     | Compass                 |
+      | Northeast UHN           | SPA                     | Core                    |
+      | Northeast UHN           | SPA                     | Navigate                |
+      | Northeast UHN           | SPG                     | Charter                 |
+      | Northeast UHN           | SPG                     | Compass                 |
+      | Northeast UHN           | SPG                     | Core                    |
+      | Northeast UHN           | SPG                     | Navigate                |
+      | Southeast UHN           | Medical Group Agreement | Charter                 |
+      | Southeast UHN           | Medical Group Agreement | Compass                 |
+      | Southeast UHN           | Medical Group Agreement | Core                    |
+      | Southeast UHN           | Medical Group Agreement | Navigate                |
+      | Southeast UHN           | IPA                     | Charter                 |
+      | Southeast UHN           | IPA                     | Compass                 |
+      | Southeast UHN           | IPA                     | Core                    |
+      | Southeast UHN           | IPA                     | Navigate                |
+      | Southeast UHN           | PAT                     | Charter                 |
+      | Southeast UHN           | PAT                     | Compass                 |
+      | Southeast UHN           | PAT                     | Core                    |
+      | Southeast UHN           | PAT                     | Navigate                |
+      | Southeast UHN           | PHO                     | Charter                 |
+      | Southeast UHN           | PHO                     | Compass                 |
+      | Southeast UHN           | PHO                     | Core                    |
+      | Southeast UHN           | PHO                     | Navigate                |
+      | Southeast UHN           | SMG                     | Charter                 |
+      | Southeast UHN           | SMG                     | Compass                 |
+      | Southeast UHN           | SMG                     | Core                    |
+      | Southeast UHN           | SMG                     | Navigate                |
+      | Southeast UHN           | SPA                     | Charter                 |
+      | Southeast UHN           | SPA                     | Compass                 |
+      | Southeast UHN           | SPA                     | Core                    |
+      | Southeast UHN           | SPA                     | Navigate                |
+      | Southeast UHN           | SPG                     | Charter                 |
+      | Southeast UHN           | SPG                     | Compass                 |
+      | Southeast UHN           | SPG                     | Core                    |
+      | Southeast UHN           | SPG                     | Navigate                |
+      | West UHN                | Medical Group Agreement | Charter                 |
+      | West UHN                | Medical Group Agreement | Compass                 |
+      | West UHN                | Medical Group Agreement | Core                    |
+      | West UHN                | Medical Group Agreement | Navigate                |
+      | West UHN                | IPA                     | Charter                 |
+      | West UHN                | IPA                     | Compass                 |
+      | West UHN                | IPA                     | Core                    |
+      | West UHN                | IPA                     | Navigate                |
+      | West UHN                | PAT                     | Charter                 |
+      | West UHN                | PAT                     | Compass                 |
+      | West UHN                | PAT                     | Core                    |
+      | West UHN                | PAT                     | Navigate                |
+      | West UHN                | PHO                     | Charter                 |
+      | West UHN                | PHO                     | Compass                 |
+      | West UHN                | PHO                     | Core                    |
+      | West UHN                | PHO                     | Navigate                |
+      | West UHN                | SMG                     | Charter                 |
+      | West UHN                | SMG                     | Compass                 |
+      | West UHN                | SMG                     | Core                    |
+      | West UHN                | SMG                     | Navigate                |
+      | West UHN                | SPA                     | Charter                 |
+      | West UHN                | SPA                     | Compass                 |
+      | West UHN                | SPA                     | Core                    |
+      | West UHN                | SPA                     | Navigate                |
+      | West UHN                | SPG                     | Charter                 |
+      | West UHN                | SPG                     | Compass                 |
+      | West UHN                | SPG                     | Core                    |
+      | West UHN                | SPG                     | Navigate                |
+      | Central UHN             | Medical Group Agreement | Charter                 |
+      | Central UHN             | Medical Group Agreement | Compass                 |
+      | Central UHN             | Medical Group Agreement | Core                    |
+      | Central UHN             | Medical Group Agreement | Navigate                |
+      | Central UHN             | IPA                     | Charter                 |
+      | Central UHN             | IPA                     | Compass                 |
+      | Central UHN             | IPA                     | Core                    |
+      | Central UHN             | IPA                     | Navigate                |
+      | Central UHN             | PAT                     | Charter                 |
+      | Central UHN             | PAT                     | Compass                 |
+      | Central UHN             | PAT                     | Core                    |
+      | Central UHN             | PAT                     | Navigate                |
+      | Central UHN             | PHO                     | Charter                 |
+      | Central UHN             | PHO                     | Compass                 |
+      | Central UHN             | PHO                     | Core                    |
+      | Central UHN             | PHO                     | Navigate                |
+      | Central UHN             | SMG                     | Charter                 |
+      | Central UHN             | SMG                     | Compass                 |
+      | Central UHN             | SMG                     | Core                    |
+      | Central UHN             | SMG                     | Navigate                |
+      | Central UHN             | SPA                     | Charter                 |
+      | Central UHN             | SPA                     | Compass                 |
+      | Central UHN             | SPA                     | Core                    |
+      | Central UHN             | SPA                     | Navigate                |
+      | Central UHN             | SPG                     | Charter                 |
+      | Central UHN             | SPG                     | Compass                 |
+      | Central UHN             | SPG                     | Core                    |
+      | Central UHN             | SPG                     | Navigate                |
+      | National UHN            | Medical Group Agreement | Charter                 |
+      | National UHN            | Medical Group Agreement | Compass                 |
+      | National UHN            | Medical Group Agreement | Core                    |
+      | National UHN            | Medical Group Agreement | Navigate                |
+      | National UHN            | IPA                     | Charter                 |
+      | National UHN            | IPA                     | Compass                 |
+      | National UHN            | IPA                     | Core                    |
+      | National UHN            | IPA                     | Navigate                |
+      | National UHN            | PAT                     | Charter                 |
+      | National UHN            | PAT                     | Compass                 |
+      | National UHN            | PAT                     | Core                    |
+      | National UHN            | PAT                     | Navigate                |
+      | National UHN            | PHO                     | Charter                 |
+      | National UHN            | PHO                     | Compass                 |
+      | National UHN            | PHO                     | Core                    |
+      | National UHN            | PHO                     | Navigate                |
+      | National UHN            | SMG                     | Charter                 |
+      | National UHN            | SMG                     | Compass                 |
+      | National UHN            | SMG                     | Core                    |
+      | National UHN            | SMG                     | Navigate                |
+      | National UHN            | SPA                     | Charter                 |
+      | National UHN            | SPA                     | Compass                 |
+      | National UHN            | SPA                     | Core                    |
+      | National UHN            | SPA                     | Navigate                |
+      | National UHN            | SPG                     | Charter                 |
+      | National UHN            | SPG                     | Compass                 |
+      | National UHN            | SPG                     | Core                    |
+      | National UHN            | SPG                     | Navigate                |
 
   @TC600519
   @Automated
@@ -174,39 +174,39 @@ Feature: US1368000 - ENW Indicator Determination
     Examples:
     # Note: May not need to create a separate table. May be able to combine several user stories to one table. Product services excluded is equivalent to below the line. GIVEN UHG_Site includes UHN Northeast, UHN Southeast, UHN West, UHN Central or UHN National={Given the provider is active for one or more Employer & Individual products]
       | uhgSite         | contractSubtype |
-      | Northeast       | MGA             |
-      | Northeast       | IPA             |
-      | Northeast       | PAT             |
-      | Northeast       | PHO             |
-      | Northeast       | SMG             |
-      | Northeast       | SPA             |
-      | Northeast       | SPG             |
-      | Southeast       | MGA             |
-      | Southeast       | IPA             |
-      | Southeast       | PAT             |
-      | Southeast       | PHO             |
-      | Southeast       | SMG             |
-      | Southeast       | SPA             |
-      | Southeast       | SPG             |
-      | West            | MGA             |
-      | West            | IPA             |
-      | West            | PAT             |
-      | West            | PHO             |
-      | West            | SMG             |
-      | West            | SPA             |
-      | West            | SPG             |
-      | Central         | MGA             |
-      | Central         | IPA             |
-      | Central         | PAT             |
-      | Central         | PHO             |
-      | Central         | SMG             |
-      | Central         | SPA             |
-      | Central         | SPG             |
-      | National        | MGA             |
-      | National        | IPA             |
-      | National        | PAT             |
-      | National        | PHO             |
-      | National        | SMG             |
-      | National        | SPA             |
-      | National        | SPG             |
+      | Northeast UHN   | MGA             |
+      | Northeast UHN   | IPA             |
+      | Northeast UHN   | PAT             |
+      | Northeast UHN   | PHO             |
+      | Northeast UHN   | SMG             |
+      | Northeast UHN   | SPA             |
+      | Northeast UHN   | SPG             |
+      | Southeast UHN   | MGA             |
+      | Southeast UHN   | IPA             |
+      | Southeast UHN   | PAT             |
+      | Southeast UHN   | PHO             |
+      | Southeast UHN   | SMG             |
+      | Southeast UHN   | SPA             |
+      | Southeast UHN   | SPG             |
+      | West UHN        | MGA             |
+      | West UHN        | IPA             |
+      | West UHN        | PAT             |
+      | West UHN        | PHO             |
+      | West UHN        | SMG             |
+      | West UHN        | SPA             |
+      | West UHN        | SPG             |
+      | Central UHN     | MGA             |
+      | Central UHN     | IPA             |
+      | Central UHN     | PAT             |
+      | Central UHN     | PHO             |
+      | Central UHN     | SMG             |
+      | Central UHN     | SPA             |
+      | Central UHN     | SPG             |
+      | National UHN    | MGA             |
+      | National UHN    | IPA             |
+      | National UHN    | PAT             |
+      | National UHN    | PHO             |
+      | National UHN    | SMG             |
+      | National UHN    | SPA             |
+      | National UHN    | SPG             |
 

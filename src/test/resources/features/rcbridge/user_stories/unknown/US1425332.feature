@@ -1,7 +1,6 @@
 # Last updated on 
 @US1425332
-@2019.PI06
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1425332 - Search via CMD UI (Search by Date)
 

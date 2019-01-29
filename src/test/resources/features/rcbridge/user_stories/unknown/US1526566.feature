@@ -1,6 +1,7 @@
 # Last updated on 
 @zuul-gateway-service
 @US1526566
+@MVP
 @N/A
 @releaseUnknown
 @iterationUnknown
