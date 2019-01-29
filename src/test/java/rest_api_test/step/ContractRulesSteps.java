@@ -99,8 +99,8 @@ public class ContractRulesSteps implements IRestStep {
 
     // Uses same @And step as US1368002 (marketNumberEquals())
 
-    @Then("^\"([^\"]*)\" value \"([^\"]*)\" and \"([^\"]*)\" value of \"([^\"]*)\" recorded in the OCM record$")
-    public void valueAndValueOfRecordedInTheOCMRecord(String field1, String value1, String field2, String value2) throws Throwable {
+    @Then("^\"([^\"]*)\" value of \"([^\"]*)\" recorded in the OCM record$")
+    public void valueAndValueOfRecordedInTheOCMRecord(String field, String value) throws Throwable {
         // Build out the request
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
 
@@ -115,11 +115,9 @@ public class ContractRulesSteps implements IRestStep {
         JsonObject resultObject = resultElement.getAsJsonObject().get("result").getAsJsonObject();
 
         // Get the actual values from respective fields in response
-        String f1Result = resultObject.get(field1).getAsString();
-        String f2Result = resultObject.get(field2).getAsString();
+        String result = resultObject.get(field).getAsString();
 
-        Assert.assertEquals("Field " + field1 + " in response did not match what was expected", value1, f1Result);
-        Assert.assertTrue("Field " + field2 + " in response did not contain what was expected", f2Result.contains(value2));
+        Assert.assertTrue("Field " + field + " in response did not contain what was expected", result.contains(value));
     }
 
     // US1368004 (IPA Determination) (error test cases)
@@ -175,15 +173,15 @@ public class ContractRulesSteps implements IRestStep {
         JsonObject resultObject = resultElement.getAsJsonObject();
 
         // Get the includedInPilot part of the response, should be either a Y or N
-        String includedInPilot = resultObject.get("result").getAsJsonObject().get("includedInPilot").getAsString();
+        boolean includedInPilot = resultObject.get("result").getAsJsonObject().get("includedInPilot").getAsBoolean();
 
         if(isOrIsNot.equalsIgnoreCase("is")){
-            // Assert that includedInPilot is a Y
-            Assert.assertEquals("The result was not included in pilot market when it should have been.", "Y", includedInPilot);
+            // Assert that includedInPilot is true
+            Assert.assertTrue("The result was not included in pilot market when it should have been.", includedInPilot);
         }
         else{
-            // Assert that includedInPilot is a N
-            Assert.assertEquals("The result was included in pilot market when it should not have been.", "N", includedInPilot);
+            // Assert that includedInPilot is false
+            Assert.assertFalse("The result was included in pilot market when it should not have been.", includedInPilot);
         }
 
     }
