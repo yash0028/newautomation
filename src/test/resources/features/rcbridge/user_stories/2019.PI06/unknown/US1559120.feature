@@ -1,6 +1,7 @@
 # Last updated on 
 @US1559120
-@releaseUnknown
+@2019.PI06
+@releaseFuture
 @iterationUnknown
 Feature: US1559120 - Close the retro approval process - successful - non physician
 

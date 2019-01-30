@@ -1,9 +1,8 @@
 # Last updated on 
 @US1526213
-@2018.PI05
-@2018.PI05.05
-@releasePresent
-@iterationPresent
+@2019.PI06
+@releaseFuture
+@iterationUnknown
 Feature: US1526213 - [Spike]PCP reassignment work objects  save to database  (PCP) - addendum
 
   @TC695695

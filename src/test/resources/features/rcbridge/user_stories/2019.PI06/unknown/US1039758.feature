@@ -1,6 +1,7 @@
 # Last updated on 
 @US1039758
-@releaseUnknown
+@2019.PI06
+@releaseFuture
 @iterationUnknown
 Feature: US1039758 - See Contract Retro Approval Status
 

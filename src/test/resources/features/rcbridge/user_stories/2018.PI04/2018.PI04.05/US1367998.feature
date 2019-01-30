@@ -44,19 +44,19 @@ Feature: US1367998 - Determine Product Penalty Table requirement
       | Southeast UHN                     | HeritageChoice                    |
       | Southeast UHN                     | NHP                               |
       | Southeast UHN                     | AllRiverValleyproducts            |
-      | West                              | Core                              |
-      | West                              | CommercialproductsrequiringPCP    |
-      | West                              | CommercialproductsnotrequiringPCP |
-      | West                              | Navigate                          |
-      | West                              | Nexus-OA                          |
-      | West                              | Nexus-R                           |
-      | West                              | Nexus-NR                          |
-      | West                              | Compass                           |
-      | West                              | Charter                           |
-      | West                              | Heritage                          |
-      | West                              | HeritageChoice                    |
-      | West                              | NHP                               |
-      | West                              | AllRiverValleyproducts            |
+      | West UHN                          | Core                              |
+      | West UHN                          | CommercialproductsrequiringPCP    |
+      | West UHN                          | CommercialproductsnotrequiringPCP |
+      | West UHN                          | Navigate                          |
+      | West UHN                          | Nexus-OA                          |
+      | West UHN                          | Nexus-R                           |
+      | West UHN                          | Nexus-NR                          |
+      | West UHN                          | Compass                           |
+      | West UHN                          | Charter                           |
+      | West UHN                          | Heritage                          |
+      | West UHN                          | HeritageChoice                    |
+      | West UHN                          | NHP                               |
+      | West UHN                          | AllRiverValleyproducts            |
       | Central UHN                       | Core                              |
       | Central UHN                       | CommercialproductsrequiringPCP    |
       | Central UHN                       | CommercialproductsnotrequiringPCP |
@@ -70,19 +70,19 @@ Feature: US1367998 - Determine Product Penalty Table requirement
       | Central UHN                       | HeritageChoice                    |
       | Central UHN                       | NHP                               |
       | Central UHN                       | AllRiverValleyproducts            |
-      | National                          | Core                              |
-      | National                          | CommercialproductsrequiringPCP    |
-      | National                          | CommercialproductsnotrequiringPCP |
-      | National                          | Navigate                          |
-      | National                          | Nexus-OA                          |
-      | National                          | Nexus-R                           |
-      | National                          | Nexus-NR                          |
-      | National                          | Compass                           |
-      | National                          | Charter                           |
-      | National                          | Heritage                          |
-      | National                          | HeritageChoice                    |
-      | National                          | NHP                               |
-      | National                          | AllRiverValleyproducts            |
+      | National UHN                      | Core                              |
+      | National UHN                      | CommercialproductsrequiringPCP    |
+      | National UHN                      | CommercialproductsnotrequiringPCP |
+      | National UHN                      | Navigate                          |
+      | National UHN                      | Nexus-OA                          |
+      | National UHN                      | Nexus-R                           |
+      | National UHN                      | Nexus-NR                          |
+      | National UHN                      | Compass                           |
+      | National UHN                      | Charter                           |
+      | National UHN                      | Heritage                          |
+      | National UHN                      | HeritageChoice                    |
+      | National UHN                      | NHP                               |
+      | National UHN                      | AllRiverValleyproducts            |
 
   @TC611128
   @Automated
@@ -98,8 +98,8 @@ Feature: US1367998 - Determine Product Penalty Table requirement
       | uhgSite       |
       | Northeast UHN |
       | Southeast UHN |
-      | West          |
+      | West UHN      |
       | Central UHN   |
-      | National      |
+      | National UHN  |
     # Note: for reference, NDB products list: IS A1, A2, A3, AA, AC, C0, C1, C2, EA, EB, EC, ED, EE, EF, EG, EH, EI, R0, S0, S1, S2, S7, S8, S9, SG, SH, SI, SX, SY, SZ, L1, L3, V1, V2, V3, EJ, EK, EL, EM, EO, ER,
 

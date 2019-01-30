@@ -1,6 +1,7 @@
 # Last updated on 
 @US1555817
-@releaseUnknown
+@2019.PI06
+@releaseFuture
 @iterationUnknown
 Feature: US1555817 - 10 & 5 day warning - retro
 
