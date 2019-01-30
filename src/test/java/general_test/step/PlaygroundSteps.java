@@ -16,6 +16,6 @@ public class PlaygroundSteps implements IMapSub, IFlowContractLoader {
     public void playground(DataTable dataTable) throws Throwable {
         FlowContract flowContract = loadFlowContract("eif-type-2-error-contract.json");
 
-        System.out.println(flowContract.getFlowMap().get("Market Exception Grid (MEG)"));
+        log.trace(flowContract.getFlowMap().get("Market Exception Grid (MEG)").toString());
     }
 }
