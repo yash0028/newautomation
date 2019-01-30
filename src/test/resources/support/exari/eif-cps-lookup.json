@@ -1,11 +1,11 @@
 {
     "name": "author basic contract",
+    "extendedFrom": "eif-basic-contract.json",
     "authors": [
         "Alex Berns"
     ],
     "notes": [
-        "authors an exari contract using cucumber parameters.",
-        "Created as a test of the EIF system"
+        "authors an exari contract using cucumber parameters."
     ],
     "flows": [
         {
@@ -16,18 +16,6 @@
                     "action": "TEXT-BASIC",
                     "answers": [
                         "2441233"
-                    ]
-                }
-            ]
-        },
-        {
-            "topic": "PES Response",
-            "questions": [
-                {
-                    "question": "Specify approach for counterparty",
-                    "action": "RADIO-INDEX",
-                    "answers": [
-                        "0"
                     ]
                 }
             ]
@@ -46,10 +34,6 @@
             ]
         },
         {
-            "topic": "Request For Participation Response",
-            "questions": []
-        },
-        {
             "topic": "Document Selection",
             "questions": [
                 {
@@ -62,75 +46,8 @@
             ]
         },
         {
-            "topic": "Practice Locations",
-            "questions": [
-                {
-                    "question": "The primary service/practice location for the counterparty held in NDB is:",
-                    "action": "RADIO-INDEX",
-                    "answers": [
-                        "0"
-                    ]
-                }
-            ]
-        },
-        {
-            "topic": "Market Exception Grid (MEG)",
-            "questions": [
-                {
-                    "question": "Task",
-                    "action": "RADIO-INDEX",
-                    "answers": [
-                        "0"
-                    ]
-                },
-                {
-                    "question": "Task (revisit this question to see Market Exception Grid detail)",
-                    "action": "RADIO-INDEX",
-                    "answers": [
-                        "0"
-                    ]
-                }
-            ]
-        },
-        {
-            "topic": "Contract Details",
-            "questions": []
-        },
-        {
-            "topic": "Appendix 1",
-            "questions": [
-                {
-                    "question": "will additional manuals apply?",
-                    "matchMethod": "equals-ignore-case",
-                    "action": "RADIO-INDEX",
-                    "answers": [
-                        "1"
-                    ]
-                }
-            ]
-        },
-        {
-            "topic": "Appendix 2",
-            "questions": [
-                {
-                    "question": "Which of the following products will be included in Appendix 2?",
-                    "action": "CHECKBOX-INDEX",
-                    "answers": [
-                        "1"
-                    ]
-                }
-            ]
-        },
-        {
             "topic": "Payment Appendix",
             "questions": [
-                {
-                    "question": "Will any fee schedules be non-standard?",
-                    "action": "RADIO-INDEX",
-                    "answers": [
-                        "1"
-                    ]
-                },
                 {
                     "question": "Which of the following Payment Appendices will be included?",
                     "action": "CHECKBOX-INDEX",
@@ -183,67 +100,6 @@
                     "answers": [
                         "indiana",
                         "0"
-                    ]
-                }
-            ]
-        },
-        {
-            "topic": "PROVIDER ROSTER",
-            "questions": []
-        },
-        {
-            "topic": "Contract Details",
-            "questions": [
-                {
-                    "question": "Contract Effective Date",
-                    "action": "TEXT-DATE",
-                    "answers": [
-                        "October 10, 2019"
-                    ]
-                }
-            ]
-        },
-        {
-            "topic": "Provider Signatory",
-            "questions": [
-                {
-                    "question": "Print Name and Title:",
-                    "action": "TEXT-BASIC",
-                    "answers": [
-                        "Alex Berns"
-                    ]
-                },
-                {
-                    "question": "Provider Signatory Date",
-                    "action": "TEXT-DATE",
-                    "answers": [
-                        "October 10, 2019"
-                    ]
-                },
-                {
-                    "question": "Provider Signatory Email",
-                    "action": "TEXT-BASIC",
-                    "answers": [
-                        "clmqe1@optum.com"
-                    ]
-                }
-            ]
-        },
-        {
-            "topic": "Our Signatory",
-            "questions": [
-                {
-                    "question": "Print Name",
-                    "action": "TEXT-BASIC",
-                    "answers": [
-                        "Suruchi Sinha"
-                    ]
-                },
-                {
-                    "question": "Our Signatory Date",
-                    "action": "TEXT-DATE",
-                    "answers": [
-                        "October 10, 2019"
                     ]
                 }
             ]

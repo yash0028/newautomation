@@ -51,16 +51,23 @@ public class Flow {
 
     public void addQuestions(Map<String, FlowItem> questionsToAdd) {
         for (String key : questionsToAdd.keySet()) {
-            questions.putIfAbsent(key, questionsToAdd.get(key));
+            if (questions.containsKey(key) && questions.get(key).isNoOverride()) {
+                log.error("cannot override key::{}");
+            } else {
+                questions.put(key, questionsToAdd.get(key));
+            }
         }
     }
 
     @Override
     public String toString() {
-        return "Flow{" +
-                "topic='" + topic + '\'' +
-                ", questions=" + questions +
-                '}';
+        StringBuilder builder = new StringBuilder();
+        builder.append("Flow::").append(topic).append("\n");
+        for (String q : getQuestions().keySet()) {
+            builder.append("Q::").append(q).append("\n");
+        }
+
+        return builder.toString();
     }
 
     /*

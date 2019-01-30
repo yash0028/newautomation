@@ -105,6 +105,18 @@
             ]
         },
         {
+            "topic": "Market Strategy Grid (MSG)",
+            "questions": [
+                {
+                    "question": "County",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "<County>"
+                    ]
+                }
+            ]
+        },
+        {
             "topic": "Contract Details",
             "questions": [
                 {

@@ -10,4 +10,3 @@ Feature: Playground
     Examples:
       | subA                     |
       | A value is not the worst |
-      | ""                       |

@@ -8,6 +8,7 @@ import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class FlowContract {
     private static final Logger log = LoggerFactory.getLogger(FlowContract.class);
@@ -17,14 +18,17 @@ public class FlowContract {
 
     private List<String> authors;
 
+    private String extendedFrom;
+
     private FlowMap flowMap;
 
     /*
     CONSTRUCTOR
      */
 
-    public FlowContract(String name, List<String> authors, FlowMap flowMap) {
+    public FlowContract(String name, String extendedFrom, List<String> authors, FlowMap flowMap) {
         this.name = name;
+        this.extendedFrom = extendedFrom;
         this.authors = authors;
         this.flowMap = flowMap;
     }
@@ -35,6 +39,10 @@ public class FlowContract {
 
     public String getName() {
         return name;
+    }
+
+    public Optional<String> getExtendedFrom() {
+        return Optional.ofNullable(extendedFrom);
     }
 
     public List<String> getAuthors() {
@@ -67,6 +75,28 @@ public class FlowContract {
         }
     }
 
+    public void merge(FlowContract child) {
+        //merge authors
+//        for(String author : child.getAuthors()){
+//            if(!this.authors.contains(author)){
+//                this.authors.add(author);
+//            }
+//        }
+
+        //merge flows
+        this.flowMap.merge(child.getFlowMap().getFlowCollection());
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(name).append("\n");
+        builder.append(String.join(", ", authors)).append("\n");
+        builder.append(flowMap.toString());
+
+        return builder.toString();
+    }
+
     /*
     UTILITY CLASS
      */
@@ -78,10 +108,48 @@ public class FlowContract {
             Gson gson = new GsonBuilder()
                     .registerTypeAdapter(FlowMap.class, new FlowMap.Deserializer())
                     .create();
-            String name = jsonObject.get("name").getAsString();
-            String[] authors = gson.fromJson(jsonObject.get("authors"), String[].class);
+            String name = getName(jsonObject);
+            String extendedFrom = getExtendedFrom(jsonObject);
+            String[] authors = getAuthors(gson, jsonObject);
             FlowMap flowMap = gson.fromJson(jsonObject.get("flows"), FlowMap.class);
-            return new FlowContract(name, Arrays.asList(authors), flowMap);
+            return new FlowContract(name, extendedFrom, Arrays.asList(authors), flowMap);
+        }
+
+        public String getName(JsonObject jsonObject) {
+            JsonElement name = jsonObject.get("name");
+
+            if (name.isJsonPrimitive()) {
+                return name.getAsString();
+            }
+
+            log.error("bad name field");
+            return "BAD NAME FIELD";
+        }
+
+        public String getExtendedFrom(JsonObject jsonObject) {
+
+            if (!jsonObject.has("extendedFrom")) {
+                return null;
+            }
+
+            JsonElement extendedFrom = jsonObject.get("extendedFrom");
+
+            if (extendedFrom.isJsonPrimitive()) {
+                return extendedFrom.getAsString();
+            }
+
+            return null;
+        }
+
+        public String[] getAuthors(Gson gson, JsonObject jsonObject) {
+            JsonElement authors = jsonObject.get("authors");
+
+            if (authors.isJsonArray()) {
+                return gson.fromJson(authors, String[].class);
+            }
+
+            log.error("bad authors array");
+            return new String[0];
         }
     }
 }
