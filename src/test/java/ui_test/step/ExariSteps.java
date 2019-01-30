@@ -34,23 +34,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     private FlowContract flowContract;
 
-//    public void loadFlow() {
-//        flowContract = loadFlowContract(DEFAULT_FLOW);
-//    }
-//
-//    public void loadFlow(String fileInResourceFolder) {
-//        String path = "/support/exari/" + fileInResourceFolder;
-//        //Open flow data
-//        log.info("opening eif {}", path);
-//        JsonElement flowData = getJsonElementFromFile(path);
-//        Gson gson = new GsonBuilder()
-//                .registerTypeAdapter(FlowContract.class, new FlowContract.Deserializer())
-//                .create();
-//
-//        //Convert json flow data into a flow map
-//        flowContract = gson.fromJson(flowData, FlowContract.class);
-//    }
-
     @Given("^I am using the \"([^\"]*)\" flow$")
     public void prepareEIF(String fileName) {
         flowContract = loadFlowContract(fileName);
