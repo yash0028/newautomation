@@ -1,24 +1,24 @@
 # Last updated on 
-@US1559120
+@US1561905
 @2019.PI06
 @releaseFuture
 @iterationUnknown
-Feature: US1559120 - Close the retro approval process - successful - escalator
+Feature: US1561905 - Close the retro approval process - successful - fac/anc
 
-  @TC714609
+  @TC716032
   @Manual
   @Functional
-  Scenario: TC714609 - [RL0]
+  Scenario: TC716032 - [RL0]
     Given the retro request has an associated workflow (facility, chargemaster, escalator)
     When the associated agreement has been executed (status is active)
     And submitted for loading (from the associated workflow)
     Then the retro process is closed
     And the status is "Successful"
 
-  @TC714611
+  @TC716035
   @Manual
   @Functional
-  Scenario: TC714611 - [RL1]
+  Scenario: TC716035 - [RL1]
     Given the retro request does not have an associated workflow (Benefit Ops)
     When the associated agreement has been executed
     Then the retro process is closed
