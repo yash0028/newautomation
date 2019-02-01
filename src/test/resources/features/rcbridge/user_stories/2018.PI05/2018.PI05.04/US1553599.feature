@@ -1,9 +1,11 @@
 # Last updated on 
 @US1553599
+@2018.PI05
+@2018.PI05.04
 @MVP
 @N/A
-@releaseUnknown
-@iterationUnknown
+@releasePresent
+@iterationPast
 Feature: US1553599 - Pull From Optum Docker Repo Base
 
   @TC712517
