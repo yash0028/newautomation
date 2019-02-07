@@ -2,8 +2,8 @@
 @US1559192
 @2018.PI05
 @2018.PI05.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1559192 - OSAM Assessment
 
   @TC714607

@@ -1,7 +1,7 @@
 # Last updated on 
 @US1573262
 @2019.PI06
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1573262 - Join the COO responses - Denied
 

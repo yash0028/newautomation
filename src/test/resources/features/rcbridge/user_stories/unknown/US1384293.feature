@@ -1,8 +1,7 @@
 # Last updated on 
 @A_UI_Story
 @US1384293
-@2018.PI05
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US1384293 - New UCM - [ProductGroup] Rate condition (UI story)
 

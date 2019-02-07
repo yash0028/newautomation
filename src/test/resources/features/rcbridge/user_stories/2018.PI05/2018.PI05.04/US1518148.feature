@@ -2,7 +2,7 @@
 @US1518148
 @2018.PI05
 @2018.PI05.04
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1518148 - CMD UTILITY -Provider Category Type CMD UI maintenance work
 

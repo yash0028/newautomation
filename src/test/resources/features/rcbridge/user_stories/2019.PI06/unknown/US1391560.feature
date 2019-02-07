@@ -1,7 +1,7 @@
 # Last updated on 
 @US1391560
 @2019.PI06
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1391560 - SPA/PAT, SMGA,SPGA Remove TIN from Contract
 

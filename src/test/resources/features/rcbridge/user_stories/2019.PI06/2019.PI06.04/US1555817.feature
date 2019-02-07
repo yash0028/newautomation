@@ -2,7 +2,7 @@
 @US1555817
 @2019.PI06
 @2019.PI06.04
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1555817 - 10 & 5 day warning - retro
 

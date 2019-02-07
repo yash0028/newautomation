@@ -2,8 +2,8 @@
 @US1410155
 @2019.PI06
 @2019.PI06.01
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1410155 - Identify PANEL DATES NOT W/IN SITE PANEL TABLE  Type 2 error  [Cosmos Dependency]
 
   @TC706021

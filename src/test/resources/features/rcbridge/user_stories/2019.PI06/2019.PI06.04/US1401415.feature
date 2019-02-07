@@ -2,7 +2,7 @@
 @US1401415
 @2019.PI06
 @2019.PI06.04
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1401415 - Log PCP Reassignment transaction as a type 1 error
 

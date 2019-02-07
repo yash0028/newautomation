@@ -2,7 +2,7 @@
 @US1537744
 @2019.PI06
 @2019.PI06.04
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1537744 - Validate contract data - fee schedule change
 

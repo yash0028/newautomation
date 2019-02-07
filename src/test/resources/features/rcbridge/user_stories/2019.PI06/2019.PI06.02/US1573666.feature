@@ -3,7 +3,7 @@
 @US1573666
 @2019.PI06
 @2019.PI06.02
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1573666 - CMD UTILITY - Our Legal Entities list CMD maintenance upload/download
 

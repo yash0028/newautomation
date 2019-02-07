@@ -2,8 +2,8 @@
 @US1410142
 @2019.PI06
 @2019.PI06.01
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1410142 - Identify CONTRACT VOIDED - ALL PANELS ERRORED  Type 2 error [Cosmos Dependency]
 
   @TC706023

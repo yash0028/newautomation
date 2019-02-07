@@ -2,7 +2,7 @@
 @US1401428
 @2019.PI06
 @2019.PI06.04
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1401428 - UI/UX - Allow CMD user to make PCP Reassignment selection
 

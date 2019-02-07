@@ -2,8 +2,8 @@
 @US1518050
 @2019.PI06
 @2019.PI06.01
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1518050 - CMD UTILITY -Affiliation Type code list CMD UI maintenance work
 
   @TC693620

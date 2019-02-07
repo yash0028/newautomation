@@ -2,7 +2,7 @@
 @US1398671
 @2019.PI06
 @2019.PI06.03
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1398671 - Validation Process Add transacton to applicable platform(s)
 

@@ -4,7 +4,7 @@
 @2018.PI05.04
 @MVP
 @N/A
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1441101 - Performance Testing
 

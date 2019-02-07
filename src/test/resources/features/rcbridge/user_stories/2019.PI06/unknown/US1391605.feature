@@ -1,7 +1,7 @@
 # Last updated on 
 @US1391605
 @2019.PI06
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1391605 - SPA/PAT, SMGA,SPGA TIN Add Follow F235963
 

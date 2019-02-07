@@ -1,7 +1,7 @@
 # Last updated on 
 @US1541763
 @2019.PI06
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1541763 - Market Lead Denies Retro
 

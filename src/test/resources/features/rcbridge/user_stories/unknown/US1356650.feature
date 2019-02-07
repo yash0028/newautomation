@@ -1,7 +1,6 @@
 # Last updated on 
 @US1356650
-@2018.PI05
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US1356650 - New UCM - [ProductGroup] Rate condition
 

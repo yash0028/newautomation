@@ -1,7 +1,6 @@
 # Last updated on 
 @US1356979
-@2018.PI05
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US1356979 - New UCM - Market_Products_Excluded
 

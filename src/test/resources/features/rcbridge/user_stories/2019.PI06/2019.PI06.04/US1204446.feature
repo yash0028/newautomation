@@ -2,7 +2,7 @@
 @US1204446
 @2019.PI06
 @2019.PI06.04
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1204446 - Editing the Physician Payload logic for Reassign fields
 

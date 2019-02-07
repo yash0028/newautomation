@@ -2,7 +2,7 @@
 @US1541761
 @2019.PI06
 @2019.PI06.02
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1541761 - Market Lead Approves Retro
 

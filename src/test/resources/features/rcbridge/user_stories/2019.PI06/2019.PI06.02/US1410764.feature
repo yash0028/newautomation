@@ -2,7 +2,7 @@
 @US1410764
 @2019.PI06
 @2019.PI06.02
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1410764 - Handle Roster Update Event --> Happy path
 

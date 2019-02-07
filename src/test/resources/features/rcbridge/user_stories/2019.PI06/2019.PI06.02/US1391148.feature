@@ -2,7 +2,7 @@
 @US1391148
 @2019.PI06
 @2019.PI06.02
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1391148 - Validate contract data - Add [NDB]
 

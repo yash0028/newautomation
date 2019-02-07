@@ -3,8 +3,8 @@
 @US1483577
 @2019.PI06
 @2019.PI06.01
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1483577 - CMD UTILITY - Affiliation Type code list and microservice
 
   @TC674588

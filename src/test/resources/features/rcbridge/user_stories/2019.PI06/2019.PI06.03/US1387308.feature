@@ -2,7 +2,7 @@
 @US1387308
 @2019.PI06
 @2019.PI06.03
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1387308 - Process ADD transaction to subscribing platform(s)
 

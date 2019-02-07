@@ -1,7 +1,7 @@
 # Last updated on 
 @US1403777
 @2019.PI06
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1403777 - Process CANCEL transaction to subscribing platform(s)
 

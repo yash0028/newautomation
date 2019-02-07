@@ -2,7 +2,7 @@
 @US1479656
 @2018.PI05
 @2018.PI05.01
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1479656 - [Unfinished] Setup a new Contract Configuration Service
 

@@ -3,7 +3,7 @@
 @US1410149
 @2018.PI05
 @2018.PI05.03
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1410149 - Bulk provider Roster EXTRACT from PES to Exari - Optum Work
 

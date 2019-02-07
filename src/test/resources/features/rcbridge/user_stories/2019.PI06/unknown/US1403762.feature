@@ -1,7 +1,7 @@
 # Last updated on 
 @US1403762
 @2019.PI06
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1403762 - Build Handler for TIN Update
 

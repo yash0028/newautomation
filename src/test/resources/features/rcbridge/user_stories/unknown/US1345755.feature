@@ -1,7 +1,6 @@
 # Last updated on 
 @US1345755
-@2018.PI05
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US1345755 - New UCM - [ProductGroup] Rate Percentage
 

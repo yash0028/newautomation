@@ -2,8 +2,8 @@
 @US1517676
 @2019.PI06
 @2019.PI06.01
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1517676 - CMD UTILITY - Affiliation Type microservice to be called by Exari
 
   @TC693618

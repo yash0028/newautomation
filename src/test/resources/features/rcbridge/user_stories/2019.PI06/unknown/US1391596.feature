@@ -1,7 +1,7 @@
 # Last updated on 
 @US1391596
 @2019.PI06
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1391596 - SPA/PAT, SMGA,SPGA Add TIN to Contract
 

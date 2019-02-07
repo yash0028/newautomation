@@ -2,7 +2,7 @@
 @US1544580
 @2019.PI06
 @2019.PI06.02
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1544580 - Market Lead Due date
 

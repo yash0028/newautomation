@@ -1,7 +1,7 @@
 # Last updated on 
 @US1391570
 @2019.PI06
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1391570 - SPA/PAT, SMGA,SPGA Removed TIN Roster Maintenance User Notification
 

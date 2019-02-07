@@ -1,7 +1,6 @@
 # Last updated on 
 @US1345335
-@2018.PI05
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US1345335 - New UCM - Market_Products
 

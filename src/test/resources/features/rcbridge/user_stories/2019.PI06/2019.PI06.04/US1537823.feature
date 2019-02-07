@@ -2,7 +2,7 @@
 @US1537823
 @2019.PI06
 @2019.PI06.04
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1537823 - Search Contract Masters using ProductGroups from OCM using new fee schedule
 

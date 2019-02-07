@@ -2,7 +2,7 @@
 @US1401419
 @2019.PI06
 @2019.PI06.04
-@releaseFuture
+@releasePresent
 @iterationFuture
 Feature: US1401419 - CMD PCP Reassign API- pull PCP reassign type 1 error from db to the CMD PCP Reassign UI
 

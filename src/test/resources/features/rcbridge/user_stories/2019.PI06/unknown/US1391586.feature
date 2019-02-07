@@ -1,7 +1,7 @@
 # Last updated on 
 @US1391586
 @2019.PI06
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1391586 - SPA/PAT, SMGA,SPGA Removed TIN Maintenance Event System Notification
 
