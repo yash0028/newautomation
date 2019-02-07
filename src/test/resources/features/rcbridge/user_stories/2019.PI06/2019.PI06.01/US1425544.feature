@@ -9,7 +9,7 @@ Feature: US1425544 - Demostrate resolving a Type 2 error transactions in COSMOS
   @TC634357
   @Manual
   @Functional
-  Scenario: TC634357 - [RL0]
+  Scenario: TC634357 - [RL0] Transaction can be sent to COSMOS
     Given a COSMOS generated error message was received
     When the cause of the error has been resolved
     And the user has updated the status of the error transaction within CMD
