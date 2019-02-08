@@ -1,7 +1,7 @@
 # Last updated on 
 @US1550162
 @2019.PI06
-@2019.PI06.03
+@2019.PI06.04
 @releasePresent
 @iterationFuture
 Feature: US1550162 - Set monitor timer for retro

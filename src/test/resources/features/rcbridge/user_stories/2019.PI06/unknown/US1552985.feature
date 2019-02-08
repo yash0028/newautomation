@@ -1,9 +1,8 @@
 # Last updated on 
 @US1552985
 @2019.PI06
-@2019.PI06.04
 @releasePresent
-@iterationFuture
+@iterationUnknown
 Feature: US1552985 - Monitor 60 Day Timer For expiration
 
   @TC713740
