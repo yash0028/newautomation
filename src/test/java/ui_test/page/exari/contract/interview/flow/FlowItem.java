@@ -44,7 +44,7 @@ public class FlowItem {
 
     public String getQuestion() {
         //remove everything after and including first :
-        return question.contains(":") ? question.substring(0, question.indexOf(":")) : question;
+        return question == null ? "" : question.contains(":") ? question.substring(0, question.indexOf(":")) : question;
     }
 
     public boolean isNoOverride() {
