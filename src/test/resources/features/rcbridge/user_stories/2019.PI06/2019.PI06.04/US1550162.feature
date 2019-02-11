@@ -6,14 +6,7 @@
 @iterationFuture
 Feature: US1550162 - Set monitor timer for retro
 
-  @TC717638
-  @Manual
-  @Functional
-  Scenario: TC717638 - [RL0]
-    Given a retro approval request exist
-    When it is approved
-    Then the 60 day timer is set
-
+  @RC_unlinked
   @TC717640
   @Manual
   @Functional
