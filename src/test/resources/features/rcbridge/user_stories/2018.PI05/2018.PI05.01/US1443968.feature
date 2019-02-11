@@ -2,7 +2,7 @@
 @US1443968
 @2018.PI05
 @2018.PI05.01
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1443968 - [Enhancement] User Input Required Page - View & Edit contract detail information - Should only accept numerical digits when entering contract master number
 

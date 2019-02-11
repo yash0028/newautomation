@@ -3,7 +3,7 @@
 @US1518160
 @2018.PI05
 @2018.PI05.04
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1518160 - CMD UTILITY - Provider Category Type CMD maintenance upload/download
 

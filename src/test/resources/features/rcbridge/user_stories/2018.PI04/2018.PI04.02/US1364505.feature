@@ -8,7 +8,7 @@
 Feature: US1364505 - PES Results Enhancements
 
   @TC599658
-  @Automated
+  @Manual
   @Functional
   @PES
   Scenario: TC599658 - [RL0] Validation for Roster Results

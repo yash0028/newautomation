@@ -2,7 +2,7 @@
 @US1458096
 @2018.PI05
 @2018.PI05.01
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1458096 - Clarify COSMOS Contract Master Lookups
 

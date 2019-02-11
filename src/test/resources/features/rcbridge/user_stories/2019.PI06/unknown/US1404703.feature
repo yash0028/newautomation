@@ -1,7 +1,7 @@
 # Last updated on 
 @US1404703
 @2019.PI06
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1404703 - Handle the Terminate Contract event
 

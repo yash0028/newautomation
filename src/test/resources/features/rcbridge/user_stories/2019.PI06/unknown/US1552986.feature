@@ -1,7 +1,7 @@
 # Last updated on 
 @US1552986
 @2019.PI06
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1552986 - Close the retro approval process - successful - physician
 

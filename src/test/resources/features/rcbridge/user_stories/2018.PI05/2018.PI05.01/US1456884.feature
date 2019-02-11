@@ -3,7 +3,7 @@
 @US1456884
 @2018.PI05
 @2018.PI05.01
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1456884 - Create API to store Activiti process data
 

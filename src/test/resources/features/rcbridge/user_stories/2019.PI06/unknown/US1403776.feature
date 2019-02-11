@@ -1,7 +1,7 @@
 # Last updated on 
 @US1403776
 @2019.PI06
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1403776 - Validate terminate contract data
 

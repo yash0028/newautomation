@@ -1,7 +1,7 @@
 # Last updated on 
 @US1403805
 @2019.PI06
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1403805 - Process / cascade cancel transaction to all Roster records
 

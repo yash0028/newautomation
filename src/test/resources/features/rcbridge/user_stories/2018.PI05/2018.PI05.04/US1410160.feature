@@ -2,7 +2,7 @@
 @US1410160
 @2018.PI05
 @2018.PI05.04
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1410160 - Identify PANEL ALREADY EXISTS Type 2 error
 
