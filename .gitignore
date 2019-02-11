@@ -119,6 +119,8 @@ Temporary Items
 .idea/modules.xml
 .idea/misc.xml
 .idea/compiler.xml
+!.idea/runConfigurations/
+!.idea/runConfigurations/*
 
 # Sensitive or high-churn files
 !.idea/**/dataSources/
