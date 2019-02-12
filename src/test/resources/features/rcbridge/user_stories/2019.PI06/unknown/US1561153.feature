@@ -1,6 +1,7 @@
 # Last updated on 
 @US1561153
-@releaseUnknown
+@2019.PI06
+@releasePresent
 @iterationUnknown
 Feature: US1561153 - Configure the Event Gateway API with a second URL for Mass Update transactions
 

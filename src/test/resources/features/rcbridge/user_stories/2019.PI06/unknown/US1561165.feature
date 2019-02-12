@@ -1,6 +1,7 @@
 # Last updated on 
 @US1561165
-@releaseUnknown
+@2019.PI06
+@releasePresent
 @iterationUnknown
 Feature: US1561165 - Change scripts to start-up Mass Action microservices
 

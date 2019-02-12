@@ -11,7 +11,7 @@ Feature: US1401523 - UI/UX- Populate Resolution button and comments on CMD page 
   @Manual
   @Functional
   @A_UI_Story
-  Scenario: TC622440 - [RL0]
+  Scenario: TC622440 - [RL0] Resolution button and resolution text box on CMD error modal
     # Scenario 1 (Resolution button and resolution text box on CMD error modal)
     Given I am on the CMD Error page
     When I click on an error row on the page

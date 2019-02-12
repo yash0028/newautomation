@@ -1,6 +1,7 @@
 # Last updated on 
 @US1561146
-@releaseUnknown
+@2019.PI06
+@releasePresent
 @iterationUnknown
 Feature: US1561146 - Reconfigure the Kafka cluster to support Mass Update and Flow-Based transactons
 

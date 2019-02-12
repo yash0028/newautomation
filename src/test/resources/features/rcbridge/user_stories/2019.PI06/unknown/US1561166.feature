@@ -1,6 +1,7 @@
 # Last updated on 
 @US1561166
-@releaseUnknown
+@2019.PI06
+@releasePresent
 @iterationUnknown
 Feature: US1561166 - Add a Context Property to microservice particpating in contract transactions
 
