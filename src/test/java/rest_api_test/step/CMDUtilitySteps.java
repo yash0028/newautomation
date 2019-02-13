@@ -16,8 +16,8 @@ import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
 import util.map.IMapSub;
 
+import java.util.Arrays;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class CMDUtilitySteps implements IRestStep, IMapSub {
 
@@ -60,10 +60,10 @@ public class CMDUtilitySteps implements IRestStep, IMapSub {
     public void verifyAffiliationResponse() {
         JsonElement result = parseJsonElementResponse(response);
         if (result.getAsJsonArray().size() > 0) {
-            Stream<String> allFields = Stream.of("categories", "qualifierCode", "codeDescription", "labelName", "aliasName", "definitionAbbreviated", "definitionExpanded");
+            String[] allFields = new String[]{"categories", "qualifierCode", "codeDescription", "labelName", "aliasName", "definitionAbbreviated", "definitionExpanded"};
             JsonArray resultArray = result.getAsJsonArray();
             for (JsonElement element : resultArray)
-                Assert.assertTrue("All fields are not displayed", element.getAsJsonObject().keySet().containsAll(allFields.collect(Collectors.toSet())));
+                Assert.assertTrue("All fields are not displayed", element.getAsJsonObject().keySet().containsAll(Arrays.stream(allFields).collect(Collectors.toSet())));
         } else
             Assert.assertTrue("no records are displayed", false);
     }
