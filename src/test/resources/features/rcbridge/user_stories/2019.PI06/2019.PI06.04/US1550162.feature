@@ -4,7 +4,7 @@
 @2019.PI06.04
 @releasePresent
 @iterationFuture
-Feature: US1550162 - Set monitor timer for retro
+Feature: US1550162 - Set Monitor Timer for Retro
 
   @RC_unlinked
   @TC717640
