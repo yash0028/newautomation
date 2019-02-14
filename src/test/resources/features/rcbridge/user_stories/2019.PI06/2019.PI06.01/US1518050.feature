@@ -13,7 +13,7 @@ Feature: US1518050 - CMD UTILITY -Affiliation Type code list CMD UI maintenance 
     Given I have access to the Admin UI page
     When I click on the reference data link
     And I click on the Affiliation Type code values list from the drop down menu
-    And I click on the show table record
-    Then I can see the code values table.
+    And I click on the show table button
+    Then I can see all the versions of table available.
     ####
 
