@@ -1,5 +1,6 @@
 package rest_api_test.step;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import cucumber.api.java.en.Given;
@@ -15,12 +16,16 @@ import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
 import util.map.IMapSub;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class CMDUtilitySteps implements IRestStep, IMapSub {
 
     private final static Logger log = LoggerFactory.getLogger(CMDUtilitySteps.class);
 
     private final static String ENDPOINT = "http://contract-metadata-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private final static String RESOURCE_PROVIDER_CATEGORY = "/v1.0/exari/provider_category";
+    private final static String RESOURCE_AFFILIATION_ENTITY = "/v1.0/exari/affiliation-type";
     private RequestSpecification request;
     private Response response;
     private JsonObject requestBody = new JsonObject();
@@ -44,5 +49,22 @@ public class CMDUtilitySteps implements IRestStep, IMapSub {
             Assert.assertTrue("Expected result is not displayed", totalElementsCount > 0);
         } else
             Assert.assertTrue("Expected result is not displayed", responseMessage.equalsIgnoreCase(result.getAsJsonObject().get("message").getAsString()));
+    }
+
+    @When("^the user initiates the affiliation micro service$")
+    public void hitAffiliationRequest() {
+        response = request.header("Content-Type", "application/json").get(RESOURCE_AFFILIATION_ENTITY);
+    }
+
+    @Then("^the service returns the entire table records$")
+    public void verifyAffiliationResponse() {
+        JsonElement result = parseJsonElementResponse(response);
+        if (result.getAsJsonArray().size() > 0) {
+            String[] allFields = new String[]{"categories", "qualifierCode", "codeDescription", "labelName", "aliasName", "definitionAbbreviated", "definitionExpanded"};
+            JsonArray resultArray = result.getAsJsonArray();
+            for (JsonElement element : resultArray)
+                Assert.assertTrue("All fields are not displayed", element.getAsJsonObject().keySet().containsAll(Arrays.stream(allFields).collect(Collectors.toSet())));
+        } else
+            Assert.assertTrue("no records are displayed", false);
     }
 }
