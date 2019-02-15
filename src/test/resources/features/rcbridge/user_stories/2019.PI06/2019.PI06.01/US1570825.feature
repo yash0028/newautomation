@@ -13,5 +13,4 @@ Feature: US1570825 - SPIKE - (QE) Research and Validate roster transaction data 
     Given a need for using Kafka topics for testing
     When the analysis process is completed
     Then we need to understand the best way to implement these tests
-    ###
 
