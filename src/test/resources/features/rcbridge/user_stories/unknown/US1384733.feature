@@ -6,6 +6,22 @@
 @iterationPast
 Feature: US1384733 - Exari API Testing for New Contract JSON
 
+  @TC729729
+  @Manual
+  @Functional
+  @Exari_Automation
+  Scenario Outline: TC729729 - [RL0]
+    Given a contract with Contract ID of "<contractId>"
+    When hitting the Exari API for Contract JSON Data
+    Then the fields from file "ExariContractJsonFieldsNew.txt" are returned
+    And the fields from file "ExariContractJsonFieldsNotNull.txt" are not null
+    Examples:
+      | contractId |
+      | 45792546   |
+      | 40433225   |
+      | 35607806   |
+      | 69494430   |
+
   @TC612451
   @Automated
   @Regression
@@ -21,6 +37,16 @@ Feature: US1384733 - Exari API Testing for New Contract JSON
       | 40433225   |
       | 35607806   |
       | 69494430   |
+
+  @TC729730
+  @Manual
+  @Functional
+  @Exari_Automation
+  Scenario: TC729730 - [RL1]
+    Given the 10 latest "SPA" contract IDs from Exari
+    When hitting Exari for each contract's JSON
+    Then the fields from file "ExariContractJsonFieldsNew.txt" are returned for each contract
+    And the fields from file "ExariContractJsonFieldsNotNull.txt" are not null for each contract
 
   @TC625885
   @Automated
