@@ -79,13 +79,13 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
      */
     private class PageElements extends AbstractPageElements {
 
-        @FindBy(xpath = "//input[@name='username']")
+        @FindBy(xpath = "//input[@name='USER']")
         public WebElement textBoxUsername;
 
-        @FindBy(xpath = "//input[@name='password']")
+        @FindBy(xpath = "//input[@name='PASSWORD']")
         public WebElement textBoxPassword;
 
-        @FindBy(xpath = "//button[text()='Sign In']")
+        @FindBy(id = "Button2")
         public WebElement buttonSignIn;
 
         @FindBy(xpath = "//div[@title='Home']")

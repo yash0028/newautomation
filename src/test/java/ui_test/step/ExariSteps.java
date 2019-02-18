@@ -15,7 +15,7 @@ import ui_test.page.exari.contract.interview.flow.FlowContract;
 import ui_test.page.exari.contract.interview.flow.IFlowContractLoader;
 import ui_test.page.exari.home.DashboardPage;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
-import ui_test.page.exari.login.LoginPage;
+import ui_test.page.exari.login.LoginSSOPage;
 import ui_test.util.IUiStep;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
@@ -126,7 +126,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         String url = configGetOptionalString("exari.devURL").orElse("");
         getDriver().get(url);
         log.info(getDriver().getTitle());
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginSSOPage loginPage = new LoginSSOPage(getDriver());
         Assert.assertTrue(loginPage.confirmCurrentPage());
 
         Assert.assertTrue(loginPage.login());
