@@ -278,7 +278,8 @@ public class GherkinLogger extends MarkerIgnoringBase {
             if (shortLogName == null) {
                 shortLogName = computeShortName();
             }
-            buffer.append(String.valueOf(shortLogName)).append(" - ");
+            int lineNumber = (new Throwable()).getStackTrace()[3].getLineNumber();
+            buffer.append(String.valueOf(shortLogName)).append("[").append(lineNumber).append("] - ");
         } else if (CONFIG.showLogName) {
             buffer.append(String.valueOf(name)).append(" - ");
         }
