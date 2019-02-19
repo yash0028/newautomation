@@ -19,8 +19,8 @@ Feature: US1231695 - Create Service Providing Physician FS  Access Via Microserv
       | feeScheduleNumber |
       | 20010000000       |
       | 20060080302       |
-      | NEWENG_6238       |
-      | VA_9518PR         |
+      | NEWENG 6238       |
+      | VA 9518PR         |
 
   @TC536762
   @Automated
