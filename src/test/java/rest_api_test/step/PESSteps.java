@@ -235,7 +235,7 @@ public class PESSteps implements IRestStep {
 
     //US1311485
 
-    @Given("^a user wants to do a search for Roster$")
+    @Given("^a user wants to do a search for (?:Roster|Counterparty)$")
     public void aUserWantsToDoASearchForRoster() throws Throwable {
         // assuming true
     }
@@ -430,5 +430,21 @@ public class PESSteps implements IRestStep {
         Assert.assertEquals("The response did not contain the correct number of results. ", numResults, resArray.size());
     }
 
+    // US1565152 - Adjust existing API to include attributes added by PES Team
 
+    @When("^I search for a (Counterparty|Roster) using \"([^\"]*)\" of \"([^\"]*)\"$")
+    public void iSearchForACounterpartyUsingOf(String resource, String property, String value) throws Throwable {
+        JsonObject requestParams = new JsonObject();
+
+        requestParams.addProperty(property, value);
+
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestParams.toString());
+
+        if (resource.equals("Counterparty")){
+            response = request.post(RESOURCE_COUNTER_PARTIES_SEARCH);
+        }
+        else if (resource.equals("Roster")){
+            response = request.post(RESOURCE_ROSTER_SEARCH);
+        }
+    }
 }
