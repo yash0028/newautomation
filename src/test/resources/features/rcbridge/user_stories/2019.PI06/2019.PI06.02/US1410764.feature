@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @US1410764
 @2019.PI06
 @2019.PI06.02
@@ -11,7 +10,6 @@ Feature: US1410764 - Handle Roster Update Event --> Happy path
   @TC701599
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC701599 - [RL1]
     Given that a contract has been created in Exari and successfully installed into Optum's legacy systems
     When an "UpdateRoster" transaction is sensed by Exari that includes both Provider Adds and Provider Cancels (but PCP Provider Cancels)

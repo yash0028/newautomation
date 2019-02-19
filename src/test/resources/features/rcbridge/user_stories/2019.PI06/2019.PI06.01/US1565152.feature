@@ -18,12 +18,10 @@ Feature: US1565152 - Adjust existing API to include attributes added by PES Team
     Given a user wants to do a search for Counterparty
     When I search for a Counterparty using "mpin" of "55408"
     Then PES returns the following information:
-      | County       |
-      | CredDesc     |
-      | CredStatusCd |
-      | CurrCredType |
-      | CurrCycleDt  |
-      | PTIGroupID   |
+      | county           |
+      | credStatusCode   |
+      | currentCycleDate |
+      | ptiGroupId       |
 
   @TC729027
   @Manual
@@ -35,8 +33,6 @@ Feature: US1565152 - Adjust existing API to include attributes added by PES Team
     Given a user wants to do a search for Roster
     When I search for a Roster using "mpin" of "55408"
     Then PES returns the following information:
-      | CredDesc     |
-      | CredStatusCd |
-      | CurrCredType |
-      | CurrCycleDt  |
+      | credStatusCode   |
+      | currentCycleDate |
 
