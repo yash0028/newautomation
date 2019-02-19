@@ -9,7 +9,7 @@
 Feature: US1565152 - Adjust existing API to include attributes added by PES Team
 
   @TC729026
-  @Manual
+  @Automated
   @Functional
   @MVP
   @Scrum_Team_1
@@ -24,7 +24,7 @@ Feature: US1565152 - Adjust existing API to include attributes added by PES Team
       | ptiGroupId       |
 
   @TC729027
-  @Manual
+  @Automated
   @Functional
   @MVP
   @Scrum_Team_1
