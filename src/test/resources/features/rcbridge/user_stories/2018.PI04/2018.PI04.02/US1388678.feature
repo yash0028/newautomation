@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @A_UI_Story
 @US1388678
 @2018.PI04
@@ -11,7 +10,6 @@ Feature: US1388678 - [Unfinished] [Continued] CMD Single Sign On - UHG Enterpris
   @TC615291
   @Manual
   @Functional
-  @RC_invalid
   @A_UI_Story
   Scenario: TC615291 - [RL0]
     ##Scenario 1 (Normal User secure role- CMD access)
@@ -22,7 +20,6 @@ Feature: US1388678 - [Unfinished] [Continued] CMD Single Sign On - UHG Enterpris
   @TC615292
   @Manual
   @Functional
-  @RC_invalid
   @A_UI_Story
   Scenario: TC615292 - [RL1]
     ##Scenario 2 (Business user access role- CMD access)
@@ -33,7 +30,6 @@ Feature: US1388678 - [Unfinished] [Continued] CMD Single Sign On - UHG Enterpris
   @TC615293
   @Manual
   @Functional
-  @RC_invalid
   @A_UI_Story
   Scenario: TC615293 - [RL2]
     ##Scenario 3 (Do not have secure rule- block access/message)
@@ -45,7 +41,6 @@ Feature: US1388678 - [Unfinished] [Continued] CMD Single Sign On - UHG Enterpris
   @TC615294
   @Manual
   @Functional
-  @RC_invalid
   @A_UI_Story
   Scenario: TC615294 - [RL3]
     ##Scenario 4 (Both Secure Roles)

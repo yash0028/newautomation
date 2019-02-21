@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @US1551031
 @2019.PI06
 @2019.PI06.04
@@ -10,7 +9,6 @@ Feature: US1551031 - Store the Product Group's updated Contract Master in the Co
   @TC710724
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC710724 - [RL0]
     Given a contracting event that is replacing the current fee schedule used by one Product Group in a successfully installed active Contract
     When the transaction is successfully completed

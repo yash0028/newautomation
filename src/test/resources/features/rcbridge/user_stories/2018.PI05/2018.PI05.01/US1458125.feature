@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @US1458125
 @2018.PI05
 @2018.PI05.01
@@ -10,7 +9,6 @@ Feature: US1458125 - Look-up CPS Contract Masters
   @TC658865
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC658865 - [RL0]
     Given a contract master look-up is required
     When DIV is equal to 'EVC'

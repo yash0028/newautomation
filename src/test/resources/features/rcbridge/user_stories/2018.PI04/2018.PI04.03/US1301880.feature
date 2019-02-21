@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @US1301880
 @2018.PI04
 @2018.PI04.03
@@ -10,7 +9,6 @@ Feature: US1301880 - [Continued] CMD - User Input Required Page - Populate rows 
   @TC678783
   @Automated
   @User_Interface
-  @RC_invalid
   Scenario: TC678783 - [RL0]
     # Scenario 1 (Action required information in database)
     Given I have clicked on Action Required button on the CMD dashboard
@@ -20,7 +18,6 @@ Feature: US1301880 - [Continued] CMD - User Input Required Page - Populate rows 
   @TC678784
   @Automated
   @User_Interface
-  @RC_invalid
   Scenario: TC678784 - [RL1]
     # Scenario 2 (Action required information in database)
     Given I have clicked on Action Required button on the CMD dashboard
@@ -40,7 +37,6 @@ Feature: US1301880 - [Continued] CMD - User Input Required Page - Populate rows 
   @TC678785
   @Automated
   @User_Interface
-  @RC_invalid
   Scenario: TC678785 - [RL2]
     # Scenario 3 (Action required information in database-Default sort order)
     Given I have clicked on Action Required button on the CMD dashboard

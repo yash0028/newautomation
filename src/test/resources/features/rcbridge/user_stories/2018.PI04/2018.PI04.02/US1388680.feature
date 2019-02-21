@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @A_UI_Story
 @US1388680
 @2018.PI04
@@ -11,7 +10,6 @@ Feature: US1388680 - [Unfinished] CMD- User Input Required Page- Populate rows o
   @TC615269
   @Manual
   @Functional
-  @RC_invalid
   @A_UI_Story
   Scenario: TC615269 - [RL0]
     # Scenario 1 (Action required information in database)
@@ -22,7 +20,6 @@ Feature: US1388680 - [Unfinished] CMD- User Input Required Page- Populate rows o
   @TC615270
   @Manual
   @Functional
-  @RC_invalid
   @A_UI_Story
   Scenario: TC615270 - [RL1]
     # Scenario 2 (Action required information in database)
@@ -43,7 +40,6 @@ Feature: US1388680 - [Unfinished] CMD- User Input Required Page- Populate rows o
   @TC615271
   @Manual
   @Functional
-  @RC_invalid
   @A_UI_Story
   Scenario: TC615271 - [RL2]
     # Scenario 3 (Action required information in database-Default sort order)

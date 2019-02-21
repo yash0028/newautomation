@@ -1,6 +1,5 @@
 # Last updated on 
 @CMD2
-@RC_invalid
 @A_UI_Story
 @US1289316
 @releaseUnknown
@@ -11,7 +10,6 @@ Feature: US1289316 - View Contract Config Summary web page
   @Manual
   @Functional
   @CMD2
-  @RC_invalid
   @A_UI_Story
   Scenario: TC616509 - [RL0]
     Given an contract configuration summary record exists
@@ -22,7 +20,6 @@ Feature: US1289316 - View Contract Config Summary web page
   @Manual
   @Functional
   @CMD2
-  @RC_invalid
   @A_UI_Story
   Scenario: TC616510 - [RL1]
     Given an contract configuration summary record does not exist

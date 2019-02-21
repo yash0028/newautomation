@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @US1418696
 @releaseUnknown
 @iterationUnknown
@@ -8,7 +7,6 @@ Feature: US1418696 - Search - based on Contract Dates (effstart/effend date)
   @TC629922
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC629922 - [RL0]
     Given a user needs to search the CMD database
     When the user enters MM/DD/YYYY in the contract effstart field in the UI
@@ -17,7 +15,6 @@ Feature: US1418696 - Search - based on Contract Dates (effstart/effend date)
   @TC629923
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC629923 - [RL1]
     Given a user needs to search the CMD database
     When the user enters other than MM/DD/YYYY
@@ -27,7 +24,6 @@ Feature: US1418696 - Search - based on Contract Dates (effstart/effend date)
   @TC629924
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC629924 - [RL2]
     Given a user enters a valid search input
     When the user selects enter or search
@@ -37,7 +33,6 @@ Feature: US1418696 - Search - based on Contract Dates (effstart/effend date)
   @TC629925
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC629925 - [RL3]
     Given a user enters an INVALID search input
     When the user selects enter or search
@@ -47,7 +42,6 @@ Feature: US1418696 - Search - based on Contract Dates (effstart/effend date)
   @TC629926
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC629926 - [RL4]
     Given the service searches records that contain the date inputted by the user
     When a single record is found
@@ -56,7 +50,6 @@ Feature: US1418696 - Search - based on Contract Dates (effstart/effend date)
   @TC629927
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC629927 - [RL5]
     Given the service searches records that contain the date inputted by the user
     When no records are found
@@ -65,7 +58,6 @@ Feature: US1418696 - Search - based on Contract Dates (effstart/effend date)
   @TC629928
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC629928 - [RL6]
     Given the service searches records that contain the date inputted by the user
     When multiple records matching the criteria are found

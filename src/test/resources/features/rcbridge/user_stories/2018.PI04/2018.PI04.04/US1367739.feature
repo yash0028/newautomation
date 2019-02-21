@@ -1,5 +1,9 @@
 # Last updated on 
 @Contract_Rules
+@Pairwise
+@Pairwise
+@Pairwise
+@Pairwise
 @US1367739
 @2018.PI04
 @2018.PI04.04
@@ -11,6 +15,10 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Automated
   @Functional
   @Contract_Rules
+  @Pairwise
+  @Pairwise
+  @Pairwise
+  @Pairwise
   Scenario Outline: TC600525 - [RL0] Validate in pilot for Central UHN
     Given "uhgSite" equals "Central UHN"
     When "uhgContractSubtypeHealthcare" equals one of "<uhgContractSubtypeHealthcare>"
@@ -48,6 +56,10 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Automated
   @Functional
   @Contract_Rules
+  @Pairwise
+  @Pairwise
+  @Pairwise
+  @Pairwise
   Scenario Outline: TC600526 - [RL1] Validate in pilot for Northeast UHN
     Given "uhgSite" equals "Northeast UHN"
     When "uhgContractSubtypeHealthcare" equals one of "<uhgContractSubtypeHealthcare>"
@@ -85,6 +97,10 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Automated
   @Functional
   @Contract_Rules
+  @Pairwise
+  @Pairwise
+  @Pairwise
+  @Pairwise
   Scenario Outline: TC627485 - [RL2] Validate in pilot for Southeast UHN
     Given "uhgSite" equals "Southeast UHN"
     When "uhgContractSubtypeHealthcare" equals one of "<uhgContractSubtypeHealthcare>"
@@ -102,6 +118,10 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Automated
   @Functional
   @Contract_Rules
+  @Pairwise
+  @Pairwise
+  @Pairwise
+  @Pairwise
   Scenario Outline: TC627486 - [RL3] Validate in pilot for West UHN
     Given "uhgSite" equals "West UHN"
     When "uhgContractSubtypeHealthcare" equals one of "<uhgContractSubtypeHealthcare>"
@@ -120,6 +140,10 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Automated
   @Functional
   @Contract_Rules
+  @Pairwise
+  @Pairwise
+  @Pairwise
+  @Pairwise
   Scenario: TC630781 - [RL4] Validate NOT in pilot for invalid site
     When "uhgSite" does not equal one of Central UHN, Northeast UHN, Southeast UHN, West UHN
     Then contract is NOT included in Pilot
@@ -128,6 +152,10 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Automated
   @Functional
   @Contract_Rules
+  @Pairwise
+  @Pairwise
+  @Pairwise
+  @Pairwise
   Scenario: TC630782 - [RL5] Validate NOT in pilot for invalid contract subtype
     When "uhgContractSubtypeHealthcare" does not equal one of Practitioner Agreement, Medical Group Agreement, Simplified Physician Agreement, Simplified Practitioner Group Agreement, Simplified Medical Group Agreement
     Then contract is NOT included in Pilot
@@ -136,6 +164,10 @@ Feature: US1367739 - Identify UHC EI and MR Pilot Markets
   @Automated
   @Functional
   @Contract_Rules
+  @Pairwise
+  @Pairwise
+  @Pairwise
+  @Pairwise
   Scenario: TC630783 - [RL6] [RL5] Validate NOT in pilot for invalid market number
     When "uhgMarketNumber" does not equal one of 03413, 13476, 13477, 13478, 13479, 13634, 36555, 45592, 45593, 45594, 45595, 45597
     Then contract is NOT included in Pilot

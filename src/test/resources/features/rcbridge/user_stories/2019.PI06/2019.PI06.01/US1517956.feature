@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @A_UI_Story
 @US1517956
 @2019.PI06
@@ -11,7 +10,6 @@ Feature: US1517956 - CMD UTILITY -Affiliation Type code list CMD maintenance upl
   @TC693617
   @Manual
   @Functional
-  @RC_invalid
   @A_UI_Story
   Scenario: TC693617 - [RL0]
     Given the CMD affiliation type code value list/tables service is up and running
@@ -24,7 +22,6 @@ Feature: US1517956 - CMD UTILITY -Affiliation Type code list CMD maintenance upl
   @TC693622
   @Manual
   @Functional
-  @RC_invalid
   @A_UI_Story
   Scenario: TC693622 - [RL1]
     Given the CMD affiliation type code value list/tables service is up and running
@@ -36,7 +33,6 @@ Feature: US1517956 - CMD UTILITY -Affiliation Type code list CMD maintenance upl
   @TC693626
   @Manual
   @Functional
-  @RC_invalid
   @A_UI_Story
   Scenario: TC693626 - [RL2]
     Given more than one CMD affiliation type table record exists in the database
@@ -46,7 +42,6 @@ Feature: US1517956 - CMD UTILITY -Affiliation Type code list CMD maintenance upl
   @TC693627
   @Manual
   @Functional
-  @RC_invalid
   @A_UI_Story
   Scenario: TC693627 - [RL3]
     Given an update to the current version of the CMD affiliation type code value list is needed
@@ -56,7 +51,6 @@ Feature: US1517956 - CMD UTILITY -Affiliation Type code list CMD maintenance upl
   @TC693629
   @Manual
   @Functional
-  @RC_invalid
   @A_UI_Story
   Scenario: TC693629 - [RL4]
     Given the existence of a web UI

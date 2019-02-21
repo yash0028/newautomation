@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @CMD
 @US1474091
 @2018.PI05
@@ -11,7 +10,6 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @TC672163
   @Manual
   @Functional
-  @RC_invalid
   @CMD
   Scenario: TC672163 - [RL0]
     Given a user needs to query the table
@@ -21,7 +19,6 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @TC710989
   @Automated
   @Functional
-  @RC_invalid
   @CMD
   Scenario Outline: TC710989 - [RL10]
     ##Automation scenarios
@@ -54,7 +51,6 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @TC672168
   @Manual
   @Functional
-  @RC_invalid
   @CMD
   Scenario: TC672168 - [RL1]
     Given a user needs to query the table
@@ -65,7 +61,6 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @TC672204
   @Manual
   @Functional
-  @RC_invalid
   @CMD
   Scenario: TC672204 - [RL2]
     Given a user provides at least 7 characters of Specialty Code Description
@@ -77,7 +72,6 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @TC672213
   @Manual
   @Functional
-  @RC_invalid
   @CMD
   Scenario: TC672213 - [RL4]
     Given a user provides required minimum input/search parameters
@@ -88,7 +82,6 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @TC672220
   @Manual
   @Functional
-  @RC_invalid
   @CMD
   Scenario: TC672220 - [RL5]
     Given a user needs to query the table
@@ -98,7 +91,6 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @TC672223
   @Manual
   @Functional
-  @RC_invalid
   @CMD
   Scenario: TC672223 - [RL6]
     Given a user needs to query the table
@@ -108,7 +100,6 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @TC672227
   @Manual
   @Functional
-  @RC_invalid
   @CMD
   Scenario: TC672227 - [RL7]
     Given a user needs to query the table
@@ -118,7 +109,6 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @TC672228
   @Manual
   @Functional
-  @RC_invalid
   @CMD
   Scenario: TC672228 - [RL8]
     Given a user needs to query the table
@@ -128,7 +118,6 @@ Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
   @TC672229
   @Manual
   @Functional
-  @RC_invalid
   @CMD
   Scenario: TC672229 - [RL9]
     Given a user needs to query the table

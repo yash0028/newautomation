@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @CMD
 @US1478835
 @2019.PI06
@@ -11,7 +10,6 @@ Feature: US1478835 - CMD UTILITY - Our Legal Entities list and microservice
   @TC672208
   @Manual
   @Functional
-  @RC_invalid
   @CMD
   Scenario: TC672208 - [RL0]
     Given a user needs to query the table
@@ -22,7 +20,6 @@ Feature: US1478835 - CMD UTILITY - Our Legal Entities list and microservice
   @TC672219
   @Manual
   @Functional
-  @RC_invalid
   @CMD
   Scenario: TC672219 - [RL1]
     Given a user needs to query the table
@@ -33,7 +30,6 @@ Feature: US1478835 - CMD UTILITY - Our Legal Entities list and microservice
   @TC672226
   @Manual
   @Functional
-  @RC_invalid
   @CMD
   Scenario: TC672226 - [RL2]
     Given a user needs to query the table

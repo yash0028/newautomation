@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @CMD
 @US1319551
 @releaseUnknown
@@ -9,7 +8,6 @@ Feature: US1319551 - NDB Contract Master Validation Set (Type 2 error resolution
   @TC576409
   @Manual
   @Functional
-  @RC_invalid
   @CMD
   Scenario: TC576409 - [RL0]
     Given a valid contract event is published by Exari
