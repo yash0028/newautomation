@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @US1526213
 @2019.PI06
 @2019.PI06.04
@@ -10,7 +9,6 @@ Feature: US1526213 - [Spike]PCP reassignment work objects  save to database  (PC
   @TC695695
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC695695 - [RL0]
     # Scenario 4 (PCP reassignment information has been resolved- single reassign MPIN/IPA/Sequence number)
     Given A a business contractor is reviewing a PCP reassignment error

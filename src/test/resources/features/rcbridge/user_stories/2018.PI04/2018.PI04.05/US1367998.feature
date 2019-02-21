@@ -1,5 +1,6 @@
 # Last updated on 
 @Contract_Rules
+@Pairwise
 @US1367998
 @2018.PI04
 @2018.PI04.05
@@ -11,6 +12,7 @@ Feature: US1367998 - Determine Product Penalty Table requirement
   @Automated
   @Functional
   @Contract_Rules
+  @Pairwise
   Scenario Outline: TC600540 - [RL0]
     Given "uhgSite" includes "<uhgSite>"
     When "productServices" value includes one or more of "<product>"
@@ -88,6 +90,7 @@ Feature: US1367998 - Determine Product Penalty Table requirement
   @Automated
   @Functional
   @Contract_Rules
+  @Pairwise
   Scenario Outline: TC611128 - [RL1]
     Given "uhgSite" includes "<uhgSite>"
     When "productServices" value does not include one or more of "products"

@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @US1416853
 @2018.PI05
 @2018.PI05.02
@@ -10,7 +9,6 @@ Feature: US1416853 - [Continued] Setup a new Contract Configuration Service
   @TC629010
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC629010 - [RL0]
     Given that the Contract Configuration service has been setup
     When a test calls the service passing in VALID values for a previously installed contract
@@ -19,7 +17,6 @@ Feature: US1416853 - [Continued] Setup a new Contract Configuration Service
   @TC630952
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC630952 - [RL1]
     Given that the Contract Configuration service has been setup
     When a test calls the service passing in INVALID values for a previously installed contract

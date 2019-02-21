@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @US1356978
 @releaseUnknown
 @iterationUnknown
@@ -8,7 +7,6 @@ Feature: US1356978 - New UCM - Market Products_Included
   @TC596315
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC596315 - [RL0]
     Given an Exari contract record exists and is valid
     When the contract has completed downstream system configuration/ processing
@@ -19,7 +17,6 @@ Feature: US1356978 - New UCM - Market Products_Included
   @TC618590
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC618590 - [RL1]
     Given an Exari contract record exists and is valid
     When the contract has NOT completed downstream system configuration/ processing
@@ -28,7 +25,6 @@ Feature: US1356978 - New UCM - Market Products_Included
   @TC618591
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC618591 - [RL2]
     Given an Optum contract record is complete
     When information regarding the Market Products included in the contract is needing to be viewed
@@ -37,7 +33,6 @@ Feature: US1356978 - New UCM - Market Products_Included
   @TC618592
   @Manual
   @Functional
-  @RC_invalid
   Scenario: TC618592 - [RL3]
     Given an Optum contract record is complete
     When information regarding the Market Products included in the contract is needing to be updated

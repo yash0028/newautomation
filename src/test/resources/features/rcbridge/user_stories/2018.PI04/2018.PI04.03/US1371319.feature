@@ -1,5 +1,4 @@
 # Last updated on 
-@RC_invalid
 @A_UI_Story
 @US1371319
 @2018.PI04
@@ -11,7 +10,6 @@ Feature: US1371319 - Download CLM Rule Table
   @TC603986
   @Manual
   @Functional
-  @RC_invalid
   @A_UI_Story
   Scenario: TC603986 - [RL1]
     Given more than one CLM Rules Table record exists in the database
@@ -21,7 +19,6 @@ Feature: US1371319 - Download CLM Rule Table
   @TC603987
   @Manual
   @Functional
-  @RC_invalid
   @A_UI_Story
   Scenario: TC603987 - [RL2]
     Given the existence of a web UI

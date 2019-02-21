@@ -9,7 +9,6 @@
 @iterationUnknown
 Feature: US1398051 - Create initial ui tests
 
-  @RC_unlinked
   @TC730581
   @Manual
   @Functional
