@@ -1,7 +1,5 @@
 # Last updated on 
 @US1239950
-@MVP
-@N/A
 @releaseUnknown
 @iterationUnknown
 Feature: US1239950 - F5 GTMs for Production

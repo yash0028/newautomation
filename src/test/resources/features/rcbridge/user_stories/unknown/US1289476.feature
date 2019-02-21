@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @A_UI_Story
 @US1289476
 @releaseUnknown
@@ -8,6 +9,7 @@ Feature: US1289476 - View Contract Config Detail web page
   @TC616491
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC616491 - [RL0]
     Given an contract configuration detail record exists
@@ -17,6 +19,7 @@ Feature: US1289476 - View Contract Config Detail web page
   @TC616492
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC616492 - [RL1]
     Given an contract configuration detail record does not exist

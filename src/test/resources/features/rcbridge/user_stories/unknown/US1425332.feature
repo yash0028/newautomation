@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @US1425332
 @releaseUnknown
 @iterationUnknown
@@ -7,6 +8,7 @@ Feature: US1425332 - Search via CMD UI (Search by Date)
   @TC634354
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC634354 - [RL2]
     Given a user needs to search the CMD database
     When the user enters MM/DD/YYYY in the contract name field in the UI
@@ -15,6 +17,7 @@ Feature: US1425332 - Search via CMD UI (Search by Date)
   @TC634358
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC634358 - [RL3]
     Given a user needs to search the CMD database
     When the user enters other than MM/DD/YYYY
@@ -24,6 +27,7 @@ Feature: US1425332 - Search via CMD UI (Search by Date)
   @TC634363
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC634363 - [RL4]
     Given a user enters a valid search input
     When the user selects enter or search
@@ -33,6 +37,7 @@ Feature: US1425332 - Search via CMD UI (Search by Date)
   @TC634368
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC634368 - [RL5]
     Given a user enters an INVALID search input
     When the user selects enter or search
@@ -42,6 +47,7 @@ Feature: US1425332 - Search via CMD UI (Search by Date)
   @TC634370
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC634370 - [RL6]
     Given the service searches records that contain the date inputted by the user
     When a single record is found
@@ -50,6 +56,7 @@ Feature: US1425332 - Search via CMD UI (Search by Date)
   @TC634371
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC634371 - [RL7]
     Given the service searches records that contain the date inputted by the user
     When no records are found
@@ -58,6 +65,7 @@ Feature: US1425332 - Search via CMD UI (Search by Date)
   @TC634372
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC634372 - [RL8]
     Given the service searches records that contain the date inputted by the user
     When multiple records matching the criteria are found

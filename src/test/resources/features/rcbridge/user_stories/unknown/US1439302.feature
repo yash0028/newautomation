@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @EXARI-13937
 @US1439302
 @releaseUnknown
@@ -8,6 +9,7 @@ Feature: US1439302 - Post-Execution Reporting for Mass Action Projects
   @TC644178
   @Manual
   @Functional
+  @RC_invalid
   @EXARI-13937
   Scenario: TC644178 - [RL1]
     Given a CONTRACT has been added to a Mass Action Project
@@ -18,6 +20,7 @@ Feature: US1439302 - Post-Execution Reporting for Mass Action Projects
   @TC644180
   @Manual
   @Functional
+  @RC_invalid
   @EXARI-13937
   Scenario: TC644180 - [RL2]
     Given a CONTRACT has been added to a Mass Action Project
@@ -28,6 +31,7 @@ Feature: US1439302 - Post-Execution Reporting for Mass Action Projects
   @TC644182
   @Manual
   @Functional
+  @RC_invalid
   @EXARI-13937
   Scenario: TC644182 - [RL3]
     Given a CONTRACT has been added to a Mass Action Project

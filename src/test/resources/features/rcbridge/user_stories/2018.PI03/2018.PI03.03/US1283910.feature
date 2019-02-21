@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @kumar,_Sachin
 @US1283910
 @2018.PI03
@@ -10,6 +11,7 @@ Feature: US1283910 - [Unfinished] Record Table data to Database
   @TC605376
   @Manual
   @Functional
+  @RC_invalid
   @kumar,_Sachin
   Scenario: TC605376 - [RL1]
     Given The product code service is up and running

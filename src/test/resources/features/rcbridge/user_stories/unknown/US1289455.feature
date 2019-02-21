@@ -1,5 +1,6 @@
 # Last updated on 
 @CMD2
+@RC_invalid
 @A_UI_Story
 @US1289455
 @releaseUnknown
@@ -10,6 +11,7 @@ Feature: US1289455 - Create Contract Config Detail web page template
   @Manual
   @Functional
   @CMD2
+  @RC_invalid
   @A_UI_Story
   Scenario: TC616515 - [RL0]
     Given a contract configuration summary record exist

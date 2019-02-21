@@ -1,6 +1,7 @@
 # Last updated on 
 @MVP
 @PI02_Top3
+@RC_invalid
 @PES
 @CLM_Exari
 @US1100727
@@ -15,6 +16,7 @@ Feature: US1100727 - External Data Query Roster Validation
   @Functional
   @MVP
   @PI02_Top3
+  @RC_invalid
   @PES
   @CLM_Exari
   Scenario: TC554638 - Bad Path Roster Validation EDQ

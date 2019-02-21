@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI06.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1425656 - UI/UX- Enable Type 2 Error resend select button from CMD error page
 
   @TC634353

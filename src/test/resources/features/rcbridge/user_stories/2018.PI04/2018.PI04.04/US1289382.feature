@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @US1289382
 @2018.PI04
 @2018.PI04.04
@@ -9,6 +10,7 @@ Feature: US1289382 - Contract Config Services - Contract Config search service
   @TC616506
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC616506 - [RL0]
     Given a user needs to search the CMD summary database
     When the user has authorization to access the database records
@@ -17,6 +19,7 @@ Feature: US1289382 - Contract Config Services - Contract Config search service
   @TC616507
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC616507 - [RL1]
     Given a user needs to search the CMD summary database
     When the user does NOT have authorization to access the database records

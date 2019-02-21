@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI06.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1573319 - Validate contract data - Add [Cosmos]
 
   @TC720666

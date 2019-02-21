@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI06.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1573663 - CMD UTILITY - Our Legal Entities list CMD UI maintenance work
 
   @TC720670
@@ -13,7 +13,7 @@ Feature: US1573663 - CMD UTILITY - Our Legal Entities list CMD UI maintenance wo
     Given I have access to the Admin UI page
     When I click on the reference data link
     And I click on the Our Legal Entities values list from the drop down menu
-    And I click on the show table record
-    Then I can see the code values table.
+    And I click on the show table button
+    Then I can see all the versions of table available
     ####
 

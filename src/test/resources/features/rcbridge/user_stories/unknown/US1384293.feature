@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @A_UI_Story
 @US1384293
 @releaseUnknown
@@ -8,6 +9,7 @@ Feature: US1384293 - New UCM - [ProductGroup] Rate condition (UI story)
   @TC612453
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC612453 - [RL0]
     Given a rate differential applies to a contract

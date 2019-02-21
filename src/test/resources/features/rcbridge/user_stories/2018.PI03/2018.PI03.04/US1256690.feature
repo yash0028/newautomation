@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @kumar,_Sachin
 @US1256690
 @2018.PI03
@@ -10,6 +11,7 @@ Feature: US1256690 - [Continued] Record Table data to Database
   @TC551933
   @Manual
   @Functional
+  @RC_invalid
   @kumar,_Sachin
   Scenario: TC551933 - Validate unsuccessful import of spreadsheet data
     Given The product code service is up and running
@@ -21,6 +23,7 @@ Feature: US1256690 - [Continued] Record Table data to Database
   @TC551934
   @Manual
   @Functional
+  @RC_invalid
   @kumar,_Sachin
   Scenario: TC551934 - Validate unsuccessful import of spreadsheet file
     Given The product code service is up and running
@@ -32,6 +35,7 @@ Feature: US1256690 - [Continued] Record Table data to Database
   @TC615300
   @Manual
   @Functional
+  @RC_invalid
   @kumar,_Sachin
   Scenario: TC615300 - [RL1]
     Given The product code service is up and running

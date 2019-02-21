@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI06.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1410167 - Identify CONTRACT VOIDED - NO RULES MATCHED Type 2 error [NDB Dependency]
 
   @TC706027

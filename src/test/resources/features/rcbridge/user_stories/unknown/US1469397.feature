@@ -1,7 +1,5 @@
 # Last updated on 
 @US1469397
-@MVP
-@N/A
 @releaseUnknown
 @iterationUnknown
 Feature: US1469397 - Implement Stateless OpenShift Route Algorithm

@@ -1,14 +1,16 @@
 # Last updated on 
+@RC_invalid
 @US1442149
 @2019.PI06
 @2019.PI06.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1442149 - Retry installation count of a Type 2 Errors contract Line increments
 
   @TC724003
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC724003 - [RL0]
     # Scenario 1
     Given a NDB Type 2 Error
@@ -18,6 +20,7 @@ Feature: US1442149 - Retry installation count of a Type 2 Errors contract Line i
   @TC724004
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC724004 - [RL2]
     # Scenario 3
     Given a COSMOS Type 2 Error

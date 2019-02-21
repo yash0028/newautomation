@@ -1,7 +1,7 @@
 # Last updated on 
 @US1410130
 @2019.PI06
-@2019.PI06.01
+@2019.PI06.02
 @releasePresent
 @iterationPresent
 Feature: US1410130 - Identify Invalid COSMOS network number as Type 2 error [Cosmos Dependency]

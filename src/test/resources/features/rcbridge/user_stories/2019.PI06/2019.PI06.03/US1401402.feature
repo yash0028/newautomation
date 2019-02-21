@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @US1401402
 @2019.PI06
 @2019.PI06.03
@@ -9,6 +10,7 @@ Feature: US1401402 - Check to see if terming PCP has an add transaction on roste
   @TC697431
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC697431 - [RL0]
     Given conditions have been met for MPIN of the PROVIDERROSTER_CANCELLATIONS_JSON record
     When MPIN of the PROVIDERROSTER_CANCELLATIONS_JSON record has a corresponding PROVIDER ADDITION record
@@ -19,6 +21,7 @@ Feature: US1401402 - Check to see if terming PCP has an add transaction on roste
   @TC697438
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC697438 - [RL1]
     Given conditions have been met for MPIN of the PROVIDERROSTER_CANCELLATIONS_JSON record
     When MPIN of the PROVIDERROSTER_CANCELLATIONS_JSON record has a corresponding PROVIDER ADDITION record

@@ -1,7 +1,5 @@
 # Last updated on 
 @US1400548
-@MVP
-@N/A
 @releaseUnknown
 @iterationUnknown
 Feature: US1400548 - New Pipeline for Jenkins Scheduled Secure Exari Service

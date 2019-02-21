@@ -1,8 +1,6 @@
 # Last updated on 
 @zuul-gateway-service
 @US1526566
-@MVP
-@N/A
 @releaseUnknown
 @iterationUnknown
 Feature: US1526566 - Create Zuul Gateway Service

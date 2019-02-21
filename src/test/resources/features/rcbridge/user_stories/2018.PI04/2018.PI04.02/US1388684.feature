@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @A_UI_Story
 @US1388684
 @2018.PI04
@@ -10,6 +11,7 @@ Feature: US1388684 - [Unfinished] [Continued] CMD- User Input Required Page- Vie
   @TC615284
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC615284 - [RL2]
     # Scenario 4 (Select contract master- Use this once)
@@ -23,6 +25,7 @@ Feature: US1388684 - [Unfinished] [Continued] CMD- User Input Required Page- Vie
   @TC615285
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC615285 - [RL3]
     # Scenario 5 (Select contract master- Use this always)
@@ -36,6 +39,7 @@ Feature: US1388684 - [Unfinished] [Continued] CMD- User Input Required Page- Vie
   @TC615286
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC615286 - [RL4]
     # scenario 6 (contract load button)
@@ -46,6 +50,7 @@ Feature: US1388684 - [Unfinished] [Continued] CMD- User Input Required Page- Vie
   @TC615287
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC615287 - [RL5]
     # Scenario 7 (click contract load button)

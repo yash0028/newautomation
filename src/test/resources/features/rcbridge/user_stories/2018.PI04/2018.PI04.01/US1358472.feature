@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @A_UI_Story
 @US1358472
 @2018.PI04
@@ -10,6 +11,7 @@ Feature: US1358472 - [Unfinished] CMD- User Input Required Page- View & Edit con
   @TC597144
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC597144 - [RL0]
     # Scenario 1 (View contract master detail info- No results with message)
@@ -29,6 +31,7 @@ Feature: US1358472 - [Unfinished] CMD- User Input Required Page- View & Edit con
   @TC597145
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC597145 - [RL1]
     # Scenario 2 (Edit contract master detail info- data fields add new row)

@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @A_UI_Story
 @US1358442
 @2018.PI04
@@ -10,6 +11,7 @@ Feature: US1358442 - [Unfinished] CMD Single Sign On - UHG Enterprise SSO (MSid 
   @TC597163
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC597163 - [RL0]
     Given a CMD record exists
@@ -19,6 +21,7 @@ Feature: US1358442 - [Unfinished] CMD Single Sign On - UHG Enterprise SSO (MSid 
   @TC597164
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC597164 - [RL1]
     Given a CMD record does not exist
@@ -29,6 +32,7 @@ Feature: US1358442 - [Unfinished] CMD Single Sign On - UHG Enterprise SSO (MSid 
   @TC597165
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC597165 - [RL2]
     Given an CMD record exists

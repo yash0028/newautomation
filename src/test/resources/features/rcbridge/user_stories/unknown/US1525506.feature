@@ -1,7 +1,5 @@
 # Last updated on 
 @US1525506
-@MVP
-@N/A
 @releaseUnknown
 @iterationUnknown
 Feature: US1525506 - Breakup Jenkins Pipeline

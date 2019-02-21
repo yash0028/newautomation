@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @CMD
 @US1356648
 @releaseUnknown
@@ -8,6 +9,7 @@ Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
   @TC596323
   @Manual
   @Functional
+  @RC_invalid
   @CMD
   Scenario: TC596323 - [RL0]
     Given a contract exists and is valid
@@ -17,6 +19,7 @@ Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
   @TC611979
   @Manual
   @Functional
+  @RC_invalid
   @CMD
   Scenario: TC611979 - [RL1]
     Given a contract exists and is valid
@@ -26,6 +29,7 @@ Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
   @TC611980
   @Manual
   @Functional
+  @RC_invalid
   @CMD
   Scenario: TC611980 - [RL2]
     Given a contract includes a rate differential
@@ -35,6 +39,7 @@ Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
   @TC611981
   @Manual
   @Functional
+  @RC_invalid
   @CMD
   Scenario: TC611981 - [RL3]
     Given a contract does not include a rate differential
@@ -44,6 +49,7 @@ Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
   @TC611982
   @Manual
   @Functional
+  @RC_invalid
   @CMD
   Scenario: TC611982 - [RL4]
     Given a contract will include a rate differential
@@ -53,6 +59,7 @@ Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
   @TC611983
   @Manual
   @Functional
+  @RC_invalid
   @CMD
   Scenario: TC611983 - [RL5]
     Given a list of permissible category values exists
@@ -62,6 +69,7 @@ Feature: US1356648 - New UCM - [ProductGroup] Rate condition category
   @TC611984
   @Manual
   @Functional
+  @RC_invalid
   @CMD
   Scenario: TC611984 - [RL6]
     Given contract will NOT include a rate differential

@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @US1179417
 @2018.PI02
 @2018.PI02.05
@@ -9,6 +10,7 @@ Feature: US1179417 - [Continued] Exari event producer [contracts-gateway-api]
   @TC701610
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC701610 - [RL0]
     Given A business transaction
     When Transaction is received from Exari
@@ -18,6 +20,7 @@ Feature: US1179417 - [Continued] Exari event producer [contracts-gateway-api]
   @TC701624
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC701624 - [RL1]
     Given A business transaction
     When Transaction is received from Exari but the transaction state service is down

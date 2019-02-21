@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @A_UI_Story
 @US1499284
 @2018.PI05
@@ -10,6 +11,7 @@ Feature: US1499284 - [Continued] UI/UX- New web Page for CMD page displaying all
   @TC683866
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC683866 - [RL1]
     Given a contract has multiple errors on the same contract line
@@ -19,6 +21,7 @@ Feature: US1499284 - [Continued] UI/UX- New web Page for CMD page displaying all
   @TC683867
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC683867 - [RL2]
     Given a contract has errors

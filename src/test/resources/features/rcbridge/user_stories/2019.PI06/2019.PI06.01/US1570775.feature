@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI06.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1570775 - SPIKE - Research and Validate roster transaction data and process flow
 
   @TC727179

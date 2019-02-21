@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @US1412876
 @2018.PI04
 @2018.PI04.04
@@ -9,6 +10,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631482
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631482 - [RL0]
     Given an authorized user needs to search the CMD database
     When the user accesses the CMD default landing web page UI
@@ -17,6 +19,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631443
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631443 - [RL10]
     Given the service searches records that contain the date inputted by the user
     When a single record is found
@@ -25,6 +28,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631444
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631444 - [RL11]
     Given the service searches records that contain the date inputted by the user
     When no records are found
@@ -33,6 +37,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631445
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631445 - [RL12]
     Given the service searches records that contain the date inputted by the user
     When multiple records matching the criteria are found
@@ -42,6 +47,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631488
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631488 - [RL14]
     Given a user needs to search the CMD database
     When the user enters a valid market number in the UI
@@ -50,6 +56,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631489
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631489 - [RL15]
     Given a user needs to search the CMD database
     When the user enters other than numbers
@@ -59,6 +66,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631447
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631447 - [RL16]
     Given a user enters a valid search input
     When the user selects enter or search
@@ -68,6 +76,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631449
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631449 - [RL17]
     Given a user enters an INVALID search input
     When the user selects enter or search
@@ -77,6 +86,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631450
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631450 - [RL18]
     Given the service searches records that contain the text inputted by the user
     When a single record is found
@@ -85,6 +95,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631451
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631451 - [RL19]
     Given the service searches records that contain the text inputted by the user
     When no records are found
@@ -93,6 +104,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631483
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631483 - [RL1]
     Given a user accesses the CMD Action Required web page UI
     When the user needs to search the CMD database
@@ -101,6 +113,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631452
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631452 - [RL20]
     Given the service searches records that contain the text inputted by the user
     When multiple records matching the criteria are found
@@ -110,6 +123,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631454
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631454 - [RL22]
     Given a user needs to search the CMD database
     When the user enters text in the contract name field in the UI
@@ -118,6 +132,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631490
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631490 - [RL23]
     Given a user needs to search the CMD database
     When the user enters special characters
@@ -127,6 +142,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631491
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631491 - [RL24]
     Given a user needs to search the CMD database
     When the user enters less than 10 characters
@@ -136,6 +152,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631455
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631455 - [RL25]
     Given a user enters a valid search input
     When the user selects enter or search
@@ -145,6 +162,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631456
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631456 - [RL26]
     Given a user enters an INVALID search input
     When the user selects enter or search
@@ -154,6 +172,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631457
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631457 - [RL27]
     Given the service searches records that contain the text inputted by the user
     When a single record is found
@@ -162,6 +181,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631458
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631458 - [RL28]
     Given the service searches records that contain the text inputted by the user
     When no records are found
@@ -170,6 +190,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631459
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631459 - [RL29]
     Given the service searches records that contain the text inputted by the user
     When multiple records matching the criteria are found
@@ -179,6 +200,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631484
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631484 - [RL2]
     Given a user accesses the CMD In Progress web page UI
     When the user needs to search the CMD database
@@ -187,6 +209,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631461
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631461 - [RL31]
     Given a user needs to search the CMD database
     When the user enters a valid contract number in the UI
@@ -196,6 +219,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631462
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631462 - [RL32]
     Given a user needs to search the CMD database
     When the user enters an invalid contract number in the UI
@@ -205,6 +229,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631485
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631485 - [RL3]
     Given a user accesses the CMD Errors web page UI
     When the user needs to search the CMD database
@@ -213,6 +238,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631486
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631486 - [RL4]
     Given a user accesses the CMD Completed web page UI
     When the user needs to search the CMD database
@@ -221,6 +247,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631487
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631487 - [RL6]
     Given a user needs to search the CMD database
     When the user enters MM/DD/YYYY in the contract name field in the UI
@@ -229,6 +256,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631440
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631440 - [RL7]
     Given a user needs to search the CMD database
     When the user enters other than MM/DD/YYYY
@@ -238,6 +266,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631441
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631441 - [RL8]
     Given a user enters a valid search input
     When the user selects enter or search
@@ -247,6 +276,7 @@ Feature: US1412876 - Search via CMD UI (Landing Page)
   @TC631442
   @Manual
   @Functional
+  @RC_invalid
   Scenario: TC631442 - [RL9]
     Given a user enters an INVALID search input
     When the user selects enter or search

@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_invalid
 @A_UI_Story
 @US1236428
 @2018.PI04
@@ -11,6 +12,7 @@ Feature: US1236428 - [Continued] [Continued] CMD Single Sign On - UHG Enterprise
   @TC598723
   @Manual
   @Acceptance
+  @RC_invalid
   @A_UI_Story
   Scenario: TC598723 - Validate whether the user is able to view CMD when contract record exists
     Given a CMD record exists
@@ -20,6 +22,7 @@ Feature: US1236428 - [Continued] [Continued] CMD Single Sign On - UHG Enterprise
   @TC564530
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC564530 - [RL0]
     ##Scenario 1 (Normal User secure role- CMD access)
@@ -30,6 +33,7 @@ Feature: US1236428 - [Continued] [Continued] CMD Single Sign On - UHG Enterprise
   @TC564531
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC564531 - [RL1]
     ##Scenario 2 (Business user access role- CMD access)
@@ -40,6 +44,7 @@ Feature: US1236428 - [Continued] [Continued] CMD Single Sign On - UHG Enterprise
   @TC564532
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC564532 - [RL2]
     ##Scenario 3 (Do not have secure rule- block access/message)
@@ -51,6 +56,7 @@ Feature: US1236428 - [Continued] [Continued] CMD Single Sign On - UHG Enterprise
   @TC564533
   @Manual
   @Functional
+  @RC_invalid
   @A_UI_Story
   Scenario: TC564533 - [RL3]
     ##Scenario 4 (Both Secure Roles)
