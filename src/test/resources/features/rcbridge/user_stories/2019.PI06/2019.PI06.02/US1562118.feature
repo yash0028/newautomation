@@ -13,7 +13,7 @@ Feature: US1562118 - Implement API to allow for Integration - Obtain Fee Schedul
   @Functional
   @Optum
   @Suman
-  Scenario: TC735862 - [RL0]
+  Scenario: TC735862 - [RL0] Validate REST functionality of API
     Given a workflow exists for an agreement
     When I am working on the Pricing Form
     Then I am able to see a list of the Fee Schedules (from Exari) on the current agreement where each entry includes the following:
