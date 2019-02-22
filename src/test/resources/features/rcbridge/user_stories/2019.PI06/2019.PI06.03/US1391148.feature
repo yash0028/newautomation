@@ -1,43 +1,43 @@
 # Last updated on 
-@US1573319
+@US1391148
 @2019.PI06
-@2019.PI06.02
+@2019.PI06.03
 @releasePresent
-@iterationPresent
-Feature: US1573319 - Validate contract data - Add [Cosmos]
+@iterationFuture
+Feature: US1391148 - Validate contract data - Add [NDB]
 
-  @TC720666
+  @TC616906
   @Manual
   @Functional
-  Scenario: TC720666 - [RL0]
+  Scenario: TC616906 - [RL0]
     Given an CONTRACT TERMS UPDATED TRANSACTION is received
     When the AMENDMENT contains at least one PRODUCT GROUP
     Then the AMENDMENT passes validation
     And the AMENDMENT continues to applicable next step
 
-  @TC720677
+  @TC616907
   @Manual
   @Functional
-  Scenario: TC720677 - [RL1]
+  Scenario: TC616907 - [RL1]
     Given an CONTRACT TERMS UPDATED TRANSACTION is received
     When the AMENDMENT Does Not contain at least one PRODUCT GROUP
     Then the AMENDMENT Does NOT pass validation
     And a Type 3 error generated and logged
     And a message generated 'AMENDMENT MISSING PRODUCT GROUP'
 
-  @TC720683
+  @TC616908
   @Manual
   @Functional
-  Scenario: TC720683 - [RL2]
+  Scenario: TC616908 - [RL2]
     Given a CONTRACT TERMS UPDATED TRANSACTION event is received
     When the CONTRACT TERMS UPDATED TRANSACTION record includes at least one PRODUCT GROUP to add, cancel or update
     Then the CONTRACT TERMS UPDATED TRANSACTION passes validation
     And the CONTRACT TERMS UPDATED TRANSACTION continues to applicable next step in process
 
-  @TC720687
+  @TC616909
   @Manual
   @Functional
-  Scenario: TC720687 - [RL3]
+  Scenario: TC616909 - [RL3]
     Given a CONTRACT TERMS UPDATED TRANSACTION event is received
     When the CONTRACT TERMS UPDATED TRANSACTION record does not contain one or more PRODUCT GROUP records to add, cancel or update
     Then the CONTRACT TERMS UPDATED TRANSACTION does not pass validation

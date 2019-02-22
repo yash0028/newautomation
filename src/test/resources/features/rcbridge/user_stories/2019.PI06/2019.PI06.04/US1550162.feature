@@ -6,6 +6,15 @@
 @iterationFuture
 Feature: US1550162 - Set Monitor Timer for Retro
 
+  @TC717638
+  @Manual
+  @Functional
+  Scenario: TC717638 - [RL0]
+    Given a retro approval request exists
+    When it is approved
+    Then the 60 day timer is set for initiator to submits the contract in emptoris/exari
+    And timer will only turn off when the contract is submitted.
+
   @RC_unlinked
   @TC717640
   @Manual
