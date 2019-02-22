@@ -125,4 +125,9 @@ public class NDBFacilityFeedSteps implements IRestStep {
                 .body(payload);
         //TODO: verify tablename in response (?)
     }
+
+    @When("input data of the field {string} not found in the CLM table {string}")
+    public void inputDataOfTheFieldNotFoundInTheCLMTable(String fieldName, String tableName) {
+        //TODO: check input data not found (?)
+    }
 }
