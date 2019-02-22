@@ -31,7 +31,7 @@ public class NDBFacilityFeedSteps implements IRestStep {
     //private static final Logger log = LoggerFactory.getLogger(NDBFacilityFeedSteps.class);
 
     //TODO: fill this in when the endpoints are established
-    private static final String ENDPOINT = "TEMP";
+    private static final String ENDPOINT = "http://localhost:4000";
     private static final String FAC_FEED_TEST_TABLE = "";
 
     private static final long TIMEOUTMS = 60 * 1000;
@@ -67,36 +67,29 @@ public class NDBFacilityFeedSteps implements IRestStep {
 
     @When("input data of the following fields is sent to CLM:")
     public void inputDataOfTheFollowingFieldsIsSentToCLM(Map<String, String> fields) {
-        //TODO: test this change
-//        List<String> fields = inputData.asList();
-//        Map<String, String> fields;
-//        fields = inputData.asMap();
-
         payload = new JsonObject();
 
         for(String key : fields.keySet()){
             payload.addProperty(key, fields.get(key));
         }
-
-        System.out.println(payload.toString());
     }
 
     @And("the fields match with a single record in the CLM table {string}")
-    public void theFieldsMatchWithASingleRecordInTheCLMTable(String arg0) {
-        request = given().baseUri(ENDPOINT + FAC_FEED_TEST_TABLE)
+    public void theFieldsMatchWithASingleRecordInTheCLMTable(String tableName) {
+        request = given().baseUri(ENDPOINT)
                 .header("Content-Type", "application/json")
-                .body(payload.toString());
-
-        System.out.println(request);
+                .body(payload);
+        //TODO: verify tablename in response (?)
     }
 
     @Then("CLM returns {string} message and return code {string} as response to NDB request")
-    public void clmReturnsMessageAndReturnCodeAsResponseToNDBRequest(String responseStatusCode, String returnCode) {
-//        response = request.post(ENDPOINT);
-//        Assert.assertEquals(responseStatusCode, response.getStatusCode());
-        JsonElement result = parseJsonElementResponse(this.response);
+    public void clmReturnsMessageAndReturnCodeAsResponseToNDBRequest(String responseMessage, String returnCode) {
+        //TODO: fix this for POST to real API
+        response = request.get("/api");
+        JsonElement result = parseJsonElementResponse(response);
 
-        Assert.assertEquals(returnCode, result.getAsJsonObject().get("responseStatus").getAsString());
+        Assert.assertEquals(responseMessage, result.getAsJsonObject().get("statusMessage").getAsString());
+        Assert.assertEquals(returnCode, result.getAsJsonObject().get("returnCode").getAsString());
     }
 
     @Then("CLM saves the data of the following fields in the CLM table {string}:")
@@ -123,5 +116,13 @@ public class NDBFacilityFeedSteps implements IRestStep {
         }
         //TODO: might need to verify the specific data
         */
+    }
+
+    @And("the fields DO NOT match with a single record in the CLM table {string}")
+    public void theFieldsDONOTMatchWithASingleRecordInTheCLMTable(String tableName) {
+        request = given().baseUri(ENDPOINT)
+                .header("Content-Type", "application/json")
+                .body(payload);
+        //TODO: verify tablename in response (?)
     }
 }
