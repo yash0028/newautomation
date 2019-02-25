@@ -122,12 +122,12 @@ public class RFPSteps implements IRestStep {
     public void findingTheSpecialtyInRFP() throws Throwable {
 
         response = request.get(RESOURCE_PARTICIPATION_REQUESTS);
-//        System.out.println("RESPONSE: " + response.asString());
 
     }
 
     @Then("^the RFP service will return a blank list$")
     public void theRFPServiceWillReturnABlankList() throws Throwable {
+        log.info("RFP Response: {}", response.asString());
 
         assertTrue(response.asString().equals("[]"));
     }
