@@ -20,12 +20,12 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
   Scenario: TC732430 - [RL1]
     Given NDB calls the CLM API with data
     When input data of the following fields is sent to CLM:
-      | Transaction ID            | placeholderTransactionID  |
-      | Contract Line ID          | placeholderContractLineID |
-      | MPIN                      | placeholderMPIN           |
-      | Tax ID NBR                | placeholderTaxIdNbr       |
-      | EXR DOC ID                | placeholderExrDocId       |
-      | PROD OFR ID               | placeholderProdOfrId      |
+      | transactionId             | placeholderTransactionID  |
+      | contractLineId            | placeholderContractLineID |
+      | mpin                      | placeholderMPIN           |
+      | tin                       | placeholderTaxIdNbr       |
+      | exrDocId                  | placeholderExrDocId       |
+      | prodOfrIdt                | placeholderProdOfrId      |
     And the fields match with a single record in the CLM table "NDB Fac Feed Test Table"
     Then CLM returns "Success" message and return code "G" as response to NDB request
 
@@ -35,21 +35,21 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
   Scenario: TC732612 - [RL2]
     Given NDB calls the CLM API with data
     When input data of the following fields is sent to CLM:
-      | Transaction ID            | placeholderTransactionID  |
-      | Contract Line ID          | placeholderContractLineID |
-      | MPIN                      | placeholderMPIN           |
-      | Tax ID NBR                | placeholderTaxIdNbr       |
-      | EXR DOC ID                | placeholderExrDocId       |
-      | PROD OFR ID               | placeholderProdOfrId      |
+      | transactionId             | placeholderTransactionID  |
+      | contractLineId            | placeholderContractLineID |
+      | mpin                      | placeholderMPIN           |
+      | tin                       | placeholderTaxIdNbr       |
+      | exrDocId                  | placeholderExrDocId       |
+      | prodOfrIdt                | placeholderProdOfrId      |
     And the fields match with a single record in the CLM table "NDB Fac Feed Test Table"
     Then CLM saves the data of the following fields in the CLM table "NDB Fac Feed Test Table":
     # below, do we need to verify the contents of the fields or just the existence of the fields?
-      | I-O RATES TBL |
-      | MKT #         |
-      | PCP IND       |
-      | PROD RDY IND  |
-      | PPI TBL NBR   |
-      | STATUS MSG    |
+      | ioRatesTable  |
+      | marketNumber  |
+      | pcpInd        |
+      | prodRdyInd    |
+      | ppiTblNmbr    |
+      | statusMessage |
 
   @TC732613
   @Manual
@@ -57,12 +57,12 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
   Scenario: TC732613 - [RL3]
     Given NDB calls the CLM API with data
     When input data of the following fields is sent to CLM:
-      | Transaction ID            | placeholderTransactionID  |
-      | Contract Line ID          | placeholderContractLineID |
-      | MPIN                      | placeholderMPIN           |
-      | Tax ID NBR                | placeholderTaxIdNbr       |
-      | EXR DOC ID                | placeholderExrDocId       |
-      | PROD OFR ID               | placeholderProdOfrId      |
+      | transactionId             | placeholderTransactionID  |
+      | contractLineId            | placeholderContractLineID |
+      | mpin                      | placeholderMPIN           |
+      | tin                       | placeholderTaxIdNbr       |
+      | exrDocId                  | placeholderExrDocId       |
+      | prodOfrIdt                | placeholderProdOfrId      |
     And the fields DO NOT match with a single record in the CLM table "NDB Fac Feed Test Table"
     Then CLM returns "Record not found in CLM" message and return code "F" as response to NDB request
 
