@@ -11,7 +11,7 @@ Feature: US1600445 - Remediation Field on the Retro Form
   @Manual
   @Functional
   @Arvind
-  Scenario: TC735828 - [RL0]
+  Scenario: TC735828 - [RL0] Verify remidiation plan field
     Given I am on the retro initiation form
     When I am on the "Details" section
     Then I want to see a new mandatory 2000 characters text field (right below "root cause comments) labeled "Remediation Plan*" with the following note right below "What remediation has been put in place to be assured the issue will not occur in the future?"
