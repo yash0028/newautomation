@@ -28,11 +28,11 @@ import static io.restassured.RestAssured.given;
 
 public class NDBFacilityFeedSteps implements IRestStep {
     //TODO: fix logger
-    //private static final Logger log = LoggerFactory.getLogger(NDBFacilityFeedSteps.class);
+    private static final Logger log = LoggerFactory.getLogger(NDBFacilityFeedSteps.class);
 
     //TODO: fill this in when the endpoints are established
-    private static final String ENDPOINT = "http://localhost:4000";
-    private static final String FAC_FEED_TEST_TABLE = "";
+    private static final String ENDPOINT = "http://localhost:8080/v1.0/ndb_facility_feed_api";
+    private static final String RESOURCE_VALIDATE = "/validate_and_update";
 
     private static final long TIMEOUTMS = 60 * 1000;
 
@@ -72,6 +72,8 @@ public class NDBFacilityFeedSteps implements IRestStep {
         for(String key : fields.keySet()){
             payload.addProperty(key, fields.get(key));
         }
+
+        log.info(payload.toString());
     }
 
     @And("the fields match with a single record in the CLM table {string}")
@@ -85,8 +87,10 @@ public class NDBFacilityFeedSteps implements IRestStep {
     @Then("CLM returns {string} message and return code {string} as response to NDB request")
     public void clmReturnsMessageAndReturnCodeAsResponseToNDBRequest(String responseMessage, String returnCode) {
         //TODO: fix this for POST to real API
-        response = request.get("/api");
+        response = request.post(RESOURCE_VALIDATE);
         JsonElement result = parseJsonElementResponse(response);
+
+        log.info(response.asString());
 
         Assert.assertEquals(responseMessage, result.getAsJsonObject().get("statusMessage").getAsString());
         Assert.assertEquals(returnCode, result.getAsJsonObject().get("returnCode").getAsString());
