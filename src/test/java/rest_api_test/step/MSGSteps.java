@@ -49,8 +49,6 @@ public class MSGSteps implements IRestStep {
         //Get the DataTable as a Map of the fields and values for the request
         Map<String,String> requestParams = requestParamsDT.asMap(String.class, String.class);
 
-//        System.out.println("request params: " + requestParams.toString());
-
         //Build out the request and add the request body
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/x-www-form-urlencoded").formParams(requestParams);
     }
@@ -58,11 +56,10 @@ public class MSGSteps implements IRestStep {
     @Then("^I receive all products that fit this criteria$")
     public void iReceiveAllProductsThatFitThisCriteria() throws Throwable {
         response = request.get(RESOURCE_PRODUCTS);
-//        String responseString = response.asString();
 
         JsonElement result = parseJsonElementResponse(response);
 
-//        System.out.println("RESPONSE: " + responseString);
+        log.info("MSG Response: {}", response.asString());
 
         assertEquals(200, response.getStatusCode());
         assert result.isJsonObject();
@@ -72,11 +69,10 @@ public class MSGSteps implements IRestStep {
     @Then("^I receive a response with empty content$")
     public void iReceiveAResponseWithEmptyContent() throws Throwable {
         response = request.get(RESOURCE_PRODUCTS);
-        String responseString = response.asString();
 
         JsonElement result = parseJsonElementResponse(response);
 
-        log.trace("RESPONSE: {}", responseString);
+        log.info("MSG Response: {}", response.asString());
 
         assertEquals(200, response.getStatusCode());
         assert result.isJsonObject();
