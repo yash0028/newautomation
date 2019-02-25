@@ -15,8 +15,8 @@ Feature: US1483380 - Integration - Obtain Fee Schedule Information from MSPS
     Given a workflow exists for an agreement
     When I am working on the Pricing Form
     Then I am able to see a list of the Fee Schedules (from Exari) on the current agreement where each entry includes the following:
-    And Fee Schedule ID (From Exari)
-    And Fee Schedule Name (From PROS)
-    And Fee Schedule Base Year (From PROS)
-    And CMS Year (From PROS)
+      | Fee Schedule ID (From Exari)       |
+      | Fee Schedule Name (From PROS)      |
+      | Fee Schedule Base Year (From PROS) |
+      | CMS Year (From PROS)               |
 
