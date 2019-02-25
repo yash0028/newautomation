@@ -1,9 +1,9 @@
 # Last updated on 
 @US1532649
 @2019.PI06
-@2019.PI06.02
+@2019.PI06.03
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1532649 - Handle Contract Update Event - Build OCM (Add Product)
 
   @TC725636
