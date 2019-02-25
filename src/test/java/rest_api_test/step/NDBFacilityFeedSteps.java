@@ -44,20 +44,34 @@ public class NDBFacilityFeedSteps implements IRestStep {
     // US1579133
 
     @Given("^NDB is ready to send the 2nd Acknowledgment of the facility contract$")
-    public void NDBFacilityFeedSteps() throws Throwable {
-        // nop
-        throw new PendingException();
+    public void NDBReadyToSend() throws Throwable {
+        // assumed ready
     }
 
 
     @When("NDB calls the CLM API")
     public void ndbCallsTheCLMAPI() throws Throwable {
-        throw new PendingException();
+        payload = new JsonObject();
+
+        payload.addProperty("transactionId", "0");
+        payload.addProperty("contractId", "0");
+        payload.addProperty("contractLineId", "0");
+        payload.addProperty("mpin","0");
+        payload.addProperty("tin","0");
+        payload.addProperty("exrDocId","0");
+        payload.addProperty("prodOfrId","0");
+
+        request = given().baseUri(ENDPOINT)
+                .header("Content-Type", "application/json")
+                .body(payload);
+        response = request.post(RESOURCE_VALIDATE);
     }
 
     @Then("CLM receives the data, validates the data and sends back the return status message.")
     public void clmReceivesTheDataValidatesTheDataAndSendsBackTheReturnStatusMessage() throws Throwable {
-        throw new PendingException();
+        Assert.assertNotNull(response);
+
+        JsonElement result = parseJsonElementResponse(response);
     }
 
     @Given("NDB calls the CLM API with data")
@@ -72,8 +86,6 @@ public class NDBFacilityFeedSteps implements IRestStep {
         for(String key : fields.keySet()){
             payload.addProperty(key, fields.get(key));
         }
-
-        log.info(payload.toString());
     }
 
     @And("the fields match with a single record in the CLM table {string}")
@@ -81,24 +93,27 @@ public class NDBFacilityFeedSteps implements IRestStep {
         request = given().baseUri(ENDPOINT)
                 .header("Content-Type", "application/json")
                 .body(payload);
-        //TODO: verify tablename in response (?)
     }
 
     @Then("CLM returns {string} message and return code {string} as response to NDB request")
-    public void clmReturnsMessageAndReturnCodeAsResponseToNDBRequest(String responseMessage, String returnCode) {
-        //TODO: fix this for POST to real API
+    public void clmReturnsMessageAndReturnCodeAsResponseToNDBRequest(String msg, String cde) {
         response = request.post(RESOURCE_VALIDATE);
         JsonElement result = parseJsonElementResponse(response);
 
         log.info(response.asString());
 
-        Assert.assertEquals(responseMessage, result.getAsJsonObject().get("statusMessage").getAsString());
-        Assert.assertEquals(returnCode, result.getAsJsonObject().get("returnCode").getAsString());
+        Assert.assertEquals(msg, result.getAsJsonObject().get("returnMessage").getAsString());
+        Assert.assertEquals(cde, result.getAsJsonObject().get("returnCode").getAsString());
     }
 
     @Then("CLM saves the data of the following fields in the CLM table {string}:")
     public void clmSavesTheDataOfTheFollowingFieldsInTheCLMTable(String table, DataTable expectedFields) {
+        //TODO: figure out how to test this
+        //      it may end up needing to be manual
+        //      since we have to manually probe the DB to ensure records were created
+
         /*
+
         //TODO: get real endpoint and send request
         response = request.post(ENDPOINT);
         JsonElement _result = parseJsonElementResponse(this.response);
