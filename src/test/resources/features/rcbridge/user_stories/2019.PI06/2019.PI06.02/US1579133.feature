@@ -131,7 +131,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
       | tin                                  | EMPTY_STRING                         |
       | exrDocId                             | 00000000000000000000000000084889     |
       | prodOfrId                            | A1                                   |
-    Then CLM returns "No Data Found - Invalid Tax ID NBR" message and return code "F" as response to NDB request
+    Then CLM returns "No Data Found - Invalid Tax ID Number" message and return code "F" as response to NDB request
 
   @TC732618
   @Manual
@@ -147,7 +147,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
       | tin                                  | 860815366                            |
       | exrDocId                             | EMPTY_STRING                         |
       | prodOfrId                            | A1                                   |
-    Then CLM returns "No Data Found - Invalid EXR DOC ID" message and return code "F" as response to NDB request
+    Then CLM returns "No Data Found - Invalid Exari Doc ID" message and return code "F" as response to NDB request
 
   @TC732619
   @Manual
@@ -163,5 +163,5 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
       | tin                                 | 860815366                           |
       | exrDocId                            | 00000000000000000000000000084889    |
       | prodOfrId                           | EMPTY_STRING                        |
-    Then CLM returns "No Data Found - Invalid PROD OFR ID" message and return code "F" as response to NDB request
+    Then CLM returns "No Data Found - Invalid Contract Line ID" message and return code "F" as response to NDB request
 
