@@ -97,6 +97,10 @@ public class NDBFacilityFeedSteps implements IRestStep {
 
     @Then("CLM returns {string} message and return code {string} as response to NDB request")
     public void clmReturnsMessageAndReturnCodeAsResponseToNDBRequest(String msg, String cde) {
+        request = given().baseUri(ENDPOINT)
+                .header("Content-Type", "application/json")
+                .body(payload);
+
         response = request.post(RESOURCE_VALIDATE);
         JsonElement result = parseJsonElementResponse(response);
 
