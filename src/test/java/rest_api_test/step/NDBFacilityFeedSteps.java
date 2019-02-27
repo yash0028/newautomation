@@ -26,8 +26,8 @@ public class NDBFacilityFeedSteps implements IRestStep, IMapSub {
     private static final Logger log = LoggerFactory.getLogger(NDBFacilityFeedSteps.class);
 
     //TODO: fill this in when the endpoints are established
-    private static final String ENDPOINT = "http://localhost:8080/v1.0/ndb_facility_feed_api";
-    private static final String RESOURCE_VALIDATE = "/validate_and_update";
+    private static final String ENDPOINT = "http://ndb-facility-feed-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String RESOURCE_VALIDATE = "/v1.0/ndb_facility_feed_api/validate_and_update";
 
     private static final long TIMEOUTMS = 60 * 1000;
 
@@ -67,6 +67,7 @@ public class NDBFacilityFeedSteps implements IRestStep, IMapSub {
         Assert.assertNotNull(response);
 
         JsonElement result = parseJsonElementResponse(response);
+        Assert.assertTrue(result.isJsonObject());
         JsonObject res = result.getAsJsonObject();
         Assert.assertTrue("Response improperly formatted.", res.has("returnMessage"));
         Assert.assertTrue("Response improperly formatted.", res.has("returnCode"));
@@ -101,7 +102,9 @@ public class NDBFacilityFeedSteps implements IRestStep, IMapSub {
                 .header("Content-Type", "application/json")
                 .body(payload);
         response = request.post(RESOURCE_VALIDATE);
-        JsonObject res = parseJsonElementResponse(response).getAsJsonObject();
+        JsonElement result = parseJsonElementResponse(response);
+        Assert.assertTrue(result.isJsonObject());
+        JsonObject res = result.getAsJsonObject();
 
         // check for return messages with null checks
         if(res.has("returnMessage")) {
