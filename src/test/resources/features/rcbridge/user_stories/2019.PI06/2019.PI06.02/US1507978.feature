@@ -11,10 +11,9 @@ Feature: US1507978 - Receive and recognize roster events/transactions from Exari
   @Functional
   Scenario: TC690155 - [RL0]
     Given that a contract has been created in Exari and successfully installed into Optum's legacy systems
-    # Below, is it supposed to say "sensed" or "sent" by Exari?
-    When an "UpdateRoster" transaction is sensed by Exari
-    Then a Optum APS workflow explicitly built to handle a "Roster Update" event is started
-    And the Optum APS workflow calls an end point in the CLM Gateway service that handles all "Roster Update" events
+    When an "UpdateRoster" transaction is sent or published by Exari
+    And a Optum APS workflow explicitly built to handle a "Roster Update" event is started
+    Then the Optum APS workflow calls an end point in the CLM Gateway service that handles all "Roster Update" events
     And the following data elements are passed to the Gateway endpoint:
       | Event Type Id (RosterUpdate) |
       | Contract Id                  |
