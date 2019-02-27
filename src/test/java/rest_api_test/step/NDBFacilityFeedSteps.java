@@ -23,7 +23,6 @@ import static io.restassured.RestAssured.given;
  */
 
 public class NDBFacilityFeedSteps implements IRestStep, IMapSub {
-    //TODO: fix logger
     private static final Logger log = LoggerFactory.getLogger(NDBFacilityFeedSteps.class);
 
     //TODO: fill this in when the endpoints are established
@@ -68,6 +67,9 @@ public class NDBFacilityFeedSteps implements IRestStep, IMapSub {
         Assert.assertNotNull(response);
 
         JsonElement result = parseJsonElementResponse(response);
+        JsonObject res = result.getAsJsonObject();
+        Assert.assertTrue("Response improperly formatted.", res.has("returnMessage"));
+        Assert.assertTrue("Response improperly formatted.", res.has("returnCode"));
     }
 
     @Given("NDB calls the CLM API with data")
@@ -98,14 +100,21 @@ public class NDBFacilityFeedSteps implements IRestStep, IMapSub {
         request = given().baseUri(ENDPOINT)
                 .header("Content-Type", "application/json")
                 .body(payload);
-
         response = request.post(RESOURCE_VALIDATE);
-        JsonElement result = parseJsonElementResponse(response);
+        JsonObject res = parseJsonElementResponse(response).getAsJsonObject();
 
-        log.info(response.asString());
+        // check for return messages with null checks
+        if(res.has("returnMessage")) {
+            Assert.assertEquals(msg, res.get("returnMessage").getAsString());
+        } else {
+            Assert.fail("\"returnMessage\" field not found in response.");
+        }
 
-        Assert.assertEquals(msg, result.getAsJsonObject().get("returnMessage").getAsString());
-        Assert.assertEquals(cde, result.getAsJsonObject().get("returnCode").getAsString());
+        if(res.has("returnCode")) {
+            Assert.assertEquals(cde, res.get("returnCode").getAsString());
+        } else {
+            Assert.fail("\"returnCode\" field not found in response.");
+        }
     }
 
     @Then("CLM saves the data of the following fields in the CLM table {string}:")
@@ -117,8 +126,6 @@ public class NDBFacilityFeedSteps implements IRestStep, IMapSub {
 
     @And("the fields DO NOT match with a single record in the CLM table {string}")
     public void theFieldsDONOTMatchWithASingleRecordInTheCLMTable(String tableName) {
-        request = given().baseUri(ENDPOINT)
-                .header("Content-Type", "application/json")
-                .body(payload);
+        // nop, request is handled in the THEN field
     }
 }
