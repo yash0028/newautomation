@@ -27,7 +27,7 @@ public class NDBFacilityFeedSteps implements IRestStep, IMapSub {
 
     //TODO: fill this in when the endpoints are established
     private static final String ENDPOINT = "http://ndb-facility-feed-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String RESOURCE_VALIDATE = "/v1.0/ndb_facility_feed_api/validate_and_update";
+    private static final String RESOURCE_VALIDATE = "/v1.0/ndb_facility_feed_final_ack";
 
     private static final long TIMEOUTMS = 60 * 1000;
 
@@ -122,8 +122,8 @@ public class NDBFacilityFeedSteps implements IRestStep, IMapSub {
 
     @Then("CLM saves the data of the following fields in the CLM table {string}:")
     public void clmSavesTheDataOfTheFollowingFieldsInTheCLMTable(String table, DataTable expectedFields) {
-        //TODO: figure out how to test this
-        //      it may end up needing to be manual
+        //nop
+        //      this is a manual test
         //      since we have to manually probe the DB to ensure records were created
     }
 
