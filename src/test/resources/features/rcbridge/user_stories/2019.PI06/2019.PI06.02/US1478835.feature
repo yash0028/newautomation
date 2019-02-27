@@ -13,20 +13,10 @@ Feature: US1478835 - CMD UTILITY - Our Legal Entities list and microservice
   @CMD
   Scenario: TC672208 - [RL0]
     Given a user needs to query the table
-    When the user provides at least 7 characters of Legal Name
-    Then the query searches Legal Name column for records that contain the text character input
-    And returns the matched table record data
+    When the user requests for legal entity data
+    Then the query returns entire table data.
 
-  @TC672219
-  @Manual
-  @Functional
-  @CMD
-  Scenario: TC672219 - [RL1]
-    Given a user needs to query the table
-    When the user provides at least 3 characters of Entity Abbrev Code
-    Then the query searches Entity Abbrev Identification Code column for records that contain the input
-    And returns the matched table records data
-
+  @RC_unlinked
   @TC672226
   @Manual
   @Functional
