@@ -1,4 +1,5 @@
 # Last updated on 
+@RC_ignore
 @US1570775
 @2019.PI06
 @2019.PI06.02
@@ -9,6 +10,7 @@ Feature: US1570775 - SPIKE - Research and Validate roster transaction data and p
   @TC727179
   @Manual
   @Functional
+  @RC_ignore
   Scenario: TC727179 - [RL0]
     Given a roster event is received
     When the analysis is completed

@@ -7,7 +7,7 @@
 Feature: US1579133 - [Continued] Create an API on the CLM side to receive the facility contract load 2nd acknowledgement from NDB
 
   @TC727178
-  @Manual
+  @Automated
   @Functional
   Scenario: TC727178 - [RL0]
     Given NDB is ready to send the 2nd Acknowledgment of the facility contract
@@ -15,7 +15,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
     Then CLM receives the data, validates the data and sends back the return status message.
 
   @TC732430
-  @Manual
+  @Automated
   @Functional
   Scenario: TC732430 - [RL1]
     Given NDB calls the CLM API with data
@@ -54,7 +54,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
       | statusMessage |
 
   @TC732613
-  @Manual
+  @Automated
   @Functional
   Scenario: TC732613 - [RL3]
     Given NDB calls the CLM API with data
@@ -70,7 +70,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
     Then CLM returns "Record not found in CLM" message and return code "F" as response to NDB request
 
   @TC732614
-  @Manual
+  @Automated
   @Functional
   Scenario: TC732614 - [RL4]
     Given NDB calls the CLM API with data
@@ -86,7 +86,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
     Then CLM returns "No Data Found - Invalid Transaction ID" message and return code "F" as response to NDB request
 
   @TC732615
-  @Manual
+  @Automated
   @Functional
   Scenario: TC732615 - [RL5]
     Given NDB calls the CLM API with data
@@ -102,7 +102,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
     Then CLM returns "No Data Found - Invalid Contract Line ID" message and return code "F" as response to NDB request
 
   @TC732616
-  @Manual
+  @Automated
   @Functional
   Scenario: TC732616 - [RL6]
     Given NDB calls the CLM API with data
@@ -118,7 +118,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
     Then CLM returns "No Data Found - Invalid MPIN" message and return code "F" as response to NDB request
 
   @TC732617
-  @Manual
+  @Automated
   @Functional
   Scenario: TC732617 - [RL7]
     Given NDB calls the CLM API with data
@@ -134,7 +134,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
     Then CLM returns "No Data Found - Invalid Tax ID Number" message and return code "F" as response to NDB request
 
   @TC732618
-  @Manual
+  @Automated
   @Functional
   Scenario: TC732618 - [RL8]
     Given NDB calls the CLM API with data
@@ -150,7 +150,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
     Then CLM returns "No Data Found - Invalid Exari Doc ID" message and return code "F" as response to NDB request
 
   @TC732619
-  @Manual
+  @Automated
   @Functional
   Scenario: TC732619 - [RL9]
     Given NDB calls the CLM API with data
