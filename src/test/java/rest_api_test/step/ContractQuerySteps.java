@@ -33,8 +33,7 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
     private static final String RESOURCE_ECM = "/v1.0/exari/ecm";
     private static final String RESOURCE_FACILITY = "/v1.0/exari/facilitycontracts";
     private static final String RESOURCE_CONTRACT_JSON = "/v1.0/exari/json";
-    private static final String ENDPOINT_EXARI = "https://uhgpoc-dev-nonsso.exaricontracts.com";
-    private static final String RESOURCE_CONTRACT_SEARCH = "/exaricm/contracts-api/contracts/search";
+    private static final String RESOURCE_CONTRACT_SEARCH = "/v1.0/exari/contracts/search";
 
     private String contractId;
     private List<String> contractIds = new ArrayList<>();
@@ -192,8 +191,8 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
         JsonElement requestBody = parseJsonElementString(jsonRequestString);
 
         // Build out the request
-        this.request = given().baseUri(ENDPOINT_EXARI).header("Content-Type", "application/json").body(requestBody);
-        this.request.header("Authorization", configGetOptionalString("exari.searchAuthorization").orElse(""));
+        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+        //this.request.header("Authorization", configGetOptionalString("exari.searchAuthorization").orElse(""));
 
         this.response = request.post(RESOURCE_CONTRACT_SEARCH);
 
