@@ -10,9 +10,11 @@ Feature: US1211464 - Contract Master search based on Service Location Market Num
   @Functional
   @CMD2
   Scenario: TC701684 - [RL0]
-    Given an healthcare provider is party to an Exari contract record
-    When all service location addresses are contained in the contract record
-    Then the zip code of the each service location address used to determine service location market number
+    Given a valid contract record exists in Exari
+    When all service locations and billing addresses applicable to the contract have been identified
+    And the address details made available in the Location Appendix contract record
+    And the zip code of each service location address is available
+    Then the zip code(s) will be used to determine service location market number
 
   @TC701702
   @Manual
