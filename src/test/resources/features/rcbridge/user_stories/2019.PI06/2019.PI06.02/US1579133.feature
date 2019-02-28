@@ -1,4 +1,5 @@
 # Last updated on 
+@ndb-facility-feed-api
 @US1579133
 @2019.PI06
 @2019.PI06.02
@@ -9,6 +10,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
   @TC727178
   @Automated
   @Functional
+  @ndb-facility-feed-api
   Scenario: TC727178 - [RL0]
     Given NDB is ready to send the 2nd Acknowledgment of the facility contract
     When NDB calls the CLM API
@@ -17,6 +19,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
   @TC732430
   @Automated
   @Functional
+  @ndb-facility-feed-api
   Scenario: TC732430 - [RL1]
     Given NDB calls the CLM API with data
     When input data of the following fields is sent to CLM:
@@ -33,6 +36,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
   @TC732612
   @Manual
   @Functional
+  @ndb-facility-feed-api
   Scenario: TC732612 - [RL2]
     Given NDB calls the CLM API with data
     When input data of the following fields is sent to CLM:
@@ -56,6 +60,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
   @TC732613
   @Automated
   @Functional
+  @ndb-facility-feed-api
   Scenario: TC732613 - [RL3]
     Given NDB calls the CLM API with data
     When input data of the following fields is sent to CLM:
@@ -72,6 +77,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
   @TC732614
   @Automated
   @Functional
+  @ndb-facility-feed-api
   Scenario: TC732614 - [RL4]
     Given NDB calls the CLM API with data
     # When input data of the field "Transaction ID" not found in the CLM table "NDB Fac Feed Test Table"
@@ -88,6 +94,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
   @TC732615
   @Automated
   @Functional
+  @ndb-facility-feed-api
   Scenario: TC732615 - [RL5]
     Given NDB calls the CLM API with data
     # When input data of the field "Contract Line ID" not found in the CLM table "NDB Fac Feed Test Table"
@@ -104,6 +111,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
   @TC732616
   @Automated
   @Functional
+  @ndb-facility-feed-api
   Scenario: TC732616 - [RL6]
     Given NDB calls the CLM API with data
     # When input data of the field "MPIN" not found in the CLM table "NDB Fac Feed Test Table"
@@ -120,6 +128,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
   @TC732617
   @Automated
   @Functional
+  @ndb-facility-feed-api
   Scenario: TC732617 - [RL7]
     Given NDB calls the CLM API with data
     # When input data of the field "Tax ID NBR" not found in the CLM table "NDB Fac Feed Test Table"
@@ -136,6 +145,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
   @TC732618
   @Automated
   @Functional
+  @ndb-facility-feed-api
   Scenario: TC732618 - [RL8]
     Given NDB calls the CLM API with data
     # When input data of the field "EXR DOC ID" not found in the CLM table "NDB Fac Feed Test Table"
@@ -152,6 +162,7 @@ Feature: US1579133 - [Continued] Create an API on the CLM side to receive the fa
   @TC732619
   @Automated
   @Functional
+  @ndb-facility-feed-api
   Scenario: TC732619 - [RL9]
     Given NDB calls the CLM API with data
     # When input data of the field "PROD OFR ID" not found in the CLM table "NDB Fac Feed Test Table"
