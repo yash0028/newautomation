@@ -7,6 +7,15 @@
 @iterationPast
 Feature: US1371319 - Download CLM Rule Table
 
+  @TC603985
+  @Manual
+  @Functional
+  @A_UI_Story
+  Scenario: TC603985 - [RL0]
+    Given a user needs to view rule details
+    When a user needs to view the rules within the database
+    Then a UI is available to the user for downloading
+
   @TC603986
   @Manual
   @Functional
