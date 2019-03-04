@@ -3,6 +3,7 @@ package rest_api_test.step;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -196,10 +197,19 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
 
         this.response = request.post(RESOURCE_CONTRACT_SEARCH);
 
+        Assert.assertEquals(200, response.getStatusCode());
+
+        log.info("Response from contract query api: {}", response.asString());
+
         this.result = parseJsonElementResponse(response);
 
+        // Since the API returns nested JSON in a JSON Primitive object, we need to first get the response message
+        // And then parse it as a JSON element, so that we can get the nested array later
+        JsonPrimitive responseMessage = result.getAsJsonObject().get("responseMessage").getAsJsonPrimitive();
+        JsonElement responseJson = parseJsonElementString(responseMessage.getAsString());
+
         // All the contract data we're interested in resides in the "entries" object
-        JsonArray entries = result.getAsJsonObject().get("entries").getAsJsonArray();
+        JsonArray entries = responseJson.getAsJsonObject().get("entries").getAsJsonArray();
 
         // Go through each entry and put each contract ID into an array list
         for(JsonElement entry: entries){

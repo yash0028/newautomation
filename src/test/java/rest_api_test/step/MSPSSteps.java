@@ -1,10 +1,12 @@
 package rest_api_test.step;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
@@ -13,6 +15,7 @@ import rest_api_test.util.IRestStep;
 import util.file.IFileWriter;
 
 import java.io.File;
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
@@ -27,6 +30,8 @@ public class MSPSSteps implements IRestStep, IFileWriter {
     private static final String ENDPOINT = "http://fee-schedule-api-clm-test.ocp-ctc-core-nonprod.optum.com";
     private static final String RESOURCE_FACILITY_FEE_SCHEDULES_SEARCH = "/v1.0/facility_fee_schedules/search";
     private static final String RESOURCE_PROFESSIONAL_FEE_SCHEDULES_SEARCH = "/v1.0/professional_fee_schedules/search";
+    private static final String RESOURCE_GET_FEE_SCHEDULES = "/v1.0/fee_schedules";
+
 
     private JsonObject requestBody = new JsonObject();
     private RequestSpecification request;
@@ -84,4 +89,39 @@ public class MSPSSteps implements IRestStep, IFileWriter {
     }
 
 
+    // US1562118 - Implement API to allow for Integration - Obtain Fee Schedule Information from MSPS
+
+    @Given("^a need for integration with MSPS$")
+    public void aNeedForIntegrationWithMSPS() throws Throwable {
+        // noop
+    }
+
+    @When("^reaching out the fee-schedule-api with \"([^\"]*)\" of \"([^\"]*)\"$")
+    public void reachingOutTheFeeScheduleApiWithOf(String field, String value) throws Throwable {
+        JsonArray jsonArray = new JsonArray();
+        jsonArray.add(value);
+
+        requestBody.add(field, jsonArray);
+
+        //Build out the request and add the JSON Request Body
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody.toString());
+
+        response = request.post(RESOURCE_GET_FEE_SCHEDULES);
+    }
+
+    @Then("^the fee-schedule-api returns the following fields:$")
+    public void theFeeScheduleApiReturnsTheFollowingFields(DataTable responseFieldsDT) throws Throwable {
+        List<String> responseFields = responseFieldsDT.asList();
+
+        boolean allMatch = true;
+
+        //Loop through each field, and if the response does not contain each field, set allMatch to false
+        for(String field: responseFields){
+            if(!response.asString().contains(field)){
+                allMatch = false;
+            }
+        }
+        //Pass the test if allMatch remains true, showing that the response does contain all required fields
+        assertTrue("Not all fields were returned in the response", allMatch);
+    }
 }
