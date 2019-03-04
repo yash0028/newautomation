@@ -14,9 +14,9 @@ Feature: US1562118 - Implement API to allow for Integration - Obtain Fee Schedul
   @Optum
   @Suman
   Scenario: TC735862 - [RL0] Validate REST functionality of API
-    Given a workflow exists for an agreement
-    When I am working on the Pricing Form
-    Then I am able to see a list of the Fee Schedules (from Exari) on the current agreement where each entry includes the following:
+    Given a need for integration with MSPS
+    When reaching out the fee-schedule-api with "feeSchedules" of "20010000000"
+    Then the fee-schedule-api returns the following fields:
       | Fee Schedule ID (From Exari)       |
       | Fee Schedule Name (From PROS)      |
       | Fee Schedule Base Year (From PROS) |
