@@ -1,4 +1,5 @@
 # Last updated on 
+@MSPS
 @Optum
 @Suman
 @US1562118
@@ -9,8 +10,9 @@
 Feature: US1562118 - Implement API to allow for Integration - Obtain Fee Schedule Information from MSPS
 
   @TC735862
-  @Manual
+  @Automated
   @Functional
+  @MSPS
   @Optum
   @Suman
   Scenario: TC735862 - [RL0] Validate REST functionality of API
