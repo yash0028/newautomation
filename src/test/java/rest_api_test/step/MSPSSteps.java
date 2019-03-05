@@ -28,6 +28,7 @@ public class MSPSSteps implements IRestStep, IFileWriter {
     private static final Logger log = LoggerFactory.getLogger(MSPSSteps.class);
 
     private static final String ENDPOINT = "http://fee-schedule-api-clm-test.ocp-ctc-core-nonprod.optum.com";
+    private static final String ENDPOINT_DEV = "http://fee-schedule-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
     private static final String RESOURCE_FACILITY_FEE_SCHEDULES_SEARCH = "/v1.0/facility_fee_schedules/search";
     private static final String RESOURCE_PROFESSIONAL_FEE_SCHEDULES_SEARCH = "/v1.0/professional_fee_schedules/search";
     private static final String RESOURCE_GET_FEE_SCHEDULES = "/v1.0/fee_schedules";
@@ -102,9 +103,9 @@ public class MSPSSteps implements IRestStep, IFileWriter {
         jsonArray.add(value);
 
         requestBody.add(field, jsonArray);
-
+        requestBody.addProperty("loggedInUserName","joanne_m_salo@uhc.com");
         //Build out the request and add the JSON Request Body
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody.toString());
+        request = given().baseUri(ENDPOINT_DEV).header("Content-Type", "application/json").body(requestBody.toString());
 
         response = request.post(RESOURCE_GET_FEE_SCHEDULES);
     }
@@ -120,6 +121,7 @@ public class MSPSSteps implements IRestStep, IFileWriter {
             if(!response.asString().contains(field)){
                 allMatch = false;
             }
+            log.info("{} {}" , field , response.asString());
         }
         //Pass the test if allMatch remains true, showing that the response does contain all required fields
         assertTrue("Not all fields were returned in the response", allMatch);
