@@ -1,9 +1,9 @@
 # Last updated on 
 @US1532458
 @2019.PI06
-@2019.PI06.02
+@2019.PI06.03
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1532458 - Receive and recognize product events/transactions from Exari
 
   @TC738681
