@@ -10,7 +10,7 @@ Feature: US1573319 - Validate contract data - Add [Cosmos]
   @Manual
   @Functional
   Scenario: TC720666 - [RL0]
-    Given an CONTRACT TERMS UPDATED TRANSACTION is received
+    Given an CONTRACT AMENDED TRANSACTION is received
     When the AMENDMENT contains at least one PRODUCT GROUP
     Then the AMENDMENT passes validation
     And the AMENDMENT continues to applicable next step
@@ -19,7 +19,7 @@ Feature: US1573319 - Validate contract data - Add [Cosmos]
   @Manual
   @Functional
   Scenario: TC720677 - [RL1]
-    Given an CONTRACT TERMS UPDATED TRANSACTION is received
+    Given an CONTRACT AMENDED TRANSACTION is received
     When the AMENDMENT Does Not contain at least one PRODUCT GROUP
     Then the AMENDMENT Does NOT pass validation
     And a Type 3 error generated and logged
@@ -29,18 +29,18 @@ Feature: US1573319 - Validate contract data - Add [Cosmos]
   @Manual
   @Functional
   Scenario: TC720683 - [RL2]
-    Given a CONTRACT TERMS UPDATED TRANSACTION event is received
-    When the CONTRACT TERMS UPDATED TRANSACTION record includes at least one PRODUCT GROUP to add, cancel or update
-    Then the CONTRACT TERMS UPDATED TRANSACTION passes validation
-    And the CONTRACT TERMS UPDATED TRANSACTION continues to applicable next step in process
+    Given a CONTRACT AMENDED TRANSACTION event is received
+    When the CONTRACT AMENDED TRANSACTION record includes at least one PRODUCT GROUP to add, cancel or update
+    Then the CONTRACT AMENDED TRANSACTION passes validation
+    And the CONTRACT AMENDED TRANSACTION continues to applicable next step in process
 
   @TC720687
   @Manual
   @Functional
   Scenario: TC720687 - [RL3]
-    Given a CONTRACT TERMS UPDATED TRANSACTION event is received
-    When the CONTRACT TERMS UPDATED TRANSACTION record does not contain one or more PRODUCT GROUP records to add, cancel or update
-    Then the CONTRACT TERMS UPDATED TRANSACTION does not pass validation
+    Given a CONTRACT AMENDED TRANSACTION event is received
+    When the CONTRACT AMENDED TRANSACTION record does not contain one or more PRODUCT GROUP records to add, cancel or update
+    Then the CONTRACT AMENDED TRANSACTION does not pass validation
     And a Type 3 error generated and logged
-    And a message generated 'CONTRACT TERMS UPDATED TRANSACTION RECORD MISSING ACTION TYPE'
+    And a message generated 'CONTRACT AMENDED TRANSACTION RECORD MISSING ACTION TYPE'
 

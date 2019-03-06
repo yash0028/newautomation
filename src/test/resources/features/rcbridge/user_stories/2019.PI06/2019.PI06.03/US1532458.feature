@@ -10,7 +10,7 @@ Feature: US1532458 - Receive and recognize product events/transactions from Exar
   @Manual
   @Functional
   Scenario: TC738681 - [RL0]
-    Given event gateway api is ready with TermsUpdate event
+    Given event gateway api is ready with ContractAmended event
     And the contract is created in Exari
     When the amendment details are provided and made the contract active in Exari
     Then gateway api receive the contract amendment details
