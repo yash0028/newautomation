@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI06.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1573667 - CMD UTILITY - Our Legal Entities microservice to be called by Exari
 
   @TC720675

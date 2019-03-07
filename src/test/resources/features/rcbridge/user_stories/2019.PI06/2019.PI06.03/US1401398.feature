@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI06.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1401398 - Execute PCP identificaiton and gatekeepr product business rule API
 
   @TC627935

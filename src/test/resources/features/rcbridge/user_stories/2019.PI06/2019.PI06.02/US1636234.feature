@@ -1,15 +1,15 @@
 # Last updated on 
-@US1544580
+@US1636234
 @2019.PI06
 @2019.PI06.02
 @releasePresent
-@iterationPresent
-Feature: US1544580 - Market Lead Due Date Reminder Email
+@iterationPast
+Feature: US1636234 - [Unfinished] Market Lead Due Date Reminder Email
 
-  @TC716979
+  @TC746056
   @Manual
   @Functional
-  Scenario: TC716979 - [RL0]
+  Scenario: TC746056 - [RL0]
     Given I am the assigned Market Lead
     When 2 business days have passed on a retro approval request pending my decision
     Then an email reminder email is sent to me everyday until I make a decision

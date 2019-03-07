@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI06.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1573663 - CMD UTILITY - Our Legal Entities list CMD UI maintenance work
 
   @TC720670

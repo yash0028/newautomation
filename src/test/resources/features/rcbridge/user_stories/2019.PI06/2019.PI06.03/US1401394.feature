@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI06.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1401394 - Analyze Roster submission for cancelations- Logic
 
   @TC697435
