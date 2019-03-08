@@ -10,7 +10,7 @@ Feature: US1401398 - Execute PCP identificaiton and gatekeepr product business r
   @Manual
   @Functional
   Scenario: TC627935 - [RL0]
-    ###Scenario 1 (Cancellations on roster request- No PCP's found on roster)
+    # Scenario 1 (Cancellations on roster request- No PCP's found on roster)
     Given conditions have been met for PCP reassignment workflow : The roster submitted contains providers with a cancellation
     When The PCP Identification API is executed
     And The response contains no PCP's
@@ -20,7 +20,7 @@ Feature: US1401398 - Execute PCP identificaiton and gatekeepr product business r
   @Manual
   @Functional
   Scenario: TC627936 - [RL1]
-    ###Scenario 2 (Cancellations on roster request-PCP's found on roster)
+    # Scenario 2 (Cancellations on roster request-PCP's found on roster)
     Given The roster submitted contains providers with a cancellation
     When The PCP Identification API is executed
     And The response contains PCP's

@@ -1,4 +1,5 @@
 # Last updated on 
+@Sachin
 @US1539262
 @2019.PI06
 @2019.PI06.03
@@ -9,6 +10,7 @@ Feature: US1539262 - Modify denied by ML retro approval request
   @TC743486
   @Manual
   @Functional
+  @Sachin
   Scenario: TC743486 - [RL0]
     Given I am the initiator or requestor (denied by Market Lead)
     When I complete my modification on the task
@@ -19,6 +21,7 @@ Feature: US1539262 - Modify denied by ML retro approval request
   @TC743530
   @Manual
   @Functional
+  @Sachin
   Scenario: TC743530 - [RL1]
     Given I am the initiator or requestor (denied by Market Lead)
     When I complete my modification on the task

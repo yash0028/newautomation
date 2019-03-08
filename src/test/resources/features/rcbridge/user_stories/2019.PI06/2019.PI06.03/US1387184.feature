@@ -12,7 +12,16 @@ Feature: US1387184 - Validate roster data
   Scenario: TC614183 - [RL0]
     Given a RosterUpdated business event is published
     When the provider(s) being added have a P-type classification
-    And all of the required information is present, including StartDate, tin, mpin, npi, providerName, providerSpecialtyCode, providerSpecialtyCodeDesc, retroactiveReasonCode (only required if the start date is prior to today's date)
+    And all of the required information is present, including:
+      | StartDate                 |
+      | tin                       |
+      | mpin                      |
+      | npi                       |
+      | providerName              |
+      | providerSpecialtyCode     |
+      | providerSpecialtyCodeDesc |
+      | retroactiveReasonCode     |
+    # ( retroactiveReasonCode is only required if the start date is prior to today's date)
     Then the transaction/event is valid
     And the transaction advances to process to subscribing platform(s)
 
@@ -42,7 +51,16 @@ Feature: US1387184 - Validate roster data
   Scenario: TC616498 - [RL1]
     Given a RosterUpdated business event is published
     When the provider(s) being added have an O-type classification
-    And all of the required information is present, including StartDate, tin, mpin, npi, providerName, providerOrgTypeCode, providerOrgTypeCodeDesc, retroactiveReasonCode (only required if the start date is prior to today's date)
+    And all of the required information is present, including:
+      | StartDate               |
+      | tin                     |
+      | mpin                    |
+      | npi                     |
+      | providerName            |
+      | providerOrgTypeCode     |
+      | providerOrgTypeCodeDesc |
+      | retroactiveReasonCode   |
+    # ( retroactiveReasonCode is only required if the start date is prior to today's date)
     Then the transaction/event is valid
     And the transaction advances to process to subscribing platform(s)
 
@@ -52,7 +70,16 @@ Feature: US1387184 - Validate roster data
   Scenario: TC616499 - [RL2]
     Given a RosterUpdated business event is published
     When the provider(s) being added have a P-type classification
-    And some of the required information is not present, including StartDate, tin, mpin, npi, providerName, providerSpecialtyCode, providerSpecialtyCodeDesc, retroactiveReasonCode (only required if the start date is prior to today's date)
+    And some of the required information is not present, including:
+      | StartDate                 |
+      | tin                       |
+      | mpin                      |
+      | npi                       |
+      | providerName              |
+      | providerSpecialtyCode     |
+      | providerSpecialtyCodeDesc |
+      | retroactiveReasonCode     |
+    # ( retroactiveReasonCode is only required if the start date is prior to today's date)
     Then the transaction/event is not valid
     And a Type 3 error is logged
     And an error message reads, "One or more of the data elements required to complete this transaction is missing"
@@ -63,7 +90,16 @@ Feature: US1387184 - Validate roster data
   Scenario: TC616500 - [RL3]
     Given a RosterUpdated business event is published
     When the provider(s) being added have an O-type classification
-    And some of the required information is not present, including StartDate, tin, mpin, npi, providerName, providerOrgTypeCode, providerOrgTypeCodeDesc, retroactiveReasonCode (only required if the start date is prior to today's date)
+    And some of the required information is not present, including:
+      | StartDate               |
+      | tin                     |
+      | mpin                    |
+      | npi                     |
+      | providerName            |
+      | providerOrgTypeCode     |
+      | providerOrgTypeCodeDesc |
+      | retroactiveReasonCode   |
+    # ( retroactiveReasonCode is only required if the start date is prior to today's date)
     Then the transaction/event is not valid
     And a Type 3 error is logged
     And an error message reads, "One or more of the data elements required to complete this transaction is missing"
@@ -72,18 +108,18 @@ Feature: US1387184 - Validate roster data
   @Manual
   @Functional
   Scenario: TC616501 - [RL4]
-    Given a RosterUpdated business events is published
+    Given a RosterUpdated business event is published
     When there are no providers on the roster
     Then the transaction/event is not valid
     And a Type 3 error is logged
-    And an error message reads, "No providers were included in this request - unable to process"
+    And an error message reads "No providers were included in this request - unable to process"
 
   @TC616502
   @Manual
   @Functional
   Scenario: TC616502 - [RL5]
     Given a RosterUpdated business events is published
-    When there are no providers adds included in the event
+    When there are no provider adds included in the event
     Then the transaction/event is not valid
     And a Type 3 error is logged
     And an error message reads, "No eligible providers were included in this add request - unable to process"
@@ -94,9 +130,19 @@ Feature: US1387184 - Validate roster data
   Scenario: TC708308 - [RL6]
     Given a RosterUpdated business event is published
     When the provider(s) being added have a P-type classification
-    And all of the required information is present, including cancelDate, tin, mpin, npi, providerName, providerSpecialtyCode, providerSpecialtyCodeDesc, cancelReasonCode, retroactiveReasonCode
+    And all of the required information is present, including:
+      | StartDate                 |
+      | tin                       |
+      | mpin                      |
+      | npi                       |
+      | providerName              |
+      | providerSpecialtyCode     |
+      | providerSpecialtyCodeDesc |
+      | retroactiveReasonCode     |
+    # ( retroactiveReasonCode is only required if the start date is prior to today's date)
     Then the transaction/event is valid
     And the transaction advances to determining if cancel contains a PCP
+    # (No type 3 error is generated)
 
   @TC708309
   @Manual
@@ -104,7 +150,16 @@ Feature: US1387184 - Validate roster data
   Scenario: TC708309 - [RL7]
     Given a RosterUpdated business event is published
     When the provider(s) being added have an O-type classification
-    And all of the required information is present, including StartDate, tin, mpin, npi, providerName, providerOrgTypeCode, providerOrgTypeCodeDesc, cancelReasonCode, retroactiveReasonCode
+    And all of the required information is present, including:
+      | StartDate               |
+      | tin                     |
+      | mpin                    |
+      | npi                     |
+      | providerName            |
+      | providerOrgTypeCode     |
+      | providerOrgTypeCodeDesc |
+      | retroactiveReasonCode   |
+    # ( retroactiveReasonCode is only required if the start date is prior to today's date)
     Then the transaction/event is valid
     And the transaction advances to process to subscribing platform(s)
 
@@ -114,7 +169,16 @@ Feature: US1387184 - Validate roster data
   Scenario: TC708310 - [RL8]
     Given a RosterUpdated business event is published
     When the provider(s) being added have a P-type classification
-    And some of the required information is not present, including StartDate, tin, mpin, npi, providerName, providerSpecialtyCode, providerSpecialtyCodeDesc, cancelReasonCode, retroactiveReasonCode
+    And some of the required information is not present, including:
+      | StartDate                 |
+      | tin                       |
+      | mpin                      |
+      | npi                       |
+      | providerName              |
+      | providerSpecialtyCode     |
+      | providerSpecialtyCodeDesc |
+      | retroactiveReasonCode     |
+    # ( retroactiveReasonCode is only required if the start date is prior to today's date)
     Then the transaction/event is not valid
     And a Type 3 error is logged
     And an error message reads, "One or more of the data elements required to complete this transaction is missing"
@@ -125,7 +189,16 @@ Feature: US1387184 - Validate roster data
   Scenario: TC708311 - [RL9]
     Given a RosterUpdated business event is published
     When the provider(s) being added have an O-type classification
-    And some of the required information is not present, including StartDate, tin, mpin, npi, providerName, providerOrgTypeCode, providerOrgTypeCodeDesc, cancelReasonCode, retroactiveReasonCode
+    And some of the required information is not present, including:
+      | StartDate               |
+      | tin                     |
+      | mpin                    |
+      | npi                     |
+      | providerName            |
+      | providerOrgTypeCode     |
+      | providerOrgTypeCodeDesc |
+      | retroactiveReasonCode   |
+    # ( retroactiveReasonCode is only required if the start date is prior to today's date)
     Then the transaction/event is not valid
     And a Type 3 error is logged
     And an error message reads, "One or more of the data elements required to complete this transaction is missing"

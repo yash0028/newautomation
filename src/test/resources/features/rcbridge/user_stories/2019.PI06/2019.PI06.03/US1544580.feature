@@ -1,4 +1,6 @@
 # Last updated on 
+@Sachin
+@Sheham
 @US1544580
 @2019.PI06
 @2019.PI06.03
@@ -9,6 +11,8 @@ Feature: US1544580 - [Continued] Market Lead Due Date Reminder Email
   @TC716979
   @Manual
   @Functional
+  @Sachin
+  @Sheham
   Scenario: TC716979 - [RL0]
     Given I am the assigned Market Lead
     When 2 business days have passed on a retro approval request pending my decision
