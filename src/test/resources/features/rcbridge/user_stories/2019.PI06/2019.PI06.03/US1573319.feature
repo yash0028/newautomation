@@ -4,7 +4,7 @@
 @2019.PI06.03
 @releasePresent
 @iterationPresent
-Feature: US1573319 - Validate contract data - Add [Cosmos]
+Feature: US1573319 - Validate contract data - Add [NDB and Cosmos]
 
   @TC720666
   @Manual

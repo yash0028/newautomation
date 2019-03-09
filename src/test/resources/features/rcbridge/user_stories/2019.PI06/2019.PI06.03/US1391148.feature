@@ -4,7 +4,7 @@
 @2019.PI06.03
 @releasePresent
 @iterationPresent
-Feature: US1391148 - Validate contract data - Add [NDB]
+Feature: US1391148 - Validate exari contract data - Add
 
   @TC616906
   @Manual

@@ -1,9 +1,9 @@
 # Last updated on 
 @US1600637
 @2019.PI06
-@2019.PI06.04
+@2019.PI06.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1600637 - Dynamic Fields on Retro Form
 
   @TC735863
