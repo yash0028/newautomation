@@ -11,6 +11,6 @@ Feature: US1637917 - New Resource on Fee Schedule API
   @Functional
   Scenario: TC747949 - [RL0]
     Given I have a fee schedule number that contains a rate escalator (AZ 83000)
-    When I call the fee-schedule-api new endpoint
-    Then I receive a zip file which contains multiple PDFs
+    When I call the fee-schedule-api v2.0 professional fee schedule endpoint with "feeScheduleNumber" of "AZ 83000"
+    Then the microservice will return the requested fee schedules in a zip file
 
