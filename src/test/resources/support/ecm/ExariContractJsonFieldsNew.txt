@@ -19,12 +19,11 @@ storageNode properties {http://www.alfresco.org/model/content/1.0}creator
 
 storageNode properties CounterpartyAddressFull
 
-storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartyAddressCity
+storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartyAddressFull
 
 storageNode properties {http://www.alfresco.org/model/content/1.0}versionLabel
 
 storageNode properties {www.exari.com/model/UHGTest/1.0}Payment_Appendix
-storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartyAddressZip
 
 storageNode properties {www.exari.com/model/UHGTest/1.0}ProviderRoster_JSON
 storageNode properties {www.exari.com/model/UHGTest/1.0}ProviderRoster_JSON providers
@@ -64,7 +63,7 @@ storageNode properties MasterAgreement
 
 storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartyTIN
 storageNode properties {www.exari.com/model/UHGTest/1.0}All_Payer_Fee_Schedule_ID
-storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartySignatoryName__0
+storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartySignatoryName
 
 storageNode properties {http://www.alfresco.org/model/content/1.0}name
 
@@ -90,7 +89,6 @@ storageNode properties DocumentLastModifiedVersion
 storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartyPhoneNumbers
 storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartyFaxNumbers
 storageNode properties {www.exari.com/model/UHGTest/1.0}Market_Number-DMCQ
-storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartyAddressStreet
 storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartyProviderTypeCode
 
 storageNode properties DealName

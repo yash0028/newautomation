@@ -144,6 +144,8 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
         result = parseJsonElementResponse(this.response);
         Assert.assertTrue(result.isJsonObject());
 
+        log.info("Response: {}", response.asString());
+
         String responseMessage = result.getAsJsonObject().get("responseMessage").getAsString();
         JsonObject responseJson = parseJsonElementString(responseMessage).getAsJsonObject();
 
