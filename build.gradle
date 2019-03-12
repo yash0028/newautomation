@@ -60,7 +60,7 @@ def String cucumberOptions() {
             '--plugin pretty' +
             ' --plugin json:build/json-reports/json-report.json' +
             ' --plugin junit:build/xml-reports/xml-report.xml' +
-            ' --dry-run'
+            ' --no-dry-run'
                     .concat(hasProperty("cucumberTags") ? " --tags '" + getProperty("cucumberTags").toString() + "'" : '')
 
 }
