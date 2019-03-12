@@ -2,16 +2,17 @@ package rest_api_test.step;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
+import util.TimeKeeper;
 
 import static io.restassured.RestAssured.given;
 
@@ -23,6 +24,7 @@ public class TransactionSteps implements IRestStep {
 
     private final String ENDPOINT = "http://event-gateway-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private final String RESOURCE_MOCK_CONTRACT_INSTALLED = "/v1.0/mock/contract-installed";
+    private final String RESOURCE_CONTRACT_UPDATED = "/v1.0/events/contract-updated";
 
     private RequestSpecification request;
     private Response response;
@@ -97,64 +99,66 @@ public class TransactionSteps implements IRestStep {
 
     }
 
-    @And("^the associated contract data is valid for the NDB update$")
-    public void theAssociatedContractDataIsValidForTheNDBUpdate() throws Throwable {
+    /*
+    STEPS FOR US1507978
+     */
 
-        // Ask Micheal how do I know if the associated contract data is valid for the NDB update?
-        throw new PendingException();
+    @Given("^that a contract has been created in Exari and successfully installed into Optum's legacy systems$")
+    public void contractCreatedInExari() throws Throwable {
+        // No Operation at this time
     }
 
-    @When("^The enriched business event is sent by the contract-domain service$")
-    public void theEnrichedBusinessEventIsSentByTheContractDomainService() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @When("^an \"([^\"]*)\" transaction is sent or published by Exari$")
+    public void transactionSent(String arg0) throws Throwable {
+        //No Operation at this time
     }
 
-    @Then("^It is validated and approved by the ndb-validator service$")
-    public void itIsValidatedAndApprovedByTheNdbValidatorService() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @And("^a Optum APS workflow explicitly built to handle a \"([^\"]*)\" event is started$")
+    public void workflowStarted(String arg0) throws Throwable {
+        //No operation at this time
     }
 
-    @And("^the associated contract data is incomplete$")
-    public void theAssociatedContractDataIsIncomplete() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @And("^the Optum APS workflow calls an end point in the CLM Gateway service that handles all \"([^\"]*)\" events$")
+    public void workflowCallsEndpoint(String arg0) throws Throwable {
+        //No operation at this time
     }
 
-    @Then("^It is validated by the ndb-validator service and an error is reported to the transaction system$")
-    public void itIsValidatedByTheNdbValidatorServiceAndAnErrorIsReportedToTheTransactionSystem() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @And("^the following data elements are passed to the Gateway endpoint:$")
+    public void passData2Gateway(DataTable dataTable) throws Throwable {
+        payload = new JsonObject();
+        payload.addProperty("eventName", "ContractUpdated");
+        payload.addProperty("userId", "");
+        payload.addProperty("timestamp", TimeKeeper.getInstance().getStartTime().getSecond());
+        payload.addProperty("contractId", "76533712");
+        payload.addProperty("transactionId", "");
+        payload.addProperty("orderId", "");
+
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
+        response = request.post(RESOURCE_CONTRACT_UPDATED);
     }
 
-    @Given("^A business event is received by the event gateway that requires an update to COSMOS$")
-    public void aBusinessEventIsReceivedByTheEventGatewayThatRequiresAnUpdateToCOSMOS() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @Then("^the CLM Gateway endpoint Initializes a transaction$")
+    public void theCLMGatewayEndpointInitializesATransaction() throws Throwable {
+        //No operation at this time
     }
 
-    @And("^the associated contract data is valid for the COSMOS update$")
-    public void theAssociatedContractDataIsValidForTheCOSMOSUpdate() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @And("^Performs minimal data validation on the above data elements$")
+    public void performsMinimalDataValidationOnTheAboveDataElements() throws Throwable {
+        //No operation at this time
     }
 
-    @Then("^It is validated and approved by the cosmos-validator service$")
-    public void itIsValidatedAndApprovedByTheCosmosValidatorService() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @And("^Publishes a Kafka \"([^\"]*)\" event that will be consumed by the Contract Update service$")
+    public void publishesAKafkaEventThatWillBeConsumedByTheContractUpdateService(String arg0) throws Throwable {
+        //No operation at this time
     }
 
-    @And("^the associated contract data is invalid for the COSMOS update$")
-    public void theAssociatedContractDataIsInvalidForTheCOSMOSUpdate() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
+    @And("^Returns a \"([^\"]*)\" status and the Transaction Id to the Optum APS workflow synchronously$")
+    public void returnsAStatusAndTheTransactionIdToTheOptumAPSWorkflowSynchronously(String arg0) throws Throwable {
+        assert response.statusCode() == 200;
+        JsonElement jsonElement = parseJsonElementResponse(response);
 
-    @Then("^It is validated by the cosmos-validator service and an error is reported to the transaction system$")
-    public void itIsValidatedByTheCosmosValidatorServiceAndAnErrorIsReportedToTheTransactionSystem() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        assert jsonElement.isJsonObject();
+        JsonObject jsonObject = jsonElement.getAsJsonObject();
+        assert jsonObject.has("transactionId");
     }
 }
