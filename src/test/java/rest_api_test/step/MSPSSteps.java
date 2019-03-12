@@ -30,7 +30,8 @@ public class MSPSSteps implements IRestStep, IFileWriter {
     private static final String ENDPOINT = "http://fee-schedule-api-clm-test.ocp-ctc-core-nonprod.optum.com";
     private static final String ENDPOINT_DEV = "http://fee-schedule-api-clm-dev.ocp-ctc-core-nonprod.optum.com";
     private static final String RESOURCE_FACILITY_FEE_SCHEDULES_SEARCH = "/v1.0/facility_fee_schedules/search";
-    private static final String RESOURCE_PROFESSIONAL_FEE_SCHEDULES_SEARCH = "/v1.0/professional_fee_schedules/search";
+    private static final String RESOURCE_PROFESSIONAL_FEE_SCHEDULES_SEARCH_V1 = "/v1.0/professional_fee_schedules/search";
+    private static final String RESOURCE_PROFESSIONAL_FEE_SCHEDULES_SEARCH_V2 = "/v2.0/professional_fee_schedules/search";
     private static final String RESOURCE_GET_FEE_SCHEDULES = "/v1.0/fee_schedules";
 
 
@@ -54,7 +55,7 @@ public class MSPSSteps implements IRestStep, IFileWriter {
         if(callType.equalsIgnoreCase("Facility")){
             response = request.post(RESOURCE_FACILITY_FEE_SCHEDULES_SEARCH);
         }else{
-            response = request.post(RESOURCE_PROFESSIONAL_FEE_SCHEDULES_SEARCH);
+            response = request.post(RESOURCE_PROFESSIONAL_FEE_SCHEDULES_SEARCH_V1);
         }
 
     }
@@ -125,5 +126,24 @@ public class MSPSSteps implements IRestStep, IFileWriter {
         }
         //Pass the test if allMatch remains true, showing that the response does contain all required fields
         assertTrue("Not all fields were returned in the response", allMatch);
+    }
+
+    // US1637917 - New Resource on Fee Schedule API
+
+    @Given("^I have a fee schedule number that contains a rate escalator \\(AZ 83000\\)$")
+    public void iHaveAFeeScheduleNumberThatContainsARateEscalatorAZ() {
+        // noop, covered in below When step
+    }
+
+
+    @When("I call the fee-schedule-api v2.0 professional fee schedule endpoint with {string} of {string}")
+    public void iCallTheFeeScheduleApiVProfessionalFeeScheduleEndpointWithOf(String property, String value) {
+        // Add the property from the step
+        requestBody.addProperty(property,value);
+
+        //Build out the request and add the JSON Request Body
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody.toString());
+
+        response = request.post(RESOURCE_PROFESSIONAL_FEE_SCHEDULES_SEARCH_V2);
     }
 }
