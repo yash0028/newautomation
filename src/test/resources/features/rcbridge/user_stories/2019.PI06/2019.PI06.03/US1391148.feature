@@ -4,7 +4,7 @@
 @2019.PI06.03
 @releasePresent
 @iterationPresent
-Feature: US1391148 - Validate exari contract data - Add
+Feature: US1391148 - Validate for Virginia or VACCN Amendments - Add
 
   @TC616906
   @Manual

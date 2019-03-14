@@ -1,9 +1,8 @@
 # Last updated on 
 @US1401402
 @2019.PI06
-@2019.PI06.03
 @releasePresent
-@iterationPresent
+@iterationUnknown
 Feature: US1401402 - Check to see if terming PCP has an add transaction on roster contract
 
   @TC697431
