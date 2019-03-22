@@ -12,7 +12,8 @@ import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
-import util.TimeKeeper;
+
+import java.time.Instant;
 
 import static io.restassured.RestAssured.given;
 
@@ -128,10 +129,12 @@ public class TransactionSteps implements IRestStep {
         payload = new JsonObject();
         payload.addProperty("eventName", "ContractUpdated");
         payload.addProperty("userId", "");
-        payload.addProperty("timestamp", TimeKeeper.getInstance().getStartTime().getSecond());
+        payload.addProperty("timestamp", Instant.now().getEpochSecond());
         payload.addProperty("contractId", "76533712");
         payload.addProperty("transactionId", "");
         payload.addProperty("orderId", "");
+
+        log.trace(payload.toString());
 
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
         response = request.post(RESOURCE_CONTRACT_UPDATED);

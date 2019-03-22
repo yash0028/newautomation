@@ -3,7 +3,7 @@
     <ExternalSystemSettings>
       <option name="env">
         <map>
-          <entry key="defaultLogLevel" value="info" />
+          <entry key="defaultLogLevel" value="trace" />
           <entry key="runLocalBrowser" value="false" />
         </map>
       </option>
