@@ -18,8 +18,7 @@ storageNode properties {www.exari.com/model/UHGTest/1.0}Products_Services
 storageNode properties {http://www.alfresco.org/model/content/1.0}creator
 
 storageNode properties CounterpartyAddressFull
-
-storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartyAddressFull
+storageNode properties CounterpartySignatoryName
 
 storageNode properties {http://www.alfresco.org/model/content/1.0}versionLabel
 
@@ -63,7 +62,7 @@ storageNode properties MasterAgreement
 
 storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartyTIN
 storageNode properties {www.exari.com/model/UHGTest/1.0}All_Payer_Fee_Schedule_ID
-storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartySignatoryName
+storageNode properties {www.exari.com/model/UHGTest/1.0}CounterpartySignatoryEmail
 
 storageNode properties {http://www.alfresco.org/model/content/1.0}name
 
