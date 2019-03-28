@@ -7,6 +7,8 @@ import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
+import rest_api_test.util.datastructure.ContractStatus;
+import rest_api_test.util.datastructure.TSortField;
 
 import java.util.List;
 
@@ -56,7 +58,7 @@ class TransactionHelper implements IRestStep {
         return status;
     }
 
-    TransactionDetails getTransactionDetails(List<TDetailType> resultStatuses, List<TSortField> sortBy, boolean sortDescend, int pageNum, int pageSize) {
+    TransactionDetails getTransactionDetails(List<ContractStatus> resultStatuses, List<TSortField> sortBy, boolean sortDescend, int pageNum, int pageSize) {
         JsonObject payload = new JsonObject();
         payload.addProperty("offset", 0);
         payload.addProperty("pageNumber", pageNum);
@@ -64,7 +66,7 @@ class TransactionHelper implements IRestStep {
         payload.addProperty("sortDirection", sortDescend ? "DESC" : "ASC");
 
         JsonArray resultStatusArr = new JsonArray();
-        for (TDetailType type : resultStatuses) {
+        for (ContractStatus type : resultStatuses) {
             resultStatusArr.add(type.name());
         }
         payload.add("resultStatus", resultStatusArr);

@@ -1,4 +1,4 @@
-package rest_api_test.util.transaction;
+package rest_api_test.util.datastructure;
 
 public enum TSortField {
     ID("id"),

@@ -1,6 +1,6 @@
-package rest_api_test.util.transaction;
+package rest_api_test.util.datastructure;
 
-public enum TDetailType {
+public enum ContractStatus {
     SUCCESS,
     FAILED,
     PENDING;

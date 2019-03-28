@@ -3,7 +3,11 @@ package general_test.step;
 import cucumber.api.java.en.Then;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rest_api_test.util.transaction.*;
+import rest_api_test.util.datastructure.ContractStatus;
+import rest_api_test.util.datastructure.TSortField;
+import rest_api_test.util.transaction.ITransactionInteract;
+import rest_api_test.util.transaction.TransactionDetail;
+import rest_api_test.util.transaction.TransactionDetails;
 import util.map.IMapSub;
 
 import java.util.ArrayList;
@@ -15,8 +19,8 @@ public class PlaygroundSteps implements IMapSub, ITransactionInteract {
 
     @Then("^I do something$")
     public void playground() throws Throwable {
-        List<TDetailType> list = new ArrayList<>();
-        list.add(TDetailType.SUCCESS);
+        List<ContractStatus> list = new ArrayList<>();
+        list.add(ContractStatus.SUCCESS);
 
         List<TSortField> sortFields = new ArrayList<>();
         sortFields.add(TSortField.ID);
