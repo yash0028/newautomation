@@ -1,7 +1,5 @@
 # Last updated on 
 @US1364604
-@MVP
-@N/A
 @releaseUnknown
 @iterationUnknown
 Feature: US1364604 - OCP Environment for Stage

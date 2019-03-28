@@ -23,3 +23,14 @@ Feature: US1194531 - [Unfinished] Exari event producer [contracts-gateway-api]
     When Transaction is received from Exari but the transaction state service is down
     Then An error is returned
 
+  @TC605415
+  @Manual
+  @Functional
+  Scenario: TC605415 - [RL2]
+    Given A business transaction
+    When Transaction is received from Exari but Kafka is down
+    Then An error is return
+    Given A business transaction
+    When Transaction is received from Exari but the api gateway service is down
+    Then An error is returned
+

@@ -1,7 +1,5 @@
 # Last updated on 
 @US1381219
-@MVP
-@N/A
 @releaseUnknown
 @iterationUnknown
 Feature: US1381219 - Switch Remaining Services to Base Image

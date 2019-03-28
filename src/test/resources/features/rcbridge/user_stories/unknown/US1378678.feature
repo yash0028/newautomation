@@ -1,7 +1,5 @@
 # Last updated on 
 @US1378678
-@MVP
-@N/A
 @releaseUnknown
 @iterationUnknown
 Feature: US1378678 - Kafka Training Environment

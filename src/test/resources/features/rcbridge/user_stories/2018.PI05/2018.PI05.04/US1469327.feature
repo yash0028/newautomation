@@ -2,8 +2,6 @@
 @US1469327
 @2018.PI05
 @2018.PI05.04
-@MVP
-@N/A
 @releasePast
 @iterationPast
 Feature: US1469327 - Autoscale OpenShift Environment Job

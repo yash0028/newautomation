@@ -2,9 +2,6 @@
 @A_UI_Story
 @RC_No_Link
 @US1398051
-@N/A
-@Exari_UI_Test
-@Non_MVP
 @releaseUnknown
 @iterationUnknown
 Feature: US1398051 - Create initial ui tests

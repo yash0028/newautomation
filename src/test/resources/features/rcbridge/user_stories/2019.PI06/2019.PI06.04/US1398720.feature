@@ -1,14 +1,16 @@
 # Last updated on 
+@Special_QE_Work
 @US1398720
 @2019.PI06
 @2019.PI06.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1398720 - Process CANCEL transaction to subscribing platform(s)
 
   @TC620250
   @Manual
   @Functional
+  @Special_QE_Work
   Scenario: TC620250 - [RL0]
     Given a RosterUpdate transaction has been published
     When the update is an CANCEL

@@ -2,8 +2,6 @@
 @US1553599
 @2018.PI05
 @2018.PI05.04
-@MVP
-@N/A
 @releasePast
 @iterationPast
 Feature: US1553599 - Pull From Optum Docker Repo Base

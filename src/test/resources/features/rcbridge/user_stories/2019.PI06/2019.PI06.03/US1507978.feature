@@ -3,11 +3,11 @@
 @2019.PI06
 @2019.PI06.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1507978 - Receive and recognize roster events/transactions from Exari
 
   @TC690155
-  @Manual
+  @Automated
   @Functional
   Scenario: TC690155 - [RL0]
     Given that a contract has been created in Exari and successfully installed into Optum's legacy systems

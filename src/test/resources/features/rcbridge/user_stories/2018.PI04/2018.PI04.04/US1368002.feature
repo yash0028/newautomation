@@ -17,11 +17,11 @@ Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
     When "productServicesExcluded" does NOT contain the word "Heritage"
     Then silent inclusion criteria has been met is "true"
     Examples:
-      | site                | marketProduct       |
-      | Northeast           | HRTG CHOICE RV      |
-      | Central             | HRTG OPTIONS RV     |
-      | West                | HRTG SEL ADV CHOICE |
-      | Southeast           | HRTG SEL ADV OPTION |
+      | site      | marketProduct       |
+      | Northeast | HRTG CHOICE RV      |
+      | Central   | HRTG OPTIONS RV     |
+      | West      | HRTG SEL ADV CHOICE |
+      | Southeast | HRTG SEL ADV OPTION |
 
   @TC608275
   @Manual
@@ -33,9 +33,9 @@ Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
     When "productServicesExcluded" does contain the word "Heritage"
     Then "marketProductGroups" silent inclusion criteria has NOT been met for "<marketProduct>"
     Examples:
-      | site                | marketProduct       |
-      | Northeast           | HRTG CHOICE RV      |
-      | Central             | HRTG OPTIONS RV     |
-      | West                | HRTG SEL ADV CHOICE |
-      | Southeast           | HRTG SEL ADV OPTION |
+      | site      | marketProduct       |
+      | Northeast | HRTG CHOICE RV      |
+      | Central   | HRTG OPTIONS RV     |
+      | West      | HRTG SEL ADV CHOICE |
+      | Southeast | HRTG SEL ADV OPTION |
 

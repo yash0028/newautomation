@@ -3,8 +3,8 @@
 @2019.PI06
 @2019.PI06.04
 @releasePresent
-@iterationFuture
-Feature: US1537744 - Validate contract data - fee schedule change
+@iterationPresent
+Feature: US1537744 - [Dev] Validate contract data - fee schedule change
 
   @TC704158
   @Manual
@@ -30,7 +30,7 @@ Feature: US1537744 - Validate contract data - fee schedule change
   @Functional
   Scenario: TC704160 - [RL2]
     Given a RATEUPDATED TRANSACTION event is received
-    When the RATEUPDATED TRANSACTION record includes at least one PRODUCTGROUP RATE/FEE SCHEDULE to update
+    When the RATEUPDATED TRANSACTION record includes at least one DateEffectiveAmendment
     Then the RATEUPDATED TRANSACTION passes validation
     And the RATEUPDATED TRANSACTION continues to applicable next step in process
 
@@ -39,8 +39,41 @@ Feature: US1537744 - Validate contract data - fee schedule change
   @Functional
   Scenario: TC704161 - [RL3]
     Given a RATEUPDATED TRANSACTION event is received
-    When the RATEUPDATED TRANSACTION record does not contain one or more PRODUCTGROUP RATE/FEE SCHEDULE records to update
+    When the RATEUPDATED TRANSACTION record does not contain one or more DateEffectiveAmendment
     Then the RATEUPDATED TRANSACTION does not pass validation
     And a Type 3 error generated and logged
-    And a message generated 'RATEUPDATED TRANSACTION MISSING FEE SCHEDULE / RATE'
+    And a message generated 'RATEUPDATED TRANSACTION MISSING EFFECTIVE DATE'
+
+  @TC757795
+  @Manual
+  @Functional
+  Scenario: TC757795 - [RL4]
+    Given a RATEUPDATED TRANSACTION event is received
+    When the RATEUPDATED TRANSACTION includes at least one DateEffectiveAmendment
+    And the DateEffectiveAmendment is greater than or equal to today
+    Then the RATEUPDATED TRANSACTION passes validation
+    And the RATEUPDATED TRANSACTION continues to applicable next step in process
+
+  @TC757796
+  @Manual
+  @Functional
+  Scenario: TC757796 - [RL5]
+    Given a RATEUPDATED TRANSACTION event is received
+    When the RATEUPDATED TRANSACTION includes at least one DateEffectiveAmendment
+    And the DateEffectiveAmendment is less than today
+    And a retroactiveReasonCode is included in the RATEUPDATED TRANSACTION data
+    Then the RATEUPDATED TRANSACTION passes validation
+    And the RATEUPDATED TRANSACTION continues to applicable next step in process
+
+  @TC757797
+  @Manual
+  @Functional
+  Scenario: TC757797 - [RL6]
+    Given a RATEUPDATED TRANSACTION event is received
+    When the RATEUPDATED TRANSACTION includes at least one DateEffectiveAmendment
+    And the DateEffectiveAmendment is less than today
+    And a retroactiveReasonCode is not included in the RATEUPDATED TRANSACTION data
+    Then the RATEUPDATED TRANSACTION does not pass validation
+    And a Type 3 error generated and logged
+    And a message generated 'RATEUPDATED TRANSACTION MISSING Retroactive Reason Code'
 

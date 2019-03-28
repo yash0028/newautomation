@@ -1,14 +1,16 @@
 # Last updated on 
+@Visio
 @US1580950
 @2019.PI06
 @2019.PI06.05
 @releasePresent
 @iterationFuture
-Feature: US1580950 - Initiator's Response to the Mixed/Denied LOB COO Responses
+Feature: US1580950 - Modify denied by LOB COO retro approval request
 
   @TC743501
   @Manual
   @Functional
+  @Visio
   Scenario: TC743501 - [RL0]
     Given the initiated form is returned to the requestor due to a LOB COO denial
     When the requestor opens the task
