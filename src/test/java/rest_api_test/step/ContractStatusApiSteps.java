@@ -105,6 +105,8 @@ public class ContractStatusApiSteps implements IRestStep {
                 txStatus = "MANUAL_HOLD";
                 break;
             case "Partial Success":
+                txResult = "PENDING";
+                txStatus = "MANUAL_HOLD_TYPE_2";
                 break;
         }
         JsonElement result = parseJsonElementResponse(response);
