@@ -1,7 +1,7 @@
 # Last updated on 
-@Visio
 @Archana
 @Sachin
+@Visio
 @US1621444
 @2019.PI06
 @2019.PI06.04
@@ -12,9 +12,9 @@ Feature: US1621444 - Modify denied by NPPP retro approval request
   @TC743381
   @Manual
   @Functional
-  @Visio
   @Archana
   @Sachin
+  @Visio
   Scenario: TC743381 - [RL0]
     Given the initiated form is returned to the requestor
     When the requestor opens the task
@@ -25,9 +25,9 @@ Feature: US1621444 - Modify denied by NPPP retro approval request
   @TC743521
   @Manual
   @Functional
-  @Visio
   @Archana
   @Sachin
+  @Visio
   Scenario: TC743521 - [RL1]
     Given I am the initiator or requestor (denied by NPPP)
     When I complete my modification on the task
