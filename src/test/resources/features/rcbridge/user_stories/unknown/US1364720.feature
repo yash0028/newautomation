@@ -1,7 +1,5 @@
 # Last updated on 
 @US1364720
-@MVP
-@N/A
 @releaseUnknown
 @iterationUnknown
 Feature: US1364720 - Production Pipeline and Jenkins Setup

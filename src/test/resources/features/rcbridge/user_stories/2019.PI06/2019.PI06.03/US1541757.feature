@@ -5,7 +5,7 @@
 @2019.PI06
 @2019.PI06.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1541757 - [Continued] Route and Present Retro Request to Market Lead
 
   @TC709180

@@ -1,5 +1,6 @@
 # Last updated on 
 @Arvind
+@Visio
 @US1600445
 @2019.PI06
 @2019.PI06.02
@@ -11,6 +12,7 @@ Feature: US1600445 - Remediation Field on the Retro Form
   @Manual
   @Functional
   @Arvind
+  @Visio
   Scenario: TC735828 - [RL0] Verify remidiation plan field
     Given I am on the retro initiation form
     When I am on the "Details" section

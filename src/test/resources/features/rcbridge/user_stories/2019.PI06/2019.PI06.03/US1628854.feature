@@ -4,7 +4,7 @@
 @2019.PI06
 @2019.PI06.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1628854 - Routing to NPPP after Market Lead Approves Retro
 
   @TC744419

@@ -17,9 +17,9 @@ Feature: US1259178 - Taxonomy Grid table microservice
     When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
     Then the query response returns an error
     Examples:
-      | reqField    | reqValue    | ndbRecValue |
-      | "ndbSpecCD" | "22"        | "O"         |
-      | "ndbOrg"    | "22"        | "P"         |
+      | reqField    | reqValue | ndbRecValue |
+      | "ndbSpecCD" | "22"     | "O"         |
+      | "ndbOrg"    | "22"     | "P"         |
 
   @TC543879
   @Automated
@@ -40,9 +40,9 @@ Feature: US1259178 - Taxonomy Grid table microservice
     When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
     Then the query response provides the most recent record version attributes data
     Examples:
-      | reqField    | reqValue    | ndbRecValue |
-      | "ndbSpecCD" | "21"        | "P"         |
-      | "ndbOrg"    | "22"        | "O"         |
+      | reqField    | reqValue | ndbRecValue |
+      | "ndbSpecCD" | "21"     | "P"         |
+      | "ndbOrg"    | "22"     | "O"         |
 
   @TC543877
   @Automated
@@ -54,9 +54,9 @@ Feature: US1259178 - Taxonomy Grid table microservice
     And the user provides the optional value <optionalValue> for <optionalField>
     Then the query response provides the most recent record version attributes data
     Examples:
-      | reqField      | reqValue      | ndbRecValue   | optionalField | optionalValue |
-      | "ndbSpecCD"   | "21"          | "P"           | "ndbOrg"      | "21"          |
-      | "ndbOrg"      | "22"          | "O"           | "ndbSpecCD"   | "22"          |
+      | reqField    | reqValue | ndbRecValue | optionalField | optionalValue |
+      | "ndbSpecCD" | "21"     | "P"         | "ndbOrg"      | "21"          |
+      | "ndbOrg"    | "22"     | "O"         | "ndbSpecCD"   | "22"          |
 
   @TC565556
   @Automated
@@ -68,9 +68,9 @@ Feature: US1259178 - Taxonomy Grid table microservice
     When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
     Then the query response provides the most recent record version attributes data
     Examples:
-      | reqField    | reqValue    | ndbRecValue |
-      | "ndbSpecCD" | "21"        | "P"         |
-      | "ndbOrg"    | "22"        | "O"         |
+      | reqField    | reqValue | ndbRecValue |
+      | "ndbSpecCD" | "21"     | "P"         |
+      | "ndbOrg"    | "22"     | "O"         |
 
   @TC565557
   @Automated
@@ -83,9 +83,9 @@ Feature: US1259178 - Taxonomy Grid table microservice
     And the user provides the optional value <optionalValue> for <optionalField>
     Then the query response provides the most recent record version attributes data
     Examples:
-      | reqField      | reqValue      | ndbRecValue   | optionalField | optionalValue |
-      | "ndbSpecCD"   | "21"          | "P"           | "ndbOrg"      | "21"          |
-      | "ndbOrg"      | "22"          | "O"           | "ndbSpecCD"   | "22"          |
+      | reqField    | reqValue | ndbRecValue | optionalField | optionalValue |
+      | "ndbSpecCD" | "21"     | "P"         | "ndbOrg"      | "21"          |
+      | "ndbOrg"    | "22"     | "O"         | "ndbSpecCD"   | "22"          |
 
   @TC565558
   @Automated
@@ -97,9 +97,9 @@ Feature: US1259178 - Taxonomy Grid table microservice
     When the user provides the value <reqValue> for <reqField> and <ndbRecValue> for "ndbRec"
     Then the query response returns an error
     Examples:
-      | reqField    | reqValue    | ndbRecValue |
-      | "ndbSpecCD" | "22"        | "O"         |
-      | "ndbOrg"    | "22"        | "P"         |
+      | reqField    | reqValue | ndbRecValue |
+      | "ndbSpecCD" | "22"     | "O"         |
+      | "ndbOrg"    | "22"     | "P"         |
 
   @TC565559
   @Automated

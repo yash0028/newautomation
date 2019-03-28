@@ -2,8 +2,6 @@
 @US1373396
 @2018.PI05
 @2018.PI05.04
-@MVP
-@N/A
 @releasePast
 @iterationPast
 Feature: US1373396 - Change Layer7 Urls to Stargate

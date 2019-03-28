@@ -2,8 +2,6 @@
 @US1439940
 @2018.PI04
 @2018.PI04.05
-@MVP
-@N/A
 @releasePast
 @iterationPast
 Feature: US1439940 - Sonar Code Ceverage Transition

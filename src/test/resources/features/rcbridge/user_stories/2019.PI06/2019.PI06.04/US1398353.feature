@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI06.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1398353 - Cancel / End Contract Masters on the ContractConfiguration Record (OCM)
 
   @TC710723
@@ -14,4 +14,5 @@ Feature: US1398353 - Cancel / End Contract Masters on the ContractConfiguration 
     When the fee schedule being changed is included in contract masters in the contract configuration record
     Then contract masters are updated with an end date
     And the date is calculated based on effective start date of new fee schedule minus/less 1 calendar day
+    And the default cancel reason code of Value = 50 and Description = Fee Schedule or I-Rate/O-Rate Change is stored in the OCM
 

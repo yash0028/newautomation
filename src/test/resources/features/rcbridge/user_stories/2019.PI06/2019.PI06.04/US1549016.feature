@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI06.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1549016 - Create Mass Actions display view (UI)
 
   @TC720665

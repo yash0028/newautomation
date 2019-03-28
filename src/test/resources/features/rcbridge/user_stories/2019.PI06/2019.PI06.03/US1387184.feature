@@ -3,8 +3,8 @@
 @2019.PI06
 @2019.PI06.03
 @releasePresent
-@iterationPresent
-Feature: US1387184 - Validate roster data
+@iterationPast
+Feature: US1387184 - Validate roster data (Validator)
 
   @TC614183
   @Manual
@@ -30,11 +30,12 @@ Feature: US1387184 - Validate roster data
   @Functional
   Scenario: TC708312 - [RL10]
     Given a RosterUpdated business events is published
-    When there are no providers on the roster
+    When there are no providers to cancel included in the event
     Then the transaction/event is not valid
     And a Type 3 error is logged
-    And an error message reads, "No providers were included in this request - unable to process"
+    And an error message reads, "No eligible providers were included in this cancel request - unable to process"
 
+  @RC_unlinked
   @TC708313
   @Manual
   @Functional
@@ -168,26 +169,6 @@ Feature: US1387184 - Validate roster data
   @Functional
   Scenario: TC708310 - [RL8]
     Given a RosterUpdated business event is published
-    When the provider(s) being added have a P-type classification
-    And some of the required information is not present, including:
-      | StartDate                 |
-      | tin                       |
-      | mpin                      |
-      | npi                       |
-      | providerName              |
-      | providerSpecialtyCode     |
-      | providerSpecialtyCodeDesc |
-      | retroactiveReasonCode     |
-    # ( retroactiveReasonCode is only required if the start date is prior to today's date)
-    Then the transaction/event is not valid
-    And a Type 3 error is logged
-    And an error message reads, "One or more of the data elements required to complete this transaction is missing"
-
-  @TC708311
-  @Manual
-  @Functional
-  Scenario: TC708311 - [RL9]
-    Given a RosterUpdated business event is published
     When the provider(s) being added have an O-type classification
     And some of the required information is not present, including:
       | StartDate               |
@@ -202,4 +183,14 @@ Feature: US1387184 - Validate roster data
     Then the transaction/event is not valid
     And a Type 3 error is logged
     And an error message reads, "One or more of the data elements required to complete this transaction is missing"
+
+  @TC708311
+  @Manual
+  @Functional
+  Scenario: TC708311 - [RL9]
+    Given a RosterUpdated business events is published
+    When there are no providers on the roster
+    Then the transaction/event is not valid
+    And a Type 3 error is logged
+    And an error message reads, "No providers were included in this request - unable to process"
 
