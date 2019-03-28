@@ -3,6 +3,8 @@ package rest_api_test.util.transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 public interface ITransactionInteract {
     Logger log = LoggerFactory.getLogger(ITransactionInteract.class);
     
@@ -15,7 +17,11 @@ public interface ITransactionInteract {
     */
 
     default TransactionStatus transactionQueryStatus(String transactionId) {
-        return TransactionStatusHelper.getInstance().getTransactionStatus(transactionId);
+        return TransactionHelper.getInstance().getTransactionStatus(transactionId);
+    }
+
+    default TransactionDetails transactionQueryDetails(List<TDetailType> resultStatus, List<TSortField> sortBy, boolean sortDescend, int pageNum, int pageSize) {
+        return TransactionHelper.getInstance().getTransactionDetails(resultStatus, sortBy, sortDescend, pageNum, pageSize);
     }
     
     /*
