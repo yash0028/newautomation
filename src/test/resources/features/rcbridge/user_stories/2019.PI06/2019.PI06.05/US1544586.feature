@@ -1,8 +1,9 @@
 # Last updated on 
 @US1544586
 @2019.PI06
+@2019.PI06.05
 @releasePresent
-@iterationUnknown
+@iterationFuture
 Feature: US1544586 - Email Trigger- NPPP Requires COO Decision
 
   @TC709186
