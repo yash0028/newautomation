@@ -3,33 +3,23 @@ package general_test.step;
 import cucumber.api.java.en.Then;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rest_api_test.util.datastructure.ContractStatus;
-import rest_api_test.util.datastructure.TSortField;
+import rest_api_test.util.datastructure.gson.contractmodel.ContractModel;
+import rest_api_test.util.fallout.FalloutHelper;
 import rest_api_test.util.transaction.ITransactionInteract;
-import rest_api_test.util.transaction.TransactionDetail;
-import rest_api_test.util.transaction.TransactionDetails;
 import util.map.IMapSub;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class PlaygroundSteps implements IMapSub, ITransactionInteract {
     private static final Logger log = LoggerFactory.getLogger(PlaygroundSteps.class);
 
+    private static final String TID = "c14f37f6-5c05-46f3-94c4-81cb035a0e4b";
+
 
     @Then("^I do something$")
     public void playground() throws Throwable {
-        List<ContractStatus> list = new ArrayList<>();
-        list.add(ContractStatus.SUCCESS);
 
-        List<TSortField> sortFields = new ArrayList<>();
-        sortFields.add(TSortField.ID);
+        ContractModel model = FalloutHelper.getInstance().queryContractModelByTransactionID("c14f37f6-5c05-46f3-94c4-81cb035a0e4b");
 
-        TransactionDetails details = transactionQueryDetails(list, sortFields, true, 0, 10);
-
-        for (TransactionDetail detail : details) {
-            System.out.println(detail);
-        }
+        System.out.println(model.getFinancialPenaltyTable());
 
     }
 }

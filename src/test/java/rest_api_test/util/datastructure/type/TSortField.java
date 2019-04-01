@@ -1,4 +1,4 @@
-package rest_api_test.util.datastructure;
+package rest_api_test.util.datastructure.type;
 
 public enum TSortField {
     ID("id"),

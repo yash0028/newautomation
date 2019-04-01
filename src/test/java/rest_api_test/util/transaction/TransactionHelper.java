@@ -7,8 +7,10 @@ import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
-import rest_api_test.util.datastructure.ContractStatus;
-import rest_api_test.util.datastructure.TSortField;
+import rest_api_test.util.datastructure.gson.transaction.TransactionStatus;
+import rest_api_test.util.datastructure.list.TransactionDetails;
+import rest_api_test.util.datastructure.type.ContractStatus;
+import rest_api_test.util.datastructure.type.TSortField;
 
 import java.util.List;
 

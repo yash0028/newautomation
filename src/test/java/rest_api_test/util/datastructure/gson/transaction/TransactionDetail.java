@@ -1,20 +1,18 @@
-package rest_api_test.util.transaction;
+package rest_api_test.util.datastructure.gson.transaction;
 
 import com.google.gson.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TransactionDetail {
+public class TransactionDetail extends TransactionUnit {
     private static final Logger log = LoggerFactory.getLogger(TransactionDetail.class);
 
-    private String id;
-    private String transactionId;
-    private String type;
-    private String startTime;
-    private String expireTime;
-    private String timestamp;
-    private String status;
-    private String result;
+    protected String id;
+    protected String startTime;
+    protected String expireTime;
+    protected String timestamp;
+    protected String status;
+    protected String result;
 
     /*
     CONSTRUCTOR
@@ -26,14 +24,6 @@ public class TransactionDetail {
 
     public String getId() {
         return id;
-    }
-
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public String getType() {
-        return type;
     }
 
     public String getStartTime() {
@@ -58,7 +48,7 @@ public class TransactionDetail {
 
     @Override
     public String toString() {
-        return String.format("[%s][%s::%s] - %s", type, status, result, transactionId);
+        return String.format("[%s][%s::%s] - %s", getType(), status, result, getTransactionId());
     }
 
     /*
