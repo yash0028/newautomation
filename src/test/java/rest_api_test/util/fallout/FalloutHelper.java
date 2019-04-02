@@ -1,14 +1,12 @@
 package rest_api_test.util.fallout;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rest_api_test.util.AbstractRestApi;
 import rest_api_test.util.IRestStep;
 import rest_api_test.util.datastructure.gson.contractmodel.ContractModel;
 import rest_api_test.util.datastructure.list.TransactionContracts;
@@ -17,7 +15,7 @@ import rest_api_test.util.datastructure.type.ContractType;
 
 import static io.restassured.RestAssured.given;
 
-public class FalloutHelper implements IRestStep {
+public class FalloutHelper extends AbstractRestApi implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(FalloutHelper.class);
 
     private static final String ENDPOINT_DEV = "https://fallout-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
@@ -29,18 +27,12 @@ public class FalloutHelper implements IRestStep {
 
     private static FalloutHelper INSTANCE = new FalloutHelper();
 
-    private final Gson gson;
-    private boolean useDev = false;
-
-
     /*
     CONSTRUCTOR
     */
 
     private FalloutHelper() {
-        RestAssured.useRelaxedHTTPSValidation();
-        gson = new GsonBuilder()
-                .create();
+        super();
     }
     
     /*
@@ -55,14 +47,6 @@ public class FalloutHelper implements IRestStep {
     CLASS METHODS
     */
 
-    public void useDevEnv() {
-        this.useDev = true;
-    }
-
-    public void useTestEnv() {
-        this.useDev = false;
-    }
-
     /**
      * Search for a contract by matching a specific TransactionId
      * maps to GET /v1.0/contract-details/{transactionId}
@@ -70,7 +54,7 @@ public class FalloutHelper implements IRestStep {
      * @param transactionId of the contract to lookup
      * @return ContractModel object built from the returned JSON
      */
-    public ContractModel queryContractModelByTransactionID(String transactionId) {
+    ContractModel queryContractModelByTransactionID(String transactionId) {
         RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json");
         Response response = request.get(RESOURCE_CONTRACT_DETAILS_BY_TRANSACTION_ID + transactionId);
@@ -86,7 +70,7 @@ public class FalloutHelper implements IRestStep {
      * @param contractId the id to search by
      * @return List of TransactionContract objects built from the returned JSON
      */
-    public TransactionContracts queryTransactionContractByContractId(String contractId) {
+    TransactionContracts queryTransactionContractByContractId(String contractId) {
         JsonObject payload = new JsonObject();
         payload.addProperty("contractId", contractId);
 
@@ -113,7 +97,7 @@ public class FalloutHelper implements IRestStep {
      * @param status   contract status to search by
      * @return List of TransactionContract objects built from the returned JSON
      */
-    public TransactionContracts queryTransactionContractByStatus(int pageNum, int pageSize, boolean paged, boolean sorted, ContractStatus status) {
+    TransactionContracts queryTransactionContractByStatus(int pageNum, int pageSize, boolean paged, boolean sorted, ContractStatus status) {
         RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json");
 
@@ -143,7 +127,7 @@ public class FalloutHelper implements IRestStep {
      * @param type     contract type to search by
      * @return List of TransactionContract objects built from the returned JSON
      */
-    public TransactionContracts queryTransactionContractByType(int pageNum, int pageSize, boolean paged, boolean sorted, ContractType type) {
+    TransactionContracts queryTransactionContractByType(int pageNum, int pageSize, boolean paged, boolean sorted, ContractType type) {
         RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json");
 
@@ -166,7 +150,7 @@ public class FalloutHelper implements IRestStep {
     HELPER METHODS
     */
 
-    private String getEndpoint() {
+    protected String getEndpoint() {
         return this.useDev ? ENDPOINT_DEV : ENDPOINT_TEST;
     }
 
