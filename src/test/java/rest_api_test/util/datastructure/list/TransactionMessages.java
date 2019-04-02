@@ -1,21 +1,22 @@
-package rest_api_test.util.transaction;
+package rest_api_test.util.datastructure.list;
 
 import com.google.gson.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rest_api_test.util.datastructure.gson.transaction.TransactionMessage;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MessageHistory extends ArrayList<TransactionMessage> {
-    private static final Logger log = LoggerFactory.getLogger(MessageHistory.class);
+public class TransactionMessages extends ArrayList<TransactionMessage> {
+    private static final Logger log = LoggerFactory.getLogger(TransactionMessages.class);
 
     /*
     CONSTRUCTOR
     */
 
-    public MessageHistory(TransactionMessage[] messages) {
+    public TransactionMessages(TransactionMessage[] messages) {
         this.addAll(Arrays.asList(messages));
     }
     
@@ -39,19 +40,19 @@ public class MessageHistory extends ArrayList<TransactionMessage> {
     UTILITY CLASS
     */
 
-    public static class Deserializer implements JsonDeserializer<MessageHistory> {
+    public static class Deserializer implements JsonDeserializer<TransactionMessages> {
         @Override
-        public MessageHistory deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext ctx) throws JsonParseException {
+        public TransactionMessages deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext ctx) throws JsonParseException {
             if (json.isJsonArray()) {
                 Gson gson = new GsonBuilder()
                         .registerTypeAdapter(TransactionMessage.class, new TransactionMessage.Deserializer())
                         .create();
                 TransactionMessage[] messages = gson.fromJson(json, TransactionMessage[].class);
-                return new MessageHistory(messages);
+                return new TransactionMessages(messages);
             }
 
             Gson gson = new Gson();
-            return gson.fromJson(json, MessageHistory.class);
+            return gson.fromJson(json, TransactionMessages.class);
 
         }
     }
