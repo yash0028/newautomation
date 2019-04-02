@@ -11,9 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
 import rest_api_test.util.datastructure.gson.contractmodel.ContractModel;
-import rest_api_test.util.datastructure.gson.transaction.TransactionStatus;
 import rest_api_test.util.datastructure.list.TransactionContracts;
-import rest_api_test.util.datastructure.list.TransactionDetails;
 import rest_api_test.util.datastructure.type.ContractStatus;
 import rest_api_test.util.datastructure.type.ContractType;
 
@@ -40,8 +38,6 @@ public class FalloutHelper implements IRestStep {
     private FalloutHelper() {
         RestAssured.useRelaxedHTTPSValidation();
         gson = new GsonBuilder()
-                .registerTypeAdapter(TransactionStatus.class, new TransactionStatus.Deserializer())
-                .registerTypeAdapter(TransactionDetails.class, new TransactionDetails.Deserializer())
                 .create();
     }
     
@@ -69,9 +65,7 @@ public class FalloutHelper implements IRestStep {
         Response response = request.get(RESOURCE_CONTRACT_DETAILS_BY_TRANSACTION_ID + transactionId);
         JsonElement jsonElement = parseJsonElementResponse(response);
 
-        ContractModel model = gson.fromJson(jsonElement, ContractModel.class);
-
-        return model;
+        return gson.fromJson(jsonElement, ContractModel.class);
     }
 
     /**
@@ -89,10 +83,10 @@ public class FalloutHelper implements IRestStep {
         Response response = request.post(RESOURCE_CONTRACT_SEARCH);
         JsonElement jsonElement = parseJsonElementResponse(response);
 
-        System.out.println(jsonElement.toString());
+        TransactionContracts contracts = gson.fromJson(jsonElement, TransactionContracts.class);
+        contracts.setResponse(response);
 
-
-        return null;
+        return contracts;
     }
 
     /**
@@ -116,10 +110,10 @@ public class FalloutHelper implements IRestStep {
         Response response = request.get(RESOURCE_CONTRACT_SUMMARIES_BY_STATUS + status.name());
         JsonElement jsonElement = parseJsonElementResponse(response);
 
-        System.out.println(jsonElement.toString());
+        TransactionContracts contracts = gson.fromJson(jsonElement, TransactionContracts.class);
+        contracts.setResponse(response);
 
-
-        return null;
+        return contracts;
     }
 
     /**
@@ -140,13 +134,13 @@ public class FalloutHelper implements IRestStep {
         request.param("pageSize", pageSize);
         request.param("paged", paged);
         request.param("sort.sorted", sorted);
-        Response response = request.get(RESOURCE_CONTRACT_SUMMARIES_BY_STATUS + type.type);
+        Response response = request.get(RESOURCE_CONTRACT_SUMMARIES_BY_TYPE + type.type);
         JsonElement jsonElement = parseJsonElementResponse(response);
 
-        System.out.println(jsonElement.toString());
+        TransactionContracts contracts = gson.fromJson(jsonElement, TransactionContracts.class);
+        contracts.setResponse(response);
 
-
-        return null;
+        return contracts;
     }
 
 
