@@ -20,7 +20,8 @@ import static io.restassured.RestAssured.given;
 public class FalloutHelper implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(FalloutHelper.class);
 
-    private static final String ENDPOINT = "https://fallout-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String ENDPOINT_DEV = "https://fallout-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String ENDPOINT_TEST = "https://fallout-service-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_CONTRACT_DETAILS_BY_TRANSACTION_ID = "/v1.0/contract-details/"; // add tid to end
     private static final String RESOURCE_CONTRACT_SEARCH = "/v1.0/contract-search/";
     private static final String RESOURCE_CONTRACT_SUMMARIES_BY_STATUS = "/v1.0/contract-summaries/";// add status to end
@@ -29,6 +30,7 @@ public class FalloutHelper implements IRestStep {
     private static FalloutHelper INSTANCE = new FalloutHelper();
 
     private final Gson gson;
+    private boolean useDev = false;
 
 
     /*
@@ -53,6 +55,14 @@ public class FalloutHelper implements IRestStep {
     CLASS METHODS
     */
 
+    public void useDevEnv() {
+        this.useDev = true;
+    }
+
+    public void useTestEnv() {
+        this.useDev = false;
+    }
+
     /**
      * Search for a contract by matching a specific TransactionId
      * maps to GET /v1.0/contract-details/{transactionId}
@@ -61,7 +71,8 @@ public class FalloutHelper implements IRestStep {
      * @return ContractModel object built from the returned JSON
      */
     public ContractModel queryContractModelByTransactionID(String transactionId) {
-        RequestSpecification request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
+        RequestSpecification request = given().baseUri(getEndpoint())
+                .header("Content-Type", "application/json");
         Response response = request.get(RESOURCE_CONTRACT_DETAILS_BY_TRANSACTION_ID + transactionId);
         JsonElement jsonElement = parseJsonElementResponse(response);
 
@@ -79,7 +90,9 @@ public class FalloutHelper implements IRestStep {
         JsonObject payload = new JsonObject();
         payload.addProperty("contractId", contractId);
 
-        RequestSpecification request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
+        RequestSpecification request = given().baseUri(getEndpoint())
+                .header("Content-Type", "application/json")
+                .body(payload);
         Response response = request.post(RESOURCE_CONTRACT_SEARCH);
         JsonElement jsonElement = parseJsonElementResponse(response);
 
@@ -101,12 +114,15 @@ public class FalloutHelper implements IRestStep {
      * @return List of TransactionContract objects built from the returned JSON
      */
     public TransactionContracts queryTransactionContractByStatus(int pageNum, int pageSize, boolean paged, boolean sorted, ContractStatus status) {
-        RequestSpecification request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
+        RequestSpecification request = given().baseUri(getEndpoint())
+                .header("Content-Type", "application/json");
+
         request.param("offset", 0);
         request.param("pageNumber", pageNum);
         request.param("pageSize", pageSize);
         request.param("paged", paged);
         request.param("sort.sorted", sorted);
+
         Response response = request.get(RESOURCE_CONTRACT_SUMMARIES_BY_STATUS + status.name());
         JsonElement jsonElement = parseJsonElementResponse(response);
 
@@ -128,12 +144,15 @@ public class FalloutHelper implements IRestStep {
      * @return List of TransactionContract objects built from the returned JSON
      */
     public TransactionContracts queryTransactionContractByType(int pageNum, int pageSize, boolean paged, boolean sorted, ContractType type) {
-        RequestSpecification request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
+        RequestSpecification request = given().baseUri(getEndpoint())
+                .header("Content-Type", "application/json");
+
         request.param("offset", 0);
         request.param("pageNumber", pageNum);
         request.param("pageSize", pageSize);
         request.param("paged", paged);
         request.param("sort.sorted", sorted);
+
         Response response = request.get(RESOURCE_CONTRACT_SUMMARIES_BY_TYPE + type.type);
         JsonElement jsonElement = parseJsonElementResponse(response);
 
@@ -142,12 +161,14 @@ public class FalloutHelper implements IRestStep {
 
         return contracts;
     }
-
-
     
     /*
     HELPER METHODS
     */
+
+    private String getEndpoint() {
+        return this.useDev ? ENDPOINT_DEV : ENDPOINT_TEST;
+    }
 
     
     /*
