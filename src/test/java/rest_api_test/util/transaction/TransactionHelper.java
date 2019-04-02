@@ -18,12 +18,15 @@ import static io.restassured.RestAssured.given;
 
 class TransactionHelper implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(TransactionHelper.class);
-    private static final String ENDPOINT = "https://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+
+    private static final String ENDPOINT_DEV = "https://transaction-status-clm-test.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String ENDPOINT_TEST = "https://transaction-status-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_TRANSACTION = "/v1.0/transactions/"; //need to add the {trans_id} to the end
     private static final String RESOURCE_RESULT = "/v1.0/transactions/results";
     private static TransactionHelper INSTANCE = new TransactionHelper();
 
     private final Gson gson;
+    private boolean useDev = false;
 
     /*
     CONSTRUCTOR
@@ -49,8 +52,17 @@ class TransactionHelper implements IRestStep {
     CLASS METHODS
     */
 
+    public void useDevEnv() {
+        this.useDev = true;
+    }
+
+    public void useTestEnv() {
+        this.useDev = false;
+    }
+
     TransactionStatus getTransactionStatus(String transactionId) {
-        RequestSpecification request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
+        RequestSpecification request = given().baseUri(getEndpoint())
+                .header("Content-Type", "application/json");
         Response response = request.get(RESOURCE_TRANSACTION + transactionId);
         JsonElement jsonElement = parseJsonElementResponse(response);
 
@@ -80,7 +92,9 @@ class TransactionHelper implements IRestStep {
 
         payload.add("sortFields", sortFields);
 
-        RequestSpecification request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
+        RequestSpecification request = given().baseUri(getEndpoint())
+                .header("Content-Type", "application/json")
+                .body(payload);
         Response response = request.post(RESOURCE_RESULT);
         JsonElement jsonElement = parseJsonElementResponse(response);
 
@@ -100,6 +114,10 @@ class TransactionHelper implements IRestStep {
 
     private TransactionDetails parseDetails(JsonElement jsonElement) {
         return gson.fromJson(jsonElement, TransactionDetails.class);
+    }
+
+    private String getEndpoint() {
+        return this.useDev ? ENDPOINT_DEV : ENDPOINT_TEST;
     }
     
     /*
