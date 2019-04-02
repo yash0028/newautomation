@@ -25,11 +25,11 @@ public class ProviderRoster {
     @Expose
     private String groupSpecialtyDescription;
     @SerializedName("MPIN")
-    private String mPIN;
+    private String MPIN;
     @Expose
     private String mpin;
     @SerializedName("NPI")
-    private String nPI;
+    private String NPI;
     @SerializedName("Name")
     private String name;
     @Expose
@@ -61,7 +61,7 @@ public class ProviderRoster {
     @Expose
     private String startDate;
     @SerializedName("TIN")
-    private String tIN;
+    private String TIN;
     @Expose
     private String tin;
     @Expose
@@ -96,23 +96,23 @@ public class ProviderRoster {
     }
 
     public String getMPIN() {
-        return mPIN;
-    }
-
-    public String getMpin() {
-        return mpin;
+        if (mpin == null) {
+            return MPIN;
+        } else {
+            return mpin;
+        }
     }
 
     public String getNPI() {
-        return nPI;
+        if (npi == null) {
+            return NPI;
+        } else {
+            return npi;
+        }
     }
 
     public String getName() {
         return name;
-    }
-
-    public String getNpi() {
-        return npi;
     }
 
     public String getNum() {
@@ -168,11 +168,11 @@ public class ProviderRoster {
     }
 
     public String getTIN() {
-        return tIN;
-    }
-
-    public String getTin() {
-        return tin;
+        if (tin == null) {
+            return TIN;
+        } else {
+            return tin;
+        }
     }
 
     public String getTransactionType() {
@@ -359,9 +359,9 @@ public class ProviderRoster {
             providerRoster.degreeCode = degreeCode;
             providerRoster.groupSpeciality = groupSpeciality;
             providerRoster.groupSpecialtyDescription = groupSpecialtyDescription;
-            providerRoster.mPIN = mPIN;
+            providerRoster.MPIN = mPIN;
             providerRoster.mpin = mpin;
-            providerRoster.nPI = nPI;
+            providerRoster.NPI = nPI;
             providerRoster.name = name;
             providerRoster.npi = npi;
             providerRoster.num = num;
@@ -377,7 +377,7 @@ public class ProviderRoster {
             providerRoster.retroCode = retroCode;
             providerRoster.searchId = searchId;
             providerRoster.startDate = startDate;
-            providerRoster.tIN = tIN;
+            providerRoster.TIN = tIN;
             providerRoster.tin = tin;
             providerRoster.transactionType = transactionType;
             return providerRoster;
