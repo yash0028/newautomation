@@ -19,7 +19,6 @@ public class PlaygroundSteps implements IMapSub, ITransactionInteract, IFalloutI
     @Then("^I do something$")
     public void playground() throws Throwable {
 
-
         String tid = eventGatewayPostContractInstalledEvent(CID);
 
         ContractModel model = falloutQueryContractModel("c14f37f6-5c05-46f3-94c4-81cb035a0e4b");

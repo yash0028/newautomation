@@ -72,7 +72,7 @@ public class EventGatewayHelper extends AbstractRestApi implements IRestStep {
 
     @Override
     protected String getEndpoint() {
-        return this.useDev ? "" : ENDPOINT_TEST;
+        return useDev ? "" : ENDPOINT_TEST;
     }
     
     /*

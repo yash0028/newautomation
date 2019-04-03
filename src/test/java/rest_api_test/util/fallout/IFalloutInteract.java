@@ -2,6 +2,7 @@ package rest_api_test.util.fallout;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rest_api_test.util.AbstractRestApi;
 import rest_api_test.util.datastructure.gson.contractmodel.ContractModel;
 import rest_api_test.util.datastructure.gson.transaction.TransactionContract;
 import rest_api_test.util.datastructure.list.TransactionContracts;
@@ -10,7 +11,7 @@ import rest_api_test.util.datastructure.type.ContractType;
 
 import java.util.Optional;
 
-public interface IFalloutInteract {
+public interface IFalloutInteract extends AbstractRestApi.IRestApi {
     Logger log = LoggerFactory.getLogger(IFalloutInteract.class);
     
     /*

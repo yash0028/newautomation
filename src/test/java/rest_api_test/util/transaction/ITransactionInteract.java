@@ -2,6 +2,7 @@ package rest_api_test.util.transaction;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rest_api_test.util.AbstractRestApi;
 import rest_api_test.util.datastructure.gson.transaction.TransactionStatus;
 import rest_api_test.util.datastructure.list.TransactionDetails;
 import rest_api_test.util.datastructure.type.ContractStatus;
@@ -9,7 +10,7 @@ import rest_api_test.util.datastructure.type.TSortField;
 
 import java.util.List;
 
-public interface ITransactionInteract {
+public interface ITransactionInteract extends AbstractRestApi.IRestApi {
     Logger log = LoggerFactory.getLogger(ITransactionInteract.class);
     
     /*

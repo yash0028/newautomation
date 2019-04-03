@@ -12,7 +12,8 @@ import rest_api_test.util.datastructure.list.TransactionDetails;
 public abstract class AbstractRestApi implements ISharedValueReader {
     private static final Logger log = LoggerFactory.getLogger(AbstractRestApi.class);
     protected final Gson gson;
-    protected boolean useDev = getSharedInteger("env.active").orElse(0) == 0;
+
+    protected static boolean useDev = true;
 
     /*
     CONSTRUCTOR
@@ -35,14 +36,6 @@ public abstract class AbstractRestApi implements ISharedValueReader {
     /*
     CLASS METHODS
     */
-
-    public void useDevEnv() {
-        this.useDev = true;
-    }
-
-    public void useTestEnv() {
-        this.useDev = false;
-    }
     
     /*
     HELPER METHODS
@@ -51,4 +44,19 @@ public abstract class AbstractRestApi implements ISharedValueReader {
     /*
     UTILITY CLASS
     */
+
+    public interface IRestApi {
+
+        /*
+        DEFAULT METHODS
+         */
+
+        default void useDevApi() {
+            useDev = true;
+        }
+
+        default void useTestApi() {
+            useDev = false;
+        }
+    }
 }
