@@ -33,12 +33,23 @@ class MockControllerHelper {
     CLASS METHODS
     */
 
+    /**
+     * Clear the Zuul service of the contract id to mock
+     *
+     * @return if it was successful
+     */
     boolean clear() {
         RequestSpecification request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
         Response response = request.get(RESOURCE_CLEAR);
         return response.statusCode() == 200;
     }
 
+    /**
+     * Set the Zuul service to forward things related to given contract id to mock services
+     *
+     * @param contractId id to forward to mock
+     * @return if it was successful
+     */
     boolean set(String contractId) {
         RequestSpecification request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
         Response response = request.get(RESOURCE_SET + contractId);
