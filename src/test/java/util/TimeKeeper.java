@@ -3,6 +3,7 @@ package util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -73,5 +74,8 @@ public class TimeKeeper {
         return ZonedDateTime.now().plusDays(addDays).format(exariSim);
     }
 
+    public String getCurrentEpochSeconds() {
+        return String.valueOf(Instant.now().getEpochSecond());
+    }
 
 }
