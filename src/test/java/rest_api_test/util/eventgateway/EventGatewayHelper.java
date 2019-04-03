@@ -15,7 +15,8 @@ import static io.restassured.RestAssured.given;
 
 public class EventGatewayHelper extends AbstractRestApi implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(EventGatewayHelper.class);
-    private static final String ENDPOINT_TEST = "https://event-gateway-api-clm-test.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String ENDPOINT_DEV = "http://event-gateway-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String ENDPOINT_TEST = "http://event-gateway-api-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_EVENTS = "/v1.0/events/";//add business event type to end
 
     private static EventGatewayHelper INSTANCE = new EventGatewayHelper();
@@ -58,7 +59,9 @@ public class EventGatewayHelper extends AbstractRestApi implements IRestStep {
                 .header("Content-Type", "application/json")
                 .body(gson.toJson(event));
 
-        Response response = request.post(RESOURCE_EVENTS + BusinessEventType.CONTRACT_INSTALLED.eventName);
+        String path = RESOURCE_EVENTS + BusinessEventType.CONTRACT_INSTALLED.url;
+
+        Response response = request.post(path);
         JsonElement jsonElement = parseJsonElementResponse(response);
 
         TransactionId tid = gson.fromJson(jsonElement, TransactionId.class);
@@ -72,7 +75,7 @@ public class EventGatewayHelper extends AbstractRestApi implements IRestStep {
 
     @Override
     protected String getEndpoint() {
-        return useDev ? "" : ENDPOINT_TEST;
+        return useDev ? ENDPOINT_DEV : ENDPOINT_TEST;
     }
     
     /*

@@ -2,6 +2,7 @@ package rest_api_test.util.fallout;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
@@ -55,6 +56,7 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
      * @return ContractModel object built from the returned JSON
      */
     ContractModel queryContractModelByTransactionID(String transactionId) {
+        RestAssured.useRelaxedHTTPSValidation();
         RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json");
         Response response = request.get(RESOURCE_CONTRACT_DETAILS_BY_TRANSACTION_ID + transactionId);

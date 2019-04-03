@@ -229,7 +229,6 @@ class RestHelper {
      */
     JsonElement parseJsonElementString(String string) {
         JsonParser parser = new JsonParser();
-
         return parser.parse(string);
     }
 
