@@ -35,7 +35,7 @@ Feature: US1660202 - Create service to provide Transaction installation status t
     Then the Optum service should return the status of that installation transaction as 'Successful'
 
   @TC759654
-  @Manual
+  @Automated
   @Functional
   Scenario: TC759654 - [RL3]
     Given a new contract exists in Exari that has just become 'Active'
