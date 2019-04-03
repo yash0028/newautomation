@@ -1,6 +1,7 @@
 package rest_api_test.util.datastructure.gson.contractmodel;
 
 import com.google.gson.annotations.Expose;
+import io.restassured.response.Response;
 
 import javax.annotation.Generated;
 import java.util.List;
@@ -39,6 +40,20 @@ public class ContractModel {
     private String type;
     @Expose
     private UhcMarketDetails uhcMarketDetails;
+
+    private Response response;
+
+    /*
+    CLASS METHODS
+     */
+
+    public Response getResponse() {
+        return response;
+    }
+
+    public void setResponse(Response response) {
+        this.response = response;
+    }
 
     public String getContractID() {
         return contractID;

@@ -60,7 +60,10 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
         Response response = request.get(RESOURCE_CONTRACT_DETAILS_BY_TRANSACTION_ID + transactionId);
         JsonElement jsonElement = parseJsonElementResponse(response);
 
-        return gson.fromJson(jsonElement, ContractModel.class);
+        ContractModel model = gson.fromJson(jsonElement, ContractModel.class);
+        model.setResponse(response);
+
+        return model;
     }
 
     /**
