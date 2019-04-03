@@ -25,7 +25,7 @@ public class ContractStatusApiSteps implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(TransactionSteps.class);
 
     private final String ENDPOINT = "http://contract-status-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private final String RESOURCE_CONTRACT_STATUS = "/v1.0/contract_status";
+    private final String RESOURCE_CONTRACT_STATUS = "/v1.0/contract-status/";
 
     private final String TX_ENDPOINT = "https://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private final String RESOURCE_TRANSACTION_STATUS = "/v1.0/transactions/results";
@@ -45,12 +45,16 @@ public class ContractStatusApiSteps implements IRestStep {
     public void aNewContractExistsInExariThatHasJustBecomeActive(String contractStatus) {
 
         //TODO:
-        // unpack result, get contract ID, run thru contract-status-api
+        // make this use the FalloutHelper
+
 
     }
 
     @When("the contract has been successfully installed")
     public void theContractHasBeenSuccessfullyInstalled() {
+
+        // INTERFACE TIME
+
         // query txStatus API for list of successful installs
         payload = new JsonObject();
         payload.addProperty("offset", 0);
@@ -86,8 +90,10 @@ public class ContractStatusApiSteps implements IRestStep {
     @And("a call to the Optum Transaction Status with the Exari contract ID and Exari Transaction ID for the install contract event")
     public void aCallToTheOptumTransactionStatusWithTheExariContractIDAndExariTransactionIDForTheInstallContractEvent() {
         // finally check
-        response = given().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS
-            .concat("/").concat(contractId));
+        log.trace("Checking contract ID: " + contractId);
+        response = given().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS.concat(contractId));
+        JsonElement result = parseJsonElementResponse(response);
+
         Assert.assertEquals(200, response.getStatusCode());
     }
 
@@ -109,8 +115,17 @@ public class ContractStatusApiSteps implements IRestStep {
                 txStatus = "MANUAL_HOLD_TYPE_2";
                 break;
         }
-        JsonElement result = parseJsonElementResponse(response);
-        result = result.getAsJsonArray().get(0);
+        JsonArray results = parseJsonElementResponse(response).getAsJsonArray();
+        JsonElement result = results.get(0);
+
+        for(JsonElement result_ : results){
+            String str = result_.getAsJsonObject().get("transactionStatus").getAsString();
+            if(str.equals(txStatus)){
+                result = result_;
+                break;
+            }
+        }
+
         Assert.assertEquals(txStatus, result.getAsJsonObject().get("transactionStatus").getAsString());
         Assert.assertEquals(txResult, result.getAsJsonObject().get("transactionResult").getAsString());
     }
@@ -119,11 +134,13 @@ public class ContractStatusApiSteps implements IRestStep {
     public void theContractSInstallationProcessGeneratesATypeContractMasterError(int arg0) {
         RestAssured.useRelaxedHTTPSValidation();
         response = given().baseUri(FALLOUT_ENDPOINT).get(
-                RESOURCE_CONTRACT_SUMMARIES.concat("/")
-                .concat("TYPE_1_ERROR_CONTRACT_MASTER"));
+                RESOURCE_CONTRACT_SUMMARIES.concat("/").concat("TYPE_1_ERROR_CONTRACT_MASTER"));
+
         JsonElement result = parseJsonElementResponse(response);
+
         result.getAsJsonObject();
         JsonArray results = result.getAsJsonObject().get("content").getAsJsonArray();
+
         contractId = results
                 .get((results.size() - 1))
                 .getAsJsonObject()
@@ -140,13 +157,16 @@ public class ContractStatusApiSteps implements IRestStep {
 
         RestAssured.useRelaxedHTTPSValidation();
         response = given().baseUri(FALLOUT_ENDPOINT).get(
-                RESOURCE_CONTRACT_SUMMARIES.concat("/")
-                        .concat("TYPE_2_ERROR"));
+                RESOURCE_CONTRACT_SUMMARIES.concat("/").concat("TYPE_2_ERROR").concat("?page=0&sort=timestamp,desc"));
+
         JsonElement result = parseJsonElementResponse(response);
         result.getAsJsonObject();
+
+        result = parseJsonElementResponse(response);
         JsonArray results = result.getAsJsonObject().get("content").getAsJsonArray();
+
         contractId = results
-                .get((results.size() - 1))
+                .get(0)
                 .getAsJsonObject()
                 .get("contractId").getAsString();
     }
