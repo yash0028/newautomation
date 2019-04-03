@@ -1,8 +1,8 @@
 # Last updated on 
 @US1550202
-@2019.PI06
+@2019.PI07
 @2019.PI06.05
-@releasePresent
+@releaseFuture
 @iterationFuture
 Feature: US1550202 - Present Retro Request to LOB COO for Approval
 
@@ -10,9 +10,10 @@ Feature: US1550202 - Present Retro Request to LOB COO for Approval
   @Manual
   @Functional
   Scenario: TC743398 - [RL0]
-    Given NPPP has requested LOB COO approval
-    When they complete the task
-    Then the request will be routed to the appropriate LOB COO's task list
+    Given the task is completed and reviewed by NPPP
+    When NPPP chooses "COO Approval Needed"
+    Then the notification for retro approval request email is sent to each impacted COO as contained within the "Initiate Retro Form" (re-use the same email that was created for the ML US1562019)
+    And a task is assigned to each impacted COO task list to take decision
 
   @TC765086
   @Manual

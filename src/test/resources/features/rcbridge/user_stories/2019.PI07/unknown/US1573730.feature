@@ -1,7 +1,7 @@
 # Last updated on 
 @US1573730
-@2019.PI06
-@releasePresent
+@2019.PI07
+@releaseFuture
 @iterationUnknown
 Feature: US1573730 - Network COO Deny or Request More info on  Retro Request
 

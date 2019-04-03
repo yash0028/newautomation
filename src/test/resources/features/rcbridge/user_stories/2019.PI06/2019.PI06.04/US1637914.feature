@@ -12,5 +12,5 @@ Feature: US1637914 - External Data Query
   Scenario: TC747951 - [RL0]
     Given I supply a FS that has a rate Escalator attachments.
     When I search FS API
-    Then the zip file will be unzipped and multiple PDF's would need to be combined and output in 1 file
+    Then the zip file will be unzipped and multiple PDF's would need to be combined and output in 1 file, the output file name should have _"Rate_ESC" at the end of the filename.
 

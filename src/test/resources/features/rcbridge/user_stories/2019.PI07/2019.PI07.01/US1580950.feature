@@ -1,9 +1,9 @@
 # Last updated on 
 @Visio
 @US1580950
-@2019.PI06
-@2019.PI06.05
-@releasePresent
+@2019.PI07
+@2019.PI07.01
+@releaseFuture
 @iterationFuture
 Feature: US1580950 - Modify denied by LOB COO retro approval request
 
