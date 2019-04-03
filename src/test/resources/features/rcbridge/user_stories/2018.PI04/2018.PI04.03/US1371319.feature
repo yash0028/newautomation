@@ -7,22 +7,6 @@
 @iterationPast
 Feature: US1371319 - Download CLM Rule Table
 
-  @CLM_UAT
-  @TC649268
-  @Manual
-  @Acceptance
-  @A_UI_Story
-  Scenario: TC649268 - Verify whether user is able to view and download latest rule doc
-    Given a user needs to view rule details
-    When a user needs to view the rules within the database
-    Then a UI is available to the user for downloading
-    Given more than one CLM Rules Table record exists in the database
-    When access to a previous record version is needed
-    Then the previous record versions are available
-    Given the existence of a web UI
-    When an authorized user access the URL
-    Then the web UI for download is available
-
   @TC603985
   @Manual
   @Functional

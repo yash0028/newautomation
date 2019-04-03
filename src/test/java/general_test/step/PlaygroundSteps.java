@@ -3,15 +3,23 @@ package general_test.step;
 import cucumber.api.java.en.Then;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui_test.page.exari.contract.interview.flow.IFlowContractLoader;
+import rest_api_test.util.datastructure.gson.contractmodel.ContractModel;
+import rest_api_test.util.fallout.FalloutHelper;
+import rest_api_test.util.transaction.ITransactionInteract;
 import util.map.IMapSub;
 
-public class PlaygroundSteps implements IMapSub, IFlowContractLoader {
+public class PlaygroundSteps implements IMapSub, ITransactionInteract {
     private static final Logger log = LoggerFactory.getLogger(PlaygroundSteps.class);
+
+    private static final String TID = "c14f37f6-5c05-46f3-94c4-81cb035a0e4b";
 
 
     @Then("^I do something$")
     public void playground() throws Throwable {
+
+        ContractModel model = FalloutHelper.getInstance().queryContractModelByTransactionID("c14f37f6-5c05-46f3-94c4-81cb035a0e4b");
+
+        System.out.println(model.getFinancialPenaltyTable());
 
     }
 }

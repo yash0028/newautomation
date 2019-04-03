@@ -4,7 +4,7 @@
 @2019.PI06.05
 @releasePresent
 @iterationFuture
-Feature: US1552969 - Email: LOB COO Decision- Approved
+Feature: US1552969 - LOB COO Decision- Approved - move to monitor phase
 
   @TC721363
   @Manual

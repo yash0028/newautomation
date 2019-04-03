@@ -1,21 +1,15 @@
 # Last updated on 
-@Visio
-@Shiva
-@Suman
-@US1642705
-@2019.PI06
-@2019.PI06.04
-@releasePresent
-@iterationPresent
-Feature: US1642705 - LOB must be selected
+@US1690911
+@2019.PI07
+@2019.PI07.01
+@releaseFuture
+@iterationFuture
+Feature: US1690911 - LOB must be selected - handle change in field
 
-  @TC755355
+  @TC776494
   @Manual
   @Functional
-  @Visio
-  @Shiva
-  @Suman
-  Scenario: TC755355 - [RL0]
+  Scenario: TC776494 - [RL0]
     Given a user is starting a retro approval request
     When all LOBs are 'No'
     Then the user is informed that at least one LOB must be "Yes" (Please select 'Yes' for at least one LOB.)

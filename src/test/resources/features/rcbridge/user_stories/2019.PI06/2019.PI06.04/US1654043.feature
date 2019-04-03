@@ -28,6 +28,7 @@ Feature: US1654043 - [QE] Validate contract data - fee schedule change
   @Manual
   @Functional
   Scenario: TC755357 - [RL2]
+    ##There is no way to test this Scenario as exari is not sending empty fee schedule's. Can be removed
     Given an ContractAmended TRANSACTION is received
     When the ContractAmended EVENT Does Not contain at least one FEE SCHEDULE / RATE
     Then the ContractAmended EVENT Does NOT pass validation
