@@ -8,7 +8,7 @@
 Feature: US1050266 - Transaction Coordinator Microservice
 
   @TC565262
-  @Automated
+  @Manual
   @Functional
   @CLM_UAT
   Scenario: TC565262 - [RL0]

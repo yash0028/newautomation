@@ -1,9 +1,8 @@
 # Last updated on 
 @US1690911
 @2019.PI07
-@2019.PI07.01
 @releaseFuture
-@iterationFuture
+@iterationUnknown
 Feature: US1690911 - LOB must be selected - handle change in field
 
   @TC776494
