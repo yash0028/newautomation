@@ -65,9 +65,11 @@ public class CMDUtilitySteps implements IRestStep, IMapSub {
     @Then("^the service returns the entire table records$")
     public void verifyAffiliationResponse() {
         JsonElement result = parseJsonElementResponse(response);
-        if (result.getAsJsonArray().size() > 0) {
+        JsonArray resultArray = result.getAsJsonObject().get("content").getAsJsonArray();
+
+        if (resultArray.size() > 0) {
             String[] allFields = new String[]{"categories", "qualifierCode", "codeDescription", "labelName", "aliasName", "definitionAbbreviated", "definitionExpanded"};
-            JsonArray resultArray = result.getAsJsonArray();
+
             for (JsonElement element : resultArray)
                 Assert.assertTrue("All fields are not displayed", element.getAsJsonObject().keySet().containsAll(Arrays.stream(allFields).collect(Collectors.toSet())));
         } else
