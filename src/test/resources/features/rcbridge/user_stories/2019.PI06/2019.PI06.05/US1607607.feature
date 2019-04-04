@@ -1,7 +1,7 @@
 # Last updated on 
 @US1607607
 @2019.PI06
-@2019.PI06.04
+@2019.PI06.05
 @releasePresent
 @iterationPresent
 Feature: US1607607 - Handle Roster Update Event --> Happy path (Part 2)

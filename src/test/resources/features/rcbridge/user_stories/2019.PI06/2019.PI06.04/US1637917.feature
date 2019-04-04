@@ -4,7 +4,7 @@
 @2019.PI06
 @2019.PI06.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1637917 - New Resource on Fee Schedule API
 
   @TC747949

@@ -5,7 +5,7 @@
 @2019.PI06
 @2019.PI06.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1547238 - Routing-NPPP Approves Retro
 
   @TC709184

@@ -5,7 +5,7 @@
 @2019.PI06
 @2019.PI06.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1544665 - Routing- NPPP Denies or Requests More Info Retro
 
   @TC709187

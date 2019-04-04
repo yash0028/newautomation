@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI06.05
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1391148 - Validate exari contract data - Add
 
   @TC616906
@@ -25,6 +25,7 @@ Feature: US1391148 - Validate exari contract data - Add
     And a Type 3 error generated and logged
     And a message generated 'AMENDMENT MISSING PRODUCT GROUP'
 
+  @RC_unlinked
   @TC616908
   @Manual
   @Functional
@@ -34,6 +35,7 @@ Feature: US1391148 - Validate exari contract data - Add
     Then the ContractAmended TRANSACTION passes validation
     And the ContractAmended TRANSACTION continues to applicable next step in process
 
+  @RC_unlinked
   @TC616909
   @Manual
   @Functional

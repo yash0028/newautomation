@@ -1,7 +1,7 @@
 # Last updated on 
 @US1564752
-@2019.PI06
-@releasePresent
+@2019.PI07
+@releaseFuture
 @iterationUnknown
 Feature: US1564752 - Re-present Denial/Request More Info To COO
 

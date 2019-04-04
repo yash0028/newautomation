@@ -5,7 +5,7 @@
 @2019.PI06
 @2019.PI06.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1550162 - Set Monitor Timer for Retro
 
   @TC717638

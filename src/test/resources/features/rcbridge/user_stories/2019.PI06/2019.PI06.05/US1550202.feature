@@ -1,14 +1,18 @@
 # Last updated on 
+@Arvind
+@Suman
 @US1550202
-@2019.PI07
+@2019.PI06
 @2019.PI06.05
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1550202 - Present Retro Request to LOB COO for Approval
 
   @TC743398
   @Manual
   @Functional
+  @Arvind
+  @Suman
   Scenario: TC743398 - [RL0]
     Given the task is completed and reviewed by NPPP
     When NPPP chooses "COO Approval Needed"
@@ -18,6 +22,8 @@ Feature: US1550202 - Present Retro Request to LOB COO for Approval
   @TC765086
   @Manual
   @Functional
+  @Arvind
+  @Suman
   Scenario: TC765086 - [RL1]
     Given NPPP has requested LOB COO approval
     When the LOB COO opens the task
@@ -26,6 +32,8 @@ Feature: US1550202 - Present Retro Request to LOB COO for Approval
   @TC765090
   @Manual
   @Functional
+  @Arvind
+  @Suman
   Scenario: TC765090 - [RL2]
     Given NPPP has requested LOB COO approval
     When the task is routed to LOB COO
@@ -34,6 +42,8 @@ Feature: US1550202 - Present Retro Request to LOB COO for Approval
   @TC765092
   @Manual
   @Functional
+  @Arvind
+  @Suman
   Scenario: TC765092 - [RL3]
     Given NPPP has requested LOB COO approval
     When the LOB COO opens the task
@@ -46,6 +56,8 @@ Feature: US1550202 - Present Retro Request to LOB COO for Approval
   @TC765093
   @Manual
   @Functional
+  @Arvind
+  @Suman
   Scenario: TC765093 - [RL4]
     Given an "initiate retro" request task is opened by a LOB COO
     When the LOB COO selects "Deny"

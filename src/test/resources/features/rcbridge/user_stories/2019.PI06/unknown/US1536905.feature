@@ -1,9 +1,8 @@
 # Last updated on 
 @US1536905
 @2019.PI06
-@2019.PI06.05
 @releasePresent
-@iterationFuture
+@iterationUnknown
 Feature: US1536905 - Handle Contract Update Event - Build OCM (Remove Product)
 
   @TC725635

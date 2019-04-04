@@ -1,15 +1,15 @@
 # Last updated on 
-@US1665774
+@US1693764
 @2019.PI06
 @2019.PI06.04
 @releasePresent
-@iterationPresent
-Feature: US1665774 - Pass contract information to downstream - COSMOS
+@iterationPast
+Feature: US1693764 - [Unfinished] Pass contract information to downstream - COSMOS
 
-  @TC765087
+  @TC778304
   @Manual
   @Functional
-  Scenario: TC765087 - [RL0]
+  Scenario: TC778304 - [RL0]
     Given a ContractAmended transaction has been received from Exari
     When the validation and compare services have completed
     And the transaction has been identified as a Fee Schedule change
