@@ -65,7 +65,7 @@ public class CMDUtilitySteps implements IRestStep, IMapSub {
     @Then("^the service returns the entire table records$")
     public void verifyAffiliationResponse() {
         JsonElement result = parseJsonElementResponse(response);
-        JsonArray resultArray = result.getAsJsonObject().get("content").getAsJsonArray();
+        JsonArray resultArray = result.getAsJsonObject().getAsJsonArray("content");
 
         if (resultArray.size() > 0) {
             String[] allFields = new String[]{"categories", "qualifierCode", "codeDescription", "labelName", "aliasName", "definitionAbbreviated", "definitionExpanded"};
@@ -77,11 +77,13 @@ public class CMDUtilitySteps implements IRestStep, IMapSub {
     }
 
     @Then("^the query returns entire table data$")
-    public void verifLegalLicensedEntityResponse() {
+    public void verifyLegalLicensedEntityResponse() {
         JsonElement result = parseJsonElementResponse(response);
-        if (result.getAsJsonArray().size() > 0) {
+        JsonArray resultArray = result.getAsJsonObject().getAsJsonArray("content");
+
+        if (resultArray.size() > 0) {
             String[] allFields = new String[]{"asOfDate", "status", "entityAbbrevIdentificationCode", "legalEntityName", "domicileST", "subsidiaryOf", "businessSegment", "hmoIns", "peopleSoft9Identifier", "naicCodeDMHCLic", "countLICEntityST", "sourceAddress"};
-            JsonArray resultArray = result.getAsJsonArray();
+
             for (JsonElement element : resultArray)
                 Assert.assertTrue("All fields are not displayed", element.getAsJsonObject().keySet().containsAll(Arrays.stream(allFields).collect(Collectors.toSet())));
         } else
