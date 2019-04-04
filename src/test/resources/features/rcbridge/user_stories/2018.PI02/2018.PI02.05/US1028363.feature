@@ -7,7 +7,7 @@
 Feature: US1028363 - [Continued] Term (Cancel) Physician Contract from an active Exari Contract
 
   @TC565235
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565235 - [RL0]
     Given The Physician contract cancel is complete and correct within Exari

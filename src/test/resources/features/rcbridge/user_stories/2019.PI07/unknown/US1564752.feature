@@ -3,7 +3,7 @@
 @2019.PI07
 @releaseFuture
 @iterationUnknown
-Feature: US1564752 - Re-present Denial/Request More Info To COO
+Feature: US1564752 - Re-present Denial/Request More Info To LOB COO
 
   @TC721874
   @Manual
