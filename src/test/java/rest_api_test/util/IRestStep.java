@@ -1,6 +1,7 @@
 package rest_api_test.util;
 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import io.restassured.response.Response;
 
 import java.util.List;
@@ -38,5 +39,9 @@ public interface IRestStep {
 
     default JsonElement subJsonStringValues(JsonElement base, Map<String, String> subs) {
         return RestHelper.getInstance().subJsonStringValues(base, subs);
+    }
+
+    default Map<String,String> jsonObjectToMap(JsonObject json){
+        return RestHelper.getInstance().jsonObjectToMap(json);
     }
 }
