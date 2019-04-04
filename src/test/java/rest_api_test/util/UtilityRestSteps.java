@@ -12,12 +12,17 @@ import static io.restassured.RestAssured.given;
 /**
  * Utility Cucumber steps for Rest API Stories to do something before and after
  */
-public class UtilityRestSteps {
+public class UtilityRestSteps implements AbstractRestApi.IRestApi {
     private static final String ENDPOINT = "http://cosmos-ndb-mock-service-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_CLEAR_COSMOS_DB = "/v1.0/cosmos/cleardb";
     private static final String RESOURCE_CLEAR_NDB_DB = "/v1.0/ndb/cleardb";
 
     private RequestSpecification request;
+
+    @Before
+    public void resetRestApiEnv() {
+        useDevApi();
+    }
 
     @Before(value = "@US1332127", order = BookendOrder.REST)
     public void resetMockService(Scenario scenario) {
