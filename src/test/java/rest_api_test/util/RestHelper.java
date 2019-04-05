@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -261,5 +262,18 @@ class RestHelper {
         }
 
         return base;
+    }
+
+    /**
+     * Converts a JsonElement to a Map.
+     *
+     * @param  json JsonObject to convert to map
+     * @return A map representation of the JsonObject
+     */
+    Map<String, String> jsonObjectToMap(JsonObject json){
+        Gson gson = new Gson();
+
+        Map<String, String> queryMap = new HashMap<String,String>();
+        return gson.fromJson(json, queryMap.getClass());
     }
 }
