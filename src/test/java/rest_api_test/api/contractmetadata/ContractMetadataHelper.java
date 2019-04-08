@@ -32,7 +32,6 @@ class ContractMetadataHelper extends AbstractRestApi {
     */
 
 
-    
     /*
     HELPER METHODS
     */
@@ -42,7 +41,7 @@ class ContractMetadataHelper extends AbstractRestApi {
         return useDev ? ENDPOINT_DEV : ENDPOINT_TEST;
     }
 
-/*
+    /*
     UTILITY CLASS
     */
 }
