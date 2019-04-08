@@ -3,8 +3,8 @@ package rest_api_test.util.zuul;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public interface IMockInteract {
-    Logger log = LoggerFactory.getLogger(IMockInteract.class);
+public interface IMockControllerInteract {
+    Logger log = LoggerFactory.getLogger(IMockControllerInteract.class);
     
     /*
     INTERFACE METHODS

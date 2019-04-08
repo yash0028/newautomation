@@ -8,10 +8,10 @@ import rest_api_test.util.datastructure.gson.transaction.TransactionStatus;
 import rest_api_test.util.eventgateway.IEventGatewayInteract;
 import rest_api_test.util.fallout.IFalloutInteract;
 import rest_api_test.util.transaction.ITransactionInteract;
-import rest_api_test.util.zuul.IMockInteract;
+import rest_api_test.util.zuul.IMockControllerInteract;
 import util.map.IMapSub;
 
-public class PlaygroundSteps implements IMapSub, ITransactionInteract, IFalloutInteract, IEventGatewayInteract, IMockInteract {
+public class PlaygroundSteps implements IMapSub, ITransactionInteract, IFalloutInteract, IEventGatewayInteract, IMockControllerInteract {
     private static final Logger log = LoggerFactory.getLogger(PlaygroundSteps.class);
 
     private static final String TID = "b9dc6eb1-c29a-47ad-a7d0-54b73978a70b";
