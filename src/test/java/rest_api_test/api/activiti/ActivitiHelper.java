@@ -39,6 +39,7 @@ class ActivitiHelper extends AbstractRestApi {
 
     /**
      * Create record in Activiti API
+     * maps to POST /v1.0/processes
      *
      * @param payload
      * @return

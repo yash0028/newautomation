@@ -19,6 +19,7 @@ public interface IActivitiInteract extends IRestApi {
 
     /**
      * Create a record with the Activiti API
+     * maps to POST /v1.0/processes
      *
      * @param payload the json element containing contract ID, Process ID, and/or Process Name
      * @return the response from Activiti API
