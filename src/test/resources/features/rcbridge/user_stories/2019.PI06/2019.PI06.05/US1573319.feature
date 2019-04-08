@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI06.05
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1573319 - Validate contract data - Add [NDB and Cosmos]
 
   @TC720666

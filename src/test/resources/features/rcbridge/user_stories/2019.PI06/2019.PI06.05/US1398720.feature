@@ -2,7 +2,7 @@
 @Special_QE_Work
 @US1398720
 @2019.PI06
-@2019.PI06.04
+@2019.PI06.05
 @releasePresent
 @iterationPresent
 Feature: US1398720 - Process CANCEL transaction to subscribing platform(s)

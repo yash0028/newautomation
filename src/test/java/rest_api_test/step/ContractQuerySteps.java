@@ -53,13 +53,15 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
     @When("^the Domain Service queries for additional contract details from Exari$")
     public void getValidResponse() throws Throwable {
         response = request.param("contractId", "455293").get(RESOURCE_ECM);
+
+        log.info("Contract query response: {}", response.asString());
     }
 
     @Then("^the Domain Service receives the Exari contract model$")
     public void checkValidResponse() throws Throwable {
         JsonElement result = parseJsonElementResponse(response);
         Assert.assertTrue(result.isJsonObject());
-        Assert.assertEquals("Unexpected response", 200, result.getAsJsonObject().get("responseCode").getAsInt());
+        Assert.assertEquals("Unexpected response", 200, response.statusCode());
 
         String tempMessage = result.getAsJsonObject().get("responseMessage").getAsString();
         JsonElement ecm = parseJsonElementString(tempMessage);

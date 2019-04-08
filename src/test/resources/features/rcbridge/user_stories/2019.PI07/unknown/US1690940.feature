@@ -1,71 +1,62 @@
 # Last updated on 
-@Sheham
-@US1656557
-@2019.PI06
-@2019.PI06.04
-@releasePresent
-@iterationPast
-Feature: US1656557 - Holidays for due dates in AM
+@US1690940
+@2019.PI07
+@releaseFuture
+@iterationUnknown
+Feature: US1690940 - Holidays for due dates in AM - when the holiday falls on the weekend
 
-  @TC758900
+  @TC776493
   @Manual
   @Functional
-  @Sheham
-  Scenario: TC758900 - [RL0]Due Date with Holidays
+  Scenario: TC776493 - [RL0]
     Given a task has a due date
     When it is on a holiday, 12/25
     Then the due date is the day after the holiday
 
-  @TC770245
+  @TC776495
   @Manual
   @Functional
-  @Sheham
-  Scenario: TC770245 - [RL1]
+  Scenario: TC776495 - [RL1]
     Given a task has a due date
     When it is on a holiday 7/4
     Then the due date is the day after the holiday
 
-  @TC770246
+  @TC776496
   @Manual
   @Functional
-  @Sheham
-  Scenario: TC770246 - [RL2]
+  Scenario: TC776496 - [RL2]
     Given a task has a due date
     When it is on a holiday, 1/1
     Then the due date is the day after the holiday
 
-  @TC770248
+  @TC776497
   @Manual
   @Functional
-  @Sheham
-  Scenario: TC770248 - [RL3]
+  Scenario: TC776497 - [RL3]
     Given a task has a due date
     When it is on a holiday, Memorial - last Monday of May
     Then the due date is the day after the holiday
 
-  @TC770250
+  @TC776498
   @Manual
   @Functional
-  @Sheham
-  Scenario: TC770250 - [RL4]
+  Scenario: TC776498 - [RL4]
     Given a task has a due date
     When it is on a holiday, Labor day - first Monday of September
     Then the due date is the day after the holiday
 
-  @TC770251
+  @TC776499
   @Manual
   @Functional
-  @Sheham
-  Scenario: TC770251 - [RL5]
+  Scenario: TC776499 - [RL5]
     Given a task has a due date
     When it is on a holiday, Thanksgiving - 4th Thursday of November and the Friday directly after
     Then the due date is the day after the holiday
 
-  @TC770252
+  @TC776500
   @Manual
   @Functional
-  @Sheham
-  Scenario: TC770252 - [RL6]
+  Scenario: TC776500 - [RL6]
     Given a task has a due date
     When it is on a holiday, Martin Luther King - 3rd Monday of January
     Then the due date is the day after the holiday

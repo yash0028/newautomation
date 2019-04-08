@@ -1,7 +1,7 @@
 # Last updated on 
 @US1649743
-@2019.PI06
-@releasePresent
+@2019.PI07
+@releaseFuture
 @iterationUnknown
 Feature: US1649743 - View denied retro via email link
 

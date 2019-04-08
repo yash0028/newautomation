@@ -4,8 +4,8 @@
 @2019.PI06
 @2019.PI06.05
 @releasePresent
-@iterationFuture
-Feature: US1652443 - Install Contract - Y-line contract masters
+@iterationPresent
+Feature: US1652443 - Install Contract - Y-line contract masters (Medicare/VACCN)
 
   @TC759648
   @Manual
