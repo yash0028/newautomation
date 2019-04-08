@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.AbstractRestApi;
 import rest_api_test.api.datastructure.gson.contractmodel.ContractModel;
+import rest_api_test.api.datastructure.gson.fallout.WorkObjectCount;
+import rest_api_test.api.datastructure.list.ListProductGroup;
 import rest_api_test.api.datastructure.list.TransactionContracts;
 import rest_api_test.api.datastructure.type.ContractStatus;
 import rest_api_test.api.datastructure.type.ContractType;
@@ -30,14 +32,16 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
 
     //WORK OBJECT CONTROLLER
     private static final String RESOURCE_WORKOBJECTS_COMPLETE_TID = "/v1.0/workobjects/complete/";//{transaction id}
-    private static final String RESOURCE_WORKOBJECTS_ITEMS_CONTRACT_MASTER = "/v1.0/workobjects/items/contract-master";
     private static final String RESOURCE_WORKOBJECTS_ITEMS_PRODUCTS_TID = "/v1.0/workobjects/items/products/";//{transaction id}
-    private static final String RESOURCE_WORKOBJECTS_ITEMS_READY = "/v1.0/workobjects/items/ready";
-    private static final String RESOURCE_WORKOBJECTS_ITEMS_ID = "/v1.0/workobjects/items/";//{id}
     private static final String RESOURCE_WORKOBJECTS_LOAD_CONTRACT_TID = "/v1.0/workobjects/load-contract/";//{transaction id}
     private static final String RESOURCE_WORKOBJECTS_OPEN_COUNT = "/v1.0/workobjects/open-count";
     private static final String RESOURCE_WORKOBJECTS_READY_TID = "/v1.0/workobjects/ready/";//{transaction id}
     private static final String RESOURCE_WORKOBJECTS_STATUS = "/v1.0/workobjects/";//{status}
+
+    //WORK OBJECT ITEM CONTRACT MASTER CONTROLLER
+    private static final String RESOURCE_WORKOBJECTS_ITEMS_CONTRACT_MASTER = "/v1.0/workobjects/items/contract-master";
+    private static final String RESOURCE_WORKOBJECTS_ITEMS_READY = "/v1.0/workobjects/items/ready";
+    private static final String RESOURCE_WORKOBJECTS_ITEMS_ID = "/v1.0/workobjects/items/";//{id}
 
     private static FalloutHelper INSTANCE = new FalloutHelper();
 
@@ -162,6 +166,65 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
         contracts.setResponse(response);
 
         return contracts;
+    }
+
+    /**
+     * Complete a Work Object by Transaction ID
+     * maps to GET /v1.0/workobjects/complete/{transactionId}
+     *
+     * @param transactionId id to mark as complete
+     * @return Response
+     */
+    Response completeTransaction(String transactionId) {
+        RequestSpecification request = given().baseUri(getEndpoint());
+        return request.get(RESOURCE_WORKOBJECTS_COMPLETE_TID + transactionId);
+    }
+
+    /**
+     * Query for a list of Product Groups by Transaction ID
+     * maps to GET /v1.0/workobjects/items/products/{transactionId}
+     *
+     * @param transactionId id to lookup
+     * @return List of Product Groups and the Response
+     */
+    ListProductGroup queryProductGroupsByTransactionId(String transactionId) {
+        RequestSpecification request = given().baseUri(getEndpoint());
+        Response response = request.get(RESOURCE_WORKOBJECTS_ITEMS_PRODUCTS_TID + transactionId);
+
+        JsonElement result = parseJsonElementResponse(response);
+        ListProductGroup list = gson.fromJson(result, ListProductGroup.class);
+        list.setResponse(response);
+
+        return list;
+    }
+
+    /**
+     * Rerun a work object with the given Transaction ID
+     * maps to POST /v1.0/workobjects/load-contract/{transactionId}
+     *
+     * @param transactionId id to rerun
+     * @return Response
+     */
+    Response rerunWorkObject(String transactionId) {
+        RequestSpecification request = given().baseUri(getEndpoint());
+        return request.post(RESOURCE_WORKOBJECTS_LOAD_CONTRACT_TID + transactionId);
+    }
+
+    /**
+     * Count number of work objects with the open status
+     * maps to GET /v1.0/workobjects/open-count
+     *
+     * @return count of workobjects and Response
+     */
+    WorkObjectCount queryWorkObjectCount() {
+        RequestSpecification request = given().baseUri(getEndpoint());
+        Response response = request.get(RESOURCE_WORKOBJECTS_OPEN_COUNT);
+
+        JsonElement result = parseJsonElementResponse(response);
+        WorkObjectCount count = gson.fromJson(result, WorkObjectCount.class);
+        count.setResponse(response);
+
+        return count;
     }
     
     /*
