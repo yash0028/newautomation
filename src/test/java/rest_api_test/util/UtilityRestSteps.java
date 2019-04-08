@@ -5,7 +5,8 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import general_test.util.BookendOrder;
 import io.restassured.specification.RequestSpecification;
-import rest_api_test.util.mock.IMockServiceInteract;
+import rest_api_test.api.AbstractRestApi;
+import rest_api_test.api.mock.IMockServiceInteract;
 
 
 /**

@@ -3,12 +3,12 @@ package general_test.step;
 import cucumber.api.java.en.Then;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rest_api_test.util.datastructure.gson.contractmodel.ContractModel;
-import rest_api_test.util.datastructure.gson.transaction.TransactionStatus;
-import rest_api_test.util.eventgateway.IEventGatewayInteract;
-import rest_api_test.util.fallout.IFalloutInteract;
-import rest_api_test.util.transaction.ITransactionInteract;
-import rest_api_test.util.zuul.IMockControllerInteract;
+import rest_api_test.api.datastructure.gson.contractmodel.ContractModel;
+import rest_api_test.api.datastructure.gson.transaction.TransactionStatus;
+import rest_api_test.api.eventgateway.IEventGatewayInteract;
+import rest_api_test.api.fallout.IFalloutInteract;
+import rest_api_test.api.transaction.ITransactionInteract;
+import rest_api_test.api.zuul.IMockControllerInteract;
 import util.map.IMapSub;
 
 public class PlaygroundSteps implements IMapSub, ITransactionInteract, IFalloutInteract, IEventGatewayInteract, IMockControllerInteract {
