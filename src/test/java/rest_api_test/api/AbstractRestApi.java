@@ -44,19 +44,4 @@ public abstract class AbstractRestApi implements ISharedValueReader {
     /*
     UTILITY CLASS
     */
-
-    public interface IRestApi {
-
-        /*
-        DEFAULT METHODS
-         */
-
-        default void useDevApi() {
-            useDev = true;
-        }
-
-        default void useTestApi() {
-            useDev = false;
-        }
-    }
 }
