@@ -2,6 +2,7 @@
 package rest_api_test.api.datastructure.gson.page;
 
 import com.google.gson.annotations.Expose;
+import io.restassured.specification.RequestSpecification;
 
 import javax.annotation.Generated;
 
@@ -44,6 +45,18 @@ public class Pageable {
 
     public Boolean getUnpaged() {
         return unpaged;
+    }
+
+    public RequestSpecification addParameters(RequestSpecification request) {
+        request.param("offset", getOffset());
+        request.param("pageNumber", getPageNumber());
+        request.param("pageSize", getPageSize());
+        request.param("paged", getPaged());
+        request.param("unpaged", getUnpaged());
+        request.param("sort.sorted", getSort().getSorted());
+        request.param("sort.unsorted", getSort().getUnsorted());
+
+        return request;
     }
 
     public static class Builder {

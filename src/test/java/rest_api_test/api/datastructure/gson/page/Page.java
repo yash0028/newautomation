@@ -1,14 +1,17 @@
-
 package rest_api_test.api.datastructure.gson.page;
 
 import com.google.gson.annotations.Expose;
+import io.restassured.response.Response;
 
 import javax.annotation.Generated;
+import java.util.List;
 
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
-public class Page {
+public class Page<T> {
 
+    @Expose
+    private List<T> content;
     @Expose
     private Boolean first;
     @Expose
@@ -27,6 +30,20 @@ public class Page {
     private Long totalElements;
     @Expose
     private Long totalPages;
+
+    private Response response;
+
+    public Response getResponse() {
+        return response;
+    }
+
+    public void setResponse(Response response) {
+        this.response = response;
+    }
+
+    public List<T> getContent() {
+        return content;
+    }
 
     public Boolean getFirst() {
         return first;
@@ -64,8 +81,9 @@ public class Page {
         return totalPages;
     }
 
-    public static class Builder {
+    public static class Builder<T> {
 
+        private List<T> content;
         private Boolean first;
         private Boolean last;
         private Long number;
@@ -75,6 +93,11 @@ public class Page {
         private Sort sort;
         private Long totalElements;
         private Long totalPages;
+
+        public Page.Builder withContent(List<T> content) {
+            this.content = content;
+            return this;
+        }
 
         public Page.Builder withFirst(Boolean first) {
             this.first = first;
@@ -123,6 +146,7 @@ public class Page {
 
         public Page build() {
             Page page = new Page();
+            page.content = content;
             page.first = first;
             page.last = last;
             page.number = number;
