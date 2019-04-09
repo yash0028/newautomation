@@ -34,6 +34,7 @@ public interface ITransactionInteract extends IRestApi {
 
     /**
      * Search for a list of TransactionDetails with a list of Contract Statuses
+     * maps to POST /v1.0/transactions/results
      *
      * @param resultStatuses list of statuses
      * @param sortBy         list of fields to sort by
