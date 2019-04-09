@@ -4,12 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.IRestApi;
 import rest_api_test.api.datastructure.gson.contractmodel.ContractModel;
-import rest_api_test.api.datastructure.gson.transaction.TransactionContract;
-import rest_api_test.api.datastructure.list.TransactionContracts;
+import rest_api_test.api.datastructure.gson.fallout.page.Pageable;
+import rest_api_test.api.datastructure.list.PageTransactionContract;
 import rest_api_test.api.datastructure.type.ContractStatus;
 import rest_api_test.api.datastructure.type.ContractType;
-
-import java.util.Optional;
 
 public interface IFalloutInteract extends IRestApi {
     Logger log = LoggerFactory.getLogger(IFalloutInteract.class);
@@ -40,7 +38,7 @@ public interface IFalloutInteract extends IRestApi {
      * @param contractId the id to search by
      * @return List of TransactionContract objects built from the returned JSON
      */
-    default TransactionContracts falloutQueryTransactionContracts(String contractId) {
+    default PageTransactionContract falloutQueryTransactionContracts(String contractId) {
         return FalloutHelper.getInstance().queryTransactionContractByContractId(contractId);
     }
 
@@ -48,60 +46,24 @@ public interface IFalloutInteract extends IRestApi {
      * Search for contracts with a specific ContractStatus
      * maps to GET /v1.0/contract-summaries/{status}
      *
-     * @param pageNum  the page index to get
-     * @param pageSize the size of the page to get
-     * @param paged    search using pages
-     * @param sorted   return sorted list
      * @param status   contract status to search by
+     * @param pageable page configuration
      * @return List of TransactionContract objects built from the returned JSON
      */
-    default TransactionContracts falloutQueryTransactionContracts(ContractStatus status, int pageNum, int pageSize, boolean paged, boolean sorted) {
-        return FalloutHelper.getInstance().queryTransactionContractByStatus(pageNum, pageSize, paged, sorted, status);
+    default PageTransactionContract falloutQueryTransactionContracts(ContractStatus status, Pageable pageable) {
+        return FalloutHelper.getInstance().queryTransactionContractByStatus(status, pageable);
     }
 
     /**
      * Search for contracts with a specific ContractType
      * maps to GET /v1.0/contract-summaries/work-objects/{type}
      *
-     * @param pageNum  the page index to get
-     * @param pageSize the size of the page to get
-     * @param paged    search using pages
-     * @param sorted   return sorted list
      * @param type     contract type to search by
+     * @param pageable page configuration
      * @return List of TransactionContract objects built from the returned JSON
      */
-    default TransactionContracts falloutQueryTransactionContracts(ContractType type, int pageNum, int pageSize, boolean paged, boolean sorted) {
-        return FalloutHelper.getInstance().queryTransactionContractByType(pageNum, pageSize, paged, sorted, type);
-    }
-
-    /**
-     * Search for the first contract with the given contract id
-     *
-     * @param contractId id to search by
-     * @return Optional containing the TransactionContract
-     */
-    default Optional<TransactionContract> falloutGetFirstTransactionContract(String contractId) {
-        return Optional.ofNullable(falloutQueryTransactionContracts(contractId).get(0));
-    }
-
-    /**
-     * Search for the first contract with the given contract status
-     *
-     * @param status contract status to search by
-     * @return Optional containing the TransactionContract
-     */
-    default Optional<TransactionContract> falloutGetFirstTransactionContract(ContractStatus status) {
-        return Optional.ofNullable(this.falloutQueryTransactionContracts(status, 0, 1, false, true).get(0));
-    }
-
-    /**
-     * Search for the first contract with the given contract type
-     *
-     * @param type contract type to search by
-     * @return Optional containing the TransactionContract
-     */
-    default Optional<TransactionContract> falloutGetFirstTransactionContract(ContractType type) {
-        return Optional.ofNullable(this.falloutQueryTransactionContracts(type, 0, 1, false, true).get(0));
+    default PageTransactionContract falloutQueryTransactionContracts(ContractType type, Pageable pageable) {
+        return FalloutHelper.getInstance().queryTransactionContractByType(type, pageable);
     }
     
     /*

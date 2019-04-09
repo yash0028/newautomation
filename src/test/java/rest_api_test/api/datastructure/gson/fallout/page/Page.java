@@ -1,4 +1,4 @@
-package rest_api_test.api.datastructure.gson.page;
+package rest_api_test.api.datastructure.gson.fallout.page;
 
 import com.google.gson.annotations.Expose;
 import io.restassured.response.Response;

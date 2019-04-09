@@ -10,10 +10,13 @@ import org.slf4j.LoggerFactory;
 import rest_api_test.api.AbstractRestApi;
 import rest_api_test.api.datastructure.gson.contractmodel.ContractModel;
 import rest_api_test.api.datastructure.gson.fallout.WorkObjectCount;
+import rest_api_test.api.datastructure.gson.fallout.page.Pageable;
 import rest_api_test.api.datastructure.list.ListProductGroup;
-import rest_api_test.api.datastructure.list.TransactionContracts;
+import rest_api_test.api.datastructure.list.PageTransactionContract;
+import rest_api_test.api.datastructure.list.PageTransactionIds;
 import rest_api_test.api.datastructure.type.ContractStatus;
 import rest_api_test.api.datastructure.type.ContractType;
+import rest_api_test.api.datastructure.type.WorkObjectStatus;
 import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;
@@ -63,6 +66,7 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
     
     /*
     CLASS METHODS
+    CONTRACT CONTROLLER
     */
 
     /**
@@ -72,7 +76,7 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
      * @param transactionId of the contract to lookup
      * @return ContractModel object built from the returned JSON
      */
-    ContractModel queryContractModelByTransactionID(String transactionId) {
+    public ContractModel queryContractModelByTransactionID(String transactionId) {
         RestAssured.useRelaxedHTTPSValidation();
         RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json");
@@ -92,7 +96,7 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
      * @param contractId the id to search by
      * @return List of TransactionContract objects built from the returned JSON
      */
-    TransactionContracts queryTransactionContractByContractId(String contractId) {
+    public PageTransactionContract queryTransactionContractByContractId(String contractId) {
         JsonObject payload = new JsonObject();
         payload.addProperty("contractId", contractId);
 
@@ -102,7 +106,7 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
         Response response = request.post(RESOURCE_CONTRACT_SEARCH);
         JsonElement jsonElement = parseJsonElementResponse(response);
 
-        TransactionContracts contracts = gson.fromJson(jsonElement, TransactionContracts.class);
+        PageTransactionContract contracts = gson.fromJson(jsonElement, PageTransactionContract.class);
         contracts.setResponse(response);
 
         return contracts;
@@ -112,27 +116,21 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
      * Search for contracts with a specific ContractStatus
      * maps to GET /v1.0/contract-summaries/{status}
      *
-     * @param pageNum  the page index to get
-     * @param pageSize the size of the page to get
-     * @param paged    search using pages
-     * @param sorted   return sorted list
      * @param status   contract status to search by
+     * @param pageable page configuration
      * @return List of TransactionContract objects built from the returned JSON
      */
-    TransactionContracts queryTransactionContractByStatus(int pageNum, int pageSize, boolean paged, boolean sorted, ContractStatus status) {
+    public PageTransactionContract queryTransactionContractByStatus(ContractStatus status, Pageable pageable) {
         RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json");
-
-        request.param("offset", 0);
-        request.param("pageNumber", pageNum);
-        request.param("pageSize", pageSize);
-        request.param("paged", paged);
-        request.param("sort.sorted", sorted);
+        if (pageable != null) {
+            request = pageable.addParameters(request);
+        }
 
         Response response = request.get(RESOURCE_CONTRACT_SUMMARIES_BY_STATUS + status.name());
         JsonElement jsonElement = parseJsonElementResponse(response);
 
-        TransactionContracts contracts = gson.fromJson(jsonElement, TransactionContracts.class);
+        PageTransactionContract contracts = gson.fromJson(jsonElement, PageTransactionContract.class);
         contracts.setResponse(response);
 
         return contracts;
@@ -142,31 +140,30 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
      * Search for contracts with a specific ContractType
      * maps to GET /v1.0/contract-summaries/work-objects/{type}
      *
-     * @param pageNum  the page index to get
-     * @param pageSize the size of the page to get
-     * @param paged    search using pages
-     * @param sorted   return sorted list
      * @param type     contract type to search by
+     * @param pageable page configuration
      * @return List of TransactionContract objects built from the returned JSON
      */
-    TransactionContracts queryTransactionContractByType(int pageNum, int pageSize, boolean paged, boolean sorted, ContractType type) {
+    public PageTransactionContract queryTransactionContractByType(ContractType type, Pageable pageable) {
         RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json");
-
-        request.param("offset", 0);
-        request.param("pageNumber", pageNum);
-        request.param("pageSize", pageSize);
-        request.param("paged", paged);
-        request.param("sort.sorted", sorted);
+        if (pageable != null) {
+            request = pageable.addParameters(request);
+        }
 
         Response response = request.get(RESOURCE_CONTRACT_SUMMARIES_BY_TYPE + type.type);
         JsonElement jsonElement = parseJsonElementResponse(response);
 
-        TransactionContracts contracts = gson.fromJson(jsonElement, TransactionContracts.class);
+        PageTransactionContract contracts = gson.fromJson(jsonElement, PageTransactionContract.class);
         contracts.setResponse(response);
 
         return contracts;
     }
+
+    /*
+    CLASS METHODS
+    WORK OBJECT CONTROLLER
+     */
 
     /**
      * Complete a Work Object by Transaction ID
@@ -175,7 +172,7 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
      * @param transactionId id to mark as complete
      * @return Response
      */
-    Response completeTransaction(String transactionId) {
+    public Response completeTransaction(String transactionId) {
         RequestSpecification request = given().baseUri(getEndpoint());
         return request.get(RESOURCE_WORKOBJECTS_COMPLETE_TID + transactionId);
     }
@@ -187,7 +184,7 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
      * @param transactionId id to lookup
      * @return List of Product Groups and the Response
      */
-    ListProductGroup queryProductGroupsByTransactionId(String transactionId) {
+    public ListProductGroup queryProductGroupsByTransactionId(String transactionId) {
         RequestSpecification request = given().baseUri(getEndpoint());
         Response response = request.get(RESOURCE_WORKOBJECTS_ITEMS_PRODUCTS_TID + transactionId);
 
@@ -205,7 +202,7 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
      * @param transactionId id to rerun
      * @return Response
      */
-    Response rerunWorkObject(String transactionId) {
+    public Response rerunWorkObject(String transactionId) {
         RequestSpecification request = given().baseUri(getEndpoint());
         return request.post(RESOURCE_WORKOBJECTS_LOAD_CONTRACT_TID + transactionId);
     }
@@ -216,7 +213,7 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
      *
      * @return count of workobjects and Response
      */
-    WorkObjectCount queryWorkObjectCount() {
+    public WorkObjectCount queryWorkObjectCount() {
         RequestSpecification request = given().baseUri(getEndpoint());
         Response response = request.get(RESOURCE_WORKOBJECTS_OPEN_COUNT);
 
@@ -226,6 +223,47 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
 
         return count;
     }
+
+    /**
+     * Ready a Work Object by Transaction ID
+     * maps to GET /v1.0/workobjects/ready/{transactionId}
+     *
+     * @param transactionId id to mark as ready
+     * @return Response
+     */
+    public Response readyTransaction(String transactionId) {
+        RequestSpecification request = given().baseUri(getEndpoint());
+        return request.get(RESOURCE_WORKOBJECTS_READY_TID + transactionId);
+    }
+
+
+    /**
+     * Query for list of Transaction Id based on Work Object Status
+     * maps to GET /v1.0/workobjects/{status}
+     *
+     * @param status   status to check
+     * @param pageable page config
+     * @return Page that contains the List of Transaction Ids
+     */
+    public PageTransactionIds queryWorkObjects(WorkObjectStatus status, Pageable pageable) {
+        RequestSpecification request = given().baseUri(getEndpoint())
+                .header("Content-Type", "application/json");
+        if (pageable != null) {
+            request = pageable.addParameters(request);
+        }
+
+        Response response = request.get(RESOURCE_WORKOBJECTS_STATUS + status.name());
+        JsonElement jsonElement = parseJsonElementResponse(response);
+
+        PageTransactionIds pages = gson.fromJson(jsonElement, PageTransactionIds.class);
+        pages.setResponse(response);
+        return pages;
+    }
+
+    /*
+    CLASS METHODS
+    WORK OBJECT ITEM CONTRACT MASTER CONTROLLER
+     */
     
     /*
     HELPER METHODS
