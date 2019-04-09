@@ -4,14 +4,18 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rest_api_test.api.AbstractRestApi;
 
 import static io.restassured.RestAssured.given;
 
-class MockControllerHelper {
+class MockControllerHelper extends AbstractRestApi {
     private static final Logger log = LoggerFactory.getLogger(MockControllerHelper.class);
-    private static final String ENDPOINT = "http://zuul-gateway-service-clm-test.ocp-ctc-dmz-nonprod.optum.com";
+
+    private static final String ENDPOINT_DEV = "http://zuul-gateway-service-clm-test.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String ENDPOINT_TEST = "http://zuul-gateway-service-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_CLEAR = "/v1.0/mock-flag/clear";
     private static final String RESOURCE_SET = "/v1.0/mock-flag/set/";
+
     private static MockControllerHelper INSTANCE = new MockControllerHelper();
 
     /*
@@ -39,7 +43,7 @@ class MockControllerHelper {
      * @return if it was successful
      */
     boolean clear() {
-        RequestSpecification request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
+        RequestSpecification request = given().baseUri(getEndpoint()).header("Content-Type", "application/json");
         Response response = request.get(RESOURCE_CLEAR);
         return response.statusCode() == 200;
     }
@@ -51,11 +55,16 @@ class MockControllerHelper {
      * @return if it was successful
      */
     boolean set(String contractId) {
-        RequestSpecification request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
+        RequestSpecification request = given().baseUri(getEndpoint()).header("Content-Type", "application/json");
         Response response = request.get(RESOURCE_SET + contractId);
         return response.statusCode() == 200;
     }
-    
+
+    @Override
+    protected String getEndpoint() {
+        return useDev ? ENDPOINT_DEV : ENDPOINT_TEST;
+    }
+
     /*
     HELPER METHODS
     */

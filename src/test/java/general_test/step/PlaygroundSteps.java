@@ -3,9 +3,10 @@ package general_test.step;
 import cucumber.api.java.en.Then;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rest_api_test.api.datastructure.gson.contractmodel.ContractModel;
-import rest_api_test.api.datastructure.gson.transaction.TransactionStatus;
+import rest_api_test.api.datastructure.list.PageTransactionIds;
+import rest_api_test.api.datastructure.type.WorkObjectStatus;
 import rest_api_test.api.eventgateway.IEventGatewayInteract;
+import rest_api_test.api.fallout.FalloutHelper;
 import rest_api_test.api.fallout.IFalloutInteract;
 import rest_api_test.api.transaction.ITransactionInteract;
 import rest_api_test.api.zuul.IMockControllerInteract;
@@ -21,27 +22,9 @@ public class PlaygroundSteps implements IMapSub, ITransactionInteract, IFalloutI
     @Then("^I do something$")
     public void playground() throws Throwable {
 
-        useTestApi();
+        PageTransactionIds pages = FalloutHelper.getInstance().queryWorkObjects(WorkObjectStatus.ACTION_REQUIRED, null);
 
-        mockSetContractIdFlag(CID);
-
-        String tid = eventGatewayPostContractInstalledEvent(CID);
-
-        System.out.println(tid);
-
-        Thread.sleep(5000);
-
-        TransactionStatus status = transactionQueryStatus(tid);
-
-        System.out.println(status.getResponse().getStatusCode());
-        System.out.println(status.getMessages());
-
-        Thread.sleep(5000);
-
-        ContractModel model = falloutQueryContractModel(tid);
-
-        System.out.println(model.getResponse().getStatusCode());
-        System.out.println(model.getContractID());
+        System.out.println(pages.getContent());
 
     }
 }

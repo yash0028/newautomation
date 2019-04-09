@@ -2,7 +2,7 @@ package rest_api_test.api.transaction;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rest_api_test.api.AbstractRestApi;
+import rest_api_test.api.IRestApi;
 import rest_api_test.api.datastructure.gson.transaction.TransactionStatus;
 import rest_api_test.api.datastructure.list.TransactionDetails;
 import rest_api_test.api.datastructure.type.ContractStatus;
@@ -10,7 +10,7 @@ import rest_api_test.api.datastructure.type.TSortField;
 
 import java.util.List;
 
-public interface ITransactionInteract extends AbstractRestApi.IRestApi {
+public interface ITransactionInteract extends IRestApi {
     Logger log = LoggerFactory.getLogger(ITransactionInteract.class);
     
     /*
@@ -34,6 +34,7 @@ public interface ITransactionInteract extends AbstractRestApi.IRestApi {
 
     /**
      * Search for a list of TransactionDetails with a list of Contract Statuses
+     * maps to POST /v1.0/transactions/results
      *
      * @param resultStatuses list of statuses
      * @param sortBy         list of fields to sort by

@@ -2,9 +2,9 @@ package rest_api_test.api.eventgateway;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rest_api_test.api.AbstractRestApi;
+import rest_api_test.api.IRestApi;
 
-public interface IEventGatewayInteract extends AbstractRestApi.IRestApi {
+public interface IEventGatewayInteract extends IRestApi {
     Logger log = LoggerFactory.getLogger(IEventGatewayInteract.class);
     
     /*
