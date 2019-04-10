@@ -9,8 +9,8 @@ import rest_api_test.api.datastructure.list.PageTransactionContract;
 import rest_api_test.api.datastructure.type.ContractStatus;
 import rest_api_test.api.datastructure.type.ContractType;
 
-public interface IFalloutInteract extends IRestApi {
-    Logger log = LoggerFactory.getLogger(IFalloutInteract.class);
+public interface IFalloutContractContollerInteract extends IRestApi {
+    Logger log = LoggerFactory.getLogger(IFalloutContractContollerInteract.class);
     
     /*
     INTERFACE METHODS

@@ -23,7 +23,7 @@ import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;
 
-public class FalloutHelper extends AbstractRestApi implements IRestStep {
+class FalloutHelper extends AbstractRestApi implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(FalloutHelper.class);
 
     private static final String ENDPOINT_DEV = "https://fallout-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
