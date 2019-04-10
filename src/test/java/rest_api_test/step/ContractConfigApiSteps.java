@@ -36,6 +36,7 @@ public class ContractConfigApiSteps implements IRestStep, IEventGatewayInteract 
         // Post a contract-installed event to event-gateway for the contract that will be used in below steps
         useTestApi();
         eventGatewayPostContractInstalledEvent("67937858");
+        Thread.sleep(5000);
     }
 
     @When("^the contract configuration api is invoked with the following data$")
