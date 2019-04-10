@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
@@ -24,9 +25,9 @@ import static io.restassured.RestAssured.given;
 public class FalloutServiceSteps implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(FalloutServiceSteps.class);
 
-    private static final String ENDPOINT = "http://fallout-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String ENDPOINT = "https://fallout-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
 
-    private static final String RESOURCE_WORKOBJECTS_COMPLETE_TID = "/v1.0/workobjects/complete/";//{transaction id}
+    private static final String RESOURCE_WORKOBJECTS_COMPLETE_TID = "/v1.0/workobjects/complete/{transactionId}";//{transaction id}
     private static final String RESOURCE_WORKOBJECTS_ITEMS_CONTRACT_MASTER = "/v1.0/workobjects/items/contract-master";
     private static final String RESOURCE_WORKOBJECTS_ITEMS_PRODUCTS_TID = "/v1.0/workobjects/items/products/";//{transaction id}
     private static final String RESOURCE_WORKOBJECTS_ITEMS_READY = "/v1.0/workobjects/items/ready";
@@ -40,6 +41,10 @@ public class FalloutServiceSteps implements IRestStep {
     private Response response;
     private Map<String, String> payload;
 
+    public FalloutServiceSteps(){
+        RestAssured.useRelaxedHTTPSValidation();
+    }
+
     //US1374416 - CMD - Create fallout-service REST endpoints for Contract Management Dashboard
 
     //TEST CASE :: query work objects
@@ -48,7 +53,8 @@ public class FalloutServiceSteps implements IRestStep {
     public void sendStatus(String status) throws Throwable {
         request = given().baseUri(ENDPOINT);
         response = request.get(RESOURCE_WORKOBJECTS_STATUS + status);
-        Assert.assertEquals(response.getStatusCode(), 200);
+
+        Assert.assertEquals(200, response.getStatusCode());
     }
 
     @Then("^the response includes a number of transaction ids with the status of \"([^\"]*)\"$")
@@ -69,9 +75,12 @@ public class FalloutServiceSteps implements IRestStep {
 
     @When("^I send the transaction id \"([^\"]*)\" to work object complete endpoint$")
     public void queryCompleteWorkObjects(String tid) throws Throwable {
-        request = given().baseUri(ENDPOINT);
-        response = request.get(RESOURCE_WORKOBJECTS_COMPLETE_TID + tid);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        request = given().baseUri(ENDPOINT).pathParam("transactionId", tid);
+        response = request.get(RESOURCE_WORKOBJECTS_COMPLETE_TID);
+
+        log.info("response: {}", response.asString());
+
+        Assert.assertEquals(200, response.getStatusCode());
     }
 
     @Then("^the work object is completed$")
@@ -79,7 +88,7 @@ public class FalloutServiceSteps implements IRestStep {
         JsonElement jsonElement = parseJsonElementResponse(response);
         log.info(jsonElement.toString());
         Assert.assertTrue(jsonElement.isJsonPrimitive());
-        Assert.assertNotNull(jsonElement.getAsBoolean());
+        Assert.assertTrue(jsonElement.getAsBoolean());
     }
 
     //TEST CASE :: update work object item contract master
@@ -143,7 +152,7 @@ public class FalloutServiceSteps implements IRestStep {
     public void queryProductGroupList(String tid) throws Throwable {
         request = given().baseUri(ENDPOINT);
         response = request.get(RESOURCE_WORKOBJECTS_ITEMS_PRODUCTS_TID + tid);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(200, response.getStatusCode());
     }
 
     @Then("^the response includes valid product groups$")
@@ -177,7 +186,7 @@ public class FalloutServiceSteps implements IRestStep {
     public void queryWorkObjectItem(String id) throws Throwable {
         request = given().baseUri(ENDPOINT);
         response = request.get(RESOURCE_WORKOBJECTS_ITEMS_ID + id);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(200, response.getStatusCode());
     }
 
     @Then("^the response includes valid contract data$")
@@ -214,7 +223,7 @@ public class FalloutServiceSteps implements IRestStep {
     public void queryWorkObjectCount() throws Throwable {
         request = given().baseUri(ENDPOINT);
         response = request.get(RESOURCE_WORKOBJECTS_OPEN_COUNT);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(200, response.getStatusCode());
     }
 
     @Then("^the response includes the current count$")
