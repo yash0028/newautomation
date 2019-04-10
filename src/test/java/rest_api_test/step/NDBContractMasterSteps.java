@@ -23,17 +23,19 @@ public class NDBContractMasterSteps implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(NDBContractMasterSteps.class);
 
     private static final String ENDPOINT = "http://ndb-contracts-master-api-clm-test.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String RESOURCE_UNET = "/contractmaster/lookup/unet/";
-    private static final String[] UNET_CONTRACT_IDS = {"45597"};
+    private static final String RESOURCE_UNET = "/contractmaster/lookup/{market}";
+    private static final String[] UNET_MARKETS = {"45597"};
 
     private RequestSpecification request;
     private Response response;
     private JsonObject payload;
 
     private void sendUnet() {
-        System.out.println(payload);
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-        response = request.post(RESOURCE_UNET + UNET_CONTRACT_IDS[0]);
+        log.info("payload: {}", payload);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json")
+                .body(payload).pathParam("market", UNET_MARKETS[0]);
+
+        response = request.post(RESOURCE_UNET);
         Assert.assertEquals(200, response.getStatusCode());
     }
 
@@ -52,6 +54,8 @@ public class NDBContractMasterSteps implements IRestStep {
     @And("^the fee schedule \"([^\"]*)\" & the product code group \"([^\"]*)\" & the product code \"([^\"]*)\"$")
     public void createLookupObject(String feeSchedule, String productCodeGroup, String productCode) {
         JsonObject jsonObject = new JsonObject();
+
+        jsonObject.addProperty("system", "unet");
         jsonObject.addProperty("feeSchedule", feeSchedule);
         jsonObject.addProperty("productGroupCode", productCodeGroup);
         jsonObject.addProperty("productCode", productCode);
@@ -85,7 +89,7 @@ public class NDBContractMasterSteps implements IRestStep {
         Assert.assertTrue(result.getAsJsonObject().get("data").isJsonArray());
         for (JsonElement jsonElement : result.getAsJsonObject().get("data").getAsJsonArray()) {
             Assert.assertTrue(jsonElement.isJsonObject());
-            Integer returnCode = Integer.parseInt(jsonElement.getAsJsonObject().get("returnCode").getAsString());
+            int returnCode = Integer.parseInt(jsonElement.getAsJsonObject().get("returnCode").getAsString());
             Assert.assertTrue(returnCode < 1000);
         }
 
@@ -137,7 +141,7 @@ public class NDBContractMasterSteps implements IRestStep {
         Assert.assertTrue(result.getAsJsonObject().get("data").isJsonArray());
         for (JsonElement jsonElement : result.getAsJsonObject().get("data").getAsJsonArray()) {
             Assert.assertTrue(jsonElement.isJsonObject());
-            Integer returnCode = Integer.parseInt(jsonElement.getAsJsonObject().get("returnCode").getAsString());
+            int returnCode = Integer.parseInt(jsonElement.getAsJsonObject().get("returnCode").getAsString());
             Assert.assertTrue(returnCode >= 1000);
         }
     }
