@@ -9,7 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.AbstractRestApi;
 import rest_api_test.api.datastructure.gson.contractmodel.ContractModel;
+import rest_api_test.api.datastructure.gson.fallout.ContractMaster;
 import rest_api_test.api.datastructure.gson.fallout.WorkObjectCount;
+import rest_api_test.api.datastructure.gson.fallout.WorkObjectItem;
 import rest_api_test.api.datastructure.gson.fallout.page.Pageable;
 import rest_api_test.api.datastructure.list.ListProductGroup;
 import rest_api_test.api.datastructure.list.PageTransactionContract;
@@ -264,6 +266,62 @@ public class FalloutHelper extends AbstractRestApi implements IRestStep {
     CLASS METHODS
     WORK OBJECT ITEM CONTRACT MASTER CONTROLLER
      */
+
+    /**
+     * Query for Work Object Item based on id
+     * maps to GET /v1.0/workobjects/items/
+     *
+     * @param id id on Work Object Item
+     * @return Work Object Item with given id
+     */
+    public WorkObjectItem queryWorkObjectItem(String id) {
+        RequestSpecification request = given().baseUri(getEndpoint())
+                .header("Content-Type", "application/json");
+
+        Response response = request.get(RESOURCE_WORKOBJECTS_ITEMS_ID + id);
+        JsonElement jsonElement = parseJsonElementResponse(response);
+
+        WorkObjectItem item = gson.fromJson(jsonElement, WorkObjectItem.class);
+        item.setResponse(response);
+        return item;
+    }
+
+    /**
+     * Creates a Contract Master
+     * maps to POST /v1.0/workobjects/items/contract-masters
+     *
+     * @param contractMaster contract master creation details
+     * @return Response
+     */
+    public Response createWorkObjectItemContractMaster(ContractMaster contractMaster) {
+        String payload = gson.toJson(contractMaster, ContractMaster.class);
+
+        RequestSpecification request = given().baseUri(getEndpoint())
+                .header("Content-Type", "application/json")
+                .body(payload);
+
+        return request.post(RESOURCE_WORKOBJECTS_ITEMS_CONTRACT_MASTER);
+    }
+
+    /**
+     * Update Work Object Item to be ready
+     * maps to PUT /v1.0/workobjects/items/ready
+     *
+     * @param id    id of Work Object Item to mark as Ready
+     * @param ready boolean to mark as ready or not
+     * @return Response
+     */
+    public Response updateWorkObjectItemReady(String id, boolean ready) {
+        JsonObject payload = new JsonObject();
+        payload.addProperty("id", id);
+        payload.addProperty("ready", ready);
+
+        RequestSpecification request = given().baseUri(getEndpoint())
+                .header("Content-Type", "application/json")
+                .body(payload);
+
+        return request.put(RESOURCE_WORKOBJECTS_ITEMS_READY);
+    }
     
     /*
     HELPER METHODS

@@ -2,6 +2,7 @@
 package rest_api_test.api.datastructure.gson.fallout;
 
 import com.google.gson.annotations.Expose;
+import io.restassured.response.Response;
 
 import javax.annotation.Generated;
 import java.util.List;
@@ -34,6 +35,16 @@ public class WorkObjectItem {
     private String transactionId;
     @Expose
     private String type;
+
+    private Response response;
+
+    public Response getResponse() {
+        return response;
+    }
+
+    public void setResponse(Response response) {
+        this.response = response;
+    }
 
     public String getComsosContractNumber() {
         return comsosContractNumber;
