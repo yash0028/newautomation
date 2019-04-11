@@ -2,7 +2,7 @@
 @US1209261
 @releaseUnknown
 @iterationUnknown
-Feature: US1209261 - Provider Network Group
+Feature: US1209261 - Affiliation
 
   @TC701694
   @Manual

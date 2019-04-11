@@ -2,7 +2,7 @@
 @US1234062
 @releaseUnknown
 @iterationUnknown
-Feature: US1234062 - Provider TIN
+Feature: US1234062 - Billing Entity TIN
 
   @TC701695
   @Manual
