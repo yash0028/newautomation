@@ -16,10 +16,12 @@ public interface IRestApi {
 
     default void useDevApi() {
         AbstractRestApi.useDev = true;
+        log.debug("set environment to DEV");
     }
 
     default void useTestApi() {
         AbstractRestApi.useDev = false;
+        log.debug("set environment to TEST");
     }
     
     /*
