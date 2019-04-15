@@ -19,6 +19,8 @@ public class PlaygroundSteps implements IMapSub, ITransactionInteract, IFalloutI
     @Then("^I do something$")
     public void playground() throws Throwable {
 
+        log.info("i am here");
+
 
     }
 }
