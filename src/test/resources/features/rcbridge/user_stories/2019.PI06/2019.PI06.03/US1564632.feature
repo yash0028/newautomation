@@ -3,7 +3,7 @@
 @US1564632
 @2019.PI06
 @2019.PI06.03
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1564632 - Re-Present denied Retro Request to Market Lead for Approval
 

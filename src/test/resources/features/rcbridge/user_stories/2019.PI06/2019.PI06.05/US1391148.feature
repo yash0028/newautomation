@@ -2,8 +2,8 @@
 @US1391148
 @2019.PI06
 @2019.PI06.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1391148 - Validate exari contract data - Add
 
   @TC616906
@@ -15,6 +15,7 @@ Feature: US1391148 - Validate exari contract data - Add
     Then the AMENDMENT passes validation
     And the AMENDMENT continues to applicable next step
 
+  @RC_unlinked
   @TC616907
   @Manual
   @Functional

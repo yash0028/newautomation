@@ -4,7 +4,7 @@
 @US1665522
 @2019.PI06
 @2019.PI06.04
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1665522 - Modify denied by ML retro approval request
 

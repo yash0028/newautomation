@@ -1,7 +1,7 @@
 # Last updated on 
 @US1665582
 @2019.PI07
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1665582 - Name of people who approved retro
 

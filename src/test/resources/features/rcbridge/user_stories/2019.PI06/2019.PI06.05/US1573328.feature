@@ -2,8 +2,8 @@
 @US1573328
 @2019.PI06
 @2019.PI06.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1573328 - Pass contract information to downstream [Cosmos]
 
   @TC743505

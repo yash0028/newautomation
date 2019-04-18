@@ -1,42 +1,43 @@
 # Last updated on 
-@US1536889
+@US1573747
 @2019.PI06
-@releasePresent
-@iterationUnknown
-Feature: US1536889 - Validate contract data - cancel [NDB]
+@2019.PI07.01
+@releasePast
+@iterationPresent
+Feature: US1573747 - Validate contract data - cancel [Cosmos]
 
-  @TC703939
+  @TC720669
   @Manual
   @Functional
-  Scenario: TC703939 - [RL0]
+  Scenario: TC720669 - [RL0]
     Given an CONTRACT TERMS UPDATED TRANSACTION is received
     When the AMENDMENT contains at least one PRODUCT GROUP
     Then the AMENDMENT passes validation
     And the AMENDMENT continues to applicable next step
 
-  @TC703941
+  @TC720678
   @Manual
   @Functional
-  Scenario: TC703941 - [RL1]
+  Scenario: TC720678 - [RL1]
     Given an CONTRACT TERMS UPDATED TRANSACTION is received
     When the AMENDMENT Does Not contain at least one PRODUCT GROUP
     Then the AMENDMENT Does NOT pass validation
     And a Type 3 error generated and logged
     And a message generated 'AMENDMENT MISSING PRODUCT GROUP'
 
-  @TC703942
+  @TC720684
   @Manual
   @Functional
-  Scenario: TC703942 - [RL2]
+  Scenario: TC720684 - [RL2]
     Given a CONTRACT TERMS UPDATED TRANSACTION event is received
     When the CONTRACT TERMS UPDATED TRANSACTION record includes at least one PRODUCT GROUP to cancel
     Then the CONTRACT TERMS UPDATED TRANSACTION passes validation
     And the CONTRACT TERMS UPDATED TRANSACTION continues to applicable next step in process
 
-  @TC703943
+  @TC720688
   @Manual
   @Functional
-  Scenario: TC703943 - [RL3]
+  Scenario: TC720688 - [RL3]
     Given a CONTRACT TERMS UPDATED TRANSACTION event is received
     When the CONTRACT TERMS UPDATED TRANSACTION record does not contain one or more PRODUCT GROUP records to cancel
     Then the CONTRACT TERMS UPDATED TRANSACTION does not pass validation

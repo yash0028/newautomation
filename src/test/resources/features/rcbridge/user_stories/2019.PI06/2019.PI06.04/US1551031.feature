@@ -2,7 +2,7 @@
 @US1551031
 @2019.PI06
 @2019.PI06.04
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1551031 - Store the Product Group's updated Contract Master in the Contract's permanent configuration record
 

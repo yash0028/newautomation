@@ -2,7 +2,7 @@
 @US1636252
 @2019.PI06
 @2019.PI06.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1636252 - [Unfinished] Route and Present Retro Request to Market Lead
 

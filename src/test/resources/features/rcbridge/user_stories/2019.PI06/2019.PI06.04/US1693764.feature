@@ -2,7 +2,7 @@
 @US1693764
 @2019.PI06
 @2019.PI06.04
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1693764 - [Unfinished] Pass contract information to downstream - COSMOS
 

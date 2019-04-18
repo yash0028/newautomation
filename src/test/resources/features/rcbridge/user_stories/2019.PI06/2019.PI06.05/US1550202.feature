@@ -4,8 +4,8 @@
 @US1550202
 @2019.PI06
 @2019.PI06.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1550202 - Present Retro Request to LOB COO for Approval
 
   @TC743398

@@ -1,6 +1,6 @@
 # Last updated on 
 @US1561165
-@2019.PI06
+@2019.PI07
 @releasePresent
 @iterationUnknown
 Feature: US1561165 - Change scripts to start-up Mass Action microservicesv (DevOps)

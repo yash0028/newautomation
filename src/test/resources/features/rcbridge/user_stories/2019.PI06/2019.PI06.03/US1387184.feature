@@ -2,7 +2,7 @@
 @US1387184
 @2019.PI06
 @2019.PI06.03
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1387184 - Validate roster data (Validator)
 

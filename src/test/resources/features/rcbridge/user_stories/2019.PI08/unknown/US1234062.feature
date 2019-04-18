@@ -1,6 +1,7 @@
 # Last updated on 
 @US1234062
-@releaseUnknown
+@2019.PI08
+@releaseFuture
 @iterationUnknown
 Feature: US1234062 - Billing Entity TIN
 

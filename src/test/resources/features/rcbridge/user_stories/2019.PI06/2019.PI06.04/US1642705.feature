@@ -5,7 +5,7 @@
 @US1642705
 @2019.PI06
 @2019.PI06.04
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1642705 - LOB must be selected
 

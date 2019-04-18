@@ -1,8 +1,9 @@
 # Last updated on 
 @US1536922
 @2019.PI06
-@releasePresent
-@iterationUnknown
+@2019.PI07.01
+@releasePast
+@iterationPresent
 Feature: US1536922 - Receive and recognize product cancel events/transactions from Exari
 
   @TC743495

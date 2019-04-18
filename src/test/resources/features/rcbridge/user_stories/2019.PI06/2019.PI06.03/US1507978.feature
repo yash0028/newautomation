@@ -2,7 +2,7 @@
 @US1507978
 @2019.PI06
 @2019.PI06.03
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1507978 - Receive and recognize roster events/transactions from Exari
 

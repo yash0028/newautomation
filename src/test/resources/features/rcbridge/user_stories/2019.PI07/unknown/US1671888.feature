@@ -1,7 +1,7 @@
 # Last updated on 
 @US1671888
 @2019.PI07
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1671888 - Add attachments
 

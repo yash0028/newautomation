@@ -2,8 +2,8 @@
 @US1665774
 @2019.PI06
 @2019.PI06.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1665774 - [Continued] Pass contract information to downstream - COSMOS - Fee Schedule
 
   @TC765087

@@ -2,8 +2,8 @@
 @US1573319
 @2019.PI06
 @2019.PI06.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1573319 - Validate contract data - Add [NDB and Cosmos]
 
   @TC720666
@@ -15,6 +15,7 @@ Feature: US1573319 - Validate contract data - Add [NDB and Cosmos]
     Then the AMENDMENT passes validation
     And the AMENDMENT continues to applicable next step
 
+  @RC_unlinked
   @TC720677
   @Manual
   @Functional
@@ -25,6 +26,7 @@ Feature: US1573319 - Validate contract data - Add [NDB and Cosmos]
     And a Type 3 error generated and logged
     And a message generated 'AMENDMENT MISSING PRODUCT GROUP'
 
+  @RC_unlinked
   @TC720683
   @Manual
   @Functional
@@ -34,6 +36,7 @@ Feature: US1573319 - Validate contract data - Add [NDB and Cosmos]
     Then the CONTRACT AMENDED TRANSACTION passes validation
     And the CONTRACT AMENDED TRANSACTION continues to applicable next step in process
 
+  @RC_unlinked
   @TC720687
   @Manual
   @Functional

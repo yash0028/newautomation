@@ -1,7 +1,7 @@
 # Last updated on 
 @US1671061
 @2019.PI07
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1671061 - User group has no users
 

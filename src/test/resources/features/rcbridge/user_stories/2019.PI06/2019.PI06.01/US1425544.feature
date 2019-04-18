@@ -2,7 +2,7 @@
 @US1425544
 @2019.PI06
 @2019.PI06.01
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1425544 - Demostrate resolving a Type 2 error transactions in COSMOS
 

@@ -2,8 +2,8 @@
 @US1564752
 @2019.PI07
 @2019.PI07.01
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1564752 - Re-present Denial/Request More Info To LOB COO
 
   @TC721874

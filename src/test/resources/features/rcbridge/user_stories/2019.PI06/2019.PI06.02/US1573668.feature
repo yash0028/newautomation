@@ -2,7 +2,7 @@
 @US1573668
 @2019.PI06
 @2019.PI06.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1573668 - CMD UTILITY (Exari/Team 1 effort) - Our Legal Entities External Data Query with Exari
 

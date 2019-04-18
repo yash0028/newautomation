@@ -3,7 +3,7 @@
 @US1562019
 @2019.PI06
 @2019.PI06.03
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1562019 - Email Market Lead that Approval Request Task Was Routed To Them
 

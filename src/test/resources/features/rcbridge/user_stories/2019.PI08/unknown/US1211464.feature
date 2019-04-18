@@ -1,7 +1,8 @@
 # Last updated on 
 @CMD2
 @US1211464
-@releaseUnknown
+@2019.PI08
+@releaseFuture
 @iterationUnknown
 Feature: US1211464 - Contract Master search based on Service Location Market Number
 

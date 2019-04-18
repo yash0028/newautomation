@@ -3,8 +3,8 @@
 @US1552969
 @2019.PI06
 @2019.PI06.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1552969 - LOB COO Decision- Approved - move to monitor phase
 
   @TC721363

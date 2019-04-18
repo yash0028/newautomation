@@ -2,7 +2,7 @@
 @US1398353
 @2019.PI06
 @2019.PI06.04
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1398353 - Cancel / End Contract Masters on the ContractConfiguration Record (OCM)
 
