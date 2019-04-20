@@ -10,7 +10,7 @@ Feature: US1573722 - Present Retro Request to Network COO and operations COO for
   @Manual
   @Functional
   Scenario: TC743510 - [RL0]
-    Given initiator has requested network & operations COO approval
+    Given initiator has requested network coo & operations COO approval
     When the network COO and operations COO are each assigned a task
     Then the notification for retro approval request email is sent to the network COO and operations COO as contained within the "Initiate Retro Form" (re-use the same email that was created for the ML US1562019)
     And all the data in fields from the retro form are displayed and can't be modified

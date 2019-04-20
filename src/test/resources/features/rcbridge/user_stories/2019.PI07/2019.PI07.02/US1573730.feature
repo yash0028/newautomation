@@ -10,8 +10,8 @@ Feature: US1573730 - Network COO and operations COO Deny or Request More info on
   @Manual
   @Functional
   Scenario: TC730582 - [RL0]
-    Given a task is assigned to the network COO and operations COO by the initiator
-    When network COO and operations COO selects 'Deny' or Request More Info'
+    Given a task is assigned to each the network COO and operations COO by the initiator
+    When they selects 'Deny' or Request More Info' on their task
     And a mandatory reason is provided for the denial or the more info needed
     Then a retro task is created for the Initiator
 
