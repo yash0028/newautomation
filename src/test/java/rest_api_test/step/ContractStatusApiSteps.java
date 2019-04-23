@@ -25,7 +25,7 @@ public class ContractStatusApiSteps implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(TransactionSteps.class);
 
     private final String ENDPOINT = "http://contract-status-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private final String RESOURCE_CONTRACT_STATUS = "/v1.0/contract_status";
+    private final String RESOURCE_CONTRACT_STATUS = "/v1.0/contract-status";
 
     private final String TX_ENDPOINT = "https://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private final String RESOURCE_TRANSACTION_STATUS = "/v1.0/transactions/results";
@@ -61,10 +61,10 @@ public class ContractStatusApiSteps implements IRestStep {
         resultStatus.add("SUCCESS");
         payload.add("resultStatus", resultStatus);
         JsonArray sortFields = new JsonArray();
-        sortFields.add("id");
+        sortFields.add("timestamp");
         payload.add("sortFields", sortFields);
 
-        log.trace(payload.toString());
+        log.info(payload.toString());
 
         //send payload
         RestAssured.useRelaxedHTTPSValidation();
@@ -79,6 +79,7 @@ public class ContractStatusApiSteps implements IRestStep {
 
         // query fallout to get contract ID
         response = given().baseUri(FALLOUT_ENDPOINT).get(RESOURCE_CONTRACT_DETAILS.concat("/").concat(txId));
+        log.info(response.asString());
         result = parseJsonElementResponse(response);
         contractId = result.getAsJsonObject().get("contractID").getAsString();
     }
@@ -86,8 +87,9 @@ public class ContractStatusApiSteps implements IRestStep {
     @And("a call to the Optum Transaction Status with the Exari contract ID and Exari Transaction ID for the install contract event")
     public void aCallToTheOptumTransactionStatusWithTheExariContractIDAndExariTransactionIDForTheInstallContractEvent() {
         // finally check
-        response = given().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS
+        response = given().log().everything().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS
             .concat("/").concat(contractId));
+        log.info(response.asString());
         Assert.assertEquals(200, response.getStatusCode());
     }
 
