@@ -15,3 +15,21 @@ Feature: US1606165 - Update CMD application to leverage the additional roles (Su
     And SiteMinder has been updated to recognize the new roles for access to CMD
     Then the user can access the CMD application with these new roles and this user story will be considered complete.
 
+  @TC796858
+  @Manual
+  @Functional
+  Scenario: TC796858 - [RL1]
+    Given I am a user with the CLM_PHY_CMD_NET_USERS_NONPRD role
+    When I am in CMD
+    Then I have read-only access to the action required items
+    And I cannot access the Reference Data pages
+
+  @TC796859
+  @Manual
+  @Functional
+  Scenario: TC796859 - [RL2]
+    Given I am a user with the CLM_PHY_CMD_BUS_USERS_NONPRD role
+    When I am in CMD
+    Then I have edit access to the action required items
+    And I cannot access the Reference Data pages
+
