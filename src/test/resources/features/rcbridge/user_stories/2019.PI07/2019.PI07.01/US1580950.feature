@@ -13,7 +13,7 @@ Feature: US1580950 - Modify Request for information by LOB COO retro approval re
   @Functional
   @Arvind
   @Visio
-  Scenario: TC743501 - [RL0]
+  Scenario: TC743501 - [RL0]And any LOB COO that has responded will not see the updated information
     Given the initiated form is returned to the requestor due to a LOB COO requesting more info
     When the requestor opens the task for that particular LOB COO requesting more info
     Then the details on the form can be modified again
