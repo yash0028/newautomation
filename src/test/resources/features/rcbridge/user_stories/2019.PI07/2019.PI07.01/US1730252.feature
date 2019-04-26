@@ -4,7 +4,7 @@
 @2019.PI07.01
 @releasePresent
 @iterationPresent
-Feature: US1730252 - Proof of Concept testing
+Feature: US1730252 - Locations Feature Proof of Concept testing
 
   @TC795816
   @Manual
