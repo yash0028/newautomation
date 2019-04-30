@@ -22,6 +22,6 @@ public interface IUiStep extends IConfigurable {
     default boolean isRemoteDriver() {
         Optional<String> buildNum = configGetOptionalString("BUILD_NUMBER");
         boolean isOnJenkins = buildNum.isPresent() && !buildNum.get().isEmpty();
-        return isOnJenkins || !configGetBoolean("runLocalBrowser");
+        return isOnJenkins || !configGetBoolean("ui.runLocalBrowser");
     }
 }

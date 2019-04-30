@@ -91,11 +91,11 @@ public class LocalDriver implements IConfigurable, IFileReader {
     private String getDriverPath() {
         Optional<String> os;
         if (SystemUtils.IS_OS_WINDOWS) {
-            os = configGetOptionalString("windows32DriverName");
+            os = configGetOptionalString("ui.windows32DriverName");
         } else if (SystemUtils.IS_OS_MAC) {
-            os = configGetOptionalString("mac64DriverName");
+            os = configGetOptionalString("ui.mac64DriverName");
         } else if (SystemUtils.IS_OS_LINUX) {
-            os = configGetOptionalString("linux64DriverName");
+            os = configGetOptionalString("ui.linux64DriverName");
         } else {
             os = Optional.empty();
         }
