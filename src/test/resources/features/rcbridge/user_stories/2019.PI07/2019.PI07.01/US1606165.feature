@@ -18,7 +18,7 @@ Feature: US1606165 - Update CMD application to leverage the additional roles (Su
   @TC796858
   @Manual
   @Functional
-  Scenario: TC796858 - [RL1]
+  Scenario: TC796858 - [RL1] Validate Network role
     Given I am a user with the CLM_PHY_CMD_NET_USERS_NONPRD role
     When I am in CMD
     Then I have read-only access to the action required items
@@ -27,7 +27,7 @@ Feature: US1606165 - Update CMD application to leverage the additional roles (Su
   @TC796859
   @Manual
   @Functional
-  Scenario: TC796859 - [RL2]
+  Scenario: TC796859 - [RL2] Validate Business role
     Given I am a user with the CLM_PHY_CMD_BUS_USERS_NONPRD role
     When I am in CMD
     Then I have edit access to the action required items
@@ -36,7 +36,7 @@ Feature: US1606165 - Update CMD application to leverage the additional roles (Su
   @TC804135
   @Manual
   @Functional
-  Scenario: TC804135 - [RL3]
+  Scenario: TC804135 - [RL3] Validate OPS role
     Given I am a user with the CLM_PHY_CMD_OPS_USERS_NONPRD role
     When I am in CMD
     Then I have edit access to the action required items
