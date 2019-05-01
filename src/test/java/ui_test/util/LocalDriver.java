@@ -18,7 +18,6 @@ public class LocalDriver implements IConfigurable, IFileReader {
 
     private WebDriver driver;
 
-
     /*
     CONSTRUCTOR
      */
@@ -82,7 +81,7 @@ public class LocalDriver implements IConfigurable, IFileReader {
             driver = new ChromeDriver(chromeOptions);
             driver.manage().deleteAllCookies();
             driver.manage().window().maximize();
-            driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
+            driver.manage().timeouts().pageLoadTimeout(AbstractPageElements.TIMEOUT, TimeUnit.SECONDS);
         } catch (Exception e) {
             log.error("unable to create driver", e);
         }

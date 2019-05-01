@@ -17,12 +17,10 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import static ui_test.util.AbstractPageElements.TIMEOUT;
+
 public interface IWebInteract {
     Logger log = LoggerFactory.getLogger(IWebInteract.class);
-
-    @Deprecated
-    int TIMEOUT = 90;
-    //Use AbstractPageElements.TIMEOUT if you need the timeout
 
     /*
     INTERFACE METHODS
