@@ -115,11 +115,11 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
 
         //Setup Browser
         builder.withBrowserName(configGetOptionalString("ui.sauce.defaultBrowserName"));
-        builder.withBrowserVersion(configGetOptionalString("ui.sauce.defaultBrowserVersion"));
+//        builder.withBrowserVersion(configGetOptionalString("ui.sauce.defaultBrowserVersion"));
 
         //Setup Platform
         builder.withPlatformName(configGetOptionalString("ui.sauce.defaultPlatformName"));
-        builder.withPlatformVersion(configGetOptionalString("ui.sauce.defaultPlatformVersion"));
+//        builder.withPlatformVersion(configGetOptionalString("ui.sauce.defaultPlatformVersion"));
 
         //Setup Job Name
         builder.withJobNameJenkinsBuild(configGetOptionalString("BUILD_TAG"));
@@ -139,6 +139,7 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
         //Setup Other
         builder.doAutoAcceptAlerts(configGetOptionalBoolean("ui.sauce.autoAcceptAlerts"));
         builder.doExtendedDebugging(configGetBoolean("ui.sauce.extendedDebugging"));
+        builder.withVisibility(configGetOptionalString("ui.sauce.visibility"));
 
         return builder;
     }

@@ -398,7 +398,9 @@ class SauceLabs {
                     break;
             }
 
-            capabilities.setCapability(CapabilityType.BROWSER_VERSION, this.browserVersion);
+            if (this.browserVersion != null && this.browserVersion.length() > 0) {
+                capabilities.setCapability(CapabilityType.BROWSER_VERSION, this.browserVersion);
+            }
 
             return capabilities;
         }
@@ -406,8 +408,7 @@ class SauceLabs {
         private MutableCapabilities buildPlatform() {
             MutableCapabilities cap = new MutableCapabilities();
 
-            cap.setCapability(CapabilityType.PLATFORM_NAME, this.platformName);
-            cap.setCapability(CapabilityType.VERSION, this.platformVersion);
+            cap.setCapability("platform", this.platformName);
 
             return cap;
         }
@@ -418,7 +419,10 @@ class SauceLabs {
 
             nameBuilder.append("[");
             if (this.jobNameJenkins == null || this.jobNameJenkins.length() == 0) {
-                nameBuilder.append("LOCAL");
+                String user = configGetOptionalString("user.name")
+                        .orElse(configGetOptionalString("USER")
+                                .orElse(this.username));
+                nameBuilder.append("LOCAL-").append(user.toUpperCase());
             } else {
                 nameBuilder.append(this.jobNameJenkins);
             }
@@ -433,7 +437,7 @@ class SauceLabs {
             nameBuilder.append(" - ").append(this.browserName.toUpperCase());
 
             if (this.browserVersion != null && this.browserVersion.length() > 0) {
-                nameBuilder.append(" (").append(this.browserVersion).append(")");
+                nameBuilder.append(" (v ").append(this.browserVersion).append(")");
             }
 
             cap.setCapability("name", nameBuilder.toString());
@@ -446,7 +450,10 @@ class SauceLabs {
             StringBuilder nameBuilder = new StringBuilder();
 
             if (this.buildName == null || this.buildName.length() == 0) {
-                nameBuilder.append(this.username).append("::").append(TimeKeeper.getInstance().getStartTimeISO());
+                String user = configGetOptionalString("user.name")
+                        .orElse(configGetOptionalString("USER")
+                                .orElse(this.username));
+                nameBuilder.append(user).append("::").append(TimeKeeper.getInstance().getStartTimeISO());
             } else {
                 nameBuilder.append(this.buildName);
             }
