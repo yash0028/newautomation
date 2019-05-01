@@ -24,7 +24,6 @@ import java.util.Map;
 public class UtilityUISteps implements IUiStep, IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(UtilityUISteps.class);
 
-    private boolean parametricBrowser = false;
     private Scenario parameterScenaio;
 
     /**
@@ -36,7 +35,7 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
     public void openConnection(Scenario scenario) {
         //Check if the scenario uses parametric browser
         //If using the parametric browser, the scenario must include a step to create the browser
-        if (!scenario.getSourceTagNames().contains("parametric_browser")) {
+        if (!scenario.getSourceTagNames().contains("@parametric_browser")) {
             //Create browser driver
             if (isRemoteDriver()) {
                 SauceLabs.reset(getDefaultSauceBuilder(scenario.getName()));
@@ -51,7 +50,7 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
     }
 
     @After(value = "@User_Interface", order = -1 * (BookendOrder.UI - 1))
-    public void takeScreenshot() {
+    public void endLinkAndScreenshot() {
         Scenario scenario = UtilityGeneralSteps.scenario;
 
         try {
@@ -95,6 +94,12 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
 
     @Given("^I am using a parametric browser with the following capabilities$")
     public void prepareParametricBrowser(DataTable table) {
+        //Check if parametric
+        if (parameterScenaio == null) {
+            assert false;
+            return;
+        }
+
         Map<String, String> map = table.asMap(String.class, String.class);
 
         //Create browser driver
