@@ -2,8 +2,9 @@
 @Sheham
 @US1549140
 @2019.PI07
+@2019.PI07.02
 @releasePresent
-@iterationUnknown
+@iterationFuture
 Feature: US1549140 - Add NPPP users as involved in all retro approval requests
 
   @TC717639
@@ -29,7 +30,7 @@ Feature: US1549140 - Add NPPP users as involved in all retro approval requests
   @Functional
   @Sheham
   Scenario: TC784565 - [RL2]
-    Given a task needs to be created for a Network COO in the retro process
+    Given a task needs to be created for a Network COO and Operations COO in the retro process
     When the task is created
     Then the NPPP users are automatically added as "Involved Users" for the Network COO tasks
 
