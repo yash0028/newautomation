@@ -1,7 +1,7 @@
 # Last updated on 
 @US1742087
 @2019.PI07
-@2019.PI07.01
+@2019.PI07.02
 @releasePresent
 @iterationPresent
 Feature: US1742087 - Select the Reassign MPIN

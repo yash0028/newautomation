@@ -3,7 +3,7 @@
 @2019.PI07
 @2019.PI07.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1730252 - Locations Feature Proof of Concept testing
 
   @TC795816

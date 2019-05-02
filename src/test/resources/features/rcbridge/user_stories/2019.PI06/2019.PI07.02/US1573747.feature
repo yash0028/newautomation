@@ -1,7 +1,7 @@
 # Last updated on 
 @US1573747
 @2019.PI06
-@2019.PI07.01
+@2019.PI07.02
 @releasePast
 @iterationPresent
 Feature: US1573747 - Validate contract data - cancel [Cosmos]

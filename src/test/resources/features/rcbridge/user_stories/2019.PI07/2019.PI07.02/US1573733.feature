@@ -3,7 +3,7 @@
 @2019.PI07
 @2019.PI07.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1573733 - Network COO and Operations COO Approves
 
   @TC743349

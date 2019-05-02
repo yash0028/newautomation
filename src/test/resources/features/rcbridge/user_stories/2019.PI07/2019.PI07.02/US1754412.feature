@@ -3,15 +3,15 @@
 @2019.PI07
 @2019.PI07.02
 @releasePresent
-@iterationFuture
-Feature: US1754412 - Enable MGA Paper Type for Integrations
+@iterationPresent
+Feature: US1754412 - Enhance validation edits to allow all Professional/Group (HCFA) contract paper types for Integrations
 
   @TC804731
   @Manual
   @Functional
   Scenario: TC804731 - [RL0]
     Given a valid Exari contract transaction is received
-    When the contract paper type is MGA
+    When the contract paper type is present in the UCM
     Then the contract passes validation
     ###
 

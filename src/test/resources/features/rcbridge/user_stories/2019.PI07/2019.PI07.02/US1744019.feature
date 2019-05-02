@@ -1,7 +1,7 @@
 # Last updated on 
 @US1744019
 @2019.PI07
-@2019.PI07.01
+@2019.PI07.02
 @releasePresent
 @iterationPresent
 Feature: US1744019 - Validate PCP retains membership

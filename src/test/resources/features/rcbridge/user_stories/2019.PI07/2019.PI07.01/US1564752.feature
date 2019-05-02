@@ -4,7 +4,7 @@
 @2019.PI07
 @2019.PI07.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1564752 - Re-present Request More Info To LOB COO
 
   @TC721874

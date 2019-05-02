@@ -5,7 +5,7 @@
 @2019.PI07
 @2019.PI07.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1580950 - Modify Request for information by LOB COO retro approval request
 
   @TC743501
