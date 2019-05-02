@@ -9,9 +9,20 @@ Feature: US1754412 - Enhance validation edits to allow all Professional/Group (H
   @TC804731
   @Manual
   @Functional
-  Scenario: TC804731 - [RL0]
-    Given a valid Exari contract transaction is received
+  Scenario Outline: TC804731 - [RL0]
+    Given a valid Exari contract transaction is received of the paper type "<paperType>"
     When the contract paper type is present in the UCM
     Then the contract passes validation
-    ###
+    Examples:
+      | paper Type |
+      | SPA        |
+      | SMGA       |
+      | SPGA       |
+      | MGA        |
+      | IPA        |
+      | PHO        |
+      | FQHC       |
+      | RHC        |
+      | POPA       |
+      | Ancillary  |
 
