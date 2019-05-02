@@ -18,7 +18,6 @@ public class LocalDriver implements IConfigurable, IFileReader {
 
     private WebDriver driver;
 
-
     /*
     CONSTRUCTOR
      */
@@ -82,7 +81,7 @@ public class LocalDriver implements IConfigurable, IFileReader {
             driver = new ChromeDriver(chromeOptions);
             driver.manage().deleteAllCookies();
             driver.manage().window().maximize();
-            driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
+            driver.manage().timeouts().pageLoadTimeout(AbstractPageElements.TIMEOUT, TimeUnit.SECONDS);
         } catch (Exception e) {
             log.error("unable to create driver", e);
         }
@@ -91,11 +90,11 @@ public class LocalDriver implements IConfigurable, IFileReader {
     private String getDriverPath() {
         Optional<String> os;
         if (SystemUtils.IS_OS_WINDOWS) {
-            os = configGetOptionalString("windows32DriverName");
+            os = configGetOptionalString("ui.windows32DriverName");
         } else if (SystemUtils.IS_OS_MAC) {
-            os = configGetOptionalString("mac64DriverName");
+            os = configGetOptionalString("ui.mac64DriverName");
         } else if (SystemUtils.IS_OS_LINUX) {
-            os = configGetOptionalString("linux64DriverName");
+            os = configGetOptionalString("ui.linux64DriverName");
         } else {
             os = Optional.empty();
         }
