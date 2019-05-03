@@ -107,6 +107,8 @@ public class ContractStatusApiSteps implements IRestStep {
                 txStatus = "MANUAL_HOLD";
                 break;
             case "Partial Success":
+                txResult = "PENDING";
+                txStatus = "MANUAL_HOLD_TYPE_2";
                 break;
         }
         JsonElement result = parseJsonElementResponse(response);
@@ -134,19 +136,18 @@ public class ContractStatusApiSteps implements IRestStep {
     @When("the contract's installation process generates a Type {int} error for {int} of N Contract Line Adds")
     public void theContractSInstallationProcessGeneratesATypeErrorForOfNContractLineAdds(int arg0, int arg1) {
         // TODO:
-        // this will work, but contract-status-api needs to be aware of contracts before it does
-        // once the DB is cleared and contracts flow thru again this can be automated
-        // for now it is manual
+        //   fix fallout call once pagination schema is fixed in the backend
 
         RestAssured.useRelaxedHTTPSValidation();
         response = given().baseUri(FALLOUT_ENDPOINT).get(
                 RESOURCE_CONTRACT_SUMMARIES.concat("/")
-                        .concat("TYPE_2_ERROR"));
+                        .concat("TYPE_2_ERROR")
+                        .concat("?sort=timestamp,desc"));
         JsonElement result = parseJsonElementResponse(response);
-        result.getAsJsonObject();
+        System.out.println(result.getAsJsonObject());
         JsonArray results = result.getAsJsonObject().get("content").getAsJsonArray();
         contractId = results
-                .get((results.size() - 1))
+                .get(0)
                 .getAsJsonObject()
                 .get("contractId").getAsString();
     }
