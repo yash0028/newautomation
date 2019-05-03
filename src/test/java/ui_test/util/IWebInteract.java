@@ -17,12 +17,10 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import static ui_test.util.AbstractPageElements.TIMEOUT;
+
 public interface IWebInteract {
     Logger log = LoggerFactory.getLogger(IWebInteract.class);
-
-    @Deprecated
-    int TIMEOUT = 90;
-    //Use AbstractPageElements.TIMEOUT if you need the timeout
 
     /*
     INTERFACE METHODS
@@ -283,6 +281,49 @@ public interface IWebInteract {
 
     default boolean hover(WebElement element) {
         return hover("element", element);
+    }
+
+    /**
+     * Click on a webelement by using traditional methods, if that fails use JS to click.
+     *
+     * @param elementName name of the element for logging
+     * @param element     web element to be clicked
+     * @return boolean if the element was clicked without error
+     */
+    default boolean clickWithForce(String elementName, WebElement element) {
+        return click(elementName, element) || _CLICK_WITH_JS(elementName, element);
+    }
+
+    /**
+     * Click on a webelement by using traditional methods, if that fails use JS to click.
+     *
+     * @param element web element to be clicked
+     * @return boolean if the element was clicked without error
+     */
+    default boolean clickWithForce(WebElement element) {
+        return click("js-element", element) || _CLICK_WITH_JS("js-element", element);
+    }
+
+    /**
+     * DO NOT USE, ONLY HERE TO RESOLVE A BUG. USE 'clickWithForce' IF AND ONLY IF 'click' does not work.
+     * Click an element with Javascript.
+     *
+     * @param elementName name of the element to click
+     * @param element     webelement to be clicked
+     * @return boolean if the element was clicked without error
+     */
+    default boolean _CLICK_WITH_JS(String elementName, WebElement element) {
+        try {
+            highlight(element);
+            JavascriptExecutor executor = (JavascriptExecutor) getDriver();
+            executor.executeScript("arguments[0].click();", element);
+            log.trace("clicked with js on {}", elementName);
+        } catch (Exception e) {
+            log.error("click with js on {} failed", elementName, e);
+            return false;
+        }
+
+        return true;
     }
 
     default Set<String> getWindows() {

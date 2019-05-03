@@ -2,12 +2,12 @@
 @US1660202
 @2019.PI06
 @2019.PI06.04
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1660202 - Create service to provide Transaction installation status to Exari
 
   @TC759646
-  @Manual
+  @Automated
   @Functional
   Scenario: TC759646 - [RL0]
     Given a new contract exists in Exari that has just become 'Active'
@@ -16,7 +16,7 @@ Feature: US1660202 - Create service to provide Transaction installation status t
     Then the Optum service should return the status of that installation transaction as 'Successful'
 
   @TC759650
-  @Manual
+  @Automated
   @Functional
   Scenario: TC759650 - [RL1]
     Given a new contract exists in Exari that has just become 'Active'
@@ -35,7 +35,7 @@ Feature: US1660202 - Create service to provide Transaction installation status t
     Then the Optum service should return the status of that installation transaction as 'Successful'
 
   @TC759654
-  @Manual
+  @Automated
   @Functional
   Scenario: TC759654 - [RL3]
     Given a new contract exists in Exari that has just become 'Active'
@@ -53,6 +53,7 @@ Feature: US1660202 - Create service to provide Transaction installation status t
     And a call to the Optum Transaction Status with the Exari contract ID and Exari Transaction ID for the install contract event
     Then the Optum service should return the status of that installation transaction as 'Successful'
 
+  @RC_unlinked
   @TC759656
   @Manual
   @Functional

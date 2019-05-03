@@ -1,22 +1,29 @@
 # Last updated on 
+@Arvind
+@Suman
 @US1550202
 @2019.PI06
 @2019.PI06.05
-@releasePresent
-@iterationFuture
+@releasePast
+@iterationPast
 Feature: US1550202 - Present Retro Request to LOB COO for Approval
 
   @TC743398
   @Manual
   @Functional
+  @Arvind
+  @Suman
   Scenario: TC743398 - [RL0]
-    Given NPPP has requested LOB COO approval
-    When they complete the task
-    Then the request will be routed to the appropriate LOB COO's task list
+    Given the task is completed and reviewed by NPPP
+    When NPPP chooses "COO Approval Needed"
+    Then the notification for retro approval request email is sent to each impacted COO as contained within the "Initiate Retro Form" (re-use the same email that was created for the ML US1562019)
+    And a task is assigned to each impacted COO task list to take decision
 
   @TC765086
   @Manual
   @Functional
+  @Arvind
+  @Suman
   Scenario: TC765086 - [RL1]
     Given NPPP has requested LOB COO approval
     When the LOB COO opens the task
@@ -25,6 +32,8 @@ Feature: US1550202 - Present Retro Request to LOB COO for Approval
   @TC765090
   @Manual
   @Functional
+  @Arvind
+  @Suman
   Scenario: TC765090 - [RL2]
     Given NPPP has requested LOB COO approval
     When the task is routed to LOB COO
@@ -33,13 +42,13 @@ Feature: US1550202 - Present Retro Request to LOB COO for Approval
   @TC765092
   @Manual
   @Functional
+  @Arvind
+  @Suman
   Scenario: TC765092 - [RL3]
     Given NPPP has requested LOB COO approval
     When the LOB COO opens the task
-    Then there is a "E&I LOB COO Decision" section at the top
-    And there is a "M&R LOB COO Decision" section at the top
-    And there is a "C&S LOB COO Decision" section at the top
-    And there is Help text "Please review the below information regarding a Retro Approval Request. You will need to Approve , Request More Information, or Deny the request within 2 business days. If denying the request, a Denial Reason and Comments are required."
+    Then they see <LOB name> LOB COO Decision (based upon the LOBs selected by the initiator)
+    And there is Help text "Please review the below information regarding a Retro Approval Request. You will need to Approve, Request More Information, or Deny the request within 2 business days. If denying the request, a Denial Reason and Comments are required."
     And LOB COO has 3 decision options- "Approve", "Deny", "Request More Info"
     And a comments field to write in user input - "Comments" field is mandatory
     # Note- System must capture date and time of the comments added.
@@ -47,6 +56,8 @@ Feature: US1550202 - Present Retro Request to LOB COO for Approval
   @TC765093
   @Manual
   @Functional
+  @Arvind
+  @Suman
   Scenario: TC765093 - [RL4]
     Given an "initiate retro" request task is opened by a LOB COO
     When the LOB COO selects "Deny"

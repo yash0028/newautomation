@@ -2,7 +2,7 @@
 @US1516349
 @2019.PI06
 @2019.PI06.01
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1516349 - [Continued] Implement Serialize Contract Updates
 

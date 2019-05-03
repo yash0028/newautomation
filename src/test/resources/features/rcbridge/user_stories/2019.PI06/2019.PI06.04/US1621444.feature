@@ -5,8 +5,8 @@
 @US1621444
 @2019.PI06
 @2019.PI06.04
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1621444 - Modify denied by NPPP retro approval request
 
   @TC743381

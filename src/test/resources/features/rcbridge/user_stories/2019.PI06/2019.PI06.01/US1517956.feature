@@ -3,7 +3,7 @@
 @US1517956
 @2019.PI06
 @2019.PI06.01
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1517956 - CMD UTILITY -Affiliation Type code list CMD maintenance upload/download
 

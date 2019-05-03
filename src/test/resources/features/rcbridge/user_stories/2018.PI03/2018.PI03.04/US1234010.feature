@@ -23,16 +23,3 @@ Feature: US1234010 - [Continued] Exari Search API Implementation
     And the Search API is down
     Then verify how the system responds to the request
 
-  @TC565105
-  @Automated
-  @Functional
-  Scenario: TC565105 - [RL0]
-    Given an application wants to search contracts by any fields
-    When the search API is called
-    Then a list of contracts will be returned that matches the search criteria.
-    ###
-    Given an application wants to search contracts by any fields
-    When the Search API is called
-    And the Search API is down
-    Then verify how the system responds to the request
-

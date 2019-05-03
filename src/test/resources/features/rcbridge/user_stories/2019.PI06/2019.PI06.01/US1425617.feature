@@ -3,7 +3,7 @@
 @US1425617
 @2019.PI06
 @2019.PI06.01
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1425617 - Track resent Type 2 error transactions to NDB
 

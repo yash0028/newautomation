@@ -5,8 +5,8 @@
 @US1642705
 @2019.PI06
 @2019.PI06.04
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1642705 - LOB must be selected
 
   @TC755355
@@ -19,5 +19,5 @@ Feature: US1642705 - LOB must be selected
     Given a user is starting a retro approval request
     When all LOBs are 'No'
     Then the user is informed that at least one LOB must be "Yes" (Please select 'Yes' for at least one LOB.)
-    And the form can not be completed if one LOB is not selected as "Yes"
+    And the form can not be completed if one LOB is not selected as "Yes".
 

@@ -2,8 +2,8 @@
 @US1537712
 @2019.PI06
 @2019.PI06.04
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1537712 - Handle Rate Update Event (Fee Schedule/Rate)
 
   @TC743428

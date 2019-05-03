@@ -1,7 +1,7 @@
 # Last updated on 
 @US1559120
 @2019.PI07
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1559120 - Close the retro approval process - successful - escalator
 

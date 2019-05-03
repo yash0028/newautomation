@@ -3,7 +3,7 @@
 @US1483380
 @2019.PI06
 @2019.PI06.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1483380 - Integration - Obtain Fee Schedule Information from MSPS
 

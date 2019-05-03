@@ -27,6 +27,7 @@ public class TransactionSteps implements IRestStep {
     private final String RESOURCE_MOCK_CONTRACT_INSTALLED = "/v1.0/mock/contract-installed";
     private final String RESOURCE_CONTRACT_UPDATED = "/v1.0/events/contract-updated";
 
+
     private RequestSpecification request;
     private Response response;
     private JsonObject payload;

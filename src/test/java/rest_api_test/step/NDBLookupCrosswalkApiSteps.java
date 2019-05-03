@@ -1,5 +1,6 @@
 package rest_api_test.step;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import cucumber.api.java.en.And;
@@ -14,6 +15,9 @@ import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
 import util.file.IFileReader;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static io.restassured.RestAssured.given;
 
 /**
@@ -23,7 +27,7 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep, IFileReader {
     private static final Logger log = LoggerFactory.getLogger(NDBLookupCrosswalkApiSteps.class);
 
     private static final String ENDPOINT = "http://contract-metadata-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String RESOURCE_PRODUCT_CODES = "/productcodes";
+    private static final String RESOURCE_PRODUCT_CODES = "/v1.0/product_group_codes";
     private static final String RESOURCE_TAXONOMY_QUERY = "/v1.0/provider_taxonomies";
     private static final String SUPPORT_PRODUCT_CODE_PAYLOAD_FILE = "/support/US1285441/identify_product_codes.json";
 
@@ -57,15 +61,15 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep, IFileReader {
 
     @Then("^the query response provides the most recent record version attributes data$")
     public void theQueryResponseProvidesTheMostRecentRecordVersionAttributesData() throws Throwable {
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-        response = request.post(RESOURCE_TAXONOMY_QUERY);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(jsonObjectToMap(payload));
+        response = request.get(RESOURCE_TAXONOMY_QUERY);
         Assert.assertEquals(200, response.getStatusCode());
 
         JsonElement result = parseJsonElementResponse(response);
 
         Assert.assertTrue(result.isJsonObject());
 
-        int arrayCount = result.getAsJsonObject().get("responseMessage").getAsJsonArray().size();
+        int arrayCount = result.getAsJsonObject().getAsJsonArray("content").size();
 
         System.out.println(result);
 
@@ -74,33 +78,36 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep, IFileReader {
 
     @Then("^the query response returns an error$")
     public void theQueryResponseReturnsAnError() throws Throwable {
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-        response = request.post(RESOURCE_TAXONOMY_QUERY);
+
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").queryParams(jsonObjectToMap(payload));
+        response = request.get(RESOURCE_TAXONOMY_QUERY);
+
+
+        log.info("response: {}", response.asString());
+
         Assert.assertEquals(200, response.getStatusCode());
 
         JsonElement result = parseJsonElementResponse(response);
         Assert.assertTrue(result.isJsonObject());
 
-        int responseCode = result.getAsJsonObject().get("responseCode").getAsInt();
-
-        Assert.assertNotEquals(200, responseCode);
+        Assert.assertNull(result.getAsJsonObject().get("content"));
 
     }
 
     @Then("^the query response includes all records that matched$")
     public void theQueryResponseIncludesAllRecordsThatMatched() throws Throwable {
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-        response = request.post(RESOURCE_TAXONOMY_QUERY);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(jsonObjectToMap(payload));
+        response = request.get(RESOURCE_TAXONOMY_QUERY);
         Assert.assertEquals(200, response.getStatusCode());
 
         JsonElement result = parseJsonElementResponse(response);
         Assert.assertTrue(result.isJsonObject());
 
-        int arrayCount = result.getAsJsonObject().get("responseMessage").getAsJsonArray().size();
+        int arrayCount = result.getAsJsonObject().getAsJsonArray("content").size();
 
         System.out.println(result);
 
-        Assert.assertTrue(arrayCount > 1);
+        Assert.assertTrue(arrayCount > 0);
     }
 
     /*

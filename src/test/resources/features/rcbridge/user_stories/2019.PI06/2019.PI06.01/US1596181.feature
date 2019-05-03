@@ -2,7 +2,7 @@
 @US1596181
 @2019.PI06
 @2019.PI06.01
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1596181 - [Unfinished] Create an API on the CLM side to receive the facility contract load 2nd acknowledgement from NDB
 

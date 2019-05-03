@@ -7,24 +7,6 @@
 @iterationPast
 Feature: US1499284 - [Continued] UI/UX- New web Page for CMD page displaying all Type 2 errors and related activities Wire frames only
 
-  @TC743363
-  @Manual
-  @Functional
-  @A_UI_Story
-  Scenario: TC743363 - [RL0]
-    ### Scenario 1
-    Given I am on the CMD Error page
-    When I click on a Type 2 error row on the page
-    Then I can see the contract line details and the initial error message and error code
-    ### Scenario 2
-    Given I am on the CMD Error page
-    When I click on a Type 2 error row on the page
-    And I can see the contract line details and I can see the initial error message and error code
-    And I enter text describing why I want to retry the contract line update
-    And I hit the Retry update button
-    And the Retry Fails
-    Then (Later) I can see the contract line details, the original error message and error code, my text and the second set of error message and error code
-
   @TC683866
   @Manual
   @Functional

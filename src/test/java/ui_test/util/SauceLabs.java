@@ -1,10 +1,17 @@
 package ui_test.util;
 
 import com.saucelabs.saucerest.SauceREST;
-import org.junit.Assert;
+import general_test.util.ISharedValueReader;
+import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.TimeKeeper;
@@ -14,37 +21,44 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
  * Package Private Singleton to manage SauceLabs connection and any communication tasks.
  */
-class SauceLabs implements IConfigurable {
+class SauceLabs {
     private static final Logger log = LoggerFactory.getLogger(SauceLabs.class);
     private static SauceLabs INSTANCE;
 
     private String jobId;
     private RemoteWebDriver driver = null;
     private SauceREST sauceREST;
-    private DesiredCapabilities capabilities;
 
     /*
     CONSTRUCTOR
      */
 
-    private SauceLabs() {
-        this.capabilities = generateCapabilities();
-        init();
-    }
+    private SauceLabs(MutableCapabilities capabilities, String username, String apiKey, String url) {
 
-    private SauceLabs(String scenarioName) {
-        this.capabilities = generateCapabilities(SupportedBrowsers.CHROME, scenarioName);
-        init();
-    }
+        // Create Remote Web Driver
+        try {
+            this.driver = new RemoteWebDriver(new URL(url), capabilities);
+        } catch (MalformedURLException e) {
+            log.error("Invalid SauceLabs URL <{}>", url);
+            return;
+        } catch (Exception e) {
+            log.error("unable to start remote web driver");
+            log.trace(e.getMessage());
+            return;
+        }
 
-    private SauceLabs(SupportedBrowsers browser, String scenarioName) {
-        this.capabilities = generateCapabilities(browser, scenarioName);
-        init();
+        // Get Session ID
+        this.jobId = driver.getSessionId().toString();
+
+        // Setup SauceRest Connection
+        this.sauceREST = new SauceREST(username, apiKey);
+        log.trace("opened connection to SauceLabs with id:{}", this.jobId);
     }
 
     /*
@@ -56,35 +70,12 @@ class SauceLabs implements IConfigurable {
     }
 
     /**
-     * Reset connection to default
+     * Reset connection to Builder
      */
-    static void reset() {
+    static void reset(SauceLabs.Builder builder) {
         if (INSTANCE != null)
             INSTANCE.close();
-        INSTANCE = new SauceLabs();
-    }
-
-    /**
-     * Reset connection to default browser and new scenario
-     *
-     * @param scenarioName name of scenario to run
-     */
-    static void reset(String scenarioName) {
-        if (INSTANCE != null)
-            INSTANCE.close();
-        INSTANCE = new SauceLabs(scenarioName);
-    }
-
-    /**
-     * Reset connection to new browser and new sceanrio
-     *
-     * @param browser      name of the browser
-     * @param scenarioName name of the scenario to run
-     */
-    static void reset(SauceLabs.SupportedBrowsers browser, String scenarioName) {
-        if (INSTANCE != null)
-            INSTANCE.close();
-        INSTANCE = new SauceLabs(browser, scenarioName);
+        INSTANCE = builder.build();
     }
 
     /*
@@ -146,217 +137,370 @@ class SauceLabs implements IConfigurable {
     HELPER METHODS
      */
 
-    /**
-     * Initialize Remote Web Driver and SauceLabs job name
-     */
-    private void init() {
-        // Create Remote Web Driver
-        try {
-            this.driver = new RemoteWebDriver(new URL(getURL()), capabilities);
-        } catch (MalformedURLException e) {
-            log.error("Invalid SauceLabs URL <{}>", getURL());
-        } catch (Exception e) {
-            log.error("unable to start remote web driver");
-            log.trace(e.getMessage());
-            return;
-        }
-
-        // Get Session ID
-        this.jobId = driver.getSessionId().toString();
-
-        // Setup SauceRest Connection
-        this.sauceREST = new SauceREST(getUsername(), getAccessKey());
-        log.trace("opened connection to SauceLabs with id:{}", this.jobId);
-    }
-
-    /**
-     * Generate default capabilities
-     *
-     * @return the configured capabilities
-     */
-    private DesiredCapabilities generateCapabilities() {
-        SupportedBrowsers browser = SupportedBrowsers.getFromString(configGetOptionalString("defaultBrowserName").orElse("CHROME"));
-        String name = configGetOptionalString("defaultJobName").orElse("CLM UI Test");
-        return generateCapabilities(browser, name);
-    }
-
-    /**
-     * Generate capabilities based on params
-     *
-     * @param browser      name of browser to use
-     * @param scenarioName name of the scenario to include in job name
-     * @return the configured capabilities
-     */
-    private DesiredCapabilities generateCapabilities(SupportedBrowsers browser, String scenarioName) {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-
-        // Configure By Browser
-        switch (browser) {
-            /**************** chrome ****************************/
-            case CHROME:
-                capabilities = DesiredCapabilities.chrome();
-                capabilities.setCapability("platform", "Windows 10");
-                capabilities.setCapability("version", "68.0");
-                break;
-
-            /**************** FireFox ****************************/
-            case FIREFOX:
-                capabilities = DesiredCapabilities.firefox();
-                capabilities.setCapability("platform", "Windows 10");
-                capabilities.setCapability("version", "62.0");
-                break;
-
-            /**************** Internet Explorer 11 ****************************/
-            case IE:
-                capabilities = DesiredCapabilities.internetExplorer();
-                capabilities.setCapability("platform", "Windows 10");
-                capabilities.setCapability("version", "11.103");
-                break;
-
-            /**************** Safari ****************************/
-            case SAFARI:
-                capabilities = DesiredCapabilities.safari();
-                capabilities.setCapability("platform", "macOS 10.13");
-                capabilities.setCapability("version", "11.1");
-                break;
-            default:
-                Assert.fail("Invalid sauceLab browser parameter [" + browser + "]");
-        }
-
-        // Configure SauceLabs Integration
-        capabilities.setCapability("autoAcceptsAlerts", true);
-//        capabilities.setCapability("parentTunnel", "sauce_admin");
-//        capabilities.setCapability("tunnelIdentifier", "OptumSharedTunnel-Prd");
-        capabilities.setCapability("parentTunnel", "optumtest");
-        capabilities.setCapability("tunnelIdentifier", "Optum-Prd");
-
-        capabilities.setCapability("extendedDebugging", true);
-
-        capabilities.setCapability("name", genName(scenarioName, browser.commonName));
-        capabilities.setCapability("build", genBuild());
-        capabilities.setCapability("tags", genTags());
-
-        capabilities.setCapability("public", "public restricted");
-
-
-        return capabilities;
-    }
-
-    /**
-     * Retrieve SauceLabs_UserName
-     *
-     * @return sauce connection username
-     */
-    private String getUsername() {
-        return configGetOptionalString("SauceLabs_UserName").orElse(configGetOptionalString("username").orElse("unknown"));
-
-    }
-
-    /**
-     * Retrieve SauceLabs_AccessKey
-     *
-     * @return sauce api key
-     */
-    private String getAccessKey() {
-        return configGetOptionalString("SauceLabs_AccessKey").orElse("");
-    }
-
-    /**
-     * Build the URL for the connection
-     *
-     * @return sauce url
-     */
-    private String getURL() {
-        StringBuilder builder = new StringBuilder("http://");
-        builder.append(getUsername());
-        builder.append(":");
-        builder.append(getAccessKey());
-        builder.append("@ondemand.saucelabs.com:80/wd/hub");
-        log.trace("sauce url :: {}", builder.toString());
-        return builder.toString();
-    }
-
-    /**
-     * Generate connection name
-     *
-     * @param scenarioName name of the scenario
-     * @param browserName  name of the user
-     * @return connection job name
-     */
-    private String genName(String scenarioName, String browserName) {
-        return "[" + genBuilderName() + "] " + scenarioName + " - " + browserName;
-    }
-
-    /**
-     * Retireieve Build name, used to group multiple tests
-     *
-     * @return build name
-     */
-    private String genBuild() {
-        return configGetOptionalString("BUILD_TAG").orElse(getUsername() + "::" + TimeKeeper.getInstance().getStartTimeISO());
-    }
-
-    /**
-     * Retrieve tags to include in job if present
-     *
-     * @return tags
-     */
-    private List<String> genTags() {
-        List<String> tags = new ArrayList<>();
-        Optional<String> urlJenkins = configGetOptionalString("JENKINS_URL");
-        Optional<String> urlGit = configGetOptionalString("GIT_URL");
-        urlJenkins.ifPresent(s -> tags.add("Jenkins URL: " + s));
-        urlGit.ifPresent(s -> tags.add("Git URL: " + s));
-
-        return tags;
-    }
-
-    /**
-     * Retrieve builder name, from jenkins build tag or sauce user
-     *
-     * @return builder name
-     */
-    private String genBuilderName() {
-        // Get Who is Running Job
-        Optional<String> builderName = configGetOptionalString("BUILD_TAG");
-
-        if (builderName.isPresent()) {
-            return builderName.get();
-        }
-
-        builderName = configGetOptionalString("SauceLabs_UserName");
-
-        if (builderName.isPresent()) {
-            return "LOCAL - " + builderName.get();
-        }
-
-        return "unknown";
-    }
 
     /*
     UTILITY CLASS
      */
 
-    /**
-     * Enum of supported Browsers
-     */
-    enum SupportedBrowsers {
-        CHROME("Chrome"),
-        FIREFOX("Firefox"),
-        IE("Internet Explorer"),
-        SAFARI("Safari");
-        public final String commonName;
+    public static class Builder implements IConfigurable, ISharedValueReader {
 
-        SupportedBrowsers(String commonName) {
-            this.commonName = commonName;
+        private String browserName;
+        private String browserVersion;
+
+        private String platformName;
+        private String platformVersion;
+
+        private String jobNameJenkins;
+        private String jobNameScenario;
+
+        private String buildName;
+
+        private String username;
+        private String apiKey;
+
+        private String parentTunnel;
+        private String tunnelIdentifier;
+
+        private String visibility;
+        private boolean extendedDebugging;
+
+        private boolean autoAcceptAlerts;
+
+        private List<String> tags;
+
+        public Builder() {
+            //Default Browser
+            String defaultBrowserName = configGetOptionalString("ui.sauce.defaultBrowserName").orElse(BrowserType.CHROME);
+            Optional<String> optionalBrowser = getSharedString("browserName");
+            this.browserName = optionalBrowser.orElse(defaultBrowserName);
+
+            this.jobNameScenario = configGetOptionalString("ui.sauce.defaultJobName").orElse("UI Test");
+
+            //Default Platform
+            this.platformName = Platform.WIN10.name();
+
+            tags = new ArrayList<>();
         }
 
-        public static SupportedBrowsers getFromString(String s) {
-            try {
-                return SupportedBrowsers.valueOf(s.toUpperCase());
-            } catch (Exception e) {
-                return CHROME;
+        public Builder withBrowserName(String browserName) {
+            this.browserName = browserName;
+            return this;
+        }
+
+        public Builder withBrowserName(Optional<String> browserName) {
+            browserName.ifPresent(s -> this.browserName = s);
+            return this;
+        }
+
+        public Builder withBrowserVersion(String browserVersion) {
+            this.browserVersion = browserVersion;
+            return this;
+        }
+
+        public Builder withBrowserVersion(Optional<String> browserVersion) {
+            browserVersion.ifPresent(s -> this.browserVersion = s);
+            return this;
+        }
+
+        public Builder withPlatformName(String platformName) {
+            this.platformName = platformName;
+            return this;
+        }
+
+        public Builder withPlatformName(Optional<String> platformName) {
+            platformName.ifPresent(s -> this.platformName = s);
+            return this;
+        }
+
+        public Builder withPlatformVersion(String platformVersion) {
+            this.platformVersion = platformVersion;
+            return this;
+        }
+
+        public Builder withPlatformVersion(Optional<String> platformVersion) {
+            platformVersion.ifPresent(s -> this.platformVersion = s);
+            return this;
+        }
+
+        public Builder withJobNameJenkinsBuild(String jobNameJenkinsBuild) {
+            this.jobNameJenkins = jobNameJenkinsBuild;
+            return this;
+        }
+
+        public Builder withJobNameJenkinsBuild(Optional<String> jobNameJenkinsBuild) {
+            jobNameJenkinsBuild.ifPresent(s -> this.jobNameJenkins = s);
+            return this;
+        }
+
+        public Builder withJobNameScenarioName(String jobNameScenarioName) {
+            this.jobNameScenario = jobNameScenarioName;
+            return this;
+        }
+
+        public Builder withJobNameScenarioName(Optional<String> jobNameScenarioName) {
+            jobNameScenarioName.ifPresent(s -> this.jobNameScenario = s);
+            return this;
+        }
+
+        public Builder withBuildName(String buildName) {
+            this.buildName = buildName;
+            return this;
+        }
+
+        public Builder withBuildName(Optional<String> buildName) {
+            buildName.ifPresent(s -> this.buildName = s);
+            return this;
+        }
+
+        public Builder withUsername(String username) {
+            this.username = username;
+            return this;
+        }
+
+        public Builder withUsername(Optional<String> username) {
+            username.ifPresent(s -> this.username = s);
+            return this;
+        }
+
+
+        public Builder withApiKey(String apiKey) {
+            this.apiKey = apiKey;
+            return this;
+        }
+
+        public Builder withApiKey(Optional<String> apiKey) {
+            apiKey.ifPresent(s -> this.apiKey = s);
+            return this;
+        }
+
+        public Builder withParentTunnel(String parentTunnel) {
+            this.parentTunnel = parentTunnel;
+            return this;
+        }
+
+        public Builder withParentTunnel(Optional<String> parentTunnel) {
+            parentTunnel.ifPresent(s -> this.parentTunnel = s);
+            return this;
+        }
+
+        public Builder withTunnelIdentifier(String tunnelIdentifier) {
+            this.tunnelIdentifier = tunnelIdentifier;
+            return this;
+        }
+
+        public Builder withTunnelIdentifier(Optional<String> tunnelIdentifier) {
+            tunnelIdentifier.ifPresent(s -> this.tunnelIdentifier = s);
+            return this;
+        }
+
+        public Builder withVisibility(String visibility) {
+            this.visibility = visibility;
+            return this;
+        }
+
+        public Builder withVisibility(Optional<String> visibility) {
+            visibility.ifPresent(s -> this.visibility = s);
+            return this;
+        }
+
+        public Builder doExtendedDebugging(boolean doExtendedDebugging) {
+            this.extendedDebugging = doExtendedDebugging;
+            return this;
+        }
+
+        public Builder doExtendedDebugging(Optional<Boolean> doExtendedDebugging) {
+            doExtendedDebugging.ifPresent(s -> this.extendedDebugging = s);
+            return this;
+        }
+
+        public Builder doAutoAcceptAlerts(boolean doAutoAcceptAlerts) {
+            this.autoAcceptAlerts = doAutoAcceptAlerts;
+            return this;
+        }
+
+        public Builder doAutoAcceptAlerts(Optional<Boolean> doAutoAcceptAlerts) {
+            doAutoAcceptAlerts.ifPresent(s -> this.autoAcceptAlerts = s);
+            return this;
+        }
+
+        public Builder addTag(String tag) {
+            this.tags.add(tag);
+            return this;
+        }
+
+        public Builder addTag(Optional<String> tag) {
+            tag.ifPresent(s -> this.tags.add(s));
+            return this;
+        }
+
+        public Builder loadPropertyMap(Map<String, String> map) {
+
+            for (String key : map.keySet()) {
+                switch (key) {
+                    case "ui.sauce.defaultBrowserName":
+                    case "defaultBrowserName":
+                    case "browserName":
+                        this.withBrowserName(map.get(key));
+                        break;
+                    case "ui.sauce.defaultBrowserVersion":
+                    case "defaultBrowserVersion":
+                    case "browserVersion":
+                        this.withBrowserVersion(map.get(key));
+                    case "ui.sauce.defaultPlatformName":
+                    case "defaultPlatformName":
+                    case "platformName":
+                        this.withPlatformName(map.get(key));
+                    case "ui.sauce.defaultPlatformVersion":
+                    case "defaultPlatformVersion":
+                    case "platformVersion":
+                        this.withPlatformVersion(map.get(key));
+                    default:
+                        break;
+                }
             }
+
+            return this;
+        }
+
+        SauceLabs build() {
+            return new SauceLabs(buildAllCapabilities(), this.username, this.apiKey, buildUrl());
+        }
+
+        private MutableCapabilities buildAllCapabilities() {
+            MutableCapabilities cap = buildBrowser();
+            cap = cap.merge(buildPlatform());
+            cap = cap.merge(buildJobName());
+            cap = cap.merge(buildBuildName());
+            cap = cap.merge(buildTunnel());
+            cap = cap.merge(buildTags());
+
+            return cap;
+        }
+
+        private MutableCapabilities buildBrowser() {
+//
+
+            MutableCapabilities capabilities;
+
+            switch (this.browserName) {
+                case BrowserType.FIREFOX:
+                    capabilities = new FirefoxOptions();
+                    break;
+                case BrowserType.IE:
+                    capabilities = new InternetExplorerOptions();
+                    break;
+                case BrowserType.SAFARI:
+                    capabilities = new SafariOptions();
+                    break;
+                case BrowserType.CHROME:
+                default:
+                    capabilities = new ChromeOptions();
+                    break;
+            }
+
+            if (this.browserVersion != null && this.browserVersion.length() > 0) {
+                capabilities.setCapability(CapabilityType.BROWSER_VERSION, this.browserVersion);
+            }
+
+            return capabilities;
+        }
+
+        private MutableCapabilities buildPlatform() {
+            MutableCapabilities cap = new MutableCapabilities();
+
+            cap.setCapability("platform", this.platformName);
+
+            return cap;
+        }
+
+        private MutableCapabilities buildJobName() {
+            MutableCapabilities cap = new MutableCapabilities();
+            StringBuilder nameBuilder = new StringBuilder();
+
+            nameBuilder.append("[");
+            if (this.jobNameJenkins == null || this.jobNameJenkins.length() == 0) {
+                String user = configGetOptionalString("user.name")
+                        .orElse(configGetOptionalString("USER")
+                                .orElse(this.username));
+                nameBuilder.append("LOCAL-").append(user.toUpperCase());
+            } else {
+                nameBuilder.append(this.jobNameJenkins);
+            }
+            nameBuilder.append("] ");
+
+            if (this.jobNameScenario == null || this.jobNameScenario.length() == 0) {
+                nameBuilder.append("UI Test");
+            } else {
+                nameBuilder.append(this.jobNameScenario);
+            }
+
+            nameBuilder.append(" - ").append(this.browserName.toUpperCase());
+
+            if (this.browserVersion != null && this.browserVersion.length() > 0) {
+                nameBuilder.append(" (v ").append(this.browserVersion).append(")");
+            }
+
+            cap.setCapability("name", nameBuilder.toString());
+
+            return cap;
+        }
+
+        private MutableCapabilities buildBuildName() {
+            MutableCapabilities cap = new MutableCapabilities();
+            StringBuilder nameBuilder = new StringBuilder();
+
+            if (this.buildName == null || this.buildName.length() == 0) {
+                String user = configGetOptionalString("user.name")
+                        .orElse(configGetOptionalString("USER")
+                                .orElse(this.username));
+                nameBuilder.append(user).append("::").append(TimeKeeper.getInstance().getStartTimeISO());
+            } else {
+                nameBuilder.append(this.buildName);
+            }
+
+            cap.setCapability("build", nameBuilder.toString());
+
+            return cap;
+        }
+
+        private MutableCapabilities buildTunnel() {
+            MutableCapabilities cap = new MutableCapabilities();
+
+            cap.setCapability("parentTunnel", this.parentTunnel);
+            cap.setCapability("tunnelIdentifier", this.tunnelIdentifier);
+
+            cap.setCapability("extendedDebugging", this.extendedDebugging);
+            cap.setCapability("autoAcceptsAlerts", this.autoAcceptAlerts);
+
+            cap.setCapability("public", this.visibility);
+
+            return cap;
+        }
+
+        private MutableCapabilities buildTags() {
+            MutableCapabilities cap = new MutableCapabilities();
+            List<String> tagList = new ArrayList<>();
+
+            configGetOptionalString("JENKINS_URL").ifPresent(s -> tagList.add("Jenkins URL: " + s));
+            configGetOptionalString("GIT_URL").ifPresent(s -> tagList.add("Git URL: " + s));
+
+            tagList.addAll(this.tags);
+
+            cap.setCapability("tags", tagList.toString());
+
+            return cap;
+        }
+
+        private String buildUrl() {
+            StringBuilder builder = new StringBuilder("http://");
+            builder.append(this.username);
+            builder.append(":");
+            builder.append(this.apiKey);
+            builder.append("@ondemand.saucelabs.com:80/wd/hub");
+
+            log.trace("sauce url :: {}", builder.toString());
+
+            return builder.toString();
         }
     }
 
