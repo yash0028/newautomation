@@ -90,10 +90,8 @@
             "questions": [
                 {
                     "question": "Task",
-                    "action": "RADIO-INDEX",
-                    "answers": [
-                        "0"
-                    ]
+                    "action": "CHECKBOX-INDEX",
+                    "answers": []
                 },
                 {
                     "question": "Task (revisit this question to see Market Exception Grid detail)",
@@ -218,6 +216,14 @@
             "questions": [
                 {
                     "question": "Please select a Regulatory Appendix",
+                    "action": "TEXT-AUTOFILL",
+                    "answers": [
+                        "iowa",
+                        "0"
+                    ]
+                },
+                {
+                    "question": "Please select a Regulatory Appendix to be ADDED",
                     "action": "TEXT-AUTOFILL",
                     "answers": [
                         "iowa",

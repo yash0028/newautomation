@@ -16,6 +16,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.TimeoutException;
 
 import static ui_test.util.AbstractPageElements.TIMEOUT;
 
@@ -384,6 +387,23 @@ public interface IWebInteract {
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, value);
 
+        }
+    }
+
+    default void waitForPageLoad(WebDriver driver){
+        ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
+            }
+        };
+
+        Wait<WebDriver> wait = new WebDriverWait(driver, 60);
+        try{
+            wait.until(expectation);
+        }catch(TimeoutException e){
+            log.info(": Timeout (60 seconds) waiting for Page Load Request to complete");
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }
 
