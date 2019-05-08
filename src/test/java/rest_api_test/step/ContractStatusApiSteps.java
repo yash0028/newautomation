@@ -25,7 +25,7 @@ public class ContractStatusApiSteps implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(TransactionSteps.class);
 
     private final String ENDPOINT = "http://contract-status-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private final String RESOURCE_CONTRACT_STATUS = "/v1.0/contract-status/";
+    private final String RESOURCE_CONTRACT_STATUS = "/v1.0/contract-status";
 
     private final String TX_ENDPOINT = "https://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private final String RESOURCE_TRANSACTION_STATUS = "/v1.0/transactions/results";
@@ -68,10 +68,10 @@ public class ContractStatusApiSteps implements IRestStep {
         resultStatus.add("SUCCESS");
         payload.add("resultStatus", resultStatus);
         JsonArray sortFields = new JsonArray();
-        sortFields.add("id");
+        sortFields.add("timestamp");
         payload.add("sortFields", sortFields);
 
-        log.trace(payload.toString());
+        log.info(payload.toString());
 
         //send payload
         RestAssured.useRelaxedHTTPSValidation();
@@ -92,17 +92,17 @@ public class ContractStatusApiSteps implements IRestStep {
 
         // query fallout to get contract ID
         response = given().baseUri(FALLOUT_ENDPOINT).get(RESOURCE_CONTRACT_DETAILS.concat("/").concat(txId));
-        tmpResult = parseJsonElementResponse(response);
-        contractId = tmpResult.getAsJsonObject().get("contractID").getAsString();
+        log.info(response.asString());
+        result = parseJsonElementResponse(response);
+        contractId = result.getAsJsonObject().get("contractID").getAsString();
     }
 
     @And("a call to the Optum Transaction Status with the Exari contract ID and Exari Transaction ID for the install contract event")
     public void aCallToTheOptumTransactionStatusWithTheExariContractIDAndExariTransactionIDForTheInstallContractEvent() {
         // finally check
-        log.trace("Checking contract ID: " + contractId);
-        response = given().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS.concat(contractId));
-        JsonElement result = parseJsonElementResponse(response);
-
+        response = given().log().everything().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS
+            .concat("/").concat(contractId));
+        log.info(response.asString());
         Assert.assertEquals(200, response.getStatusCode());
 
 //        txId = result.getAsJsonObject().
@@ -165,15 +165,13 @@ public class ContractStatusApiSteps implements IRestStep {
 
     @When("the contract's installation process generates a Type {int} error for {int} of N Contract Line Adds")
     public void theContractSInstallationProcessGeneratesATypeErrorForOfNContractLineAdds(int arg0, int arg1) {
-        // Get list of current contracts in Type 2 from Fallout Service
         RestAssured.useRelaxedHTTPSValidation();
         response = given().baseUri(FALLOUT_ENDPOINT).get(
-                RESOURCE_CONTRACT_SUMMARIES.concat("/").concat("TYPE_2_ERROR").concat("?page=0&sort=timestamp,desc"));
-
+                RESOURCE_CONTRACT_SUMMARIES.concat("/")
+                        .concat("TYPE_2_ERROR")
+                        .concat("?sort=timestamp,desc"));
         JsonElement result = parseJsonElementResponse(response);
-        result.getAsJsonObject();
-
-        result = parseJsonElementResponse(response);
+        System.out.println(result.getAsJsonObject());
         JsonArray results = result.getAsJsonObject().get("content").getAsJsonArray();
 
         // Pull the first Type 2 contractId we see
