@@ -10,7 +10,7 @@ Feature: US1744019 - Validate PCP retains membership
   @Manual
   @Functional
   Scenario: TC799058 - [RL0]
-    Given a ContractUpdated transaction
+    Given a ContractAmend transaction
     And the transaction is for fee schedule change
     And the transaction includes one or more PCP providers
     When the reassign MPIN was included in the payload
