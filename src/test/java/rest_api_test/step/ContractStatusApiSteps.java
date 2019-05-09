@@ -43,6 +43,7 @@ public class ContractStatusApiSteps implements IRestStep {
 
     private String exariStorageNodeId;
     private String contractId;
+    private String timestamp = "";
     private String txId;
 
     @Given("a new contract exists in Exari that has just become {string}")
@@ -55,14 +56,11 @@ public class ContractStatusApiSteps implements IRestStep {
 
     @When("the contract has been successfully installed")
     public void theContractHasBeenSuccessfullyInstalled() {
-
-        // INTERFACE TIME
-
         // query txStatus API for list of successful installs
         payload = new JsonObject();
         payload.addProperty("offset", 0);
         payload.addProperty("pageNumber", 0);
-        payload.addProperty("pageSize", 1);
+        payload.addProperty("pageSize", 10);
         payload.addProperty("sortDirection","DESC");
         JsonArray resultStatus = new JsonArray();
         resultStatus.add("SUCCESS");
@@ -87,25 +85,52 @@ public class ContractStatusApiSteps implements IRestStep {
             if(result.get("type").getAsString().matches("InstallContract")){
                 // make sure we are only getting InstallContract events
                 txId = result.get("transactionId").getAsString();
+                break;
             }
         }
 
-        // query fallout to get contract ID
+        // query fallout w/ txId to get contract ID
         response = given().baseUri(FALLOUT_ENDPOINT).get(RESOURCE_CONTRACT_DETAILS.concat("/").concat(txId));
         log.info(response.asString());
-        result = parseJsonElementResponse(response);
+        result = parseJsonElementResponse(response).getAsJsonObject();
         contractId = result.getAsJsonObject().get("contractID").getAsString();
+
+        // get exariTransactionID from contract-status-api
+        response = given().log().everything().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS
+                .concat("/").concat(contractId));
+        results = parseJsonElementResponse(response).getAsJsonArray();
+        // manually get rid of duplicate events
+        for(JsonElement res : results) {
+            if(res.getAsJsonObject().get("transactionResult").getAsString().matches("SUCCESS")){
+                exariStorageNodeId = res.getAsJsonObject().get("exari_StorageNodeID").getAsString();
+                break;
+            }
+        }
     }
 
     @And("a call to the Optum Transaction Status with the Exari contract ID and Exari Transaction ID for the install contract event")
     public void aCallToTheOptumTransactionStatusWithTheExariContractIDAndExariTransactionIDForTheInstallContractEvent() {
-        // finally check
-        response = given().log().everything().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS
-            .concat("/").concat(contractId));
+//        // finally check
+//        response = given().log().everything().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS
+//            .concat("/").concat(contractId));
+//        JsonArray results = parseJsonElementResponse(response).getAsJsonArray();
+//        // manually get rid of duplicate events
+//        for(JsonElement res : results) {
+//            if(res.getAsJsonObject().get("transactionResult").getAsString().matches("SUCCESS")){
+//                exariStorageNodeId = res.getAsJsonObject().get("exari_StorageNodeID").getAsString();
+//            }
+//        }
+        // call with Exari Storage Node ID
+        if(timestamp.isEmpty()) {
+            response = given().log().everything().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS
+                    .concat("/").concat(contractId).concat("/").concat(exariStorageNodeId));
+        } else {
+            response = given().log().everything().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS
+                    .concat("/").concat(contractId).concat("/").concat(exariStorageNodeId)
+                    .concat("/".concat(timestamp)));
+        }
         log.info(response.asString());
         Assert.assertEquals(200, response.getStatusCode());
-
-//        txId = result.getAsJsonObject().
     }
 
     @Then("the Optum service should return the status of that installation transaction as {string}")
@@ -126,8 +151,7 @@ public class ContractStatusApiSteps implements IRestStep {
                 txStatus = "MANUAL_HOLD_TYPE_2";
                 break;
         }
-        JsonArray results = parseJsonElementResponse(response).getAsJsonArray();
-        JsonElement result = results.get(0);
+        JsonElement result = parseJsonElementResponse(response);
 
         Assert.assertEquals(txStatus, result.getAsJsonObject().get("transactionStatus").getAsString());
         Assert.assertEquals(txResult, result.getAsJsonObject().get("transactionResult").getAsString());
@@ -135,32 +159,30 @@ public class ContractStatusApiSteps implements IRestStep {
 
     @When("the contract's installation process generates a Type {int} Contract Master error")
     public void theContractSInstallationProcessGeneratesATypeContractMasterError(int arg0) {
-        // First, we 'reinstall' a known type 1 error contract"
-        contractId = "85551305";
-        // Make a POST request to the event gateway API with the contract number
-        // and get back the transaction status number
-        payload = new JsonObject();
-        payload.addProperty("eventName", "ContractInstalled");
-        payload.addProperty("userId", "QE Test three");
-        payload.addProperty("timestamp", "1533137086203");
-        payload.addProperty("contractId", contractId);
-        payload.addProperty("transactionId", "");
-        payload.addProperty("orderId", "");
-
-        // send payload
-        request = given().baseUri(ENDPOINT_EVENT_GATEWAY).header("Content-Type", "application/json").body(payload);
-        response = request.post(RESOURCE_EVENT_GATEWAY_CONTRACT_INSTALLED);
-        // Verify successful HTTP response
-        Assert.assertEquals("HTTP Status code was not 200", 200, response.getStatusCode());
-        // retrieve transaction id
+        // query fallout for Type 1 Contract Master errors
+        RestAssured.useRelaxedHTTPSValidation();
+        response = given().baseUri(FALLOUT_ENDPOINT).get(
+                RESOURCE_CONTRACT_SUMMARIES.concat("/")
+                        .concat("TYPE_1_ERROR_CONTRACT_MASTER")
+                        .concat("?sort=timestamp,desc"));
         JsonElement result = parseJsonElementResponse(response);
-        String transactionId = result.getAsJsonObject().get("transactionId").getAsString();
+        System.out.println(result.getAsJsonObject());
+        JsonArray results = result.getAsJsonObject().get("content").getAsJsonArray();
 
-        // use contract-status-api to get exari StorageNodeID
-        response = given().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS.concat(contractId));
-        result = parseJsonElementResponse(response);
-        exariStorageNodeId = result.getAsJsonArray().get(0).getAsJsonObject().get("exari_StorageNodeID").getAsString();
+        // Pull the first Type 1 contractId we see
+        contractId = results.get(0).getAsJsonObject().get("contractId").getAsString();
 
+        // get exariTransactionID from contract-status-api
+        response = given().log().everything().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS
+                .concat("/").concat(contractId));
+        results = parseJsonElementResponse(response).getAsJsonArray();
+        // manually get rid of duplicate events
+        for(JsonElement res : results) {
+            if(res.getAsJsonObject().get("transactionResult").getAsString().matches("PENDING")){
+                exariStorageNodeId = res.getAsJsonObject().get("exari_StorageNodeID").getAsString();
+                break;
+            }
+        }
     }
 
     @When("the contract's installation process generates a Type {int} error for {int} of N Contract Line Adds")
@@ -174,10 +196,31 @@ public class ContractStatusApiSteps implements IRestStep {
         System.out.println(result.getAsJsonObject());
         JsonArray results = result.getAsJsonObject().get("content").getAsJsonArray();
 
-        // Pull the first Type 2 contractId we see
-        contractId = results
-                .get(0)
-                .getAsJsonObject()
-                .get("contractId").getAsString();
+        // Pull the first Install Contract event in type 2 we see
+        for(JsonElement res : results ) {
+            if(res.getAsJsonObject().get("transactionType").getAsString().matches("InstallContract")) {
+                contractId = res.getAsJsonObject().get("contractId").getAsString();
+                break;
+            }
+        }
+
+
+
+
+        // get exariTransactionID from contract-status-api
+        response = given().log().everything().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS
+                .concat("/").concat(contractId));
+        results = parseJsonElementResponse(response).getAsJsonArray();
+        // manually get rid of duplicate events
+        for(JsonElement res : results) {
+            if(res.getAsJsonObject().get("transactionResult").getAsString().matches("PENDING")
+                && !res.getAsJsonObject().get("exari_StorageNodeID").isJsonNull()
+                && res.getAsJsonObject().get("transactionStatus").getAsString().matches("MANUAL_HOLD_TYPE_2"))
+            {
+                exariStorageNodeId = res.getAsJsonObject().get("exari_StorageNodeID").getAsString();
+                timestamp = res.getAsJsonObject().get("contractBusinessEvent").getAsJsonObject().get("timestamp").getAsString();
+                break;
+            }
+        }
     }
 }
