@@ -110,16 +110,6 @@ public class ContractStatusApiSteps implements IRestStep {
 
     @And("a call to the Optum Transaction Status with the Exari contract ID and Exari Transaction ID for the install contract event")
     public void aCallToTheOptumTransactionStatusWithTheExariContractIDAndExariTransactionIDForTheInstallContractEvent() {
-//        // finally check
-//        response = given().log().everything().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS
-//            .concat("/").concat(contractId));
-//        JsonArray results = parseJsonElementResponse(response).getAsJsonArray();
-//        // manually get rid of duplicate events
-//        for(JsonElement res : results) {
-//            if(res.getAsJsonObject().get("transactionResult").getAsString().matches("SUCCESS")){
-//                exariStorageNodeId = res.getAsJsonObject().get("exari_StorageNodeID").getAsString();
-//            }
-//        }
         // call with Exari Storage Node ID
         if(timestamp.isEmpty()) {
             response = given().log().everything().baseUri(ENDPOINT).get(RESOURCE_CONTRACT_STATUS
