@@ -12,6 +12,8 @@ import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
+import java.util.Map;
+
 public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
     private static final Logger log = LoggerFactory.getLogger(GenericInputPage.class);
 
@@ -21,6 +23,7 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
 
     protected final WebDriver driver;
     private final PageElements elements;
+    private String siteName;
 
 
     /*
@@ -30,6 +33,11 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
     public GenericSitePage(WebDriver driver) {
         this.driver = driver;
         elements = new PageElements(driver);
+    }
+
+    public void setSite(String site){
+        this.siteName = site;
+        log.info("site is "+this.siteName);
     }
 
     /*
@@ -69,7 +77,19 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
     public boolean startContractAuthor() {
         click("contract start button", elements.buttonContractCreateStart);
         //Give it some extra time since loading pilot contract wrapper can take some time
-        return click("pilot contract", elements.buttonContractCreatePilotContractWrapper);
+
+        switch (siteName){
+            case "central uhn":
+                return click("pilot contract", elements.buttonContractCreateCentralRegionWrapper);
+            case "northeast uhn":
+                return click("pilot contract", elements.buttonContractCreateNorthEastRegionWrapper);
+            case "southeast uhn":
+                return click("pilot contract", elements.buttonContractCreateSouthEastRegionWrapper);
+            case "west uhn":
+                return click("pilot contract", elements.buttonContractCreateWestRegionWrapper);
+            default:
+                return click("pilot contract", elements.buttonContractCreatePilotContractWrapper);
+        }
     }
 
     /*
@@ -134,6 +154,18 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
 
         @FindBy(xpath = "//h3[contains(text(),'Pilot Contract Wrapper')]//following-sibling::div/span[@title='Create New']/a")
         protected WebElement buttonContractCreatePilotContractWrapper;
+
+        @FindBy(xpath = "//h3[contains(text(),'Southeast Region Wrapper')]//following-sibling::div/span[@title='Create New']/a")
+        protected WebElement buttonContractCreateSouthEastRegionWrapper;
+
+        @FindBy(xpath = "//h3[contains(text(),'West Region Wrapper')]//following-sibling::div/span[@title='Create New']/a")
+        protected WebElement buttonContractCreateWestRegionWrapper;
+
+        @FindBy(xpath = "//h3[contains(text(),'Northeast Region Wrapper')]//following-sibling::div/span[@title='Create New']/a")
+        protected WebElement buttonContractCreateNorthEastRegionWrapper;
+
+        @FindBy(xpath = "//h3[contains(text(),'Central Region Wrapper')]//following-sibling::div/span[@title='Create New']/a")
+        protected WebElement buttonContractCreateCentralRegionWrapper;
 
         PageElements(SearchContext context) {
             super(context);

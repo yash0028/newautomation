@@ -119,7 +119,23 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
             return text_autofill(answers);
         }
 
+        if (action.equalsIgnoreCase("CHECKBOX-INDEX/RADIO-INDEX")) {
+            return genericCheckBoxAndRadioIndexElement(answers);
+        }
+
         return false;
+    }
+
+    private boolean genericCheckBoxAndRadioIndexElement(List<String> answers){
+        if(!(interviewElements.radio_indexes.size()==0)){
+            return radio_index(answers);
+        }
+        else if(!(interviewElements.checkbox_indexes.size()==0)){
+            return checkbox_index(answers);
+        }
+        else{
+            return true;
+        }
     }
 
     private boolean radio_index(List<String> answers) {
@@ -167,6 +183,24 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
             return true;
         }
 
+        //Check for Check All or None answer
+        if (answers.get(0).equalsIgnoreCase("All/None")) {
+            if((interviewElements.checkbox_indexes.size()==0)){
+                return true;
+            }
+            else{
+                for (WebElement checkbox : interviewElements.checkbox_indexes) {
+                    if (!checkbox.isSelected()) {
+                        test &= click("checkbox", checkbox);
+                    }
+                }
+                return test;
+            }
+
+
+
+        }
+
         //Check for Check All answer
         if (answers.get(0).equalsIgnoreCase("all")) {
             //Select All Checkboxes
@@ -192,7 +226,13 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
         //Handle all other answers
         List<Integer> indexes = answers.stream().map(Integer::valueOf).collect(Collectors.toList());
         for (Integer index : indexes) {
-            test &= click("checkbox", interviewElements.checkbox_indexes.get(index));
+            WebElement checkbox = interviewElements.checkbox_indexes.get(index);
+            if (!checkbox.isSelected()) {
+                test &= click("checkbox", checkbox);
+            }
+            else{
+                log.info(index+ "th Checkbox is already selected");
+            }
         }
 
         return test;
