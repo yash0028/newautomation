@@ -6,7 +6,7 @@
 Feature: US1183620 - Escalator notice on Dashboard
 
   @TC564507
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564507 - [RL0]
     Given a contract with an escalator is identified

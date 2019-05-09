@@ -6,7 +6,7 @@
 Feature: US1183610 - Identify agreement with an escalator via Compliance Manager
 
   @TC564970
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564970 - [RL0]
     Given an executed or active agreement

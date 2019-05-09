@@ -5,7 +5,7 @@
 Feature: US1034211 - Identify contract with a chargemaster via Compliance Manager
 
   @TC565566
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565566 - [RL0]
     Given an executed or active agreement

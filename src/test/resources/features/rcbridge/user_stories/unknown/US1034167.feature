@@ -5,7 +5,7 @@
 Feature: US1034167 - Provide chargemaster summary via the 'Contract Summary'
 
   @TC565059
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565059 - [RL0]
     Given a contract with chargemaster is identified

@@ -6,7 +6,7 @@
 Feature: US1040747 - View Contract Summary to view Escalator Details
 
   @TC564878
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564878 - [RL0]
     Given a contract with an escalator
@@ -14,7 +14,7 @@ Feature: US1040747 - View Contract Summary to view Escalator Details
     Then I see Rate Escalator Summary
 
   @TC564879
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564879 - [RL1]
     Given a Rate Escalator Summary

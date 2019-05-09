@@ -5,7 +5,7 @@
 Feature: US1031489 - Chargemaster notice on Dashboard
 
   @TC564629
-  @Automated
+  @Manual
   @Functional
   Scenario: TC564629 - [RL0]
     Given a contract with a chargemaster is identified
