@@ -397,11 +397,11 @@ public interface IWebInteract {
             }
         };
 
-        Wait<WebDriver> wait = new WebDriverWait(driver, 60);
+        Wait<WebDriver> wait = new WebDriverWait(driver, 90);
         try{
             wait.until(expectation);
         }catch(TimeoutException e){
-            log.info(": Timeout (60 seconds) waiting for Page Load Request to complete");
+            log.info(": Timeout (90 seconds) waiting for Page Load Request to complete");
         }catch(Exception e){
             e.printStackTrace();
         }
