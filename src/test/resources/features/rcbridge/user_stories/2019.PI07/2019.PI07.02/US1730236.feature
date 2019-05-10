@@ -4,7 +4,7 @@
 @2019.PI07.02
 @releasePresent
 @iterationPresent
-Feature: US1730236 - Return status and distinct address in service API response
+Feature: US1730236 - (Analysis) Return status and distinct address in service API response
 
   @TC805386
   @Manual

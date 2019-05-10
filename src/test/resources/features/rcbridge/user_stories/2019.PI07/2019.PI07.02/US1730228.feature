@@ -4,7 +4,7 @@
 @2019.PI07.02
 @releasePresent
 @iterationPresent
-Feature: US1730228 - Create endpoint for service location API
+Feature: US1730228 - (Analysis) Create endpoint for service location API
 
   @TC805384
   @Manual

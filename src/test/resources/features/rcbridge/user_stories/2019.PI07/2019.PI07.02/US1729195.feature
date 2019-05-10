@@ -9,7 +9,7 @@ Feature: US1729195 - Network/Ops COO User Group
   @TC804134
   @Manual
   @Functional
-  Scenario: TC804134 - [RL0]
+  Scenario: TC804134 - [RL0]Verify Network and operations COO groups
     Given a retro needs Network COO and Operations COO approval
     When the task is assigned
     Then the Network_COO user group must exist
