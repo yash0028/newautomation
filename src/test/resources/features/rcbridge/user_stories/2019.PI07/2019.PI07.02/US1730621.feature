@@ -1,9 +1,9 @@
 # Last updated on 
 @US1730621
 @2019.PI07
-@2019.PI07.03
+@2019.PI07.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1730621 - Modify Request for information by Network COO or Operations COO retro approval request
 
   @TC793510

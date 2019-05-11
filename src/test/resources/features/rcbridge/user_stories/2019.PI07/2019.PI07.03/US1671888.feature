@@ -1,7 +1,7 @@
 # Last updated on 
 @US1671888
 @2019.PI07
-@2019.PI07.04
+@2019.PI07.03
 @releasePresent
 @iterationFuture
 Feature: US1671888 - Add attachments to retro request

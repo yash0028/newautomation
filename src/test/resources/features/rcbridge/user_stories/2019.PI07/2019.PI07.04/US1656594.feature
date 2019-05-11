@@ -2,8 +2,9 @@
 @Visio
 @US1656594
 @2019.PI07
+@2019.PI07.04
 @releasePresent
-@iterationUnknown
+@iterationFuture
 Feature: US1656594 - User Groups - No claim if only one person
 
   @TC759647
