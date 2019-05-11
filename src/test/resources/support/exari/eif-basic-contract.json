@@ -186,6 +186,13 @@
                     "answers": [
                         "0"
                     ]
+                },
+                {
+                    "question": "Which Payment Appendix will apply for Medicare Advantage?",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
+                    ]
                 }
             ]
         },
