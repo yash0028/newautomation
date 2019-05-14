@@ -6,6 +6,7 @@
 @iterationPresent
 Feature: US1536889 - Validate contract data - cancel [NDB]
 
+  @RC_unlinked
   @TC703939
   @Manual
   @Functional
@@ -19,12 +20,12 @@ Feature: US1536889 - Validate contract data - cancel [NDB]
   @Manual
   @Functional
   Scenario: TC703941 - [RL1]
-    Given an CONTRACT TERMS UPDATED TRANSACTION is received
-    When the AMENDMENT Does Not contain at least one PRODUCT GROUP
-    Then the AMENDMENT Does NOT pass validation
-    And a Type 3 error generated and logged
-    And a message generated 'AMENDMENT MISSING PRODUCT GROUP'
+    Given a CONTRACT TERMS UPDATED TRANSACTION event is received
+    When the CONTRACT TERMS UPDATED TRANSACTION record includes at least one PRODUCT GROUP to cancel
+    Then the CONTRACT TERMS UPDATED TRANSACTION passes validation
+    And the CONTRACT TERMS UPDATED TRANSACTION continues to applicable next step in process
 
+  @RC_unlinked
   @TC703942
   @Manual
   @Functional
@@ -34,6 +35,7 @@ Feature: US1536889 - Validate contract data - cancel [NDB]
     Then the CONTRACT TERMS UPDATED TRANSACTION passes validation
     And the CONTRACT TERMS UPDATED TRANSACTION continues to applicable next step in process
 
+  @RC_unlinked
   @TC703943
   @Manual
   @Functional

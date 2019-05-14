@@ -1,8 +1,9 @@
 # Last updated on 
 @US1561135
 @2019.PI07
+@2019.PI07.03
 @releasePresent
-@iterationUnknown
+@iterationFuture
 Feature: US1561135 - Add duplicate Kafka topics for mass update transactions
 
   @TC720671
