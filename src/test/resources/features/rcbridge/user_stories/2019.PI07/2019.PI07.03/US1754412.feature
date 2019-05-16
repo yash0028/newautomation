@@ -19,7 +19,7 @@ Feature: US1754412 - Enhance validation edits to allow all Professional/Group (H
       | SMGA       |
       | SPGA       |
       | MGA        |
-      | IPA        |
+      | POPA       |
       | PHO        |
       | FQHC       |
       | RHC        |
