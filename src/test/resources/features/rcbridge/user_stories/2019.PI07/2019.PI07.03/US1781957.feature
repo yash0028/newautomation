@@ -3,7 +3,7 @@
 @2019.PI07
 @2019.PI07.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1781957 - Return status and distinct address in service API response
 
   @TC816812

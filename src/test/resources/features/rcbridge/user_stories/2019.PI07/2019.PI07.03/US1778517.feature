@@ -3,7 +3,7 @@
 @2019.PI07
 @2019.PI07.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1778517 - Update email text
 
   @TC815270

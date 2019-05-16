@@ -4,7 +4,7 @@
 @2019.PI07
 @2019.PI07.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1725880 - Unable to locate Market Lead User Groups
 
   @TC808657

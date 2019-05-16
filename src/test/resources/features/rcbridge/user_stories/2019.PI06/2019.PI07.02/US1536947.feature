@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI07.02
 @releasePast
-@iterationPresent
+@iterationPast
 Feature: US1536947 - Pass contract information to downstream - Cancel [NDB]
 
   @TC743364

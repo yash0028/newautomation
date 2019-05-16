@@ -3,7 +3,7 @@
 @2019.PI07
 @2019.PI07.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1725839 - Additional Network Benefit / ERWRAP Install and AmendmentInstall
 
   @TC792584

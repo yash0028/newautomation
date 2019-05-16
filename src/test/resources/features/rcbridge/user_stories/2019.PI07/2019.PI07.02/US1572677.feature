@@ -4,7 +4,7 @@
 @2019.PI07
 @2019.PI07.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1572677 - Send retro email for "Approved"
 
   @TC743392
