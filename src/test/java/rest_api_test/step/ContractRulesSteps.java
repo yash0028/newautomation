@@ -7,12 +7,14 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
@@ -69,6 +71,8 @@ public class ContractRulesSteps implements IRestStep {
 
         // Get the market product groups and boolean to see if silent inclusion is met
         String silentInclusionMet = responseObject.get("silentInclusionMet").getAsString();
+
+        log.info("Response: {}", response.asString());
 
         // If result is true, silent inclusion met should be true, otherwise it should be false
         if (result.equalsIgnoreCase("true")){
@@ -348,6 +352,22 @@ public class ContractRulesSteps implements IRestStep {
             Assert.assertTrue("Penalty Table Required was false when it should be true", penaltyTableRequired);
         } else {
             Assert.assertFalse("Penalty Table Required was true when it should be false", penaltyTableRequired);
+        }
+    }
+
+    // US1782846 - Update OCM Silent Inclusion
+
+    @And("the result contains {string} of:")
+    public void theResultContainsOf(String jsonProperty, DataTable expectedProductMarketGroupsDT) {
+        List<String> expectedProductMarketGroups = expectedProductMarketGroupsDT.asList();
+
+        JsonArray productMarketGroups = parseJsonElementResponse(response)
+                .getAsJsonObject().get("result").getAsJsonObject()
+                .get(jsonProperty).getAsJsonArray();
+
+        for(String productMarket: expectedProductMarketGroups) {
+            Assert.assertTrue("Result did not contain product market group: " + productMarket,
+                    productMarketGroups.toString().contains(productMarket));
         }
     }
 }
