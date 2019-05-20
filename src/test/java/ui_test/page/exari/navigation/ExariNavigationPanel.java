@@ -99,7 +99,9 @@ public class ExariNavigationPanel implements IWebInteract, IFactoryPage {
     }
 
     public GenericSitePage setSiteEnvironment(String site) {
-        return setSiteEnvironment(SiteManager.Site.string2Site(site));
+        GenericSitePage sitePage = setSiteEnvironment(SiteManager.Site.string2Site(site));
+        sitePage.setSite(site);
+        return sitePage;
     }
 
     /*
@@ -125,7 +127,7 @@ public class ExariNavigationPanel implements IWebInteract, IFactoryPage {
         @FindBy(xpath = "//a[@title='Test']")
         private WebElement headerTabSiteOptionTest;
 
-        @FindBy(xpath = "//a[@title=' Northeast UHN']")
+        @FindBy(xpath = "//a[contains(@title,'Northeast UHN')]")
         private WebElement headerTabSiteOptionNortheastUHN;
 
         @FindBy(xpath = "//a[@title='Central UHN']")

@@ -78,15 +78,16 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
         click("contract start button", elements.buttonContractCreateStart);
         //Give it some extra time since loading pilot contract wrapper can take some time
 
+        //will update this method later to select any wrapper in a generic way eliminating multiple web elements for wrappers
         switch (siteName){
             case "central uhn":
-                return click("pilot contract", elements.buttonContractCreateCentralRegionWrapper);
+                return click("Central Region Wrapper", elements.buttonContractCreateCentralRegionWrapper);
             case "northeast uhn":
-                return click("pilot contract", elements.buttonContractCreateNorthEastRegionWrapper);
+                return click("North East Region Wrapper", elements.buttonContractCreateNorthEastRegionWrapper);
             case "southeast uhn":
-                return click("pilot contract", elements.buttonContractCreateSouthEastRegionWrapper);
+                return click("South East Region Wrapper", elements.buttonContractCreateSouthEastRegionWrapper);
             case "west uhn":
-                return click("pilot contract", elements.buttonContractCreateWestRegionWrapper);
+                return click("West Region Wrapper", elements.buttonContractCreateWestRegionWrapper);
             default:
                 return click("pilot contract", elements.buttonContractCreatePilotContractWrapper);
         }

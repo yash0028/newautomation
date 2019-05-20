@@ -18,7 +18,6 @@ Feature: US1414472 - Author SMGA Contact UI Path
       | Paper Type    | SMGA            |
       | Phycon        | <phycon>        |
       | Fee Schedule  | <fee>           |
-      |Site           |<site>           |
     Then I have an active contract in Exari
     Examples:
       | site          | mpin    | tin       | market number | phycon | fee      | county   |
