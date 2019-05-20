@@ -23,6 +23,6 @@ Feature: US1453122 - Author SPGA Contact UI Path
       | site          | mpin    | tin       | market number | phycon | fee      | county   |
       | central uhn   | 2239924 | 731624480 | 13476         | 1234   | IN 52716 | clay     |
       | northeast uhn | 2239924 | 731624480 | 45592         | 1234   | IN 52716 | caroline |
-      | southeast uhn | 2239924 | 731624480 | 23503         | 1234   | AR 10417  | lee      |
-      | west uhn      | 2239924 | 731624480 | 36555         | 1234   | OR 10409  | baker    |
+      | southeast uhn | 2239924 | 731624480 | 23503         | 1234   | AR 7725  | lee      |
+      | west uhn      | 2239924 | 731624480 | 36555         | 1234   | AR 7725  | baker    |
 
