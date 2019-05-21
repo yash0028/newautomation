@@ -69,7 +69,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         }
 
         flowContract.substituteGherkinData(contractParam);
-
         authorContract();
         finalCapture();
     }

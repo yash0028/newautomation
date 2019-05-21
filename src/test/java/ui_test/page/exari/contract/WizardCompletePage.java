@@ -46,6 +46,7 @@ public class WizardCompletePage extends GenericInputPage {
      */
 
     public boolean clickWizardNext() {
+        waitForPageLoad(this.driver);
         return click("wizard complete", elements.navigationWizardNext);
     }
 

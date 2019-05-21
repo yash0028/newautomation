@@ -74,6 +74,7 @@ public class InterviewManager {
                 }
 
                 assert page.clickNext();
+                page.wait_PageLoad();
             } else {
                 log.error("missing flow for topic \"{}\"", page.getTopicText());
                 return false;
@@ -87,9 +88,12 @@ public class InterviewManager {
     }
 
     public boolean finishContract() {
+        InterviewPage page = new InterviewPage(driver);
+
         ContractPreviewPage previewPage = new ContractPreviewPage(driver);
         assert previewPage.confirmCurrentPage();
         previewPage.clickNext();
+        page.wait_PageLoad();
 
         WizardCompletePage completePage = new WizardCompletePage(driver);
         assert completePage.confirmCurrentPage();

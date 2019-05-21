@@ -42,6 +42,13 @@
                         "<Market Number>",
                         "0"
                     ]
+                },
+                {
+                    "question": "Is this contract for C&S Only?",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
+                    ]
                 }
             ]
         },
@@ -90,7 +97,7 @@
             "questions": [
                 {
                     "question": "Task",
-                    "action": "RADIO-INDEX",
+                    "action": "CHECKBOX-INDEX/RADIO-INDEX",
                     "answers": [
                         "0"
                     ]
@@ -106,15 +113,7 @@
         },
         {
             "topic": "Market Strategy Grid (MSG)",
-            "questions": [
-                {
-                    "question": "County",
-                    "action": "TEXT-BASIC",
-                    "answers": [
-                        "<County>"
-                    ]
-                }
-            ]
+            "questions": []
         },
         {
             "topic": "Contract Details",
@@ -135,6 +134,14 @@
                     "question": "will additional manuals apply?",
                     "matchMethod": "equals-ignore-case",
                     "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
+                    ]
+                },
+                {
+                    "question": "Which of the following Additional Manuals will be included?",
+                    "matchMethod": "equals-ignore-case",
+                    "action": "CHECKBOX-INDEX",
                     "answers": [
                         "1"
                     ]
@@ -165,6 +172,27 @@
                     "answers": [
                         "1"
                     ]
+                },
+                {
+                    "question": "Which Appendix 2 will be used for this contract?",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
+                    ]
+                },
+                {
+                    "question": "Will Medicare Advantage be included in Appendix 2?",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "0"
+                    ]
+                },
+                {
+                    "question": "Which Payment Appendix will apply for Medicare Advantage?",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
+                    ]
                 }
             ]
         },
@@ -186,6 +214,13 @@
                     ]
                 },
                 {
+                    "question": "Select Payment Appendix to include:",
+                    "action": "CHECKBOX-INDEX",
+                    "answers": [
+                        "0"
+                    ]
+                },
+                {
                     "question": "Select the payment appendix whose increases/decreases have been negotiated for the initial term:",
                     "action": "CHECKBOX-INDEX",
                     "answers": [
@@ -198,6 +233,20 @@
                     "answers": [
                         "<Fee Schedule>"
                     ]
+                },
+                {
+                    "question": "What is the fee schedule ID for Non-Physician Professionals for All Payer?",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "<Fee Schedule>"
+                    ]
+                },
+                {
+                    "question": "Have increases/decreases been negotiated for the initial terms?",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
+                    ]
                 }
             ]
         },
@@ -208,7 +257,7 @@
                     "question": "How would you like to select the additional location(s)?",
                     "action": "RADIO-INDEX",
                     "answers": [
-                        "0"
+                        "1"
                     ]
                 }
             ]
@@ -218,6 +267,14 @@
             "questions": [
                 {
                     "question": "Please select a Regulatory Appendix",
+                    "action": "TEXT-AUTOFILL",
+                    "answers": [
+                        "iowa",
+                        "0"
+                    ]
+                },
+                {
+                    "question": "Please select a Regulatory Appendix to be ADDED",
                     "action": "TEXT-AUTOFILL",
                     "answers": [
                         "iowa",
@@ -267,6 +324,10 @@
         },
         {
             "topic": "UHC Products Services",
+            "questions": []
+        },
+        {
+            "topic": "UHC Provider Products Services",
             "questions": []
         },
         {
@@ -326,6 +387,62 @@
                     "action": "TEXT-DATE",
                     "answers": [
                         "October 10, 2019"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Initial Term Period",
+            "questions": [
+                {
+                    "question": "Initial Term Date",
+                    "action": "TEXT-DATE",
+                    "answers": [
+                        "October 10, 2019"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "WARNING",
+            "questions": [
+                {
+                    "question": "Warning",
+                    "action": "CHECKBOX-INDEX",
+                    "answers": [
+                        "All/None"
+                    ]
+                },
+                {
+                    "question": "There are validation errors in the Provider Roster - please scroll to bottom of preview, check the highlighted entries for details and rectify",
+                    "action": "CHECKBOX-INDEX",
+                    "answers": [
+                        "All/None"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Payment",
+            "questions": [
+                {
+                    "question": "Did you negotiate a rate escalator?",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Additional Manuals",
+            "questions": [
+                {
+                    "question": "will additional manuals apply?",
+                    "matchMethod": "equals-ignore-case",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "1"
                     ]
                 }
             ]
