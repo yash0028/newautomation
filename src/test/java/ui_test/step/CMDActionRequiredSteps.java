@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class CMDActionRequiredSteps implements IUiStep {
     private static final Logger log = LoggerFactory.getLogger(CMDActionRequiredSteps.class);
-    private static final String CMD_DASHBOARD_URL = "http://contract-admin-ui-clm-test.ocp-ctc-dmz-nonprod.optum.com/contract-status";
+    private static final String CMD_DASHBOARD_URL = "https://contract-management-test.optum.com";
 
     private CMDPage cmdPage = null;
     private ActionRequiredPage actionRequiredPage = null;

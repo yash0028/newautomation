@@ -247,6 +247,14 @@
                     "answers": [
                         "1"
                     ]
+                },
+                {
+                    "question": "Have increases/decreases been negotiated",
+                    "matchMethod": "start",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "0"
+                    ]
                 }
             ]
         },

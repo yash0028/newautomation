@@ -6,6 +6,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.cucumber.datatable.DataTable;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Assert;
@@ -16,10 +17,7 @@ import rest_api_test.util.IRestStep;
 import ui_test.page.contractManagement.CMDPage;
 import ui_test.util.IUiStep;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -28,7 +26,7 @@ public class CMDSteps implements IRestStep, IUiStep {
     private final static String RESOURCE_CONTRACT_SUMMARIES = "/v1.0/transactions/tx/counts-contract";
     private final static String ENDPOINT_ACTIONREQUIRED = "https://fallout-service-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private final static String RESOURCE_OPENCOUNT = "/v1.0/workobjects/open-count";
-    private final static String CMD_DASHBOARD_URL = "https://contractmanagement-test.optum.com";
+    private final static String CMD_DASHBOARD_URL = "https://contract-management-test.optum.com";
     private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
     private CMDPage cmdPage = null;
 
@@ -181,6 +179,17 @@ public class CMDSteps implements IRestStep, IUiStep {
     public void verifyErrorCountGreaterThan0() {
         int transCountApp = cmdPage.getTransactionsCount("errors");
         Assert.assertTrue("Transaction count doesn't match", transCountApp == (getTransactionsCountService("FAILED") + getTransactionsCountService("PARTIAL_SUCCESS")));
+    }
+
+    @When("^I search for Contract$")
+    public void searchForContract() throws Throwable{
+        cmdPage.searchContract();
+    }
+
+    @Then("^Validate Contract details$")
+    public void validateContractDetails(DataTable contractDataTable) throws Throwable{
+        Map<String, String> contractParam = contractDataTable.asMap(String.class, String.class);
+        cmdPage.validateContractDetails(contractParam);
     }
 
     public int getTransactionsCountService(String transactionStatus){
