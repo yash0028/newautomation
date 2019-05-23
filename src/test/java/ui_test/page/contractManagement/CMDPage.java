@@ -97,8 +97,6 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValuePoster{
      */
     @Override
     public boolean confirmCurrentPage() {
-//        waitForPageLoad(this.driver);
-        log.info(driver.getCurrentUrl());
         return isVisible(searchTransactionsTextBox) && driver.getCurrentUrl().contains("contract-status");
     }
 
@@ -188,7 +186,7 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValuePoster{
     /**
      * Enter Contract Number in Search Transactions TextBox in contractPage management homepage.
      *
-     * @return True if the link was clicked or false otherwise.
+     * @return True if the the data is entered in the input field or false otherwise.
      */
     public boolean enterContractNumber(){
         return sendKeys(searchTransactionsTextBox, getSharedObject("contractNumber"));
