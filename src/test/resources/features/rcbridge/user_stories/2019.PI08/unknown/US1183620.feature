@@ -1,7 +1,7 @@
 # Last updated on 
 @US1183620
-@2019.PI07
-@releasePresent
+@2019.PI08
+@releaseFuture
 @iterationUnknown
 Feature: US1183620 - Escalator notice on Dashboard
 

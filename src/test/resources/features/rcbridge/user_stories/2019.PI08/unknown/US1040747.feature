@@ -1,17 +1,9 @@
 # Last updated on 
 @US1040747
-@2019.PI07
-@releasePresent
+@2019.PI08
+@releaseFuture
 @iterationUnknown
-Feature: US1040747 - View Contract Summary to view Escalator Details
-
-  @TC564878
-  @Manual
-  @Functional
-  Scenario: TC564878 - [RL0]
-    Given a contract with an escalator
-    When I view the Contract Summary
-    Then I see Rate Escalator Summary
+Feature: US1040747 - View Escalator Details
 
   @TC564879
   @Manual

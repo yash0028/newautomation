@@ -15,5 +15,7 @@ Feature: US1788190 - Handle Contract Update Event - Product Determination Logic 
     And the service retrieves the Contract's configuration from the CMD service and stores that information in the OCM
     And the Product to cancel is not in the OCM record
     Then a Type 3 error is generated for the Product Cancel transaction
+    And an error message will be displayed to the user in the log
+    And the error message will state, "No changes found in the OCM; no system updates made"
     ###
 

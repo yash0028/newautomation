@@ -31,7 +31,7 @@ Feature: US1604647 - [Continued] Market Product integration EDQ work (Exari) (QE
   Scenario: TC770247 - [RL2]
     Given the Optum service is available to Exari
     When Exari calls the API service
-    Then the Product_Services are required I
+    Then the Product_Services are required
     And the service returns the matched Market_Products records from the table
     And the process continues to the next step to apply a Market Number filter
 
