@@ -1,7 +1,7 @@
 # Last updated on 
 @US1807893
-@2019.PI07
-@releasePresent
+@2019.PI08
+@releaseFuture
 @iterationUnknown
 Feature: US1807893 - Apply CMD Fallout Resolution to multiple targets
 

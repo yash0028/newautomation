@@ -1,6 +1,7 @@
 # Last updated on 
 @US1808024
-@releaseUnknown
+@2019.PI08
+@releaseFuture
 @iterationUnknown
 Feature: US1808024 - Add USERID to CMD Reference Data web UI
 
