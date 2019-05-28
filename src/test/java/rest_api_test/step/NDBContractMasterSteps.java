@@ -36,6 +36,8 @@ public class NDBContractMasterSteps implements IRestStep {
                 .body(payload).pathParam("market", UNET_MARKETS[0]);
 
         response = request.post(RESOURCE_UNET);
+        log.info("Response: {}", response.asString());
+
         Assert.assertEquals(200, response.getStatusCode());
     }
 
@@ -135,14 +137,13 @@ public class NDBContractMasterSteps implements IRestStep {
     @Then("^The API returned one or more contract masters$")
     public void MultipleContractMaster() throws Throwable {
         JsonElement result = parseJsonElementResponse(this.response);
-        System.out.println(result);
 
         assert result.isJsonObject();
         Assert.assertTrue(result.getAsJsonObject().get("data").isJsonArray());
         for (JsonElement jsonElement : result.getAsJsonObject().get("data").getAsJsonArray()) {
-            Assert.assertTrue(jsonElement.isJsonObject());
+            Assert.assertTrue("Element is not a JSON Object", jsonElement.isJsonObject());
             int returnCode = Integer.parseInt(jsonElement.getAsJsonObject().get("returnCode").getAsString());
-            Assert.assertTrue(returnCode >= 1000);
+            Assert.assertTrue("No contract masters returned", returnCode >= 1000);
         }
     }
     
