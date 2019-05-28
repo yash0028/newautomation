@@ -1,6 +1,7 @@
 package rest_api_test.step;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import cucumber.api.java.en.And;
@@ -28,8 +29,8 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep, IFileReader {
 
     private static final String ENDPOINT = "http://contract-metadata-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_PRODUCT_CODES = "/v1.0/product_group_codes";
+    private static final String RESOURCE_PRODUCT_CODES_BY_ID = "/v1.0/product_group_codes/{id}";
     private static final String RESOURCE_TAXONOMY_QUERY = "/v1.0/provider_taxonomies";
-    private static final String SUPPORT_PRODUCT_CODE_PAYLOAD_FILE = "/support/US1285441/identify_product_codes.json";
 
     private RequestSpecification request;
     private Response response;
@@ -117,9 +118,8 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep, IFileReader {
 
     @When("^the product codes are called from the crosswalk tables$")
     public void getProductCodes() throws Throwable {
-        JsonElement jsonElement = getJsonElementFromFile(SUPPORT_PRODUCT_CODE_PAYLOAD_FILE);
-        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(jsonElement);
-        this.response = request.post(RESOURCE_PRODUCT_CODES);
+        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
+        this.response = request.get(RESOURCE_PRODUCT_CODES);
 
         Assert.assertEquals(200, response.getStatusCode());
     }
@@ -127,20 +127,20 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep, IFileReader {
     @Then("^the correct product codes are returned\\.$")
     public void checkValidCodes() throws Throwable {
         JsonElement result = parseJsonElementResponse(this.response);
+        JsonArray resultContent = result.getAsJsonObject().get("content").getAsJsonArray();
         Assert.assertTrue(result.isJsonObject());
 
-        Assert.assertEquals(200, result.getAsJsonObject().get("responseCode").getAsInt());
-        Assert.assertEquals("Success", result.getAsJsonObject().get("responseStatus").getAsString());
+        Assert.assertTrue("No product codes were returned", resultContent.size() > 0);
     }
 
     @When("^an invalid contract details are called from the crosswalk tables$")
     public void getInvalidCodes() throws  Throwable {
-        JsonElement jsonElement = getJsonElementFromFile(SUPPORT_PRODUCT_CODE_PAYLOAD_FILE);
-        jsonElement = jsonElement.getAsJsonObject().remove("storageNode");
-        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(jsonElement);
-        this.response = request.post(RESOURCE_PRODUCT_CODES);
+        this.request = given().baseUri(ENDPOINT)
+                .header("Content-Type", "application/json")
+                .pathParam("id", "9999999999");
+        this.response = request.get(RESOURCE_PRODUCT_CODES_BY_ID);
 
-        Assert.assertEquals(200, response.getStatusCode());
+        Assert.assertEquals(404, response.getStatusCode());
     }
 
     @Then("^the service returns an error$")
@@ -148,8 +148,11 @@ public class NDBLookupCrosswalkApiSteps implements IRestStep, IFileReader {
         JsonElement result = parseJsonElementResponse(this.response);
         Assert.assertTrue(result.isJsonObject());
 
-        Assert.assertNotEquals(200, result.getAsJsonObject().get("responseCode").getAsInt());
-        Assert.assertNotEquals("Success", result.getAsJsonObject().get("responseStatus").getAsString());
+        String message = result.getAsJsonObject().get("message").getAsString();
+
+        log.info("Response message: {}", message);
+
+        Assert.assertTrue("Response did not contain the correct message", message.contains("Product group code not found"));
     }
 
 
