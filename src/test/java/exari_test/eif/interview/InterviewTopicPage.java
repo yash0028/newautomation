@@ -1,4 +1,4 @@
-package ui_test.page.exari.contract.interview;
+package exari_test.eif.interview;
 
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;

@@ -1,12 +1,12 @@
-package ui_test.page.exari.contract.interview;
+package exari_test.eif.interview;
 
+import exari_test.eif.flow.ActionFlow;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui_test.page.exari.contract.interview.flow.ActionFlow;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;

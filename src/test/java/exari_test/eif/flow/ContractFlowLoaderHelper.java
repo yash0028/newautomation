@@ -1,4 +1,4 @@
-package ui_test.page.exari.contract.interview.flow;
+package exari_test.eif.flow;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

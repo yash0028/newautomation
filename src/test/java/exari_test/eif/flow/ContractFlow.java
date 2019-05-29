@@ -1,4 +1,4 @@
-package ui_test.page.exari.contract.interview.flow;
+package exari_test.eif.flow;
 
 import com.google.gson.*;
 import org.slf4j.Logger;
@@ -54,6 +54,8 @@ public class ContractFlow {
     }
 
     public void substituteGherkinData(Map<String, String> params) {
+        if (params == null) return;
+
         //Each <paramkey> of params needs to be found in the answers fields and subbed for param
         for (String paramKey : params.keySet()) {
             String paramSub = "<" + paramKey + ">";

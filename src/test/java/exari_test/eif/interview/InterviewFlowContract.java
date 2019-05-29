@@ -1,13 +1,13 @@
-package ui_test.page.exari.contract.interview;
+package exari_test.eif.interview;
 
+import exari_test.eif.flow.ActionFlow;
+import exari_test.eif.flow.ContractFlow;
+import exari_test.eif.flow.TopicFlow;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.contract.ContractPreviewPage;
 import ui_test.page.exari.contract.WizardCompletePage;
-import ui_test.page.exari.contract.interview.flow.ActionFlow;
-import ui_test.page.exari.contract.interview.flow.ContractFlow;
-import ui_test.page.exari.contract.interview.flow.TopicFlow;
 
 public class InterviewFlowContract {
     private static final Logger log = LoggerFactory.getLogger(InterviewFlowContract.class);

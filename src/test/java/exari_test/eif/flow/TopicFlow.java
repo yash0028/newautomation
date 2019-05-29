@@ -1,4 +1,4 @@
-package ui_test.page.exari.contract.interview.flow;
+package exari_test.eif.flow;
 
 import com.google.gson.*;
 import org.slf4j.Logger;
