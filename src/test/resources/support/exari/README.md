@@ -7,7 +7,7 @@ Using Cucumber Style Substitution, a single generic EIF script can also be creat
 Example of a EIF Json File
 ```json5
 {
-    "name": "name of flow. can be what ever you want",
+    "name": "name of topicFlow. can be what ever you want",
     "authors": [
         "name",
         "of",
@@ -18,8 +18,8 @@ Example of a EIF Json File
         "this is just a block",
         "of free form text"
     ],
-    //flows is an array that contains the flow item objects
-    "flows" : [ 
+    //topicFlows is an array that contains the topicFlow item objects
+    "topicFlows" : [ 
         //topics can be executed in any order
         {
             //topic string must be exactly what is found in the interview
@@ -48,7 +48,7 @@ Example of a EIF Json File
         {
             "topic": "Request For Participation Response",
             "questions": [] 
-            //Topics not found in the flow cause the test to fail. 
+            //Topics not found in the topicFlow cause the test to fail. 
             //Empty questions means the topic is skipped but recognized
         },
     ]
@@ -61,7 +61,7 @@ The `question` string must exactly match what is found in the Exari interview.
 The `action` string must match one of the Question Action Types detailed in the next section.
 The `answers` string array is also discussed in the next section.
 
-The `question` string will ignore everything after the ':' character since the Exari interview tends to apply flow specific items, such as an address, after a colon.
+The `question` string will ignore everything after the ':' character since the Exari interview tends to apply topicFlow specific items, such as an address, after a colon.
 ```json
 {
     "question": "The primary service/practice location for the counterparty held in NDB is: 12810 Coconino Road",

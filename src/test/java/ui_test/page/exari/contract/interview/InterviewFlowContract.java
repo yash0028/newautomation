@@ -5,25 +5,25 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.contract.ContractPreviewPage;
 import ui_test.page.exari.contract.WizardCompletePage;
-import ui_test.page.exari.contract.interview.flow.Flow;
-import ui_test.page.exari.contract.interview.flow.FlowContract;
-import ui_test.page.exari.contract.interview.flow.FlowItem;
+import ui_test.page.exari.contract.interview.flow.ActionFlow;
+import ui_test.page.exari.contract.interview.flow.ContractFlow;
+import ui_test.page.exari.contract.interview.flow.TopicFlow;
 
-public class InterviewManager {
-    private static final Logger log = LoggerFactory.getLogger(InterviewManager.class);
+public class InterviewFlowContract {
+    private static final Logger log = LoggerFactory.getLogger(InterviewFlowContract.class);
 
 
     private WebDriver driver;
 
-    private FlowContract flowContract;
+    private ContractFlow contractFlow;
 
     /*
     CONSTRUCTOR
      */
 
-    public InterviewManager(WebDriver driver, FlowContract flowContract) {
+    public InterviewFlowContract(WebDriver driver, ContractFlow contractFlow) {
         this.driver = driver;
-        this.flowContract = flowContract;
+        this.contractFlow = contractFlow;
     }
 
     /*
@@ -32,7 +32,7 @@ public class InterviewManager {
 
     public boolean startFlow() {
         boolean test = true;
-        InterviewPage page = new InterviewPage(driver);
+        InterviewTopicPage page = new InterviewTopicPage(driver);
 
         String previousTopic = "";
         int counter = 0;
@@ -55,40 +55,40 @@ public class InterviewManager {
                 return false;
             }
 
-            //Use topic to load up flow
+            //Use topic to load up topicFlow
             log.info("current topic: {}", page.getTopicText());
-            Flow flow = flowContract.getFlowMap().get(page.getTopicText());
+            TopicFlow topicFlow = contractFlow.getTopicFlowMap().get(page.getTopicText());
 
-            //If flow exists for page, perform it
-            if (flow != null) {
+            //If topicFlow exists for page, perform it
+            if (topicFlow != null) {
                 //Load interview questions
-                InterviewMap iMap = page.getInterviewMap();
+                InterviewActionMap iMap = page.getInterviewMap();
 
-                //Handle all questions on page, using flow
+                //Handle all questions on page, using topicFlow
                 for (String question : iMap.keySet()) {
-                    InterviewItem interviewItem = iMap.get(question);
-                    FlowItem flowItem = flow.lookupQuestion(question);
+                    InterviewAction interviewAction = iMap.get(question);
+                    ActionFlow actionFlow = topicFlow.lookupQuestion(question);
 
-                    //Perform flow item on corresponding interview item
-                    test &= interviewItem.performFlow(flowItem) >= 0;
+                    //Perform topicFlow item on corresponding interview item
+                    test &= interviewAction.performFlow(actionFlow) >= 0;
                 }
 
                 assert page.clickNext();
                 page.wait_PageLoad();
             } else {
-                log.error("missing flow for topic \"{}\"", page.getTopicText());
+                log.error("missing topicFlow for topic \"{}\"", page.getTopicText());
                 return false;
             }
 
             //Get next page
-            page = new InterviewPage(driver);
+            page = new InterviewTopicPage(driver);
         }
 
         return test;
     }
 
     public boolean finishContract() {
-        InterviewPage page = new InterviewPage(driver);
+        InterviewTopicPage page = new InterviewTopicPage(driver);
 
         ContractPreviewPage previewPage = new ContractPreviewPage(driver);
         assert previewPage.confirmCurrentPage();

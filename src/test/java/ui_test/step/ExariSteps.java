@@ -10,9 +10,9 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.contract.ContractPage;
-import ui_test.page.exari.contract.interview.InterviewManager;
-import ui_test.page.exari.contract.interview.flow.FlowContract;
-import ui_test.page.exari.contract.interview.flow.IFlowContractLoader;
+import ui_test.page.exari.contract.interview.InterviewFlowContract;
+import ui_test.page.exari.contract.interview.flow.ContractFlow;
+import ui_test.page.exari.contract.interview.flow.IContractFlowLoader;
 import ui_test.page.exari.home.DashboardPage;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.page.exari.login.LoginSSOPage;
@@ -23,7 +23,7 @@ import util.file.IFileReader;
 import java.util.Map;
 
 
-public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster, IFlowContractLoader {
+public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster, IContractFlowLoader {
     private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
 
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
@@ -32,11 +32,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     private ContractPage contractPage;
     private GenericSitePage sitePage;
 
-    private FlowContract flowContract;
+    private ContractFlow contractFlow;
 
     @Given("^I am using the \"([^\"]*)\" flow$")
     public void prepareEIF(String fileName) {
-        flowContract = loadFlowContract(fileName);
+        contractFlow = loadFlowContract(fileName);
     }
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
@@ -47,14 +47,14 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
     public void authorContract(String fileName) {
-        flowContract = loadFlowContract(fileName);
+        contractFlow = loadFlowContract(fileName);
         authorContract();
         finalCapture();
     }
 
     @And("^I author a contract using the \"([^\"]*)\" flow without final capture$")
     public void authorContractNoCapture(String fileName) {
-        flowContract = loadFlowContract(fileName);
+        contractFlow = loadFlowContract(fileName);
         authorContract();
     }
 
@@ -62,13 +62,13 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void authorContract(DataTable contractDataTable) {
         Map<String, String> contractParam = contractDataTable.asMap(String.class, String.class);
 
-        //check if flowContract has be init
-        if (flowContract == null) {
+        //check if contractFlow has be init
+        if (contractFlow == null) {
             log.info("loading default flow {}", DEFAULT_FLOW);
-            flowContract = loadFlowContract(DEFAULT_FLOW);
+            contractFlow = loadFlowContract(DEFAULT_FLOW);
         }
 
-        flowContract.substituteGherkinData(contractParam);
+        contractFlow.substituteGherkinData(contractParam);
         authorContract();
         finalCapture();
     }
@@ -88,7 +88,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         sitePage.startContractAuthor();
 
         //Start interview phase
-        InterviewManager manager = new InterviewManager(getDriver(), flowContract);
+        InterviewFlowContract manager = new InterviewFlowContract(getDriver(), contractFlow);
         manager.startFlow();
         log.info("flow complete");
         manager.finishContract();
@@ -102,7 +102,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     private void finalCapture() {
-        InterviewManager manager = new InterviewManager(getDriver(), flowContract);
+        InterviewFlowContract manager = new InterviewFlowContract(getDriver(), contractFlow);
 
         //click Final Capture
         contractPage.clickFinalCapture();
