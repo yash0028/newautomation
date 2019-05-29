@@ -31,11 +31,6 @@ public class FileHandler {
     STATIC METHODS
      */
 
-    @Deprecated
-    public static FileHandler getInstance_old() {
-        return INSTANCE;
-    }
-
     static FileHandler getInstance() {
         return INSTANCE;
     }
@@ -44,12 +39,12 @@ public class FileHandler {
     CLASS METHODS
      */
 
-    public String getResourceFilePath(String fileInResourceFolder) {
+    String getResourceFilePath(String fileInResourceFolder) {
         return getClass().getResource(fileInResourceFolder).getFile();
 
     }
 
-    public File writeByteArrayToFile(String fileName, byte[] content) throws IOException {
+    File writeByteArrayToFile(String fileName, byte[] content) throws IOException {
         //Create the file with the given filename
         File file = new File(fileName);
         BufferedOutputStream writer = new BufferedOutputStream(new FileOutputStream(file));
@@ -62,7 +57,7 @@ public class FileHandler {
         return file;
     }
 
-    public boolean zipContainsFiles(File file) {
+    boolean zipContainsFiles(File file) {
         ZipFile zipFile = null;
         int size = 0;
 
@@ -81,7 +76,7 @@ public class FileHandler {
         return size > 0;
     }
 
-    public JsonElement getJsonFile(String fileName) {
+    JsonElement getJsonFile(String fileName) {
         JsonParser parser = new JsonParser();
         Reader reader;
         try {
@@ -95,11 +90,11 @@ public class FileHandler {
         return null;
     }
 
-    public String getFileContents(String fileName, boolean ignoreComments, boolean ignoreEmpty) {
+    String getFileContents(String fileName, boolean ignoreComments, boolean ignoreEmpty) {
         return String.join("\n", getFileLines(fileName, ignoreComments, ignoreEmpty));
     }
 
-    public List<String> getFileLines(String fileName, boolean ignoreComments, boolean ignoreEmpty) {
+    List<String> getFileLines(String fileName, boolean ignoreComments, boolean ignoreEmpty) {
         BufferedReader reader;
         String line;
 
@@ -128,27 +123,5 @@ public class FileHandler {
         }
 
         return list;
-    }
-
-    @Deprecated
-    public String getConfigValue(String key) {
-        if (properties == null)
-            loadPropertiesFile();
-        return properties.getProperty(key);
-    }
-
-    @Deprecated
-    private void loadPropertiesFile() {
-        InputStream inputStream = null;
-        properties = new Properties();
-        try {
-            inputStream = getClass().getClassLoader().getResourceAsStream("configurations/ui.properties");
-            if (inputStream == null) {
-                log.info("Unable to find out the ui.properties file");
-            }
-            properties.load(inputStream);
-        } catch (IOException e) {
-            log.error(e.getMessage());
-        }
     }
 }

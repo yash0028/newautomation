@@ -39,33 +39,6 @@ class RestHelper {
     CLASS METHOD
      */
 
-    /**
-     * Given a response and list of String, make sure that the response contains all the fields
-     *
-     * @param response
-     * @param fields
-     * @return if the response contains all fields
-     */
-    @Deprecated
-    boolean fieldsMatch(Response response, List<String> fields) {
-
-        //Get the response as a String
-        String responseString = response.asString().toLowerCase();
-
-        //Iterate through each field that should be contained in the response
-        for (String field : fields) {
-            field = field.trim();
-
-            //If the field is not in the response string, return false
-            if (!responseString.contains(field)) {
-                return false;
-            }
-        }
-
-        //Return true if all the fields are contained in the response string
-        return true;
-    }
-
     boolean verifyFields(JsonElement ecmRoot, List<String> masterSet, String regex) {
         int failCount = 0;
 
@@ -185,19 +158,6 @@ class RestHelper {
     }
 
     /**
-     * Parse a Restful Response into a Json Object.
-     * Deprecated since JsonElement should be used instead to check if the response json is an array, object, or null
-     *
-     * @param response Restful Response
-     * @return Json Object
-     */
-    @Deprecated
-    JsonObject parseJsonResponse(Response response) {
-        String responseString = response.asString().trim();
-        return parseJsonString(responseString);
-    }
-
-    /**
      * Parse a Restful Response into a Json Element.
      *
      * @param response Restful Response
@@ -206,20 +166,6 @@ class RestHelper {
     JsonElement parseJsonElementResponse(Response response) {
         String responseString = response.asString().trim();
         return parseJsonElementString(responseString);
-    }
-
-    /**
-     * Parse a String into a Json Object.
-     * Deprecated since JsonElement should be used instead to check if the string json is an array, object, or null
-     *
-     * @param string stringified json
-     * @return Json Object
-     */
-    @Deprecated
-    JsonObject parseJsonString(String string) {
-        JsonParser parser = new JsonParser();
-
-        return parser.parse(string).getAsJsonObject();
     }
 
     /**
