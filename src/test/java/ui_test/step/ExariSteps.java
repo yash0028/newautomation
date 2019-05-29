@@ -41,6 +41,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
     public void authorContract(String fileName) {
         contractFlow = loadFlowContract(fileName);
+        setupProtoStep();
         this.protoStep.authorContract();
         this.protoStep.finalCapture();
     }
