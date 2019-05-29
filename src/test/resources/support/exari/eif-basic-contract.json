@@ -255,6 +255,14 @@
                     "answers": [
                         "0"
                     ]
+                },
+                {
+                    "question": "What is the fee schedule ID for All Payer for NPPA",
+                    "matchMethod": "start",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "<FS NPPA>"
+                    ]
                 }
             ]
         },
