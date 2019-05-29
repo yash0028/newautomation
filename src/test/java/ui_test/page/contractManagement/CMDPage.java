@@ -1,6 +1,6 @@
 package ui_test.page.contractManagement;
 
-import general_test.util.ISharedValuePoster;
+import general_test.util.ISharedValueReader;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +16,7 @@ import ui_test.util.IWebInteract;
 import java.util.List;
 import java.util.Map;
 
-public class CMDPage implements IFactoryPage, IWebInteract, ISharedValuePoster{
+public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     private static Logger log = LoggerFactory.getLogger(CMDPage.class);
     @FindBy(xpath = "//a[contains(@href,'/contract-summary/in-progress')]")
     WebElement inProgressLink;
@@ -109,7 +109,9 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValuePoster{
     CLASS METHODS
      */
 
-    public String getHeaderContractManagement(){return headerContractManagemet.getText();}
+    public String getHeaderContractManagement() {
+        return headerContractManagemet.getText();
+    }
 
     public List<WebElement> getActionItems() {
         return actionItems;
@@ -120,7 +122,7 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValuePoster{
     }
 
     public int getTransactionsCount(String actionItem) {
-        switch(actionItem){
+        switch (actionItem) {
             case "completed":
                 return Integer.parseInt(transCount.get(0).getText());
             case "in-progress":
@@ -188,41 +190,40 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValuePoster{
      *
      * @return True if the the data is entered in the input field or false otherwise.
      */
-    public boolean enterContractNumber(){
-        return sendKeys(searchTransactionsTextBox, getSharedObject("contractNumber"));
+    public boolean enterContractNumber() {
+        return sendKeys(searchTransactionsTextBox, getSharedString("contractNumber").orElse(""));
     }
 
-    public void searchContract(){
+    public void searchContract() {
         enterContractNumber();
         assert clickSearchButton();
     }
 
-    public void validateContractDetails(Map<String, String> params){
-        Assert.assertTrue("Contract Id value didn't match", contractId.getText().contains(getSharedObject("contractNumber")));
+    public void validateContractDetails(Map<String, String> params) {
+        Assert.assertTrue("Contract Id value didn't match", contractId.getText().contains(getSharedString("contractNumber").orElse("")));
         for (String paramKey : params.keySet()) {
-            switch(paramKey.toUpperCase())
-            {
+            switch (paramKey.toUpperCase()) {
                 case "SITE":
                     String siteName = SiteManager.Site.string2Site(params.get(paramKey)).toString();
-                    Assert.assertTrue(paramKey+" value didn't match", site.getText().equalsIgnoreCase(siteName));
+                    Assert.assertTrue(paramKey + " value didn't match", site.getText().equalsIgnoreCase(siteName));
                     break;
                 case "STATE/MARKET":
-                    Assert.assertTrue(paramKey+" value didn't match", state_market.getText().equalsIgnoreCase(params.get(paramKey)));
+                    Assert.assertTrue(paramKey + " value didn't match", state_market.getText().equalsIgnoreCase(params.get(paramKey)));
                     break;
                 case "USER":
-                    Assert.assertTrue(paramKey+" value didn't match", user.getText().equalsIgnoreCase(params.get(paramKey)));
+                    Assert.assertTrue(paramKey + " value didn't match", user.getText().equalsIgnoreCase(params.get(paramKey)));
                     break;
                 case "PAPERTYPE":
-                    Assert.assertTrue(paramKey+" value didn't match", paperType.getText().equalsIgnoreCase(params.get(paramKey)));
+                    Assert.assertTrue(paramKey + " value didn't match", paperType.getText().equalsIgnoreCase(params.get(paramKey)));
                     break;
                 case "CONTRACTNAME":
-                    Assert.assertTrue(paramKey+" value didn't match", contractName.getText().contains(params.get(paramKey)));
+                    Assert.assertTrue(paramKey + " value didn't match", contractName.getText().contains(params.get(paramKey)));
                     break;
                 case "STATUS":
-                    Assert.assertTrue(paramKey+" value didn't match", status.getText().equalsIgnoreCase(params.get(paramKey)));
+                    Assert.assertTrue(paramKey + " value didn't match", status.getText().equalsIgnoreCase(params.get(paramKey)));
                     break;
                 case "REQUEST TYPE":
-                    Assert.assertTrue(paramKey+" value didn't match", requestType.getText().equalsIgnoreCase(params.get(paramKey)));
+                    Assert.assertTrue(paramKey + " value didn't match", requestType.getText().equalsIgnoreCase(params.get(paramKey)));
                     break;
                 default:
                     log.info("Missing Validation Item");
