@@ -22,3 +22,13 @@ Feature: US1671061 - User group has no users
     And the subject is "Activity Manager User Group with no users"
     And the body is "Please log into Activity Manager and view the <task id>for details."
 
+  @TC831078
+  @Manual
+  @Functional
+  Scenario: TC831078 - [RL1]
+    Given a process has looked at a User Group
+    When there is no user in a User Group
+    Then an email is sent to the users in the "Activity_Manager_Administrator" User Group
+    And the subject is "Activity Manager User Group with no users"
+    And the body is "Please log into Activity Manager and view the <task id>for details."
+

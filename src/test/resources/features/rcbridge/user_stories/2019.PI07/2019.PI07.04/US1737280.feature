@@ -1,9 +1,9 @@
 # Last updated on 
 @US1737280
 @2019.PI07
-@2019.PI07.03
+@2019.PI07.04
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1737280 - PCP reassignment changes for product cancel amendment
 
   @TC797735

@@ -16,13 +16,9 @@ Feature: US1754412 - Enhance validation edits to allow all Professional/Group (H
     Examples:
       | paper Type |
       | SPA        |
+      | PAT        |
       | SMGA       |
       | SPGA       |
       | MGA        |
-      | POPA       |
-      | PHO        |
-      | FQHC       |
-      | RHC        |
-      | POPA       |
-      | Ancillary  |
+      | IPA        |
 

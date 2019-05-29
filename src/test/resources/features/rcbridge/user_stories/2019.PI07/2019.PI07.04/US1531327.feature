@@ -1,9 +1,9 @@
 # Last updated on 
 @US1531327
 @2019.PI07
-@2019.PI07.03
+@2019.PI07.04
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1531327 - CMD UTILITY (Exari/Team 1 effort) - Provider Category Type External Data Query with Exari
 
   @TC700956

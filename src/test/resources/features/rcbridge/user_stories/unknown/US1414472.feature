@@ -18,11 +18,12 @@ Feature: US1414472 - Author SMGA Contact UI Path
       | Paper Type    | SMGA            |
       | Phycon        | <phycon>        |
       | Fee Schedule  | <fee>           |
+      | FS NPPA       | <FS NPPA>       |
     Then I have an active contract in Exari
     Examples:
-      | site          | mpin    | tin       | market number | phycon | fee      | county   |
-      | central uhn   | 2239924 | 731624480 | 13476         | 1234   | IN 52716 | clay     |
-      | northeast uhn | 2239924 | 731624480 | 45592         | 1234   | IN 52716 | caroline |
-      | southeast uhn | 2239924 | 731624480 | 23503         | 1234   | AR 10417 | lee      |
-      | west uhn      | 2239924 | 731624480 | 36555         | 1234   | OR 10409 | baker    |
+      | site          | mpin    | tin       | market number | phycon | fee      | county   | FS NPPA  |
+      | central uhn   | 2239924 | 731624480 | 13476         | 1234   | IN 52716 | clay     | IN 57574 |
+      | northeast uhn | 2239924 | 731624480 | 45592         | 1234   | IN 52716 | caroline | IN 57574 |
+      | southeast uhn | 2239924 | 731624480 | 23503         | 1234   | AR 10417 | lee      | IN 57574 |
+      | west uhn      | 2239924 | 731624480 | 36555         | 1234   | OR 10409 | baker    | IN 57574 |
 
