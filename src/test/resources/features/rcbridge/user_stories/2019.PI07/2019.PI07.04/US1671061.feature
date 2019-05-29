@@ -19,8 +19,6 @@ Feature: US1671061 - User group has no users
     And the task contains the User Group that has no users
     And the task contains the date of the error
     And there is text, "The process is using a User Group that contains no users. Please research the issue and complete the task once it is resolved."
-    And the subject is "Activity Manager User Group with no users"
-    And the body is "Please log into Activity Manager and view the <task id>for details."
 
   @TC831078
   @Manual
