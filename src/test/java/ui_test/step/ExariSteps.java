@@ -23,7 +23,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
 
-    private ProtoStep protoStep;
+    private ProtoStep protoStep = new ProtoStep(getDriver());
 
     private ContractFlow contractFlow;
 
@@ -79,7 +79,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
         contractFlow.substituteGherkinData(contractParam);
 
-        this.protoStep = new ProtoStep(getDriver(), contractFlow);
+        this.protoStep.setFlow(contractFlow);
     }
 
     private void setupProtoStep() {

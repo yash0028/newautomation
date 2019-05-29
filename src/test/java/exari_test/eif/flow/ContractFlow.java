@@ -16,6 +16,8 @@ public class ContractFlow {
 
     private String name;
 
+    private String site;
+
     private List<String> authors;
 
     private String extendedFrom;
@@ -26,7 +28,7 @@ public class ContractFlow {
     CONSTRUCTOR
      */
 
-    public ContractFlow(String name, String extendedFrom, List<String> authors, TopicFlowMap topicFlowMap) {
+    public ContractFlow(String name, String site, String extendedFrom, List<String> authors, TopicFlowMap topicFlowMap) {
         this.name = name;
         this.extendedFrom = extendedFrom;
         this.authors = authors;
@@ -39,6 +41,10 @@ public class ContractFlow {
 
     public String getName() {
         return name;
+    }
+
+    public String getSite() {
+        return site;
     }
 
     public Optional<String> getExtendedFrom() {
@@ -111,10 +117,11 @@ public class ContractFlow {
                     .registerTypeAdapter(TopicFlowMap.class, new TopicFlowMap.Deserializer())
                     .create();
             String name = getName(jsonObject);
+            String site = getSite(jsonObject);
             String extendedFrom = getExtendedFrom(jsonObject);
             String[] authors = getAuthors(gson, jsonObject);
             TopicFlowMap topicFlowMap = gson.fromJson(jsonObject.get("flows"), TopicFlowMap.class);
-            return new ContractFlow(name, extendedFrom, Arrays.asList(authors), topicFlowMap);
+            return new ContractFlow(name, site, extendedFrom, Arrays.asList(authors), topicFlowMap);
         }
 
         public String getName(JsonObject jsonObject) {
@@ -126,6 +133,17 @@ public class ContractFlow {
 
             log.error("bad name field");
             return "BAD NAME FIELD";
+        }
+
+        public String getSite(JsonObject jsonObject) {
+            JsonElement name = jsonObject.get("site");
+
+            if (name.isJsonPrimitive()) {
+                return name.getAsString();
+            }
+
+            log.error("bad site field");
+            return "BAD SITE FIELD";
         }
 
         public String getExtendedFrom(JsonObject jsonObject) {

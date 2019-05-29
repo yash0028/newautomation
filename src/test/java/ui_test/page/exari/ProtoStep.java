@@ -26,17 +26,25 @@ public class ProtoStep implements IConfigurable {
     CONSTRUCTOR
     */
 
-    public ProtoStep(WebDriver driver, ContractFlow flow) {
+    public ProtoStep(WebDriver driver) {
         this.driver = driver;
-        this.flow = flow;
     }
 
     /*
     CLASS METHODS
     */
 
-    public void loginHome() {
+    public ContractFlow getFlow() {
+        return this.flow;
+    }
+
+    public void setFlow(ContractFlow flow) {
+        this.flow = flow;
+    }
+
+    public ProtoStep loginHome() {
         String url = configGetOptionalString("exari.devURL").orElse("");
+        driver.get(url);
         log.info(driver.getTitle());
         LoginSSOPage loginPage = new LoginSSOPage(driver);
         Assert.assertTrue(loginPage.confirmCurrentPage());
@@ -44,18 +52,25 @@ public class ProtoStep implements IConfigurable {
         Assert.assertTrue(loginPage.login());
 
         dashboardPage = loginPage.getHomePage();
+
+        return this;
     }
 
-    public void setSite(String siteOption) {
+    public ProtoStep setSite(String siteOption) {
         Assert.assertTrue(dashboardPage.confirmCurrentPage());
-//        dashboardPage.dismissFailure();
         sitePage = dashboardPage.getNavigationPanel().setSiteEnvironment(siteOption);
 
         assert sitePage.confirmCurrentPage();
         log.info("moved to {} site", siteOption);
+
+        return this;
     }
 
-    public void authorContract() {
+    public ProtoStep setSite() {
+        return this.setSite(this.flow.getSite());
+    }
+
+    public ProtoStep authorContract() {
         //Start contract author
         sitePage.startContractAuthor();
 
@@ -71,6 +86,8 @@ public class ProtoStep implements IConfigurable {
 
         //set Edit Status
         contractPage.setEditStatus("Final Pending QA");
+
+        return this;
     }
 
     public String finalCapture() {
