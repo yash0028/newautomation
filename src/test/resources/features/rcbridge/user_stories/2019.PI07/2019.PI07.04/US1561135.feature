@@ -15,5 +15,4 @@ Feature: US1561135 - Add duplicate Kafka topics for mass update transactions
     Then separate processing of those topics are available for Mass Projects
     And the scripts are available in each of the environments
     And the scripts setup the duplicate Kafka topics correctly in each environment
-    ###
 
