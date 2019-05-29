@@ -27,7 +27,7 @@ import java.util.Optional;
 /**
  * Package Private Singleton to manage SauceLabs connection and any communication tasks.
  */
-class SauceLabs {
+public class SauceLabs {
     private static final Logger log = LoggerFactory.getLogger(SauceLabs.class);
     private static SauceLabs INSTANCE;
 
@@ -362,7 +362,7 @@ class SauceLabs {
             return this;
         }
 
-        SauceLabs build() {
+        public SauceLabs build() {
             return new SauceLabs(buildAllCapabilities(), this.username, this.apiKey, buildUrl());
         }
 
