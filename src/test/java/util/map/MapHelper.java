@@ -21,12 +21,12 @@ class MapHelper {
 
     Map<String, String> subMapStringValues(Map<String, String> base, Map<String, String> subs) {
         return base.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey,
-                e -> {
-                    String s = e.getValue();
-                    for (Map.Entry<String, String> ee : subs.entrySet()) {
-                        s = s.replace(ee.getKey(), ee.getValue());
+                entry -> {
+                    String entryValue = entry.getValue();
+                    for (Map.Entry<String, String> subEntry : subs.entrySet()) {
+                        entryValue = entryValue.replace(subEntry.getKey(), subEntry.getValue());
                     }
-                    return s;
+                    return entryValue;
                 })
         );
     }
