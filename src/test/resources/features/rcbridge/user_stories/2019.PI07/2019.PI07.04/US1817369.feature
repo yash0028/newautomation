@@ -1,7 +1,9 @@
 # Last updated on 
 @US1817369
-@releaseUnknown
-@iterationUnknown
+@2019.PI07
+@2019.PI07.04
+@releasePresent
+@iterationPresent
 Feature: US1817369 - Add forms and text to tasks without them
 
   @TC831734
