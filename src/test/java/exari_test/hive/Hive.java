@@ -12,16 +12,16 @@ public class Hive {
     private static final Logger log = LoggerFactory.getLogger(Hive.class);
     private static Hive INSTANCE = new Hive();
 
-    private Queue<ContractManager> managerQueue;
-    private Collection<ContractManager> activeManagers;
+    private Queue<ContractThread> threadQueue;
+    private Collection<ContractThread> threads;
 
     /*
     CONSTRUCTOR
     */
 
     private Hive() {
-        managerQueue = new PriorityQueue<>();
-        activeManagers = new ArrayList<>();
+        threadQueue = new PriorityQueue<>();
+        threads = new ArrayList<>();
     }
     
     /*
@@ -36,27 +36,27 @@ public class Hive {
     CLASS METHODS
     */
 
-    public void addToQueue(ContractManager manager) {
-        managerQueue.offer(manager);
+    public void addToQueue(ContractThread contractThread) {
+        threadQueue.offer(contractThread);
     }
 
     public void start() {
-        while (!managerQueue.isEmpty()) {
-            ContractManager next = managerQueue.poll();
+        while (!threadQueue.isEmpty()) {
+            ContractThread nextThread = threadQueue.poll();
 
-            log.info("waiting to add {} to queue", next);
+            log.info("waiting to add {} to queue", nextThread);
 
             // Wait until a slot becomes available
-            while (activeManagers.size() >= 5) {
+            while (threads.size() >= 5) {
                 // Remove any terminated mangers
-                activeManagers.removeIf(m -> m.getThreadState() == Thread.State.TERMINATED);
+                threads.removeIf(m -> m.getState() == Thread.State.TERMINATED);
             }
 
             // start next managers
-            next.start();
+            nextThread.start();
 
             // add manager to active list
-            activeManagers.add(next);
+            threads.add(nextThread);
         }
 
     }

@@ -1,6 +1,8 @@
 package general_test.step;
 
 import cucumber.api.java.en.Then;
+import exari_test.hive.ContractThread;
+import exari_test.hive.Hive;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.eventgateway.IEventGatewayInteract;
@@ -22,5 +24,13 @@ public class PlaygroundSteps implements IMapSub, ITransactionInteract, IFalloutI
         log.info("i am here");
 
 
+    }
+
+    @Then("I activate the hive")
+    public void iActivateTheHive() {
+        ContractThread thread = new ContractThread("eif-basic-contract.json");
+        Hive.getInstance().addToQueue(thread);
+
+        Hive.getInstance().start();
     }
 }

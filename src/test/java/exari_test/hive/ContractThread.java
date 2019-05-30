@@ -22,7 +22,7 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
     CONSTRUCTOR
     */
 
-    ContractThread(String eifFileName) {
+    public ContractThread(String eifFileName) {
         ContractFlow flow = loadFlowContract(eifFileName);
         sauceLabs = UiConfigHelper.getInstance().getDefaultSauceBuilder(flow.getName()).build();
         this.step = new ProtoStep(sauceLabs.getDriver());
@@ -36,7 +36,8 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
     @Override
     public void run() {
         super.run();
-        this.contractId = this.step.loginHome().setSite().authorContract().finalCapture();
+//        this.contractId = this.step.loginHome().setSite().authorContract().finalCapture();
+        this.step.loginHome().setSite();
     }
 
     public Optional<String> getContractId() {

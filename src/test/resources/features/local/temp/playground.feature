@@ -12,3 +12,7 @@ Feature: Playground
       | site        | browserName |
       | central uhn | chrome      |
       | central uhn | firefox     |
+
+  @PG123
+  Scenario: Playground
+    Then I activate the hive
