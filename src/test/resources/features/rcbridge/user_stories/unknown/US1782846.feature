@@ -2,7 +2,7 @@
 @US1782846
 @2019.PI07.03
 @releaseUnknown
-@iterationPresent
+@iterationPast
 Feature: US1782846 - Update OCM Silent Inclusion
 
   @TC818957

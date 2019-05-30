@@ -3,7 +3,7 @@
 @2019.PI06
 @2019.PI07.03
 @releasePast
-@iterationPresent
+@iterationPast
 Feature: US1788190 - Handle Contract Update Event - Product Determination Logic (Remove Product) - Generate Type 3 error
 
   @TC818817

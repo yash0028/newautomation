@@ -4,7 +4,7 @@
 @2019.PI07
 @2019.PI07.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1656594 - User Groups - No claim if only one person - retro
 
   @TC759647
