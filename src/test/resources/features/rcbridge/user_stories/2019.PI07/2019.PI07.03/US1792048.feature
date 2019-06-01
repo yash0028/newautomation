@@ -1,7 +1,8 @@
 # Last updated on 
 @US1792048
+@2019.PI07
 @2019.PI07.03
-@releaseUnknown
+@releasePresent
 @iterationPast
 Feature: US1792048 - Throw Type 2 Error When NDB is Down
 

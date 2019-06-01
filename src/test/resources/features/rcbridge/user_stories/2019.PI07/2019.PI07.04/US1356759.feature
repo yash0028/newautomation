@@ -1,7 +1,8 @@
 # Last updated on 
 @US1356759
+@2019.PI07
 @2019.PI07.04
-@releaseUnknown
+@releasePresent
 @iterationPresent
 Feature: US1356759 - Contract Product Market number validation set (T3) [E2E]
 

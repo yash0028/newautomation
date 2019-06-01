@@ -3,7 +3,7 @@
 @2019.PI08
 @releaseFuture
 @iterationUnknown
-Feature: US1040747 - View Escalator Details
+Feature: US1040747 - 1 View Escalator Details
 
   @TC564879
   @Manual

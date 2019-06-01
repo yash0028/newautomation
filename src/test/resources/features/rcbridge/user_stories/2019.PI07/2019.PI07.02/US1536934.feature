@@ -1,8 +1,8 @@
 # Last updated on 
 @US1536934
-@2019.PI06
+@2019.PI07
 @2019.PI07.02
-@releasePast
+@releasePresent
 @iterationPast
 Feature: US1536934 - Validation Process Cancel transaction to applicable platform(s)
 
