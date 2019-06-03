@@ -3,8 +3,6 @@ package rest_api_test.step;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import cucumber.api.PendingException;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -37,62 +35,6 @@ public class NDBSteps implements IRestStep {
     private Response response;
     private JsonObject payload;
 
-    //F185083
-    //US
-
-    @Given("^the NDB connector microservice has received a roster update event$")
-    public void recieveRosterUpdate() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @When("^all of the NDB edits are successful$")
-    public void ndbEditSuccess() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("^the NDB microservices are ready to update NDB$")
-    public void ndmReadyToUpdate() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @When("^all of the NDB edits are not successful$")
-    public void ndbEditFailure() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("^the NDB microservices creates an error message$")
-    public void ndbCreateError() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Given("^The event MS processed NDB edits successfully$")
-    public void theEventMSProcessedNDBEditsSuccessfully() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @When("^NDB completes the update / action successfully$")
-    public void ndbCompletesTheUpdateActionSuccessfully() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("^NDB initiates an event outcome message to the transaction state service$")
-    public void ndbInitiatesAnEventOutcomeMessageToTheTransactionStateService() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @And("^a transaction state service call indicating successful processing was made$")
-    public void aTransactionStateServiceCallIndicatingSuccessfulProcessingWasMade() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
 
     //US1233995
 
@@ -143,7 +85,7 @@ public class NDBSteps implements IRestStep {
     @Then("^a valid response is received by NDB$")
     public void aValidResponseIsReceivedByNDB() throws Throwable {
         //Check for 200
-        assertEquals(this.response.getStatusCode(), 200);
+        assertEquals(200, this.response.getStatusCode());
 
         //Get transaction id from response
         String tID = this.response.asString().replace("\"","");
