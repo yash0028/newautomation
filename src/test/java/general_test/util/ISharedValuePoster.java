@@ -6,10 +6,6 @@ public interface ISharedValuePoster {
         SharedValueStore.getInstance().putSharedObject(key, obj);
     }
 
-    default String getSharedObject(String key) {
-        return SharedValueStore.getInstance().getSharedObject(key).toString();
-    }
-
     default void resetStore() {
         SharedValueStore.getInstance().reset();
     }
