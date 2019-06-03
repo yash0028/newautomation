@@ -4,11 +4,11 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.contractManagement.ActionRequiredPage;
+import ui_test.page.contractManagement.CMDLoginSSOPage;
 import ui_test.page.contractManagement.CMDPage;
 import ui_test.util.IUiStep;
 
@@ -23,7 +23,6 @@ public class CMDActionRequiredSteps implements IUiStep {
 
     private CMDPage cmdPage = null;
     private ActionRequiredPage actionRequiredPage = null;
-    private WebDriver driver;
     private List<WebElement> tableRows = null;
 
     /*
@@ -32,8 +31,19 @@ public class CMDActionRequiredSteps implements IUiStep {
 
     @Given("^I have clicked on Action Required button on the CMD dashboard$")
     public void ClickActionRequiredButtonOnCMDDashboard() throws Throwable {
-        getDriver().get(CMD_DASHBOARD_URL);
+//        RobotThread robot = new RobotThread(getDriver());
+//        robot.addRefreshDelay30Secs().start();
+
+//        getDriver().get(CMD_DASHBOARD_URL);
+//        log.info("page title {}", getDriver().getTitle());
+
+        CMDLoginSSOPage loginSSOPage = new CMDLoginSSOPage(getDriver());
+        loginSSOPage.navigateTo(CMD_DASHBOARD_URL);
+//        loginSSOPage.refreshPage();
         log.info("page title {}", getDriver().getTitle());
+
+        loginSSOPage.login();
+
         cmdPage = new CMDPage(getDriver());
 
         Assert.assertTrue("CMD page could not be displayed", cmdPage.confirmCurrentPage());
