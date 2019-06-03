@@ -51,7 +51,7 @@ public class InterviewPage extends GenericInputPage implements IFactoryPage, IWe
     }
 
     public void wait_PageLoad() {
-        waitForPageLoad(this.driver);
+        waitForPageLoad();
     }
 
     /*
