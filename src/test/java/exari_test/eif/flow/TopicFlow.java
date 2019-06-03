@@ -1,4 +1,4 @@
-package ui_test.page.exari.contract.interview.flow;
+package exari_test.eif.flow;
 
 import com.google.gson.*;
 import org.slf4j.Logger;
@@ -8,15 +8,15 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Flow {
-    private static final Logger log = LoggerFactory.getLogger(Flow.class);
+public class TopicFlow {
+    private static final Logger log = LoggerFactory.getLogger(TopicFlow.class);
 
 
     private String topic;
 
-    private Map<String, FlowItem> questions;
+    private Map<String, ActionFlow> questions;
 
-    public Flow(String topic, Map<String, FlowItem> questions) {
+    public TopicFlow(String topic, Map<String, ActionFlow> questions) {
         this.topic = topic;
         this.questions = questions;
     }
@@ -29,27 +29,27 @@ public class Flow {
         return topic;
     }
 
-    public Map<String, FlowItem> getQuestions() {
+    public Map<String, ActionFlow> getQuestions() {
         return questions;
     }
 
-    public FlowItem lookupQuestion(String questionText) {
+    public ActionFlow lookupQuestion(String questionText) {
 
         // do basic match
         if (questions.containsKey(questionText)) {
             return questions.get(questionText);
         }
 
-        for (FlowItem flowItem : questions.values()) {
-            if (flowItem.check4Match(questionText)) {
-                return flowItem;
+        for (ActionFlow actionFlow : questions.values()) {
+            if (actionFlow.check4Match(questionText)) {
+                return actionFlow;
             }
         }
 
         return null;
     }
 
-    public void addQuestions(Map<String, FlowItem> questionsToAdd) {
+    public void addQuestions(Map<String, ActionFlow> questionsToAdd) {
         for (String key : questionsToAdd.keySet()) {
             if (questions.containsKey(key) && questions.get(key).isNoOverride()) {
                 log.error("cannot override key::{}");
@@ -62,7 +62,7 @@ public class Flow {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Flow::").append(topic).append("\n");
+        builder.append("TopicFlow::").append(topic).append("\n");
         for (String q : getQuestions().keySet()) {
             builder.append("Q::").append(q).append("\n");
         }
@@ -73,22 +73,22 @@ public class Flow {
     /*
     UTILITY CLASS
      */
-    public static class Deserializer implements JsonDeserializer<Flow> {
+    public static class Deserializer implements JsonDeserializer<TopicFlow> {
         @Override
-        public Flow deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext ctx) throws JsonParseException {
+        public TopicFlow deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext ctx) throws JsonParseException {
             JsonObject jsonObject = json.getAsJsonObject();
             JsonArray questions = jsonObject.get("questions").getAsJsonArray();
             Gson gson = new Gson();
 
             String topic = jsonObject.get("topic").getAsString();
-            Map<String, FlowItem> itemMap = new HashMap<>();
+            Map<String, ActionFlow> itemMap = new HashMap<>();
 
             for (JsonElement jsonElement : questions) {
-                FlowItem flowItem = gson.fromJson(jsonElement, FlowItem.class);
-                itemMap.put(flowItem.getQuestion(), flowItem);
+                ActionFlow actionFlow = gson.fromJson(jsonElement, ActionFlow.class);
+                itemMap.put(actionFlow.getQuestion(), actionFlow);
             }
 
-            return new Flow(topic, itemMap);
+            return new TopicFlow(topic, itemMap);
         }
     }
 

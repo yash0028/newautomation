@@ -1,4 +1,4 @@
-package ui_test.page.exari.contract.interview.flow;
+package exari_test.eif.flow;
 
 import com.google.gson.*;
 import org.slf4j.Logger;
@@ -10,27 +10,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class FlowContract {
-    private static final Logger log = LoggerFactory.getLogger(FlowContract.class);
+public class ContractFlow {
+    private static final Logger log = LoggerFactory.getLogger(ContractFlow.class);
 
 
     private String name;
+
+    private String site;
 
     private List<String> authors;
 
     private String extendedFrom;
 
-    private FlowMap flowMap;
+    private TopicFlowMap topicFlowMap;
 
     /*
     CONSTRUCTOR
      */
 
-    public FlowContract(String name, String extendedFrom, List<String> authors, FlowMap flowMap) {
+    public ContractFlow(String name, String site, String extendedFrom, List<String> authors, TopicFlowMap topicFlowMap) {
         this.name = name;
         this.extendedFrom = extendedFrom;
         this.authors = authors;
-        this.flowMap = flowMap;
+        this.topicFlowMap = topicFlowMap;
     }
 
     /*
@@ -41,6 +43,10 @@ public class FlowContract {
         return name;
     }
 
+    public String getSite() {
+        return site;
+    }
+
     public Optional<String> getExtendedFrom() {
         return Optional.ofNullable(extendedFrom);
     }
@@ -49,16 +55,18 @@ public class FlowContract {
         return authors;
     }
 
-    public FlowMap getFlowMap() {
-        return flowMap;
+    public TopicFlowMap getTopicFlowMap() {
+        return topicFlowMap;
     }
 
     public void substituteGherkinData(Map<String, String> params) {
+        if (params == null) return;
+
         //Each <paramkey> of params needs to be found in the answers fields and subbed for param
         for (String paramKey : params.keySet()) {
             String paramSub = "<" + paramKey + ">";
-            for (String flowKey : flowMap.keySet()) {
-                Map<String, FlowItem> itemMap = flowMap.get(flowKey).getQuestions();
+            for (String flowKey : topicFlowMap.keySet()) {
+                Map<String, ActionFlow> itemMap = topicFlowMap.get(flowKey).getQuestions();
                 for (String itemKey : itemMap.keySet()) {
                     List<String> list = itemMap.get(itemKey).getAnswers();
                     for (int i = 0; i < list.size(); i++) {
@@ -75,7 +83,7 @@ public class FlowContract {
         }
     }
 
-    public void merge(FlowContract child) {
+    public void merge(ContractFlow child) {
         //merge authors
 //        for(String author : child.getAuthors()){
 //            if(!this.authors.contains(author)){
@@ -84,7 +92,7 @@ public class FlowContract {
 //        }
 
         //merge flows
-        this.flowMap.merge(child.getFlowMap().getFlowCollection());
+        this.topicFlowMap.merge(child.getTopicFlowMap().getTopicFlowCollection());
     }
 
     @Override
@@ -92,7 +100,7 @@ public class FlowContract {
         StringBuilder builder = new StringBuilder();
         builder.append(name).append("\n");
         builder.append(String.join(", ", authors)).append("\n");
-        builder.append(flowMap.toString());
+        builder.append(topicFlowMap.toString());
 
         return builder.toString();
     }
@@ -101,18 +109,19 @@ public class FlowContract {
     UTILITY CLASS
      */
 
-    public static class Deserializer implements JsonDeserializer<FlowContract> {
+    public static class Deserializer implements JsonDeserializer<ContractFlow> {
         @Override
-        public FlowContract deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext ctx) throws JsonParseException {
+        public ContractFlow deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext ctx) throws JsonParseException {
             JsonObject jsonObject = json.getAsJsonObject();
             Gson gson = new GsonBuilder()
-                    .registerTypeAdapter(FlowMap.class, new FlowMap.Deserializer())
+                    .registerTypeAdapter(TopicFlowMap.class, new TopicFlowMap.Deserializer())
                     .create();
             String name = getName(jsonObject);
+            String site = getSite(jsonObject);
             String extendedFrom = getExtendedFrom(jsonObject);
             String[] authors = getAuthors(gson, jsonObject);
-            FlowMap flowMap = gson.fromJson(jsonObject.get("flows"), FlowMap.class);
-            return new FlowContract(name, extendedFrom, Arrays.asList(authors), flowMap);
+            TopicFlowMap topicFlowMap = gson.fromJson(jsonObject.get("flows"), TopicFlowMap.class);
+            return new ContractFlow(name, site, extendedFrom, Arrays.asList(authors), topicFlowMap);
         }
 
         public String getName(JsonObject jsonObject) {
@@ -124,6 +133,17 @@ public class FlowContract {
 
             log.error("bad name field");
             return "BAD NAME FIELD";
+        }
+
+        public String getSite(JsonObject jsonObject) {
+            JsonElement name = jsonObject.get("site");
+
+            if (name.isJsonPrimitive()) {
+                return name.getAsString();
+            }
+
+            log.error("bad site field");
+            return "BAD SITE FIELD";
         }
 
         public String getExtendedFrom(JsonObject jsonObject) {

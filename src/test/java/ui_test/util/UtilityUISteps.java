@@ -38,7 +38,7 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
         if (!scenario.getSourceTagNames().contains("@parametric_browser")) {
             //Create browser driver
             if (isRemoteDriver()) {
-                SauceLabs.reset(getDefaultSauceBuilder(scenario.getName()));
+                SauceLabs.reset(UiConfigHelper.getInstance().getDefaultSauceBuilder(scenario.getName()));
                 log.info("SauceLabs Test Video: {}", SauceLabs.getInstance().getSauceLink());
             } else {
                 LocalDriver.reset();
@@ -104,7 +104,8 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
 
         //Create browser driver
         if (isRemoteDriver()) {
-            SauceLabs.Builder builder = getParametricSauceBuilder(parameterScenaio.getName(), map);
+            SauceLabs.Builder builder = UiConfigHelper.getInstance().getParametricSauceBuilder(parameterScenaio.getName(), map);
+
             SauceLabs.reset(builder);
             log.info("SauceLabs Test Video: {}", SauceLabs.getInstance().getSauceLink());
         } else {
@@ -112,46 +113,5 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
             log.info("Running local ui test");
         }
 
-    }
-
-    private SauceLabs.Builder getDefaultSauceBuilder(String scenarioName) {
-        SauceLabs.Builder builder = new SauceLabs.Builder();
-
-
-        //Setup Browser
-        builder.withBrowserName(configGetOptionalString("ui.sauce.defaultBrowserName"));
-//        builder.withBrowserVersion(configGetOptionalString("ui.sauce.defaultBrowserVersion"));
-
-        //Setup Platform
-        builder.withPlatformName(configGetOptionalString("ui.sauce.defaultPlatformName"));
-//        builder.withPlatformVersion(configGetOptionalString("ui.sauce.defaultPlatformVersion"));
-
-        //Setup Job Name
-        builder.withJobNameJenkinsBuild(configGetOptionalString("BUILD_TAG"));
-        builder.withJobNameScenarioName(scenarioName);
-
-        //Setup Build Name
-        builder.withBuildName(configGetOptionalString("BUILD_TAG"));
-
-        //Setup Username and api key
-        builder.withUsername(configGetOptionalString("ui.sauce.username"));
-        builder.withApiKey(configGetOptionalString("ui.sauce.apiKey"));
-
-        //Setup Tunnel
-        builder.withParentTunnel(configGetOptionalString("ui.sauce.parentTunnel"));
-        builder.withTunnelIdentifier(configGetOptionalString("ui.sauce.tunnelIdentifier"));
-
-        //Setup Other
-        builder.doAutoAcceptAlerts(configGetOptionalBoolean("ui.sauce.autoAcceptAlerts"));
-        builder.doExtendedDebugging(configGetBoolean("ui.sauce.extendedDebugging"));
-        builder.withVisibility(configGetOptionalString("ui.sauce.visibility"));
-
-        return builder;
-    }
-
-    private SauceLabs.Builder getParametricSauceBuilder(String scenarioName, Map<String, String> map) {
-        SauceLabs.Builder builder = getDefaultSauceBuilder(scenarioName);
-        builder.loadPropertyMap(map);
-        return builder;
     }
 }

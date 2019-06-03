@@ -1,4 +1,4 @@
-package ui_test.page.exari.contract.interview;
+package exari_test.eif.interview;
 
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -13,8 +13,8 @@ import ui_test.util.IWebInteract;
 
 import java.util.List;
 
-public class InterviewPage extends GenericInputPage implements IFactoryPage, IWebInteract {
-    private static final Logger log = LoggerFactory.getLogger(InterviewPage.class);
+public class InterviewTopicPage extends GenericInputPage implements IFactoryPage, IWebInteract {
+    private static final Logger log = LoggerFactory.getLogger(InterviewTopicPage.class);
 
     private final PageElements elements;
 
@@ -22,7 +22,7 @@ public class InterviewPage extends GenericInputPage implements IFactoryPage, IWe
     CONSTRUCTOR
      */
 
-    public InterviewPage(WebDriver driver) {
+    public InterviewTopicPage(WebDriver driver) {
         super(driver);
         elements = new PageElements(driver);
     }
@@ -62,15 +62,15 @@ public class InterviewPage extends GenericInputPage implements IFactoryPage, IWe
         return elements.topic.getText();
     }
 
-    public InterviewMap getInterviewMap() {
-        InterviewMap interviewMap = new InterviewMap();
+    public InterviewActionMap getInterviewMap() {
+        InterviewActionMap interviewActionMap = new InterviewActionMap();
 
         for (WebElement item : elements.interviewElementList) {
-            InterviewItem interviewItem = new InterviewItem(driver, item);
-            interviewMap.put(interviewItem);
+            InterviewAction interviewAction = new InterviewAction(driver, item);
+            interviewActionMap.put(interviewAction);
         }
 
-        return interviewMap;
+        return interviewActionMap;
     }
 
     /*

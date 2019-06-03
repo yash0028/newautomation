@@ -1,4 +1,4 @@
-package ui_test.page.exari.contract.interview.flow;
+package exari_test.eif.flow;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -10,22 +10,22 @@ import util.file.IFileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-class FlowLoader implements IFileReader {
-    private static final Logger log = LoggerFactory.getLogger(FlowLoader.class);
-    private static FlowLoader ourInstance = new FlowLoader();
+class ContractFlowLoaderHelper implements IFileReader {
+    private static final Logger log = LoggerFactory.getLogger(ContractFlowLoaderHelper.class);
+    private static ContractFlowLoaderHelper ourInstance = new ContractFlowLoaderHelper();
 
     /*
     CONSTRUCTOR
      */
 
-    private FlowLoader() {
+    private ContractFlowLoaderHelper() {
     }
 
     /*
     STATIC METHODS
      */
 
-    static FlowLoader getInstance() {
+    static ContractFlowLoaderHelper getInstance() {
         return ourInstance;
     }
 
@@ -33,7 +33,7 @@ class FlowLoader implements IFileReader {
     CLASS METHODS
      */
 
-    public FlowContract loadFlowContract(String fileInResourceFolder) {
+    public ContractFlow loadFlowContract(String fileInResourceFolder) {
         return loadFlowContract(fileInResourceFolder, null);
     }
 
@@ -41,7 +41,7 @@ class FlowLoader implements IFileReader {
     HELPER METHODS
      */
 
-    private FlowContract loadFlowContract(String fileInResourceFolder, List<String> fileHistory) {
+    private ContractFlow loadFlowContract(String fileInResourceFolder, List<String> fileHistory) {
         //check for empty file
         if (fileInResourceFolder == null || fileInResourceFolder.isEmpty()) {
             return null;
@@ -52,22 +52,22 @@ class FlowLoader implements IFileReader {
             fileHistory = new ArrayList<>();
         }
 
-        FlowContract flowContract;
+        ContractFlow contractFlow;
         String path = "/support/exari/" + fileInResourceFolder;
         //Open flow data
         log.info("opening eif {}", path);
         JsonElement flowData = getJsonElementFromFile(path);
         Gson gson = new GsonBuilder()
-                .registerTypeAdapter(FlowContract.class, new FlowContract.Deserializer())
+                .registerTypeAdapter(ContractFlow.class, new ContractFlow.Deserializer())
                 .create();
 
         //Convert json flow data into a flow map
-        flowContract = gson.fromJson(flowData, FlowContract.class);
+        contractFlow = gson.fromJson(flowData, ContractFlow.class);
 
         //Check for parent flows
-        if (flowContract.getExtendedFrom().isPresent()) {
+        if (contractFlow.getExtendedFrom().isPresent()) {
             //set current to child
-            FlowContract child = flowContract;
+            ContractFlow child = contractFlow;
 
             //check for circular loading
             if (fileHistory.contains(fileInResourceFolder)) {
@@ -79,18 +79,18 @@ class FlowLoader implements IFileReader {
             fileHistory.add(fileInResourceFolder);
 
             //load new flow
-            flowContract = loadFlowContract(child.getExtendedFrom().orElse(""), fileHistory);
+            contractFlow = loadFlowContract(child.getExtendedFrom().orElse(""), fileHistory);
 
             //check for invalid flow
-            if (flowContract == null) {
+            if (contractFlow == null) {
                 log.error("unable to properly load parent '{}'", child.getExtendedFrom().orElse(""));
                 return child;
             }
 
-            flowContract.merge(child);
+            contractFlow.merge(child);
         }
 
-        return flowContract;
+        return contractFlow;
     }
 
 

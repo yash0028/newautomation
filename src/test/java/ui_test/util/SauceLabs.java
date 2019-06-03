@@ -27,7 +27,7 @@ import java.util.Optional;
 /**
  * Package Private Singleton to manage SauceLabs connection and any communication tasks.
  */
-class SauceLabs {
+public class SauceLabs {
     private static final Logger log = LoggerFactory.getLogger(SauceLabs.class);
     private static SauceLabs INSTANCE;
 
@@ -85,18 +85,18 @@ class SauceLabs {
     /**
      * Send job passed command to sauce labs
      */
-    void testPassed() throws Throwable {
+    public void testPassed() throws Throwable {
         sauceREST.jobPassed(jobId);
     }
 
     /**
      * Send job failed command to sauce labs
      */
-    void testFailed() throws Throwable {
+    public void testFailed() throws Throwable {
         sauceREST.jobFailed(jobId);
     }
 
-    String getSauceLink() {
+    public String getSauceLink() {
 //        return "http://saucelabs.com/jobs/" + jobId;
         return sauceREST.getPublicJobLink(jobId);
     }
@@ -106,14 +106,14 @@ class SauceLabs {
      *
      * @return
      */
-    WebDriver getDriver() {
+    public WebDriver getDriver() {
         return driver;
     }
 
     /**
      * Close browser and connection
      */
-    void close() {
+    public void close() {
         log.trace("Closing SauceLab connection");
         try {
             if (driver != null) {
@@ -362,7 +362,7 @@ class SauceLabs {
             return this;
         }
 
-        SauceLabs build() {
+        public SauceLabs build() {
             return new SauceLabs(buildAllCapabilities(), this.username, this.apiKey, buildUrl());
         }
 

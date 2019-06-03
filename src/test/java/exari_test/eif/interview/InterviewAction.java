@@ -1,12 +1,12 @@
-package ui_test.page.exari.contract.interview;
+package exari_test.eif.interview;
 
+import exari_test.eif.flow.ActionFlow;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui_test.page.exari.contract.interview.flow.FlowItem;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class InterviewItem implements IFactoryPage, IWebInteract {
-    private static final Logger log = LoggerFactory.getLogger(InterviewItem.class);
+public class InterviewAction implements IFactoryPage, IWebInteract {
+    private static final Logger log = LoggerFactory.getLogger(InterviewAction.class);
 
 
     private WebDriver driver;
@@ -27,7 +27,7 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
     CONSTRUCTOR
      */
 
-    public InterviewItem(WebDriver driver, WebElement interviewBox) {
+    public InterviewAction(WebDriver driver, WebElement interviewBox) {
         this.driver = driver;
         this.pageElements = new PageElements(interviewBox);
         this.interviewElements = new InterviewElements(interviewBox);
@@ -51,19 +51,19 @@ public class InterviewItem implements IFactoryPage, IWebInteract {
     PAGE ACTION METHOD
      */
 
-    public int performFlow(FlowItem flowItem) {
-        if (flowItem == null || !flowItem.check4Match(this.getQuestion())) {
+    public int performFlow(ActionFlow actionFlow) {
+        if (actionFlow == null || !actionFlow.check4Match(this.getQuestion())) {
             log.trace(" missing flow item \"{}\"", this.getQuestion());
             return 0;
         }
 
         log.info("current question: {}", this.getQuestion());
-        log.info("flow item: {}", flowItem.toString());
+        log.info("flow item: {}", actionFlow.toString());
 
-        return enterAnswer(flowItem.getAction(), flowItem.getAnswers()) ? 1 : -1;
+        return enterAnswer(actionFlow.getAction(), actionFlow.getAnswers()) ? 1 : -1;
     }
 
-    public int performFlow(Optional<FlowItem> optionalFlowItem) {
+    public int performFlow(Optional<ActionFlow> optionalFlowItem) {
         //Do flow if present, else return 0
         log.trace("{}", optionalFlowItem);
         return performFlow(optionalFlowItem.orElse(null));

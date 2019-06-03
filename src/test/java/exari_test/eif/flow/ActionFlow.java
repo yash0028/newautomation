@@ -1,4 +1,4 @@
-package ui_test.page.exari.contract.interview.flow;
+package exari_test.eif.flow;
 
 import com.google.gson.annotations.SerializedName;
 import org.slf4j.Logger;
@@ -6,8 +6,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-public class FlowItem {
-    private static final Logger log = LoggerFactory.getLogger(FlowItem.class);
+public class ActionFlow {
+    private static final Logger log = LoggerFactory.getLogger(ActionFlow.class);
 
 
     private String question;
@@ -25,13 +25,13 @@ public class FlowItem {
     CONSTRUCTOR
      */
 
-    public FlowItem(String question, String action, List<String> answers) {
+    public ActionFlow(String question, String action, List<String> answers) {
         this.question = question;
         this.action = action;
         this.answers = answers;
     }
 
-    public FlowItem(String question, String matchMethod, String action, List<String> answers) {
+    public ActionFlow(String question, String matchMethod, String action, List<String> answers) {
         this.question = question;
         this.matchMethod = matchMethod;
         this.action = action;
@@ -96,7 +96,7 @@ public class FlowItem {
                 return a.equalsIgnoreCase(b);
             case "regex":
 //                return this.getQuestion().matches(questionText);
-                log.warn("regex not implemented for FlowItem");
+                log.warn("regex not implemented for ActionFlow");
             default:
                 return false;
         }
