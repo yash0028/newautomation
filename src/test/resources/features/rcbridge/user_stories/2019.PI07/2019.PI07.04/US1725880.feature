@@ -1,5 +1,6 @@
 # Last updated on 
 @Visio
+@Sheham
 @US1725880
 @2019.PI07
 @2019.PI07.04
@@ -11,6 +12,7 @@ Feature: US1725880 - Unable to locate Market Lead User Groups
   @Manual
   @Functional
   @Visio
+  @Sheham
   Scenario: TC808657 - [RL0]
     Given a process is searching for a user group using logic
     When the logic is unable to find a matching user group
@@ -22,6 +24,7 @@ Feature: US1725880 - Unable to locate Market Lead User Groups
   @Manual
   @Functional
   @Visio
+  @Sheham
   Scenario: TC814470 - [RL1]
     Given a process is searching for a user group using logic
     When the logic is unable to find a matching user group

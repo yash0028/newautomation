@@ -1,4 +1,5 @@
 # Last updated on 
+@Sheham
 @US1671061
 @2019.PI07
 @2019.PI07.04
@@ -9,6 +10,7 @@ Feature: US1671061 - User group has no users
   @TC778999
   @Manual
   @Functional
+  @Sheham
   Scenario: TC778999 - [RL0]
     Given a process has looked at a User Group
     When there is no user in a User Group
@@ -23,6 +25,7 @@ Feature: US1671061 - User group has no users
   @TC831078
   @Manual
   @Functional
+  @Sheham
   Scenario: TC831078 - [RL1]
     Given a process has looked at a User Group
     When there is no user in a User Group
