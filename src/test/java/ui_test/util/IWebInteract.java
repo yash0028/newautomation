@@ -1,13 +1,8 @@
 package ui_test.util;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,9 +11,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.TimeoutException;
 
 import static ui_test.util.AbstractPageElements.TIMEOUT;
 
@@ -329,6 +321,10 @@ public interface IWebInteract {
         return true;
     }
 
+    default String getCurrentWindow() {
+        return this.getDriver().getWindowHandle();
+    }
+
     default Set<String> getWindows() {
         return this.getDriver().getWindowHandles();
     }
@@ -356,6 +352,26 @@ public interface IWebInteract {
         return true;
     }
 
+    default boolean closeAllOtherWindows(String openWindowHandle) {
+        Set<String> allWindowHandles = getDriver().getWindowHandles();
+        for (String currentWindowHandle : allWindowHandles) {
+            if (!currentWindowHandle.equals(openWindowHandle)) {
+                getDriver().switchTo().window(currentWindowHandle);
+                getDriver().close();
+            }
+        }
+
+        getDriver().switchTo().window(openWindowHandle);
+        if (getDriver().getWindowHandles().size() == 1)
+            return true;
+        else
+            return false;
+    }
+
+    default boolean closeAllOtherWindows() {
+        return this.closeAllOtherWindows(this.getCurrentWindow());
+    }
+
     default boolean handleAlert(boolean accept) {
         try {
             Alert alert = this.getDriver().switchTo().alert();
@@ -370,6 +386,53 @@ public interface IWebInteract {
         }
 
         return true;
+    }
+
+    default void refreshPage() {
+        getDriver().navigate().refresh();
+        log.trace("refreshed page");
+    }
+
+    /**
+     * Creates a seperate thread to perform the driver navigation in case the driver hangs.
+     *
+     * @param pageUrl url to navigate to
+     * @param timeout timeout before killing navigation attempt
+     * @return if the navigation got hung
+     */
+    default boolean navigateTo(String pageUrl, int timeout) {
+        Thread t = new Thread(new Runnable() {
+            public void run() {
+                try {
+                    getDriver().get(Thread.currentThread().getName());
+                } catch (Exception e) {
+
+                }
+            }
+        }, pageUrl);
+
+        t.start();
+        try {
+            t.join(timeout);
+        } catch (InterruptedException e) {
+            // ignore
+        }
+
+        if (t.isAlive()) { // Thread still alive, we need to abort
+            log.warn("timeout on loading page {}", pageUrl);
+            try {
+                t.interrupt();
+            } catch (Exception e) {
+            }
+            pause(5);
+            return false;
+        }
+
+        return true;
+    }
+
+    default boolean navigateTo(String pageUrl) {
+        return navigateTo(pageUrl, 15);
     }
 
     default void highlight(WebElement element) {
@@ -390,19 +453,19 @@ public interface IWebInteract {
         }
     }
 
-    default void waitForPageLoad(WebDriver driver){
+    default void waitForPageLoad() {
         ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {
-                return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
+                return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
             }
         };
 
-        Wait<WebDriver> wait = new WebDriverWait(driver, 90);
-        try{
+        Wait<WebDriver> wait = new WebDriverWait(getDriver(), 90);
+        try {
             wait.until(expectation);
-        }catch(TimeoutException e){
+        } catch (TimeoutException e) {
             log.info(": Timeout (90 seconds) waiting for Page Load Request to complete");
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
