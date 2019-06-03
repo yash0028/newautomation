@@ -1,7 +1,6 @@
 package exari_test.hive;
 
 import exari_test.eif.flow.ContractFlow;
-import exari_test.eif.flow.IContractFlowLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
@@ -11,7 +10,7 @@ import util.configuration.IConfigurable;
 
 import java.util.Optional;
 
-public class ContractThread extends Thread implements IConfigurable, IContractFlowLoader {
+public class ContractThread extends Thread implements IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(ContractThread.class);
 
     private SauceLabs sauceLabs;
@@ -22,8 +21,8 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
     CONSTRUCTOR
     */
 
-    public ContractThread(String eifFileName) {
-        ContractFlow flow = loadFlowContract(eifFileName);
+    public ContractThread(ContractFlow flow) {
+        super(flow.getName());
         sauceLabs = UiConfigHelper.getInstance().getDefaultSauceBuilder(flow.getName()).build();
         this.step = new ProtoStep(sauceLabs.getDriver());
         this.step.setFlow(flow);

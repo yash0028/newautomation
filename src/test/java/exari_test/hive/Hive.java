@@ -3,10 +3,8 @@ package exari_test.hive;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Hive {
     private static final Logger log = LoggerFactory.getLogger(Hive.class);
@@ -20,7 +18,7 @@ public class Hive {
     */
 
     private Hive() {
-        threadQueue = new PriorityQueue<>();
+        threadQueue = new ArrayDeque<>();
         threads = new ArrayList<>();
     }
     
@@ -36,11 +34,12 @@ public class Hive {
     CLASS METHODS
     */
 
-    public void addToQueue(ContractThread contractThread) {
+    public Hive addToQueue(ContractThread contractThread) {
         threadQueue.offer(contractThread);
+        return this;
     }
 
-    public void start() {
+    public Hive start() {
         while (!threadQueue.isEmpty()) {
             ContractThread nextThread = threadQueue.poll();
 
@@ -59,6 +58,12 @@ public class Hive {
             threads.add(nextThread);
         }
 
+
+        return this;
+    }
+
+    public List<String> getQueueNames() {
+        return this.threadQueue.stream().map(Thread::getName).collect(Collectors.toList());
     }
     
     /*

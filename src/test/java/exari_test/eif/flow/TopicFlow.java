@@ -59,6 +59,15 @@ public class TopicFlow {
         }
     }
 
+    public TopicFlow deepCopy() {
+        Map<String, ActionFlow> copyMap = new HashMap<>();
+        for (String key : this.questions.keySet()) {
+            copyMap.put(key, this.questions.get(key).deepCopy());
+        }
+
+        return new TopicFlow(this.topic, this.questions);
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();

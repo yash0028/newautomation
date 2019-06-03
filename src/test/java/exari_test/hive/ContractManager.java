@@ -15,7 +15,7 @@ public class ContractManager {
 
     public ContractManager(String eifFileName) {
         this.fileName = eifFileName;
-        this.thread = new ContractThread(eifFileName);
+//        this.thread = new ContractThread(eifFileName);
     }
     
     /*
