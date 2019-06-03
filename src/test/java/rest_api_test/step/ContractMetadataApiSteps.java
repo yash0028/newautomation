@@ -2,6 +2,7 @@ package rest_api_test.step;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -24,7 +25,7 @@ import static io.restassured.RestAssured.given;
 public class ContractMetadataApiSteps implements IRestStep, IFileReader {
     private final static Logger log = LoggerFactory.getLogger(ContractMetadataApiSteps.class);
 
-    private final static String ENDPOINT = "https://contract-metadata-api-clm-dev-ui.ocp-ctc-dmz-nonprod.optum.com";
+    private final static String ENDPOINT = "https://contract-metadata-api-clm-test-ui.ocp-ctc-dmz-nonprod.optum.com";
     private final static String RESOURCE_PRODUCT_CODE = "/v1.0/product_group_codes";
     private RequestSpecification request;
     private Response response;
@@ -154,6 +155,37 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
         Assert.assertEquals(expectedProductCodes, actualProductCodes);
     }
 
+    // US1820475 - [Continued] Market Product integration EDQ work (Exari) (QE) - Update CMD Tables
+    @Given("a need get product-group information for pilot products")
+    public void aNeedGetProductGroupInformationForPilotProducts() {
+        // noop
+    }
+
+    @When("sending a request to validate the product group {string}")
+    public void sendingARequestToValidateTheProductGroup(String productGroup) throws Throwable {
+        setSingleProductDescription(productGroup);
+
+        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").relaxedHTTPSValidation();
+    }
+
+    @Then("we receive a response back with details of that product")
+    public void weReceiveAResponseBackWithDetailsOfThatProduct() throws Throwable {
+        response = request.param("productDescriptions", productDescriptions).get(RESOURCE_PRODUCT_CODE);
+
+        Assert.assertEquals("Service did not return 200 response", 200, response.getStatusCode());
+
+        log.info("Response: {}", response.asString());
+
+        JsonArray contentArray = parseJsonElementResponse(response).getAsJsonObject()
+                .get("content").getAsJsonArray();
+
+        for(JsonElement elm: contentArray) {
+            Assert.assertTrue("Element in the response was not a JsonObject", elm.isJsonObject());
+
+            Assert.assertTrue("Element in the response did not contain the id field", elm.getAsJsonObject().has("id"));
+        }
+    }
+
     /**
      * Check that the result is a valid json array.
      *
@@ -172,4 +204,6 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
 
         return resultProductCode.getAsString();
     }
+
+
 }

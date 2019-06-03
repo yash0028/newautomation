@@ -1,7 +1,8 @@
 # Last updated on 
+@Sheham
 @US1671888
 @2019.PI07
-@2019.PI07.03
+@2019.PI07.04
 @releasePresent
 @iterationPresent
 Feature: US1671888 - Add attachments to retro request
@@ -9,6 +10,7 @@ Feature: US1671888 - Add attachments to retro request
   @TC781399
   @Manual
   @Functional
+  @Sheham
   Scenario: TC781399 - [RL0]
     Given a retro request is being started
     When the details are being added

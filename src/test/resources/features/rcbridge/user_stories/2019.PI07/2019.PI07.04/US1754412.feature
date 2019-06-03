@@ -1,7 +1,7 @@
 # Last updated on 
 @US1754412
 @2019.PI07
-@2019.PI07.03
+@2019.PI07.04
 @releasePresent
 @iterationPresent
 Feature: US1754412 - Enhance validation edits to allow all Professional/Group (HCFA) contract paper types for Integrations

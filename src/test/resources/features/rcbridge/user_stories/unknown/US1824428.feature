@@ -1,19 +1,15 @@
 # Last updated on 
 @Visio
-@Sheham
-@US1656594
-@2019.PI07
-@2019.PI07.04
-@releasePresent
-@iterationPresent
-Feature: US1656594 - User Groups - No claim if only one person - retro
+@US1824428
+@releaseUnknown
+@iterationUnknown
+Feature: US1824428 - User Groups - No claim if only one person - Facility
 
-  @TC759647
+  @TC835335
   @Manual
   @Functional
   @Visio
-  @Sheham
-  Scenario: TC759647 - [RL0]
+  Scenario: TC835335 - [RL0]
     Given as task is assigned to a User Group
     When there is only one person in the User Group
     Then the person does not have to claim the task

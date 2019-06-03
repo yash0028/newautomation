@@ -53,16 +53,3 @@ Feature: US1660202 - Create service to provide Transaction installation status t
     And a call to the Optum Transaction Status with the Exari contract ID and Exari Transaction ID for the install contract event
     Then the Optum service should return the status of that installation transaction as 'Successful'
 
-  @RC_unlinked
-  @TC759656
-  @Manual
-  @Functional
-  Scenario: TC759656 - [RL5]
-    Given a successfully installed contract exists in Exari
-    When a first Roster Update has been successfully processed
-    And a second Roster Update to different provider has been successfully processed
-    And a call to the Optum Transaction Status with the Exari contract ID and first Exari Transaction Roster Update ID for the Roster Update contract event
-    And a call to the Optum Transaction Status with the Exari contract ID and second Exari Transaction Roster Update ID for the Roster Update contract event
-    Then the first Optum service should return the status of that Roster Update transaction as 'Successful'
-    And the second Optum service should return the status of that Roster Update transaction as 'Successful'
-

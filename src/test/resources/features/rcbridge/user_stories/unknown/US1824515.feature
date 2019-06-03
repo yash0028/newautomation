@@ -1,17 +1,13 @@
 # Last updated on 
-@Sheham
-@US1671061
-@2019.PI07
-@2019.PI07.04
-@releasePresent
-@iterationPresent
-Feature: US1671061 - User group has no users
+@US1824515
+@releaseUnknown
+@iterationUnknown
+Feature: US1824515 - User group has no users - Physician
 
-  @TC778999
+  @TC835334
   @Manual
   @Functional
-  @Sheham
-  Scenario: TC778999 - [RL0]
+  Scenario: TC835334 - [RL0]
     Given a process has looked at a User Group
     When there is no user in a User Group
     Then a task is created "User group contains no users"
@@ -22,11 +18,10 @@ Feature: US1671061 - User group has no users
     And the task contains the date of the error
     And there is text, "The process is using a User Group that contains no users. Please research the issue and complete the task once it is resolved."
 
-  @TC831078
+  @TC835340
   @Manual
   @Functional
-  @Sheham
-  Scenario: TC831078 - [RL1]
+  Scenario: TC835340 - [RL1]
     Given a process has looked at a User Group
     When there is no user in a User Group
     Then an email is sent to the users in the "Activity_Manager_Administrator" User Group
