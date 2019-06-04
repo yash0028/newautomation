@@ -33,4 +33,15 @@ Feature: US1725880 - Unable to locate Market Lead User Groups
     And there is text, "The Retro Approval Process was unable to locate a Market Lead User Group. Please research the issue and complete the task once it is resolved."
     And the task contains the details of the retro approval request (deal id, counterparty name, counterparty tin, counterparty mpin, Site, State, Market, Paper Type, contract owner, Planned Effective Date)
     And there is a field, "Comments"
+    And there is a field to add the appropriate User Group
+
+  @TC837719
+  @Manual
+  @Functional
+  @Visio
+  @Sheham
+  Scenario: TC837719 - [RL2]
+    Given the appropriate User Group has been added
+    When the user completes the task
+    Then the User Group is assigned the next task
 

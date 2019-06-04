@@ -8,10 +8,10 @@
 Feature: US1820475 - [Continued] Market Product integration EDQ work (Exari) (QE) - Update CMD Tables
 
   @TC832658
-  @Manual
+  @Automated
   @Functional
   @contract-metadata-api
-  Scenario Outline: TC832658 - [RL0]
+  Scenario Outline: TC832658 - [RL0] Validate product group responses
     Given a need get product-group information for pilot products
     When sending a request to validate the product group "<productGroup>"
     Then we receive a response back with details of that product
