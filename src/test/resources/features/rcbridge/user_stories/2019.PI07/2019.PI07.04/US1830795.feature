@@ -23,3 +23,25 @@ Feature: US1830795 - Enhance NDB API contract master search for Y-format contrac
     Then The API returned one or more contract masters
     And Add the contract master response to the Kafka Event topic
 
+  @TC837808
+  @Manual
+  @Functional
+  Scenario: TC837808 - [RL1]
+    # Scenario 2 (UNET search with mkt, fee schedule, and multiple product codes
+    Given The NDB contract master look up API was executed with market number, fee schedule, and more than one product code
+    And the contract master lookup search contains the following data:
+      | feeScheduleNumber | 96192     |
+      | productCode       | P2        |
+      | productGroupCode  | ONENET WC |
+      | contractType      | Y         |
+      | networkOrgMarket  | 45597     |
+      | system            | UNET      |
+    And the contract master lookup search also contains the following data:
+      | feeScheduleNumber | 96192 |
+      | productCode       | P3    |
+      | productGroupCode  | PPO   |
+      | system            | UNET  |
+    When The API response was successful
+    Then The API returned one or more contract masters
+    And Add the contract master response to the Kafka Event topic​​​​​​​
+
