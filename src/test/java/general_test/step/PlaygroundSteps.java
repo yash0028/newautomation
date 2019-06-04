@@ -11,6 +11,7 @@ import rest_api_test.api.eventgateway.IEventGatewayInteract;
 import rest_api_test.api.fallout.IFalloutInteract;
 import rest_api_test.api.transaction.ITransactionInteract;
 import rest_api_test.api.zuul.IMockControllerInteract;
+import util.TimeKeeper;
 import util.map.IMapSub;
 
 import java.util.List;
@@ -33,16 +34,17 @@ public class PlaygroundSteps implements IMapSub, ITransactionInteract, IFalloutI
     @Then("I activate the hive")
     public void iActivateTheHive() {
         ContractFlow flow = loadFlowContract("eif-basic-central.json");
+        final String buildName = "[Hive] " + TimeKeeper.getInstance().getStartTimeISO();
 
         for (int i = 0; i < 3; i++) {
-            ContractFlow temp = flow.deepCopy();
-            temp.setName(flow.getName() + " - " + i);
-            Hive.getInstance().addToQueue(new ContractThread(temp));
+            ContractFlow tempFlow = flow.deepCopy();
+            tempFlow.setName(flow.getName() + " - " + i);
+            Hive.getInstance().addToQueue(new ContractThread(tempFlow, buildName));
         }
 
         List<String> list = Hive.getInstance().getQueueNames();
         log.info("{}", list);
 
-        Hive.getInstance().start();
+        Hive.getInstance().start().waitTillComplete();
     }
 }

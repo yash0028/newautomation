@@ -67,7 +67,7 @@ public class ProtoStep implements IConfigurable {
     }
 
     public ProtoStep setSite() {
-        return this.setSite(this.flow.getSite().orElse("Central UHN"));
+        return this.setSite(this.flow.getSite().orElse("central uhn"));
     }
 
     public ProtoStep authorContract() {

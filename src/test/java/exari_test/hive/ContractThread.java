@@ -8,24 +8,24 @@ import ui_test.util.SauceLabs;
 import ui_test.util.UiConfigHelper;
 import util.configuration.IConfigurable;
 
-import java.util.Optional;
-
 public class ContractThread extends Thread implements IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(ContractThread.class);
 
+    private ContractFlow contractFlow;
+    private SauceLabs.Builder builder;
+
     private SauceLabs sauceLabs;
-    private ProtoStep step;
-    private String contractId;
+    private ProtoStep protoStep;
 
     /*
     CONSTRUCTOR
     */
 
-    public ContractThread(ContractFlow flow) {
+    public ContractThread(ContractFlow flow, String buildName) {
         super(flow.getName());
-        sauceLabs = UiConfigHelper.getInstance().getDefaultSauceBuilder(flow.getName()).build();
-        this.step = new ProtoStep(sauceLabs.getDriver());
-        this.step.setFlow(flow);
+        builder = UiConfigHelper.getInstance().getDefaultSauceBuilder(flow.getName()).withBuildName(buildName);
+        builder.withBrowserName("chrome");
+        this.contractFlow = flow;
     }
     
     /*
@@ -35,12 +35,19 @@ public class ContractThread extends Thread implements IConfigurable {
     @Override
     public void run() {
         super.run();
-//        this.contractId = this.step.loginHome().setSite().authorContract().finalCapture();
-        this.step.loginHome().setSite();
-    }
 
-    public Optional<String> getContractId() {
-        return Optional.ofNullable(contractId);
+        //Create SauceLabs Instance
+        this.sauceLabs = builder.build();
+        log.info("SauceLabs Test Video: {}", this.sauceLabs.getSauceLink());
+
+
+        //Pass Driver to new ProtoStep
+        this.protoStep = new ProtoStep(sauceLabs.getDriver());
+        //Set the flow of ProtoStep
+        this.protoStep.setFlow(contractFlow);
+
+        // Start Contract
+        this.protoStep.loginHome().setSite().authorContract().finalCapture();
     }
 
     /*

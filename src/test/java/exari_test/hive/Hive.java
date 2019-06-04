@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 public class Hive {
     private static final Logger log = LoggerFactory.getLogger(Hive.class);
     private static Hive INSTANCE = new Hive();
+    private static final int QUEUE_SIZE = 5;
 
     private Queue<ContractThread> threadQueue;
     private Collection<ContractThread> threads;
@@ -46,8 +47,9 @@ public class Hive {
             log.info("waiting to add {} to queue", nextThread);
 
             // Wait until a slot becomes available
-            while (threads.size() >= 5) {
+            while (threads.size() >= QUEUE_SIZE) {
                 // Remove any terminated mangers
+//                log.info("thread states: {}", threads.stream().map(Thread::getState).collect(Collectors.toList()));
                 threads.removeIf(m -> m.getState() == Thread.State.TERMINATED);
             }
 
@@ -58,6 +60,16 @@ public class Hive {
             threads.add(nextThread);
         }
 
+        return this;
+    }
+
+    public Hive waitTillComplete() {
+        log.info("waiting until ");
+        while (threads.size() > 0) {
+            // Remove any terminated mangers
+//            log.info("thread states: {}", threads.stream().map(Thread::getState).collect(Collectors.toList()));
+            threads.removeIf(m -> m.getState() == Thread.State.TERMINATED);
+        }
 
         return this;
     }
