@@ -7,12 +7,16 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
+
+import java.util.Map;
+import java.util.Set;
 
 import static io.restassured.RestAssured.given;
 
@@ -166,4 +170,21 @@ public class NDBContractMasterSteps implements IRestStep {
     public void ndbWillSearchAndReturnBackTheValidContractMasterDataForTheSearchParametersRequested() throws Throwable {
         MultipleContractMaster();
     }
+
+    // US1830795 - Enhance NDB API contract master search for Y-format contract masters that process on UNET
+
+    @And("the contract master lookup search (?:also )?contains the following data:")
+    public void theContractMasterLookupSearchContainsTheFollowingData(DataTable requestDT) {
+        Map<String, String> requestMap = requestDT.asMap(String.class, String.class);
+        Set<String> fields = requestMap.keySet();
+
+        JsonObject jsonObject = new JsonObject();
+
+        for(String key: fields) {
+            jsonObject.addProperty(key, requestMap.get(key));
+        }
+
+        this.payload.get("productDetails").getAsJsonArray().add(jsonObject);
+    }
+
 }

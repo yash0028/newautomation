@@ -43,5 +43,5 @@ Feature: US1830795 - Enhance NDB API contract master search for Y-format contrac
       | system            | UNET  |
     When The API response was successful
     Then The API returned one or more contract masters
-    And Add the contract master response to the Kafka Event topic​​​​​​​
+    And Add the contract master response to the Kafka Event topic
 
