@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ActionFlow {
@@ -101,6 +102,14 @@ public class ActionFlow {
                 return false;
         }
 
+    }
+
+    public ActionFlow deepCopy() {
+        List<String> copyList = new ArrayList<>();
+        for (String s : this.answers) {
+            copyList.add(s);
+        }
+        return new ActionFlow(this.question, this.action, copyList);
     }
 
     @Override

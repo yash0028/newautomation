@@ -35,16 +35,35 @@ public class ContractFlow {
         this.topicFlowMap = topicFlowMap;
     }
 
+    public ContractFlow(ContractFlow flow) {
+        this.name = flow.getName();
+        this.extendedFrom = flow.getExtendedFrom().orElse("");
+        this.authors = flow.getAuthors();
+        this.topicFlowMap = flow.getTopicFlowMap().deepCopy();
+    }
+
     /*
     CLASS METHODS
      */
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setTopicFlowMap(TopicFlowMap topicFlowMap) {
+        this.topicFlowMap = topicFlowMap;
+    }
+
+    public Optional<String> getSite() {
+        return Optional.ofNullable(site);
+    }
 
     public String getName() {
         return name;
     }
 
-    public String getSite() {
-        return site;
+    public void setSite(String site) {
+        this.site = site;
     }
 
     public Optional<String> getExtendedFrom() {
@@ -95,6 +114,10 @@ public class ContractFlow {
         this.topicFlowMap.merge(child.getTopicFlowMap().getTopicFlowCollection());
     }
 
+    public ContractFlow deepCopy() {
+        return new ContractFlow(this);
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -136,6 +159,10 @@ public class ContractFlow {
         }
 
         public String getSite(JsonObject jsonObject) {
+            if (!jsonObject.has("site")) {
+                return null;
+            }
+
             JsonElement name = jsonObject.get("site");
 
             if (name.isJsonPrimitive()) {
@@ -143,7 +170,7 @@ public class ContractFlow {
             }
 
             log.error("bad site field");
-            return "BAD SITE FIELD";
+            return null;
         }
 
         public String getExtendedFrom(JsonObject jsonObject) {

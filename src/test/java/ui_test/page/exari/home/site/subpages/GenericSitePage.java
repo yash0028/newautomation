@@ -12,8 +12,6 @@ import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
-import java.util.Map;
-
 public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
     private static final Logger log = LoggerFactory.getLogger(GenericInputPage.class);
 
@@ -35,9 +33,9 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
         elements = new PageElements(driver);
     }
 
-    public void setSite(String site){
+    public void setSite(String site) {
         this.siteName = site;
-        log.info("site is "+this.siteName);
+        log.info("site is " + this.siteName);
     }
 
     /*
@@ -79,13 +77,18 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
         //Give it some extra time since loading pilot contract wrapper can take some time
 
         //will update this method later to select any wrapper in a generic way eliminating multiple web elements for wrappers
-        switch (siteName){
+        log.info("opening {} site wrapper", this.siteName);
+        switch (siteName) {
+            case "central":
             case "central uhn":
                 return click("Central Region Wrapper", elements.buttonContractCreateCentralRegionWrapper);
+            case "northeast":
             case "northeast uhn":
                 return click("North East Region Wrapper", elements.buttonContractCreateNorthEastRegionWrapper);
+            case "southeast":
             case "southeast uhn":
                 return click("South East Region Wrapper", elements.buttonContractCreateSouthEastRegionWrapper);
+            case "west":
             case "west uhn":
                 return click("West Region Wrapper", elements.buttonContractCreateWestRegionWrapper);
             default:

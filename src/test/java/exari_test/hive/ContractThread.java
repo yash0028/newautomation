@@ -1,7 +1,6 @@
 package exari_test.hive;
 
 import exari_test.eif.flow.ContractFlow;
-import exari_test.eif.flow.IContractFlowLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
@@ -9,24 +8,24 @@ import ui_test.util.SauceLabs;
 import ui_test.util.UiConfigHelper;
 import util.configuration.IConfigurable;
 
-import java.util.Optional;
-
-public class ContractThread extends Thread implements IConfigurable, IContractFlowLoader {
+public class ContractThread extends Thread implements IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(ContractThread.class);
 
+    private ContractFlow contractFlow;
+    private SauceLabs.Builder builder;
+
     private SauceLabs sauceLabs;
-    private ProtoStep step;
-    private String contractId;
+    private ProtoStep protoStep;
 
     /*
     CONSTRUCTOR
     */
 
-    ContractThread(String eifFileName) {
-        ContractFlow flow = loadFlowContract(eifFileName);
-        sauceLabs = UiConfigHelper.getInstance().getDefaultSauceBuilder(flow.getName()).build();
-        this.step = new ProtoStep(sauceLabs.getDriver());
-        this.step.setFlow(flow);
+    public ContractThread(ContractFlow flow, String buildName) {
+        super(flow.getName());
+        builder = UiConfigHelper.getInstance().getDefaultSauceBuilder(flow.getName()).withBuildName(buildName);
+        builder.withBrowserName("chrome");
+        this.contractFlow = flow;
     }
     
     /*
@@ -36,11 +35,19 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
     @Override
     public void run() {
         super.run();
-        this.contractId = this.step.loginHome().setSite().authorContract().finalCapture();
-    }
 
-    public Optional<String> getContractId() {
-        return Optional.ofNullable(contractId);
+        //Create SauceLabs Instance
+        this.sauceLabs = builder.build();
+        log.info("SauceLabs Test Video: {}", this.sauceLabs.getSauceLink());
+
+
+        //Pass Driver to new ProtoStep
+        this.protoStep = new ProtoStep(sauceLabs.getDriver());
+        //Set the flow of ProtoStep
+        this.protoStep.setFlow(contractFlow);
+
+        // Start Contract
+        this.protoStep.loginHome().setSite().authorContract().finalCapture();
     }
 
     /*

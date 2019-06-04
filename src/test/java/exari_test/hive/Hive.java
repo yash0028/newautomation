@@ -3,25 +3,24 @@ package exari_test.hive;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Hive {
     private static final Logger log = LoggerFactory.getLogger(Hive.class);
     private static Hive INSTANCE = new Hive();
+    private static final int QUEUE_SIZE = 5;
 
-    private Queue<ContractManager> managerQueue;
-    private Collection<ContractManager> activeManagers;
+    private Queue<ContractThread> threadQueue;
+    private Collection<ContractThread> threads;
 
     /*
     CONSTRUCTOR
     */
 
     private Hive() {
-        managerQueue = new PriorityQueue<>();
-        activeManagers = new ArrayList<>();
+        threadQueue = new ArrayDeque<>();
+        threads = new ArrayList<>();
     }
     
     /*
@@ -36,29 +35,47 @@ public class Hive {
     CLASS METHODS
     */
 
-    public void addToQueue(ContractManager manager) {
-        managerQueue.offer(manager);
+    public Hive addToQueue(ContractThread contractThread) {
+        threadQueue.offer(contractThread);
+        return this;
     }
 
-    public void start() {
-        while (!managerQueue.isEmpty()) {
-            ContractManager next = managerQueue.poll();
+    public Hive start() {
+        while (!threadQueue.isEmpty()) {
+            ContractThread nextThread = threadQueue.poll();
 
-            log.info("waiting to add {} to queue", next);
+            log.info("waiting to add {} to queue", nextThread);
 
             // Wait until a slot becomes available
-            while (activeManagers.size() >= 5) {
+            while (threads.size() >= QUEUE_SIZE) {
                 // Remove any terminated mangers
-                activeManagers.removeIf(m -> m.getThreadState() == Thread.State.TERMINATED);
+//                log.info("thread states: {}", threads.stream().map(Thread::getState).collect(Collectors.toList()));
+                threads.removeIf(m -> m.getState() == Thread.State.TERMINATED);
             }
 
             // start next managers
-            next.start();
+            nextThread.start();
 
             // add manager to active list
-            activeManagers.add(next);
+            threads.add(nextThread);
         }
 
+        return this;
+    }
+
+    public Hive waitTillComplete() {
+        log.info("waiting until ");
+        while (threads.size() > 0) {
+            // Remove any terminated mangers
+//            log.info("thread states: {}", threads.stream().map(Thread::getState).collect(Collectors.toList()));
+            threads.removeIf(m -> m.getState() == Thread.State.TERMINATED);
+        }
+
+        return this;
+    }
+
+    public List<String> getQueueNames() {
+        return this.threadQueue.stream().map(Thread::getName).collect(Collectors.toList());
     }
     
     /*
