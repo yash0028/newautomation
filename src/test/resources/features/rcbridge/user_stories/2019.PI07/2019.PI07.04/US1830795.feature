@@ -7,7 +7,7 @@
 Feature: US1830795 - Enhance NDB API contract master search for Y-format contract masters that process on UNET
 
   @TC837720
-  @Manual
+  @Automated
   @Functional
   Scenario: TC837720 - [RL0]
     # Scenario 1 (UNET search with mkt, fee schedule, and a single product code)
@@ -24,7 +24,7 @@ Feature: US1830795 - Enhance NDB API contract master search for Y-format contrac
     And Add the contract master response to the Kafka Event topic
 
   @TC837808
-  @Manual
+  @Automated
   @Functional
   Scenario: TC837808 - [RL1]
     # Scenario 2 (UNET search with mkt, fee schedule, and multiple product codes
@@ -43,5 +43,5 @@ Feature: US1830795 - Enhance NDB API contract master search for Y-format contrac
       | system            | UNET  |
     When The API response was successful
     Then The API returned one or more contract masters
-    And Add the contract master response to the Kafka Event topic
+    And Add the contract master response to the Kafka Event topic​​​​​​​
 

@@ -7,7 +7,7 @@
 Feature: US1278479 - Publish NDB API contract master more than one response
 
   @TC565739
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565739 - [RL0] Check Single
     # Scenario 1 (UNET search with mkt, fee schedule, and a single product code)
@@ -18,7 +18,7 @@ Feature: US1278479 - Publish NDB API contract master more than one response
     And Add the contract master response to the Kafka Event topic
 
   @TC587365
-  @Automated
+  @Manual
   @Functional
   Scenario: TC587365 - [RL1] Check Mutliple
     # Scenario 2 (UNET search with mkt, fee schedule, and multiple product codes
