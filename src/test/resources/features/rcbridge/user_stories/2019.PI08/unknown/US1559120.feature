@@ -3,7 +3,7 @@
 @2019.PI08
 @releaseFuture
 @iterationUnknown
-Feature: US1559120 - Close the retro approval process - successful - escalator
+Feature: US1559120 - Close the process - successful - escalator
 
   @TC714609
   @Manual

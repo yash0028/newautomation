@@ -3,7 +3,7 @@
 @2019.PI06
 @releasePast
 @iterationUnknown
-Feature: US1561908 - Close the retro approval process - successful - chargemaster
+Feature: US1561908 - Close the process - successful - chargemaster
 
   @TC716033
   @Manual
