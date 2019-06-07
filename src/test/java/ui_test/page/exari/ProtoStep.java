@@ -43,27 +43,39 @@ public class ProtoStep implements IConfigurable {
     }
 
     public ProtoStep loginHome() {
-        String url = configGetOptionalString("exari.devURL").orElse("");
-        driver.get(url);
-        log.info(driver.getTitle());
-        LoginSSOPage loginPage = new LoginSSOPage(driver);
-        Assert.assertTrue(loginPage.confirmCurrentPage());
+        try {
+            String url = configGetOptionalString("exari.devURL").orElse("");
+            driver.get(url);
+            log.info(driver.getTitle());
+            LoginSSOPage loginPage = new LoginSSOPage(driver);
+            Assert.assertTrue(loginPage.confirmCurrentPage());
 
-        Assert.assertTrue(loginPage.login());
+            Assert.assertTrue(loginPage.login());
 
-        dashboardPage = loginPage.getHomePage();
+            dashboardPage = loginPage.getHomePage();
 
-        return this;
+            return this;
+        } catch (Exception e) {
+            if (flow.getReport() != null)
+                flow.getReport().markLoginFail();
+            throw e;
+        }
     }
 
     public ProtoStep setSite(String siteOption) {
-        Assert.assertTrue(dashboardPage.confirmCurrentPage());
-        sitePage = dashboardPage.getNavigationPanel().setSiteEnvironment(siteOption);
+        try {
+            Assert.assertTrue(dashboardPage.confirmCurrentPage());
+            sitePage = dashboardPage.getNavigationPanel().setSiteEnvironment(siteOption);
 
-        assert sitePage.confirmCurrentPage();
-        log.info("moved to {} site", siteOption);
+            assert sitePage.confirmCurrentPage();
+            log.info("moved to {} site", siteOption);
 
-        return this;
+            return this;
+        } catch (Exception e) {
+            if (flow.getReport() != null)
+                flow.getReport().markSetSiteFail();
+            throw e;
+        }
     }
 
     public ProtoStep setSite() {
@@ -71,43 +83,55 @@ public class ProtoStep implements IConfigurable {
     }
 
     public ProtoStep authorContract() {
-        //Start contract author
-        sitePage.startContractAuthor();
+        try {
+            //Start contract author
+            sitePage.startContractAuthor();
 
-        //Start interview phase
-        InterviewFlowContract manager = new InterviewFlowContract(driver, flow);
-        manager.startFlow();
-        log.info("flow complete");
-        manager.finishContract();
+            //Start interview phase
+            InterviewFlowContract manager = new InterviewFlowContract(driver, flow);
+            manager.startFlow();
+            log.info("flow complete");
+            manager.finishContract();
 
-        //Back to contract page
-        contractPage = sitePage.getContractPage();
-        assert contractPage.confirmCurrentPage();
+            //Back to contract page
+            contractPage = sitePage.getContractPage();
+            assert contractPage.confirmCurrentPage();
 
-        //set Edit Status
-        contractPage.setEditStatus("Final Pending QA");
+            //set Edit Status
+            contractPage.setEditStatus("Final Pending QA");
 
-        return this;
+            return this;
+        } catch (Exception e) {
+            if (flow.getReport() != null)
+                flow.getReport().markAuthorFail();
+            throw e;
+        }
     }
 
     public String finalCapture() {
-        InterviewFlowContract manager = new InterviewFlowContract(driver, flow);
+        try {
+            InterviewFlowContract manager = new InterviewFlowContract(driver, flow);
 
-        //click Final Capture
-        contractPage.clickFinalCapture();
+            //click Final Capture
+            contractPage.clickFinalCapture();
 
-        //Start flow for final capture
-        manager.startFlow();
-        manager.finishContract();
+            //Start flow for final capture
+            manager.startFlow();
+            manager.finishContract();
 
-        //Back to Contract Page
-        contractPage = sitePage.getContractPage();
-        assert contractPage.confirmCurrentPage();
+            //Back to Contract Page
+            contractPage = sitePage.getContractPage();
+            assert contractPage.confirmCurrentPage();
 
-        //set Edit Status
-        assert contractPage.setEditStatus("Active");
+            //set Edit Status
+            assert contractPage.setEditStatus("Active");
 
-        return contractPage.getContractNumber();
+            return contractPage.getContractNumber();
+        } catch (Exception e) {
+            if (flow.getReport() != null)
+                flow.getReport().markCaptureFail();
+            throw e;
+        }
     }
 
     public boolean checkActiveContractStatus() {
