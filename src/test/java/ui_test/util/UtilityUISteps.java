@@ -15,7 +15,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.configuration.IConfigurable;
 
-import java.net.SocketTimeoutException;
 import java.util.Map;
 
 /**
@@ -79,8 +78,6 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
                 } else {
                     SauceLabs.getInstance().testFailed();
                 }
-            } catch (SocketTimeoutException ste) {
-                log.error("Unable to report result to SauceLabs");
             } catch (Throwable throwable) {
                 log.error("Unknown error: {}", throwable.getMessage());
             }
