@@ -12,5 +12,5 @@ Feature: US1244333 - Request HCE Modeling - Rate Escalator
     Given a rate escalator exists
     When the task "HCE Modeling: Request Submitted" is created
     Then the assignee is:
-    And the
+    And the text
 
