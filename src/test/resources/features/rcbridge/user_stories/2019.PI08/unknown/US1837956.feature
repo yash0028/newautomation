@@ -21,4 +21,5 @@ Feature: US1837956 - Fields report from Alfresco
     And it contains the Last updated date
     And the report can be viewed in Excel
     And the report is for all of the processes
+    And the report can be run in each environment (dev, test, stage, training, prod)
 
