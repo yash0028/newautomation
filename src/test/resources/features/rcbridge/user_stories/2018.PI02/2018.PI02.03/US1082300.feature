@@ -4,8 +4,8 @@
 @US1082300
 @2018.PI02
 @2018.PI02.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1082300 - Create microservice to obtain RFP data
 
   @TC565532

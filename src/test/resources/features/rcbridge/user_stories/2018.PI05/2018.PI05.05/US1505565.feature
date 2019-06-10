@@ -3,8 +3,8 @@
 @US1505565
 @2018.PI05
 @2018.PI05.05
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1505565 - MSG Specialty Mapping Pt. 2
 
   @TC705774

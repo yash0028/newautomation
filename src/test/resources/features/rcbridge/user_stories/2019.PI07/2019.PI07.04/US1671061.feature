@@ -3,8 +3,8 @@
 @US1671061
 @2019.PI07
 @2019.PI07.04
-@releasePresent
-@iterationPresent
+@releaseUnknown
+@iterationUnknown
 Feature: US1671061 - User group has no users
 
   @TC778999

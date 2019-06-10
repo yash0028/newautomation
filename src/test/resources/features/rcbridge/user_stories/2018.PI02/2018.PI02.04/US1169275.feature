@@ -4,8 +4,8 @@
 @US1169275
 @2018.PI02
 @2018.PI02.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1169275 - NDB Common Pricing Solution Payload analysis SPIKE
 
   @TC605410

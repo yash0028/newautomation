@@ -3,8 +3,8 @@
 @US1194515
 @2018.PI02
 @2018.PI02.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1194515 - [Unfinished] Domain MS - Create event schema design for Roster Update
 
   @TC605419

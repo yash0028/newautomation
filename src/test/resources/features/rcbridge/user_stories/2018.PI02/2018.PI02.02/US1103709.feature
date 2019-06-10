@@ -4,8 +4,8 @@
 @US1103709
 @2018.PI02
 @2018.PI02.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1103709 - Counter-party Provider Specialty Code is found and paper type is returned
 
   @TC564555

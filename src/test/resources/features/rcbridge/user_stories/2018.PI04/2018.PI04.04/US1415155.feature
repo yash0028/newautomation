@@ -2,8 +2,8 @@
 @US1415155
 @2018.PI04
 @2018.PI04.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1415155 - [Defect] No message displayed when there are no action required contract items
 
   @TC628765

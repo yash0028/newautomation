@@ -2,8 +2,8 @@
 @US1054141
 @2018.PI01
 @2018.PI01.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1054141 - [Continued] Setup RC Bridge Automation Testing Component
 
   @TC564429

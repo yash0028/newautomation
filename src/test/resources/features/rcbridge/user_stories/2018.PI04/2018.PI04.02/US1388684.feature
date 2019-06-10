@@ -3,8 +3,8 @@
 @US1388684
 @2018.PI04
 @2018.PI04.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1388684 - [Unfinished] [Continued] CMD- User Input Required Page- View & Edit contract detail information (no search results found)
 
   @TC615284

@@ -3,8 +3,8 @@
 @US1234808
 @2018.PI03
 @2018.PI03.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1234808 - Enhancement to Fee Schedule External Data Query
 
   @TC554647

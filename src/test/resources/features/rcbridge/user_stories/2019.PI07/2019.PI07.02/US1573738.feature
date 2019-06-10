@@ -2,8 +2,8 @@
 @US1573738
 @2019.PI07
 @2019.PI07.02
-@releasePresent
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1573738 - Re-present requested more info to Network COO and operations COO
 
   @TC743413

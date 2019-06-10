@@ -2,8 +2,8 @@
 @US1100684
 @2018.PI02
 @2018.PI02.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1100684 - Event Subscription and Publication Library Refinement
 
   @TC701616

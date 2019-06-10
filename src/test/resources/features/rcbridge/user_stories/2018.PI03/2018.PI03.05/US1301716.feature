@@ -3,8 +3,8 @@
 @US1301716
 @2018.PI03
 @2018.PI03.05
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1301716 - CMD Dashboard Navigation Bar
 
   @TC681335

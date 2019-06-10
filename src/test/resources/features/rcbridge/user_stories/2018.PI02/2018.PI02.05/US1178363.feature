@@ -2,8 +2,8 @@
 @US1178363
 @2018.PI02
 @2018.PI02.05
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1178363 - Error and Exception Handling framework
 
   @TC564482

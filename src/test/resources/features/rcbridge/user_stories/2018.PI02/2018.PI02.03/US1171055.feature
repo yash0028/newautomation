@@ -4,8 +4,8 @@
 @US1171055
 @2018.PI02
 @2018.PI02.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1171055 - [Unfinished] Build External Data Query (ETMA)
 
   @TC565506

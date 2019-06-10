@@ -2,8 +2,8 @@
 @US1416853
 @2018.PI05
 @2018.PI05.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1416853 - [Continued] Setup a new Contract Configuration Service
 
   @TC629010

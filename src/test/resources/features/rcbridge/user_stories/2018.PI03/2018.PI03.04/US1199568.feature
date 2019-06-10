@@ -2,8 +2,8 @@
 @US1199568
 @2018.PI03
 @2018.PI03.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1199568 - [Continued] Import Data from Spreadsheet into Table
 
   @TC546797

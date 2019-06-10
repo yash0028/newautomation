@@ -2,8 +2,8 @@
 @US1606165
 @2019.PI07
 @2019.PI07.01
-@releasePresent
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1606165 - Update CMD application to leverage the additional roles (Supporting)
 
   @TC793509

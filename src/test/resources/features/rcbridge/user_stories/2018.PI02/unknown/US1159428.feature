@@ -1,7 +1,7 @@
 # Last updated on 
 @US1159428
 @2018.PI02
-@releasePast
+@releaseUnknown
 @iterationUnknown
 Feature: US1159428 - Jenkins Job for OpenShift Cleanup
 

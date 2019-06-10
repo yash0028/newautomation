@@ -3,8 +3,8 @@
 @US1100247
 @2018.PI02
 @2018.PI02.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1100247 - Domain service stub
 
   @TC701617

@@ -2,8 +2,8 @@
 @US1234925
 @2018.PI03
 @2018.PI03.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1234925 - [Unfinished] Download Crosswalk Template
 
   @TC605381

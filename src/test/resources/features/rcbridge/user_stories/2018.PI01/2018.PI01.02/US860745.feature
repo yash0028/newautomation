@@ -3,8 +3,8 @@
 @US860745
 @2018.PI01
 @2018.PI01.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US860745 - Setup Business Organizations
 
   @TC701665

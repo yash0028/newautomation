@@ -2,8 +2,8 @@
 @US1561146
 @2019.PI07
 @2019.PI07.04
-@releasePresent
-@iterationPresent
+@releaseUnknown
+@iterationUnknown
 Feature: US1561146 - Reconfigure the Kafka cluster to support Mass Update and Flow-Based transactons (Pending Delete)
 
   @TC720663

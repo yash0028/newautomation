@@ -3,8 +3,8 @@
 @US933587
 @2018.PI01
 @2018.PI01.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US933587 - Setup Standard Configuration Settings
 
   @TC701729

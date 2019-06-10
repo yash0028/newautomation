@@ -2,8 +2,8 @@
 @US1660202
 @2019.PI06
 @2019.PI06.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1660202 - Create service to provide Transaction installation status to Exari
 
   @TC759646

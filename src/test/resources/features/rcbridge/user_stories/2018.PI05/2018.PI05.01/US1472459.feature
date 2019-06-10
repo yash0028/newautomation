@@ -2,8 +2,8 @@
 @US1472459
 @2018.PI05
 @2018.PI05.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1472459 - Integration - Physician Landing Page
 
   @TC669306

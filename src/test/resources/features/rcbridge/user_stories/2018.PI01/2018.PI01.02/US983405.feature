@@ -3,8 +3,8 @@
 @US983405
 @2018.PI01
 @2018.PI01.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US983405 - [Continued] Setup RC Bridge Automation Testing Component
 
   @TC408750

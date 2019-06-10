@@ -4,8 +4,8 @@
 @US1194560
 @2018.PI03
 @2018.PI03.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1194560 - PES ExternaI Data Query (Appendix 1 lookup)
 
   @TC558183

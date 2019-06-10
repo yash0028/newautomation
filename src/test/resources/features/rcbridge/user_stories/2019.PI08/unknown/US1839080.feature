@@ -2,7 +2,7 @@
 @Adele_R
 @US1839080
 @2019.PI08
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1839080 - HCE Modeling Received - Rate Escalator
 

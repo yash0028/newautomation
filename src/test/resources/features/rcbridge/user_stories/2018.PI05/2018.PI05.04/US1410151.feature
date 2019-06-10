@@ -2,8 +2,8 @@
 @US1410151
 @2018.PI05
 @2018.PI05.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1410151 - Identify THERE IS AN EXISTING CONTRACT WITHIN THIS DATE RANGE  Type 2 error
 
   @TC706029

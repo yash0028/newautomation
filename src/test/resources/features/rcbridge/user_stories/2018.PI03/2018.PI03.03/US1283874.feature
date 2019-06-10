@@ -4,8 +4,8 @@
 @US1283874
 @2018.PI03
 @2018.PI03.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1283874 - [Unfinished] Store history and audit metadata
 
   @TC605368

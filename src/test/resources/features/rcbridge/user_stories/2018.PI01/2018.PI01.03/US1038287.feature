@@ -4,8 +4,8 @@
 @US1038287
 @2018.PI01
 @2018.PI01.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1038287 - [CONTINUED] Setup initial SPA/PAT in Interview
 
   @TC701697

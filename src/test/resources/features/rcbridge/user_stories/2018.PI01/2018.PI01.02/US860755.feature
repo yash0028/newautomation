@@ -3,8 +3,8 @@
 @US860755
 @2018.PI01
 @2018.PI01.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US860755 - [UNFINISHED] Setup initial SPA/PAT Contract Template
 
   @TC701660

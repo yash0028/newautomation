@@ -1,7 +1,7 @@
 # Last updated on 
 @US1837956
 @2019.PI08
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1837956 - Fields report from Alfresco
 

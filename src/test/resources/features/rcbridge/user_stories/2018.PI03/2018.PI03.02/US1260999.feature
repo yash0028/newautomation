@@ -2,8 +2,8 @@
 @US1260999
 @2018.PI03
 @2018.PI03.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1260999 - [Unfinished] NDB Layer 7 Implementation
 
   @TC605362

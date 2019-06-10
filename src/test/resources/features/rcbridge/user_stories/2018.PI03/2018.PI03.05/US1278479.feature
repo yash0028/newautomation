@@ -2,8 +2,8 @@
 @US1278479
 @2018.PI03
 @2018.PI03.05
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1278479 - Publish NDB API contract master more than one response
 
   @TC565739

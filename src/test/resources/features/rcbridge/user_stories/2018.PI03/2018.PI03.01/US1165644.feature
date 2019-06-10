@@ -3,8 +3,8 @@
 @US1165644
 @2018.PI03
 @2018.PI03.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1165644 - Create Service Providing Facility FS  Access Via Microservice
 
   @TC519085

@@ -1,7 +1,7 @@
 # Last updated on 
 @US1827983
 @2019.PI08
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1827983 - Default sort of error screens
 

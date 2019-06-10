@@ -4,8 +4,8 @@
 @US1096916
 @2018.PI02
 @2018.PI02.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1096916 - Error - Provider's specialty is on table and paper type is not correct
 
   @TC564873

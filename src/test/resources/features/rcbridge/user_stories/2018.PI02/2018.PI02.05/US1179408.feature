@@ -2,8 +2,8 @@
 @US1179408
 @2018.PI02
 @2018.PI02.05
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1179408 - [Continued] Cosmos Integration
 
   @TC494260

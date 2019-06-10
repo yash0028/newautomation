@@ -3,8 +3,8 @@
 @US1038286
 @2018.PI01
 @2018.PI01.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1038286 - [CONTINUED] Setup initial SPA/PAT Contract Template
 
   @TC701691

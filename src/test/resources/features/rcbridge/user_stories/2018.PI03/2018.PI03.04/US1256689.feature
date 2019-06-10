@@ -3,8 +3,8 @@
 @US1256689
 @2018.PI03
 @2018.PI03.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1256689 - [Continued] Validate Table data
 
   @TC551940

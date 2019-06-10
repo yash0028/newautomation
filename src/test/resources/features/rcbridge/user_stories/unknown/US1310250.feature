@@ -2,7 +2,7 @@
 @US1310250
 @2018.PI03.05
 @releaseUnknown
-@iterationPast
+@iterationUnknown
 Feature: US1310250 - Improve Services Test Coverage
 
   @TC701727

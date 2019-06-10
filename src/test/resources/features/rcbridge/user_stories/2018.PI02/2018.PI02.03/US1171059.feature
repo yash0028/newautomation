@@ -2,8 +2,8 @@
 @US1171059
 @2018.PI02
 @2018.PI02.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1171059 - [Unfinished] Complete OSAM Assessment
 
   @TC565211

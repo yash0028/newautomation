@@ -2,7 +2,7 @@
 @Retro
 @US1570002
 @2019.PI08
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1570002 - Initiate Retro Form- Integration "Negotiation Details from Workflow"
 

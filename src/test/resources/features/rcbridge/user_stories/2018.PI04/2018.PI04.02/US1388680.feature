@@ -3,8 +3,8 @@
 @US1388680
 @2018.PI04
 @2018.PI04.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1388680 - [Unfinished] CMD- User Input Required Page- Populate rows of data
 
   @TC615269

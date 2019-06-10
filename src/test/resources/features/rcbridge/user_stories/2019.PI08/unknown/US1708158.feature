@@ -1,7 +1,7 @@
 # Last updated on 
 @US1708158
 @2019.PI08
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1708158 - Process and store rate condition details in OCM
 

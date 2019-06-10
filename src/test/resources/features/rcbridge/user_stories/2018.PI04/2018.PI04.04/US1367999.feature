@@ -3,8 +3,8 @@
 @US1367999
 @2018.PI04
 @2018.PI04.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1367999 - PCP Specialties Standard definition UHN
 
   @TC600523

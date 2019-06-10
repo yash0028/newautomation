@@ -2,8 +2,8 @@
 @US1401422
 @2018.PI05
 @2018.PI05.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1401422 - UI/UX - CMD PCP reassign UI - view PCP reassign info
 
   @TC697430

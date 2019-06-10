@@ -3,8 +3,8 @@
 @US1208966
 @2018.PI03
 @2018.PI03.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1208966 - SSO analysis SPIKE
 
   @TC564481

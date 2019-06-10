@@ -2,8 +2,8 @@
 @US1064588
 @2018.PI03
 @2018.PI03.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1064588 - Exari>COSMOS Physician Panel Cancel/Term all Providers panels
 
   @CLM_UAT

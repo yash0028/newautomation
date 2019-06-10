@@ -3,8 +3,8 @@
 @US1283907
 @2018.PI03
 @2018.PI03.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1283907 - Markets table microservice
 
   @TC552579

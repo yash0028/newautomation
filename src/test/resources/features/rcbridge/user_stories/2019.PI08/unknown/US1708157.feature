@@ -1,7 +1,7 @@
 # Last updated on 
 @US1708157
 @2019.PI08
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1708157 - identify rate condition data details in UCM
 

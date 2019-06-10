@@ -3,8 +3,8 @@
 @US1035921
 @2018.PI02
 @2018.PI02.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1035921 - [Continued] Error - Org type or Specialty is not found in RFP
 
   @TC493884

@@ -1,7 +1,7 @@
 # Last updated on 
 @US1040747
 @2019.PI08
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1040747 - 1 View Escalator Details
 

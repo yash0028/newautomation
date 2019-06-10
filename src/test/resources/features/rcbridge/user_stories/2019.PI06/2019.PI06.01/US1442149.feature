@@ -2,8 +2,8 @@
 @US1442149
 @2019.PI06
 @2019.PI06.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1442149 - Retry installation count of a Type 2 Errors contract Line increments
 
   @TC724003

@@ -3,8 +3,8 @@
 @US1229421
 @2018.PI03
 @2018.PI03.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1229421 - Markets table
 
   @CLM_UAT

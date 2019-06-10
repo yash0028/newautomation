@@ -4,8 +4,8 @@
 @US1089376
 @2018.PI02
 @2018.PI02.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1089376 - [Spike] Identify Data Source Needed for Demographic Data
 
   @TC564383

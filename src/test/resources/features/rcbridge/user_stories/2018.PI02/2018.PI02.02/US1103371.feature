@@ -2,8 +2,8 @@
 @US1103371
 @2018.PI02
 @2018.PI02.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1103371 - NDB_Edit and Error Message analysis SPIKE
 
   @TC605365

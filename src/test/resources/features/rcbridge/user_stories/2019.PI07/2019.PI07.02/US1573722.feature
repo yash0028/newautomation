@@ -2,8 +2,8 @@
 @US1573722
 @2019.PI07
 @2019.PI07.02
-@releasePresent
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1573722 - Present Retro Request to Network COO and operations COO for Approval
 
   @TC743510

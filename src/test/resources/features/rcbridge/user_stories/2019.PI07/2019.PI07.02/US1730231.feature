@@ -2,8 +2,8 @@
 @US1730231
 @2019.PI07
 @2019.PI07.02
-@releasePresent
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1730231 - (Analysis) Process array of roster MPIN_TINs service addresses
 
   @TC805385

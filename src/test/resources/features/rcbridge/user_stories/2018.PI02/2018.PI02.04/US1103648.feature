@@ -3,8 +3,8 @@
 @US1103648
 @2018.PI02
 @2018.PI02.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1103648 - [Continued] Retro Active Reason Code - Contract Level (ETMA)
 
   @TC493887

@@ -3,8 +3,8 @@
 @US1098623
 @2018.PI02
 @2018.PI02.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1098623 - Provider Intent Certification (PIC) needs analysis - Spike
 
   @TC605371

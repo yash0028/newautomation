@@ -3,8 +3,8 @@
 @US1439048
 @2018.PI04
 @2018.PI04.05
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1439048 - HERITAGE PRODUCT SILENT INCLUSION correction
 
   @TC644179

@@ -3,8 +3,8 @@
 @US1096246
 @2018.PI02
 @2018.PI02.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1096246 - Create contract query microservice (inquiry)
 
   @TC564834

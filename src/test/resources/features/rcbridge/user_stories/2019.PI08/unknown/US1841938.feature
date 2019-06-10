@@ -1,7 +1,7 @@
 # Last updated on 
 @US1841938
 @2019.PI08
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1841938 - ANB Product - Assign value of S (Specialist) for PCP IND field in NDB Payload for all provider specialties
 

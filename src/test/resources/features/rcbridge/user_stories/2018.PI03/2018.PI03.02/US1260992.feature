@@ -2,8 +2,8 @@
 @US1260992
 @2018.PI03
 @2018.PI03.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1260992 - [Unfinished] Downstream system specific validation handling
 
   @TC605352

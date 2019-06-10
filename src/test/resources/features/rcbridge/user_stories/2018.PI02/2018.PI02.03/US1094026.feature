@@ -4,8 +4,8 @@
 @US1094026
 @2018.PI02
 @2018.PI02.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1094026 - [Continued] Create External Data Query for PES
 
   @TC564627

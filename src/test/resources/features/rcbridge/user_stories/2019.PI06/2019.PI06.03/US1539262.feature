@@ -4,8 +4,8 @@
 @US1539262
 @2019.PI06
 @2019.PI06.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1539262 - Modify denied by ML retro approval request
 
   @TC743486

@@ -2,8 +2,8 @@
 @US1103076
 @2018.PI02
 @2018.PI02.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1103076 - Domain MS - Edits and Errors for Roster Update Event SPIKE
 
   @TC605357

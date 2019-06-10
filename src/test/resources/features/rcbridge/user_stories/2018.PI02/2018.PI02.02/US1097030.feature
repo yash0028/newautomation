@@ -4,8 +4,8 @@
 @US1097030
 @2018.PI02
 @2018.PI02.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1097030 - Org type is on table and paper type is correct
 
   @TC564559

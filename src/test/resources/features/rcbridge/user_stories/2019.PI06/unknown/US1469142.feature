@@ -3,7 +3,7 @@
 @AM-Terminations
 @US1469142
 @2019.PI06
-@releasePast
+@releaseUnknown
 @iterationUnknown
 Feature: US1469142 - Integration - Calculate "Term Eff Date" field
 

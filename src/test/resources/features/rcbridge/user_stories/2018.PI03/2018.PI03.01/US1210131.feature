@@ -2,8 +2,8 @@
 @US1210131
 @2018.PI03
 @2018.PI03.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1210131 - [SPIKE] Bulk Provider Extract - PES
 
   @TC564922

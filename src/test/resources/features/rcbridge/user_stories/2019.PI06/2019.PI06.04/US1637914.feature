@@ -2,8 +2,8 @@
 @US1637914
 @2019.PI06
 @2019.PI06.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1637914 - External Data Query
 
   @TC747951

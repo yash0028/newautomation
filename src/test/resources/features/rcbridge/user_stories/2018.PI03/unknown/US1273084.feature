@@ -1,7 +1,7 @@
 # Last updated on 
 @US1273084
 @2018.PI03
-@releasePast
+@releaseUnknown
 @iterationUnknown
 Feature: US1273084 - Fortify Scans
 

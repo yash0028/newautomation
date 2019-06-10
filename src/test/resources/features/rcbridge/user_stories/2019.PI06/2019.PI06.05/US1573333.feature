@@ -2,8 +2,8 @@
 @US1573333
 @2019.PI06
 @2019.PI06.05
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1573333 - Handle Contract Update Event - OCM products determination logic (Add Product)
 
   @TC743384

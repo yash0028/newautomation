@@ -4,8 +4,8 @@
 @US1009534
 @2018.PI03
 @2018.PI03.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1009534 - Create External Data Query - MSPS Physician
 
   @TC543858

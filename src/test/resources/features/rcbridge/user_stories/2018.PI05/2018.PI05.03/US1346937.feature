@@ -2,8 +2,8 @@
 @US1346937
 @2018.PI05
 @2018.PI05.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1346937 - [Continued] CMD- Update database schema for parital contract master updates
 
   @TC592146

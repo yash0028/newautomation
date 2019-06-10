@@ -3,8 +3,8 @@
 @US1367739
 @2018.PI04
 @2018.PI04.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1367739 - Identify UHC EI and MR Pilot Markets
 
   @TC600525

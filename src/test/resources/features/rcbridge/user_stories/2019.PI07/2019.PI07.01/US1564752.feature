@@ -3,8 +3,8 @@
 @US1564752
 @2019.PI07
 @2019.PI07.01
-@releasePresent
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1564752 - Re-present Request More Info To LOB COO
 
   @TC721874

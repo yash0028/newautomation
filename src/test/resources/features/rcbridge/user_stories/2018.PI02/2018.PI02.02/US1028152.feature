@@ -2,8 +2,8 @@
 @US1028152
 @2018.PI02
 @2018.PI02.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1028152 - NDB_Data Model Transformation for Update Roster business event
 
   @TC701644

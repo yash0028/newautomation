@@ -3,8 +3,8 @@
 @US1549140
 @2019.PI07
 @2019.PI07.02
-@releasePresent
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1549140 - Add NPPP users as involved in all retro approval requests
 
   @TC717639

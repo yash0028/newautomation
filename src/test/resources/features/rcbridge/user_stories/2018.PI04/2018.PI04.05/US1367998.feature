@@ -3,8 +3,8 @@
 @US1367998
 @2018.PI04
 @2018.PI04.05
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1367998 - Determine Product Penalty Table requirement
 
   @TC600540

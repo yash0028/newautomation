@@ -2,8 +2,8 @@
 @US1636234
 @2019.PI06
 @2019.PI06.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1636234 - [Unfinished] Market Lead Due Date Reminder Email
 
   @TC746056

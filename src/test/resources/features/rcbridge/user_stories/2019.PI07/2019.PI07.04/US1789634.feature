@@ -2,8 +2,8 @@
 @US1789634
 @2019.PI07
 @2019.PI07.04
-@releasePresent
-@iterationPresent
+@releaseUnknown
+@iterationUnknown
 Feature: US1789634 - Top-level CMD errors need to show all child errors
 
   @TC823046

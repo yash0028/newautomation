@@ -2,8 +2,8 @@
 @US1410764
 @2019.PI06
 @2019.PI06.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1410764 - Handle Roster Update Event --> Happy path (Compare Service)
 
   @TC737466

@@ -2,8 +2,8 @@
 @US1624549
 @2019.PI06
 @2019.PI06.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1624549 - CMD UI Touchup work
 
   @TC743715

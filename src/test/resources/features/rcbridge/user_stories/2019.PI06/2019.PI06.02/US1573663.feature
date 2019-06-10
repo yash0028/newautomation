@@ -2,8 +2,8 @@
 @US1573663
 @2019.PI06
 @2019.PI06.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1573663 - CMD UTILITY - Our Legal Entities list CMD UI maintenance work
 
   @TC720670

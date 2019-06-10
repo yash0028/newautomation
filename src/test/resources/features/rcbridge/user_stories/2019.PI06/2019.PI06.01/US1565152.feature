@@ -5,8 +5,8 @@
 @US1565152
 @2019.PI06
 @2019.PI06.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1565152 - Adjust existing API to include attributes added by PES Team
 
   @TC729026

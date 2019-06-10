@@ -3,8 +3,8 @@
 @US1148878
 @2018.PI02
 @2018.PI02.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1148878 - Create contract query microservice PIC (inquiry)
 
   @TC565907

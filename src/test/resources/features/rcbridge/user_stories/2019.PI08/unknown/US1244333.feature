@@ -2,7 +2,7 @@
 @Adele_R
 @US1244333
 @2019.PI08
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1244333 - Request HCE Modeling - Rate Escalator
 

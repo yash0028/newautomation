@@ -3,8 +3,8 @@
 @US1600637
 @2019.PI06
 @2019.PI06.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1600637 - Dynamic Fields on Retro Form
 
   @TC735863

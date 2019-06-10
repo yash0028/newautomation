@@ -1,7 +1,7 @@
 # Last updated on 
 @US1209261
 @2019.PI08
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1209261 - Affiliation
 

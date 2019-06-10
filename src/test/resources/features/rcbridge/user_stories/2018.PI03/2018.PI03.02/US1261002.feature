@@ -2,8 +2,8 @@
 @US1261002
 @2018.PI03
 @2018.PI03.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1261002 - [Unfinished] Contract Query API Implementation
 
   @TC605388

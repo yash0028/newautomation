@@ -2,8 +2,8 @@
 @US1559821
 @2018.PI05
 @2018.PI05.05
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1559821 - Fix Duplicate Fields Optum-Exari
 
   @TC714951

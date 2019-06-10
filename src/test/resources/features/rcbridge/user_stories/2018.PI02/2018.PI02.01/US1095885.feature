@@ -3,8 +3,8 @@
 @US1095885
 @2018.PI02
 @2018.PI02.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1095885 - Contract Gateway API
 
   @TC701614

@@ -4,8 +4,8 @@
 @US1100261
 @2018.PI03
 @2018.PI03.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1100261 - Build Micro Service (ETMA)
 
   @TC565104

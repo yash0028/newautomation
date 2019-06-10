@@ -4,8 +4,8 @@
 @US1544580
 @2019.PI06
 @2019.PI06.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1544580 - [Continued] Market Lead Due Date Reminder Email
 
   @TC716979

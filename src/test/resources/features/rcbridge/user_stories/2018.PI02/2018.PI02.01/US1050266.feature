@@ -3,8 +3,8 @@
 @US1050266
 @2018.PI02
 @2018.PI02.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1050266 - Transaction Coordinator Microservice
 
   @TC565262

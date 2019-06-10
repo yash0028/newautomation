@@ -4,8 +4,8 @@
 @US1204297
 @2018.PI04
 @2018.PI04.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1204297 - NDB Common Pricing Solution Lookup API
 
   @TC615259

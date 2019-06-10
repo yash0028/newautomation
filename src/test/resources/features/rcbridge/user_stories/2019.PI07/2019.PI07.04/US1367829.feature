@@ -2,8 +2,8 @@
 @US1367829
 @2019.PI07
 @2019.PI07.04
-@releasePresent
-@iterationPresent
+@releaseUnknown
+@iterationUnknown
 Feature: US1367829 - PPO Product Group Table Number
 
   @TC600528

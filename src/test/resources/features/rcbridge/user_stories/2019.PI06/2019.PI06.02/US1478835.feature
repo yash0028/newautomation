@@ -3,8 +3,8 @@
 @US1478835
 @2019.PI06
 @2019.PI06.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1478835 - CMD UTILITY - Our Legal Entities list and microservice
 
   @TC672208

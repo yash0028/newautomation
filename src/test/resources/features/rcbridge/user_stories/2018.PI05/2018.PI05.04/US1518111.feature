@@ -3,8 +3,8 @@
 @US1518111
 @2018.PI05
 @2018.PI05.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1518111 - Identify manually entered contract masters
 
   @TC693614

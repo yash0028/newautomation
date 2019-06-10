@@ -3,8 +3,8 @@
 @US1095963
 @2018.PI02
 @2018.PI02.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1095963 - Multiple Results (PES)
 
   @TC565899

@@ -3,8 +3,8 @@
 @US1283910
 @2018.PI03
 @2018.PI03.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1283910 - [Unfinished] Record Table data to Database
 
   @TC605376

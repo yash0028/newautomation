@@ -3,8 +3,8 @@
 @US1483442
 @2018.PI05
 @2018.PI05.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1483442 - Implement product rate condition changes to contract config service.
 
   @TC674585

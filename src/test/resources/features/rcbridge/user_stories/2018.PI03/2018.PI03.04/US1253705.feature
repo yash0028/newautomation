@@ -4,8 +4,8 @@
 @US1253705
 @2018.PI03
 @2018.PI03.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1253705 - Create Appendix 1 Search Demographics API
 
   @TC543869

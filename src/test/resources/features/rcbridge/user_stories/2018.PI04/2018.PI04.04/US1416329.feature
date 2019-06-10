@@ -3,8 +3,8 @@
 @US1416329
 @2018.PI04
 @2018.PI04.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1416329 - Changes to Counter Party Search
 
   @TC634260

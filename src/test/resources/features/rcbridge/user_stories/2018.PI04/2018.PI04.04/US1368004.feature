@@ -3,8 +3,8 @@
 @US1368004
 @2018.PI04
 @2018.PI04.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
 
   @TC600537

@@ -3,8 +3,8 @@
 @US1173268
 @2018.PI02
 @2018.PI02.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1173268 - [Unfinished] Error - Org type or Specialty is not found in RFP
 
   @TC565166

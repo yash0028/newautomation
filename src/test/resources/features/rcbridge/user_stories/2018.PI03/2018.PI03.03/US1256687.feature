@@ -3,8 +3,8 @@
 @US1256687
 @2018.PI03
 @2018.PI03.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1256687 - Populate initial Provider Taxonomy Grid table
 
   @CLM_UAT

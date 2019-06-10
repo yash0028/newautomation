@@ -2,8 +2,8 @@
 @US1359165
 @2018.PI04
 @2018.PI04.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1359165 - Update status of contract ID installation status.
 
   @CLM_UAT

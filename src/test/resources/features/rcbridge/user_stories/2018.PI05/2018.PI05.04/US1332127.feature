@@ -4,8 +4,8 @@
 @US1332127
 @2018.PI05
 @2018.PI05.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1332127 - Create NDB/Cosmos Mock Service
 
   @TC586010

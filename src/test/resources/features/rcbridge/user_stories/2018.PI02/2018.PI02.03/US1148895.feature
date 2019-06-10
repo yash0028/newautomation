@@ -3,8 +3,8 @@
 @US1148895
 @2018.PI02
 @2018.PI02.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1148895 - Create contract query microservice Examiner (inquiry)
 
   @TC565194

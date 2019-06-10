@@ -2,8 +2,8 @@
 @US1256905
 @2018.PI04
 @2018.PI04.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1256905 - Create CLM Rule Table
 
   @CLM_UAT

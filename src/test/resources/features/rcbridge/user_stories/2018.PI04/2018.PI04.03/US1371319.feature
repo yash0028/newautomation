@@ -3,8 +3,8 @@
 @US1371319
 @2018.PI04
 @2018.PI04.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1371319 - Download CLM Rule Table
 
   @TC603985

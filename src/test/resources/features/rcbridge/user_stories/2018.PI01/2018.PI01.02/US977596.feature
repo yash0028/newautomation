@@ -4,8 +4,8 @@
 @US977596
 @2018.PI01
 @2018.PI01.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US977596 - (Provider) Create a microservice to connect to PES
 
   @TC565840

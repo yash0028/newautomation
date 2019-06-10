@@ -4,8 +4,8 @@
 @US1093992
 @2018.PI02
 @2018.PI02.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1093992 - Handle Errors from PES
 
   @TC565197

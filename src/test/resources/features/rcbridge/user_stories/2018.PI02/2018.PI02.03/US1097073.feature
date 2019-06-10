@@ -3,8 +3,8 @@
 @US1097073
 @2018.PI02
 @2018.PI02.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1097073 - Error Handling (non-data related)
 
   @TC565442

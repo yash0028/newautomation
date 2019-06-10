@@ -2,8 +2,8 @@
 @US1391148
 @2019.PI06
 @2019.PI06.05
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1391148 - Validate exari contract data - Add
 
   @TC616906

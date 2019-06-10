@@ -4,8 +4,8 @@
 @US1270195
 @2018.PI03
 @2018.PI03.05
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1270195 - Point to new ETMA DB
 
   @TC554636

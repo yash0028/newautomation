@@ -2,8 +2,8 @@
 @US1410107
 @2018.PI05
 @2018.PI05.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1410107 - Identify No Active master found max error as Type 2 error
 
   @TC697426

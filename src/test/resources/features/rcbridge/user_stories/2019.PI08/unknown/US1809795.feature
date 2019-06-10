@@ -1,7 +1,7 @@
 # Last updated on 
 @US1809795
 @2019.PI08
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1809795 - CMD Search navigation correction
 

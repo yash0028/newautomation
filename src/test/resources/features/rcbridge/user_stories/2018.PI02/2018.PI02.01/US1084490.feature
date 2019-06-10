@@ -3,8 +3,8 @@
 @US1084490
 @2018.PI02
 @2018.PI02.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1084490 - Setup OpenShift Test environment
 
   @TC565883

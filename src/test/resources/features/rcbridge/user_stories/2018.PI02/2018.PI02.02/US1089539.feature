@@ -2,8 +2,8 @@
 @US1089539
 @2018.PI02
 @2018.PI02.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1089539 - Optum - Create Interface Specification for API service
 
   @TC564584

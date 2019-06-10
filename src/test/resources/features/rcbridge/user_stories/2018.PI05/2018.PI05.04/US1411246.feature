@@ -2,8 +2,8 @@
 @US1411246
 @2018.PI05
 @2018.PI05.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1411246 - Identify ct master is loaded to a contract that is not production ready  as type 2 error
 
   @TC706026

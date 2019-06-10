@@ -2,8 +2,8 @@
 @US1194530
 @2018.PI02
 @2018.PI02.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1194530 - [Unfinished] Cosmos Integration
 
   @TC605395

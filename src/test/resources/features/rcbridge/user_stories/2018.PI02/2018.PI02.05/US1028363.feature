@@ -2,8 +2,8 @@
 @US1028363
 @2018.PI02
 @2018.PI02.05
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1028363 - [Continued] Term (Cancel) Physician Contract from an active Exari Contract
 
   @TC565235

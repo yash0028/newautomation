@@ -2,8 +2,8 @@
 @US1356396
 @2019.PI07
 @2019.PI07.04
-@releasePresent
-@iterationPresent
+@releaseUnknown
+@iterationUnknown
 Feature: US1356396 - Contract Product Rate Group validation set (T3) [E2E]
 
   @TC596320

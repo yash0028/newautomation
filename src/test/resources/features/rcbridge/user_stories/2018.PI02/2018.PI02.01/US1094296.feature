@@ -2,8 +2,8 @@
 @US1094296
 @2018.PI02
 @2018.PI02.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1094296 - Kafka Testing Utility Spike
 
   @TC605420

@@ -2,8 +2,8 @@
 @US1283896
 @2018.PI03
 @2018.PI03.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1283896 - [Unfinished] Validate Data
 
   @TC605404

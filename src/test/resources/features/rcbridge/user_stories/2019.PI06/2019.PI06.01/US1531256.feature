@@ -2,8 +2,8 @@
 @US1531256
 @2019.PI06
 @2019.PI06.01
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1531256 - CMD UTILITY (Exari/Team 1 effort) - Affiliation Type External Data Query with Exari
 
   @TC700959

@@ -2,8 +2,8 @@
 @US1199569
 @2018.PI03
 @2018.PI03.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1199569 - [Continued] Validate Data
 
   @TC546823

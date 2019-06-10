@@ -3,8 +3,8 @@
 @US1207278
 @2018.PI03
 @2018.PI03.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1207278 - Access and security management
 
   @TC533889

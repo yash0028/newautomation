@@ -3,8 +3,8 @@
 @US1259178
 @2018.PI03
 @2018.PI03.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1259178 - Taxonomy Grid table microservice
 
   @TC551313

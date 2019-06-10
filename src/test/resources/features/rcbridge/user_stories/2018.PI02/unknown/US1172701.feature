@@ -1,7 +1,7 @@
 # Last updated on 
 @US1172701
 @2018.PI02
-@releasePast
+@releaseUnknown
 @iterationUnknown
 Feature: US1172701 - Stable Stage Environment for Exari Testing
 

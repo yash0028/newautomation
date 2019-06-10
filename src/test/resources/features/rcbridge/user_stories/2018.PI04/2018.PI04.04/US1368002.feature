@@ -3,8 +3,8 @@
 @US1368002
 @2018.PI04
 @2018.PI04.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1368002 - HERITAGE PRODUCT SILENT INCLUSION
 
   @TC600549

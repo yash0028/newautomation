@@ -4,8 +4,8 @@
 @US861033
 @2018.PI03
 @2018.PI03.05
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US861033 - [Continued][Continued] Integrate CLM with Examiner (Continued)
 
   @TC564591

@@ -2,8 +2,8 @@
 @US1665773
 @2019.PI06
 @2019.PI06.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1665773 - Pass contract information to downstream - NDB
 
   @TC765088

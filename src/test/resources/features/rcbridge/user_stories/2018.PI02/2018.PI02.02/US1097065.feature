@@ -4,8 +4,8 @@
 @US1097065
 @2018.PI02
 @2018.PI02.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1097065 - Error - Specialty Indicator or Org Type not found
 
   @TC564881

@@ -2,8 +2,8 @@
 @US1256963
 @2018.PI04
 @2018.PI04.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1256963 - Update user interface to accommodate rules table
 
   @CLM_UAT

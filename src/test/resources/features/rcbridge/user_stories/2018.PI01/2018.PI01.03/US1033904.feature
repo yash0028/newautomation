@@ -2,8 +2,8 @@
 @US1033904
 @2018.PI01
 @2018.PI01.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1033904 - [Spike] Understand Handoff Procedures with Exari
 
   @TC565449

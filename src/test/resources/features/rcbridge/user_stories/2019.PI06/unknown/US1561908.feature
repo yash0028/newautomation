@@ -1,7 +1,7 @@
 # Last updated on 
 @US1561908
 @2019.PI06
-@releasePast
+@releaseUnknown
 @iterationUnknown
 Feature: US1561908 - Close the process - successful - chargemaster
 

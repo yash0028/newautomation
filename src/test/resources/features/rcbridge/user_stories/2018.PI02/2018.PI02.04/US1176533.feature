@@ -3,8 +3,8 @@
 @US1176533
 @2018.PI02
 @2018.PI02.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1176533 - Enhancement to use new PES combined API (Counter Party) stub API
 
   @TC564927

@@ -2,8 +2,8 @@
 @US1038960
 @2018.PI01
 @2018.PI01.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1038960 - [Spike] IT Discovery on Interfacing with MSG Access DB
 
   @TC564573

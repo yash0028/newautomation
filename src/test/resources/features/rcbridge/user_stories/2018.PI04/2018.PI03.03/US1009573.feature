@@ -4,8 +4,8 @@
 @US1009573
 @2018.PI04
 @2018.PI03.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1009573 - [Continued] Create External Data Query to MSG
 
   @TC536736

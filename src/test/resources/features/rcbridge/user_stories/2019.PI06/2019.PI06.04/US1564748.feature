@@ -3,8 +3,8 @@
 @US1564748
 @2019.PI06
 @2019.PI06.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1564748 - Re-present denial to NPPP
 
   @TC743386

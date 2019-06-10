@@ -2,8 +2,8 @@
 @US1207408
 @2018.PI03
 @2018.PI03.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1207408 - [Continued] User Interface for up and download
 
   @TC615288

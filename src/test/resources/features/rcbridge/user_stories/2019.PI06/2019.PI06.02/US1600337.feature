@@ -2,8 +2,8 @@
 @US1600337
 @2019.PI06
 @2019.PI06.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1600337 - Conitnued - CMD UTILITY (Exari/Team 1 effort) - Provider Category Type External Data Query with Exari - Step 1 Design phase
 
   @TC731845

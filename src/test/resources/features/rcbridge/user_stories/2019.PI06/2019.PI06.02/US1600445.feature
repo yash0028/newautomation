@@ -4,8 +4,8 @@
 @US1600445
 @2019.PI06
 @2019.PI06.02
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1600445 - Remediation Field on the Retro Form
 
   @TC735828

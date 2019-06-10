@@ -3,8 +3,8 @@
 @US1499284
 @2018.PI05
 @2018.PI05.03
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US1499284 - [Continued] UI/UX- New web Page for CMD page displaying all Type 2 errors and related activities Wire frames only
 
   @TC683866

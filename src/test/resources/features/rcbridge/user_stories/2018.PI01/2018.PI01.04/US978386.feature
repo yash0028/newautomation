@@ -4,8 +4,8 @@
 @US978386
 @2018.PI01
 @2018.PI01.04
-@releasePast
-@iterationPast
+@releaseUnknown
+@iterationUnknown
 Feature: US978386 - [Spike] (Provider) Evaluate what PES APIs are required for Provider service
 
   @TC565461
