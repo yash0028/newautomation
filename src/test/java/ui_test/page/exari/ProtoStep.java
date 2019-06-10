@@ -63,6 +63,9 @@ public class ProtoStep implements IConfigurable {
     }
 
     public ProtoStep setSite(String siteOption) {
+        if (flow.getReport() != null)
+            flow.getReport().addNote("siteName", siteOption);
+
         try {
             Assert.assertTrue(dashboardPage.confirmCurrentPage());
             sitePage = dashboardPage.getNavigationPanel().setSiteEnvironment(siteOption);
@@ -126,6 +129,9 @@ public class ProtoStep implements IConfigurable {
             //set Edit Status
             assert contractPage.setEditStatus("Active");
 
+            if (flow.getReport() != null)
+                flow.getReport().addNote("contractId", contractPage.getContractNumber());
+
             return contractPage.getContractNumber();
         } catch (Exception e) {
             if (flow.getReport() != null)
@@ -135,7 +141,12 @@ public class ProtoStep implements IConfigurable {
     }
 
     public boolean checkActiveContractStatus() {
-        return this.contractPage.checkActiveStatus();
+        if (!this.contractPage.checkActiveStatus()) {
+            if (flow.getReport() != null)
+                flow.getReport().markActiveFail();
+            return true;
+        }
+        return false;
     }
     
     /*

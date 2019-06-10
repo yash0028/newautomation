@@ -1,14 +1,17 @@
 package exari_test.hive;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
+import com.google.gson.Gson;
 import exari_test.eif.data.EifTestData;
 import exari_test.eif.data.EifTestList;
 import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.flow.IContractFlowLoader;
+import exari_test.eif.report.CukeReport;
+import exari_test.eif.report.Feature;
+import exari_test.eif.report.Scenario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.TimeKeeper;
+import util.configuration.ConfigStub;
 import util.configuration.IConfigurable;
 
 import java.util.*;
@@ -41,8 +44,11 @@ public class Hive implements IConfigurable {
     }
 
     public static void main(String[] args) {
+        IConfigurable config = new ConfigStub();
         EifTestList testList = new EifTestList();
-        testList.loadCSV("eif-basic-central-list.csv");
+        String csvFileName = config.configGetOptionalString("hive.csvData").orElse("unknown");
+        log.info("loading csv file: '{}'", csvFileName);
+        testList.loadCSV(csvFileName);
         IContractFlowLoader loader = new IContractFlowLoader() {
         };
         final String buildName = "[Hive] " + TimeKeeper.getInstance().getStartTimeISO();
@@ -58,6 +64,11 @@ public class Hive implements IConfigurable {
         log.info("{}", list);
 
         Hive.getInstance().start().waitTillComplete();
+
+        CukeReport report = Hive.getInstance().getCukeReport();
+        Gson gson = new Gson();
+
+        log.info("Cucumber Json Report:\n{}", gson.toJson(report));
     }
     
     /*
@@ -104,14 +115,24 @@ public class Hive implements IConfigurable {
         return this;
     }
 
-    public JsonElement getCompletedReport() {
-        JsonArray array = new JsonArray();
+    public CukeReport getCukeReport() {
+        CukeReport report = new CukeReport();
+        Feature.Builder builder = new Feature.Builder();
 
-        for (ContractThread thread : threadsAll) {
-            array.add(thread.getJsonReport());
-        }
+        // Add basic Feature values
+        // TODO build feature with basic values
+        builder.withName("Hive Parallel Testing");
+        builder.withDescription("Runs parallel Exari Contract Authoring");
+        builder.withId("hive");
+        builder.withUri("hive.feature");
+        builder.withLine(1);
 
-        return array;
+        // Add Scenarios
+        List<Scenario> scenarios = this.threadsAll.stream().map(ContractThread::getScenarioReport).collect(Collectors.toList());
+        builder.withElements(scenarios);
+
+        report.add(builder.build());
+        return report;
     }
 
     public List<String> getQueueNames() {

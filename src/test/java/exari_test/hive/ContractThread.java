@@ -1,7 +1,7 @@
 package exari_test.hive;
 
-import com.google.gson.JsonElement;
 import exari_test.eif.flow.ContractFlow;
+import exari_test.eif.report.Scenario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
@@ -50,7 +50,7 @@ public class ContractThread extends Thread implements IConfigurable {
         // Start Contract
 
         try {
-            if (configGetOptionalBoolean("hive.demoMode").orElse(false)) {
+            if (!configGetOptionalBoolean("hive.demoMode").orElse(false)) {
                 this.protoStep.loginHome().setSite().authorContract().finalCapture();
             } else {
                 this.protoStep.loginHome().setSite();
@@ -68,8 +68,20 @@ public class ContractThread extends Thread implements IConfigurable {
         }
     }
 
-    public JsonElement getJsonReport() {
-        return contractFlow.getReport().getGherkinReport();
+    public Scenario getScenarioReport() {
+        Scenario.Builder builder = new Scenario.Builder();
+
+        // Add basic scenario values
+        // TODO build scenario with basic values
+        builder.withId("hive;" + contractFlow.getName().replaceAll(" ", "-"));
+        builder.withName(contractFlow.getName());
+        builder.withLine(1);
+
+
+        // Add Steps
+        builder.withSteps(contractFlow.getReport().getStepsReport());
+
+        return builder.build();
     }
 
     /*
