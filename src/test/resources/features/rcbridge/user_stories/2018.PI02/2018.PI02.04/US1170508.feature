@@ -2,8 +2,8 @@
 @US1170508
 @2018.PI02
 @2018.PI02.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1170508 - NDB Contract payload analysis SPIKE
 
   @TC605377

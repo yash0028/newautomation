@@ -1,15 +1,13 @@
 # Last updated on 
-@Adele_R
 @US1244333
 @2019.PI08
-@releaseUnknown
+@releaseFuture
 @iterationUnknown
-Feature: US1244333 - Request HCE Modeling - Rate Escalator
+Feature: US1244333 - 2 Request HCE Modeling - Rate Escalator
 
   @TC564831
   @Automated
   @Functional
-  @Adele_R
   Scenario: TC564831 - [RL0]
     Given a rate escalator exists
     When the task "HCE Modeling: Request Submitted" is created

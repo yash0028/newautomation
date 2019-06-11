@@ -1,7 +1,7 @@
 # Last updated on 
 @US1404704
 @2019.PI06
-@releaseUnknown
+@releasePast
 @iterationUnknown
 Feature: US1404704 - Validate amendment contract transaction data
 

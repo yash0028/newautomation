@@ -2,8 +2,8 @@
 @US1549016
 @2019.PI07
 @2019.PI07.03
-@releaseUnknown
-@iterationUnknown
+@releasePresent
+@iterationPast
 Feature: US1549016 - Create Mass Actions display view (UI) (Optum)
 
   @TC720665

@@ -3,8 +3,8 @@
 @US1103030
 @2018.PI02
 @2018.PI02.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1103030 - Domain MS - Add/Remove a Physician to an Existing Physician Contract
 
   @TC701611

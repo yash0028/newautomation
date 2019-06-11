@@ -2,8 +2,8 @@
 @US1285457
 @2018.PI03
 @2018.PI03.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1285457 - Implement PROS fee schedule API
 
   @TC616511

@@ -2,8 +2,8 @@
 @US1356402
 @2019.PI07
 @2019.PI07.04
-@releaseUnknown
-@iterationUnknown
+@releasePresent
+@iterationPresent
 Feature: US1356402 - Market Product Program Penalty validation set (T3) [E2E]
 
   @TC596325

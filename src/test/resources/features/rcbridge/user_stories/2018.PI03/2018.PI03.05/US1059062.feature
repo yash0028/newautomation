@@ -2,8 +2,8 @@
 @US1059062
 @2018.PI03
 @2018.PI03.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1059062 - [Continued]Common Pricing Solution - COSMOS Payload - Add Contract
 
   @CLM_UAT

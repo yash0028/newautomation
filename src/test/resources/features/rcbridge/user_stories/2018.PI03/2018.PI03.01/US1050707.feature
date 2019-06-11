@@ -4,8 +4,8 @@
 @US1050707
 @2018.PI03
 @2018.PI03.01
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1050707 - (MSG) Create microservice exposing Market Strategy grid data
 
   @TC565752

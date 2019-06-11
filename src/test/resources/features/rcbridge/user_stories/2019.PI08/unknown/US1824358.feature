@@ -1,7 +1,7 @@
 # Last updated on 
 @US1824358
 @2019.PI08
-@releaseUnknown
+@releaseFuture
 @iterationUnknown
 Feature: US1824358 - User group has no users - Chargemaster
 

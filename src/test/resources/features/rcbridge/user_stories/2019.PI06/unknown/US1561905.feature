@@ -1,7 +1,7 @@
 # Last updated on 
 @US1561905
 @2019.PI06
-@releaseUnknown
+@releasePast
 @iterationUnknown
 Feature: US1561905 - Close the retro approval process - successful - fac/anc
 

@@ -6,8 +6,8 @@
 @US1100727
 @2018.PI03
 @2018.PI03.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1100727 - External Data Query Roster Validation
 
   @TC554638

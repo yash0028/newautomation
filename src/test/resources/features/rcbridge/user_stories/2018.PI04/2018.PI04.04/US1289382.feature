@@ -2,8 +2,8 @@
 @US1289382
 @2018.PI04
 @2018.PI04.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1289382 - Contract Config Services - Contract Config search service
 
   @TC616506

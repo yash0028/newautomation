@@ -3,8 +3,8 @@
 @US1474091
 @2018.PI05
 @2018.PI05.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1474091 - CMD UTILITY - Provider Category Type table and microservice
 
   @TC672163

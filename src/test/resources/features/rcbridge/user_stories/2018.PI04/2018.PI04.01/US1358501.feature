@@ -2,8 +2,8 @@
 @US1358501
 @2018.PI04
 @2018.PI04.01
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1358501 - [Unfinished] Contract Master Override work objects audits database schema
 
   @TC597167

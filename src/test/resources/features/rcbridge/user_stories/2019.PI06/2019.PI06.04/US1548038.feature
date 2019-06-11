@@ -3,8 +3,8 @@
 @US1548038
 @2019.PI06
 @2019.PI06.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1548038 - Test Alfresco Time Out
 
   @TC709182

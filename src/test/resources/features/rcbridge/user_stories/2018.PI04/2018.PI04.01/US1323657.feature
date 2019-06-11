@@ -5,8 +5,8 @@
 @US1323657
 @2018.PI04
 @2018.PI04.01
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1323657 - PES Automation of Add. locations for all other contracts
 
   @TC580019

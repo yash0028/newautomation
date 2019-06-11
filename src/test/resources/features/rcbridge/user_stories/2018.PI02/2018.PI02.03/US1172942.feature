@@ -3,8 +3,8 @@
 @US1172942
 @2018.PI02
 @2018.PI02.03
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1172942 - [Unfinished] Benchmarking & Acceptance Testing
 
   @TC605434

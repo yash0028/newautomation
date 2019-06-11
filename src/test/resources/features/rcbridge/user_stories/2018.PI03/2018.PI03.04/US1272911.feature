@@ -3,8 +3,8 @@
 @US1272911
 @2018.PI03
 @2018.PI03.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1272911 - Fix Fortify Issues
 
   @TC564735

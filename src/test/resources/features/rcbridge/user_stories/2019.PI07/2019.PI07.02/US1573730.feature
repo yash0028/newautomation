@@ -2,8 +2,8 @@
 @US1573730
 @2019.PI07
 @2019.PI07.02
-@releaseUnknown
-@iterationUnknown
+@releasePresent
+@iterationPast
 Feature: US1573730 - Network COO and operations Request More info on  Retro Request
 
   @TC730582

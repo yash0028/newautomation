@@ -3,8 +3,8 @@
 @US1472487
 @2018.PI05
 @2018.PI05.01
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1472487 - Calculate number of days to Planned Effective Date
 
   @TC669308

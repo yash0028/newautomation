@@ -2,8 +2,8 @@
 @US1292129
 @2018.PI03
 @2018.PI03.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1292129 - [Spike] Dev Analysis
 
   @TC605366

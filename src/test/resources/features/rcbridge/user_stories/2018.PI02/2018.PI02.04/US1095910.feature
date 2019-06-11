@@ -3,8 +3,8 @@
 @US1095910
 @2018.PI02
 @2018.PI02.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1095910 - External Data Query for RFP - Error Handling
 
   @TC493890

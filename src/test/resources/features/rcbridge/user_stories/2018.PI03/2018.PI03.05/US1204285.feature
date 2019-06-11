@@ -4,8 +4,8 @@
 @US1204285
 @2018.PI03
 @2018.PI03.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1204285 - [Continued]Implement NDB Contract Master Lookup API
 
   @CLM_UAT

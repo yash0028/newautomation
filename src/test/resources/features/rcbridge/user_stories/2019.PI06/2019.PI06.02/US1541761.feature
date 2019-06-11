@@ -2,8 +2,8 @@
 @US1541761
 @2019.PI06
 @2019.PI06.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1541761 - Routing-Market Lead Approves Retro
 
   @TC709185

@@ -2,8 +2,8 @@
 @US1744019
 @2019.PI07
 @2019.PI07.02
-@releaseUnknown
-@iterationUnknown
+@releasePresent
+@iterationPast
 Feature: US1744019 - Validate PCP retains membership
 
   @TC799058

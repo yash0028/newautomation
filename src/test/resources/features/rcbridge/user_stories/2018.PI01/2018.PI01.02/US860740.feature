@@ -3,8 +3,8 @@
 @US860740
 @2018.PI01
 @2018.PI01.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US860740 - [Continued] Setup User Groups for Contract Authoring
 
   @TC701666

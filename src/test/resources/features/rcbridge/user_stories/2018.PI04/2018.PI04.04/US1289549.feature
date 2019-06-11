@@ -2,8 +2,8 @@
 @US1289549
 @2018.PI04
 @2018.PI04.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1289549 - Contract Config Services - Update Contract Config record
 
   @TC616503

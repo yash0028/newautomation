@@ -2,8 +2,8 @@
 @US1552975
 @2019.PI07
 @2019.PI07.01
-@releaseUnknown
-@iterationUnknown
+@releasePresent
+@iterationPast
 Feature: US1552975 - LOB COO Reminder For No Response
 
   @TC792583

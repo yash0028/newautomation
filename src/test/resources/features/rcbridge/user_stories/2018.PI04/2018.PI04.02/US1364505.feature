@@ -3,8 +3,8 @@
 @US1364505
 @2018.PI04
 @2018.PI04.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1364505 - PES Results Enhancements
 
   @TC599658

@@ -2,8 +2,8 @@
 @US1441101
 @2018.PI05
 @2018.PI05.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1441101 - Performance Testing
 
   @TC669304

@@ -2,8 +2,8 @@
 @US1194527
 @2018.PI02
 @2018.PI02.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1194527 - [Unfinished] PIC Implementation
 
   @TC605437

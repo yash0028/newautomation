@@ -1,7 +1,7 @@
 # Last updated on 
 @US1450697
 @2019.PI07
-@releaseUnknown
+@releasePresent
 @iterationUnknown
 Feature: US1450697 - Calculate disposition - NAR Physician using AM, 1/1 effective date
 

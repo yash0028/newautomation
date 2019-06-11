@@ -3,7 +3,7 @@
 @AM-Terminations
 @US1446283
 @2019.PI06
-@releaseUnknown
+@releasePast
 @iterationUnknown
 Feature: US1446283 - Integration - Data from PES 2.0 for Provider Table Only
 

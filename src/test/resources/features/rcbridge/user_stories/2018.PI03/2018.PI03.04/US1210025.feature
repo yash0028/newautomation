@@ -4,8 +4,8 @@
 @US1210025
 @2018.PI03
 @2018.PI03.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1210025 - [Continued] Build External Data Query - MEG
 
   @TC543864

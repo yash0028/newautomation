@@ -3,8 +3,8 @@
 @US1311485
 @2018.PI03
 @2018.PI03.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1311485 - PES Roster Call -Change Output Results
 
   @TC572204

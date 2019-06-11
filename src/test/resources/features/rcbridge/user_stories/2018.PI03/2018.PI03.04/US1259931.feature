@@ -5,8 +5,8 @@
 @US1259931
 @2018.PI03
 @2018.PI03.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1259931 - [Continued] Maintain data using table template
 
   @TC624684

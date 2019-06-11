@@ -2,8 +2,8 @@
 @US1337383
 @2018.PI04
 @2018.PI04.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1337383 - [Continued] NDB downstream Functional test case scenarios
 
   @TC730488

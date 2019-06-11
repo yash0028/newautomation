@@ -4,8 +4,8 @@
 @US1096954
 @2018.PI02
 @2018.PI02.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1096954 - Provider's specialty is on table and paper type is correct (ETMA)
 
   @TC564384

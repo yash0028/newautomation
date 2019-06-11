@@ -2,8 +2,8 @@
 @US1278758
 @2018.PI04
 @2018.PI04.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1278758 - update status of product grouping installation status (work object)
 
   @TC616504

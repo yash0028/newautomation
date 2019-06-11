@@ -1,7 +1,7 @@
 # Last updated on 
 @US1559120
 @2019.PI08
-@releaseUnknown
+@releaseFuture
 @iterationUnknown
 Feature: US1559120 - Close the process - successful - escalator
 

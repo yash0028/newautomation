@@ -2,8 +2,8 @@
 @US1199511
 @2018.PI03
 @2018.PI03.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1199511 - [Continued] PIC Implementation
 
   @CLM_UAT

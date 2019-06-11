@@ -1,7 +1,7 @@
 # Last updated on 
 @US1039748
 @2019.PI06
-@releaseUnknown
+@releasePast
 @iterationUnknown
 Feature: US1039748 - Prevent execution of contract if retro and no approval
 

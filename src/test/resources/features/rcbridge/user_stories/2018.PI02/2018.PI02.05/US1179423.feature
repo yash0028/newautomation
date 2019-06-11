@@ -2,8 +2,8 @@
 @US1179423
 @2018.PI02
 @2018.PI02.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1179423 - [Continued] Examiner implementation
 
   @TC565240

@@ -3,8 +3,8 @@
 @US1358979
 @2018.PI04
 @2018.PI04.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1358979 - PES - TPSM Indicator(UHC_AgreementAcct_PlatniumAcctField) Exari/OptumOptum/Exari
 
   @TC597195

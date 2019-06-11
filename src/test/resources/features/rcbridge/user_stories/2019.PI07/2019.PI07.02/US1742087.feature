@@ -2,8 +2,8 @@
 @US1742087
 @2019.PI07
 @2019.PI07.02
-@releaseUnknown
-@iterationUnknown
+@releasePresent
+@iterationPast
 Feature: US1742087 - Select the Reassign MPIN
 
   @TC797734

@@ -3,8 +3,8 @@
 @US1232963
 @2018.PI03
 @2018.PI03.03
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1232963 - Retroactive Reason Codes table
 
   @TC549318

@@ -2,8 +2,8 @@
 @US1055907
 @2018.PI02
 @2018.PI02.03
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1055907 - Kafka Consumer Library Test Cases
 
   @TC701621

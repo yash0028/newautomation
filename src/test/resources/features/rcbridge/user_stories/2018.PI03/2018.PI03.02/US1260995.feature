@@ -2,8 +2,8 @@
 @US1260995
 @2018.PI03
 @2018.PI03.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1260995 - [Unfinished] PIC Implementation
 
   @TC605421

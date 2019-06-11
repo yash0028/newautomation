@@ -2,8 +2,8 @@
 @US1210038
 @2018.PI03
 @2018.PI03.01
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1210038 - [SPIKE] Establish Connetion to backend database - MEG
 
   @TC565180

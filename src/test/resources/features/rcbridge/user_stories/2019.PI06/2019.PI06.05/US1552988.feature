@@ -3,8 +3,8 @@
 @US1552988
 @2019.PI06
 @2019.PI06.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1552988 - Withdraw Retro Approval Process - Unsuccessful
 
   @TC743433

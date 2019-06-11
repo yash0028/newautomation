@@ -6,8 +6,8 @@
 @US1185585
 @2018.PI03
 @2018.PI03.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1185585 - Contract Product Description Crosswalk
 
   @TC697427

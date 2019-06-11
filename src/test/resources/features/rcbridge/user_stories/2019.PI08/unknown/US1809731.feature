@@ -1,7 +1,7 @@
 # Last updated on 
 @US1809731
 @2019.PI08
-@releaseUnknown
+@releaseFuture
 @iterationUnknown
 Feature: US1809731 - CMD UI Navigation path improvement
 

@@ -3,8 +3,8 @@
 @US1095936
 @2018.PI02
 @2018.PI02.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1095936 - External Data Query for PES - Error Handling
 
   @TC493893

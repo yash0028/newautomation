@@ -3,8 +3,8 @@
 @US1100194
 @2018.PI02
 @2018.PI02.01
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1100194 - Downstream NBD updater service stub
 
   @TC701613

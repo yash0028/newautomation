@@ -1,7 +1,7 @@
 # Last updated on 
 @US1539316
 @2019.PI08
-@releaseUnknown
+@releaseFuture
 @iterationUnknown
 Feature: US1539316 - Planned effective date changes in Physician workflow
 

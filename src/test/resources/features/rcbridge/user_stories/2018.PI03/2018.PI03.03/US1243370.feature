@@ -3,8 +3,8 @@
 @US1243370
 @2018.PI03
 @2018.PI03.03
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1243370 - Contract Class Validation UHC table
 
   @CLM_UAT

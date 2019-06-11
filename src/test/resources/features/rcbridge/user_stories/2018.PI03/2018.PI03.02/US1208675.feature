@@ -2,8 +2,8 @@
 @US1208675
 @2018.PI03
 @2018.PI03.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1208675 - [Continued] Attend Alfresco Training
 
   @TC564386

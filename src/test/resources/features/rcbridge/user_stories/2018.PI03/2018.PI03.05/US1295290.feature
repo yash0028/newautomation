@@ -3,8 +3,8 @@
 @US1295290
 @2018.PI03
 @2018.PI03.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1295290 - Allow user to specify version number
 
   @TC564469

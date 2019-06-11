@@ -3,8 +3,8 @@
 @US1028010
 @2018.PI01
 @2018.PI01.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1028010 - [UNFINISHED] Setup initial SPA/PAT in Interview
 
   @TC701620

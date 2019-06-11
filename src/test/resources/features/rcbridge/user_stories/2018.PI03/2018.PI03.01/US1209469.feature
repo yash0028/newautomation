@@ -2,8 +2,8 @@
 @US1209469
 @2018.PI03
 @2018.PI03.01
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1209469 - PIC Analysis Spike
 
   @TC605379

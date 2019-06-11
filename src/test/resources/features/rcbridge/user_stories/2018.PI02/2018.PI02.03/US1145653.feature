@@ -2,8 +2,8 @@
 @US1145653
 @2018.PI02
 @2018.PI02.03
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1145653 - NDB Contract payload analysis SPIKE
 
   @TC605373

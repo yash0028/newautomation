@@ -3,8 +3,8 @@
 @US1207178
 @2018.PI03
 @2018.PI03.01
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1207178 - Upload Crosswalk Template
 
   @TC519045

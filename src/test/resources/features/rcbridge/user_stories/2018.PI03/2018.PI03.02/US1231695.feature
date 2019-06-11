@@ -3,8 +3,8 @@
 @US1231695
 @2018.PI03
 @2018.PI03.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1231695 - Create Service Providing Physician FS  Access Via Microservice
 
   @TC536761

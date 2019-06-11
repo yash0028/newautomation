@@ -2,8 +2,8 @@
 @US1285441
 @2018.PI03
 @2018.PI03.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1285441 - [Continued]Identify new Product Codes
 
   @TC564951

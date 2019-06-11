@@ -3,8 +3,8 @@
 @US933396
 @2018.PI01
 @2018.PI01.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US933396 - Update Business Organizations
 
   @TC701726

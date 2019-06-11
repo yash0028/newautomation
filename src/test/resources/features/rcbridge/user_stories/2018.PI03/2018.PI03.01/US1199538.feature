@@ -2,8 +2,8 @@
 @US1199538
 @2018.PI03
 @2018.PI03.01
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1199538 - Event Gateway API Spike
 
   @TC605383

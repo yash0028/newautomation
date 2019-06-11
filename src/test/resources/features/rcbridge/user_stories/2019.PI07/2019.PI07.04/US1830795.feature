@@ -2,8 +2,8 @@
 @US1830795
 @2019.PI07
 @2019.PI07.04
-@releaseUnknown
-@iterationUnknown
+@releasePresent
+@iterationPresent
 Feature: US1830795 - Enhance NDB API contract master search for Y-format contract masters that process on UNET
 
   @TC837720

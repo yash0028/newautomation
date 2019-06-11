@@ -3,8 +3,8 @@
 @US1523606
 @2018.PI05
 @2018.PI05.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1523606 - Integration - Add paper type to Physician Landing Page
 
   @TC694732

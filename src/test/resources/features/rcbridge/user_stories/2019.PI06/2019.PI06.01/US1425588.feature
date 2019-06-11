@@ -3,8 +3,8 @@
 @US1425588
 @2019.PI06
 @2019.PI06.01
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1425588 - Track resent Type 2 error transactions to COSMOS
 
   @TC634355

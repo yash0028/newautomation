@@ -3,8 +3,8 @@
 @US1671888
 @2019.PI07
 @2019.PI07.04
-@releaseUnknown
-@iterationUnknown
+@releasePresent
+@iterationPresent
 Feature: US1671888 - Add attachments to retro request
 
   @TC781399

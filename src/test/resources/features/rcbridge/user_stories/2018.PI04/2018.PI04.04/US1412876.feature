@@ -2,8 +2,8 @@
 @US1412876
 @2018.PI04
 @2018.PI04.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1412876 - Search via CMD UI (Landing Page)
 
   @TC631482

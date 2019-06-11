@@ -3,8 +3,8 @@
 @US1656557
 @2019.PI06
 @2019.PI06.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1656557 - Holidays for due dates in AM
 
   @TC758900

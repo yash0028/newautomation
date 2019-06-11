@@ -4,8 +4,8 @@
 @US1103710
 @2018.PI02
 @2018.PI02.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1103710 - Counter-party Provider Org TypeCode is found and paper type is returned
 
   @TC564966

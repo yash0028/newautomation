@@ -2,8 +2,8 @@
 @US1730228
 @2019.PI07
 @2019.PI07.02
-@releaseUnknown
-@iterationUnknown
+@releasePresent
+@iterationPast
 Feature: US1730228 - (Analysis) Create endpoint for service location API
 
   @TC805384

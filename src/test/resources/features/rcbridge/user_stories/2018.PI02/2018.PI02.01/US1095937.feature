@@ -3,8 +3,8 @@
 @US1095937
 @2018.PI02
 @2018.PI02.01
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1095937 - Approval Coordinator Microservice
 
   @TC701622

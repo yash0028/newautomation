@@ -3,8 +3,8 @@
 @US1368000
 @2018.PI04
 @2018.PI04.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1368000 - ENW Indicator Determination
 
   @TC600518

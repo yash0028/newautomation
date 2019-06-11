@@ -2,8 +2,8 @@
 @US1189845
 @2018.PI04
 @2018.PI04.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1189845 - [Continued] [Continued][Continued] Downstream system specific validation handling
 
   @CLM_UAT

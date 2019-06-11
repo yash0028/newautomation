@@ -2,8 +2,8 @@
 @US1536889
 @2019.PI07
 @2019.PI07.02
-@releaseUnknown
-@iterationUnknown
+@releasePresent
+@iterationPast
 Feature: US1536889 - Validate contract data - cancel [NDB]
 
   @RC_unlinked

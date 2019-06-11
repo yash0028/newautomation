@@ -2,8 +2,8 @@
 @US1194525
 @2018.PI02
 @2018.PI02.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1194525 - [Unfinished] Examiner implementation
 
   @TC605384

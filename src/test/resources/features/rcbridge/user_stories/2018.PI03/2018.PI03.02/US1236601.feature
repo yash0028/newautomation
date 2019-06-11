@@ -2,8 +2,8 @@
 @US1236601
 @2018.PI03
 @2018.PI03.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1236601 - Code Coverage Test Cases
 
   @TC615273

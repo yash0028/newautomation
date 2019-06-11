@@ -3,8 +3,8 @@
 @US1358993
 @2018.PI04
 @2018.PI04.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1358993 - PES - Appendix Address Relationships
 
   @TC597153

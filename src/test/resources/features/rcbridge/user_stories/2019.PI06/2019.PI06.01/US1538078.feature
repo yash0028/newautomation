@@ -2,8 +2,8 @@
 @US1538078
 @2019.PI06
 @2019.PI06.01
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1538078 - SPIKE - Understand how mass transactions will be sent down
 
   @TC723751

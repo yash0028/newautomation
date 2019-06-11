@@ -3,8 +3,8 @@
 @US860798
 @2018.PI01
 @2018.PI01.03
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US860798 - Establish Master Style Sheet for Professional Formatting
 
   @TC701688

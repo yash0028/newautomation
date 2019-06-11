@@ -3,8 +3,8 @@
 @US1256989
 @2018.PI04
 @2018.PI04.03
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1256989 - Upload CLM Rule Table
 
   @CLM_UAT

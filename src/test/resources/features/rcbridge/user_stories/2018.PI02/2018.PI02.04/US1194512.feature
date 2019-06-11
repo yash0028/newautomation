@@ -2,8 +2,8 @@
 @US1194512
 @2018.PI02
 @2018.PI02.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1194512 - [Unfinished] Add a Contract Master to an Existing Physician on an Existing Contract
 
   @TC605427

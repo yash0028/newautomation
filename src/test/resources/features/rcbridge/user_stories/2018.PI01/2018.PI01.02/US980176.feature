@@ -3,8 +3,8 @@
 @US980176
 @2018.PI01
 @2018.PI01.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US980176 - (TxMgr) Create Transaction Management Service
 
   @TC564426

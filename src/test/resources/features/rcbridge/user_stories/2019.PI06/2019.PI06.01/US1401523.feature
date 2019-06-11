@@ -3,8 +3,8 @@
 @US1401523
 @2019.PI06
 @2019.PI06.01
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1401523 - UI/UX- Populate Resolution button and comments on CMD page displaying Type 2 errors
 
   @TC622440

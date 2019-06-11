@@ -3,8 +3,8 @@
 @US1271550
 @2018.PI03
 @2018.PI03.03
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1271550 - [Spike] NDB Contract Master Lookup API
 
   @TC605380

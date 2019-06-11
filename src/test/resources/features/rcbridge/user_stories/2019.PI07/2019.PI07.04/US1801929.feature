@@ -2,8 +2,8 @@
 @US1801929
 @2019.PI07
 @2019.PI07.04
-@releaseUnknown
-@iterationUnknown
+@releasePresent
+@iterationPresent
 Feature: US1801929 - Create Mass Actions display view (UI) (Exari Integration)
 
   @TC823903

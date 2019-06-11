@@ -2,8 +2,8 @@
 @US1234010
 @2018.PI03
 @2018.PI03.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1234010 - [Continued] Exari Search API Implementation
 
   @TC535826

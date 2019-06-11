@@ -2,8 +2,8 @@
 @US1234077
 @2018.PI03
 @2018.PI03.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1234077 - [Continued] [Continued] Contract Query API Implementation
 
   @TC551549

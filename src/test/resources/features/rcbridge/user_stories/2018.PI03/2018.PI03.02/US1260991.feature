@@ -4,8 +4,8 @@
 @US1260991
 @2018.PI03
 @2018.PI03.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1260991 - [Unfinished] Contract Product Description Crosswalk
 
   @TC605424

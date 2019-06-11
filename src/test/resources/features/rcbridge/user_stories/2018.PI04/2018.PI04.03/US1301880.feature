@@ -2,8 +2,8 @@
 @US1301880
 @2018.PI04
 @2018.PI04.03
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1301880 - [Continued] CMD - User Input Required Page - Populate rows of data
 
   @TC678783

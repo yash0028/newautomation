@@ -2,8 +2,8 @@
 @US1451247
 @2019.PI06
 @2019.PI06.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1451247 - Pass contract information to downstream [NDB]
 
   @TC743441

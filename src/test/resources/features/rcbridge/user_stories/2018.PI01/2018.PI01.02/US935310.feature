@@ -3,8 +3,8 @@
 @US935310
 @2018.PI01
 @2018.PI01.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US935310 - Install Power Author Package on UHC Team desktops
 
   @TC701728

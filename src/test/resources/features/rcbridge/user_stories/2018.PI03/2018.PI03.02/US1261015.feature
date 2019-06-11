@@ -4,8 +4,8 @@
 @US1261015
 @2018.PI03
 @2018.PI03.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1261015 - [Unfinished] (MEG) Create microservice exposing Market Exception grid data
 
   @TC565769

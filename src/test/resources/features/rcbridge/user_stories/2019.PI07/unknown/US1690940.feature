@@ -1,7 +1,7 @@
 # Last updated on 
 @US1690940
 @2019.PI07
-@releaseUnknown
+@releasePresent
 @iterationUnknown
 Feature: US1690940 - Holidays for due dates in AM - when the holiday falls on the weekend
 

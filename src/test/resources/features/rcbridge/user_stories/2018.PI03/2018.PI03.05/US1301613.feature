@@ -3,8 +3,8 @@
 @US1301613
 @2018.PI03
 @2018.PI03.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1301613 - CMD Dashboard buttons
 
   @TC681336

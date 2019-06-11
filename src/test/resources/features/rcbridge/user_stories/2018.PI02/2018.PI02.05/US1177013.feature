@@ -2,8 +2,8 @@
 @US1177013
 @2018.PI02
 @2018.PI02.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1177013 - Rfp Enhancements
 
   @TC565813

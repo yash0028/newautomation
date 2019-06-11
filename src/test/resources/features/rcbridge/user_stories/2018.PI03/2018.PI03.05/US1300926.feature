@@ -2,8 +2,8 @@
 @US1300926
 @2018.PI03
 @2018.PI03.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1300926 - [Continued] Import Data from Spreadsheet into Table over2MB
 
   @CLM_UAT

@@ -2,8 +2,8 @@
 @US1442264
 @2018.PI05
 @2018.PI05.05
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1442264 - Retrieve a Contract's entire configuration based on product group
 
   @TC713742

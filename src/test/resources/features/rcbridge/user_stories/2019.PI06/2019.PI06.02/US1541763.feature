@@ -2,8 +2,8 @@
 @US1541763
 @2019.PI06
 @2019.PI06.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1541763 - Market Lead Denies or Requests More Info on Retro
 
   @TC709183

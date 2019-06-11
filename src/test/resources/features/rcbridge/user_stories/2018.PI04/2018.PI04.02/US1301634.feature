@@ -3,8 +3,8 @@
 @US1301634
 @2018.PI04
 @2018.PI04.02
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1301634 - [Continued] CMD Dashboard buttons (Populate data)
 
   @TC564578

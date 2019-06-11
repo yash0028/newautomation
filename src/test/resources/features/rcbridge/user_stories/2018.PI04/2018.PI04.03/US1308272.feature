@@ -2,8 +2,8 @@
 @US1308272
 @2018.PI04
 @2018.PI04.03
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1308272 - [Continued] CMD- User Input Required Page- View detail information (more than one contract master returned )
 
   @TC567000

@@ -2,8 +2,8 @@
 @US1290196
 @2018.PI05
 @2018.PI05.03
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1290196 - [Continued]Contract Master Override Update Work Objects Table (Non PCP) (Scenario 3)
 
   @TC616486

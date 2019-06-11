@@ -3,8 +3,8 @@
 @US1820475
 @2019.PI07
 @2019.PI07.04
-@releaseUnknown
-@iterationUnknown
+@releasePresent
+@iterationPresent
 Feature: US1820475 - [Continued] Market Product integration EDQ work (Exari) (QE) - Update CMD Tables
 
   @TC832658

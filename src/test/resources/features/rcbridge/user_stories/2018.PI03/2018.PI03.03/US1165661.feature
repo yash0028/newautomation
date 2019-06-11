@@ -3,8 +3,8 @@
 @US1165661
 @2018.PI03
 @2018.PI03.03
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1165661 - [Continued] Create External Data Query - Facility MSPS
 
   @TC536781

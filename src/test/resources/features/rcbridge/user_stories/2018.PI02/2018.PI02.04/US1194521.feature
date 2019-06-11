@@ -2,8 +2,8 @@
 @US1194521
 @2018.PI02
 @2018.PI02.04
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1194521 - [Unfinished] [Continued] [Continued] NDB_Send Updates for Update Roster business event
 
   @TC605401

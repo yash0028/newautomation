@@ -2,8 +2,8 @@
 @US1179431
 @2018.PI03
 @2018.PI03.01
-@releaseUnknown
-@iterationUnknown
+@releasePast
+@iterationPast
 Feature: US1179431 - [Continued] PIC Implementation
 
   @TC565438

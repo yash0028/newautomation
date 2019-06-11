@@ -1,7 +1,7 @@
 # Last updated on 
 @US1554474
 @2019.PI07
-@releaseUnknown
+@releasePresent
 @iterationUnknown
 Feature: US1554474 - Identify user's manager for escalations and dashboards
 
