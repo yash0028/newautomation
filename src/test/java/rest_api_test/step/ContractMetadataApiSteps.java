@@ -67,11 +67,9 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
         Assert.assertTrue(result.isJsonArray());
 
         // Check that the result is a valid json object and returns list of product codes
-        String actualProductCodes = checkAndParseProductCodeResult(result, 0);
-        log.info("Actual product codes for single product description: {}", actualProductCodes);
-
-        // check that the expected product code list is equal to the result/actual one.
-        Assert.assertEquals(expectedProductCodes, actualProductCodes);
+        Assert.assertTrue("Expected product code is not contained in the response. Expected: " +
+                expectedProductCodes + " Response: " +
+                response.asString(), resultContainsCorrectProductCode(result, expectedProductCodes));
     }
 
     //verify multiple product Code lists Was returned For multiple ProductDescriptions
@@ -85,15 +83,13 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
         Assert.assertTrue(result.isJsonArray());
 
         // Check that the result is a valid json object and returns list of product codes
-        String actualProductCodes1 = checkAndParseProductCodeResult(result, 0);
-        log.info("Actual product codes for multiple product description: {}", actualProductCodes1);
+        Assert.assertTrue("Expected product code is not contained in the response. Expected: " +
+                expectedProductCodes1 + " Response: " +
+                response.asString(), resultContainsCorrectProductCode(result, expectedProductCodes1));
 
-        String actualProductCodes2 = checkAndParseProductCodeResult(result, 1);
-        log.info("Actual product codes for multiple product description: {}", actualProductCodes2);
-
-        // check that the expected product code list is equal to the result/actual one.
-        Assert.assertEquals(expectedProductCodes1, actualProductCodes1);
-        Assert.assertEquals(expectedProductCodes2, actualProductCodes2);
+        Assert.assertTrue("Expected product code is not contained in the response. Expected: " +
+                expectedProductCodes2 + " Response: " +
+                response.asString(), resultContainsCorrectProductCode(result, expectedProductCodes2));
     }
 
     // Verify single product description does not exist
@@ -153,6 +149,7 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
 
         // check that the expected product code list is equal to the result/actual one.
         Assert.assertEquals(expectedProductCodes, actualProductCodes);
+
     }
 
     // US1820475 - [Continued] Market Product integration EDQ work (Exari) (QE) - Update CMD Tables
@@ -192,7 +189,7 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
      * @param result the json element that we want to check
      * @return returns a list of product codes
      */
-    private String checkAndParseProductCodeResult(JsonElement result, int index) throws Throwable {
+    private String checkAndParseProductCodeResult(JsonElement result, int index) {
         // get index of result array
         JsonElement resultIndex = result.getAsJsonArray().get(index);
 
@@ -203,6 +200,27 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
         JsonElement resultProductCode = resultIndex.getAsJsonObject().get("productCodeList");
 
         return resultProductCode.getAsString();
+    }
+
+    /**
+     * Check that the expected product code is contained in one of the
+     * result array's objects.
+     *
+     * @param result the json array that we want to check
+     * @param expectedProductCode the product code we're checking for
+     * @return returns true if the expectedProductCode is contained in the result array, false if not.
+     */
+    private boolean resultContainsCorrectProductCode(JsonArray result, String expectedProductCode) {
+
+        for(JsonElement elm: result) {
+            String actualProductCode = elm.getAsJsonObject().get("productCodeList").getAsString();
+
+            if(actualProductCode.contains(expectedProductCode)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 
