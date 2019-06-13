@@ -7,6 +7,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
@@ -16,6 +17,7 @@ import rest_api_test.util.IRestStep;
 import util.file.IFileReader;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
@@ -27,9 +29,11 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
 
     private final static String ENDPOINT = "https://contract-metadata-api-clm-test-ui.ocp-ctc-dmz-nonprod.optum.com";
     private final static String RESOURCE_PRODUCT_CODE = "/v1.0/product_group_codes";
+    private final static String RESOURCE_PRODUCT_DESCRIPTIONS = "/v1.0/contract-product-descriptions/search";
     private RequestSpecification request;
     private Response response;
-    private ArrayList<String> productDescriptions;
+    private List<String> productDescriptions;
+    private JsonObject requestBody;
 
     //US1185585 Contract Product Description Crosswalk
     @Given("^a product description to product code crosswalk exists$")
@@ -223,5 +227,44 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
         return false;
     }
 
+    // US1852455 - Exclude inactive Contract Product Description table records in API response (Optum)
 
+    @Given("Exari provides valid Contract Product Descriptions:")
+    public void exariProvidesValidContractProductDescriptions(DataTable dt) {
+        productDescriptions = dt.asList();
+
+        JsonArray productDescriptionsArray = new JsonArray();
+        requestBody = new JsonObject();
+
+        for(String product: productDescriptions) {
+            productDescriptionsArray.add(product);
+        }
+
+        requestBody.add("productDescriptions", productDescriptionsArray);
+    }
+
+    @When("sending a request to validate the product groups")
+    public void sendingARequestToValidateTheProductGroups() {
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json")
+                .body(requestBody).relaxedHTTPSValidation();
+
+        response = request.post(RESOURCE_PRODUCT_DESCRIPTIONS);
+    }
+
+    @Then("only matched records with a {string} of {string} are returned")
+    public void onlyMatchedRecordsWithAOfAreReturned(String property, String expectedValue) {
+        JsonElement result = parseJsonElementResponse(response);
+        JsonArray contentArray = result.getAsJsonObject().get("content").getAsJsonArray();
+
+        for(JsonElement elm: contentArray) {
+            Assert.assertTrue("Array element is not a JSON Object", elm.isJsonObject());
+
+            String actualValue = elm.getAsJsonObject().get(property).getAsString();
+            String product = elm.getAsJsonObject().get("productDescription").getAsString();
+
+            log.info("Product: {} ----- Expected: {}, Actual: {}", product, expectedValue, actualValue);
+
+            Assert.assertEquals("product description status was not 'A' for product: " + product, expectedValue, actualValue);
+        }
+    }
 }
