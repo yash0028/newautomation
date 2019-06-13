@@ -1,7 +1,7 @@
 # Last updated on 
 @US1826768
 @2019.PI07
-@2019.PI07.04
+@2019.PI07.05
 @releasePresent
 @iterationPresent
 Feature: US1826768 - Contracts Domain message handling

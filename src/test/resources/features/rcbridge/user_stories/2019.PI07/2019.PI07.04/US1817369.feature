@@ -5,7 +5,7 @@
 @2019.PI07
 @2019.PI07.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1817369 - Add forms and text to tasks without them
 
   @TC831734

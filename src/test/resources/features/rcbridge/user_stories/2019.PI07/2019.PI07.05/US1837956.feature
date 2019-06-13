@@ -1,15 +1,16 @@
 # Last updated on 
 @US1837956
-@2019.PI08
-@releaseFuture
-@iterationUnknown
+@2019.PI07
+@2019.PI07.05
+@releasePresent
+@iterationPresent
 Feature: US1837956 - Fields report from Alfresco
 
   @TC841779
   @Manual
   @Functional
   Scenario: TC841779 - [RL0]
-    Given an admin wants to know all of the fields in Actvity Manager
+    Given an admin wants to know all of the fields in Activity Manager
     When they request the information
     Then a report can be generated, upon demand
     And it contains the Process Name
