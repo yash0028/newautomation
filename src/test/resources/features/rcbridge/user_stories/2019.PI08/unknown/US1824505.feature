@@ -1,7 +1,8 @@
 # Last updated on 
 @Visio
 @US1824505
-@releaseUnknown
+@2019.PI08
+@releaseFuture
 @iterationUnknown
 Feature: US1824505 - User Groups - No claim if only one person - Physician
 

@@ -1,7 +1,7 @@
 # Last updated on 
 @US1559392
-@2019.PI06
-@releasePast
+@2019.PI08
+@releaseFuture
 @iterationUnknown
 Feature: US1559392 - Notify retro process when "Track Status of Physician Contract Installation" is completed
 

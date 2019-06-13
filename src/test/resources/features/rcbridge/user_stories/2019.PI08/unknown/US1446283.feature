@@ -2,8 +2,8 @@
 @Optum
 @AM-Terminations
 @US1446283
-@2019.PI06
-@releasePast
+@2019.PI08
+@releaseFuture
 @iterationUnknown
 Feature: US1446283 - Integration - Data from PES 2.0 for Provider Table Only
 
