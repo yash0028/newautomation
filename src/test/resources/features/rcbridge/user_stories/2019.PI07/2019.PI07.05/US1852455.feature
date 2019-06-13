@@ -8,7 +8,7 @@
 Feature: US1852455 - Exclude inactive Contract Product Description table records in API response (Optum)
 
   @TC848052
-  @Manual
+  @Automated
   @Functional
   @contract-metadata-api
   Scenario: TC848052 - [RL0]
