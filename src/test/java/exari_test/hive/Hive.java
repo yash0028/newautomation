@@ -48,13 +48,20 @@ public class Hive implements IConfigurable {
     public static void main(String[] args) {
         IConfigurable config = new ConfigStub();
         EifTestList testList = new EifTestList();
-        String csvFileName = config.configGetOptionalString("hive.data.csv").orElse("unknown");
-        log.info("loading csv file: '{}'", csvFileName);
-        testList.loadCSV(csvFileName);
         IContractFlowLoader loader = new IContractFlowLoader() {
         };
+
+        //Create Name for build
         final String buildName = "[Hive] " + TimeKeeper.getInstance().getStartTimeISO();
 
+        // Get path and name of CSV Test Data
+        String csvFileName = config.configGetOptionalString("hive.data.csv").orElse("unknown");
+        log.info("loading csv file: '{}'", csvFileName);
+
+        // Load CSV Test Data
+        testList.loadCSV(csvFileName);
+
+        // Add all tests from CSV Test Data
         for (EifTestData data : testList) {
             log.info("creating flow for {}", data.getCommonName());
             ContractFlow flow = loader.loadFlowContract(data.getEifFile());
@@ -65,18 +72,22 @@ public class Hive implements IConfigurable {
         List<String> list = Hive.getInstance().getQueueNames();
         log.info("{}", list);
 
+        // Start and Wait until complete
         Hive.getInstance().start().waitTillComplete();
 
+        // Save Report
         if (config.configGetBoolean("hive.saveReport")) {
             CukeReport report = Hive.getInstance().getCukeReport();
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
+            // Find path to report
             StringBuilder path = new StringBuilder();
             path.append(config.configGetOptionalString("hive.reportLocation").orElse("output/report/"));
             if (!path.toString().endsWith("/")) {
                 path.append("/");
             }
 
+            // Find name of report
             String fileName = config.configGetOptionalString("hive.reportName").orElse("jsonreport").replaceAll(" ", "_");
             if (!fileName.endsWith(".json")) {
                 fileName += ".json";
@@ -84,6 +95,7 @@ public class Hive implements IConfigurable {
 
             path.append(fileName);
 
+            // Try to save report
             try {
                 FileHandler.getInstance().saveFile(path.toString(), gson.toJson(report));
             } catch (Exception e) {
