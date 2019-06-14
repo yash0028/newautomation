@@ -85,7 +85,6 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
         Scenario.Builder builder = new Scenario.Builder();
 
         // Add basic scenario values
-        // TODO build scenario with basic values
         builder.withId("hive;" + contractFlow.getName().replaceAll(" ", "-"));
         builder.withName(contractFlow.getName());
         builder.withLine(1);
