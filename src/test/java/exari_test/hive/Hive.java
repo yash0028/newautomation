@@ -4,8 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import exari_test.eif.data.EifTestData;
 import exari_test.eif.data.EifTestList;
-import exari_test.eif.flow.ContractFlow;
-import exari_test.eif.flow.IContractFlowLoader;
 import exari_test.eif.report.CukeReport;
 import exari_test.eif.report.Feature;
 import exari_test.eif.report.Scenario;
@@ -48,8 +46,6 @@ public class Hive implements IConfigurable {
     public static void main(String[] args) {
         IConfigurable config = new ConfigStub();
         EifTestList testList = new EifTestList();
-        IContractFlowLoader loader = new IContractFlowLoader() {
-        };
 
         //Create Name for build
         final String buildName = "[Hive] " + TimeKeeper.getInstance().getStartTimeISO();
@@ -64,9 +60,7 @@ public class Hive implements IConfigurable {
         // Add all tests from CSV Test Data
         for (EifTestData data : testList) {
             log.info("creating flow for {}", data.getCommonName());
-            ContractFlow flow = loader.loadFlowContract(data.getEifFile());
-            flow.connectEifTestData(data);
-            Hive.getInstance().addToQueue(new ContractThread(flow, buildName, data));
+            Hive.getInstance().addToQueue(new ContractThread(buildName, data));
         }
 
         List<String> list = Hive.getInstance().getQueueNames();

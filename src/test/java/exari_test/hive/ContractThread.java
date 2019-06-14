@@ -2,6 +2,7 @@ package exari_test.hive;
 
 import exari_test.eif.data.EifTestData;
 import exari_test.eif.flow.ContractFlow;
+import exari_test.eif.flow.IContractFlowLoader;
 import exari_test.eif.report.Scenario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +11,7 @@ import ui_test.util.SauceLabs;
 import ui_test.util.UiConfigHelper;
 import util.configuration.IConfigurable;
 
-public class ContractThread extends Thread implements IConfigurable {
+public class ContractThread extends Thread implements IConfigurable, IContractFlowLoader {
     private static final Logger log = LoggerFactory.getLogger(ContractThread.class);
 
     private ContractFlow contractFlow;
@@ -30,11 +31,13 @@ public class ContractThread extends Thread implements IConfigurable {
         builder = UiConfigHelper.getInstance().getDefaultSauceBuilder(flow.getName()).withBuildName(buildName);
     }
 
-    public ContractThread(ContractFlow flow, String buildName, EifTestData data) {
-        super(flow.getName());
-        this.contractFlow = flow;
+    public ContractThread(String buildName, EifTestData data) {
+        super(data.getCommonName());
 
-        builder = UiConfigHelper.getInstance().getParametricSauceBuilder(flow.getName(), null).withBuildName(buildName);
+        this.contractFlow = loadFlowContract(data.getEifFile());
+        this.contractFlow.connectEifTestData(data);
+
+        builder = UiConfigHelper.getInstance().getParametricSauceBuilder(this.contractFlow.getName(), null).withBuildName(buildName);
         builder.loadPropertyMap(data.getDriverParam());
 
     }
