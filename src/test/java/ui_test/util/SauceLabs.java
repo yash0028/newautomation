@@ -85,14 +85,14 @@ public class SauceLabs {
     /**
      * Send job passed command to sauce labs
      */
-    public void testPassed() throws Throwable {
+    public void testPassed() {
         sauceREST.jobPassed(jobId);
     }
 
     /**
      * Send job failed command to sauce labs
      */
-    public void testFailed() throws Throwable {
+    public void testFailed() {
         sauceREST.jobFailed(jobId);
     }
 

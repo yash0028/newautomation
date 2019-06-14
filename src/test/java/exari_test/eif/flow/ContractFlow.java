@@ -1,6 +1,8 @@
 package exari_test.eif.flow;
 
 import com.google.gson.*;
+import exari_test.eif.data.EifReport;
+import exari_test.eif.data.EifTestData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +25,8 @@ public class ContractFlow {
     private String extendedFrom;
 
     private TopicFlowMap topicFlowMap;
+
+    private EifReport report;
 
     /*
     CONSTRUCTOR
@@ -78,11 +82,19 @@ public class ContractFlow {
         return topicFlowMap;
     }
 
-    public void substituteGherkinData(Map<String, String> params) {
-        if (params == null) return;
+    public EifReport getReport() {
+        return report;
+    }
+
+    public void connectEifTestData(EifTestData data) {
+        if (data == null) return;
+
+        if (!data.getCommonName().isEmpty()) {
+            this.setName(data.getCommonName());
+        }
 
         //Each <paramkey> of params needs to be found in the answers fields and subbed for param
-        for (String paramKey : params.keySet()) {
+        for (String paramKey : data.keySet()) {
             String paramSub = "<" + paramKey + ">";
             for (String flowKey : topicFlowMap.keySet()) {
                 Map<String, ActionFlow> itemMap = topicFlowMap.get(flowKey).getQuestions();
@@ -92,7 +104,7 @@ public class ContractFlow {
                         String answer = list.get(i);
                         //If answer contains <paramkey> replace <paramkey> with params value
                         if (answer.contains(paramSub)) {
-                            String value = params.get(paramKey);
+                            String value = data.get(paramKey);
                             log.trace("sub gherkin {} for {}", value, paramSub);
                             list.set(i, answer.replace(paramSub, value));
                         }
@@ -100,6 +112,8 @@ public class ContractFlow {
                 }
             }
         }
+
+        this.report = data.getReport();
     }
 
     public void merge(ContractFlow child) {

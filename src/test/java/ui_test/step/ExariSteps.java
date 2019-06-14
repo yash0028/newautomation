@@ -4,6 +4,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import exari_test.eif.data.EifTestData;
 import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.flow.IContractFlowLoader;
 import general_test.util.ISharedValuePoster;
@@ -14,8 +15,6 @@ import ui_test.page.exari.ProtoStep;
 import ui_test.util.IUiStep;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
-
-import java.util.Map;
 
 
 public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster, IContractFlowLoader {
@@ -70,7 +69,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
      */
 
     private void setupProtoStep(DataTable contractDataTable) {
-        Map<String, String> contractParam = contractDataTable.asMap(String.class, String.class);
+        EifTestData contractParam = new EifTestData(contractDataTable.asMap(String.class, String.class));
 
         //check if contractFlow has be init
         if (contractFlow == null) {
@@ -78,7 +77,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
             contractFlow = loadFlowContract(DEFAULT_FLOW);
         }
 
-        contractFlow.substituteGherkinData(contractParam);
+        contractFlow.connectEifTestData(contractParam);
 
         this.protoStep.setFlow(contractFlow);
     }

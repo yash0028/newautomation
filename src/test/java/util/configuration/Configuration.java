@@ -19,6 +19,7 @@ public class Configuration {
     private static final String LOGGER_FILE_KEY = "configuration.logger.file";
     private static final String REST_FILE_KEY = "configuration.rest.file";
     private static final String UI_FILE_KEY = "configuration.ui.file";
+    private static final String HIVE_FILE_KEY = "configuration.hive.file";
     private static final String EXTRA_FILES_KEY = "configuration.extra.files";
 
     private static Configuration INSTANCE = new Configuration();
@@ -49,6 +50,7 @@ public class Configuration {
         getOption(LOGGER_FILE_KEY).map(filesToLoad::add);
         getOption(REST_FILE_KEY).map(filesToLoad::add);
         getOption(UI_FILE_KEY).map(filesToLoad::add);
+        getOption(HIVE_FILE_KEY).map(filesToLoad::add);
 
         //Get extra files
         Optional<String> extraFileNames = getOption(EXTRA_FILES_KEY);
