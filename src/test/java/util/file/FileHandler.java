@@ -16,8 +16,6 @@ public class FileHandler {
     private static final Logger log = LoggerFactory.getLogger(FileHandler.class);
     private static FileHandler INSTANCE = new FileHandler();
 
-    private Properties properties = null;
-
     /*
     CONSTRUCTOR
      */
@@ -39,7 +37,10 @@ public class FileHandler {
 
     String getResourceFilePath(String fileInResourceFolder) {
         return getClass().getResource(fileInResourceFolder).getFile();
+    }
 
+    InputStream getResourceInputStream(String fileInResourceFolder) {
+        return getClass().getResourceAsStream(fileInResourceFolder);
     }
 
     File writeByteArrayToFile(String fileName, byte[] content) throws IOException {
@@ -124,13 +125,15 @@ public class FileHandler {
     }
 
     Reader getReader(String fileName) throws UnsupportedEncodingException {
-        return new InputStreamReader(getClass().getResourceAsStream(fileName), "UTF-8");
+        log.trace("opening resource file '{}'", fileName);
+        InputStream inputStream = getResourceInputStream(fileName);
+        return new InputStreamReader(inputStream, "UTF-8");
     }
 
     Map<String, String> getPropertiesMap(String fileName) {
         Properties prop = new Properties();
         try {
-            prop.load(getReader(fileName));
+            prop.load(getResourceInputStream(fileName));
         } catch (IOException e) {
             e.printStackTrace();
             return null;

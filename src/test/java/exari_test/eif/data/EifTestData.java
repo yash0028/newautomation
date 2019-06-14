@@ -50,10 +50,16 @@ public class EifTestData extends HashMap<String, String> implements IConfigurabl
         }
 
         // Load path to file
-        String path = configGetOptionalString("hive.data.location").orElse("support/hive");
+        String path = configGetOptionalString("hive.data.location").orElse("/support/hive/");
         if (!path.endsWith("/")) {
             path += "/";
         }
+        if (!path.startsWith("/")) {
+            path = "/" + path;
+        }
+
+        // Add folder for driver param
+        path += "driverParam/";
 
         Map<String, String> map = getPropertiesMap(path + fileName);
         log.trace(map.toString());
