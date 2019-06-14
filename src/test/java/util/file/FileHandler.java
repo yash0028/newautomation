@@ -31,7 +31,7 @@ public class FileHandler {
     STATIC METHODS
      */
 
-    static FileHandler getInstance() {
+    public static FileHandler getInstance() {
         return INSTANCE;
     }
 
@@ -123,5 +123,20 @@ public class FileHandler {
         }
 
         return list;
+    }
+
+    public void saveFile(String fileName, String content) throws Exception {
+        File file = new File(fileName);
+        PrintWriter reportOut;
+
+        //Create Folders, if needed
+        file.getParentFile().mkdirs();
+
+        reportOut = new PrintWriter(file, "UTF-8");
+        log.debug("saving {}", fileName);
+
+        reportOut.println(content);
+
+        reportOut.close();
     }
 }

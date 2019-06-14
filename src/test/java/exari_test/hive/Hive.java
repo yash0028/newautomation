@@ -1,6 +1,7 @@
 package exari_test.hive;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import exari_test.eif.data.EifTestData;
 import exari_test.eif.data.EifTestList;
 import exari_test.eif.flow.ContractFlow;
@@ -13,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import util.TimeKeeper;
 import util.configuration.ConfigStub;
 import util.configuration.IConfigurable;
+import util.file.FileHandler;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -65,10 +67,31 @@ public class Hive implements IConfigurable {
 
         Hive.getInstance().start().waitTillComplete();
 
-        CukeReport report = Hive.getInstance().getCukeReport();
-        Gson gson = new Gson();
+        if (config.configGetBoolean("hive.saveReport")) {
+            CukeReport report = Hive.getInstance().getCukeReport();
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        log.info("Cucumber Json Report:\n{}", gson.toJson(report));
+            StringBuilder path = new StringBuilder();
+            path.append(config.configGetOptionalString("hive.reportLocation").orElse("output/report/"));
+            if (!path.toString().endsWith("/")) {
+                path.append("/");
+            }
+
+            String fileName = config.configGetOptionalString("hive.reportName").orElse("jsonreport").replaceAll(" ", "_");
+            if (!fileName.endsWith(".json")) {
+                fileName += ".json";
+            }
+
+            path.append(fileName);
+
+            try {
+                FileHandler.getInstance().saveFile(path.toString(), gson.toJson(report));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
     }
     
     /*
