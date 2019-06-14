@@ -12,4 +12,9 @@ public interface IFileWriter {
     default boolean zipContainsFiles(File file) {
         return FileHandler.getInstance().zipContainsFiles(file);
     }
+
+    default boolean saveFile(String fileName, String content) throws Exception {
+        FileHandler.getInstance().saveFile(fileName, content);
+        return true;
+    }
 }
