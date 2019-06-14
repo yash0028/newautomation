@@ -2,11 +2,13 @@ package exari_test.eif.data;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.configuration.IConfigurable;
+import util.file.IFileReader;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class EifTestData extends HashMap<String, String> {
+public class EifTestData extends HashMap<String, String> implements IConfigurable, IFileReader {
     private static final Logger log = LoggerFactory.getLogger(EifTestData.class);
 
     private EifReport report;
@@ -29,15 +31,34 @@ public class EifTestData extends HashMap<String, String> {
     */
 
     public String getCommonName() {
-        return this.getOrDefault("commonName", "");
+        return this.getOrDefault(Key.COMMON_NAME, "");
     }
 
     public String getEifFile() {
-        return this.getOrDefault("eifFile", "");
+        return this.getOrDefault(Key.EIF_FILE, "");
     }
 
     public String getMPIN() {
-        return this.getOrDefault("MPIN", "");
+        return this.getOrDefault(Key.MPIN, "");
+    }
+
+    public Map<String, String> getDriverParam() {
+        // Load file name
+        String fileName = this.getOrDefault(Key.DRIVER_PARAMFile, "default").replaceAll(" ", "_");
+        if (!fileName.endsWith(".properties")) {
+            fileName += ".properties";
+        }
+
+        // Load path to file
+        String path = configGetOptionalString("hive.data.location").orElse("support/hive");
+        if (!path.endsWith("/")) {
+            path += "/";
+        }
+
+        Map<String, String> map = getPropertiesMap(path + fileName);
+        log.trace(map.toString());
+
+        return map;
     }
 
     public EifReport getReport() {
@@ -64,4 +85,11 @@ public class EifTestData extends HashMap<String, String> {
     /*
     UTILITY CLASS
     */
+
+    static class Key {
+        public static final String COMMON_NAME = "commonName";
+        public static final String EIF_FILE = "eifFile";
+        public static final String MPIN = "MPIN";
+        public static final String DRIVER_PARAMFile = "driverParamFile";
+    }
 }

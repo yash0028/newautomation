@@ -6,9 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 import java.util.zip.ZipFile;
 
 /**
@@ -123,6 +121,28 @@ public class FileHandler {
         }
 
         return list;
+    }
+
+    Reader getReader(String fileName) throws UnsupportedEncodingException {
+        return new InputStreamReader(getClass().getResourceAsStream(fileName), "UTF-8");
+    }
+
+    Map<String, String> getPropertiesMap(String fileName) {
+        Properties prop = new Properties();
+        try {
+            prop.load(getReader(fileName));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        Map<String, String> map = new HashMap<>();
+
+        for (Map.Entry<Object, Object> entry : prop.entrySet()) {
+            map.put((String) entry.getKey(), (String) entry.getValue());
+        }
+
+        return map;
     }
 
     public void saveFile(String fileName, String content) throws Exception {

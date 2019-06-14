@@ -335,6 +335,10 @@ public class SauceLabs {
 
         public Builder loadPropertyMap(Map<String, String> map) {
 
+            if (map == null || map.isEmpty()) {
+                return this;
+            }
+
             for (String key : map.keySet()) {
                 switch (key) {
                     case "ui.sauce.defaultBrowserName":

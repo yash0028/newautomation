@@ -48,7 +48,7 @@ public class Hive implements IConfigurable {
     public static void main(String[] args) {
         IConfigurable config = new ConfigStub();
         EifTestList testList = new EifTestList();
-        String csvFileName = config.configGetOptionalString("hive.csvData").orElse("unknown");
+        String csvFileName = config.configGetOptionalString("hive.data.csv").orElse("unknown");
         log.info("loading csv file: '{}'", csvFileName);
         testList.loadCSV(csvFileName);
         IContractFlowLoader loader = new IContractFlowLoader() {
@@ -59,7 +59,7 @@ public class Hive implements IConfigurable {
             log.info("creating flow for {}", data.getCommonName());
             ContractFlow flow = loader.loadFlowContract(data.getEifFile());
             flow.connectEifTestData(data);
-            Hive.getInstance().addToQueue(new ContractThread(flow, buildName));
+            Hive.getInstance().addToQueue(new ContractThread(flow, buildName, data));
         }
 
         List<String> list = Hive.getInstance().getQueueNames();

@@ -1,5 +1,6 @@
 package exari_test.hive;
 
+import exari_test.eif.data.EifTestData;
 import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.report.Scenario;
 import org.slf4j.Logger;
@@ -24,9 +25,18 @@ public class ContractThread extends Thread implements IConfigurable {
 
     public ContractThread(ContractFlow flow, String buildName) {
         super(flow.getName());
-        builder = UiConfigHelper.getInstance().getDefaultSauceBuilder(flow.getName()).withBuildName(buildName);
-        builder.withBrowserName("chrome");
         this.contractFlow = flow;
+
+        builder = UiConfigHelper.getInstance().getDefaultSauceBuilder(flow.getName()).withBuildName(buildName);
+    }
+
+    public ContractThread(ContractFlow flow, String buildName, EifTestData data) {
+        super(flow.getName());
+        this.contractFlow = flow;
+
+        builder = UiConfigHelper.getInstance().getParametricSauceBuilder(flow.getName(), null).withBuildName(buildName);
+        builder.loadPropertyMap(data.getDriverParam());
+
     }
     
     /*
@@ -87,6 +97,8 @@ public class ContractThread extends Thread implements IConfigurable {
     /*
     HELPER METHODS
     */
+
+
     
     /*
     UTILITY CLASS

@@ -2,7 +2,10 @@ package util.file;
 
 import com.google.gson.JsonElement;
 
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Map;
 
 public interface IFileReader {
 
@@ -28,5 +31,13 @@ public interface IFileReader {
 
     default List<String> getFileLines(String fileInResourceFolder) {
         return getFileLines(fileInResourceFolder, true, true);
+    }
+
+    default Map<String, String> getPropertiesMap(String fileInResourceFolder) {
+        return FileHandler.getInstance().getPropertiesMap(fileInResourceFolder);
+    }
+
+    default Reader getReader(String fileInResourceFolder) throws UnsupportedEncodingException {
+        return FileHandler.getInstance().getReader(fileInResourceFolder);
     }
 }
