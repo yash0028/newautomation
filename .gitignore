@@ -198,3 +198,6 @@ gradle-app.setting
 
 # Main for testing
 MainTester.java
+
+# Remove hive report
+output/
