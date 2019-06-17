@@ -4,8 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import exari_test.eif.data.EifTestData;
 import exari_test.eif.data.EifTestList;
-import exari_test.eif.flow.ContractFlow;
-import exari_test.eif.flow.IContractFlowLoader;
 import exari_test.eif.report.CukeReport;
 import exari_test.eif.report.Feature;
 import exari_test.eif.report.Scenario;
@@ -19,6 +17,10 @@ import util.file.FileHandler;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Hive is a manager for multiple threaded Exari Contract Creation. Each thread will create a contract using SauceLabs.
+ * Data is loaded from a CSV file and a maximum number of concurrent threads can be setup.
+ */
 public class Hive implements IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(Hive.class);
     private final int QUEUE_SIZE = configGetOptionalInteger("hive.maxThreads").orElse(5);
@@ -45,38 +47,51 @@ public class Hive implements IConfigurable {
         return INSTANCE;
     }
 
+    /**
+     * Run Hive
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         IConfigurable config = new ConfigStub();
         EifTestList testList = new EifTestList();
-        String csvFileName = config.configGetOptionalString("hive.csvData").orElse("unknown");
-        log.info("loading csv file: '{}'", csvFileName);
-        testList.loadCSV(csvFileName);
-        IContractFlowLoader loader = new IContractFlowLoader() {
-        };
+
+        //Create Name for build
         final String buildName = "[Hive] " + TimeKeeper.getInstance().getStartTimeISO();
 
+        // Get path and name of CSV Test Data
+        String csvFileName = config.configGetOptionalString("hive.data.csv").orElse("unknown");
+        log.info("loading csv file: '{}'", csvFileName);
+
+        // Load CSV Test Data
+        testList.loadCSV(csvFileName);
+
+        // Add all tests from CSV Test Data
         for (EifTestData data : testList) {
             log.info("creating flow for {}", data.getCommonName());
-            ContractFlow flow = loader.loadFlowContract(data.getEifFile());
-            flow.connectEifTestData(data);
-            Hive.getInstance().addToQueue(new ContractThread(flow, buildName));
+            Hive.getInstance().addToQueue(new ContractThread(buildName, data));
         }
 
+        //Print all the tests in the queue
         List<String> list = Hive.getInstance().getQueueNames();
         log.info("{}", list);
 
+        // Start and Wait until complete
         Hive.getInstance().start().waitTillComplete();
 
+        // Save Report
         if (config.configGetBoolean("hive.saveReport")) {
             CukeReport report = Hive.getInstance().getCukeReport();
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
+            // Find path to report
             StringBuilder path = new StringBuilder();
             path.append(config.configGetOptionalString("hive.reportLocation").orElse("output/report/"));
             if (!path.toString().endsWith("/")) {
                 path.append("/");
             }
 
+            // Find name of report
             String fileName = config.configGetOptionalString("hive.reportName").orElse("jsonreport").replaceAll(" ", "_");
             if (!fileName.endsWith(".json")) {
                 fileName += ".json";
@@ -84,6 +99,7 @@ public class Hive implements IConfigurable {
 
             path.append(fileName);
 
+            // Try to save report
             try {
                 FileHandler.getInstance().saveFile(path.toString(), gson.toJson(report));
             } catch (Exception e) {
@@ -98,12 +114,21 @@ public class Hive implements IConfigurable {
     CLASS METHODS
     */
 
+    /**
+     * Add a thread to the queue
+     * @param contractThread thread to add
+     * @return this
+     */
     public Hive addToQueue(ContractThread contractThread) {
         threadQueue.offer(contractThread);
         threadsAll.add(contractThread);
         return this;
     }
 
+    /**
+     * Start hive's threads. Will return once all threads have been started, but not finished.
+     * @return this
+     */
     public Hive start() {
         while (!threadQueue.isEmpty()) {
             ContractThread nextThread = threadQueue.poll();
@@ -127,6 +152,10 @@ public class Hive implements IConfigurable {
         return this;
     }
 
+    /**
+     * Wait until all threads registered to hive have finished.
+     * @return this
+     */
     public Hive waitTillComplete() {
         log.info("waiting until ");
         while (threadsActive.size() > 0) {
@@ -138,12 +167,15 @@ public class Hive implements IConfigurable {
         return this;
     }
 
+    /**
+     * Get a Cucumber Report that can be read by Jenkins
+     * @return Cucumber Report
+     */
     public CukeReport getCukeReport() {
         CukeReport report = new CukeReport();
         Feature.Builder builder = new Feature.Builder();
 
         // Add basic Feature values
-        // TODO build feature with basic values
         builder.withName("Hive Parallel Testing");
         builder.withDescription("Runs parallel Exari Contract Authoring");
         builder.withId("hive");
@@ -158,6 +190,10 @@ public class Hive implements IConfigurable {
         return report;
     }
 
+    /**
+     * Get name of all threads
+     * @return
+     */
     public List<String> getQueueNames() {
         return this.threadQueue.stream().map(Thread::getName).collect(Collectors.toList());
     }

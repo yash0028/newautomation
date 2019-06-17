@@ -5,14 +5,17 @@ import com.univocity.parsers.csv.CsvParser;
 import com.univocity.parsers.csv.CsvParserSettings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.file.IFileReader;
 
-import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EifTestList extends ArrayList<EifTestData> {
+/**
+ * Load and manage Eif Test Data from CSV files
+ */
+public class EifTestList extends ArrayList<EifTestData> implements IFileReader {
     private static final Logger log = LoggerFactory.getLogger(EifTestList.class);
 
     /*
@@ -50,9 +53,9 @@ public class EifTestList extends ArrayList<EifTestData> {
     */
 
     private Reader getCSVReader(String fileInSupportExariDataMap) {
-        String path = "/support/exari/dataMap/" + fileInSupportExariDataMap;
+        String path = "/support/hive/dataMap/" + fileInSupportExariDataMap;
         try {
-            return new InputStreamReader(getClass().getResourceAsStream(path), "UTF-8");
+            return getReader(path);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

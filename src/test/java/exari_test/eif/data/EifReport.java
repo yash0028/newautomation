@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * EifReport tracks the failed stage for a Hive Test
+ */
 public class EifReport {
     private static final Logger log = LoggerFactory.getLogger(EifReport.class);
 
@@ -23,6 +26,9 @@ public class EifReport {
     CONSTRUCTOR
     */
 
+    /**
+     * Create new EifReport with default stage of 100
+     */
     EifReport() {
         stage = 100;
         noteMap = new HashMap<>();
@@ -44,32 +50,58 @@ public class EifReport {
         this.noteMap.put(key, value);
     }
 
+    /**
+     * Mark the test as a failure at the login stage = 1
+     */
     public void markLoginFail() {
         this.stage = 1;
     }
 
+    /**
+     * Mark the test as a failure at the site stage = 2
+     */
     public void markSetSiteFail() {
         this.stage = 2;
     }
 
+    /**
+     * Mark the test as a failure at the author stage = 3
+     */
     public void markAuthorFail() {
         this.stage = 3;
     }
 
+    /**
+     * Mark the test as a failure at the capture stage = 4
+     */
     public void markCaptureFail() {
         this.stage = 4;
     }
 
+    /**
+     * Mark the test as a failure at the active stage = 5
+     */
     public void markActiveFail() {
         this.stage = 5;
     }
 
+    /**
+     * Get the current failure stage index. 100 means no failure
+     *
+     * @return failure stage index
+     */
     public int getFailureStage() {
         return stage;
     }
 
+    /**
+     * Create a List of Steps for a Cucumber Report
+     * @return List of Steps with states and any additional details
+     */
     public List<Step> getStepsReport() {
         List<Step> steps = new ArrayList<>();
+
+        // Create new output array and Step Builder. Used with the GIVEN STEP
         List<String> output = new ArrayList<>();
         Step.Builder builder = new Step.Builder();
 
@@ -99,6 +131,8 @@ public class EifReport {
             builder.withOutput(output);
         }
         steps.add(builder.build());
+
+        // Create new output array and Step Builder. Used with the WHEN STEP
         output = new ArrayList<>();
         builder = new Step.Builder();
 
@@ -125,6 +159,8 @@ public class EifReport {
             builder.withOutput(output);
         }
         steps.add(builder.build());
+
+        // Create new output array and Step Builder. Used with the AND STEP
         output = new ArrayList<>();
         builder = new Step.Builder();
 
@@ -151,6 +187,8 @@ public class EifReport {
             builder.withOutput(output);
         }
         steps.add(builder.build());
+
+        // Create new output array and Step Builder. Used with the AND STEP
         output = new ArrayList<>();
         builder = new Step.Builder();
 
@@ -178,6 +216,8 @@ public class EifReport {
             builder.withOutput(output);
         }
         steps.add(builder.build());
+
+        // Create new output array and Step Builder. Used with the THEN STEP
         output = new ArrayList<>();
         builder = new Step.Builder();
 
