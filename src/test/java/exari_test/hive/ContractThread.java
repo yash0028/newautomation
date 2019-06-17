@@ -3,6 +3,8 @@ package exari_test.hive;
 import exari_test.eif.data.EifTestData;
 import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.flow.IContractFlowLoader;
+import exari_test.eif.report.After;
+import exari_test.eif.report.Before;
 import exari_test.eif.report.Scenario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +12,9 @@ import ui_test.page.exari.ProtoStep;
 import ui_test.util.SauceLabs;
 import ui_test.util.UiConfigHelper;
 import util.configuration.IConfigurable;
+
+import java.util.Collections;
+import java.util.List;
 
 public class ContractThread extends Thread implements IConfigurable, IContractFlowLoader {
     private static final Logger log = LoggerFactory.getLogger(ContractThread.class);
@@ -19,6 +24,8 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
 
     private SauceLabs sauceLabs;
     private ProtoStep protoStep;
+
+    private String sauceLink;
 
     /*
     CONSTRUCTOR
@@ -52,7 +59,8 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
 
         //Create SauceLabs Instance
         this.sauceLabs = builder.build();
-        log.info("SauceLabs Test Video: {}", this.sauceLabs.getSauceLink());
+        this.sauceLink = this.sauceLabs.getSauceLink();
+        log.info("SauceLabs Test Video: {}", this.sauceLink);
 
 
         //Pass Driver to new ProtoStep
@@ -69,7 +77,7 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
                 this.protoStep.loginHome().setSite();
             }
 
-            //TODO add a test to check if it properly passed
+            assert this.contractFlow.getReport().getFailureStage() >= 100;
 
             this.sauceLabs.testPassed();
         } catch (AssertionError e) {
@@ -82,6 +90,8 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
     }
 
     public Scenario getScenarioReport() {
+
+
         Scenario.Builder builder = new Scenario.Builder();
 
         // Add basic scenario values
@@ -90,8 +100,14 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
         builder.withLine(1);
 
 
+        // Add Before
+        builder.withBefore(getBefore());
+
         // Add Steps
         builder.withSteps(contractFlow.getReport().getStepsReport());
+
+        // Add After
+        builder.withAfter(getAfter());
 
         return builder.build();
     }
@@ -100,6 +116,22 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
     HELPER METHODS
     */
 
+    private List<Before> getBefore() {
+        Before.Builder builder = new Before.Builder();
+
+        // Add Sauce Link
+        builder.withOutput(Collections.singletonList("SauceLabs Test Video: " + this.sauceLink));
+
+
+        return Collections.singletonList(builder.build());
+    }
+
+    private List<After> getAfter() {
+        After.Builder builder = new After.Builder();
+
+        return Collections.singletonList(builder.build());
+
+    }
 
     
     /*

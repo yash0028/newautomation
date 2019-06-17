@@ -4,6 +4,7 @@ package exari_test.eif.report;
 import com.google.gson.annotations.Expose;
 
 import javax.annotation.Generated;
+import java.util.List;
 
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
@@ -13,6 +14,8 @@ public class Before {
     private Match match;
     @Expose
     private Result result;
+    @Expose
+    private List<String> output;
 
     public Before() {
         this.match = new Match("Hooks.setUp(Scenario)");
@@ -28,10 +31,15 @@ public class Before {
         return result;
     }
 
+    public List<String> getOutput() {
+        return output;
+    }
+
     public static class Builder {
 
         private Match match;
         private Result result;
+        private List<String> output;
 
         public Before.Builder withMatch(Match match) {
             this.match = match;
@@ -43,10 +51,16 @@ public class Before {
             return this;
         }
 
+        public Before.Builder withOutput(List<String> output) {
+            this.output = output;
+            return this;
+        }
+
         public Before build() {
             Before before = new Before();
             before.match = match;
             before.result = result;
+            before.output = output;
             return before;
         }
 

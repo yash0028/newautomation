@@ -149,7 +149,6 @@ public class Hive implements IConfigurable {
         Feature.Builder builder = new Feature.Builder();
 
         // Add basic Feature values
-        // TODO build feature with basic values
         builder.withName("Hive Parallel Testing");
         builder.withDescription("Runs parallel Exari Contract Authoring");
         builder.withId("hive");
