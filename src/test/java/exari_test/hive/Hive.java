@@ -47,11 +47,6 @@ public class Hive implements IConfigurable {
         return INSTANCE;
     }
 
-    /**
-     * Run Hive
-     *
-     * @param args
-     */
     public static void main(String[] args) {
         IConfigurable config = new ConfigStub();
         EifTestList testList = new EifTestList();
@@ -192,7 +187,7 @@ public class Hive implements IConfigurable {
 
     /**
      * Get name of all threads
-     * @return
+     * @return List of thread names
      */
     public List<String> getQueueNames() {
         return this.threadQueue.stream().map(Thread::getName).collect(Collectors.toList());
