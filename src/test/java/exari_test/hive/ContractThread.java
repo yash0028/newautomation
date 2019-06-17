@@ -16,6 +16,9 @@ import util.configuration.IConfigurable;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Contract Thread handles creating SauceLabs connections and the creation of the contract.
+ */
 public class ContractThread extends Thread implements IConfigurable, IContractFlowLoader {
     private static final Logger log = LoggerFactory.getLogger(ContractThread.class);
 
@@ -31,13 +34,26 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
     CONSTRUCTOR
     */
 
+    /**
+     * Create Contract Thread with given flow and build name
+     *
+     * @param flow
+     * @param buildName
+     */
     public ContractThread(ContractFlow flow, String buildName) {
         super(flow.getName());
         this.contractFlow = flow;
 
         builder = UiConfigHelper.getInstance().getDefaultSauceBuilder(flow.getName()).withBuildName(buildName);
+        builder.withBrowserName("chrome");
     }
 
+    /**
+     * Create Contract Thread with given build name and Test Data
+     * Test Data is used to create a parametric SauceLabs Contract
+     * @param buildName
+     * @param data
+     */
     public ContractThread(String buildName, EifTestData data) {
         super(data.getCommonName());
 
@@ -53,6 +69,9 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
     CLASS METHODS
     */
 
+    /**
+     * Creates a contract in Exari using EIF.
+     */
     @Override
     public void run() {
         super.run();
@@ -89,9 +108,11 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
         }
     }
 
+    /**
+     * Get the report of the contract's creation
+     * @return
+     */
     public Scenario getScenarioReport() {
-
-
         Scenario.Builder builder = new Scenario.Builder();
 
         // Add basic scenario values
@@ -116,6 +137,11 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
     HELPER METHODS
     */
 
+
+    /**
+     * Create a cucumber before step to be used by the report
+     * @return
+     */
     private List<Before> getBefore() {
         Before.Builder builder = new Before.Builder();
 
@@ -126,6 +152,10 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
         return Collections.singletonList(builder.build());
     }
 
+    /**
+     * Createa a cucumber after step to be used by the report
+     * @return
+     */
     private List<After> getAfter() {
         After.Builder builder = new After.Builder();
 

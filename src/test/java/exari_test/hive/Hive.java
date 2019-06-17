@@ -17,6 +17,10 @@ import util.file.FileHandler;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Hive is a manager for multiple threaded Exari Contract Creation. Each thread will create a contract using SauceLabs.
+ * Data is loaded from a CSV file and a maximum number of concurrent threads can be setup.
+ */
 public class Hive implements IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(Hive.class);
     private final int QUEUE_SIZE = configGetOptionalInteger("hive.maxThreads").orElse(5);
@@ -43,6 +47,11 @@ public class Hive implements IConfigurable {
         return INSTANCE;
     }
 
+    /**
+     * Run Hive
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         IConfigurable config = new ConfigStub();
         EifTestList testList = new EifTestList();
@@ -63,6 +72,7 @@ public class Hive implements IConfigurable {
             Hive.getInstance().addToQueue(new ContractThread(buildName, data));
         }
 
+        //Print all the tests in the queue
         List<String> list = Hive.getInstance().getQueueNames();
         log.info("{}", list);
 
@@ -104,12 +114,21 @@ public class Hive implements IConfigurable {
     CLASS METHODS
     */
 
+    /**
+     * Add a thread to the queue
+     * @param contractThread thread to add
+     * @return this
+     */
     public Hive addToQueue(ContractThread contractThread) {
         threadQueue.offer(contractThread);
         threadsAll.add(contractThread);
         return this;
     }
 
+    /**
+     * Start hive's threads. Will return once all threads have been started, but not finished.
+     * @return this
+     */
     public Hive start() {
         while (!threadQueue.isEmpty()) {
             ContractThread nextThread = threadQueue.poll();
@@ -133,6 +152,10 @@ public class Hive implements IConfigurable {
         return this;
     }
 
+    /**
+     * Wait until all threads registered to hive have finished.
+     * @return this
+     */
     public Hive waitTillComplete() {
         log.info("waiting until ");
         while (threadsActive.size() > 0) {
@@ -144,6 +167,10 @@ public class Hive implements IConfigurable {
         return this;
     }
 
+    /**
+     * Get a Cucumber Report that can be read by Jenkins
+     * @return Cucumber Report
+     */
     public CukeReport getCukeReport() {
         CukeReport report = new CukeReport();
         Feature.Builder builder = new Feature.Builder();
@@ -163,6 +190,10 @@ public class Hive implements IConfigurable {
         return report;
     }
 
+    /**
+     * Get name of all threads
+     * @return
+     */
     public List<String> getQueueNames() {
         return this.threadQueue.stream().map(Thread::getName).collect(Collectors.toList());
     }
