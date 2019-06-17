@@ -12,6 +12,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Load and manage Eif Test Data from CSV files
+ */
 public class EifTestList extends ArrayList<EifTestData> implements IFileReader {
     private static final Logger log = LoggerFactory.getLogger(EifTestList.class);
 
