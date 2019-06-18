@@ -28,6 +28,7 @@ public class Step {
     */
 
     public Step() {
+        this.result = new Result(0L, Result.Status.SKIPPED);
     }
 
     /*
@@ -60,6 +61,18 @@ public class Step {
 
     public List<String> getOutput() {
         return output;
+    }
+
+    public void setResult(Result result) {
+        this.result = result;
+    }
+
+    public void setResult(Result.Status status) {
+        this.result = new Result(10L, status);
+    }
+
+    public void addOutput(String outputLine) {
+        this.output.add(outputLine);
     }
 
     /*
