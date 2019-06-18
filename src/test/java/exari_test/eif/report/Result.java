@@ -15,6 +15,10 @@ public class Result {
     @Expose
     private Status status;
 
+    /*
+    CONSTRUCTOR
+    */
+
     public Result() {
     }
 
@@ -23,6 +27,14 @@ public class Result {
         this.status = status;
     }
 
+    /*
+    STATIC METHODS
+    */
+
+    /*
+    CLASS METHODS
+    */
+
     public Long getDuration() {
         return duration;
     }
@@ -30,6 +42,14 @@ public class Result {
     public Status getStatus() {
         return status;
     }
+
+    /*
+    HELPER METHODS
+    */
+
+    /*
+    UTILITY CLASS
+    */
 
     public static enum Status {
         @SerializedName(value = "passed")

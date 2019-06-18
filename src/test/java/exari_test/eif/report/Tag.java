@@ -14,6 +14,21 @@ public class Tag {
     @Expose
     private String name;
 
+    /*
+    CONSTRUCTOR
+    */
+
+    public Tag() {
+    }
+
+    /*
+    STATIC METHODS
+    */
+
+    /*
+    CLASS METHODS
+    */
+
     public int getLine() {
         return line;
     }
@@ -21,6 +36,14 @@ public class Tag {
     public String getName() {
         return name;
     }
+
+    /*
+    HELPER METHODS
+    */
+
+    /*
+    UTILITY CLASS
+    */
 
     public static class Builder {
 

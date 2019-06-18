@@ -31,6 +31,21 @@ public class Scenario {
     @Expose
     private String type;
 
+    /*
+    CONSTRUCTOR
+    */
+
+    public Scenario() {
+    }
+
+    /*
+    STATIC METHODS
+    */
+
+    /*
+    CLASS METHODS
+    */
+
     public List<After> getAfter() {
         return after;
     }
@@ -70,6 +85,14 @@ public class Scenario {
     public String getType() {
         return type;
     }
+
+    /*
+    HELPER METHODS
+    */
+
+    /*
+    UTILITY CLASS
+    */
 
     public static class Builder {
 

@@ -11,6 +11,10 @@ public class Match {
     @Expose
     private String location;
 
+    /*
+    CONSTRUCTOR
+    */
+
     public Match() {
     }
 
@@ -18,9 +22,25 @@ public class Match {
         this.location = location;
     }
 
+    /*
+    STATIC METHODS
+    */
+
+    /*
+    CLASS METHODS
+    */
+
     public String getLocation() {
         return location;
     }
+
+    /*
+    HELPER METHODS
+    */
+
+    /*
+    UTILITY CLASS
+    */
 
     public static class Builder {
 

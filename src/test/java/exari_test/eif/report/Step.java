@@ -23,6 +23,21 @@ public class Step {
     @Expose
     private List<String> output;
 
+    /*
+    CONSTRUCTOR
+    */
+
+    public Step() {
+    }
+
+    /*
+    STATIC METHODS
+    */
+
+    /*
+    CLASS METHODS
+    */
+
     public Keyword getKeyword() {
         return keyword;
     }
@@ -46,6 +61,14 @@ public class Step {
     public List<String> getOutput() {
         return output;
     }
+
+    /*
+    HELPER METHODS
+    */
+
+    /*
+    UTILITY CLASS
+    */
 
     public static enum Keyword {
         @SerializedName(value = "Given ", alternate = {"Given", "given"})

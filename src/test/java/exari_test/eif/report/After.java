@@ -14,10 +14,22 @@ public class After {
     @Expose
     private Result result;
 
+    /*
+    CONSTRUCTOR
+    */
+
     public After() {
         this.match = new Match("Hooks.tearDown(Scenario)");
         this.result = new Result(1L, Result.Status.PASSED);
     }
+
+    /*
+    STATIC METHODS
+    */
+
+    /*
+    CLASS METHODS
+    */
 
     public Match getMatch() {
         return match;
@@ -26,6 +38,14 @@ public class After {
     public Result getResult() {
         return result;
     }
+
+    /*
+    HELPER METHODS
+    */
+
+    /*
+    UTILITY CLASS
+    */
 
     public static class Builder {
 

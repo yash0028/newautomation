@@ -24,6 +24,21 @@ public class Feature {
     @Expose
     private String uri;
 
+    /*
+    CONSTRUCTOR
+    */
+
+    public Feature() {
+    }
+
+    /*
+    STATIC METHODS
+    */
+
+    /*
+    CLASS METHODS
+    */
+
     public String getDescription() {
         return description;
     }
@@ -51,6 +66,14 @@ public class Feature {
     public String getUri() {
         return uri;
     }
+
+    /*
+    HELPER METHODS
+    */
+
+    /*
+    UTILITY CLASS
+    */
 
     public static class Builder {
 
