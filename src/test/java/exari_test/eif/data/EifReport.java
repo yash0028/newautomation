@@ -55,6 +55,7 @@ public class EifReport {
      */
     public void markLoginFail() {
         this.stage = 1;
+        log.trace("Hive failed at Login");
     }
 
     /**
@@ -62,6 +63,8 @@ public class EifReport {
      */
     public void markSetSiteFail() {
         this.stage = 2;
+        log.trace("Hive failed at Site");
+
     }
 
     /**
@@ -69,6 +72,8 @@ public class EifReport {
      */
     public void markAuthorFail() {
         this.stage = 3;
+        log.trace("Hive failed at Author");
+
     }
 
     /**
@@ -76,6 +81,8 @@ public class EifReport {
      */
     public void markCaptureFail() {
         this.stage = 4;
+        log.trace("Hive failed at Capture");
+
     }
 
     /**
@@ -83,6 +90,8 @@ public class EifReport {
      */
     public void markActiveFail() {
         this.stage = 5;
+        log.trace("Hive failed at Active");
+
     }
 
     /**

@@ -133,7 +133,6 @@ public class Hive implements IConfigurable {
             // Wait until a slot becomes available
             while (threadsActive.size() >= QUEUE_SIZE) {
                 // Remove any terminated mangers
-//                log.info("thread states: {}", threadsActive.stream().map(Thread::getState).collect(Collectors.toList()));
                 threadsActive.removeIf(m -> m.getState() == Thread.State.TERMINATED);
             }
 
@@ -152,10 +151,9 @@ public class Hive implements IConfigurable {
      * @return this
      */
     public Hive waitTillComplete() {
-        log.info("waiting until ");
+        log.info("waiting until {} threads finish.", threadsActive.size());
         while (threadsActive.size() > 0) {
             // Remove any terminated mangers
-//            log.info("thread states: {}", threadsActive.stream().map(Thread::getState).collect(Collectors.toList()));
             threadsActive.removeIf(m -> m.getState() == Thread.State.TERMINATED);
         }
 
