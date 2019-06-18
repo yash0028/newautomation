@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Generated;
+import java.util.ArrayList;
 import java.util.List;
 
 @Generated("net.hexar.json2pojo")
@@ -29,6 +30,7 @@ public class Step {
 
     public Step() {
         this.result = new Result(0L, Result.Status.SKIPPED);
+        this.output = new ArrayList<>();
     }
 
     /*
@@ -72,6 +74,9 @@ public class Step {
     }
 
     public void addOutput(String outputLine) {
+        if (output == null) {
+            this.output = new ArrayList<>();
+        }
         this.output.add(outputLine);
     }
 

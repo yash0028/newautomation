@@ -54,47 +54,28 @@ public class EifReport {
         this.noteMap.put(key, value);
     }
 
-    /**
-     * Mark the test as a failure at the login stage
-     */
-    public void markLoginFail() {
-        this.loginStep.setResult(Result.Status.FAILED);
-        log.trace("Hive failed at Login");
+
+    public void markLogin(Result result) {
+        this.loginStep.setResult(result);
     }
 
-    /**
-     * Mark the test as a failure at the site stage
-     */
-    public void markSetSiteFail() {
-        this.siteStep.setResult(Result.Status.FAILED);
-        log.trace("Hive failed at Site");
+    public void markSetSite(Result result) {
+        this.siteStep.setResult(result);
 
     }
 
-    /**
-     * Mark the test as a failure at the author stage
-     */
-    public void markAuthorFail() {
-        this.authorStep.setResult(Result.Status.FAILED);
-        log.trace("Hive failed at Author");
+    public void markAuthor(Result result) {
+        this.authorStep.setResult(result);
 
     }
 
-    /**
-     * Mark the test as a failure at the capture stage
-     */
-    public void markCaptureFail() {
-        this.captureStep.setResult(Result.Status.FAILED);
-        log.trace("Hive failed at Capture");
+    public void markCapture(Result result) {
+        this.captureStep.setResult(result);
 
     }
 
-    /**
-     * Mark the test as a failure at the active stage
-     */
-    public void markActiveFail() {
-        this.activeStep.setResult(Result.Status.FAILED);
-        log.trace("Hive failed at Active");
+    public void markActive(Result result) {
+        this.activeStep.setResult(result);
 
     }
 
@@ -165,7 +146,7 @@ public class EifReport {
         this.activeStep = builder.build();
 
         // Add additional output
-        this.captureStep.addOutput("Contract Id: " + contractId);
+//        this.captureStep.addOutput("Contract Id: " + contractId);
     }
     
     /*
