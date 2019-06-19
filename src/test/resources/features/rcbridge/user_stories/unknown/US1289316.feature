@@ -4,7 +4,7 @@
 @US1289316
 @releaseUnknown
 @iterationUnknown
-Feature: US1289316 - View Contract Config Summary web page
+Feature: US1289316 - View OCM Contract Config details via CMD UI
 
   @TC616509
   @Manual
@@ -12,9 +12,10 @@ Feature: US1289316 - View Contract Config Summary web page
   @CMD2
   @A_UI_Story
   Scenario: TC616509 - [RL0]
-    Given an contract configuration summary record exists
-    When a contract configuration request is initiated from within Exari
-    Then a web page displaying the record is made available
+    Given an contract configuration OCM record exists
+    When details are needed from the OCM
+    Then a service is available to retrieve the OCM contract configuration details
+    And the details are viewable via the CMD UI
 
   @TC616510
   @Manual
@@ -22,8 +23,8 @@ Feature: US1289316 - View Contract Config Summary web page
   @CMD2
   @A_UI_Story
   Scenario: TC616510 - [RL1]
-    Given an contract configuration summary record does not exist
-    When a contract configuration request is initiated from within Exari
-    Then an error message is returned to the user
-    And a web page is not made available
+    Given an contract configuration OCM record does not exist
+    When details are requested from the OCM
+    Then a service is not made available
+    And an error message returned "Unable to locate OCM Record"
 

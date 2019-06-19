@@ -33,7 +33,7 @@ Feature: US1367829 - PPO Product Group Table Number
     And the Group Table Number is identified and returned
     When the Group Table Number is excluded form the Payload
     Then the payload will reject due to missing information
-    And a Type 2 error will be produced
+    And a Type 3 error will be produced
 
   @TC600531
   @Manual

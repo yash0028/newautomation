@@ -3,17 +3,9 @@
 @US1289476
 @releaseUnknown
 @iterationUnknown
-Feature: US1289476 - View Contract Config Detail web page
+Feature: US1289476 - View OCM Provider contract record details web page
 
-  @TC616491
-  @Manual
-  @Functional
-  @A_UI_Story
-  Scenario: TC616491 - [RL0]
-    Given an contract configuration detail record exists
-    When a contract configuration request is initiated
-    Then a web page displaying the record details is made available
-
+  @RC_unlinked
   @TC616492
   @Manual
   @Functional
