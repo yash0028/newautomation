@@ -4,7 +4,7 @@
 @2019.PI08
 @releaseFuture
 @iterationUnknown
-Feature: US1439924 - Integration - Negotiation to Load form, docusign
+Feature: US1439924 - Integration - Was DocuSign used?
 
   @TC644490
   @Manual
