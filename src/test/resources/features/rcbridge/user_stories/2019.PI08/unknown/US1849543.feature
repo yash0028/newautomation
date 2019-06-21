@@ -19,5 +19,5 @@ Feature: US1849543 - Integrate search capability on Escalator Process
     And I can search by MPIN
     And I can search by NPI
     And I can search by Contract ID
-    And I can select the result(s) that I want to attach to the process
+    And I must be able to see the search results: Contract ID, Name, TIN, MPIN, NPI, Contract Name, Market, Site, Effective Date
 

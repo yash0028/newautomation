@@ -1,8 +1,8 @@
 # Last updated on 
 @US1782017
-@2019.PI07
+@2019.PI08
 @2019.PI08.02
-@releasePresent
+@releaseFuture
 @iterationFuture
 Feature: US1782017 - Create endpoint for service location API
 

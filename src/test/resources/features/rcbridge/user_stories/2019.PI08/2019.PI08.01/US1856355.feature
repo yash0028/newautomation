@@ -1,8 +1,9 @@
 # Last updated on 
 @US1856355
 @2019.PI08
+@2019.PI08.01
 @releaseFuture
-@iterationUnknown
+@iterationFuture
 Feature: US1856355 - MAHP GHMO6 Product -  Create OCM Contract Configuration record for migrated contracts upon initial contract event
 
   @TC853526

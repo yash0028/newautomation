@@ -1,14 +1,15 @@
 # Last updated on 
-@US1858934
+@US1854694
 @2019.PI08
+@2019.PI08.01
 @releaseFuture
-@iterationUnknown
-Feature: US1858934 - SPIKE - Create OCM upon initial transaction based on PES Contracts API
+@iterationFuture
+Feature: US1854694 - Tracking discrepencies identified during initial OCM build
 
-  @TC853527
+  @TC853525
   @Manual
   @Functional
-  Scenario: TC853527 - [RL0]
+  Scenario: TC853525 - [RL0]
     Given an Emptoris contract has migrated to Exari
     When a valid contract transaction event occurs in Exari for the contract
     And discrepancies identified among UCM and PES ContractsAPI
