@@ -1,4 +1,5 @@
 # Last updated on 
+@CMD_UI
 @US1809731
 @2019.PI08
 @releaseFuture
@@ -8,6 +9,7 @@ Feature: US1809731 - CMD UI Navigation path improvement
   @TC829008
   @Manual
   @Functional
+  @CMD_UI
   Scenario: TC829008 - [RL0]
     Given a user enters a valid contract id in the search bar
     When the search results include status of Manual Input
@@ -18,6 +20,7 @@ Feature: US1809731 - CMD UI Navigation path improvement
   @TC829010
   @Manual
   @Functional
+  @CMD_UI
   Scenario: TC829010 - [RL1]
     Given a user enters a valid contract id in the search bar
     When the search results include status of Manual Input
@@ -28,6 +31,7 @@ Feature: US1809731 - CMD UI Navigation path improvement
   @TC831735
   @Manual
   @Functional
+  @CMD_UI
   Scenario: TC831735 - [RL2]
     Given a user enters a valid contract id in the search bar
     When the search results include status of Manual Input

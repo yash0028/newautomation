@@ -1,15 +1,20 @@
 # Last updated on 
+@Arvind
 @Retro
+@Suman
 @US1570002
 @2019.PI08
+@2019.PI08.01
 @releaseFuture
-@iterationUnknown
+@iterationFuture
 Feature: US1570002 - Initiate Retro Form- Integration "Negotiation Details from Workflow"
 
   @TC743338
   @Manual
   @Functional
+  @Arvind
   @Retro
+  @Suman
   Scenario: TC743338 - [RL0]
     Given a Physician Negotiation process exists
     When Retro Approval is required

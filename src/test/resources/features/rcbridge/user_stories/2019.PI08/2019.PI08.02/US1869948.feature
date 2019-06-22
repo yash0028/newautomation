@@ -1,14 +1,15 @@
 # Last updated on 
-@US1040747
+@US1869948
 @2019.PI08
+@2019.PI08.02
 @releaseFuture
-@iterationUnknown
-Feature: US1040747 - 1 View Escalator Details
+@iterationFuture
+Feature: US1869948 - 1 View Escalator Details - integration
 
-  @TC564879
+  @TC863804
   @Manual
   @Functional
-  Scenario: TC564879 - [RL1]
+  Scenario: TC863804 - [RL1]
     Given a Rate Escalator Summary
     When I look at the details
     Then I see the Section with the Rate Escalator details (Usually Section 3.10 or 3.11)

@@ -1,8 +1,9 @@
 # Last updated on 
 @US1839319
 @2019.PI08
+@2019.PI08.01
 @releaseFuture
-@iterationUnknown
+@iterationFuture
 Feature: US1839319 - 6 Update Agreement Fee Schedule Detail for Hoppers - Rate Escalator
 
   @TC843988

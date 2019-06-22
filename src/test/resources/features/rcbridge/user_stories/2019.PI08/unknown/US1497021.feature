@@ -15,5 +15,5 @@ Feature: US1497021 - Integration - Create Unique Identifier for each Termination
   Scenario: TC710725 - [RL0]
     Given a contractor has completed the "Capture Contract IDs" task
     When that workflow has moved from the "Capture Contract IDs" task to the "Initiate Termination Process" task
-    Then a unique identifier is auto-populated into the Termination Event ID (term_event_id) field and it follows this standard format: TE-XXXXXX
+    Then a unique identifier is auto-populated into the Termination Event ID (term_event_id) field and it follows this standard format: TE-XXXXXX (TE-000001)
 

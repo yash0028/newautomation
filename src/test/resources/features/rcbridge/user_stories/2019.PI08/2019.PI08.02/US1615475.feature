@@ -1,17 +1,18 @@
 # Last updated on 
 @Visio
-@US1849543
+@US1615475
 @2019.PI08
+@2019.PI08.02
 @releaseFuture
-@iterationUnknown
-Feature: US1849543 - Integrate search capability on Escalator Process
+@iterationFuture
+Feature: US1615475 - Integrate search capability on Retro Process
 
-  @TC846504
+  @TC755353
   @Manual
   @Functional
   @Visio
-  Scenario: TC846504 - [RL0]
-    Given I am on the input
+  Scenario: TC755353 - [RL0]
+    Given I am on the input retro contract ID form
     When I am on the top of the form
     Then I must see the following new optional search fields along with the existing Contract ID
     And I can search by Counterparty Name
@@ -20,4 +21,5 @@ Feature: US1849543 - Integrate search capability on Escalator Process
     And I can search by NPI
     And I can search by Contract ID
     And I must be able to see the search results: Contract ID, Name, TIN, MPIN, NPI, Contract Name, Market, Site, Effective Date
+    And I must be able to select one or more results to add to a workflow
 

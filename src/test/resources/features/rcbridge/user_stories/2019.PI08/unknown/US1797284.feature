@@ -1,4 +1,5 @@
 # Last updated on 
+@CMD_UI
 @US1797284
 @2019.PI08
 @releaseFuture
@@ -8,6 +9,7 @@ Feature: US1797284 - CMD UI - Transaction identifier MassProject vs Not
   @TC828081
   @Manual
   @Functional
+  @CMD_UI
   Scenario: TC828081 - [RL1]
     Given a CMD user accesses the CMD
     When viewing the "mass actions" tab

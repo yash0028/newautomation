@@ -1,8 +1,9 @@
 # Last updated on 
 @US1842462
 @2019.PI08
+@2019.PI08.01
 @releaseFuture
-@iterationUnknown
+@iterationFuture
 Feature: US1842462 - 64 Systematic loading confirmation - Rate Escalator
 
   @TC843992

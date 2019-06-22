@@ -1,8 +1,9 @@
 # Last updated on 
 @US1839450
 @2019.PI08
+@2019.PI08.01
 @releaseFuture
-@iterationUnknown
+@iterationFuture
 Feature: US1839450 - 60 Manual loading confirmation - Rate Escalator
 
   @TC843994
