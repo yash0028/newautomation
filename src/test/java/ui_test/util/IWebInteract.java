@@ -27,23 +27,39 @@ public interface IWebInteract {
     DEFAULT METHODS
      */
 
+    /**
+     * Pause the current thread for some time and log the time
+     *
+     * @param seconds to pause the thread
+     */
     default void pause(int seconds) {
         if (pauseSilent(seconds))
             log.trace("paused for {} seconds", seconds);
     }
 
+    /**
+     * Pause the current thread for some time and do not log
+     *
+     * @param seconds to pause the thread
+     */
     default boolean pauseSilent(int seconds) {
         try {
             TimeUnit.SECONDS.sleep(seconds);
         } catch (InterruptedException e) {
-            e.printStackTrace();
-            log.error("failed to pause for {} seconds", seconds, e);
+//            e.printStackTrace();
+            log.error("failed to pause for {} seconds", seconds);
             return false;
         }
 
         return true;
     }
 
+    /**
+     * Check if web element is visible
+     *
+     * @param element webelement to look for
+     * @return if the element is visible
+     */
     default boolean isVisible(WebElement element) {
         try {
             return element.isEnabled() && element.isDisplayed();
@@ -52,6 +68,13 @@ public interface IWebInteract {
         }
     }
 
+    /**
+     * Wait until web element is visible
+     *
+     * @param element webelement to look for
+     * @param timeout how long to look
+     * @return if the element is visible
+     */
     default boolean waitTillVisible(WebElement element, int timeout) {
         try {
             WebDriverWait wait = new WebDriverWait(this.getDriver(), timeout);
@@ -62,10 +85,23 @@ public interface IWebInteract {
         }
     }
 
+    /**
+     * Wait until web element is visible, with default timeout
+     *
+     * @param element webelement to look for
+     * @return if the element is visible
+     */
     default boolean waitTillVisible(WebElement element) {
         return waitTillVisible(element, TIMEOUT);
     }
 
+    /**
+     * Wait until web element is clickable
+     *
+     * @param element webelement to see if clickable
+     * @param timeout how long to look
+     * @return if the element is clickable
+     */
     default boolean waitTillClickable(WebElement element, int timeout) {
         try {
             WebDriverWait wait = new WebDriverWait(this.getDriver(), timeout);
@@ -76,6 +112,12 @@ public interface IWebInteract {
         }
     }
 
+    /**
+     * Wait until web element is clickable, with default timeout
+     *
+     * @param element webelement to see if clickable
+     * @return if the element is clickable
+     */
     default boolean waitTillClickable(WebElement element) {
         return waitTillClickable(element, TIMEOUT);
     }
@@ -83,7 +125,7 @@ public interface IWebInteract {
     /**
      * Clicks a given web element and logs the element name
      *
-     * @param elementName The element description name
+     * @param elementName descriptive name of the web element
      * @param element     Web element to be clicked
      * @return true if clicked or false otherwise
      */
@@ -111,6 +153,13 @@ public interface IWebInteract {
     }
 
 
+    /**
+     * Submit a given web element
+     *
+     * @param elementName descriptive name of the web element
+     * @param element     Web element to be submitted
+     * @return true if submitted
+     */
     default boolean submit(String elementName, WebElement element) {
         try {
             highlight(element);
@@ -125,10 +174,24 @@ public interface IWebInteract {
         return true;
     }
 
+    /**
+     * Submit a given web element
+     *
+     * @param element Web element to be submitted
+     * @return true if submitted
+     */
     default boolean submit(WebElement element) {
         return submit("element", element);
     }
 
+    /**
+     * Send keys to web element
+     *
+     * @param elementName
+     * @param element
+     * @param charSequences
+     * @return
+     */
     default boolean sendKeys(String elementName, WebElement element, CharSequence... charSequences) {
         try {
             highlight(element);
@@ -286,30 +349,12 @@ public interface IWebInteract {
      * @return boolean if the element was clicked without error
      */
     default boolean clickWithForce(String elementName, WebElement element) {
-        return click(elementName, element) || _CLICK_WITH_JS(elementName, element);
-    }
+        if (click(elementName, element)) {
+            return true;
+        }
 
-    /**
-     * Click on a webelement by using traditional methods, if that fails use JS to click.
-     *
-     * @param element web element to be clicked
-     * @return boolean if the element was clicked without error
-     */
-    default boolean clickWithForce(WebElement element) {
-        return click("js-element", element) || _CLICK_WITH_JS("js-element", element);
-    }
-
-    /**
-     * DO NOT USE, ONLY HERE TO RESOLVE A BUG. USE 'clickWithForce' IF AND ONLY IF 'click' does not work.
-     * Click an element with Javascript.
-     *
-     * @param elementName name of the element to click
-     * @param element     webelement to be clicked
-     * @return boolean if the element was clicked without error
-     */
-    default boolean _CLICK_WITH_JS(String elementName, WebElement element) {
+        //Try to click with a JS method
         try {
-            highlight(element);
             JavascriptExecutor executor = (JavascriptExecutor) getDriver();
             executor.executeScript("arguments[0].click();", element);
             log.trace("clicked with js on {}", elementName);
@@ -321,14 +366,40 @@ public interface IWebInteract {
         return true;
     }
 
+    /**
+     * Click on a webelement by using traditional methods, if that fails use JS to click.
+     *
+     * @param element web element to be clicked
+     * @return boolean if the element was clicked without error
+     */
+    default boolean clickWithForce(WebElement element) {
+        return clickWithForce("js-element", element);
+    }
+
+    /**
+     * Get the name of the current window
+     *
+     * @return name of current window
+     */
     default String getCurrentWindow() {
         return this.getDriver().getWindowHandle();
     }
 
+    /**
+     * Get a list of open windows
+     *
+     * @return list of window names
+     */
     default Set<String> getWindows() {
         return this.getDriver().getWindowHandles();
     }
 
+    /**
+     * Switch to a window by its index
+     *
+     * @param windowIndex index of the window
+     * @return true is the switch was successful
+     */
     default boolean switchWindowByIndex(int windowIndex) {
         int current = 0;
         for (String windowHandle : getWindows()) {
@@ -341,6 +412,12 @@ public interface IWebInteract {
         return false;
     }
 
+    /**
+     * Switch to a window by its name
+     *
+     * @param name name of the window
+     * @return true is the switch was successful
+     */
     default boolean switchWindowByName(String name) {
         try {
             this.getDriver().switchTo().window(name);
@@ -352,6 +429,12 @@ public interface IWebInteract {
         return true;
     }
 
+    /**
+     * Close all windows except the current one
+     *
+     * @param openWindowHandle name of the current window
+     * @return true if all other windows closed
+     */
     default boolean closeAllOtherWindows(String openWindowHandle) {
         Set<String> allWindowHandles = getDriver().getWindowHandles();
         for (String currentWindowHandle : allWindowHandles) {
@@ -368,10 +451,21 @@ public interface IWebInteract {
             return false;
     }
 
+    /**
+     * Close all windows expcet the current one
+     *
+     * @return
+     */
     default boolean closeAllOtherWindows() {
         return this.closeAllOtherWindows(this.getCurrentWindow());
     }
 
+    /**
+     * Dismiss a browser level alert
+     *
+     * @param accept to accept or cancel
+     * @return true if dismissed without error
+     */
     default boolean handleAlert(boolean accept) {
         try {
             Alert alert = this.getDriver().switchTo().alert();
@@ -381,26 +475,36 @@ public interface IWebInteract {
                 alert.dismiss();
             }
         } catch (Exception e) {
-            log.error("alert accept failed", e);
+            log.error("alert accept failed");
             return false;
         }
 
         return true;
     }
 
-    default void refreshPage() {
-        getDriver().navigate().refresh();
-        log.trace("refreshed page");
+    /**
+     * Refresh current page
+     */
+    default boolean refreshPage() {
+        try {
+            getDriver().navigate().refresh();
+            log.trace("refreshed page");
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     /**
-     * Creates a seperate thread to perform the driver navigation in case the driver hangs.
+     * Creates a new thread to perform the driver navigation in case the driver hangs.
      *
      * @param pageUrl url to navigate to
      * @param timeout timeout before killing navigation attempt
      * @return if the navigation got hung
      */
     default boolean navigateTo(String pageUrl, int timeout) {
+
+        //Create new thread from an anonymous class
         Thread t = new Thread(new Runnable() {
             public void run() {
                 try {
@@ -411,14 +515,19 @@ public interface IWebInteract {
             }
         }, pageUrl);
 
+        //Start the thread
         t.start();
+
+        //Wait for the thread to finish
         try {
             t.join(timeout);
         } catch (InterruptedException e) {
             // ignore
         }
 
-        if (t.isAlive()) { // Thread still alive, we need to abort
+        //Check if thread finished properly
+        if (t.isAlive()) {
+            // Thread still alive, we need to abort
             log.warn("timeout on loading page {}", pageUrl);
             try {
                 t.interrupt();
@@ -431,10 +540,21 @@ public interface IWebInteract {
         return true;
     }
 
+    /**
+     * Creates a new thread to perform the driver navigation in case the driver hangs.
+     *
+     * @param pageUrl url to navigate to
+     * @return if the navigation got hung
+     */
     default boolean navigateTo(String pageUrl) {
         return navigateTo(pageUrl, 15);
     }
 
+    /**
+     * Highlight a webelement with red dashes
+     *
+     * @param element webelement to highlight
+     */
     default void highlight(WebElement element) {
         String orgStyle = element.getAttribute("style");
 
@@ -443,6 +563,12 @@ public interface IWebInteract {
         setStyle(element, orgStyle);
     }
 
+    /**
+     * Set the style of a webelement
+     *
+     * @param element webelement to change the style
+     * @param value   the new style
+     */
     default void setStyle(WebElement element, String value) {
         final WebDriver driver = this.getDriver();
 
@@ -453,18 +579,23 @@ public interface IWebInteract {
         }
     }
 
-    default boolean waitForPageLoad() {
-        ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver driver) {
-                return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
-            }
+    /**
+     * Wait for the page to load
+     *
+     * @param timeout how long to wait
+     * @return true if the wait completed without issue
+     */
+    default boolean waitForPageLoad(int timeout) {
+        ExpectedCondition<Boolean> expectJSReadyState = driver -> {
+            assert driver != null;
+            return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
         };
 
-        Wait<WebDriver> wait = new WebDriverWait(getDriver(), 90);
+        Wait<WebDriver> wait = new WebDriverWait(getDriver(), timeout);
         try {
-            wait.until(expectation);
+            wait.until(expectJSReadyState);
         } catch (TimeoutException e) {
-            log.info(": Timeout (90 seconds) waiting for Page Load Request to complete");
+            log.info("waited {}s for page to load", timeout);
             return false;
         } catch (Exception e) {
             e.printStackTrace();
@@ -472,6 +603,15 @@ public interface IWebInteract {
         }
 
         return true;
+    }
+
+    /**
+     * Wait for the page to load
+     *
+     * @return true if the wait completed without issue
+     */
+    default boolean waitForPageLoad() {
+        return waitForPageLoad(TIMEOUT);
     }
 
 }
