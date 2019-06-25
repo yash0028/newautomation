@@ -40,6 +40,14 @@ public class TimeKeeper {
     CLASS METHODS
      */
 
+    public long getCurrentMillisecond() {
+        return System.currentTimeMillis();
+    }
+
+    public long getDuration(long startTime) {
+        return System.currentTimeMillis() - startTime;
+    }
+
     public ZonedDateTime getStartTime() {
         return startTime;
     }

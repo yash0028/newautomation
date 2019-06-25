@@ -64,6 +64,8 @@ test {
 task(hive, dependsOn: 'classes', type: JavaExec) {
     main = 'exari_test.hive.Hive'
     classpath = sourceSets.test.runtimeClasspath
+    //Enables Assertion statements
+    jvmArgs "-ea"
 }
 
 def String cucumberOptions() {

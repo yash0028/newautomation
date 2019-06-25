@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Generated;
+import java.util.ArrayList;
 import java.util.List;
 
 @Generated("net.hexar.json2pojo")
@@ -22,6 +23,23 @@ public class Step {
     private Result result;
     @Expose
     private List<String> output;
+
+    /*
+    CONSTRUCTOR
+    */
+
+    public Step() {
+        this.result = new Result(0L, Result.Status.SKIPPED);
+        this.output = new ArrayList<>();
+    }
+
+    /*
+    STATIC METHODS
+    */
+
+    /*
+    CLASS METHODS
+    */
 
     public Keyword getKeyword() {
         return keyword;
@@ -47,6 +65,29 @@ public class Step {
         return output;
     }
 
+    public void setResult(Result result) {
+        this.result = result;
+    }
+
+    public void setResult(Result.Status status) {
+        this.result = new Result(10L, status);
+    }
+
+    public void addOutput(String outputLine) {
+        if (output == null) {
+            this.output = new ArrayList<>();
+        }
+        this.output.add(outputLine);
+    }
+
+    /*
+    HELPER METHODS
+    */
+
+    /*
+    UTILITY CLASS
+    */
+
     public static enum Keyword {
         @SerializedName(value = "Given ", alternate = {"Given", "given"})
         GIVEN,
@@ -68,6 +109,9 @@ public class Step {
         private String name;
         private Result result;
         private List<String> output;
+
+        public Builder() {
+        }
 
         public Step.Builder withKeyword(Keyword keyword) {
             this.keyword = keyword;
@@ -105,11 +149,10 @@ public class Step {
             step.line = line;
             step.match = match;
             step.name = name;
-            step.result = result;
-            step.output = output;
+            step.result = result == null ? new Result(0L, Result.Status.SKIPPED) : result;
+            step.output = output == null ? new ArrayList<>() : output;
             return step;
         }
-
     }
 
 }

@@ -2,6 +2,7 @@ package ui_test.page.exari;
 
 import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.interview.InterviewFlowContract;
+import exari_test.eif.report.Result;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import ui_test.page.exari.contract.ContractPage;
 import ui_test.page.exari.home.DashboardPage;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.page.exari.login.LoginSSOPage;
+import util.TimeKeeper;
 import util.configuration.IConfigurable;
 
 public class ProtoStep implements IConfigurable {
@@ -43,26 +45,36 @@ public class ProtoStep implements IConfigurable {
     }
 
     public ProtoStep loginHome() {
+        long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
+
         try {
             String url = configGetOptionalString("exari.devURL").orElse("");
             driver.get(url);
             log.info(driver.getTitle());
             LoginSSOPage loginPage = new LoginSSOPage(driver);
-            Assert.assertTrue(loginPage.confirmCurrentPage());
+            assert loginPage.confirmCurrentPage();
 
-            Assert.assertTrue(loginPage.login());
+            assert loginPage.login();
 
             dashboardPage = loginPage.getHomePage();
 
+            if (flow.getReport() != null) {
+                flow.getReport().markLogin(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
+            }
+
             return this;
         } catch (Exception e) {
-            if (flow.getReport() != null)
-                flow.getReport().markLoginFail();
+            if (flow.getReport() != null) {
+                flow.getReport().markLogin(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+            }
+
             throw e;
         }
     }
 
     public ProtoStep setSite(String siteOption) {
+        long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
+
         if (flow.getReport() != null)
             flow.getReport().addNote("siteName", siteOption);
 
@@ -73,10 +85,17 @@ public class ProtoStep implements IConfigurable {
             assert sitePage.confirmCurrentPage();
             log.info("moved to {} site", siteOption);
 
+            if (flow.getReport() != null) {
+                flow.getReport().markSetSite(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
+            }
+
+
             return this;
         } catch (Exception e) {
-            if (flow.getReport() != null)
-                flow.getReport().markSetSiteFail();
+            if (flow.getReport() != null) {
+                flow.getReport().markSetSite(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+            }
+
             throw e;
         }
     }
@@ -86,41 +105,52 @@ public class ProtoStep implements IConfigurable {
     }
 
     public ProtoStep authorContract() {
+        long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
+
         try {
             //Start contract author
-            sitePage.startContractAuthor();
+            assert sitePage.startContractAuthor();
 
             //Start interview phase
             InterviewFlowContract manager = new InterviewFlowContract(driver, flow);
-            manager.startFlow();
+            assert manager.startFlow();
             log.info("flow complete");
-            manager.finishContract();
+            assert manager.finishContract();
 
             //Back to contract page
             contractPage = sitePage.getContractPage();
             assert contractPage.confirmCurrentPage();
 
             //set Edit Status
-            contractPage.setEditStatus("Final Pending QA");
+            assert contractPage.setEditStatus("Final Pending QA");
+
+            if (flow.getReport() != null) {
+                flow.getReport().markAuthor(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
+            }
+
 
             return this;
         } catch (Exception e) {
-            if (flow.getReport() != null)
-                flow.getReport().markAuthorFail();
+            if (flow.getReport() != null) {
+                flow.getReport().markActive(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+            }
+
             throw e;
         }
     }
 
     public String finalCapture() {
+        long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
+
         try {
             InterviewFlowContract manager = new InterviewFlowContract(driver, flow);
 
             //click Final Capture
-            contractPage.clickFinalCapture();
+            assert contractPage.clickFinalCapture();
 
             //Start flow for final capture
-            manager.startFlow();
-            manager.finishContract();
+            assert manager.startFlow();
+            assert manager.finishContract();
 
             //Back to Contract Page
             contractPage = sitePage.getContractPage();
@@ -129,23 +159,37 @@ public class ProtoStep implements IConfigurable {
             //set Edit Status
             assert contractPage.setEditStatus("Active");
 
-            if (flow.getReport() != null)
+            if (flow.getReport() != null) {
                 flow.getReport().addNote("contractId", contractPage.getContractNumber());
+
+                flow.getReport().markCapture(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
+            }
+
 
             return contractPage.getContractNumber();
         } catch (Exception e) {
-            if (flow.getReport() != null)
-                flow.getReport().markCaptureFail();
+            if (flow.getReport() != null) {
+                flow.getReport().markCapture(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+            }
+
             throw e;
         }
     }
 
     public boolean checkActiveContractStatus() {
+        long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
+
         if (!this.contractPage.checkActiveStatus()) {
-            if (flow.getReport() != null)
-                flow.getReport().markActiveFail();
+            if (flow.getReport() != null) {
+                flow.getReport().markActive(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
+            }
             return true;
         }
+
+        if (flow.getReport() != null) {
+            flow.getReport().markActive(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+        }
+
         return false;
     }
     

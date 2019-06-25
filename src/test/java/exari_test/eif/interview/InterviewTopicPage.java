@@ -50,10 +50,6 @@ public class InterviewTopicPage extends GenericInputPage implements IFactoryPage
         return super.clickNext() || (pauseSilent(15) && super.clickNext());
     }
 
-    public void wait_PageLoad() {
-        waitForPageLoad();
-    }
-
     /*
     CLASS METHODS
      */

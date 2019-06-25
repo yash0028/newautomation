@@ -17,11 +17,23 @@ public class Before {
     @Expose
     private List<String> output;
 
+    /*
+    CONSTRUCTOR
+    */
+
     public Before() {
         this.match = new Match("Hooks.setUp(Scenario)");
         this.result = new Result(1L, Result.Status.PASSED);
 
     }
+
+    /*
+    STATIC METHODS
+    */
+
+    /*
+    CLASS METHODS
+    */
 
     public Match getMatch() {
         return match;
@@ -34,6 +46,14 @@ public class Before {
     public List<String> getOutput() {
         return output;
     }
+
+    /*
+    HELPER METHODS
+    */
+
+    /*
+    UTILITY CLASS
+    */
 
     public static class Builder {
 
