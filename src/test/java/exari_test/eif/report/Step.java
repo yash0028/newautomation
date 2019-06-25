@@ -110,6 +110,9 @@ public class Step {
         private Result result;
         private List<String> output;
 
+        public Builder() {
+        }
+
         public Step.Builder withKeyword(Keyword keyword) {
             this.keyword = keyword;
             return this;
@@ -146,11 +149,10 @@ public class Step {
             step.line = line;
             step.match = match;
             step.name = name;
-            step.result = result;
-            step.output = output;
+            step.result = result == null ? new Result(0L, Result.Status.SKIPPED) : result;
+            step.output = output == null ? new ArrayList<>() : output;
             return step;
         }
-
     }
 
 }
