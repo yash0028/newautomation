@@ -52,9 +52,9 @@ public class ProtoStep implements IConfigurable {
             driver.get(url);
             log.info(driver.getTitle());
             LoginSSOPage loginPage = new LoginSSOPage(driver);
-            Assert.assertTrue(loginPage.confirmCurrentPage());
+            assert loginPage.confirmCurrentPage();
 
-            Assert.assertTrue(loginPage.login());
+            assert loginPage.login();
 
             dashboardPage = loginPage.getHomePage();
 
@@ -109,20 +109,20 @@ public class ProtoStep implements IConfigurable {
 
         try {
             //Start contract author
-            sitePage.startContractAuthor();
+            assert sitePage.startContractAuthor();
 
             //Start interview phase
             InterviewFlowContract manager = new InterviewFlowContract(driver, flow);
-            manager.startFlow();
+            assert manager.startFlow();
             log.info("flow complete");
-            manager.finishContract();
+            assert manager.finishContract();
 
             //Back to contract page
             contractPage = sitePage.getContractPage();
             assert contractPage.confirmCurrentPage();
 
             //set Edit Status
-            contractPage.setEditStatus("Final Pending QA");
+            assert contractPage.setEditStatus("Final Pending QA");
 
             if (flow.getReport() != null) {
                 flow.getReport().markAuthor(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
@@ -146,11 +146,11 @@ public class ProtoStep implements IConfigurable {
             InterviewFlowContract manager = new InterviewFlowContract(driver, flow);
 
             //click Final Capture
-            contractPage.clickFinalCapture();
+            assert contractPage.clickFinalCapture();
 
             //Start flow for final capture
-            manager.startFlow();
-            manager.finishContract();
+            assert manager.startFlow();
+            assert manager.finishContract();
 
             //Back to Contract Page
             contractPage = sitePage.getContractPage();
@@ -189,6 +189,7 @@ public class ProtoStep implements IConfigurable {
         if (flow.getReport() != null) {
             flow.getReport().markActive(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
         }
+
         return false;
     }
     

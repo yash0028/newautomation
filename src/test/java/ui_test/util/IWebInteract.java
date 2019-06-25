@@ -135,7 +135,7 @@ public interface IWebInteract {
             element.sendKeys(charSequences);
             log.trace("sent keys {} to {}", Arrays.toString(charSequences), elementName);
         } catch (Exception e) {
-            log.error("send keys to {} failed", elementName, e);
+            log.error("send keys to {} failed", elementName);
             return false;
         }
 
@@ -153,7 +153,7 @@ public interface IWebInteract {
             select.selectByVisibleText(value);
             log.trace("drop down {} selected value {}", elementName, value);
         } catch (Exception e) {
-            log.error("drop down {} failed for value {}", elementName, value, e);
+            log.error("drop down {} failed for value {}", elementName, value);
             return false;
         }
 
@@ -453,7 +453,7 @@ public interface IWebInteract {
         }
     }
 
-    default void waitForPageLoad() {
+    default boolean waitForPageLoad() {
         ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {
                 return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
@@ -465,9 +465,13 @@ public interface IWebInteract {
             wait.until(expectation);
         } catch (TimeoutException e) {
             log.info(": Timeout (90 seconds) waiting for Page Load Request to complete");
+            return false;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+
+        return true;
     }
 
 }

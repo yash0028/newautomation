@@ -73,8 +73,8 @@ public class InterviewFlowContract {
                     test &= interviewAction.performFlow(actionFlow) >= 0;
                 }
 
-                page.clickNext();
-//                page.waitForPageLoad();
+                assert page.clickNext();
+                assert page.waitForPageLoad();
             } else {
                 log.error("missing topicFlow for topic \"{}\"", page.getTopicText());
                 return false;
@@ -92,8 +92,8 @@ public class InterviewFlowContract {
 
         ContractPreviewPage previewPage = new ContractPreviewPage(driver);
         assert previewPage.confirmCurrentPage();
-        previewPage.clickNext();
-        page.waitForPageLoad();
+        assert previewPage.clickNext();
+        assert page.waitForPageLoad();
 
         WizardCompletePage completePage = new WizardCompletePage(driver);
         assert completePage.confirmCurrentPage();
