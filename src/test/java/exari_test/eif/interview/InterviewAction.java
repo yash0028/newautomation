@@ -61,6 +61,8 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
         log.info("current question: {}", this.getQuestion());
         log.info("flow item: {}", actionFlow.toString());
 
+        actionFlow.addUsed();
+
         return enterAnswer(actionFlow.getAction(), actionFlow.getAnswers()) ? 1 : -1;
     }
 

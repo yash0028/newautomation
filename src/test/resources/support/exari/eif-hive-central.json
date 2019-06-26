@@ -1,0 +1,46 @@
+{
+    "name": "author basic central contract",
+    "authors": [
+        "Alex Berns"
+    ],
+    "extendedFrom": "eif-basic-contract.json",
+    "notes": [
+        "authors an exari contract using cucumber parameters with defaults for central uhn market number."
+    ],
+    "site": "central uhn",
+    "flows": [
+        {
+            "topic": "Provider Details",
+            "questions": [
+                {
+                    "question": "Select Market Number",
+                    "action": "TEXT-DROPDOWN",
+                    "answers": [
+                        "13476",
+                        "0"
+                    ]
+                },
+                {
+                    "question": "Provider's Legal Name",
+                    "action": "VERIFY_TEXT",
+                    "answers": [
+                        "<Provider Legal Name>",
+                        "contains"
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "Market Strategy Grid (MSG)",
+            "questions": [
+                {
+                    "question": "County",
+                    "action": "TEXT-BASIC",
+                    "answers": [
+                        "clay"
+                    ]
+                }
+            ]
+        }
+    ]
+}

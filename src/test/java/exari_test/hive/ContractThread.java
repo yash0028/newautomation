@@ -156,6 +156,9 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
     private List<After> getAfter() {
         After.Builder builder = new After.Builder();
 
+        // Add usage report
+        builder.withOutput(Collections.singletonList("Usage Report" + this.contractFlow.getUsageReport(true).toString()));
+
         return Collections.singletonList(builder.build());
 
     }
