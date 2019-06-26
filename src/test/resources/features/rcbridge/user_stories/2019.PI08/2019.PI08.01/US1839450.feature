@@ -1,4 +1,5 @@
 # Last updated on 
+@Arvind
 @Adele_R
 @US1839450
 @2019.PI08
@@ -10,6 +11,7 @@ Feature: US1839450 - 60 & 64 Manual & Systematic loading confirmation - Rate Esc
   @TC843994
   @Manual
   @Functional
+  @Arvind
   @Adele_R
   Scenario: TC843994 - [RL0]
     Given a hopper exists for a fee schedule
@@ -21,6 +23,7 @@ Feature: US1839450 - 60 & 64 Manual & Systematic loading confirmation - Rate Esc
   @TC865312
   @Manual
   @Functional
+  @Arvind
   @Adele_R
   Scenario: TC865312 - [RL1]
     Given a hopper exists for a fee schedule

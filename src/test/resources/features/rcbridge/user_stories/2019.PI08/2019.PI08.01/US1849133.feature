@@ -1,4 +1,5 @@
 # Last updated on 
+@Arvind
 @Adele_R
 @US1849133
 @2019.PI08
@@ -10,6 +11,7 @@ Feature: US1849133 - 7 & 8 PBC Report - Rate Escalator
   @TC848051
   @Manual
   @Functional
+  @Arvind
   @Adele_R
   Scenario: TC848051 - [RL0]
     Given a rate escalator exists
@@ -21,6 +23,7 @@ Feature: US1849133 - 7 & 8 PBC Report - Rate Escalator
   @TC863805
   @Manual
   @Functional
+  @Arvind
   @Adele_R
   Scenario: TC863805 - [RL1]
     Given a rate escalator exists

@@ -1,4 +1,5 @@
 # Last updated on 
+@Arvind
 @Adele_R
 @US1851751
 @2019.PI08
@@ -10,6 +11,7 @@ Feature: US1851751 - 29  Provider has agreed to rates - Rate Escalator
   @TC848054
   @Manual
   @Functional
+  @Arvind
   @Adele_R
   Scenario: TC848054 - [RL0]
     Given when a variable escalator request exits
