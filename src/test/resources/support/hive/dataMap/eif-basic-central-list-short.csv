@@ -1,3 +1,3 @@
-﻿commonName  ,eifFile               ,MPIN   ,TIN      ,Market Number,County  ,Paper Type,Phycon,Fee Schedule
-Exari Test 1,eif-basic-central.json,1916833,731624480,13476        ,clay    ,SPA       ,1234  ,IN 52716
+﻿commonName  ,eifFile               ,MPIN   ,TIN      ,Market Number,County  ,Paper Type,Phycon,Fee Schedule,Provider Legal Name
+Exari Test 1,eif-basic-central.json,1916833,731624480,13476        ,clay    ,SPA       ,1234  ,IN 52716,Rozana
 
