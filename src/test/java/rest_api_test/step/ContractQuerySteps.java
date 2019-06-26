@@ -52,7 +52,7 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
 
     @When("^the Domain Service queries for additional contract details from Exari$")
     public void getValidResponse() throws Throwable {
-        response = request.param("contractId", "455293").get(RESOURCE_ECM);
+        response = request.param("contractId", "91414303").get(RESOURCE_ECM);
 
         log.info("Contract query response: {}", response.asString());
     }
