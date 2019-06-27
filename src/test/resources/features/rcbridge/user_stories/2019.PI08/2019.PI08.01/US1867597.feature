@@ -3,8 +3,8 @@
 @US1867597
 @2019.PI08
 @2019.PI08.01
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1867597 - Package the business calendar
 
   @TC861696

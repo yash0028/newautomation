@@ -2,8 +2,8 @@
 @US1837956
 @2019.PI07
 @2019.PI07.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1837956 - Fields report from Alfresco
 
   @TC841779

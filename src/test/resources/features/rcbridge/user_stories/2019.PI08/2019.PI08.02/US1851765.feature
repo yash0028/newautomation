@@ -3,8 +3,8 @@
 @Adele_R
 @US1851765
 @2019.PI08
-@2019.PI08.01
-@releaseFuture
+@2019.PI08.02
+@releasePresent
 @iterationFuture
 Feature: US1851765 - 10 Provider requesting a reconsideration - Rate Escalator
 

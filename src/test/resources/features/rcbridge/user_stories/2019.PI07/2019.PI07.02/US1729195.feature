@@ -2,7 +2,7 @@
 @US1729195
 @2019.PI07
 @2019.PI07.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1729195 - Network/Ops COO User Group
 

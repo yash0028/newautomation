@@ -2,8 +2,8 @@
 @US1862530
 @2019.PI08
 @2019.PI08.01
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1862530 - Create OCM upon first transaction in Exari for migrated contracts (Demo Only - AmendContract Add Product)
 
   @TC857032

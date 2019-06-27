@@ -3,8 +3,8 @@
 @Adele_R
 @US1849133
 @2019.PI08
-@2019.PI08.01
-@releaseFuture
+@2019.PI08.02
+@releasePresent
 @iterationFuture
 Feature: US1849133 - 7 & 8 PBC Report - Rate Escalator
 

@@ -2,7 +2,7 @@
 @CMD_UI
 @US1809795
 @2019.PI08
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1809795 - CMD Search navigation correction
 

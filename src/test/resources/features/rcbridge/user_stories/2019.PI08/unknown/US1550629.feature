@@ -3,7 +3,7 @@
 @AM-Terminations
 @US1550629
 @2019.PI08
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1550629 - Integration - Prevent Duplicate Termination Processes
 

@@ -3,8 +3,8 @@
 @US1040747
 @2019.PI08
 @2019.PI08.01
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1040747 - 1 View Escalator Details - build form
 
   @TC564879

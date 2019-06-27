@@ -2,7 +2,7 @@
 @US1685345
 @2019.PI07
 @2019.PI07.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1685345 - Continued - Create service to provide Transaction installation status to Exari (Make Correction)
 

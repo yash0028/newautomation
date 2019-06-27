@@ -1,7 +1,7 @@
 # Last updated on 
 @US1685082
 @2019.PI08
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1685082 - Implement Holiday Calendar for due dates
 

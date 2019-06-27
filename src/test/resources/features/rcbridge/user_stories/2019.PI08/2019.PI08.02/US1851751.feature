@@ -3,8 +3,8 @@
 @Adele_R
 @US1851751
 @2019.PI08
-@2019.PI08.01
-@releaseFuture
+@2019.PI08.02
+@releasePresent
 @iterationFuture
 Feature: US1851751 - 29  Provider has agreed to rates - Rate Escalator
 

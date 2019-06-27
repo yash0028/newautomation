@@ -3,7 +3,7 @@
 @US1682926
 @2019.PI07
 @2019.PI07.04
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1682926 - Finalize Process Name and Task Names - last story for retro
 

@@ -1,7 +1,7 @@
 # Last updated on 
 @US1860563
 @2019.PI08
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1860563 - User group has no users - Terminations
 

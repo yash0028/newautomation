@@ -1,7 +1,9 @@
 # Last updated on 
 @US1869816
-@releaseUnknown
-@iterationUnknown
+@2019.PI08
+@2019.PI08.02
+@releasePresent
+@iterationFuture
 Feature: US1869816 - Withdrawn retro notification
 
   @TC863806
@@ -11,6 +13,6 @@ Feature: US1869816 - Withdrawn retro notification
     Given a retro exists with approvals
     When the retro is withdrawn
     Then all people who have approved the retro are notified
-    And the subject is
-    And the body is
+    And the subject is Retro Approval Request for <Provider Name> is Withdrawn
+    And the body is "The Retro Request Request for <provider name> is withdrawn. The reason is <withdrawal reason>."
 

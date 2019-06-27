@@ -1,7 +1,7 @@
 # Last updated on 
 @US1855786
 @2019.PI08
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1855786 - MAHP GHMO6 Product - Assign value of S (Specialist) for PCP IND field in NDB Payload for PCP-designated provider specialties
 

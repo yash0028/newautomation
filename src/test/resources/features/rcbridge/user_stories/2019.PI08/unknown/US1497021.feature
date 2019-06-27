@@ -3,7 +3,7 @@
 @AM-Terminations
 @US1497021
 @2019.PI08
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1497021 - Integration - Create Unique Identifier for each Termination Process
 

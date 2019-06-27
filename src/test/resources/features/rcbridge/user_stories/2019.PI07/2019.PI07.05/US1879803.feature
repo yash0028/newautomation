@@ -1,17 +1,17 @@
 # Last updated on 
 @Shiva
-@US1778517
-@2019.PI08
-@2019.PI08.01
-@releasePresent
-@iterationPresent
-Feature: US1778517 - [Continued] Update email text
+@US1879803
+@2019.PI07
+@2019.PI07.05
+@releasePast
+@iterationPast
+Feature: US1879803 - [Unfinished] Update email text
 
-  @TC815270
+  @TC868372
   @Manual
   @Functional
   @Shiva
-  Scenario: TC815270 - [RL0]
+  Scenario: TC868372 - [RL0]
     Given an email exists
     When it is sent
     Then it contains the updated text in the attached file
