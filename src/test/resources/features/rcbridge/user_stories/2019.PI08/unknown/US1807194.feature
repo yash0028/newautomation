@@ -1,8 +1,9 @@
 # Last updated on 
 @US1807194
-@releaseUnknown
+@2019.PI08
+@releasePresent
 @iterationUnknown
-Feature: US1807194 - CMD Rules - IPA Decision Table GHMO Radiology Area
+Feature: US1807194 - MAHP GHMO - IPA Decision Table GHMO Radiology Area
 
   @TC828084
   @Manual
