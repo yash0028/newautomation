@@ -8,22 +8,6 @@
 @iterationFuture
 Feature: US1849534 - Integrate search capability on Physician Process
 
-  @TC846503
-  @Manual
-  @Functional
-  @Visio
-  @Suman
-  Scenario: TC846503 - [RL0]
-    Given I am on the Deal ID Grid in the Add or Update contract subprocess
-    When I want to search contract for defined search parameters
-    Then I must see the following new search fields
-    And I can search by Counterparty Name
-    And I can search by TIN
-    And I can search by MPIN
-    And I can search by NPI
-    And I must be able to see the search results: Contract ID, Name, TIN, MPIN, NPI, Contract Name, Market, Site, Effective Date
-    And I must be able to select one or more results to add to a workflow
-
   @TC861697
   @Manual
   @Functional

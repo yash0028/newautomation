@@ -3,7 +3,7 @@
 @US1176975
 @releaseUnknown
 @iterationUnknown
-Feature: US1176975 - RC Bridge Enhancement
+Feature: US1176975 - RC Suite Enhancement
 
   @TC749599
   @Manual

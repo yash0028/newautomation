@@ -11,8 +11,11 @@ Feature: US1807194 - MAHP GHMO - IPA Decision Table GHMO Radiology Area
   Scenario: TC828084 - [RL0]
     Given a valid contract includes the MAHP GHMO product
     When the UCM record includes at least one service location address
-    Then the contract passes validation for MAHP GHMO product group
+    Then the zip code of the counterparty service address is stored in OCM
+    And the zip code is used to interrogate the RadiologyAreaCd table
+    And the RadiologyAreaCd returned from the table is stored as part of the OCM record
 
+  @RC_unlinked
   @TC828087
   @Manual
   @Functional
@@ -22,6 +25,7 @@ Feature: US1807194 - MAHP GHMO - IPA Decision Table GHMO Radiology Area
     Then the contract does not pass validation for the MAHP GHMO product group
     And generates a Type 1 error message 'Unable to determine Radiology Area Cd'
 
+  @RC_unlinked
   @TC828088
   @Manual
   @Functional
