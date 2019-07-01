@@ -98,8 +98,9 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
             sauceLabs.testPassed();
         } catch (AssertionError e) {
             sauceLabs.testFailed();
+            log.error("Assertion error:", e);
         } catch (Exception e) {
-
+            log.error("Error:", e);
         } finally {
             sauceLabs.close();
         }
@@ -145,7 +146,6 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
         // Add Sauce Link
         builder.withOutput(Collections.singletonList("SauceLabs Test Video: " + this.sauceLink));
 
-
         return Collections.singletonList(builder.build());
     }
 
@@ -160,7 +160,6 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
         builder.withOutput(Collections.singletonList("Usage Report" + this.contractFlow.getUsageReport(true).toString()));
 
         return Collections.singletonList(builder.build());
-
     }
 
     

@@ -89,7 +89,7 @@ public class InterviewFlowContract {
             page = new InterviewTopicPage(driver);
         }
 
-        return test;
+        return true;
     }
 
     public boolean finishContract() {
