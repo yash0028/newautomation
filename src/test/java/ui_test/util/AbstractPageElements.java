@@ -38,7 +38,7 @@ public class AbstractPageElements {
      * Initilize elements using AjaxElementLocatorFactory in the custom search context and default timeout
      */
     public void relocateFactory(SearchContext newSearchContext) {
-        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(context, TIMEOUT);
+        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(newSearchContext, TIMEOUT);
         PageFactory.initElements(factory, this);
     }
 

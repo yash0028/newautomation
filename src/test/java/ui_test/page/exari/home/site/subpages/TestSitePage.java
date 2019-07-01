@@ -28,6 +28,7 @@ public class TestSitePage extends GenericSitePage {
 
     @Override
     public boolean confirmCurrentPage() {
+        waitForPageLoad();
         return isVisible(elements.labelTest);
     }
 

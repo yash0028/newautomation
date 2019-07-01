@@ -22,8 +22,6 @@ public class ProtoStep implements IConfigurable {
     private WebDriver driver;
     private ContractFlow flow;
 
-
-
     /*
     CONSTRUCTOR
     */
@@ -57,6 +55,7 @@ public class ProtoStep implements IConfigurable {
             assert loginPage.login();
 
             dashboardPage = loginPage.getHomePage();
+            assert dashboardPage.confirmCurrentPage();
 
             if (flow.getReport() != null) {
                 flow.getReport().markLogin(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));

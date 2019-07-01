@@ -28,6 +28,7 @@ public class SouthEastUHNSitePage extends GenericSitePage {
 
     @Override
     public boolean confirmCurrentPage() {
+        waitForPageLoad();
         return isVisible(elements.labelSouthEastUHN);
     }
 

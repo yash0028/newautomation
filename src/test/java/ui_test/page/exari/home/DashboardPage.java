@@ -35,7 +35,7 @@ public class DashboardPage implements IFactoryPage, IWebInteract, IExariNavigati
 
     @Override
     public boolean confirmCurrentPage() {
-        pause(5);
+        waitForPageLoad();
         return isVisible(elements.labelDashboard);
     }
 

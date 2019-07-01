@@ -100,6 +100,7 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
             sauceLabs.testFailed();
             log.error("Assertion error:", e);
         } catch (Exception e) {
+            sauceLabs.testFailed();
             log.error("Error:", e);
         } finally {
             sauceLabs.close();
