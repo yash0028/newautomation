@@ -54,7 +54,7 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
 
     public int performFlow(ActionFlow actionFlow) {
         if (actionFlow == null || !actionFlow.check4Match(this.getQuestion())) {
-            log.trace(" missing flow item \"{}\"", this.getQuestion());
+            log.trace("missing flow item \"{}\"", this.getQuestion());
             return 0;
         }
 
@@ -229,11 +229,7 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
         List<Integer> indexes = answers.stream().map(Integer::valueOf).collect(Collectors.toList());
         for (Integer index : indexes) {
             WebElement checkbox = interviewElements.checkbox_indexes.get(index);
-            if (!checkbox.isSelected()) {
-                test &= click("checkbox", checkbox);
-            } else {
-                log.info(index + "th Checkbox is already selected");
-            }
+            setCheckBox("checkbox " + index, checkbox, true);
         }
 
         return test;
