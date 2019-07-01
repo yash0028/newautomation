@@ -1,12 +1,12 @@
 package org.slf4j.impl;
 
 import general_test.util.UtilityGeneralSteps;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.event.LoggingEvent;
 import org.slf4j.helpers.FormattingTuple;
 import org.slf4j.helpers.MarkerIgnoringBase;
 import org.slf4j.helpers.MessageFormatter;
 import org.slf4j.spi.LocationAwareLogger;
-import util.TimeKeeper;
 
 import java.io.PrintStream;
 
@@ -255,22 +255,23 @@ public class GherkinLogger extends MarkerIgnoringBase {
         StringBuilder buffer = new StringBuilder();
 
         //Append datetime
-        if (CONFIG.showDateTime) {
-            buffer.append(TimeKeeper.getInstance().getCurrentTimeISO()).append(" ");
-        }
-
-        //Append thread name
-        if (CONFIG.showThreadName) {
-            buffer.append("[").append(Thread.currentThread().getName()).append("]").append(" ");
-        }
+//        if (CONFIG.showDateTime) {
+//            buffer.append(TimeKeeper.getInstance().getCurrentTimeISO()).append(" ");
+//        }
 
         //Append level name
         if (CONFIG.showLogLevel) {
             if (CONFIG.levelInBrackets) {
-                buffer.append("[").append(renderLevel(level)).append("]").append(" ");
+                buffer.append(StringUtils.rightPad("[" + renderLevel(level) + "]", 7)).append(" ");
             } else {
-                buffer.append(renderLevel(level)).append(" ");
+                buffer.append(StringUtils.rightPad(renderLevel(level), 5)).append(" ");
             }
+        }
+
+        //Append thread name
+        if (CONFIG.showThreadName) {
+            String str = StringUtils.abbreviate(Thread.currentThread().getName(), 20);
+            buffer.append(StringUtils.rightPad("[" + str + "]", 22)).append(" ");
         }
 
         //Append log name
@@ -279,9 +280,10 @@ public class GherkinLogger extends MarkerIgnoringBase {
                 shortLogName = computeShortName();
             }
             int lineNumber = (new Throwable()).getStackTrace()[2].getLineNumber();
-            buffer.append(String.valueOf(shortLogName)).append("[").append(lineNumber).append("] - ");
+            String str = shortLogName + "[" + lineNumber + "]";
+            buffer.append(StringUtils.rightPad(str, 30)).append(" -> ");
         } else if (CONFIG.showLogName) {
-            buffer.append(String.valueOf(name)).append(" - ");
+            buffer.append(StringUtils.rightPad(name, 30)).append(" -> ");
         }
 
         //Append message
