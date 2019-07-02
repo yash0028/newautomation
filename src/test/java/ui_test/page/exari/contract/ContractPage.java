@@ -19,13 +19,6 @@ public class ContractPage implements IWebInteract, IFactoryPage, IExariNavigatio
     private final PageElements elements;
     private final ExariNavigationPanel navigationPanel;
 
-
-    /*
-    LOCATORS
-     */
-
-
-
     /*
     CONSTRUCTOR
      */
