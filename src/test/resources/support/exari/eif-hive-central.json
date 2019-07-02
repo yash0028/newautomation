@@ -33,13 +33,6 @@
         {
             "topic": "Market Strategy Grid (MSG)",
             "questions": [
-                {
-                    "question": "County",
-                    "action": "TEXT-BASIC",
-                    "answers": [
-                        "clay"
-                    ]
-                }
             ]
         }
     ]
