@@ -28,7 +28,6 @@ public class CentralUHNSitePage extends GenericSitePage {
 
     @Override
     public boolean confirmCurrentPage() {
-        waitForPageLoad();
         return isVisible(elements.labelCentralUHN);
     }
 

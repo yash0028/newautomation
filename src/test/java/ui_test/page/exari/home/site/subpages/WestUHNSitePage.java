@@ -28,7 +28,6 @@ public class WestUHNSitePage extends GenericSitePage {
 
     @Override
     public boolean confirmCurrentPage() {
-        waitForPageLoad();
         return isVisible(elements.labelWestUHN);
     }
 

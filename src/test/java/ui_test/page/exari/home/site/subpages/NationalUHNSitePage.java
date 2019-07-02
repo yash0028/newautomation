@@ -29,7 +29,6 @@ public class NationalUHNSitePage extends GenericSitePage {
 
     @Override
     public boolean confirmCurrentPage() {
-        waitForPageLoad();
         return isVisible(elements.labelNationalUHN);
     }
 

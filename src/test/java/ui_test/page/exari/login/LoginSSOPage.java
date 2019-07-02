@@ -33,7 +33,6 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
 
     @Override
     public boolean confirmCurrentPage() {
-        waitForPageLoad();
         return isVisible(elements.textBoxUsername);
     }
 
