@@ -380,6 +380,8 @@ public class SauceLabs {
             cap = cap.merge(buildTunnel());
             cap = cap.merge(buildTags());
 
+            cap.setCapability("maxDuration", 3600);
+
             return cap;
         }
 
