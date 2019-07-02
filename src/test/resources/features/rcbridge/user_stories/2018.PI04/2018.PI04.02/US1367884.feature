@@ -8,7 +8,7 @@
 Feature: US1367884 - Automate Exari API Testing
 
   @TC600539
-  @Automated
+  @Manual
   @Functional
   @Exari_Automation
   Scenario Outline: TC600539 - [RL0] Verify Fields of Exari Contract JSON

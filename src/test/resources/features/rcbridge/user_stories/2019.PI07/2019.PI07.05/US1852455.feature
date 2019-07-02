@@ -3,8 +3,8 @@
 @US1852455
 @2019.PI07
 @2019.PI07.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1852455 - Exclude inactive Contract Product Description table records in API response (Optum)
 
   @TC848052

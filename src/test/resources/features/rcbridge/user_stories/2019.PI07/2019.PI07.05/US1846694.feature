@@ -2,8 +2,8 @@
 @US1846694
 @2019.PI07
 @2019.PI07.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1846694 - Refinement on role priviledges in CMD application
 
   @TC845080

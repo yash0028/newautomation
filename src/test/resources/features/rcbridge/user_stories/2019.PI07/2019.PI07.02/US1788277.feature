@@ -2,7 +2,7 @@
 @US1788277
 @2019.PI07
 @2019.PI07.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1788277 - [Unfinished] Market Product integration EDQ work (Exari)
 

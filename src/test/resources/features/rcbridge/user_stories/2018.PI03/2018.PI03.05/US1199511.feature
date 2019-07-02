@@ -45,7 +45,7 @@ Feature: US1199511 - [Continued] PIC Implementation
     Then the micro service sends the data to PIC
     Examples:
       | contractId |
-      | 124319     |
+      | 43346778   |
 
   @TC537132
   @Automated

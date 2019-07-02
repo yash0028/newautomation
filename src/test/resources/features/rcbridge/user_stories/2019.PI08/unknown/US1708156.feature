@@ -1,7 +1,7 @@
 # Last updated on 
 @US1708156
 @2019.PI08
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1708156 - Identify contracts with rate conditions
 

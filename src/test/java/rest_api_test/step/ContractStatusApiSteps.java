@@ -180,10 +180,10 @@ public class ContractStatusApiSteps implements IRestStep {
         RestAssured.useRelaxedHTTPSValidation();
         response = given().baseUri(FALLOUT_ENDPOINT).get(
                 RESOURCE_CONTRACT_SUMMARIES.concat("/")
-                        .concat("TYPE_2_ERROR")
+                        .concat("TYPE_2_ERROR_DOWNSTREAM")
                         .concat("?sort=timestamp,desc"));
         JsonElement result = parseJsonElementResponse(response);
-        System.out.println(result.getAsJsonObject());
+        log.info("Result: {}", result.getAsJsonObject());
         JsonArray results = result.getAsJsonObject().get("content").getAsJsonArray();
 
         // Pull the first Install Contract event in type 2 we see

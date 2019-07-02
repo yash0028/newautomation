@@ -52,7 +52,7 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
 
     @When("^the Domain Service queries for additional contract details from Exari$")
     public void getValidResponse() throws Throwable {
-        response = request.param("contractId", "455293").get(RESOURCE_ECM);
+        response = request.param("contractId", "91414303").get(RESOURCE_ECM);
 
         log.info("Contract query response: {}", response.asString());
     }
@@ -99,6 +99,8 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
 
     @And("^the micro service finds the data valid based on the selection criteria$")
     public void isContractIdDataValid() throws Throwable {
+        log.info("Response: {}", response.asString());
+
         result = parseJsonElementResponse(this.response);
         Assert.assertTrue(result.isJsonObject());
         String agreementId = result.getAsJsonObject().get("responseData").getAsJsonArray().get(0).getAsJsonObject().get("agreementId").getAsString();

@@ -2,7 +2,7 @@
 @US1781979
 @2019.PI07
 @2019.PI07.03
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1781979 - Process array of roster MPIN_TINs service addresses
 

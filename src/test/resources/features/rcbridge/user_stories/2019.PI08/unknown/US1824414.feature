@@ -2,7 +2,7 @@
 @Visio
 @US1824414
 @2019.PI08
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1824414 - User Groups - No claim if only one person - Rate Escalator
 

@@ -2,8 +2,8 @@
 @US1826768
 @2019.PI07
 @2019.PI07.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1826768 - Contracts Domain message handling
 
   @TC843990

@@ -2,7 +2,7 @@
 @US1562312
 @2019.PI07
 @2019.PI07.01
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1562312 - Create Market to Market Lead User Groups
 

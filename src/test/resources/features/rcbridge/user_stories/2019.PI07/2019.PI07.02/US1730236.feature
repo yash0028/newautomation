@@ -2,7 +2,7 @@
 @US1730236
 @2019.PI07
 @2019.PI07.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1730236 - (Analysis) Return status and distinct address in service API response
 
