@@ -99,6 +99,8 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
 
     @And("^the micro service finds the data valid based on the selection criteria$")
     public void isContractIdDataValid() throws Throwable {
+        log.info("Response: {}", response.asString());
+
         result = parseJsonElementResponse(this.response);
         Assert.assertTrue(result.isJsonObject());
         String agreementId = result.getAsJsonObject().get("responseData").getAsJsonArray().get(0).getAsJsonObject().get("agreementId").getAsString();
