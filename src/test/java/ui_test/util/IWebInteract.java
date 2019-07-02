@@ -62,7 +62,7 @@ public interface IWebInteract {
      */
     default boolean isVisible(WebElement element) {
         try {
-            waitForPageLoad();
+//            waitForPageLoad();
             return element.isDisplayed();
         } catch (Exception e) {
             return false;
@@ -200,7 +200,6 @@ public interface IWebInteract {
             log.trace("sent keys {} to {}", Arrays.toString(charSequences), elementName);
         } catch (Exception e) {
             log.error("send keys to {} failed", elementName);
-            e.printStackTrace();
             return false;
         }
 
@@ -602,8 +601,6 @@ public interface IWebInteract {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
-        } finally {
-            log.trace("waited till page loaded");
         }
 
         return true;
@@ -615,7 +612,7 @@ public interface IWebInteract {
      * @return true if the wait completed without issue
      */
     default boolean waitForPageLoad() {
-        return waitForPageLoad(TIMEOUT);
+        return waitForPageLoad(15);
     }
 
 }

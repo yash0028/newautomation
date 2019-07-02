@@ -15,7 +15,12 @@ public class AbstractPageElements {
 
     public AbstractPageElements(SearchContext context) {
         this.context = context;
-        relocateFactory();
+        relocateFactory(context);
+    }
+
+    public AbstractPageElements(SearchContext context, int customTimeout) {
+        this.context = context;
+        relocateFactory(context, customTimeout);
     }
 
     /**

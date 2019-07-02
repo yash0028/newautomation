@@ -145,6 +145,12 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
     }
 
     private boolean radio_index(List<String> answers) {
+        //Check for empty
+        if (answers.isEmpty() || interviewElements.radio_indexes.size() == 0) {
+            return true;
+        }
+
+
         int index = Integer.valueOf(answers.get(0));
 
         //Check for extra answer
@@ -167,6 +173,11 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
     }
 
     private boolean radio_id(List<String> answers) {
+        //Check for empty
+        if (answers.isEmpty() || interviewElements.radio_indexes.size() == 0) {
+            return true;
+        }
+
         String id = answers.get(0);
         Optional<WebElement> element = interviewElements.radio_indexes.stream().filter(e -> e.getAttribute("value").contains(id)).findFirst();
         //Click if present, else send false
@@ -175,6 +186,11 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
     }
 
     private boolean radio_label(List<String> answers) {
+        //Check for empty
+        if (answers.isEmpty() || interviewElements.radio_labels.size() == 0) {
+            return true;
+        }
+
         String answer = answers.get(0);
         Optional<WebElement> element = interviewElements.radio_labels.stream().filter(e -> e.getText().contains(answer)).findFirst();
         //Click if present, else send false
@@ -182,25 +198,22 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
     }
 
     private boolean checkbox_index(List<String> answers) {
-        boolean test = true;
-
         //Check for empty
-        if (answers.isEmpty()) {
+        if (answers.isEmpty() || interviewElements.checkbox_indexes.size() == 0) {
             return true;
         }
 
+        boolean test = true;
+
         //Check for Check All or None answer
         if (answers.get(0).equalsIgnoreCase("All/None")) {
-            if ((interviewElements.checkbox_indexes.size() == 0)) {
-                return true;
-            } else {
-                for (WebElement checkbox : interviewElements.checkbox_indexes) {
-                    if (!checkbox.isSelected()) {
-                        test &= click("checkbox", checkbox);
-                    }
+            for (WebElement checkbox : interviewElements.checkbox_indexes) {
+                if (!checkbox.isSelected()) {
+                    test &= click("checkbox", checkbox);
                 }
-                return test;
             }
+            return test;
+
         }
 
         //Check for Check All answer
@@ -236,6 +249,11 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
     }
 
     private boolean text_dropdown(List<String> answers) {
+        //Check for empty
+        if (answers.isEmpty() || interviewElements.dropdown_open == null) {
+            return true;
+        }
+
         //Open dropdown search
         click("dropdown open", interviewElements.dropdown_open);
         pause(1);
@@ -254,6 +272,11 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
     }
 
     private boolean text_autofill(List<String> answers) {
+        //Check for empty
+        if (answers.isEmpty() || interviewElements.dropdown_textbox == null) {
+            return true;
+        }
+
         //Open autofill search
         click("autofill open", interviewElements.dropdown_textbox);
         pause(1);
@@ -408,7 +431,7 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
 
 
         InterviewElements(SearchContext context) {
-            super(context);
+            super(context, 15);
         }
     }
 
