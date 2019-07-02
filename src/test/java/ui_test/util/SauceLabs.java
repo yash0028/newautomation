@@ -502,7 +502,7 @@ public class SauceLabs {
             builder.append(this.username);
             builder.append(":");
             builder.append(this.apiKey);
-            builder.append("@ondemand.saucelabs.com:80/wd/hub");
+            builder.append("@ondemand.saucelabs.com:").append(configGetOptionalInteger("ui.sauce.port").orElse(80)).append("/wd/hub");
 
             log.trace("sauce url :: {}", builder.toString());
 
