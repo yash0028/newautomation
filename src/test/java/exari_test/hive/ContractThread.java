@@ -93,6 +93,8 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
                 protoStep.loginHome().setSite();
             }
 
+            assert protoStep.checkActiveContractStatus();
+
             // TODO add new way to assert test passed
 
             sauceLabs.testPassed();

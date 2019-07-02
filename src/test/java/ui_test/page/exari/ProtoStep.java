@@ -106,6 +106,8 @@ public class ProtoStep implements IConfigurable {
     public ProtoStep authorContract() {
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
 
+        log.trace("starting to author contract");
+
         try {
             //Start contract author
             assert sitePage.startContractAuthor();
@@ -140,6 +142,8 @@ public class ProtoStep implements IConfigurable {
 
     public String finalCapture() {
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
+
+        log.trace("starting final capture");
 
         try {
             InterviewFlowContract manager = new InterviewFlowContract(driver, flow);
@@ -176,6 +180,7 @@ public class ProtoStep implements IConfigurable {
     }
 
     public boolean checkActiveContractStatus() {
+        this.contractPage.pause(60);
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
 
         if (!this.contractPage.checkActiveStatus()) {
