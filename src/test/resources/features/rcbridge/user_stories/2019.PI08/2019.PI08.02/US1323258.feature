@@ -1,7 +1,9 @@
 # Last updated on 
 @US1323258
-@releaseUnknown
-@iterationUnknown
+@2019.PI08
+@2019.PI08.02
+@releasePresent
+@iterationFuture
 Feature: US1323258 - Retrieve OCM Contract Configuration record details (service)
 
   @TC579703

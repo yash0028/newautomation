@@ -17,4 +17,6 @@ Feature: US1550629 - Integration - Prevent Duplicate Termination Processes
     When the contract id exists on an open termination process
     Then the user see a message, "This Contract ID is part of <Termination Event ID>, <Termination Event Name>."
     And the user can remove the Contract ID from the event
+    And the user can continue with the Contract ID on the event
+    And the user can cancel the entire process they just started (not the event that was previously created)
 

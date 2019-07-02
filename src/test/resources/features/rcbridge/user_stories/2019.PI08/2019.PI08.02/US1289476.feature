@@ -1,8 +1,10 @@
 # Last updated on 
 @A_UI_Story
 @US1289476
-@releaseUnknown
-@iterationUnknown
+@2019.PI08
+@2019.PI08.02
+@releasePresent
+@iterationFuture
 Feature: US1289476 - View OCM Provider contract record details web page
 
   @RC_unlinked

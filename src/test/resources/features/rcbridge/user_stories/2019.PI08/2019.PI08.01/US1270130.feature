@@ -15,5 +15,6 @@ Feature: US1270130 - Enhance OCM to capture and store Financial Penalty Table ex
     And the value includes pnc_pnlty_ntfy_id
     Then the financial penalty table id is stored in the OCM
     And the id is part of the contract config record
+    And the id is stored at the contract/deal level of the OCM
     ###
 

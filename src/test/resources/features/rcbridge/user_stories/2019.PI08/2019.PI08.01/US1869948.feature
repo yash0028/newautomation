@@ -1,9 +1,9 @@
 # Last updated on 
 @US1869948
 @2019.PI08
-@2019.PI08.02
+@2019.PI08.01
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1869948 - 1 View Escalator Details - integration
 
   @TC863804

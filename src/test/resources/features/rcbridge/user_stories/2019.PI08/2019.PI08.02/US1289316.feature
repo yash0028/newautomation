@@ -2,8 +2,10 @@
 @CMD2
 @A_UI_Story
 @US1289316
-@releaseUnknown
-@iterationUnknown
+@2019.PI08
+@2019.PI08.02
+@releasePresent
+@iterationFuture
 Feature: US1289316 - View OCM Contract Config details via CMD UI
 
   @TC616509

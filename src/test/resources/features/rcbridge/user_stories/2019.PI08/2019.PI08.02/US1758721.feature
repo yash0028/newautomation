@@ -1,7 +1,9 @@
 # Last updated on 
 @US1758721
-@releaseUnknown
-@iterationUnknown
+@2019.PI08
+@2019.PI08.02
+@releasePresent
+@iterationFuture
 Feature: US1758721 - Modify denied by Network COO and Operations COO
 
   @TC869970
