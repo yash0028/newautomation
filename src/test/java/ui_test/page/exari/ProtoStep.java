@@ -22,8 +22,6 @@ public class ProtoStep implements IConfigurable {
     private WebDriver driver;
     private ContractFlow flow;
 
-
-
     /*
     CONSTRUCTOR
     */
@@ -57,6 +55,7 @@ public class ProtoStep implements IConfigurable {
             assert loginPage.login();
 
             dashboardPage = loginPage.getHomePage();
+            assert dashboardPage.confirmCurrentPage();
 
             if (flow.getReport() != null) {
                 flow.getReport().markLogin(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
@@ -107,6 +106,8 @@ public class ProtoStep implements IConfigurable {
     public ProtoStep authorContract() {
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
 
+        log.trace("starting to author contract");
+
         try {
             //Start contract author
             assert sitePage.startContractAuthor();
@@ -141,6 +142,8 @@ public class ProtoStep implements IConfigurable {
 
     public String finalCapture() {
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
+
+        log.trace("starting final capture");
 
         try {
             InterviewFlowContract manager = new InterviewFlowContract(driver, flow);
@@ -177,6 +180,7 @@ public class ProtoStep implements IConfigurable {
     }
 
     public boolean checkActiveContractStatus() {
+        this.contractPage.pause(60);
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
 
         if (!this.contractPage.checkActiveStatus()) {

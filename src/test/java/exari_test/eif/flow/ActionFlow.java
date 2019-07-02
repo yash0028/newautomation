@@ -22,6 +22,8 @@ public class ActionFlow {
     @SerializedName(value = "answers", alternate = {"answer"})
     private List<String> answers;
 
+    private int used = 0;
+
     /*
     CONSTRUCTOR
      */
@@ -50,6 +52,14 @@ public class ActionFlow {
 
     public boolean isNoOverride() {
         return this.noOverride;
+    }
+
+    public int getUsed() {
+        return used;
+    }
+
+    public void addUsed() {
+        this.used++;
     }
 
     public String getMatchMethod() {

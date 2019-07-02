@@ -49,16 +49,7 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
     public boolean login() {
         sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
         sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
-        click("sign in", elements.buttonSignIn);
-
-        if (isVisible(elements.headerTabHome)) {
-            log.info("login successful");
-        } else {
-            log.error("login failed");
-            return false;
-        }
-
-        return true;
+        return clickWithForce("sign in", elements.buttonSignIn);
     }
 
     /*

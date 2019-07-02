@@ -15,7 +15,6 @@ import java.util.Optional;
 public class ContractFlow {
     private static final Logger log = LoggerFactory.getLogger(ContractFlow.class);
 
-
     private String name;
 
     private String site;
@@ -50,24 +49,20 @@ public class ContractFlow {
     CLASS METHODS
      */
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setTopicFlowMap(TopicFlowMap topicFlowMap) {
-        this.topicFlowMap = topicFlowMap;
-    }
-
     public Optional<String> getSite() {
         return Optional.ofNullable(site);
+    }
+
+    public void setSite(String site) {
+        this.site = site;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setSite(String site) {
-        this.site = site;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Optional<String> getExtendedFrom() {
@@ -80,6 +75,10 @@ public class ContractFlow {
 
     public TopicFlowMap getTopicFlowMap() {
         return topicFlowMap;
+    }
+
+    public void setTopicFlowMap(TopicFlowMap topicFlowMap) {
+        this.topicFlowMap = topicFlowMap;
     }
 
     public EifReport getReport() {
@@ -130,6 +129,25 @@ public class ContractFlow {
 
     public ContractFlow deepCopy() {
         return new ContractFlow(this);
+    }
+
+    public StringBuilder getUsageReport(boolean completeReport) {
+        StringBuilder builder = new StringBuilder("\n");
+
+        for (TopicFlow flow : this.topicFlowMap.getTopicFlowCollection()) {
+
+            if (completeReport || flow.getUsed() == 0) {
+                builder.append(String.format("%2d --- %s", flow.getUsed(), flow.getTopic())).append("\n");
+            }
+
+            for (ActionFlow action : flow.getQuestions().values()) {
+                if (completeReport || action.getUsed() == 0) {
+                    builder.append(String.format("\t%2d --- %s", action.getUsed(), action.getQuestion())).append("\n");
+                }
+            }
+        }
+
+        return builder;
     }
 
     @Override

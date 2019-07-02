@@ -93,13 +93,17 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
                 protoStep.loginHome().setSite();
             }
 
+            assert protoStep.checkActiveContractStatus();
+
             // TODO add new way to assert test passed
 
             sauceLabs.testPassed();
         } catch (AssertionError e) {
             sauceLabs.testFailed();
+            log.error("Assertion error:", e);
         } catch (Exception e) {
-
+            sauceLabs.testFailed();
+            log.error("Error:", e);
         } finally {
             sauceLabs.close();
         }
@@ -145,7 +149,6 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
         // Add Sauce Link
         builder.withOutput(Collections.singletonList("SauceLabs Test Video: " + this.sauceLink));
 
-
         return Collections.singletonList(builder.build());
     }
 
@@ -156,8 +159,10 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
     private List<After> getAfter() {
         After.Builder builder = new After.Builder();
 
-        return Collections.singletonList(builder.build());
+        // Add usage report
+        builder.withOutput(Collections.singletonList("Usage Report" + this.contractFlow.getUsageReport(true).toString()));
 
+        return Collections.singletonList(builder.build());
     }
 
     

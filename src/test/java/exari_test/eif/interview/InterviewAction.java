@@ -13,6 +13,7 @@ import ui_test.util.IWebInteract;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class InterviewAction implements IFactoryPage, IWebInteract {
@@ -53,12 +54,14 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
 
     public int performFlow(ActionFlow actionFlow) {
         if (actionFlow == null || !actionFlow.check4Match(this.getQuestion())) {
-            log.trace(" missing flow item \"{}\"", this.getQuestion());
+            log.trace("missing flow item \"{}\"", this.getQuestion());
             return 0;
         }
 
         log.info("current question: {}", this.getQuestion());
         log.info("flow item: {}", actionFlow.toString());
+
+        actionFlow.addUsed();
 
         return enterAnswer(actionFlow.getAction(), actionFlow.getAnswers()) ? 1 : -1;
     }
@@ -88,11 +91,11 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
 
     private boolean enterAnswer(String action, List<String> answers) {
         if (action.equalsIgnoreCase("TEXT-BASIC")) {
-            return sendKeys("text input", interviewElements.textbox_basic, answers.get(0));
+            return sendKeys("text input", interviewElements.input_textbox, answers.get(0));
         }
 
         if (action.equalsIgnoreCase("TEXT-DATE")) {
-            return sendKeys("date input", interviewElements.textbox_basic, answers.get(0));
+            return sendKeys("date input", interviewElements.input_textbox, answers.get(0));
         }
 
         if (action.equalsIgnoreCase("RADIO-INDEX")) {
@@ -123,22 +126,31 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
             return genericCheckBoxAndRadioIndexElement(answers);
         }
 
+        if (action.equalsIgnoreCase("VERIFY-TEXT")) {
+            return verify_label(answers);
+        }
+
         return false;
     }
 
-    private boolean genericCheckBoxAndRadioIndexElement(List<String> answers){
-        if(!(interviewElements.radio_indexes.size()==0)){
+    private boolean genericCheckBoxAndRadioIndexElement(List<String> answers) {
+        if (!(interviewElements.radio_indexes.size() == 0)) {
             return radio_index(answers);
-        }
-        else if(!(interviewElements.checkbox_indexes.size()==0)){
+        } else if (!(interviewElements.checkbox_indexes.size() == 0)) {
             return checkbox_index(answers);
-        }
-        else{
-            return true;
+        } else {
+            log.error("found no radio or checkbox elements");
+            return false;
         }
     }
 
     private boolean radio_index(List<String> answers) {
+        //Check for empty
+        if (answers.isEmpty() || interviewElements.radio_indexes.size() == 0) {
+            return true;
+        }
+
+
         int index = Integer.valueOf(answers.get(0));
 
         //Check for extra answer
@@ -146,13 +158,13 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
             //click only if already unchecked
             if (answers.get(1).equalsIgnoreCase("select")
                     && !interviewElements.radio_indexes.get(index).isSelected()) {
-                return click("radio input", interviewElements.radio_indexes.get(index));
+                return click("radio input " + index, interviewElements.radio_indexes.get(index));
             }
 
             //click only if already checked
             if (answers.get(1).equalsIgnoreCase("unselect")
                     && interviewElements.radio_indexes.get(index).isSelected()) {
-                return click("radio input", interviewElements.radio_indexes.get(index));
+                return click("radio input " + index, interviewElements.radio_indexes.get(index));
             }
         }
 
@@ -161,43 +173,46 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
     }
 
     private boolean radio_id(List<String> answers) {
+        //Check for empty
+        if (answers.isEmpty() || interviewElements.radio_indexes.size() == 0) {
+            return true;
+        }
+
         String id = answers.get(0);
         Optional<WebElement> element = interviewElements.radio_indexes.stream().filter(e -> e.getAttribute("value").contains(id)).findFirst();
         //Click if present, else send false
-        return element.filter(webElement -> click("radio id", webElement)).isPresent();
+        return element.filter(webElement -> click("radio id " + id, webElement)).isPresent();
 
     }
 
     private boolean radio_label(List<String> answers) {
-        String answer = answers.get(0);
-        Optional<WebElement> element = interviewElements.radio_labels.stream().filter(e -> e.getText().contains(answer)).findFirst();
-        //Click if present, else send false
-        return element.filter(webElement -> click("radio label", webElement)).isPresent();
-    }
-
-    private boolean checkbox_index(List<String> answers) {
-        boolean test = true;
-
         //Check for empty
-        if (answers.isEmpty()) {
+        if (answers.isEmpty() || interviewElements.radio_labels.size() == 0) {
             return true;
         }
 
+        String answer = answers.get(0);
+        Optional<WebElement> element = interviewElements.radio_labels.stream().filter(e -> e.getText().contains(answer)).findFirst();
+        //Click if present, else send false
+        return element.filter(webElement -> click("radio label" + answer, webElement)).isPresent();
+    }
+
+    private boolean checkbox_index(List<String> answers) {
+        //Check for empty
+        if (answers.isEmpty() || interviewElements.checkbox_indexes.size() == 0) {
+            return true;
+        }
+
+        boolean test = true;
+
         //Check for Check All or None answer
         if (answers.get(0).equalsIgnoreCase("All/None")) {
-            if((interviewElements.checkbox_indexes.size()==0)){
-                return true;
-            }
-            else{
-                for (WebElement checkbox : interviewElements.checkbox_indexes) {
-                    if (!checkbox.isSelected()) {
-                        test &= click("checkbox", checkbox);
-                    }
+            for (WebElement checkbox : interviewElements.checkbox_indexes) {
+                if (!checkbox.isSelected()) {
+                    test &= click("checkbox", checkbox);
                 }
-                return test;
             }
-
-
+            return test;
 
         }
 
@@ -227,18 +242,18 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
         List<Integer> indexes = answers.stream().map(Integer::valueOf).collect(Collectors.toList());
         for (Integer index : indexes) {
             WebElement checkbox = interviewElements.checkbox_indexes.get(index);
-            if (!checkbox.isSelected()) {
-                test &= click("checkbox", checkbox);
-            }
-            else{
-                log.info(index+ "th Checkbox is already selected");
-            }
+            setCheckBox("checkbox " + index, checkbox, true);
         }
 
         return test;
     }
 
     private boolean text_dropdown(List<String> answers) {
+        //Check for empty
+        if (answers.isEmpty() || interviewElements.dropdown_open == null) {
+            return true;
+        }
+
         //Open dropdown search
         click("dropdown open", interviewElements.dropdown_open);
         pause(1);
@@ -257,6 +272,11 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
     }
 
     private boolean text_autofill(List<String> answers) {
+        //Check for empty
+        if (answers.isEmpty() || interviewElements.dropdown_textbox == null) {
+            return true;
+        }
+
         //Open autofill search
         click("autofill open", interviewElements.dropdown_textbox);
         pause(1);
@@ -268,6 +288,99 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
         //Click index option
         int index = Integer.valueOf(answers.get(1));
         return click("autofill option", interviewElements.dropdown_selection.get(index));
+    }
+
+    /**
+     * Check that the label matches the answers
+     *
+     * @param answers an array of strings. First element is the text to find, second element is how to match
+     * @return true if the label matched
+     */
+    private boolean verify_label(List<String> answers) {
+
+        log.trace("trying to verify {}", answers.toString());
+
+        switch (answers.size()) {
+            case 1:
+                return answers.get(0) != null &&
+                        verify_label_1(answers);
+            case 2:
+                return answers.get(0) != null &&
+                        answers.get(1) != null &&
+                        verify_label_2(answers);
+            case 3:
+                return answers.get(0) != null &&
+                        answers.get(1) != null &&
+                        answers.get(2) != null &&
+                        verify_label_3(answers);
+            default:
+                return false;
+        }
+    }
+
+    public boolean verify_label_1(List<String> answers) {
+        highlight(interviewElements.label_text);
+        return interviewElements.label_text.getText().equals(answers.get(0));
+    }
+
+    public boolean verify_label_2(List<String> answers) {
+        highlight(interviewElements.label_text);
+        String text = interviewElements.label_text.getText();
+
+        //Use second value to determine method of verifying against first value
+        switch (answers.get(1)) {
+            case "contains":
+            case "contain":
+                return text.contains(answers.get(0));
+            case "regex-contains":
+            case "regex-contain":
+            case "contains-regex":
+            case "contain-regex":
+                return Pattern.compile(answers.get(0)).matcher(text).find();
+            case "regex-matches":
+            case "regex-match":
+            case "matches-regex":
+            case "match-regex":
+            case "regex":
+                return Pattern.compile(answers.get(0)).matcher(text).matches();
+            case "equals-ignore-case":
+            case "ignore-case":
+                return text.equalsIgnoreCase(answers.get(0));
+            case "equals":
+            default:
+                return text.equals(answers.get(0));
+        }
+    }
+
+    public boolean verify_label_3(List<String> answers) {
+        //Use second value to get text to match
+        WebElement element = interviewElements.labels_text.get(Integer.parseInt(answers.get(1)));
+        highlight(element);
+        String text = element.getText();
+
+        //Use third value to determine method of verifying against first value
+        switch (answers.get(2)) {
+            case "contains":
+            case "contain":
+                return text.contains(answers.get(0));
+            case "regex-contains":
+            case "regex-contain":
+            case "contains-regex":
+            case "contain-regex":
+                return Pattern.compile(answers.get(0)).matcher(text).find();
+            case "regex-matches":
+            case "regex-match":
+            case "matches-regex":
+            case "match-regex":
+            case "regex":
+                return Pattern.compile(answers.get(0)).matcher(text).matches();
+            case "equals-ignore-case":
+            case "ignore-case":
+                return text.equalsIgnoreCase(answers.get(0));
+            case "equals":
+            default:
+                return text.equals(answers.get(0));
+        }
     }
 
     /*
@@ -290,7 +403,7 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
     private class InterviewElements extends AbstractPageElements {
 
         @FindBy(xpath = ".//input")
-        public WebElement textbox_basic;
+        public WebElement input_textbox;
 
         @FindBy(xpath = ".//input[@type='radio']")
         public List<WebElement> radio_indexes;
@@ -310,9 +423,15 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
         @FindBy(xpath = "//span[@class='select2-results']//li")
         public List<WebElement> dropdown_selection;
 
+        @FindBy(xpath = ".//lablel | .//p")
+        public WebElement label_text;
+
+        @FindBy(xpath = ".//lablel | .//p")
+        public List<WebElement> labels_text;
+
 
         InterviewElements(SearchContext context) {
-            super(context);
+            super(context, 15);
         }
     }
 

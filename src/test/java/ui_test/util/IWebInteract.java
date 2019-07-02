@@ -62,7 +62,8 @@ public interface IWebInteract {
      */
     default boolean isVisible(WebElement element) {
         try {
-            return element.isEnabled() && element.isDisplayed();
+//            waitForPageLoad();
+            return element.isDisplayed();
         } catch (Exception e) {
             return false;
         }
@@ -595,7 +596,7 @@ public interface IWebInteract {
         try {
             wait.until(expectJSReadyState);
         } catch (TimeoutException e) {
-            log.info("waited {}s for page to load", timeout);
+            log.error("waited {}s for page to load", timeout);
             return false;
         } catch (Exception e) {
             e.printStackTrace();
@@ -611,7 +612,7 @@ public interface IWebInteract {
      * @return true if the wait completed without issue
      */
     default boolean waitForPageLoad() {
-        return waitForPageLoad(TIMEOUT);
+        return waitForPageLoad(15);
     }
 
 }

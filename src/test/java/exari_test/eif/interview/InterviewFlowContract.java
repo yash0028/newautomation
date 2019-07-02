@@ -55,12 +55,17 @@ public class InterviewFlowContract {
                 return false;
             }
 
-            //Use topic to load up topicFlow
+
             log.info("current topic: {}", page.getTopicText());
+            log.trace("topic questions: {}", page.getInterviewMap().keySet());
+
+            //Use topic to load up topicFlow from contract flow
             TopicFlow topicFlow = contractFlow.getTopicFlowMap().get(page.getTopicText());
 
-            //If topicFlow exists for page, perform it
+            //If topicFlow exists for current topic, perform it
             if (topicFlow != null) {
+                topicFlow.addUsed();
+
                 //Load interview questions
                 InterviewActionMap iMap = page.getInterviewMap();
 
@@ -84,7 +89,7 @@ public class InterviewFlowContract {
             page = new InterviewTopicPage(driver);
         }
 
-        return test;
+        return true;
     }
 
     public boolean finishContract() {

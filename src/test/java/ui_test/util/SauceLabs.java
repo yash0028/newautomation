@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Package Private Singleton to manage SauceLabs connection and any communication tasks.
@@ -44,6 +45,7 @@ public class SauceLabs {
         // Create Remote Web Driver
         try {
             this.driver = new RemoteWebDriver(new URL(url), capabilities);
+            this.driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
         } catch (MalformedURLException e) {
             log.error("Invalid SauceLabs URL <{}>", url);
             return;
@@ -378,6 +380,8 @@ public class SauceLabs {
             cap = cap.merge(buildTunnel());
             cap = cap.merge(buildTags());
 
+            cap.setCapability("maxDuration", 3600);
+
             return cap;
         }
 
@@ -500,7 +504,7 @@ public class SauceLabs {
             builder.append(this.username);
             builder.append(":");
             builder.append(this.apiKey);
-            builder.append("@ondemand.saucelabs.com:80/wd/hub");
+            builder.append("@ondemand.saucelabs.com:").append(configGetOptionalInteger("ui.sauce.port").orElse(80)).append("/wd/hub");
 
             log.trace("sauce url :: {}", builder.toString());
 

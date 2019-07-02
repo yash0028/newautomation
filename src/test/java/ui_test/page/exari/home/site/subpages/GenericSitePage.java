@@ -33,11 +33,6 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
         elements = new PageElements(driver);
     }
 
-    public void setSite(String site) {
-        this.siteName = site;
-        log.info("site is " + this.siteName);
-    }
-
     /*
     PAGE FACTORY METHODS
      */
@@ -99,6 +94,11 @@ public abstract class GenericSitePage implements IFactoryPage, IWebInteract {
     /*
     CLASS METHODS
      */
+
+    public void setSite(String site) {
+        this.siteName = site;
+        log.info("site is " + this.siteName);
+    }
 
     /*
     PAGE METHODS

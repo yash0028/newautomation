@@ -3,7 +3,7 @@
     "authors": [
         "Alex Berns"
     ],
-    "extendedFrom": "eif-basic-contract.json",
+    "extendedFrom": "eif-hive-base.json",
     "notes": [
         "authors an exari contract using cucumber parameters with defaults for central uhn market number."
     ],
@@ -33,13 +33,6 @@
         {
             "topic": "Market Strategy Grid (MSG)",
             "questions": [
-                {
-                    "question": "County",
-                    "action": "TEXT-BASIC",
-                    "answers": [
-                        "clay"
-                    ]
-                }
             ]
         }
     ]
