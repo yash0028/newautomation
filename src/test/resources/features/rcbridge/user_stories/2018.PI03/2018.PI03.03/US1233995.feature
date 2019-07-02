@@ -7,7 +7,7 @@
 Feature: US1233995 - [Continued] NDB Layer 7 Implementation
 
   @TC565272
-  @Automated
+  @Manual
   @Functional
   Scenario: TC565272 - [RL0] NDB Layer 7 Connection Test
     Given Exari needs to connect to NDB through layer 7
