@@ -77,10 +77,7 @@ public class InterviewFlowContract {
                     //Perform topicFlow item on corresponding interview item
                     test &= interviewAction.performFlow(actionFlow) >= 0;
 
-                    //Perform post action
-                    for (String postAction : actionFlow.getPostActions()) {
-
-                    }
+                    //TODO create post action handle
                 }
 
                 assert page.clickNext();

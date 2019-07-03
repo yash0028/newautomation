@@ -23,7 +23,7 @@ public class ActionFlow {
     private List<String> answers;
 
     @SerializedName(value = "postActions", alternate = {"postAction"})
-    private List<String> postActions;
+    private List<String> postActions = null;
 
     private int used = 0;
 
@@ -80,7 +80,7 @@ public class ActionFlow {
     }
 
     public List<String> getPostActions() {
-        if (this.postActions == null) {
+        if (this.postActions == null || this.postActions.isEmpty()) {
             this.postActions = new ArrayList<>();
         }
         return this.postActions;
