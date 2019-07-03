@@ -69,8 +69,8 @@ public class ContractPage implements IWebInteract, IFactoryPage, IExariNavigatio
     public boolean checkActiveStatus() {
         //Check if contract status of active is visibile
         //if not, try to expand properties section and try again
-        refreshPage();
-        waitForPageLoad();
+//        refreshPage();
+//        waitForPageLoad();
         log.debug("contract status == {}", elements.labelContractStatus.getText());
         return isVisible(elements.labelContractStatus) && elements.labelContractStatus.getText().contains("Active");
 //        return isVisible(elements.labelContractStatus) || expandProperties() && isVisible(elements.labelContractStatus);
