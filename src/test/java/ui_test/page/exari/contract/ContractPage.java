@@ -69,7 +69,11 @@ public class ContractPage implements IWebInteract, IFactoryPage, IExariNavigatio
     public boolean checkActiveStatus() {
         //Check if contract status of active is visibile
         //if not, try to expand properties section and try again
-        return isVisible(elements.labelContractStatusActive) || expandProperties() && isVisible(elements.labelContractStatusActive);
+        refreshPage();
+        waitForPageLoad();
+        log.debug("contract status == {}", elements.labelContractStatus.getText());
+        return isVisible(elements.labelContractStatus) && elements.labelContractStatus.getText().contains("Active");
+//        return isVisible(elements.labelContractStatus) || expandProperties() && isVisible(elements.labelContractStatus);
     }
 
     public boolean startAmendment(String amendmentName) {
@@ -147,8 +151,8 @@ public class ContractPage implements IWebInteract, IFactoryPage, IExariNavigatio
         @FindBy(xpath = "//div[contains(text(),'Final Pending QA')]")
         private WebElement labelContractStatusFinalPendingQA;
 
-        @FindBy(xpath = "//div[contains(text(),'Active')]")
-        private WebElement labelContractStatusActive;
+        @FindBy(xpath = "//span[contains(text(),'Status')]/following-sibling::span/div")
+        private WebElement labelContractStatus;
 
         @FindBy(xpath = "//span[contains(text(),'Create Amendment')]")
         private WebElement buttonOpenCreateAmendment;

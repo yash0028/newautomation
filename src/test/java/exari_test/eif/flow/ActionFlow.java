@@ -22,23 +22,28 @@ public class ActionFlow {
     @SerializedName(value = "answers", alternate = {"answer"})
     private List<String> answers;
 
+    @SerializedName(value = "postActions", alternate = {"postAction"})
+    private List<String> postActions;
+
     private int used = 0;
 
     /*
     CONSTRUCTOR
      */
 
-    public ActionFlow(String question, String action, List<String> answers) {
+    public ActionFlow(String question, String action, List<String> answers, List<String> postActions) {
         this.question = question;
         this.action = action;
         this.answers = answers;
+        this.postActions = postActions;
     }
 
-    public ActionFlow(String question, String matchMethod, String action, List<String> answers) {
+    public ActionFlow(String question, String matchMethod, String action, List<String> answers, List<String> postActions) {
         this.question = question;
         this.matchMethod = matchMethod;
         this.action = action;
         this.answers = answers;
+        this.postActions = postActions;
     }
 
     /*
@@ -72,6 +77,13 @@ public class ActionFlow {
 
     public List<String> getAnswers() {
         return answers;
+    }
+
+    public List<String> getPostActions() {
+        if (this.postActions == null) {
+            this.postActions = new ArrayList<>();
+        }
+        return this.postActions;
     }
 
     public boolean check4Match(String questionText) {
@@ -115,11 +127,16 @@ public class ActionFlow {
     }
 
     public ActionFlow deepCopy() {
-        List<String> copyList = new ArrayList<>();
+        List<String> copyAnswers = new ArrayList<>();
         for (String s : this.answers) {
-            copyList.add(s);
+            copyAnswers.add(s);
         }
-        return new ActionFlow(this.question, this.action, copyList);
+
+        List<String> copyPostActions = new ArrayList<>();
+        for (String s : this.postActions) {
+            copyPostActions.add(s);
+        }
+        return new ActionFlow(this.question, this.action, copyAnswers, copyPostActions);
     }
 
     @Override
