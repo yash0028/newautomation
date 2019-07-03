@@ -20,6 +20,8 @@ public class Result {
     */
 
     public Result() {
+        this.duration = 10l;
+        this.status = Status.PASSED;
     }
 
     public Result(Long duration, Status status) {
