@@ -1,9 +1,9 @@
 # Last updated on 
 @US1871092
 @2019.PI08
-@2019.PI08.01
+@2019.PI08.02
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1871092 - Create template for error and informational messages
 
   @TC868377
