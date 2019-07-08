@@ -76,6 +76,8 @@ public class InterviewFlowContract {
 
                     //Perform topicFlow item on corresponding interview item
                     test &= interviewAction.performFlow(actionFlow) >= 0;
+
+                    //TODO create post action handle
                 }
 
                 assert page.clickNext();

@@ -3,9 +3,7 @@ package exari_test.hive;
 import exari_test.eif.data.EifTestData;
 import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.flow.IContractFlowLoader;
-import exari_test.eif.report.After;
-import exari_test.eif.report.Before;
-import exari_test.eif.report.Scenario;
+import exari_test.eif.report.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
@@ -146,6 +144,9 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
     private List<Before> getBefore() {
         Before.Builder builder = new Before.Builder();
 
+        builder.withMatch(new Match("hive"));
+        builder.withResult(new Result());
+
         // Add Sauce Link
         builder.withOutput(Collections.singletonList("SauceLabs Test Video: " + this.sauceLink));
 
@@ -158,6 +159,9 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
      */
     private List<After> getAfter() {
         After.Builder builder = new After.Builder();
+
+        builder.withMatch(new Match("hive"));
+        builder.withResult(new Result());
 
         // Add usage report
         builder.withOutput(Collections.singletonList("Usage Report" + this.contractFlow.getUsageReport(true).toString()));
