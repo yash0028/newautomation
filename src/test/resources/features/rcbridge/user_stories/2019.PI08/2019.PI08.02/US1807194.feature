@@ -1,9 +1,10 @@
 # Last updated on 
 @US1807194
 @2019.PI08
+@2019.PI08.02
 @releasePresent
-@iterationUnknown
-Feature: US1807194 - MAHP GHMO - IPA Decision Table GHMO Radiology Area
+@iterationFuture
+Feature: US1807194 - CMD Rules - MAHP GHMO - Radiology Area Code
 
   @TC828084
   @Manual
@@ -13,7 +14,8 @@ Feature: US1807194 - MAHP GHMO - IPA Decision Table GHMO Radiology Area
     When the UCM record includes at least one service location address
     Then the zip code of the counterparty service address is stored in OCM
     And the zip code is used to interrogate the RadiologyAreaCd table
-    And the RadiologyAreaCd returned from the table is stored as part of the OCM record
+    And the RadiologyAreaCd returned from the table is stored as part of the Contract OCM
+    And the process is repeated for each distinct service location address of the Contract OCM
 
   @RC_unlinked
   @TC828087
