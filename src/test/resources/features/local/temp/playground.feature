@@ -1,4 +1,4 @@
-@PG
+@PG1234
 Feature: Playground
 
   @User_Interface
@@ -7,12 +7,12 @@ Feature: Playground
     Given I am using a parametric browser with the following capabilities
       | browserName | <browserName> |
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    Then I do something
+    Then I do something2
     Examples:
       | site        | browserName |
       | central uhn | chrome      |
       | central uhn | firefox     |
 
-  @PG123
+  @PG
   Scenario: Playground
-    Then I activate the hive
+    Then I do something
