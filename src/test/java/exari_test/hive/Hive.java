@@ -1,7 +1,6 @@
 package exari_test.hive;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 import exari_test.eif.data.EifTestData;
 import exari_test.eif.data.EifTestList;
 import exari_test.eif.report.CukeReport;
@@ -14,6 +13,7 @@ import util.configuration.ConfigStub;
 import util.configuration.IConfigurable;
 import util.file.FileHandler;
 
+import java.lang.reflect.Type;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -77,7 +77,10 @@ public class Hive implements IConfigurable {
         // Save Report
         if (config.configGetBoolean("hive.saveReport")) {
             CukeReport report = Hive.getInstance().getCukeReport();
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            Gson gson = new GsonBuilder()
+                    .registerTypeHierarchyAdapter(List.class, new ListAdapter())
+                    .setPrettyPrinting()
+                    .create();
 
             // Find path to report
             StringBuilder path = new StringBuilder();
@@ -197,4 +200,21 @@ public class Hive implements IConfigurable {
     /*
     UTILITY CLASS
     */
+
+    static class ListAdapter implements JsonSerializer<List<String>> {
+        @Override
+        public JsonElement serialize(List<String> src, Type typeOfSrc, JsonSerializationContext context) {
+            if (src == null || src.isEmpty()) // exclusion is made here
+                return null;
+
+            JsonArray array = new JsonArray();
+
+            for (Object child : src) {
+                JsonElement element = context.serialize(child);
+                array.add(element);
+            }
+
+            return array;
+        }
+    }
 }

@@ -9,6 +9,9 @@ import rest_api_test.api.transaction.ITransactionInteract;
 import rest_api_test.api.zuul.IMockControllerInteract;
 import util.map.IMapSub;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PlaygroundSteps implements IMapSub, ITransactionInteract, IFalloutInteract, IEventGatewayInteract, IMockControllerInteract {
     private static final Logger log = LoggerFactory.getLogger(PlaygroundSteps.class);
 
@@ -20,6 +23,19 @@ public class PlaygroundSteps implements IMapSub, ITransactionInteract, IFalloutI
     public void playground() throws Throwable {
 
         log.info("i am here");
+
+        List<String> tempList = null;
+
+
+        if (tempList == null) {
+            tempList = new ArrayList<>();
+        }
+
+        log.trace("size {}", tempList.size());
+
+        for (String temp : tempList) {
+            log.trace(temp);
+        }
 
 
     }

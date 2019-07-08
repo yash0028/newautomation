@@ -208,21 +208,16 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
         //Check for Check All or None answer
         if (answers.get(0).equalsIgnoreCase("All/None")) {
             for (WebElement checkbox : interviewElements.checkbox_indexes) {
-                if (!checkbox.isSelected()) {
-                    test &= click("checkbox", checkbox);
-                }
+                test &= setCheckBox("checkbox", checkbox, true);
             }
             return test;
-
         }
 
         //Check for Check All answer
         if (answers.get(0).equalsIgnoreCase("all")) {
             //Select All Checkboxes
             for (WebElement checkbox : interviewElements.checkbox_indexes) {
-                if (!checkbox.isSelected()) {
-                    test &= click("checkbox", checkbox);
-                }
+                test &= setCheckBox("checkbox", checkbox, true);
             }
             return test;
         }
@@ -231,9 +226,7 @@ public class InterviewAction implements IFactoryPage, IWebInteract {
         if (answers.get(0).equalsIgnoreCase("none")) {
             //Unselect all Checkboxes
             for (WebElement checkbox : interviewElements.checkbox_indexes) {
-                if (checkbox.isSelected()) {
-                    test &= click("checkbox", checkbox);
-                }
+                test &= setCheckBox("checkbox", checkbox, false);
             }
             return test;
         }

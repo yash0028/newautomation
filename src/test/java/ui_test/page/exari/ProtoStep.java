@@ -180,10 +180,10 @@ public class ProtoStep implements IConfigurable {
     }
 
     public boolean checkActiveContractStatus() {
-        this.contractPage.pause(60);
+        contractPage.pause(60);
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
 
-        if (!this.contractPage.checkActiveStatus()) {
+        if (this.contractPage.checkActiveStatus()) {
             if (flow.getReport() != null) {
                 flow.getReport().markActive(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
             }
