@@ -2,7 +2,7 @@
 @A_UI_Story
 @US1862618
 @2019.PI08
-@2019.PI08.02
+@2019.PI08.03
 @releasePresent
 @iterationFuture
 Feature: US1862618 - Retrieve OCM provider contract record details
