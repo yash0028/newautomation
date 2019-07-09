@@ -31,15 +31,9 @@ public class CMDActionRequiredSteps implements IUiStep {
 
     @Given("^I have clicked on Action Required button on the CMD dashboard$")
     public void ClickActionRequiredButtonOnCMDDashboard() throws Throwable {
-//        RobotThread robot = new RobotThread(getDriver());
-//        robot.addRefreshDelay30Secs().start();
-
-//        getDriver().get(CMD_DASHBOARD_URL);
-//        log.info("page title {}", getDriver().getTitle());
 
         CMDLoginSSOPage loginSSOPage = new CMDLoginSSOPage(getDriver());
         loginSSOPage.navigateTo(CMD_DASHBOARD_URL);
-//        loginSSOPage.refreshPage();
         log.info("page title {}", getDriver().getTitle());
 
         loginSSOPage.login();

@@ -32,7 +32,6 @@ public class UiConfigHelper implements IConfigurable {
     public SauceLabs.Builder getDefaultSauceBuilder(String scenarioName) {
         SauceLabs.Builder builder = new SauceLabs.Builder();
 
-
         //Setup Browser
         builder.withBrowserName(configGetOptionalString("ui.sauce.defaultBrowserName"));
 //        builder.withBrowserVersion(configGetOptionalString("ui.sauce.defaultBrowserVersion"));
