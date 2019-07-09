@@ -214,16 +214,6 @@ public class SauceLabs {
             return this;
         }
 
-        public Builder withPlatformVersion(String platformVersion) {
-            this.platformVersion = platformVersion;
-            return this;
-        }
-
-        public Builder withPlatformVersion(Optional<String> platformVersion) {
-            platformVersion.ifPresent(s -> this.platformVersion = s);
-            return this;
-        }
-
         public Builder withJobNameJenkinsBuild(String jobNameJenkinsBuild) {
             this.jobNameJenkins = jobNameJenkinsBuild;
             return this;
@@ -356,10 +346,6 @@ public class SauceLabs {
                     case "defaultPlatformName":
                     case "platformName":
                         this.withPlatformName(map.get(key));
-                    case "ui.sauce.defaultPlatformVersion":
-                    case "defaultPlatformVersion":
-                    case "platformVersion":
-                        this.withPlatformVersion(map.get(key));
                     default:
                         break;
                 }
@@ -386,7 +372,6 @@ public class SauceLabs {
         }
 
         private MutableCapabilities buildBrowser() {
-//
 
             MutableCapabilities capabilities;
 
