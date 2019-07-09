@@ -34,7 +34,6 @@ public class CMDActionRequiredSteps implements IUiStep {
 
         CMDLoginSSOPage loginSSOPage = new CMDLoginSSOPage(getDriver());
         loginSSOPage.navigateTo(CMD_DASHBOARD_URL);
-//        loginSSOPage.refreshPage();
         log.info("page title {}", getDriver().getTitle());
 
         loginSSOPage.login();
