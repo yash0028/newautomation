@@ -26,7 +26,6 @@ Feature: US1807194 - CMD Rules - MAHP GHMO - Radiology Area Code and Market
     And the zip code used to interrogate the RadiologyAreaCd table and the Zip to Market table
     And the process continues until all service Location records from the UHG_CounterpartyAdditionalLocations object have completed
 
-  @RC_unlinked
   @TC828088
   @Manual
   @Functional

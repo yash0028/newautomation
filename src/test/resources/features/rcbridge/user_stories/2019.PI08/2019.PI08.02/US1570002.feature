@@ -4,9 +4,9 @@
 @Suman
 @US1570002
 @2019.PI08
-@2019.PI08.01
+@2019.PI08.02
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1570002 - Initiate Retro Form- Integration "Negotiation Details from Workflow"
 
   @TC743338
@@ -22,6 +22,6 @@ Feature: US1570002 - Initiate Retro Form- Integration "Negotiation Details from 
     And the Associated Workflow Type is auto populated with "Physician"
     And the "Target Date for Agreement Completion" is auto populated with the "Target Date for Agreement Completion" from the Physician Negotiation
     And the "Planned Effective Date" is auto populated with the "Planned Effective Date" from the Physician Negotiation
-    And the "Lines of Business" is auto populated with the "Lines of Business" from the Physician Negotiation (the non-selected LOB in the physician process will be a NO in retro, the selected will be a YES)
+    And the "Lines of Business" (excluding M&V) is auto populated with the "Lines of Business" from the Physician Negotiation (the non-selected LOB in the physician process will be a NO in retro, the selected will be a YES)
     And the 4 fields in the retro process can not be edited
 
