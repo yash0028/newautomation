@@ -4,7 +4,7 @@
 @2019.PI08
 @2019.PI08.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1797284 - CMD UI - Transaction identifier MassProject vs Not
 
   @TC828081
@@ -16,5 +16,4 @@ Feature: US1797284 - CMD UI - Transaction identifier MassProject vs Not
     When viewing the "mass actions" tab
     Then only transaction associated with Mass Actions projects will be displayed
     And the 4-blocker volumes only represent mass actions transactions
-    ###
 

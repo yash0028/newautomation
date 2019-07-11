@@ -4,7 +4,7 @@
 @2019.PI08
 @2019.PI08.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1898507 - Indemnity Market Product Group
 
   @TC877725
@@ -17,5 +17,4 @@ Feature: US1898507 - Indemnity Market Product Group
     And Payment Appendix Indemnity does not exist in the contract UCM
     Then the Indemnity market product group applies to the contract OCM
     And Indemnity product details including contract masters are stored in the OCM
-    ###
 

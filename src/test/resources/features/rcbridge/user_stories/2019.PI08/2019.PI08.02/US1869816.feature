@@ -1,14 +1,16 @@
 # Last updated on 
+@Sheham
 @US1869816
 @2019.PI08
 @2019.PI08.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1869816 - Withdrawn retro notification
 
   @TC863806
   @Manual
   @Functional
+  @Sheham
   Scenario: TC863806 - [RL0]
     Given a retro exists with approvals
     When the retro is withdrawn

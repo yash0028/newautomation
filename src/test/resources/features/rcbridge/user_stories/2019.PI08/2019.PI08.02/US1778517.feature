@@ -2,7 +2,7 @@
 @Shiva
 @US1778517
 @2019.PI08
-@2019.PI08.01
+@2019.PI08.02
 @releasePresent
 @iterationPresent
 Feature: US1778517 - [Continued] Update email text

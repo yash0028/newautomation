@@ -5,7 +5,7 @@
 @2019.PI08
 @2019.PI08.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1851765 - 10 Provider requesting a reconsideration - Rate Escalator
 
   @TC866268
@@ -15,9 +15,9 @@ Feature: US1851765 - 10 Provider requesting a reconsideration - Rate Escalator
   @Adele_R
   Scenario: TC866268 - [RL0]
     Given the "Provider requested a reconsideration" task is created
-    When the results of the reconsideration are obtain
+    When the results of the reconsideration are obtained
     Then the form has "Has the provider met the targets?* : Radio button with option Yes and No" using same variables from task 9
-    And the due date is 30 or 90 days based upon the agreement
+    And the due date is 30 or 90 days based upon answer in Analyze PBC Reports
     And the assignee is the contractor
     And upon completion the Request HCE Modeling task is created
 

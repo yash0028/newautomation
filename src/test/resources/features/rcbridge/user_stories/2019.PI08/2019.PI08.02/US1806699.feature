@@ -3,27 +3,24 @@
 @2019.PI08
 @2019.PI08.02
 @releasePresent
-@iterationFuture
-Feature: US1806699 - CMD Rules - UHN Standard PCP Indicator NDB PCP IND ASSIGN TABLE
-
-  @TC877783
-  @Manual
-  @Functional
-  Scenario: TC877783 - [RL0]
-    Given a valid provider record exist on a contract roster
-    And the specialty code of the provider record matches the conditions in the attached specialty code list
-    When the PCP IND value is needed for the NDB Payloads
-    Then the value of 'P - Physician is a PCP' is included for each product group
-    And the value stored in the provider OCM record
+@iterationPresent
+Feature: US1806699 - Determine PCP Indicator for each Provider on Roster Based on Market
 
   @TC877731
   @Manual
   @Functional
   Scenario: TC877731 - [RL1]
-    Given a valid provider record exist on a contract roster
-    And the specialty code of the provider record DO NOT MATCH the conditions in the attached specialty code list
-    When the PCP IND value is needed for the NDB Payloads
-    Then the value of 'S - Physician is a Specialist' is included for each product group
-    And the value stored in the provider OCM record
-    ###
+    Given a contract record exists in Exari UCM
+    When ProviderRole is needed in the OCM record
+    And the UHG_US_States-RO does not have a specific table
+    Then the standard ProviderRole designation table is used
+
+  @TC882850
+  @Manual
+  @Functional
+  Scenario: TC882850 - [RL2]
+    When ProviderRole designation table is called
+    And the roster provider record matches a record on the table
+    Then the ProviderRole has been determined
+    And the ProviderRole value from column U (set$pnc_prov_contr_role_cd) is stored as part of the provider OCM record
 

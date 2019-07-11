@@ -3,7 +3,7 @@
 @2019.PI08
 @2019.PI08.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1323258 - Retrieve OCM Contract Configuration record details (service)
 
   @TC579703
@@ -14,6 +14,7 @@ Feature: US1323258 - Retrieve OCM Contract Configuration record details (service
     When an authorized user needs information contained in the OCM record
     Then a service is available to interrogate the OCM
     And a service is available to respond with OCM data
+    And the OCM/configuration record returned includes the most current configuration setup
 
   @TC581719
   @Manual
@@ -23,8 +24,9 @@ Feature: US1323258 - Retrieve OCM Contract Configuration record details (service
     When an authorized user needs information contained in the OCM record
     And the user provides the required inputs necessary
     And the service does not locate a OCM record
-    Then the service returns a message "Unable to locate record based on [input provided] entered"
+    Then the service returns a message "No records found for this search. Please try a different search."
 
+  @RC_unlinked
   @TC581720
   @Manual
   @Functional
@@ -35,6 +37,7 @@ Feature: US1323258 - Retrieve OCM Contract Configuration record details (service
     Then the contract configuration details service DOES NOT provide the response
     And a message returned stating required inputs required
 
+  @RC_unlinked
   @TC581721
   @Manual
   @Functional

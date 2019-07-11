@@ -5,7 +5,7 @@
 @2019.PI08
 @2019.PI08.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1839450 - 60 & 64 Manual & Systematic loading confirmation - Rate Escalator
 
   @TC843994
