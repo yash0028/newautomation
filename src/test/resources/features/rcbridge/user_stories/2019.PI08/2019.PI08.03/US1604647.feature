@@ -1,9 +1,9 @@
 # Last updated on 
 @US1604647
 @2019.PI08
-@2019.PI08.01
+@2019.PI08.03
 @releasePresent
-@iterationPast
+@iterationFuture
 Feature: US1604647 - [Continued] Market Product integration EDQ work (Exari) (QE)
 
   @TC758898

@@ -30,5 +30,5 @@ Feature: US1849133 - 7 & 8 PBC Report - Rate Escalator
     When the task "Deliver PBC Reports" is created
     Then the assignee is the Process Initiator or the Contractor
     And the text displayed in the form is "Please complete this task after you have sent the PBC Reports to the provider."
-    And a due date of ...business days from end of the measurement period.
+    And a due date of 3 months prior to the effective date of the rate escalator.
 
