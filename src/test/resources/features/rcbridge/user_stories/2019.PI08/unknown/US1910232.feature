@@ -1,6 +1,7 @@
 # Last updated on 
 @US1910232
-@releaseUnknown
+@2019.PI08
+@releasePresent
 @iterationUnknown
 Feature: US1910232 - Abort transaction that result in Type 1 errors
 

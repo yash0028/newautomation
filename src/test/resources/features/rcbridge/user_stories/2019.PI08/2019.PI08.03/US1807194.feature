@@ -1,9 +1,9 @@
 # Last updated on 
 @US1807194
 @2019.PI08
-@2019.PI08.02
+@2019.PI08.03
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1807194 - CMD Rules - MAHP GHMO - Radiology Area Code and Market
 
   @TC828084

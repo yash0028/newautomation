@@ -1,9 +1,9 @@
 # Last updated on 
 @US1806699
 @2019.PI08
-@2019.PI08.02
+@2019.PI08.03
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1806699 - Determine PCP Indicator for each Provider on Roster Based on Market
 
   @TC877731

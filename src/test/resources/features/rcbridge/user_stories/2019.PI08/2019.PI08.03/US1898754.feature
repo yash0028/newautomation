@@ -1,9 +1,9 @@
 # Last updated on 
 @US1898754
 @2019.PI08
-@2019.PI08.02
+@2019.PI08.03
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1898754 - CMD Rules - MAHP GHMO - VIRGINIA Exception Provider (LAB RAD EXCEPTION tollgate 2)
 
   @TC877723
