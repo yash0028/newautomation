@@ -6,6 +6,7 @@ import exari_test.eif.data.EifTestList;
 import exari_test.eif.report.CukeReport;
 import exari_test.eif.report.Feature;
 import exari_test.eif.report.Scenario;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.TimeKeeper;
@@ -91,19 +92,26 @@ public class Hive implements IConfigurable {
 
             // Find name of report
             String fileName = config.configGetOptionalString("hive.reportName").orElse("jsonreport").replaceAll(" ", "_");
-            if (!fileName.endsWith(".json")) {
-                fileName += ".json";
-            }
-
-            path.append(fileName);
+            fileName = StringUtils.appendIfMissing(fileName, ".json");
 
             // Try to save report
             try {
-                FileHandler.getInstance().saveFile(path.toString(), gson.toJson(report));
+                FileHandler.getInstance().saveFile(path + fileName, gson.toJson(report));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            // Try to save contract ids
+            String ids = String.join("\n", Hive.getInstance().getContractIds());
+            try {
+                FileHandler.getInstance().saveFile(path + "contractIds.txt", ids);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+
+        log.info("Contract IDs: {}", Hive.getInstance().getContractIds());
+
 
     }
     
@@ -183,6 +191,10 @@ public class Hive implements IConfigurable {
 
         report.add(builder.build());
         return report;
+    }
+
+    public List<String> getContractIds() {
+        return threadsAll.stream().map(ContractThread::getContractId).collect(Collectors.toList());
     }
 
     /**

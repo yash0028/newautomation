@@ -22,6 +22,7 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
 
     private ContractFlow contractFlow;
     private SauceLabs.Builder builder;
+    private String contractId;
 
     private String sauceLink;
 
@@ -86,14 +87,13 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
 
         try {
             if (!configGetOptionalBoolean("hive.demoMode").orElse(false)) {
-                protoStep.loginHome().setSite().authorContract().finalCapture();
+                contractId = protoStep.loginHome().setSite().authorContract().finalCapture();
             } else {
                 protoStep.loginHome().setSite();
             }
 
             assert protoStep.checkActiveContractStatus();
-
-            // TODO add new way to assert test passed
+            assert contractId != null;
 
             sauceLabs.testPassed();
         } catch (AssertionError e) {
@@ -130,6 +130,10 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
         builder.withAfter(getAfter());
 
         return builder.build();
+    }
+
+    public String getContractId() {
+        return contractId;
     }
 
     /*
