@@ -56,11 +56,15 @@ public class Hive implements IConfigurable {
         final String buildName = "[Hive] " + TimeKeeper.getInstance().getStartTimeISO();
 
         // Get path and name of CSV Test Data
-        String csvFileName = config.configGetOptionalString("hive.data.csv").orElse("unknown");
-        log.info("loading csv file: '{}'", csvFileName);
+        String csvFileNameList = config.configGetOptionalString("hive.data.csv").orElse("unknown");
 
-        // Load CSV Test Data
-        testList.loadCSV(csvFileName);
+        for (String csvFileName : csvFileNameList.split(",")) {
+            csvFileName = StringUtils.appendIfMissing(csvFileName.trim(), ".csv");
+            log.info("loading csv file: '{}'", csvFileName);
+
+            // Load CSV Test Data
+            testList.loadCSV(csvFileName);
+        }
 
         // Add all tests from CSV Test Data
         for (EifTestData data : testList) {
@@ -153,11 +157,19 @@ public class Hive implements IConfigurable {
             threadsActive.add(nextThread);
 
             //With more than 5 threads, enable a staggering
-            if (QUEUE_SIZE > 5) {
+            if (threadsActive.size() > 5) {
                 //Wait a random amount of time, between 1 to 5 minutes
                 long sleepTime = (long) Math.max(300_000, Math.random() * 240_000 + 60_000);
                 try {
                     Thread.sleep(sleepTime);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    log.info("staggered for {}", sleepTime);
+                }
+            } else {
+                try {
+                    Thread.sleep(10_000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
