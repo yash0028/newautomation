@@ -151,6 +151,17 @@ public class Hive implements IConfigurable {
 
             // add manager to active list
             threadsActive.add(nextThread);
+
+            //With more than 5 threads, enable a staggering
+            if (QUEUE_SIZE > 5) {
+                //Wait a random amount of time, between 1 to 5 minutes
+                long sleepTime = (long) Math.max(300_000, Math.random() * 240_000 + 60_000);
+                try {
+                    Thread.sleep(sleepTime);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         return this;
