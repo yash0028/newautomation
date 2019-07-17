@@ -154,14 +154,14 @@
                     "question": "Which of the following products will be included in Appendix 2?",
                     "action": "CHECKBOX-INDEX",
                     "answers": [
-                        "1"
+                        "none"
                     ]
                 },
                 {
                     "question": "Which of the following products will be excluded in Appendix 2?",
                     "action": "CHECKBOX-INDEX",
                     "answers": [
-                        "1"
+                        "none"
                     ]
                 },
                 {
