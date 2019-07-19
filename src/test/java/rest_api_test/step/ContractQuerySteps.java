@@ -13,21 +13,21 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rest_api_test.api.contractsquery.IContractsQueryInteract;
+import rest_api_test.api.datastructure.gson.contractsquery.QueryResponse;
 import rest_api_test.util.IRestStep;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
 /**
  * Created by aberns on 8/14/2018.
  */
-public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable {
+public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable, IContractsQueryInteract {
     private final static Logger log = LoggerFactory.getLogger(ContractQuerySteps.class);
 
     private static final String ENDPOINT = "http://contracts-query-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
@@ -43,6 +43,8 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
     private Response response;
     private List<Response> responses = new ArrayList<>();
     private int numContracts;
+    private String massActionId;
+    private QueryResponse queryResponse;
 
 
     @Given("^the Domain Service has received a business event from Exari$")
@@ -302,5 +304,22 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
         }
         Assert.assertTrue("Some fields in the contract JSON were blank or null when they shouldn't be", count > numContracts/2);
 
+    }
+
+    @Given("the mass action id {string}")
+    public void theMassActionId(String arg0) {
+        massActionId = arg0;
+    }
+
+    @When("I send the mass action id to the endpoint")
+    public void iSendTheMassActionIdToTheEndpoint() {
+        queryResponse = getExariMassAction(massActionId);
+    }
+
+    @Then("I receive a valid query response")
+    public void iReceiveAValidQueryResponse() {
+        log.info(queryResponse.toString());
+        Assert.assertEquals(queryResponse.getResponseCode(), 0);
+        Assert.assertEquals(queryResponse.getResponseMessage().getSystemUUID(), massActionId);
     }
 }

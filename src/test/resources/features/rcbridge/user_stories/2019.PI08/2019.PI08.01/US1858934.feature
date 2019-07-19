@@ -3,7 +3,7 @@
 @2019.PI08
 @2019.PI08.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1858934 - SPIKE - Create OCM upon initial transaction based on PES Contracts API
 
   @TC853527

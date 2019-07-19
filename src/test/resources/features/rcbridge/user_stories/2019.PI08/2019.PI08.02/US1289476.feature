@@ -4,8 +4,17 @@
 @2019.PI08
 @2019.PI08.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1289476 - View OCM Provider contract record details web page
+
+  @TC616491
+  @Manual
+  @Functional
+  @A_UI_Story
+  Scenario: TC616491 - [RL0]
+    Given a service is available to retrieve provider details from the OCM
+    When the provider record details are returned
+    Then the details are viewable via the CMD web UI
 
   @RC_unlinked
   @TC616492
