@@ -4,7 +4,7 @@
 @2019.PI08.03
 @releasePresent
 @iterationFuture
-Feature: US1898613 - CMD Rules - MAHP GHMO - VIRGINIA Exception Provider MAHP GHMO tollgate 1
+Feature: US1898613 - MAHP GHMO Exception Check - VIRGINIA Exception Provider MAHP GHMO tollgate 1
 
   @RC_unlinked
   @TC877724
