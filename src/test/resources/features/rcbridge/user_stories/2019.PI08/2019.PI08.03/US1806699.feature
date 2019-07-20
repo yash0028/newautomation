@@ -4,8 +4,9 @@
 @2019.PI08.03
 @releasePresent
 @iterationFuture
-Feature: US1806699 - Determine PCP Indicator for each Provider on Roster Based on Market
+Feature: US1806699 - CMD Determine PCP Indicator for each Provider on Roster Based on Market
 
+  @RC_unlinked
   @TC877731
   @Manual
   @Functional
@@ -15,6 +16,7 @@ Feature: US1806699 - Determine PCP Indicator for each Provider on Roster Based o
     And the UHG_US_States-RO does not have a specific table
     Then the standard ProviderRole designation table is used
 
+  @RC_unlinked
   @TC882850
   @Manual
   @Functional

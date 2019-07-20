@@ -14,7 +14,7 @@ Feature: US1807194 - MAHP GHMO - Radiology Area Code and Market
     When Radiology Area Cd is needed for the OCM
     Then the zip code from the CounterpartyAddressFull UCM property is retrieved
     And the zip code used to interrogate the RadiologyAreaCd table and the Zip to Market table
-    And the process continued for all service addresses on the UCM record
+    And the process continued for all service addresses available in the UCM record
 
   @TC828087
   @Manual
@@ -24,7 +24,7 @@ Feature: US1807194 - MAHP GHMO - Radiology Area Code and Market
     When the Radiology Area Cd for the CounterpartyAddressFull has been stored in the OCM
     Then the zip code from each Service Location record from the UHG_CounterpartyAdditionalLocations UCM object are retrieved
     And the zip code used to interrogate the RadiologyAreaCd table and the Zip to Market table
-    And the process continues until all service Location records from the UHG_CounterpartyAdditionalLocations object have completed
+    And the process continues until all service Location records available in the UHG_CounterpartyAdditionalLocations object have completed
 
   @TC828088
   @Manual
@@ -49,7 +49,7 @@ Feature: US1807194 - MAHP GHMO - Radiology Area Code and Market
     Given RadiologyAreaCd exist in the OCM
     When the OCM record includes two or more distinct radiologyareacd _marketnumber records
     Then conditions have NOT been met for Standard CMD Processing
-    And the contract record flagged as "Enhanced CMD Process"
+    And the contract record flagged as "MAHP GHMO Exception' applies
 
   @TC879599
   @Manual
