@@ -4,37 +4,38 @@
 @2019.PI09
 @releaseFuture
 @iterationUnknown
-Feature: US1211464 - Contract Master search based on Service Location Market Number
+Feature: US1211464 - Contract Master search based on Service Address Market Number
 
   @TC701684
   @Manual
   @Functional
   @CMD2
   Scenario: TC701684 - [RL0]
-    Given a valid contract record exists in Exari
-    When all service locations and billing addresses applicable to the contract have been identified
-    And the address details made available in the Location Appendix contract record
-    And the zip code of each service location address is available
-    Then the zip code(s) will be used to determine service location market number
+    Given a valid contract exists
+    When the contract OCM is created
+    Then the zip code from the CounterpartyAddressFull UCM property is retrieved
+    And the zip code used to interrogate the Zip to Market table
+    And the Market Number stored as part of the OCM
 
   @TC701702
   @Manual
   @Functional
   @CMD2
   Scenario: TC701702 - [RL1]
-    Given service location market numbers have been identified
-    When all market numbers are the same as the contract market number
-    Then the contract market number assigned is used for contract configuration processes
+    Given a valid contract transaction event exists
+    When the Market Number for the CounterpartyAddressFull has been stored in the OCM
+    Then the zip code from each Service Location record from the UHG_CounterpartyAdditionalLocations UCM object are retrieved
+    And the zip code used to interrogate the Zip to Market table
+    And the process continues until all service Location records available in the UHG_CounterpartyAdditionalLocations object have completed
 
   @TC701715
   @Manual
   @Functional
   @CMD2
   Scenario: TC701715 - [RL2]
-    Given service location market numbers have been identified
-    When all market numbers ARE NOT the same as the contract market numbers
-    Then the contract market number assigned can not be used for contract configuration processes
-    And the service address for each roster provider record is used for contract configuration processes
+    Given service address market numbers have been gathered
+    When slotting against the CMD Product Group Description table
+    Then the service address market numbers are used
 
   @TC701721
   @Manual
