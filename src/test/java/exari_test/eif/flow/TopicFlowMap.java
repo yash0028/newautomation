@@ -70,8 +70,8 @@ public class TopicFlowMap extends HashMap<String, TopicFlow> {
     }
 
     /*
-        UTILITY CLASS
-         */
+    UTILITY CLASS
+     */
     public static class Deserializer implements JsonDeserializer<TopicFlowMap> {
         @Override
         public TopicFlowMap deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext ctx) throws JsonParseException {

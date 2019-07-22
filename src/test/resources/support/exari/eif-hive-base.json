@@ -331,7 +331,15 @@
         },
         {
             "topic": "Amendments",
-            "questions": []
+            "questions": [
+                {
+                    "question": "Do you need to author an amendment to add VACCN at the same time that you are authoring the base agreement?",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "2"
+                    ]
+                }
+            ]
         },
         {
             "topic": "UHC Products Services",
