@@ -4,22 +4,45 @@ import cucumber.api.java.en.Then;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.contractsquery.IContractsQueryInteract;
-import rest_api_test.api.datastructure.gson.contractsquery.QueryResponse;
+import ui_test.page.cmd.login.LoginSSOPage;
+import ui_test.page.cmd.sum.SumDashboardPage;
+import ui_test.page.cmd.transaction.CompletedTransactionPage;
+import ui_test.page.cmd.transaction.dialog.Dialog;
+import ui_test.util.IUiStep;
 import util.map.IMapSub;
 
-public class PlaygroundSteps implements IMapSub, IContractsQueryInteract {
+public class PlaygroundSteps implements IMapSub, IContractsQueryInteract, IUiStep {
     private static final Logger log = LoggerFactory.getLogger(PlaygroundSteps.class);
 
 
     @Then("^I do something$")
     public void playground() throws Throwable {
-        String id = "3645f720-435a-4941-8b66-15c808b93805";
+        String url = "https://contract-management-test.optum.com";
+
+        LoginSSOPage login = new LoginSSOPage(getDriver());
+
+        getDriver().get(url);
+
+        login.login();
+
+        SumDashboardPage dashboardPage = new SumDashboardPage(getDriver());
+        dashboardPage.pause(5);
+
+        log.info("Completed: {}", dashboardPage.getCompletedCount());
+
+        log.info("In-Progress: {}", dashboardPage.getInProgressCount());
+
+        log.info("Action Required: {}", dashboardPage.getActionRequiredCount());
+
+        log.info("Errors: {}", dashboardPage.getErrorsCount());
 
 
-        QueryResponse response = getExariMassAction(id);
+        CompletedTransactionPage page = dashboardPage.openCompletedTransactions();
 
-        log.info("{} -> {}", id, response);
+        log.info("{}", page.getRows());
 
+        Dialog dialog = page.getRow(0).openDialog().getMessage(0);
 
+        log.info("{}", dialog);
     }
 }

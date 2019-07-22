@@ -14,5 +14,6 @@ Feature: Playground
       | central uhn | firefox     |
 
   @PG
+  @User_Interface
   Scenario: Playground
     Then I do something
