@@ -37,6 +37,7 @@ Feature: US1211464 - Contract Master search based on Service Address Market Numb
     When slotting against the CMD Product Group Description table
     Then the service address market numbers are used
 
+  @RC_unlinked
   @TC701721
   @Manual
   @Functional
