@@ -1,17 +1,17 @@
 # Last updated on 
 @CMD_UI
-@US1809731
+@US1934925
 @2019.PI08
 @2019.PI08.02
 @releasePresent
 @iterationPresent
-Feature: US1809731 - CMD UI Navigation path improvement
+Feature: US1934925 - [Unfinished] CMD UI Navigation path improvement
 
-  @TC829008
+  @TC909482
   @Manual
   @Functional
   @CMD_UI
-  Scenario: TC829008 - [RL0]
+  Scenario: TC909482 - [RL0]
     Given a user enters a valid contract id in the search bar
     When the search results include status of Manual Input
     And the Manual Input error type is Contract Master Override (Type 1)
@@ -22,11 +22,11 @@ Feature: US1809731 - CMD UI Navigation path improvement
     And a refreshed search for that contract id is performed
     And the updated search results are visible to the user
 
-  @TC829010
+  @TC909484
   @Manual
   @Functional
   @CMD_UI
-  Scenario: TC829010 - [RL1]
+  Scenario: TC909484 - [RL1]
     Given a user enters a valid contract id in the search bar
     When the search results include status of Manual Input
     And the Manual Input error type is Downstream Error Resolution (Type 2)
@@ -37,11 +37,11 @@ Feature: US1809731 - CMD UI Navigation path improvement
     And a refreshed search for that contract id is performed
     And the updated search results are visible to the user
 
-  @TC831735
+  @TC909485
   @Manual
   @Functional
   @CMD_UI
-  Scenario: TC831735 - [RL2]
+  Scenario: TC909485 - [RL2]
     Given a user enters a valid contract id in the search bar
     When the search results include status of Manual Input
     And the Manual Input error type is PCP reassignment (Type 1)
@@ -52,11 +52,11 @@ Feature: US1809731 - CMD UI Navigation path improvement
     And a refreshed search for that contract id is performed
     And the updated search results are visible to the user
 
-  @TC882852
+  @TC909486
   @Manual
   @Functional
   @CMD_UI
-  Scenario: TC882852 - [RL3]
+  Scenario: TC909486 - [RL3]
     Given a user enters a valid contract id in the search bar
     When the search results include status of Error
     And the user selects the Failed button via the UI

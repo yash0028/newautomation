@@ -4,7 +4,7 @@
 @2019.PI08.03
 @releasePresent
 @iterationFuture
-Feature: US1911921 - Contract Master
+Feature: US1911921 - Modify Contract Master selection
 
   @TC902690
   @Manual
