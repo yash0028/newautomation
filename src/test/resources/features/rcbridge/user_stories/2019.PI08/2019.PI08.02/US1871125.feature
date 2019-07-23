@@ -9,7 +9,7 @@ Feature: US1871125 - Classify messages based on informational vs action (UI user
   @TC874543
   @Manual
   @Functional
-  Scenario: TC874543 - [RL0]
+  Scenario: TC874543 - [RL0] Validate information and error messages
     Given messages exist for an OCM contract record
     And a message catalog exists in OCM
     When the user views the messages for a contract via CMD UI
@@ -19,7 +19,7 @@ Feature: US1871125 - Classify messages based on informational vs action (UI user
   @TC874545
   @Manual
   @Functional
-  Scenario: TC874545 - [RL1]
+  Scenario: TC874545 - [RL1] Validate error message selection
     Given messages exist for an OCM contract record
     And a message catalog exists in OCM
     When the user views the messages for a contract via CMD UI

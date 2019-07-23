@@ -2,8 +2,9 @@
 @#MVP
 @US1924232
 @2019.PI08
+@2019.PI08.04
 @releasePresent
-@iterationUnknown
+@iterationFuture
 Feature: US1924232 - MAHP GHMO - Determine Contract_NetworkRoleType
 
   @TC902693

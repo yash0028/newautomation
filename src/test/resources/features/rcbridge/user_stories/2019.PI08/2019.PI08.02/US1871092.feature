@@ -4,7 +4,7 @@
 @2019.PI08.02
 @releasePresent
 @iterationPresent
-Feature: US1871092 - Create template for error and informational messages
+Feature: US1871092 - [Spike] Create template for error and informational messages
 
   @TC868377
   @Manual
