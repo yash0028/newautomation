@@ -2,9 +2,9 @@
 @A_UI_Story
 @US1289476
 @2019.PI08
-@2019.PI08.02
+@2019.PI08.03
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1289476 - View OCM Provider contract record details web page
 
   @TC616491
