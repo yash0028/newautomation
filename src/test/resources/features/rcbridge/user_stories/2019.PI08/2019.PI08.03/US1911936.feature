@@ -3,7 +3,7 @@
 @2019.PI08
 @2019.PI08.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1911936 - Modify Role Type selection
 
   @TC902698

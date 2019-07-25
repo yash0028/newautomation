@@ -5,7 +5,7 @@
 @2019.PI08
 @2019.PI08.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1918558 - ANB productGroup Exclusion - Contact-based conditions that supersede CMD PRODUCT DESCRIPTION GROUP table
 
   @TC902697

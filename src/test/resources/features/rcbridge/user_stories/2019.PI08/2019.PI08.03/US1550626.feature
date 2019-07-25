@@ -6,7 +6,7 @@
 @2019.PI08
 @2019.PI08.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1550626 - Integrate search capability on Termination Process
 
   @TC868373

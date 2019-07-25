@@ -3,7 +3,7 @@
 @2019.PI08
 @2019.PI08.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1901774 - MAHP GHMO - Radiology Area Code lookup service
 
   @TC879596

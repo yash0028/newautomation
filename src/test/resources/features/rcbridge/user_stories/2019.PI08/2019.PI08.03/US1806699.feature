@@ -3,7 +3,7 @@
 @2019.PI08
 @2019.PI08.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1806699 - CMD Determine PCP Indicator for each Provider on Roster Based on Market
 
   @TC909546

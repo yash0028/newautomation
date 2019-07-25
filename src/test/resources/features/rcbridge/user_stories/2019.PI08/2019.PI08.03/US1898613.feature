@@ -3,7 +3,7 @@
 @2019.PI08
 @2019.PI08.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1898613 - MAHP GHMO Exception Check - VIRGINIA Exception Provider MAHP GHMO tollgate 1
 
   @RC_unlinked

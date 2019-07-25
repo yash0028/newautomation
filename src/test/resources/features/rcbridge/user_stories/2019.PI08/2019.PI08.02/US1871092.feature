@@ -3,7 +3,7 @@
 @2019.PI08
 @2019.PI08.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1871092 - [Spike] Create template for error and informational messages
 
   @TC868377

@@ -1,7 +1,7 @@
 # Last updated on 
 @US1911271
 @2019.PI08
-@2019.PI08.02
+@2019.PI08.03
 @releasePresent
 @iterationPresent
 Feature: US1911271 - Platform Cosmos - Create OCM upon first transaction in Exari for migrated contracts (Demo Only - TermContract)
