@@ -1,14 +1,12 @@
-package ui_test.page.cmd.transaction;
+package ui_test.page.cmd.transaction.info;
 
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.util.AbstractPageElements;
-import ui_test.util.IFactoryPage;
-import ui_test.util.IWebInteract;
 
-public class InProgressTransactionPage extends SumTransactionTable.A implements IFactoryPage, IWebInteract {
+public class InProgressTransactionPage extends InfoTransactionAbstract {
     private static final Logger log = LoggerFactory.getLogger(InProgressTransactionPage.class);
 
     private PageElements elements;
@@ -31,10 +29,6 @@ public class InProgressTransactionPage extends SumTransactionTable.A implements 
         return true;
     }
 
-    @Override
-    public WebDriver getDriver() {
-        return driver;
-    }
     
     /*
     PAGE ACTION METHODS

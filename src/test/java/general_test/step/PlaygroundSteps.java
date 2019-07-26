@@ -6,8 +6,7 @@ import org.slf4j.LoggerFactory;
 import rest_api_test.api.contractsquery.IContractsQueryInteract;
 import ui_test.page.cmd.login.LoginSSOPage;
 import ui_test.page.cmd.sum.SumDashboardPage;
-import ui_test.page.cmd.transaction.CompletedTransactionPage;
-import ui_test.page.cmd.transaction.dialog.Dialog;
+import ui_test.page.cmd.transaction.action.ContractMasterOverrideTab;
 import ui_test.util.IUiStep;
 import util.map.IMapSub;
 
@@ -36,13 +35,14 @@ public class PlaygroundSteps implements IMapSub, IContractsQueryInteract, IUiSte
 
         log.info("Errors: {}", dashboardPage.getErrorsCount());
 
+        ContractMasterOverrideTab tab = dashboardPage.openActionRequiredTransactions();
+        tab.pause(5);
+        tab.confirmCurrentPage();
 
-        CompletedTransactionPage page = dashboardPage.openCompletedTransactions();
+//        log.info("{}", tab.getRow(0).getMarket());
+//        tab.getRow(0).expandDetails();
+//        tab.getRow(0).getRow(0).expandDetails();
+//        log.info("{}",tab.getRow(0).getRow(0).getFeeSchedule());
 
-        log.info("{}", page.getRows());
-
-        Dialog dialog = page.getRow(0).openDialog().getMessage(0);
-
-        log.info("{}", dialog);
     }
 }

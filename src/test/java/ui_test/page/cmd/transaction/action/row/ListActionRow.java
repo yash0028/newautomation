@@ -1,4 +1,4 @@
-package ui_test.page.cmd.transaction.row;
+package ui_test.page.cmd.transaction.action.row;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,9 +15,12 @@ public class ListActionRow extends ArrayList<ActionRow> {
     CONSTRUCTOR
     */
 
+    public ListActionRow() {
+    }
+
     public ListActionRow(WebDriver driver, List<WebElement> rowElements) {
-        for (WebElement row : rowElements) {
-            this.add(new ActionRow(driver, row));
+        for (int i = 0; i < rowElements.size(); i += 2) {
+            this.add(new ActionRow(driver, rowElements.get(i), rowElements.get(i + 1)));
         }
     }
     

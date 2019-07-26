@@ -1,4 +1,4 @@
-package ui_test.page.cmd.transaction.row;
+package ui_test.page.cmd.transaction.info.row;
 
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui_test.page.cmd.transaction.dialog.DialogContainer;
+import ui_test.page.cmd.transaction.info.dialog.DialogContainer;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;

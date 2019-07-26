@@ -1,4 +1,4 @@
-package ui_test.page.cmd.transaction.dialog.row;
+package ui_test.page.cmd.transaction.info.dialog.row;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

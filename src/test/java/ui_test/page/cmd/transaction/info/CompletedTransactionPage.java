@@ -1,25 +1,26 @@
-package ui_test.page.cmd.transaction;
+package ui_test.page.cmd.transaction.info;
 
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.util.AbstractPageElements;
-import ui_test.util.IFactoryPage;
-import ui_test.util.IWebInteract;
 
-public class ErrorsTransactionPage extends SumTransactionTable.A implements IFactoryPage, IWebInteract {
-    private static final Logger log = LoggerFactory.getLogger(ErrorsTransactionPage.class);
+public class CompletedTransactionPage extends InfoTransactionAbstract {
+    private static final Logger log = LoggerFactory.getLogger(CompletedTransactionPage.class);
 
     private PageElements elements;
+
+
 
     /*
     CONSTRUCTOR
     */
 
-    public ErrorsTransactionPage(WebDriver driver) {
+    public CompletedTransactionPage(WebDriver driver) {
         super(driver);
         this.elements = new PageElements(driver);
+
     }
     
     /*
@@ -28,21 +29,20 @@ public class ErrorsTransactionPage extends SumTransactionTable.A implements IFac
 
     @Override
     public boolean confirmCurrentPage() {
-        return true && super.confirmCurrentPage();
-    }
-
-    @Override
-    public WebDriver getDriver() {
-        return driver;
+        return true;
     }
     
     /*
     PAGE ACTION METHODS
      */
+
+
     
     /*
     CLASS METHODS
     */
+
+
     
     /*
     PAGE METHODS

@@ -1,4 +1,4 @@
-package ui_test.page.cmd.transaction.dialog;
+package ui_test.page.cmd.transaction.info.dialog;
 
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui_test.page.cmd.transaction.dialog.row.ListDialogMessage;
+import ui_test.page.cmd.transaction.info.dialog.row.ListDialogMessage;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
@@ -49,6 +49,12 @@ public class DialogContainer implements IFactoryPage, IWebInteract {
     /*
     PAGE ACTION METHODS
      */
+
+    public boolean filterMessage(int index) {
+        click("message type dropdown", dialogElements.dropdown_messageType);
+
+        return click("message type option " + index, dialogElements.option_messageType.get(index));
+    }
     
     /*
     CLASS METHODS
@@ -96,6 +102,12 @@ public class DialogContainer implements IFactoryPage, IWebInteract {
 
         @FindBy(xpath = ".//tbody/tr")
         public List<WebElement> row_messagesBody;
+
+        @FindBy(xpath = ".//div/mat-select")
+        public WebElement dropdown_messageType;
+
+        @FindBy(xpath = "//div/mat-option/span")
+        public List<WebElement> option_messageType;
 
         @FindBy(xpath = ".//pre")
         public WebElement label_ocm;

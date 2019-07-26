@@ -8,7 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.cmd.navigation.CMDNavigationPanel;
 import ui_test.page.cmd.navigation.ICMDNavigation;
-import ui_test.page.cmd.transaction.CompletedTransactionPage;
+import ui_test.page.cmd.transaction.action.ContractMasterOverrideTab;
+import ui_test.page.cmd.transaction.info.CompletedTransactionPage;
+import ui_test.page.cmd.transaction.info.ErrorsTransactionPage;
+import ui_test.page.cmd.transaction.info.InProgressTransactionPage;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
@@ -62,6 +65,27 @@ public class SumDashboardPage implements IFactoryPage, IWebInteract, ICMDNavigat
         pause(5);
 
         return new CompletedTransactionPage(driver);
+    }
+
+    public InProgressTransactionPage openInProgressTransactions() {
+        click("in progress card", elements.cardInProgress);
+        pause(5);
+
+        return new InProgressTransactionPage(driver);
+    }
+
+    public ContractMasterOverrideTab openActionRequiredTransactions() {
+        click("action required card", elements.cardActionRequired);
+        pause(5);
+
+        return new ContractMasterOverrideTab(driver);
+    }
+
+    public ErrorsTransactionPage openErrorsTransactions() {
+        click("errors card", elements.cardErrors);
+        pause(5);
+
+        return new ErrorsTransactionPage(driver);
     }
 
     public boolean runSearch(String searchString) {

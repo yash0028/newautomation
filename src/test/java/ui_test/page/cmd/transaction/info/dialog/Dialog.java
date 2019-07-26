@@ -1,4 +1,4 @@
-package ui_test.page.cmd.transaction.dialog;
+package ui_test.page.cmd.transaction.info.dialog;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
