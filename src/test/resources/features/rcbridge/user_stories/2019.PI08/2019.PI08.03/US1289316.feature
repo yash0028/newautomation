@@ -6,7 +6,7 @@
 @2019.PI08.03
 @releasePresent
 @iterationPresent
-Feature: US1289316 - View OCM Contract Config details via CMD UI
+Feature: US1289316 - View OCM Contract Config and Provider contract record details via CMD UI
 
   @TC616509
   @Manual
@@ -25,6 +25,16 @@ Feature: US1289316 - View OCM Contract Config details via CMD UI
   @CMD2
   @A_UI_Story
   Scenario: TC616510 - [RL1]
+    Given a service is available to retrieve provider details from the OCM
+    When the provider record details are returned
+    Then the details are viewable via the CMD web UI
+
+  @TC743423
+  @Manual
+  @Functional
+  @CMD2
+  @A_UI_Story
+  Scenario: TC743423 - [RL2]
     Given an contract configuration OCM record does not exist
     When details are requested from the OCM
     Then a service is not made available

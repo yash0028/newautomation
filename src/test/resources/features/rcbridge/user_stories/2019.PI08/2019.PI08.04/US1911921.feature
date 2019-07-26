@@ -1,9 +1,9 @@
 # Last updated on 
 @US1911921
 @2019.PI08
-@2019.PI08.03
+@2019.PI08.04
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1911921 - Modify Contract Master selection
 
   @TC902690

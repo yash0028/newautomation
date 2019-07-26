@@ -1,9 +1,8 @@
 # Last updated on 
 @US1867620
 @2019.PI08
-@2019.PI08.04
 @releasePresent
-@iterationFuture
+@iterationUnknown
 Feature: US1867620 - Retrofit the retro process with the business calendar stencil
 
   @TC902688

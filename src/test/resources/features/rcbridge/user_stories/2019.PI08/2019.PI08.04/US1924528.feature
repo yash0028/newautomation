@@ -1,9 +1,9 @@
 # Last updated on 
 @US1924528
 @2019.PI08
-@2019.PI08.03
+@2019.PI08.04
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1924528 - Addition of "Edit" button on OCM Display - contract level
 
   @TC902689
