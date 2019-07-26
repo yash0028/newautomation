@@ -16,9 +16,10 @@ public class ActionRow implements IFactoryPage, IWebInteract {
     private static final Logger log = LoggerFactory.getLogger(ActionRow.class);
 
     private final WebDriver driver;
-    private RowElements rowElements;
-    private DetailElements detailElements;
-    private ListProductRow rows;
+    private final RowElements rowElements;
+    private final DetailElements detailElements;
+    //    private ListProductRow rows;
+    private final MapProductRow rows;
 
     /*
     CONSTRUCTOR
@@ -28,7 +29,8 @@ public class ActionRow implements IFactoryPage, IWebInteract {
         this.driver = driver;
         this.rowElements = new RowElements(elementRow);
         this.detailElements = new DetailElements(detailRow);
-//        this.rows = new ListProductRow(driver, detailElements.row_all);
+//        this.rows = new ListProductRow(driver, detailElements.row_productGroup, detailElements.row_detail);
+        this.rows = new MapProductRow();
         log.trace("action row created");
     }
     
@@ -38,7 +40,7 @@ public class ActionRow implements IFactoryPage, IWebInteract {
 
     @Override
     public boolean confirmCurrentPage() {
-        log.info("action size {}", this.detailElements.row_all.size());
+//        log.info("action size {}", this.detailElements.row_all.size());
         return true;
     }
 
@@ -51,9 +53,8 @@ public class ActionRow implements IFactoryPage, IWebInteract {
     PAGE ACTION METHODS
      */
 
-    public ActionRow expandDetails() {
-        click("exapnd", rowElements.button_expand);
-        return this;
+    public boolean expandDetails() {
+        return click("expand", rowElements.button_expand);
     }
     
     /*
@@ -85,7 +86,7 @@ public class ActionRow implements IFactoryPage, IWebInteract {
     }
 
     public ProductRow getRow(int index) {
-        return this.rows.get(index);
+        return loadRow(index);
     }
 
     @Override
@@ -100,6 +101,28 @@ public class ActionRow implements IFactoryPage, IWebInteract {
     /*
     HELPER METHODS
     */
+
+    private ProductRow loadRow(int index) {
+
+        if (index >= detailElements.row_productGroup.size()) {
+            return null;
+        }
+
+        if (rows.containsKey(index)) {
+            ProductRow r = rows.get(index);
+            r.expandDetails();
+            return r;
+        }
+
+        ProductRow r = new ProductRow(driver);
+        r.initRowElements(detailElements.row_productGroup.get(index));
+        r.expandDetails();
+        r.initDetailElements(detailElements.row_detail.get(index));
+
+        rows.put(index, r);
+
+        return r;
+    }
     
     /*
     ELEMENT CLASS
@@ -136,8 +159,12 @@ public class ActionRow implements IFactoryPage, IWebInteract {
 
     private class DetailElements extends AbstractPageElements {
 
-        @FindBy(xpath = ".//tbody/tr")
-        public List<WebElement> row_all;
+
+        @FindBy(xpath = ".//tr/td[contains(@class,'ProductGroup')]")
+        public List<WebElement> row_productGroup;
+
+        @FindBy(xpath = ".//td[contains(@class,'levelThree')]//tbody/tr")
+        public List<WebElement> row_detail;
 
 
         DetailElements(SearchContext context) {

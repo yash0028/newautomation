@@ -29,7 +29,7 @@ public class ContractMasterOverrideTab extends ActionRequiredAbstract implements
         super(driver);
         this.driver = driver;
         this.elements = new PageElements(driver);
-        this.rows = new ListActionRow(driver, this.elements.row_all);
+        this.rows = new ListActionRow(driver, this.elements.row_element, this.elements.row_detail);
         log.trace("contract master override page created");
     }
     
@@ -39,9 +39,6 @@ public class ContractMasterOverrideTab extends ActionRequiredAbstract implements
 
     @Override
     public boolean confirmCurrentPage() {
-        log.info("size {}", this.elements.row_all.size());
-        highlight(this.elements.row_all.get(0));
-        log.info("market 0: {}", getRow(0).getMarket());
         return true;
     }
 
@@ -79,13 +76,10 @@ public class ContractMasterOverrideTab extends ActionRequiredAbstract implements
      */
     private class PageElements extends AbstractPageElements {
 
-        @FindBy(xpath = "//tbody/tr")
-        public List<WebElement> row_all;
-
         @FindBy(xpath = "//tbody/tr[contains(@class,'example-element-row')]")
         public List<WebElement> row_element;
 
-        @FindBy(xpath = "//tbody/tr[contains(@class,'example-detail-row')]")
+        @FindBy(xpath = "//tbody/tr[contains(@class,'example-detail-row')]/td[contains(@class,'levelTwo')]")
         public List<WebElement> row_detail;
 
         PageElements(SearchContext context) {

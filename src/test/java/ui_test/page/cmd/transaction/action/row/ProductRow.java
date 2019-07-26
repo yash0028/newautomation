@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ui_test.page.cmd.transaction.action.modal.ContractMasterOverrideModal;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
@@ -21,10 +22,10 @@ public class ProductRow implements IFactoryPage, IWebInteract {
     CONSTRUCTOR
     */
 
-    public ProductRow(WebDriver driver, WebElement elementRow, WebElement detailRow) {
+    ProductRow(WebDriver driver) {
         this.driver = driver;
-        this.rowElements = new RowElements(elementRow);
-        this.detailElements = new DetailElements(detailRow);
+//        this.rowElements = new RowElements(elementRow);
+//        this.detailElements = new DetailElements(detailRow);
         log.trace("product row created");
     }
     
@@ -47,9 +48,9 @@ public class ProductRow implements IFactoryPage, IWebInteract {
     PAGE ACTION METHODS
      */
 
-    public ProductRow expandDetails() {
-        click("exapnd", rowElements.button_expand);
-        return this;
+    public ContractMasterOverrideModal openEdit() {
+        click("edit button", detailElements.button_edit);
+        return new ContractMasterOverrideModal(driver);
     }
     
     /*
@@ -79,6 +80,18 @@ public class ProductRow implements IFactoryPage, IWebInteract {
     /*
     HELPER METHODS
     */
+
+    boolean expandDetails() {
+        return click("expand", rowElements.button_expand);
+    }
+
+    void initRowElements(WebElement elementRow) {
+        this.rowElements = new RowElements(elementRow);
+    }
+
+    void initDetailElements(WebElement detailRow) {
+        this.detailElements = new DetailElements(detailRow);
+    }
     
     /*
     ELEMENT CLASS
@@ -97,10 +110,10 @@ public class ProductRow implements IFactoryPage, IWebInteract {
 
     private class DetailElements extends AbstractPageElements {
 
-        @FindBy(xpath = "//span[contains(text(),'NDB Fee Schedule')]")
+        @FindBy(xpath = ".//span[contains(text(),'NDB Fee Schedule')]")
         public WebElement label_feeSchedule;
 
-        @FindBy(xpath = "//span[contains(text(),'NDB Product Group')]")
+        @FindBy(xpath = ".//span[contains(text(),'NDB Product Group')]")
         public WebElement label_productGroup;
 
         @FindBy(xpath = ".//td[contains(@class,'Type')]")

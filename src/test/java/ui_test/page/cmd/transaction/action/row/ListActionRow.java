@@ -23,6 +23,12 @@ public class ListActionRow extends ArrayList<ActionRow> {
             this.add(new ActionRow(driver, rowElements.get(i), rowElements.get(i + 1)));
         }
     }
+
+    public ListActionRow(WebDriver driver, List<WebElement> elementRows, List<WebElement> detailRows) {
+        for (int i = 0; i < elementRows.size(); i++) {
+            this.add(new ActionRow(driver, elementRows.get(i), detailRows.get(i)));
+        }
+    }
     
     /*
     STATIC METHODS

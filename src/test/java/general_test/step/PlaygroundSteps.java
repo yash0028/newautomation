@@ -7,6 +7,8 @@ import rest_api_test.api.contractsquery.IContractsQueryInteract;
 import ui_test.page.cmd.login.LoginSSOPage;
 import ui_test.page.cmd.sum.SumDashboardPage;
 import ui_test.page.cmd.transaction.action.ContractMasterOverrideTab;
+import ui_test.page.cmd.transaction.action.row.ActionRow;
+import ui_test.page.cmd.transaction.action.row.ProductRow;
 import ui_test.util.IUiStep;
 import util.map.IMapSub;
 
@@ -38,6 +40,24 @@ public class PlaygroundSteps implements IMapSub, IContractsQueryInteract, IUiSte
         ContractMasterOverrideTab tab = dashboardPage.openActionRequiredTransactions();
         tab.pause(5);
         tab.confirmCurrentPage();
+
+        ActionRow aRow = tab.getRow(0);
+        aRow.confirmCurrentPage();
+
+        aRow.expandDetails();
+        log.info("request type {}", aRow.getRequestType());
+
+        ProductRow pRow = aRow.getRow(0);
+        pRow.confirmCurrentPage();
+
+        log.info("fee {}", pRow.getFeeSchedule());
+
+        pRow.openEdit();
+
+
+
+
+
 
 //        log.info("{}", tab.getRow(0).getMarket());
 //        tab.getRow(0).expandDetails();
