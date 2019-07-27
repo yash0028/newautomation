@@ -11,5 +11,5 @@ Feature: US1930492 - Multiple agreements on physician requiring retro
   Scenario: TC905910 - [RL0]
     Given a physician negotiation exists with more than one agreement
     When retro is required
-    Then a separate retro process is started for each agreement
+    Then one retro process is started
 

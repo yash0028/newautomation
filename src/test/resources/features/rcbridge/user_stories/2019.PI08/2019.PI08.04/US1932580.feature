@@ -1,9 +1,9 @@
 # Last updated on 
 @US1932580
 @2019.PI08
-@2019.PI08.03
+@2019.PI08.04
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1932580 - Limit edit access by Secure user group
 
   @TC905912
