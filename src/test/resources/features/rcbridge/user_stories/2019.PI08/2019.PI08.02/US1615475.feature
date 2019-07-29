@@ -5,7 +5,7 @@
 @2019.PI08
 @2019.PI08.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1615475 - Integrate search capability on Retro Process
 
   @TC755353

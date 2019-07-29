@@ -3,7 +3,7 @@
 @2019.PI08
 @2019.PI08.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1323258 - Retrieve OCM Contract Configuration record details (service)
 
   @TC579703
