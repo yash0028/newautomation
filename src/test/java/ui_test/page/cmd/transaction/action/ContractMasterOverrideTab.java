@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui_test.page.cmd.transaction.action.row.ActionRow;
-import ui_test.page.cmd.transaction.action.row.ListActionRow;
+import ui_test.page.cmd.transaction.action.row.CMOActionRow;
+import ui_test.page.cmd.transaction.action.row.ListCMOActionRow;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
@@ -19,7 +19,7 @@ public class ContractMasterOverrideTab extends ActionRequiredAbstract implements
 
     private final WebDriver driver;
     private PageElements elements;
-    private ListActionRow rows;
+    private ListCMOActionRow rows;
 
     /*
     CONSTRUCTOR
@@ -29,7 +29,7 @@ public class ContractMasterOverrideTab extends ActionRequiredAbstract implements
         super(driver);
         this.driver = driver;
         this.elements = new PageElements(driver);
-        this.rows = new ListActionRow(driver, this.elements.row_element, this.elements.row_detail);
+        this.rows = new ListCMOActionRow(driver, this.elements.row_element, this.elements.row_detail);
         log.trace("contract master override page created");
     }
     
@@ -55,7 +55,7 @@ public class ContractMasterOverrideTab extends ActionRequiredAbstract implements
     CLASS METHODS
     */
 
-    public ActionRow getRow(int index) {
+    public CMOActionRow getRow(int index) {
         return rows.get(index);
     }
     

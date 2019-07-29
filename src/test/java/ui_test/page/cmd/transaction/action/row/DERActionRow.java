@@ -12,25 +12,23 @@ import ui_test.util.IWebInteract;
 
 import java.util.List;
 
-public class ActionRow implements IFactoryPage, IWebInteract {
-    private static final Logger log = LoggerFactory.getLogger(ActionRow.class);
+public class DERActionRow implements IFactoryPage, IWebInteract {
+    private static final Logger log = LoggerFactory.getLogger(DERActionRow.class);
 
     private final WebDriver driver;
     private final RowElements rowElements;
     private final DetailElements detailElements;
-    //    private ListProductRow rows;
-    private final MapProductRow rows;
+    private final MapProviderRow rows;
 
     /*
     CONSTRUCTOR
     */
 
-    public ActionRow(WebDriver driver, WebElement elementRow, WebElement detailRow) {
+    public DERActionRow(WebDriver driver, WebElement elementRow, WebElement detailRow) {
         this.driver = driver;
         this.rowElements = new RowElements(elementRow);
         this.detailElements = new DetailElements(detailRow);
-//        this.rows = new ListProductRow(driver, detailElements.row_productGroup, detailElements.row_detail);
-        this.rows = new MapProductRow();
+        this.rows = new MapProviderRow();
         log.trace("action row created");
     }
     
@@ -85,7 +83,7 @@ public class ActionRow implements IFactoryPage, IWebInteract {
         return rowElements.label_date.getText().trim();
     }
 
-    public ProductRow getRow(int index) {
+    public ProviderRow getRow(int index) {
         return loadRow(index);
     }
 
@@ -102,19 +100,19 @@ public class ActionRow implements IFactoryPage, IWebInteract {
     HELPER METHODS
     */
 
-    private ProductRow loadRow(int index) {
+    private ProviderRow loadRow(int index) {
 
         if (index >= detailElements.row_productGroup.size()) {
             return null;
         }
 
         if (rows.containsKey(index)) {
-            ProductRow r = rows.get(index);
+            ProviderRow r = rows.get(index);
             r.expandDetails();
             return r;
         }
 
-        ProductRow r = new ProductRow(driver);
+        ProviderRow r = new ProviderRow(driver);
         r.initRowElements(detailElements.row_productGroup.get(index));
         r.expandDetails();
         r.initDetailElements(detailElements.row_detail.get(index));

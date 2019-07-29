@@ -6,15 +6,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ui_test.page.cmd.transaction.action.row.DERActionRow;
+import ui_test.page.cmd.transaction.action.row.ListDERActionRow;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
+
+import java.util.List;
 
 public class DownstreamErrorTab extends ActionRequiredAbstract implements IFactoryPage, IWebInteract {
     private static final Logger log = LoggerFactory.getLogger(DownstreamErrorTab.class);
 
     private final WebDriver driver;
     private PageElements elements;
+    private ListDERActionRow rows;
 
     /*
     CONSTRUCTOR
@@ -24,6 +29,7 @@ public class DownstreamErrorTab extends ActionRequiredAbstract implements IFacto
         super(driver);
         this.driver = driver;
         this.elements = new PageElements(driver);
+        this.rows = new ListDERActionRow(driver, this.elements.row_element, this.elements.row_detail);
     }
     
     /*
@@ -32,7 +38,7 @@ public class DownstreamErrorTab extends ActionRequiredAbstract implements IFacto
 
     @Override
     public boolean confirmCurrentPage() {
-        return isVisible(elements.elementA);
+        return true;
     }
 
     @Override
@@ -43,6 +49,10 @@ public class DownstreamErrorTab extends ActionRequiredAbstract implements IFacto
     /*
     PAGE ACTION METHODS
      */
+
+    public DERActionRow getRow(int index) {
+        return this.rows.get(index);
+    }
     
     /*
     CLASS METHODS
@@ -65,8 +75,11 @@ public class DownstreamErrorTab extends ActionRequiredAbstract implements IFacto
      */
     private class PageElements extends AbstractPageElements {
 
-        @FindBy(xpath = "//input[@name='changeMe']")
-        public WebElement elementA;
+        @FindBy(xpath = "//tbody/tr[contains(@class,'example-element-row')]")
+        public List<WebElement> row_element;
+
+        @FindBy(xpath = "//tbody/tr[contains(@class,'example-detail-row')]/td[contains(@class,'levelTwo')]")
+        public List<WebElement> row_detail;
 
         PageElements(SearchContext context) {
             super(context);
