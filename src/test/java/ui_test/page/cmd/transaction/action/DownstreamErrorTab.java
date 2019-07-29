@@ -61,6 +61,15 @@ public class DownstreamErrorTab extends ActionRequiredAbstract implements IFacto
     /*
     PAGE METHODS
      */
+
+    @Override
+    public boolean sortDateDescending(boolean doDescend) {
+        boolean b = super.sortDateDescending(doDescend);
+        this.elements.relocateFactory();
+        this.rows = new ListDERActionRow(driver, this.elements.row_element, this.elements.row_detail);
+        return b;
+    }
+
     
     /*
     HELPER METHODS

@@ -52,6 +52,18 @@ public abstract class ActionRequiredAbstract implements IFactoryPage, IWebIntera
         return false;
     }
 
+    public boolean sortDateDescending(boolean doDescend) {
+        for (int i = 0; i < 3; i++) {
+            if (this.isDateDescending() == doDescend) {
+                return true;
+            }
+
+            click("date header", pageElements.theader_date);
+        }
+
+        return false;
+    }
+
     public ContractMasterOverrideTab openTabContractMasterOverride() {
         click("contract master override tab", pageElements.tab_contractMasterOverride);
 
@@ -112,6 +124,11 @@ public abstract class ActionRequiredAbstract implements IFactoryPage, IWebIntera
 
         return end / size;
     }
+
+    public boolean isDateDescending() {
+        String sort = this.pageElements.theader_date.getAttribute("aria-sort");
+        return sort != null && sort.equalsIgnoreCase("descending");
+    }
     
     /*
     PAGE METHODS
@@ -132,20 +149,30 @@ public abstract class ActionRequiredAbstract implements IFactoryPage, IWebIntera
 
         @FindBy(xpath = "//div[contains(text(),'Items per page')]/following-sibling::div")
         public WebElement label_pageSize;
+
         @FindBy(xpath = "//div[contains(text(),'Items per page')]/following-sibling::div")
         public WebElement dropdown_pageSize;
+
         @FindBy(xpath = "//div[contains(@class,'mat-paginator-range-label') and contains(text(),' of ')]")
         public WebElement label_range;
+
         @FindBy(xpath = "//button[contains(@ aria-label,'Next')]")
         public WebElement button_nextPage;
+
         @FindBy(xpath = "//button[contains(@ aria-label,'Previous')]")
         public WebElement button_previousPage;
+
+        @FindBy(xpath = "//th[contains(@class,'Timestamp')]")
+        public WebElement theader_date;
+
         @FindBy(xpath = "//div[contains(@class,'mat-tab-labels')]/div//span[contains(text(),'Contract Master Override')]")
-        private WebElement tab_contractMasterOverride;
+        public WebElement tab_contractMasterOverride;
+
         @FindBy(xpath = "//div[contains(@class,'mat-tab-labels')]/div//span[contains(text(),'Downstream Error Resolution')]")
-        private WebElement tab_downstreamErrorResolution;
+        public WebElement tab_downstreamErrorResolution;
+
         @FindBy(xpath = "//div[contains(@class,'mat-tab-labels')]/div//span[contains(text(),'PCP Reassignment')]")
-        private WebElement tab_pcpReassignment;
+        public WebElement tab_pcpReassignment;
 
         PageElements(SearchContext context) {
             super(context);

@@ -45,6 +45,9 @@ public class PlaygroundSteps implements IMapSub, IContractsQueryInteract, IUiSte
         ContractMasterOverrideTab overrideTab = dashboardPage.openActionRequiredTransactions();
         overrideTab.pause(5);
         overrideTab.confirmCurrentPage();
+        overrideTab.sortDateDescending(true);
+        overrideTab.pause(5);
+
 
         CMOActionRow aRow = overrideTab.getRow(0);
         aRow.confirmCurrentPage();
@@ -69,6 +72,8 @@ public class PlaygroundSteps implements IMapSub, IContractsQueryInteract, IUiSte
         DownstreamErrorTab errorTab = overrideTab.openTabDownstreamErrorResolution();
         errorTab.pause(5);
         errorTab.confirmCurrentPage();
+        errorTab.sortDateDescending(true);
+        errorTab.pause(5);
 
         DERActionRow dRow = errorTab.getRow(0);
         dRow.confirmCurrentPage();

@@ -62,10 +62,20 @@ public class ContractMasterOverrideTab extends ActionRequiredAbstract implements
     /*
     PAGE METHODS
      */
-    
+
+    @Override
+    public boolean sortDateDescending(boolean doDescend) {
+        boolean b = super.sortDateDescending(doDescend);
+        this.elements.relocateFactory();
+        this.rows = new ListCMOActionRow(driver, this.elements.row_element, this.elements.row_detail);
+        return b;
+    }
+
     /*
     HELPER METHODS
     */
+
+
     
     /*
     ELEMENT CLASS
