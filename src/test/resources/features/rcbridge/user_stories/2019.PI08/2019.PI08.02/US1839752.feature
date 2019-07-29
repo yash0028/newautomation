@@ -3,11 +3,19 @@
 @2019.PI08
 @2019.PI08.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1839752 - Mass Project UI Work - Mass Actions additional identifiers
 
-  @TC879406
+  @TC904815
   @Manual
+  @Acceptance
+  Scenario: TC904815 - Open Mass Action Project in CMD
+    Given an Exari Mass Action project has been created
+    When I click on the Mass Action project id
+    Then I see a filtered view of all Contracts associated with that project
+
+  @TC879406
+  @Automated
   @Acceptance
   Scenario Outline: TC879406 - Verify Mass Action Endpoint
     Given the mass action id "<massActionId>"

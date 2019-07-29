@@ -4,7 +4,7 @@
 @2019.PI08
 @2019.PI08.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1554474 - Identify user's manager for escalations and dashboards - create api
 
   @TC714950

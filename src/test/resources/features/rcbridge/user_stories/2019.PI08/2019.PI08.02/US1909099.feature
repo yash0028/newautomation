@@ -3,7 +3,7 @@
 @2019.PI08
 @2019.PI08.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1909099 - CMD Reference Table - PCP Designation Upload/Download
 
   @TC884052

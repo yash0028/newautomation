@@ -254,9 +254,9 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
     @Then("only matched records with a {string} of {string} are returned")
     public void onlyMatchedRecordsWithAOfAreReturned(String property, String expectedValue) {
         JsonElement result = parseJsonElementResponse(response);
-        JsonArray contentArray = result.getAsJsonObject().get("content").getAsJsonArray();
+        JsonArray resultArray = result.getAsJsonArray();
 
-        for(JsonElement elm: contentArray) {
+        for(JsonElement elm: resultArray) {
             Assert.assertTrue("Array element is not a JSON Object", elm.isJsonObject());
 
             String actualValue = elm.getAsJsonObject().get(property).getAsString();
