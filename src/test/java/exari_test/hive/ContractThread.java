@@ -40,7 +40,7 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
         super(flow.getName());
         this.contractFlow = flow;
 
-        builder = UiConfigHelper.getInstance().getDefaultSauceBuilder(flow.getName()).withBuildName(buildName);
+        builder = UiConfigHelper.getInstance().getDefaultSauceBuilder(this.contractFlow.getName()).withBuildName(buildName);
         builder.withBrowserName("chrome");
     }
 
@@ -87,7 +87,7 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
 
         try {
             if (!configGetOptionalBoolean("hive.demoMode").orElse(false)) {
-                contractId = protoStep.loginHome().setSite().authorContract().finalCapture();
+                contractId = protoStep.loginHome("exari.stageURL").setSite().authorContract().finalCapture();
             } else {
                 protoStep.loginHome().setSite();
             }
@@ -134,6 +134,10 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
 
     public String getContractId() {
         return contractId;
+    }
+
+    public ContractFlow getContractFlow() {
+        return this.contractFlow;
     }
 
     /*

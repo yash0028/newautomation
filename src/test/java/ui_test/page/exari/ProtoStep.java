@@ -42,11 +42,11 @@ public class ProtoStep implements IConfigurable {
         this.flow = flow;
     }
 
-    public ProtoStep loginHome() {
+    public ProtoStep loginHome(String urlKey) {
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
 
         try {
-            String url = configGetOptionalString("exari.devURL").orElse("");
+            String url = configGetOptionalString(urlKey).orElse("");
             driver.get(url);
             log.info(driver.getTitle());
             LoginSSOPage loginPage = new LoginSSOPage(driver);
@@ -69,6 +69,10 @@ public class ProtoStep implements IConfigurable {
 
             throw e;
         }
+    }
+
+    public ProtoStep loginHome() {
+        return loginHome("exari.devURL");
     }
 
     public ProtoStep setSite(String siteOption) {

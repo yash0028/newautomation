@@ -3,6 +3,7 @@ package exari_test.hive;
 import com.google.gson.*;
 import exari_test.eif.data.EifTestData;
 import exari_test.eif.data.EifTestList;
+import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.report.CukeReport;
 import exari_test.eif.report.Feature;
 import exari_test.eif.report.Scenario;
@@ -24,8 +25,8 @@ import java.util.stream.Collectors;
  */
 public class Hive implements IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(Hive.class);
-    private final int QUEUE_SIZE = configGetOptionalInteger("hive.maxThreads").orElse(5);
     private static Hive INSTANCE = new Hive();
+    private final int QUEUE_SIZE = configGetOptionalInteger("hive.maxThreads").orElse(5);
     private Queue<ContractThread> threadQueue;
     private Collection<ContractThread> threadsActive;
     private Collection<ContractThread> threadsAll;
@@ -56,11 +57,15 @@ public class Hive implements IConfigurable {
         final String buildName = "[Hive] " + TimeKeeper.getInstance().getStartTimeISO();
 
         // Get path and name of CSV Test Data
-        String csvFileName = config.configGetOptionalString("hive.data.csv").orElse("unknown");
-        log.info("loading csv file: '{}'", csvFileName);
+        String csvFileNameList = config.configGetOptionalString("hive.data.csv").orElse("unknown");
 
-        // Load CSV Test Data
-        testList.loadCSV(csvFileName);
+        for (String csvFileName : csvFileNameList.split(",")) {
+            csvFileName = StringUtils.appendIfMissing(csvFileName.trim(), ".csv");
+            log.info("loading csv file: '{}'", csvFileName);
+
+            // Load CSV Test Data
+            testList.loadCSV(csvFileName);
+        }
 
         // Add all tests from CSV Test Data
         for (EifTestData data : testList) {
@@ -74,6 +79,13 @@ public class Hive implements IConfigurable {
 
         // Start and Wait until complete
         Hive.getInstance().start().waitTillComplete();
+
+        // Perform Rerun?
+        if (config.configGetBoolean("hive.rerunFailed")) {
+            List<ContractThread> failedThreads = Hive.getInstance().threadsAll.stream().filter(t -> t.getContractId() == null).collect(Collectors.toList());
+            log.info("performing rerun on {}", failedThreads);
+            Hive.getInstance().rerunFailedThreads(buildName, failedThreads).waitTillComplete();
+        }
 
         // Save Report
         if (config.configGetBoolean("hive.saveReport")) {
@@ -121,6 +133,7 @@ public class Hive implements IConfigurable {
 
     /**
      * Add a thread to the queue
+     *
      * @param contractThread thread to add
      * @return this
      */
@@ -132,6 +145,7 @@ public class Hive implements IConfigurable {
 
     /**
      * Start hive's threads. Will return once all threads have been started, but not finished.
+     *
      * @return this
      */
     public Hive start() {
@@ -151,6 +165,26 @@ public class Hive implements IConfigurable {
 
             // add manager to active list
             threadsActive.add(nextThread);
+
+            //With more than 5 threads, enable a staggering
+            if (threadsActive.size() > 5) {
+                //Wait a random amount of time, between 1 to 5 minutes
+//                long sleepTime = (long) Math.min(240_000, Math.random() * 240_000 + 30_000);
+                long sleepTime = (long) 10_000 * threadsActive.size();
+                try {
+                    Thread.sleep(sleepTime);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    log.info("staggered for {}", sleepTime);
+                }
+            } else {
+                try {
+                    Thread.sleep(10_000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         return this;
@@ -158,6 +192,7 @@ public class Hive implements IConfigurable {
 
     /**
      * Wait until all threads registered to hive have finished.
+     *
      * @return this
      */
     public Hive waitTillComplete() {
@@ -170,8 +205,19 @@ public class Hive implements IConfigurable {
         return this;
     }
 
+    public Hive rerunFailedThreads(String buildName, List<ContractThread> failedThreads) {
+        for (ContractThread thread : failedThreads) {
+            ContractFlow failedFlow = thread.getContractFlow().deepCopy();
+            failedFlow.setName("[rerun] " + failedFlow.getName());
+            this.addToQueue(new ContractThread(failedFlow, buildName));
+        }
+
+        return this.start();
+    }
+
     /**
      * Get a Cucumber Report that can be read by Jenkins
+     *
      * @return Cucumber Report
      */
     public CukeReport getCukeReport() {
@@ -194,11 +240,12 @@ public class Hive implements IConfigurable {
     }
 
     public List<String> getContractIds() {
-        return threadsAll.stream().map(ContractThread::getContractId).collect(Collectors.toList());
+        return threadsAll.stream().map(t -> t.getName() + "::" + t.getContractId()).collect(Collectors.toList());
     }
 
     /**
      * Get name of all threads
+     *
      * @return List of thread names
      */
     public List<String> getQueueNames() {

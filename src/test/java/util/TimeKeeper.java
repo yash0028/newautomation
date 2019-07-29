@@ -45,7 +45,7 @@ public class TimeKeeper {
     }
 
     public long getDuration(long startTime) {
-        return System.currentTimeMillis() - startTime;
+        return (System.currentTimeMillis() - startTime) * 1000;
     }
 
     public ZonedDateTime getStartTime() {

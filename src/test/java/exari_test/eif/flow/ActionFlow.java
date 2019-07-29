@@ -133,7 +133,7 @@ public class ActionFlow {
         }
 
         List<String> copyPostActions = new ArrayList<>();
-        for (String s : this.postActions) {
+        for (String s : this.getPostActions()) {
             copyPostActions.add(s);
         }
         return new ActionFlow(this.question, this.action, copyAnswers, copyPostActions);
