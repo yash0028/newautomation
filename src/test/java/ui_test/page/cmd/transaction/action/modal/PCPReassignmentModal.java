@@ -1,4 +1,4 @@
-package ui_test.page.cmd.transaction.action;
+package ui_test.page.cmd.transaction.action.modal;
 
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -6,30 +6,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui_test.page.cmd.transaction.action.row.ListPCPActionRow;
-import ui_test.page.cmd.transaction.action.row.PCPActionRow;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
-import java.util.List;
-
-public class PCPReassignmentTab extends ActionRequiredAbstract implements IFactoryPage, IWebInteract {
-    private static final Logger log = LoggerFactory.getLogger(PCPReassignmentTab.class);
+public class PCPReassignmentModal implements IFactoryPage, IWebInteract {
+    private static final Logger log = LoggerFactory.getLogger(PCPReassignmentModal.class);
 
     private final WebDriver driver;
     private PageElements elements;
-    private ListPCPActionRow rows;
 
     /*
     CONSTRUCTOR
     */
 
-    public PCPReassignmentTab(WebDriver driver) {
-        super(driver);
+    public PCPReassignmentModal(WebDriver driver) {
         this.driver = driver;
         this.elements = new PageElements(driver);
-        this.rows = new ListPCPActionRow(driver, elements.row_provider);
     }
     
     /*
@@ -50,8 +43,20 @@ public class PCPReassignmentTab extends ActionRequiredAbstract implements IFacto
     PAGE ACTION METHODS
      */
 
-    public PCPActionRow getRow(int index) {
-        return this.rows.get(index);
+    public boolean enterMPIN(String text) {
+        return sendKeys("mpin", elements.input_mpin, text);
+    }
+
+    public boolean enterAddressSequence(String text) {
+        return sendKeys("address sequence", elements.input_mpin, text);
+    }
+
+    public boolean clickSave() {
+        return click("contract master number", elements.button_save);
+    }
+
+    public boolean clickBack() {
+        return click("back", elements.button_back);
     }
     
     /*
@@ -75,8 +80,17 @@ public class PCPReassignmentTab extends ActionRequiredAbstract implements IFacto
      */
     private class PageElements extends AbstractPageElements {
 
-        @FindBy(xpath = "//mat-row")
-        public List<WebElement> row_provider;
+        @FindBy(xpath = "//input[contains(@formcontrolname,'reassignMpin')]")
+        public WebElement input_mpin;
+
+        @FindBy(xpath = "//input[contains(@formcontrolname,'reassignMarketAddressSeq')]")
+        public WebElement input_address;
+
+        @FindBy(xpath = "//button[@type='submit']")
+        public WebElement button_save;
+
+        @FindBy(xpath = "//button[contains(text(),'Back')]")
+        public WebElement button_back;
 
         PageElements(SearchContext context) {
             super(context);

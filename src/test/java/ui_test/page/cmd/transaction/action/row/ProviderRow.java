@@ -24,7 +24,7 @@ public class ProviderRow implements IFactoryPage, IWebInteract {
 
     ProviderRow(WebDriver driver) {
         this.driver = driver;
-//        this.rowElements = new RowElements(elementRow);
+//        this.rowElements = new PageElements(elementRow);
 //        this.detailElements = new DetailElements(detailRow);
         log.trace("provider row created");
     }

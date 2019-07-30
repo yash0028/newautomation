@@ -24,7 +24,7 @@ public class ProductRow implements IFactoryPage, IWebInteract {
 
     ProductRow(WebDriver driver) {
         this.driver = driver;
-//        this.rowElements = new RowElements(elementRow);
+//        this.rowElements = new PageElements(elementRow);
 //        this.detailElements = new DetailElements(detailRow);
         log.trace("product row created");
     }
