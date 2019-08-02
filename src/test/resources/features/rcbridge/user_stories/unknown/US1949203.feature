@@ -3,7 +3,7 @@
 @US1949203
 @releaseUnknown
 @iterationUnknown
-Feature: US1949203 - MNSPS Fee Schedule submission - Physician
+Feature: US1949203 - MNSPS Fee Schedule submission  and HCE decision- Physician
 
   @TC920654
   @Manual
@@ -27,6 +27,6 @@ Feature: US1949203 - MNSPS Fee Schedule submission - Physician
     And the form has "Decision of HCE* : Radio button with option Approved and Denied"
     And when "Approved" is chosen the "MNSPS: Market CEO Approval Request" task is created
     And when "Denied" is chosen the "MNSPS: Denied Approval Request" task is created
-    And the contractor is able to upload the email with decision
-    And the contractor is able to provide the HCE person name who took decision
+    And the contractor is able to upload the email with decision provided by the HCE team member
+    And the contractor is able to provide the HCE team member name who took the decision
 

@@ -8,6 +8,30 @@
 @iterationPast
 Feature: US977681 - Setup Jenkins and CI/CD pipeline
 
+  @TC923028
+  @Manual
+  @Functional
+  @MVP
+  @Infrastructure
+  Scenario: TC923028 - [RL0]
+    Given that code needs to be moved to dev environment
+    When dev pushes code to release branch on Github
+    Then it auto initiates the Jenkins job to create a maven build,
+    And s2i build
+    And a deployment to OpenShift
+
+  @TC923005
+  @Manual
+  @Functional
+  @MVP
+  @Infrastructure
+  Scenario: TC923005 - [RL0]
+    Given that code needs to be moved to dev environment
+    When dev pushes code to release branch on Github
+    Then it auto initiates the Jenkins job to create a maven build,
+    And s2i build
+    And a deployment to OpenShift
+
   @TC564859
   @Manual
   @Functional

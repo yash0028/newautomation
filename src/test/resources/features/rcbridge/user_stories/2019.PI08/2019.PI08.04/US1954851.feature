@@ -25,9 +25,11 @@ Feature: US1954851 - ANB productGroup Exclusion - ENW Indicator determination up
   @#UAT
   Scenario: TC921997 - [RL1]
     Given conditions have been met for ANB productGroup Exclusion
-    When ENW Indicator is needed for NDB payload
+    When ENW Indicator is needed for OCM contract record
+    And the OCM contract configuration includes C2 product code
     Then ENW indicator will be "N"
 
+  @RC_unlinked
   @TC922000
   @Manual
   @Functional
@@ -41,6 +43,7 @@ Feature: US1954851 - ANB productGroup Exclusion - ENW Indicator determination up
     And ANB does not apply to the contract
     And ANB should not be included in the OCM contract record
 
+  @RC_unlinked
   @TC922001
   @Manual
   @Functional

@@ -7,6 +7,24 @@
 @iterationPast
 Feature: US983405 - [Continued] Setup RC Bridge Automation Testing Component
 
+  @TC923012
+  @Manual
+  @Functional
+  @MVP
+  Scenario: TC923012 - [RL0]
+    Given information that needs to get back to rally
+    When the report is available on Jenkins
+    Then Rally is updated with the results
+
+  @TC923019
+  @Manual
+  @Functional
+  @MVP
+  Scenario: TC923019 - [RL0]
+    Given information that needs to get back to rally
+    When the report is available on Jenkins
+    Then Rally is updated with the results
+
   @TC408750
   @Manual
   @Acceptance

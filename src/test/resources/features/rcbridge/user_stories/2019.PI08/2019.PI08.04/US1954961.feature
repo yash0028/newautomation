@@ -14,7 +14,7 @@ Feature: US1954961 - Amendment Eff date < Contract Effective Date validation set
     And the transaction type == AmendContract
     When the contract effective date > amend effective date
     Then the transaction DOES NOT pass effective dates validation
-    And a Type 3 Error Message generated
+    And a Type 3 Error Message generated [DATE CONFLICT - TRANSACTION EFF-DT PRIOR TO CONTRACT EFF-DT]
     And the transaction is aborted
 
   @TC921998
