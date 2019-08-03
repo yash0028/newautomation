@@ -10,10 +10,12 @@ Feature: US1957285 - Send Network Role / PCP Indicator for each Provider on Rost
   @Manual
   @Functional
   Scenario: TC922985 - [RL0]
-    Given a contract record exists in Exari UCM
-    When Provider NetworkRole is needed in the OCM record
-    Then the PCP designation table is used
+    Given the network role of a provider record is required by a user
+    When the role has been determined
+    Then the role is also included as part of the the NDB payload for each product group
+    ###
 
+  @RC_unlinked
   @TC922986
   @Manual
   @Functional

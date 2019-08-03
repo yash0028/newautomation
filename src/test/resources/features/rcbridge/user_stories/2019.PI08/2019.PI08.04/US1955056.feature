@@ -10,7 +10,7 @@ Feature: US1955056 - Amendment and Cancel transactions - Effective Date - 1 cale
   @Manual
   @Functional
   Scenario: TC921996 - [RL0]
-    Given a cancel transaction is received in the OCM
+    Given a cancel transaction is needed to facilitate the amendment
     When the cancel date is needed for downstream processing
     Then Cancel date should be = contractAmendDate – 1
 
