@@ -28,6 +28,13 @@
                     "answers": [
                         "0"
                     ]
+                },
+                {
+                    "question": "Select the Counterparty",
+                    "action": "RADIO-INDEX",
+                    "answers": [
+                        "0"
+                    ]
                 }
             ]
         },
