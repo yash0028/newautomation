@@ -25,6 +25,7 @@ Feature: US1898507 - Indemnity Market Product Group
     When Payment Appendix Indemnity does not exist in the contract UCM
     Then Payment Appendix All Payer fee schedule is applied to the Indemnity product
 
+  @RC_unlinked
   @TC905915
   @Manual
   @Functional

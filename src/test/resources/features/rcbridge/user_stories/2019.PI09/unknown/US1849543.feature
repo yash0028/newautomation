@@ -2,10 +2,9 @@
 @Visio
 @Suman
 @US1849543
-@2019.PI08
-@2019.PI08.04
-@releasePresent
-@iterationFuture
+@2019.PI09
+@releaseFuture
+@iterationUnknown
 Feature: US1849543 - Integrate search capability on Escalator Process
 
   @TC868376

@@ -6,6 +6,43 @@
 @iterationPresent
 Feature: US1806699 - CMD Determine PCP Indicator for each Provider on Roster Based on Market
 
+  @TC925277
+  @Manual
+  @Acceptance
+  Scenario Outline: TC925277 - Validate Bad Path
+    Given a request to the PCP Indicator Lookup endpoint:
+      | state                 | "<state>"                |
+      | providerSpecialtyCode | "<providerSpeciatyCode>" |
+      | degreeCode            | "<degreeCode>"           |
+      | hbpOnlyContract       | "<hbpOnlyContract>"      |
+    When sending the request to the PCP Indicator Lookup endpoint
+    Then we get a responseErrorMessage stating "Default to 'S', NO MATCH FOUND"
+    Examples:
+      | state    | providerSpecialtyCode | degreeCode | hbpOnlyContract |
+      | Indiana  | null                  | null       | true            |
+      | Arkansas | 389                   | null       | false           |
+      | Indiana  | 273                   | null       | false           |
+
+  @TC925276
+  @Manual
+  @Acceptance
+  Scenario Outline: TC925276 - Validate Happy Path
+    Given a request to the PCP Indicator Lookup endpoint:
+      | state                 | "<state>"                |
+      | providerSpecialtyCode | "<providerSpeciatyCode>" |
+      | degreeCode            | "<degreeCode>"           |
+      | hbpOnlyContract       | "<hbpOnlyContract>"      |
+    When sending the request to the PCP Indicator Lookup endpoint
+    Then we get a response indicating that the provider is "<pcpIndicatorCMD>"
+    Examples:
+      | state    | providerSpecialtyCode | degreeCode | pcpIndicatorCMD | hbpOnlyContract |
+      | Indiana  | 011                   | MD         | P               | false           |
+      | Indiana  | 001                   | DO         | P               | false           |
+      | Virginia | 037                   | MD         | P               | false           |
+      | Oregon   | 274                   | POD        | P               | false           |
+      | Oregon   | null                  | null       | S               | false           |
+      | Oregon   | null                  | null       | S               | true            |
+
   @TC909546
   @Manual
   @Functional

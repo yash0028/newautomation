@@ -3,10 +3,9 @@
 @Suman
 @AM-Terminations
 @US1550626
-@2019.PI08
-@2019.PI08.03
-@releasePresent
-@iterationPresent
+@2019.PI09
+@releaseFuture
+@iterationUnknown
 Feature: US1550626 - Integrate search capability on Termination Process
 
   @TC868373

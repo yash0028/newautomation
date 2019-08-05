@@ -3,10 +3,9 @@
 @Optum
 @AM-Terminations
 @US1497021
-@2019.PI08
-@2019.PI08.04
-@releasePresent
-@iterationFuture
+@2019.PI09
+@releaseFuture
+@iterationUnknown
 Feature: US1497021 - Integration - Create Unique Identifier for each Termination Process
 
   @TC710725
