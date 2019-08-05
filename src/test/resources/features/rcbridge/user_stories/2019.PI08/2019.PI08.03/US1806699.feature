@@ -7,14 +7,14 @@
 Feature: US1806699 - CMD Determine PCP Indicator for each Provider on Roster Based on Market
 
   @TC925277
-  @Manual
-  @Acceptance
+  @Automated
+  @Functional
   Scenario Outline: TC925277 - Validate Bad Path
     Given a request to the PCP Indicator Lookup endpoint:
-      | state                 | "<state>"                 |
-      | providerSpecialtyCode | "<providerSpecialtyCode>" |
-      | degreeCode            | "<degreeCode>"            |
-      | hbpOnlyContract       | "<hbpOnlyContract>"       |
+      | state                 | <state>                 |
+      | providerSpecialtyCode | <providerSpecialtyCode> |
+      | degreeCode            | <degreeCode>            |
+      | hbpOnlyContract       | <hbpOnlyContract>       |
     When sending the request to the PCP Indicator Lookup endpoint
     Then we get a responseErrorMessage stating "Default to 'S', NO MATCH FOUND"
     Examples:
@@ -24,14 +24,14 @@ Feature: US1806699 - CMD Determine PCP Indicator for each Provider on Roster Bas
       | Indiana  | 273                   | null       | false           |
 
   @TC925276
-  @Manual
-  @Acceptance
+  @Automated
+  @Functional
   Scenario Outline: TC925276 - Validate Happy Path
     Given a request to the PCP Indicator Lookup endpoint:
-      | state                 | "<state>"                 |
-      | providerSpecialtyCode | "<providerSpecialtyCode>" |
-      | degreeCode            | "<degreeCode>"            |
-      | hbpOnlyContract       | "<hbpOnlyContract>"       |
+      | state                 | <state>                 |
+      | providerSpecialtyCode | <providerSpecialtyCode> |
+      | degreeCode            | <degreeCode>            |
+      | hbpOnlyContract       | <hbpOnlyContract>       |
     When sending the request to the PCP Indicator Lookup endpoint
     Then we get a response indicating that the provider is "<pcpIndicatorCMD>"
     Examples:
