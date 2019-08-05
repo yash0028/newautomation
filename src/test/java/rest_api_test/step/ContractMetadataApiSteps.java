@@ -18,6 +18,8 @@ import util.file.IFileReader;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import static io.restassured.RestAssured.given;
 
@@ -30,6 +32,7 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
     private final static String ENDPOINT = "https://contract-metadata-api-clm-test-ui.ocp-ctc-dmz-nonprod.optum.com";
     private final static String RESOURCE_PRODUCT_CODE = "/v1.0/product_group_codes";
     private final static String RESOURCE_PRODUCT_DESCRIPTIONS = "/v1.0/contract-product-descriptions/search";
+    private final static String RESOURCE_PCP_INDICATOR = "/v1.0/pcp/lookup";
     private RequestSpecification request;
     private Response response;
     private List<String> productDescriptions;
@@ -266,5 +269,40 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
 
             Assert.assertEquals("product description status was not 'A' for product: " + product, expectedValue, actualValue);
         }
+    }
+
+    // US1806699 - CMD Determine PCP Indicator for each Provider on Roster Based on Market
+    @Given("a request to the PCP Indicator Lookup endpoint:")
+    public void aRequestToThePCPIndicatorLookupEndpoint(DataTable requestDT) {
+        Map<String, String> requestMap = requestDT.asMap(String.class, String.class);
+        Set<String> keys = requestMap.keySet();
+        this.requestBody = new JsonObject();
+        for(String key : keys) {
+            if(requestMap.get(key).equals("null")) {
+                this.requestBody.addProperty(key, "");
+            } else {
+                this.requestBody.addProperty(key,requestMap.get(key));
+            }
+        }
+
+    }
+
+    @When("sending the request to the PCP Indicator Lookup endpoint")
+    public void sendingTheRequestToThePCPIndicatorLookupEndpoint() {
+        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").relaxedHTTPSValidation().body(this.requestBody);
+    }
+
+    @Then("we get a responseErrorMessage stating {string}")
+    public void weGetAResponseErrorMessageStating(String responseMessage) {
+        response = this.request.post(RESOURCE_PCP_INDICATOR);
+        JsonElement responseJson = parseJsonElementResponse(response);
+        Assert.assertEquals(responseMessage, responseJson.getAsJsonObject().get("responseErrorMessage").getAsString());
+    }
+
+    @Then("we get a response indicating that the provider is {string}")
+    public void weGetAResponseIndicatingThatTheProviderIs(String pcpIndicatorCMD) {
+        response = this.request.post(RESOURCE_PCP_INDICATOR);
+        JsonElement responseJson = parseJsonElementResponse(response);
+        Assert.assertEquals(pcpIndicatorCMD, responseJson.getAsJsonObject().get("pcpIndicatorCMD").getAsString());
     }
 }
