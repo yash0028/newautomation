@@ -1,6 +1,7 @@
 # Last updated on 
 @Arvind
 @Adele_R
+@Suman
 @US1937224
 @2019.PI08
 @2019.PI08.04
@@ -13,6 +14,7 @@ Feature: US1937224 - 7 Interim Report - Rate Escalator
   @Functional
   @Arvind
   @Adele_R
+  @Suman
   Scenario: TC911636 - [RL0]
     Given a variable rate escalator exists with PBC as variable basis
     When it is 9 months before the effective date of the escalator
@@ -24,6 +26,7 @@ Feature: US1937224 - 7 Interim Report - Rate Escalator
   @Functional
   @Arvind
   @Adele_R
+  @Suman
   Scenario: TC921993 - [RL1]
     Given a variable rate escalator exists with PBC as variable basis
     When the task "Deliver Interim PBC Reports" is created

@@ -2,9 +2,8 @@
 @Arvind
 @US1939437
 @2019.PI08
-@2019.PI08.04
 @releasePresent
-@iterationFuture
+@iterationUnknown
 Feature: US1939437 - Apply retro to fee schedule hoppers
 
   @TC911639
