@@ -4,7 +4,7 @@
 @2019.PI08
 @2019.PI08.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1900136 - Physician negotiation needs region
 
   @TC905911

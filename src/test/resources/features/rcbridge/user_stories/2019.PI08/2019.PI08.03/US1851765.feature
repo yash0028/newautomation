@@ -5,7 +5,7 @@
 @2019.PI08
 @2019.PI08.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1851765 - 10 Provider requesting a reconsideration - Rate Escalator
 
   @TC866268

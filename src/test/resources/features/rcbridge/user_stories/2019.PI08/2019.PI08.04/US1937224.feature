@@ -6,7 +6,7 @@
 @2019.PI08
 @2019.PI08.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1937224 - 7 Interim Report - Rate Escalator
 
   @TC911636

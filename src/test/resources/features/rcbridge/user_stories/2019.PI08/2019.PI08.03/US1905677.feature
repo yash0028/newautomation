@@ -3,7 +3,7 @@
 @2019.PI08
 @2019.PI08.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1905677 - API Enhancement to expand the scope of the query to include secondary address.
 
   @TC903968

@@ -3,7 +3,7 @@
 @2019.PI08
 @2019.PI08.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1855786 - MAHP GHMO Product (777 IPA) - Assign value of S (Specialist) for PCP IND field in NDB Payload for PCP-designated provider specialties
 
   @TC849867

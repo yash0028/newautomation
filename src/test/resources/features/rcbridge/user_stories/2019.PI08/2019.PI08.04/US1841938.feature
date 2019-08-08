@@ -3,7 +3,7 @@
 @2019.PI08
 @2019.PI08.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1841938 - ANB Product - Assign value of S (Specialist) for PCP IND field in NDB Payload for all provider specialties
 
   @TC842694
@@ -18,5 +18,4 @@ Feature: US1841938 - ANB Product - Assign value of S (Specialist) for PCP IND fi
     When ANB contract master details for a provider MPIN record are needed for NDB
     Then a value of 'S' is always assigned for the PCP IND field
     And the value of 'S' is also identified as pnc_prov_contr_role_cd
-    ###
 

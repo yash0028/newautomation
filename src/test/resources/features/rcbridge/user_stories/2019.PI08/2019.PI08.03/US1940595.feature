@@ -4,7 +4,7 @@
 @2019.PI08
 @2019.PI08.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1940595 - Fix exception between APS and the delegate
 
   @TC913326

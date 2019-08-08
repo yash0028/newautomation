@@ -1,16 +1,16 @@
 # Last updated on 
-@US1919626
+@US1919629
 @2019.PI08
-@2019.PI08.04
+@2019.PI08.05
 @releasePresent
 @iterationFuture
-Feature: US1919626 - OCM CONTRACT CONFIG DB ACCESS  FOR REPORTING
+Feature: US1919629 - OCM AUDIT DB ACCESS  FOR REPORTING
 
-  @TC905909
+  @TC905914
   @Manual
   @Functional
-  Scenario: TC905909 - [RL0]
-    Given data exists in the configuration database
+  Scenario: TC905914 - [RL0]
+    Given data exists in the audit database
     When data from the database is needed
     And the data will be used for purposes that support reporting
     Then data is made available

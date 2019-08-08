@@ -3,7 +3,7 @@
 @2019.PI08
 @2019.PI08.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1807194 - MAHP GHMO - Radiology Area Code and Market
 
   @TC828087

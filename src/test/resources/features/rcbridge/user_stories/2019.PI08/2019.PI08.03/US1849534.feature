@@ -5,7 +5,7 @@
 @2019.PI08
 @2019.PI08.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1849534 - Integrate search capability on Physician Process
 
   @TC861697

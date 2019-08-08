@@ -2,7 +2,7 @@
 @US1956793
 @2019.PI08.03
 @releaseUnknown
-@iterationPresent
+@iterationPast
 Feature: US1956793 - Zip To Market look up API
 
   @TC922984
