@@ -11,54 +11,89 @@ Feature: US1809731 - [Continued] CMD UI Navigation path improvement
   @Manual
   @Functional
   @CMD_UI
-  Scenario: TC829008 - [RL0]
-    Given a user enters a valid contract id in the search bar
-    When the search results include status of Manual Input
-    And the Manual Input error type is Contract Master Override (Type 1)
-    And the user selects the 'Manual Input' button via the UI
-    Then the user is routed to the Contract Master Override Tab section of the Manual Input work queue
-    And the user can only see the previously searched for contract id on the Contract Master Override tab
-    And the user is routed back to the search results for the contract ID when manual input is complete
-    And a refreshed search for that contract id is performed
-    And the updated search results are visible to the user
+  Scenario Outline: TC829008 - [RL0]
+    # Search for Type 1 Error
+    Given the user enters the contract id <contractId> in the search bar
+    And the contract has the 'Manual Input' status with a Contract Master Override (Type 1)
+    When the user clicks the 'Manual Input' button for the contract
+    Then the user will only see contract <contractId> in the Contract Master Override tab
+    And the user is routed back to the previous search results once manual input is complete
+    And the search is refreshed to show the new results for contract <contractId>
+    Examples:
+      | contractId |
+      | 88794470   |
 
   @TC829010
   @Manual
   @Functional
   @CMD_UI
-  Scenario: TC829010 - [RL1]
-    Given a user enters a valid contract id in the search bar
-    When the search results include status of Manual Input
-    And the Manual Input error type is Downstream Error Resolution (Type 2)
-    And the user selects the 'Manual Input' button via the UI
-    Then the user is routed to the Downstream Error Resolution tab section of the Manual Input work queue
-    And the user can only see the previously searched for contract id on the Downstream Error Resolution tab
-    And the user is routed back to the search results for the contract ID when manual input is complete
-    And a refreshed search for that contract id is performed
-    And the updated search results are visible to the user
+  Scenario Outline: TC829010 - [RL1]
+    # Search for Type 2 Error
+    Given the user enters the contract id <contractId> in the search bar
+    And the contract has the 'Manual Input' status with a Downstream Error Resolution (Type 2)
+    When the user clicks the 'Manual Input' button for the contract
+    Then the user will only see contract <contractId> in the Downstream Error Resolution tab
+    And the user is routed back to the previous search results once manual input is complete
+    And the search is refreshed to show the new results for contract <contractId>
+    Examples:
+      | contractId |
+      | 78829108   |
 
   @TC831735
   @Manual
   @Functional
   @CMD_UI
-  Scenario: TC831735 - [RL2]
-    Given a user enters a valid contract id in the search bar
-    When the search results include status of Manual Input
-    And the Manual Input error type is PCP reassignment (Type 1)
-    And the user selects the 'Manual Input' button via the UI
-    Then the user is routed to the PCP Reassignment tab section of the Manual Input work queue
-    And the user can only see the previously searched for contract id on the PCP Reassignment tab
-    And the user is routed back to the search results for the contract ID when manual input is complete
-    And a refreshed search for that contract id is performed
-    And the updated search results are visible to the user
+  Scenario Outline: TC831735 - [RL2]
+    # Search for PCP Type 1 Error
+    Given the user enters the contract id <contractId> in the search bar
+    And the contract has the 'Manual Input' status with a PCP Reassignment (Type 1)
+    When the user clicks the 'Manual Input' button for the contract
+    Then the user will only see contract <contractId> in the PCP Reassignment tab
+    And the user is routed back to the previous search results once manual input is complete
+    And the search is refreshed to show the new results for contract <contractId>
+    Examples:
+      | contractId |
+      | 123456     |
 
   @TC882852
   @Manual
   @Functional
   @CMD_UI
-  Scenario: TC882852 - [RL3]
-    Given a user enters a valid contract id in the search bar
-    When the search results include status of Error
-    And the user selects the Failed button via the UI
-    Then the user views the modal window which is the same as current experience (no change to behavior)
+  Scenario Outline: TC882852 - [RL3]
+    # Search for Failed
+    Given the user enters the contract id <contractId> in the search bar
+    And the contract has the 'FAILED' status
+    When the user clicks the 'FAILED' button for the contract
+    Then the user will see the normal modal for FAILED contracts
+    Examples:
+      | contractId |
+      | 350422021  |
+
+  @TC929578
+  @Manual
+  @Functional
+  @CMD_UI
+  Scenario Outline: TC929578 - [RL4]
+    # Search for In-Progress
+    Given the user enters the contract id <contractId> in the search bar
+    And the contract has the 'IN-PROGRESS' status
+    When the user clicks the 'IN-PROGRESS' button for the contract
+    Then the user will see the normal modal for IN-PROGRESS contracts
+    Examples:
+      | contractId |
+      | 90305124   |
+
+  @TC929579
+  @Manual
+  @Functional
+  @CMD_UI
+  Scenario Outline: TC929579 - [RL5]
+    # Search for Success
+    Given the user enters the contract id <contractId> in the search bar
+    And the contract has the 'SUCCESS' status
+    When the user clicks the 'SUCCESS' button for the contract
+    Then the user will see the normal modal for SUCCESS contracts
+    Examples:
+      | contractId |
+      | 85859180   |
 
