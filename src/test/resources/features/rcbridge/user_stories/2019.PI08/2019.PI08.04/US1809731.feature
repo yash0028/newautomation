@@ -11,7 +11,7 @@ Feature: US1809731 - [Continued] CMD UI Navigation path improvement
   @Manual
   @Functional
   @CMD_UI
-  Scenario Outline: TC829008 - [RL0]
+  Scenario Outline: TC829008 - [RL0] Search for Type 1 Error
     # Search for Type 1 Error
     Given the user enters the contract id <contractId> in the search bar
     And the contract has the 'Manual Input' status with a Contract Master Override (Type 1)
@@ -27,7 +27,7 @@ Feature: US1809731 - [Continued] CMD UI Navigation path improvement
   @Manual
   @Functional
   @CMD_UI
-  Scenario Outline: TC829010 - [RL1]
+  Scenario Outline: TC829010 - [RL1] Search for Type 2 Error
     # Search for Type 2 Error
     Given the user enters the contract id <contractId> in the search bar
     And the contract has the 'Manual Input' status with a Downstream Error Resolution (Type 2)
@@ -43,7 +43,7 @@ Feature: US1809731 - [Continued] CMD UI Navigation path improvement
   @Manual
   @Functional
   @CMD_UI
-  Scenario Outline: TC831735 - [RL2]
+  Scenario Outline: TC831735 - [RL2] Search for PCP Type 1 Error
     # Search for PCP Type 1 Error
     Given the user enters the contract id <contractId> in the search bar
     And the contract has the 'Manual Input' status with a PCP Reassignment (Type 1)
@@ -53,13 +53,13 @@ Feature: US1809731 - [Continued] CMD UI Navigation path improvement
     And the search is refreshed to show the new results for contract <contractId>
     Examples:
       | contractId |
-      | 123456     |
+      | TODO       |
 
   @TC882852
   @Manual
   @Functional
   @CMD_UI
-  Scenario Outline: TC882852 - [RL3]
+  Scenario Outline: TC882852 - [RL3] Search for Failed
     # Search for Failed
     Given the user enters the contract id <contractId> in the search bar
     And the contract has the 'FAILED' status
@@ -73,7 +73,7 @@ Feature: US1809731 - [Continued] CMD UI Navigation path improvement
   @Manual
   @Functional
   @CMD_UI
-  Scenario Outline: TC929578 - [RL4]
+  Scenario Outline: TC929578 - [RL4] Search for In-Progress
     # Search for In-Progress
     Given the user enters the contract id <contractId> in the search bar
     And the contract has the 'IN-PROGRESS' status
@@ -87,7 +87,7 @@ Feature: US1809731 - [Continued] CMD UI Navigation path improvement
   @Manual
   @Functional
   @CMD_UI
-  Scenario Outline: TC929579 - [RL5]
+  Scenario Outline: TC929579 - [RL5] Search for Success
     # Search for Success
     Given the user enters the contract id <contractId> in the search bar
     And the contract has the 'SUCCESS' status
