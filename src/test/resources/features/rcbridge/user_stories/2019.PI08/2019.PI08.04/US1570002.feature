@@ -1,6 +1,6 @@
 # Last updated on 
-@Arvind
 @Retro
+@Shiva
 @Suman
 @US1570002
 @2019.PI08
@@ -12,8 +12,8 @@ Feature: US1570002 - Initiate Retro Form- Integration "Negotiation Details from 
   @TC743338
   @Manual
   @Functional
-  @Arvind
   @Retro
+  @Shiva
   @Suman
   Scenario: TC743338 - [RL0]
     Given a Physician Negotiation process exists

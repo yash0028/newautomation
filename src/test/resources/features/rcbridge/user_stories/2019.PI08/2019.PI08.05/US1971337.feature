@@ -4,7 +4,7 @@
 @2019.PI08.05
 @releasePresent
 @iterationFuture
-Feature: US1971337 - MAHP GHMO IPA 777 Configuration Details
+Feature: US1971337 - MAHP GHMO IPA 777 Configuration Details (Capitation does NOT apply)
 
   @RC_unlinked
   @TC928901
