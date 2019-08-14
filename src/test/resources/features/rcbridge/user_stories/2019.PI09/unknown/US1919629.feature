@@ -1,9 +1,8 @@
 # Last updated on 
 @US1919629
-@2019.PI08
-@2019.PI08.05
-@releasePresent
-@iterationFuture
+@2019.PI09
+@releaseFuture
+@iterationUnknown
 Feature: US1919629 - OCM AUDIT DB ACCESS  FOR REPORTING
 
   @TC905914

@@ -26,7 +26,7 @@ Feature: US1910232 - Abort transaction that result in Type 1 errors
   @TC926284
   @Manual
   @Functional
-  Scenario: TC926284 - [RL2]
+  Scenario: TC926284 - [RL2] Verify E2E Abort CM Override
     Given a contract event results in a Type 1 Contract Master error
     When the user has selects to abort the install
     And the user has confirmed their desire to abort the transaction

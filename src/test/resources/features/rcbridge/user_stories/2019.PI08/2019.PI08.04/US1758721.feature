@@ -1,5 +1,5 @@
 # Last updated on 
-@Arvind
+@Sheham
 @US1758721
 @2019.PI08
 @2019.PI08.04
@@ -11,7 +11,7 @@ Feature: US1758721 - Modify denied by Network COO and Operations COO with physic
   @TC869972
   @Manual
   @Functional
-  @Arvind
+  @Sheham
   Scenario: TC869972 - [RL2]
     Given a retro approval request is denied
     When the Change the Planned Effective Date is selected

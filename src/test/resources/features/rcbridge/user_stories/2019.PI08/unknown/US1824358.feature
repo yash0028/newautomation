@@ -3,7 +3,7 @@
 @2019.PI08
 @releasePresent
 @iterationUnknown
-Feature: US1824358 - User group has no users - Chargemaster
+Feature: US1824358 - User group has no users - Escalator
 
   @TC835326
   @Manual

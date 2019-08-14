@@ -1,9 +1,8 @@
 # Last updated on 
 @US1919622
-@2019.PI08
-@2019.PI08.05
-@releasePresent
-@iterationFuture
+@2019.PI09
+@releaseFuture
+@iterationUnknown
 Feature: US1919622 - OCM TRANSACTION DB ACCESS  FOR REPORTING
 
   @TC905913

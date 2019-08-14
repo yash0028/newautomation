@@ -1,9 +1,8 @@
 # Last updated on 
 @US1919626
-@2019.PI08
-@2019.PI08.05
-@releasePresent
-@iterationFuture
+@2019.PI09
+@releaseFuture
+@iterationUnknown
 Feature: US1919626 - OCM CONTRACT CONFIG DB ACCESS  FOR REPORTING
 
   @TC905909
