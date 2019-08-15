@@ -1,9 +1,9 @@
 # Last updated on 
 @US1935080
 @2019.PI08
-@2019.PI08.04
+@2019.PI08.05
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1935080 - Run Performance Test in Stage env
 
   @TC909545

@@ -32,6 +32,7 @@ Feature: US1910232 - Abort transaction that result in Type 1 errors
     And the user has confirmed their desire to abort the transaction
     Then the outcome result is stored in the audit database
     And the work object is resolved
+    And the contract is then sent downstream for processing
 
   @TC926285
   @Manual

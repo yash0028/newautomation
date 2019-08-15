@@ -1,9 +1,8 @@
 # Last updated on 
 @US1855541
-@2019.PI08
-@2019.PI08.04
-@releasePresent
-@iterationPresent
+@2019.PI09
+@releaseFuture
+@iterationUnknown
 Feature: US1855541 - Medicaid - Create OCM upon first transaction in Exari for migrated contracts (Demo Only - AmendContract transactions)
 
   @TC853524
