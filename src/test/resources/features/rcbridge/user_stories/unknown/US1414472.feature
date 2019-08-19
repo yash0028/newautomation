@@ -5,7 +5,7 @@
 Feature: US1414472 - Author SMGA Contact UI Path
 
   @TC627894
-  @Automated
+  @Manual
   @User_Interface
   Scenario Outline: TC627894 - [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
