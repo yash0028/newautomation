@@ -284,7 +284,6 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
                 this.requestBody.addProperty(key,requestMap.get(key));
             }
         }
-        log.info("REQUEST: {}", requestBody.toString());
     }
 
     @When("sending the request to the PCP Indicator Lookup endpoint")
