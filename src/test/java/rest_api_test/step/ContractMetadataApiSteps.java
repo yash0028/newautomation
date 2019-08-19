@@ -284,7 +284,6 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
                 this.requestBody.addProperty(key,requestMap.get(key));
             }
         }
-
     }
 
     @When("sending the request to the PCP Indicator Lookup endpoint")
@@ -296,13 +295,13 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
     public void weGetAResponseErrorMessageStating(String responseMessage) {
         response = this.request.post(RESOURCE_PCP_INDICATOR);
         JsonElement responseJson = parseJsonElementResponse(response);
-        Assert.assertEquals(responseMessage, responseJson.getAsJsonObject().get("responseErrorMessage").getAsString());
+        Assert.assertEquals(responseMessage, responseJson.getAsJsonObject().get("responseMessage").getAsString());
     }
 
     @Then("we get a response indicating that the provider is {string}")
     public void weGetAResponseIndicatingThatTheProviderIs(String pcpIndicatorCMD) {
         response = this.request.post(RESOURCE_PCP_INDICATOR);
         JsonElement responseJson = parseJsonElementResponse(response);
-        Assert.assertEquals(pcpIndicatorCMD, responseJson.getAsJsonObject().get("pcpIndicatorCMD").getAsString());
+        Assert.assertEquals(pcpIndicatorCMD, responseJson.getAsJsonObject().get("providerNetworkRole").getAsString());
     }
 }
