@@ -4,7 +4,7 @@
 @2019.PI08.04
 @releasePresent
 @iterationPresent
-Feature: US1928078 - Addition of "Edit" button on OCM Display - provider level
+Feature: US1928078 - Addition of "Edit" button on OCM Display - provider level (UI)
 
   @TC903969
   @Manual

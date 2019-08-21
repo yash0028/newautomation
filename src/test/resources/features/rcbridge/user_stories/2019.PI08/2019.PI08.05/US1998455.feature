@@ -1,15 +1,15 @@
 # Last updated on 
-@US1924528
+@US1998455
 @2019.PI08
-@2019.PI08.04
+@2019.PI08.05
 @releasePresent
 @iterationPresent
-Feature: US1924528 - Addition of "Edit" button on OCM Display - contract level (UI)
+Feature: US1998455 - Addition of "Edit" button on OCM Display - contract level (UI) - continued
 
-  @TC902689
+  @TC944987
   @Manual
   @Functional
-  Scenario: TC902689 - [RL0]
+  Scenario: TC944987 - [RL0]
     Given a user has clicked to view the contract configuration record in CMD
     When the user wants to update one of the data elements at the contract level
     Then the user can click to edit/open the configuration record
@@ -19,10 +19,10 @@ Feature: US1924528 - Addition of "Edit" button on OCM Display - contract level (
     And the user will be able to edit the GTN field at the contract level
     And the user will be able to edit the FPT field at the contract level
 
-  @TC902702
+  @TC944989
   @Manual
   @Functional
-  Scenario: TC902702 - [RL1]
+  Scenario: TC944989 - [RL1]
     Given a user has clicked to view the contract configuration record in CMD
     When the user wants to update one of the data elements at the contract level
     And the data element is not contract master, network number, ConArr, GTN, FPT

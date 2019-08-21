@@ -3,9 +3,8 @@
 @Suman
 @US1935858
 @2019.PI08
-@2019.PI08.04
 @releasePresent
-@iterationPresent
+@iterationUnknown
 Feature: US1935858 - Move retro to stage environment
 
   @TC911635

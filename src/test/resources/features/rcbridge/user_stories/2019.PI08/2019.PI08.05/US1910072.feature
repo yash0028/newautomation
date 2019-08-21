@@ -1,7 +1,7 @@
 # Last updated on 
 @US1910072
 @2019.PI08
-@2019.PI08.04
+@2019.PI08.05
 @releasePresent
 @iterationPresent
 Feature: US1910072 - Select related transactions within a Mass Actions project - Type 1

@@ -1,7 +1,7 @@
 # Last updated on 
 @US1911936
 @2019.PI08
-@2019.PI08.04
+@2019.PI08.05
 @releasePresent
 @iterationPresent
 Feature: US1911936 - Modify Role Type selection

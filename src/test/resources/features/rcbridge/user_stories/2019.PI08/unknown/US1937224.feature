@@ -4,9 +4,8 @@
 @Suman
 @US1937224
 @2019.PI08
-@2019.PI08.04
 @releasePresent
-@iterationPresent
+@iterationUnknown
 Feature: US1937224 - 7 Interim Report - Rate Escalator
 
   @TC911636
