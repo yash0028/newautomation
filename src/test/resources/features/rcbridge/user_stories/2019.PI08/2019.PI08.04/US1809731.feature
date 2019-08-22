@@ -4,7 +4,7 @@
 @2019.PI08
 @2019.PI08.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1809731 - [Continued] CMD UI Navigation path improvement
 
   @TC829008

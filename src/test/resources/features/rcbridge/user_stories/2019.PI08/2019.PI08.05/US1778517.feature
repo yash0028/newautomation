@@ -3,7 +3,7 @@
 @Sheham
 @US1778517
 @2019.PI08
-@2019.PI08.04
+@2019.PI08.05
 @releasePresent
 @iterationPresent
 Feature: US1778517 - [Continued] Update email text

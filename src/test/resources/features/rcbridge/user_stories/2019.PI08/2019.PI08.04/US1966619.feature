@@ -6,7 +6,7 @@
 @2019.PI08
 @2019.PI08.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1966619 - FS on MSPS for West  - Rate Escalator
 
   @TC935484

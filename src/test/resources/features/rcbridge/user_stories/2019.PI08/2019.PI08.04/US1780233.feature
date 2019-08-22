@@ -4,7 +4,7 @@
 @2019.PI08
 @2019.PI08.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1780233 - Add capability to track user login to CMD application
 
   @TC938301

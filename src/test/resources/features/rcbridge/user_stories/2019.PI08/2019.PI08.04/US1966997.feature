@@ -3,7 +3,7 @@
 @2019.PI08
 @2019.PI08.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1966997 - Help text on search page
 
   @TC942022

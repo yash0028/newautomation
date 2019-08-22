@@ -5,7 +5,7 @@
 @2019.PI08
 @2019.PI08.04
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1289316 - View OCM Contract Config and Provider contract record details via CMD UI
 
   @TC616509
