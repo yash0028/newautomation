@@ -1,7 +1,6 @@
 # Last updated on 
 @US1998550
-@2019.PI09
-@releaseFuture
+@releaseUnknown
 @iterationUnknown
 Feature: US1998550 - Record user details for Abort transaction that result in Type 1 errors
 
