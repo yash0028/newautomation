@@ -16,6 +16,6 @@ Feature: US1956569 - MNSPS Fee Schedule Custom PROS Pricing Operations Manager d
     And the form has "Decision of Market CEO* : Radio button with option Approved and Denied"
     And when "Approved" is chosen the "MNSPS: PROS Pricing Operations Senior Manager Approval Request" task is created
     And when "Denied" is chosen the "MNSPS: Denied Approval Request" task is created
-    And the contractor is able to upload the email with decision provided by the Market CEO team member
+    And the contractor is able to upload the email with decision provided by the Custom PROS Pricing Operations Manager
     And the contractor is able to provide the Custom PROS Pricing Operations Manager name who took the decision.
 

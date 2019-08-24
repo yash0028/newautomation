@@ -16,6 +16,6 @@ Feature: US1956565 - MNSPS Fee Schedule Government Vice President decision - Phy
     And the form has "Decision of Market CEO* : Radio button with option Approved and Denied"
     And when "Approved" is chosen the "MNSPS: Custom PROS Pricing Operations Manager Approval Request" task is created
     And when "Denied" is chosen the "MNSPS: Denied Approval Request" task is created
-    And the contractor is able to upload the email with decision provided by the Market CEO team member
+    And the contractor is able to upload the email with decision provided by the Government Vice President
     And the contractor is able to provide the Government Vice President name who took the decision.
 
