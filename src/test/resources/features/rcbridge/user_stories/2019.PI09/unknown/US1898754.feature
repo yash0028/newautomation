@@ -16,6 +16,7 @@ Feature: US1898754 - MAHP GHMO - VIRGINIA Exception Provider (LAB RAD EXCEPTION 
     Then the Exception Type value also stored
     And values of LAB, RAD or LAB RAD permissible
 
+  @RC_unlinked
   @TC877730
   @Manual
   @Functional

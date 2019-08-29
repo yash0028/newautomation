@@ -15,4 +15,5 @@ Feature: US1934956 - Financial Analysis/Rates task needs product
     Given a contractor is viewing the "Financial analysis/rates" task
     When they look at the Current Fee schedule section
     Then the Product displays
+    And the Rate Condition Category displays
 
