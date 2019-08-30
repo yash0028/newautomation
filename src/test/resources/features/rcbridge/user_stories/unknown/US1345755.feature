@@ -4,73 +4,73 @@
 @iterationUnknown
 Feature: US1345755 - New UCM - [ProductGroup] Rate Percentage
 
-  @TC592145
+  @TC958737
   @Manual
   @Functional
-  Scenario: TC592145 - [RL0]
+  Scenario: TC958737 - [RL0]
     Given a valid contract exists in Exari environment
     When the contract terms include a percentage payment rate (PPR) for a Product Rate Group
     Then a property is available in the Exari UCM that identifies the PPR condition for the Product Rate Group
     And the property includes the PPR value
 
-  @TC618580
+  @TC958752
   @Manual
   @Functional
-  Scenario: TC618580 - [RL1]
+  Scenario: TC958752 - [RL1]
     Given a valid contract exists in Exari environment
     When the contract terms include a percentage payment rate (PPR) for two or more Product Rate Groups
     Then a property is available in the Exari UCM that identifies the PPR condition for each Product Rate Group
     And the property includes the PPR value for each distinct Product Rate Group
 
-  @TC618581
+  @TC958764
   @Manual
   @Functional
-  Scenario: TC618581 - [RL2]
+  Scenario: TC958764 - [RL2]
     Given a valid contract exists in Exari environment
     When the contract terms include a percentage payment rate (PPR) for all Product Groups included in the agreement
     Then a property is available in the Exari UCM that identifies the PPR condition for all Products
     And the property includes the PPR value
 
-  @TC618582
+  @TC958779
   @Manual
   @Functional
-  Scenario: TC618582 - [RL3]
+  Scenario: TC958779 - [RL3]
     Given a valid contract exists in Exari environment
     When the contract terms DO NOT include a percentage payment rate (PPR) for any Product Rate Group
     Then a property is available in the Exari UCM
     And the property value is NULL
 
-  @TC743444
+  @TC958791
   @Manual
   @Functional
-  Scenario: TC743444 - [RL4]
+  Scenario: TC958791 - [RL4]
     Given a valid contract exists in Exari environment
     When the contract terms include a percentage payment rate (PPR) for a Product Rate Group
     Then a property is available in the Optum OCM that identifies the PPR condition for the Product Rate Group
     And the property includes the PPR value
 
-  @TC743525
+  @TC958801
   @Manual
   @Functional
-  Scenario: TC743525 - [RL5]
+  Scenario: TC958801 - [RL5]
     Given a valid contract exists in Exari environment
     When the contract terms include a percentage payment rate (PPR) for two or more Product Rate Groups
     Then a property is available in the Optum OCM that identifies the PPR condition for each Product Rate Group
     And the property includes the PPR value for each distinct Product Rate Group
 
-  @TC743535
+  @TC958807
   @Manual
   @Functional
-  Scenario: TC743535 - [RL6]
+  Scenario: TC958807 - [RL6]
     Given a valid contract exists in Exari environment
     When the contract terms include a percentage payment rate (PPR) for all Product Groups included in the agreement
     Then a property is available in the Optum OCM that identifies the PPR condition for all Products
     And the property includes the PPR value
 
-  @TC743547
+  @TC958812
   @Manual
   @Functional
-  Scenario: TC743547 - [RL7]
+  Scenario: TC958812 - [RL7]
     Given a valid contract exists in Exari environment
     When the contract terms DO NOT include a percentage payment rate (PPR) for any Product Rate Group
     Then a property is available in the Optum OCM

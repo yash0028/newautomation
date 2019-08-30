@@ -2,8 +2,8 @@
 @Optum
 @AM-Terminations
 @US1469142
-@2019.PI08
-@releasePresent
+@2019.PI09
+@releaseFuture
 @iterationUnknown
 Feature: US1469142 - Integration - Calculate "Term Eff Date" field
 

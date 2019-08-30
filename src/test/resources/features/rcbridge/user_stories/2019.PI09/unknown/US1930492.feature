@@ -12,4 +12,5 @@ Feature: US1930492 - Multiple agreements on physician requiring retro
     Given a physician negotiation exists with more than one agreement
     When retro is required
     Then one retro process is started
+    And the contractor have get approval for all agreements in one request based on the market number.
 

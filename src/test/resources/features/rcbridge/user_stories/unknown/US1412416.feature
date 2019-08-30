@@ -4,51 +4,51 @@
 @iterationUnknown
 Feature: US1412416 - New UCM - Credentialing Flag
 
-  @TC743513
+  @TC958730
   @Manual
   @Functional
-  Scenario: TC743513 - [RL0]
+  Scenario: TC958730 - [RL0]
     Given a valid contract exists in Exari environment
     When the contract includes individual person healthcare providers
     Then a property is available in the Exari UCM to store Credentialing Flag for each distinct Provider record
 
-  @TC743543
+  @TC958750
   @Manual
   @Functional
-  Scenario: TC743543 - [RL1]
+  Scenario: TC958750 - [RL1]
     Given a valid contract exists in Exari environment
     When the contract includes individual person healthcare providers
     Then a property is available in the Exari UCM to store Credentialing Flag for each distinct Provider record
 
-  @TC743555
+  @TC958767
   @Manual
   @Functional
-  Scenario: TC743555 - [RL2]
+  Scenario: TC958767 - [RL2]
     Given a valid contract exists in Exari environment
     When the contract does not include individual person healthcare providers
     Then a property is available in the Exari UCM to store Credentialing Flag
     And the property value is NULL
 
-  @TC743566
+  @TC958783
   @Manual
   @Functional
-  Scenario: TC743566 - [RL3]
+  Scenario: TC958783 - [RL3]
     Given a valid contract exists in Exari environment
     When the contract includes individual person healthcare providers
     Then a property is available in the Optum OCM to store Credentialing Flag for each distinct Provider record
 
-  @TC743574
+  @TC958795
   @Manual
   @Functional
-  Scenario: TC743574 - [RL4]
+  Scenario: TC958795 - [RL4]
     Given a valid contract exists in Exari environment
     When the contract includes individual person healthcare providers
     Then a property is available in the Optum OCM to store Credentialing Flag for each distinct Provider record
 
-  @TC743578
+  @TC958805
   @Manual
   @Functional
-  Scenario: TC743578 - [RL5]
+  Scenario: TC958805 - [RL5]
     Given a valid contract exists in Exari environment
     When the contract does not include individual person healthcare providers
     Then a property is available in the Optum OCM to store Credentialing Flag

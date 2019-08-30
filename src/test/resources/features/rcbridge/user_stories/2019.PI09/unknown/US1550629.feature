@@ -2,8 +2,8 @@
 @#Optum
 @AM-Terminations
 @US1550629
-@2019.PI08
-@releasePresent
+@2019.PI09
+@releaseFuture
 @iterationUnknown
 Feature: US1550629 - Integration - Prevent Duplicate Termination Processes
 

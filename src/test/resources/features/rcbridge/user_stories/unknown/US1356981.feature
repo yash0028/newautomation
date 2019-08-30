@@ -4,73 +4,73 @@
 @iterationUnknown
 Feature: US1356981 - New UCM - [ProductGroup] Rate Amount
 
-  @TC596327
+  @TC958746
   @Manual
   @Functional
-  Scenario: TC596327 - [RL0]
+  Scenario: TC958746 - [RL0]
     Given a valid contract exists in Exari environment
     When the contract terms include a Rate or Dollar Amount for a Product Rate Group
     Then a property is available in the Exari UCM that identifies the Rate condition for the Product Rate Group
     And the property includes the Rate value
 
-  @TC743491
+  @TC958758
   @Manual
   @Functional
-  Scenario: TC743491 - [RL1]
+  Scenario: TC958758 - [RL1]
     Given a valid contract exists in Exari environment
     When the contract terms include a Rate or Dollar Amount for two or more Product Rate Groups
     Then a property is available in the Exari UCM that identifies the Rate condition for each Product Rate Group
     And the property includes the Rate value for each distinct Product Rate Group
 
-  @TC743529
+  @TC958766
   @Manual
   @Functional
-  Scenario: TC743529 - [RL2]
+  Scenario: TC958766 - [RL2]
     Given a valid contract exists in Exari environment
     When the contract terms include a Rate or Dollar Amount for all Product Groups included in the agreement
     Then a property is available in the Exari UCM that identifies the Rate condition for all Products
     And the property includes the Rate value
 
-  @TC743542
+  @TC958780
   @Manual
   @Functional
-  Scenario: TC743542 - [RL3]
+  Scenario: TC958780 - [RL3]
     Given a valid contract exists in Exari environment
     When the contract terms DO NOT include a Rate or Dollar Amount for any Product Rate Group
     Then a property is available in the Exari UCM
     And the property value is NULL
 
-  @TC743550
+  @TC958792
   @Manual
   @Functional
-  Scenario: TC743550 - [RL4]
+  Scenario: TC958792 - [RL4]
     Given a valid contract exists in Exari environment
     When the contract terms include a Rate or Dollar Amount for a Product Rate Group
     Then a property is available in the Optum OCM that identifies the Rate condition for the Product Rate Group
     And the property includes the Rate value
 
-  @TC743560
+  @TC958802
   @Manual
   @Functional
-  Scenario: TC743560 - [RL5]
+  Scenario: TC958802 - [RL5]
     Given a valid contract exists in Exari environment
     When the contract terms include a Rate or Dollar Amount for two or more Product Rate Groups
     Then a property is available in the Optum OCM that identifies the Rate condition for each Product Rate Group
     And the property includes the Rate value for each distinct Product Rate Group
 
-  @TC743567
+  @TC958809
   @Manual
   @Functional
-  Scenario: TC743567 - [RL6]
+  Scenario: TC958809 - [RL6]
     Given a valid contract exists in Exari environment
     When the contract terms include a Rate or Dollar Amount for all Product Groups included in the agreement
     Then a property is available in the Optum OCM that identifies the Rate condition for all Products
     And the property includes the Rate value
 
-  @TC743572
+  @TC958814
   @Manual
   @Functional
-  Scenario: TC743572 - [RL7]
+  Scenario: TC958814 - [RL7]
     Given a valid contract exists in Exari environment
     When the contract terms DO NOT include a Rate or Dollar Amount for any Product Rate Group
     Then a property is available in the Optum OCM

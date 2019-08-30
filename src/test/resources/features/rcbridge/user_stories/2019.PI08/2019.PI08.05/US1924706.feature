@@ -17,5 +17,5 @@ Feature: US1924706 - MAHP GHMO - Determine IPA for SPEC Contracts VIRGINIA (010)
     And Contract.NetworkRoleType == SPEC
     When primary Service Location market number = 45592<>45597
     Then ipaNbr = 010
-    And ConArr == 0
+    #And ConArr == 0
 
