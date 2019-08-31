@@ -2,6 +2,7 @@
 @Retro
 @Shiva
 @Suman
+@Sachin
 @US1570002
 @2019.PI08
 @2019.PI08.05
@@ -15,6 +16,7 @@ Feature: US1570002 - Initiate Retro Form- Integration "Negotiation Details from 
   @Retro
   @Shiva
   @Suman
+  @Sachin
   Scenario: TC743338 - [RL0]
     Given a Physician Negotiation process exists
     When Retro Approval is required
