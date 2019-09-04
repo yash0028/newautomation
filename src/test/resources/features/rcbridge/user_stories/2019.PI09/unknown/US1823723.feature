@@ -1,7 +1,7 @@
 # Last updated on 
-@UCM
 @Templates
 @Adele_R
+@UCM
 @US1823723
 @2019.PI09
 @releaseFuture
@@ -11,9 +11,9 @@ Feature: US1823723 - PBC measurement period
   @TC960851
   @Manual
   @Functional
-  @UCM
   @Templates
   @Adele_R
+  @UCM
   Scenario: TC960851 - [RL0]
     Given a contract already exists
     When contractor needs to send the interim reports to the provider for their review

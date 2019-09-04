@@ -1,15 +1,18 @@
 # Last updated on 
-@Adele_R
+@Arvind
+@Suman
 @US1937042
 @2019.PI09
+@2019.PI09.01
 @releaseFuture
-@iterationUnknown
+@iterationFuture
 Feature: US1937042 - Contractor Name and withdraw rate escalator process
 
   @TC960461
   @Manual
   @Functional
-  @Adele_R
+  @Arvind
+  @Suman
   Scenario: TC960461 - [RL0]
     Given a rate escalator process exists
     When Input Rate Escalator Contract id is completed
@@ -19,7 +22,8 @@ Feature: US1937042 - Contractor Name and withdraw rate escalator process
   @TC960463
   @Manual
   @Functional
-  @Adele_R
+  @Arvind
+  @Suman
   Scenario: TC960463 - [RL1]
     Given a rate escalator process exists
     When "Review Rate Escalator Details" task is completed
@@ -31,7 +35,8 @@ Feature: US1937042 - Contractor Name and withdraw rate escalator process
   @TC960465
   @Manual
   @Functional
-  @Adele_R
+  @Arvind
+  @Suman
   Scenario: TC960465 - [RL2]
     Given a rate escalator process exists
     When initiator completes the "Withdraw Rate Escalator Request"
