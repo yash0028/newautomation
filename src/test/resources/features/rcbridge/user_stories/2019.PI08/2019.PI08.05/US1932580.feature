@@ -2,9 +2,9 @@
 @US1932580
 @2019.PI08
 @2019.PI08.05
-@releasePresent
-@iterationPresent
-Feature: US1932580 - Limit edit access by Secure user group
+@releasePast
+@iterationPast
+Feature: US1932580 - Secure user group Created to Limit Access
 
   @TC905912
   @Manual

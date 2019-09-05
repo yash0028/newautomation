@@ -4,7 +4,7 @@
 @AM-Terminations
 @US1550626
 @2019.PI09
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1550626 - Integrate search capability on Termination Process
 

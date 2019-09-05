@@ -3,7 +3,7 @@
 @US1244333
 @2019.PI08
 @2019.PI08.01
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1244333 - 2 & 3 HCE Modeling - Rate Escalator
 

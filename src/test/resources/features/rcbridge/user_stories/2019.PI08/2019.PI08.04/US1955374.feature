@@ -3,7 +3,7 @@
 @US1955374
 @2019.PI08
 @2019.PI08.04
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1955374 - Start Retro process outcome button
 

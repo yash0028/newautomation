@@ -2,7 +2,7 @@
 @CMD2
 @US1211464
 @2019.PI09
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1211464 - Contract Master search based on Service Address Market Number
 

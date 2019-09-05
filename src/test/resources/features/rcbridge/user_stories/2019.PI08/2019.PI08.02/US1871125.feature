@@ -2,7 +2,7 @@
 @US1871125
 @2019.PI08
 @2019.PI08.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1871125 - Classify messages based on informational vs action (UI user story)
 

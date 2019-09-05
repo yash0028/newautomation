@@ -4,7 +4,7 @@
 @US1851751
 @2019.PI08
 @2019.PI08.03
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1851751 - 29  Provider has agreed to rates - Rate Escalator
 

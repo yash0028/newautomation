@@ -3,7 +3,7 @@
 @Suman
 @US1885667
 @2019.PI09
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1885667 - Create Search Delegate for Name
 

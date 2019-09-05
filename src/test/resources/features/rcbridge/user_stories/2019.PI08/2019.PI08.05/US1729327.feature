@@ -3,9 +3,9 @@
 @US1729327
 @2019.PI08
 @2019.PI08.05
-@releasePresent
-@iterationPresent
-Feature: US1729327 - Build Inactive User capability for CMD
+@releasePast
+@iterationPast
+Feature: US1729327 - Build Inactive User capability for CMD - user email notifications
 
   @TC949601
   @Manual

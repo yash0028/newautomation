@@ -4,8 +4,8 @@
 @US1869816
 @2019.PI08
 @2019.PI08.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1869816 - Withdrawn retro notification
 
   @TC863806

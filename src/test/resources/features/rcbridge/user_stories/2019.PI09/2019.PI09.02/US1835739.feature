@@ -1,8 +1,9 @@
 # Last updated on 
 @US1835739
 @2019.PI09
-@releaseFuture
-@iterationUnknown
+@2019.PI09.02
+@releasePresent
+@iterationFuture
 Feature: US1835739 - Inform user to get retro approval during rate escalator (non-hopper)
 
   @TC960849

@@ -1,6 +1,7 @@
 # Last updated on 
 @US1940563
-@releaseUnknown
+@2019.PI09
+@releasePresent
 @iterationUnknown
 Feature: US1940563 - Terminations - Repeat search
 

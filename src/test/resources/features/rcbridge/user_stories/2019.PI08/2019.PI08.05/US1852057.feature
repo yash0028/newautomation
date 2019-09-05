@@ -3,8 +3,8 @@
 @US1852057
 @2019.PI08
 @2019.PI08.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1852057 - Planned effective date changes in Physician workflow - reactivate withdrawn retro
 
   @TC868371

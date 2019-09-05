@@ -2,7 +2,7 @@
 @US1973894
 @2019.PI08
 @2019.PI08.04
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1973894 - Create delegate for reports of a person
 

@@ -2,8 +2,8 @@
 @US1898754
 @2019.PI09
 @2019.PI09.01
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1898754 - MAHP GHMO - VIRGINIA Exception Provider (LAB RAD EXCEPTION tollgate 2)
 
   @TC877723

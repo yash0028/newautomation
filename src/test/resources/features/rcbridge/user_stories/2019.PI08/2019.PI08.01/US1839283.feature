@@ -3,7 +3,7 @@
 @US1839283
 @2019.PI08
 @2019.PI08.01
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1839283 - 4 & 5 Fee Schedule Submission and Send Provider updated Fee Schedules - Rate Escalator
 

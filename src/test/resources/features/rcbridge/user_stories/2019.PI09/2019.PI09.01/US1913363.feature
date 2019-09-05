@@ -2,8 +2,8 @@
 @US1913363
 @2019.PI09
 @2019.PI09.01
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1913363 - VIRGINIA Exception Provider (LAB RAD EXCEPTION tollgate 2) - Crosswalk upload/downlod
 
   @TC887161

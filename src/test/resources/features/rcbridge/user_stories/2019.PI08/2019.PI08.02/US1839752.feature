@@ -2,7 +2,7 @@
 @US1839752
 @2019.PI08
 @2019.PI08.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1839752 - Mass Project UI Work - Mass Actions additional identifiers
 

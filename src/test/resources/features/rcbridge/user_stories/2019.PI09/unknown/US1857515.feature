@@ -1,7 +1,7 @@
 # Last updated on 
 @US1857515
 @2019.PI09
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1857515 - CMD Data Source Integration - MPM for sourcing Medicare COSMOS DIVs Report
 

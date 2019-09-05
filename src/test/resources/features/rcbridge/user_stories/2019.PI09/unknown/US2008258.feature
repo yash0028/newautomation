@@ -1,7 +1,7 @@
 # Last updated on 
 @US2008258
 @2019.PI09
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US2008258 - Retro multiple contractds
 

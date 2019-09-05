@@ -1,7 +1,7 @@
 # Last updated on 
 @US1930492
 @2019.PI09
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1930492 - Multiple agreements on physician requiring retro
 

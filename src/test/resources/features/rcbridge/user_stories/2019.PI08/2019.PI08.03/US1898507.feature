@@ -3,7 +3,7 @@
 @US1898507
 @2019.PI08
 @2019.PI08.03
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1898507 - Indemnity Market Product Group
 

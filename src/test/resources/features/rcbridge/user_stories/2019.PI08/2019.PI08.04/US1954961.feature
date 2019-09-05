@@ -2,7 +2,7 @@
 @US1954961
 @2019.PI08
 @2019.PI08.04
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1954961 - Amendment Eff date < Contract Effective Date validation set (Type 3 Error)
 

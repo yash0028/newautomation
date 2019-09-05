@@ -4,7 +4,7 @@
 @UCM
 @US1823723
 @2019.PI09
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1823723 - PBC measurement period
 

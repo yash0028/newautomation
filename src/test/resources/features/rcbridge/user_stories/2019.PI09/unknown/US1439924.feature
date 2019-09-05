@@ -2,7 +2,7 @@
 @Optum
 @US1439924
 @2019.PI09
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1439924 - Integration - Was DocuSign used?
 

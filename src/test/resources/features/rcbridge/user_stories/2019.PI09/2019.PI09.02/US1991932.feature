@@ -1,8 +1,9 @@
 # Last updated on 
 @US1991932
 @2019.PI09
-@releaseFuture
-@iterationUnknown
+@2019.PI09.02
+@releasePresent
+@iterationFuture
 Feature: US1991932 - CMD and OCM Alignment - Site (Contract Org)
 
   @TC954883

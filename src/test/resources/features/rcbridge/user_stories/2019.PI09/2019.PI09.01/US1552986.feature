@@ -2,8 +2,8 @@
 @US1552986
 @2019.PI09
 @2019.PI09.01
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1552986 - Close the retro approval process - successful - physician - no physician workflow
 
   @TC714612

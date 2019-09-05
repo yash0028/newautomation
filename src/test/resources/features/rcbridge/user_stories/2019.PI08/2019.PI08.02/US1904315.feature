@@ -2,7 +2,7 @@
 @US1904315
 @2019.PI08
 @2019.PI08.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1904315 - Run Performance Test in Test env
 

@@ -2,8 +2,8 @@
 @US1910078
 @2019.PI08
 @2019.PI08.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1910078 - Select related errors within a single contract ID - Type 2
 
   @TC909548

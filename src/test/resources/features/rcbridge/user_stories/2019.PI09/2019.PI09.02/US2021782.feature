@@ -1,19 +1,31 @@
 # Last updated on 
 @Arvind
 @Suman
-@Adele_R
 @US2021782
 @2019.PI09
-@releaseFuture
-@iterationUnknown
+@2019.PI09.02
+@releasePresent
+@iterationFuture
 Feature: US2021782 - FS on MSPS for West  - Rate Escalator - IdahoWashington
 
+  @TC967058
+  @Manual
+  @Functional
+  @Arvind
+  @Suman
+  Scenario: TC967058 - [RL0]
+    Given a rate escalator process exists
+    When the region is West UHN
+    And the market is 46600
+    Then a task "Submit Fee Schedules on MSPS SIte" is assigned to user group FS_West_WA_OR_MT_AK
+    And the text displayed in the form is "Please complete this task after you have submitted the Fee Schedule updates on the MSPS site."
+
+  @RC_unlinked
   @TC960460
   @Manual
   @Functional
   @Arvind
   @Suman
-  @Adele_R
   Scenario: TC960460 - [RL1]
     Given a rate escalator process exists
     When the region is not West UHN

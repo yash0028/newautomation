@@ -3,8 +3,8 @@
 @US1924706
 @2019.PI08
 @2019.PI08.05
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1924706 - MAHP GHMO - Determine IPA for SPEC Contracts VIRGINIA (010)
 
   @TC902687

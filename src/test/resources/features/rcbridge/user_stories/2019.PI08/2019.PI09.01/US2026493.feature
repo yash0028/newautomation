@@ -2,8 +2,8 @@
 @US2026493
 @2019.PI08
 @2019.PI09.01
-@releasePresent
-@iterationFuture
+@releasePast
+@iterationPresent
 Feature: US2026493 - Addition of "Edit" button on OCM Display - provider level (UI) - continuation
 
   @TC962603
@@ -27,4 +27,12 @@ Feature: US2026493 - Addition of "Edit" button on OCM Display - provider level (
     When the user wants to update one of the data elements at the provider level
     And the data element is not contract master, network number, ConArr, GTN, Role Type
     Then the user will not be able to edit the data
+
+  @TC967056
+  @Manual
+  @Functional
+  Scenario: TC967056 - [RL2]
+    Given a user does not have the "CLM_CMD_NONPROD_CONFIG_EDIT_USERS" secure group
+    When the user migrates to the contract config
+    Then they will be not be able to edit any of the data
 

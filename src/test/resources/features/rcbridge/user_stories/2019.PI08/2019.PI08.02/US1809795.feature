@@ -3,7 +3,7 @@
 @US1809795
 @2019.PI08
 @2019.PI08.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1809795 - CMD Search navigation correction
 

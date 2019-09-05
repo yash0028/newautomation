@@ -4,8 +4,8 @@
 @US2024052
 @2019.PI09
 @2019.PI09.01
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US2024052 - UHC and Provider agreement- Language change
 
   @TC962604
@@ -32,5 +32,14 @@ Feature: US2024052 - UHC and Provider agreement- Language change
     And each checked section needs "Is there explicit language requested by the provider?"* Yes/No radio button,
     And If yes, "Please provide the explicit language" as a Multi line text box
     And each checked section needs "What issues does the provider have with our language?"* as a Multi line Text box
-    And upon completion of the task, "XXXXXXXXXX" is assigned
+
+  @TC967061
+  @Manual
+  @Functional
+  @Arvind
+  @Adele_R
+  Scenario: TC967061 - [RL2]
+    Given "Language Change: UHC & Provider Agree" task exist
+    When "Are changes to locked language needed?"* is answered with a Yes
+    Then upon completion of the task, "Locked Language Request - Market Lead" is created
 

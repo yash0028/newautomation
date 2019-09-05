@@ -2,9 +2,9 @@
 @US1911921
 @2019.PI08
 @2019.PI08.05
-@releasePresent
-@iterationPresent
-Feature: US1911921 - Modify Contract Master selection
+@releasePast
+@iterationPast
+Feature: US1911921 - [Dev Only] Modify Contract Master selection
 
   @TC902690
   @Manual

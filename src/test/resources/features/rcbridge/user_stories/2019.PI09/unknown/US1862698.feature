@@ -1,7 +1,7 @@
 # Last updated on 
 @US1862698
 @2019.PI09
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1862698 - Platform Unet - Create OCM upon first transaction in Exari for migrated contracts (Demo Only - AmendContract Replace Payment Appendix)
 

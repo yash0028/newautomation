@@ -1,7 +1,7 @@
 # Last updated on 
 @US1874864
 @2019.PI09
-@releaseFuture
+@releasePresent
 @iterationUnknown
 Feature: US1874864 - Rename process name
 

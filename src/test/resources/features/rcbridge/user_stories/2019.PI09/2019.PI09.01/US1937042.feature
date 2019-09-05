@@ -4,8 +4,8 @@
 @US1937042
 @2019.PI09
 @2019.PI09.01
-@releaseFuture
-@iterationFuture
+@releasePresent
+@iterationPresent
 Feature: US1937042 - Contractor Name and withdraw rate escalator process
 
   @TC960461

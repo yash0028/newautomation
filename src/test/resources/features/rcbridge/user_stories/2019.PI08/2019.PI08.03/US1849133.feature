@@ -4,7 +4,7 @@
 @US1849133
 @2019.PI08
 @2019.PI08.03
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1849133 - 8 PBC final Report - Rate Escalator
 

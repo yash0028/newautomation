@@ -2,7 +2,7 @@
 @US1955056
 @2019.PI08
 @2019.PI08.04
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1955056 - Amendment and Cancel transactions - Effective Date - 1 calendar day when sending downstream
 
