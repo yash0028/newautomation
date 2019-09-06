@@ -6,7 +6,7 @@
 @2019.PI09.01
 @releasePresent
 @iterationPresent
-Feature: US2024052 - UHC and Provider agreement- Language change
+Feature: US2024052 - UHC and Provider agreement- Language changes
 
   @TC962604
   @Manual
@@ -15,7 +15,7 @@ Feature: US2024052 - UHC and Provider agreement- Language change
   @Adele_R
   Scenario: TC962604 - [RL0]
     Given language change is requested by provider
-    When the contractor is on the "Language Change: UHC & Provider Agree" task
+    When the contractor is on the "Language Changes" task
     Then the contractor can document the language change request from the provider
     And the form contains "Are changes to locked language needed?"* with radio button with option Yes/No
 
@@ -39,7 +39,7 @@ Feature: US2024052 - UHC and Provider agreement- Language change
   @Arvind
   @Adele_R
   Scenario: TC967061 - [RL2]
-    Given "Language Change: UHC & Provider Agree" task exist
+    Given "Language Changes" task exist
     When "Are changes to locked language needed?"* is answered with a Yes
     Then upon completion of the task, "Locked Language Request - Market Lead" is created
 

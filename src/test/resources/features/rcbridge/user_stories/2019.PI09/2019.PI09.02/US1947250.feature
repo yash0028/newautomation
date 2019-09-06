@@ -1,7 +1,9 @@
 # Last updated on 
 @US1947250
-@releaseUnknown
-@iterationUnknown
+@2019.PI09
+@2019.PI09.02
+@releasePresent
+@iterationFuture
 Feature: US1947250 - UI/UX:  Fee Schedule ID is visible to users in CMD UI when contract master input is required
 
   @TC958738

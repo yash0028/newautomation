@@ -15,4 +15,16 @@ Feature: US1835739 - Inform user to get retro approval during rate escalator (no
     Then contractor or initiator needs to start the retro process
     And the contractor need to get retro approval
     And the initiator is not able to open Submit for Loading task
+    And the retro is automatically started
+
+  @TC968848
+  @Manual
+  @Functional
+  Scenario: TC968848 - [RL2]
+    Given a retro approval is required
+    When it is automatically started
+    Then the Effective Date of Rate Escalator to feed into the Planned Effective Date in Retro (non-editable)
+    And the Expected Completion Date of Rate Escalator to feed into the Target Date for Agreement Completion in Retro (non-editable)
+    And the Associated Workflow Type in Retro = Escalator (non-editable)
+    And the Demographic details to be pre-filled in Retro (can be from Rate Escalator or a call to contracts) (non-editable)
 

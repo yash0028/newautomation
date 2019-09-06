@@ -1,7 +1,8 @@
 # Last updated on 
 @US1964036
+@2019.PI09.05
 @releaseUnknown
-@iterationUnknown
+@iterationFuture
 Feature: US1964036 - Do not move to Type 1 Error when NDB Contract Master service is down
 
   @TC958741

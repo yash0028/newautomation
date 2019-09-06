@@ -62,5 +62,5 @@ Feature: US2028413 - Locked Language Request – UHN Legal - Modified
     Given "Does the provider agree with the changes?" exists
     When Yes is selected
     Then the process must re-route to the same UHN Legal team member
-    And the task "Locked Language Request - UHN Legal" is created
+    And the task "Locked Language Request - UHN Legal Contract offer" is created
 

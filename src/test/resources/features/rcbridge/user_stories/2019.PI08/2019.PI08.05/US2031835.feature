@@ -1,25 +1,25 @@
 # Last updated on 
-@US1910078
+@US2031835
 @2019.PI08
 @2019.PI08.05
 @releasePast
 @iterationPast
-Feature: US1910078 - Select related errors within a single contract ID - Type 2
+Feature: US2031835 - [Unfinished] Select related errors within a single contract ID - Type 2
 
-  @TC909548
+  @TC968852
   @Manual
   @Functional
-  Scenario: TC909548 - [RL0]
+  Scenario: TC968852 - [RL0]
     Given a contract has resulted in Type 1 errors or Type 2 errors
     When a user searches for the contract ID
     And navigates to the Action Required section from the 4-blocker
     Then the user will see a checkbox to the left of the target/transaction record
     And the user will be able to select one or more target/transactions within the contract ID
 
-  @TC909552
+  @TC968862
   @Manual
   @Functional
-  Scenario: TC909552 - [RL1]
+  Scenario: TC968862 - [RL1]
     Given a contract has resulted in Type 1 errors or Type 2 errors
     When a user searches for the contract ID
     And navigates to the Action Required section from the 4-blocker

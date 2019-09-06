@@ -1,24 +1,24 @@
 # Last updated on 
-@US1910072
+@US2031831
 @2019.PI08
 @2019.PI08.05
 @releasePast
 @iterationPast
-Feature: US1910072 - Select related transactions within a Mass Actions project - Type 1
+Feature: US2031831 - [Unfinished] Select related transactions within a Mass Actions project - Type 1
 
-  @TC909550
+  @TC968854
   @Manual
   @Functional
-  Scenario: TC909550 - [RL0]
+  Scenario: TC968854 - [RL0]
     Given a Mass Action Project has resulted in Type 1 errors
     When a user navigates into the Action Required section from the 4-blocker
     Then the user will see a checkbox to the left of the target/transaction record
     And the user will be able to select one or more target/transactions within the Mass Action Project
 
-  @TC909554
+  @TC968864
   @Manual
   @Functional
-  Scenario: TC909554 - [RL1]
+  Scenario: TC968864 - [RL1]
     Given a Mass Action Project has resulted in Type 1 errors
     When a user navigates into the Action Required section from the 4-blocker
     And the user wants to select all targets that errored
