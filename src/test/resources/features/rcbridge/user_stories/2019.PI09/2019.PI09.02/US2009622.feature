@@ -1,7 +1,7 @@
 # Last updated on 
 @US2009622
 @2019.PI09
-@2019.PI09.03
+@2019.PI09.02
 @releasePresent
 @iterationFuture
 Feature: US2009622 - Display TransactionOwner (Mass Actions)

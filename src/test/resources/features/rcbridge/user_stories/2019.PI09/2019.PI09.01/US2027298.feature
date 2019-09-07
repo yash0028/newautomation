@@ -30,6 +30,7 @@ Feature: US2027298 - Locked Language Request - Operations
     When "Approve Locked Language Request" button is selected
     Then the contractor needs to upload the approval mail from the operations team
     And a comments field to write in user input - "Comments" field will be optional only if "Deny Locked Language Request" is selected.
+    And the "Locked Language: Unlock template & Insert Language" task is created
 
   @TC967074
   @Manual

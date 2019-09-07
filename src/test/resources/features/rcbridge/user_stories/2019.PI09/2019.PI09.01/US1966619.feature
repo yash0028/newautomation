@@ -1,7 +1,7 @@
 # Last updated on 
 @Arvind
+@ready_for_test
 @Suman
-@Adele_R
 @US1966619
 @2019.PI09
 @2019.PI09.01
@@ -13,8 +13,8 @@ Feature: US1966619 - FS on MSPS for West  - Rate Escalator
   @Manual
   @Functional
   @Arvind
+  @ready_for_test
   @Suman
-  @Adele_R
   Scenario: TC935484 - [RL1]
     Given a rate escalator process exists
     When the region is not West UHN

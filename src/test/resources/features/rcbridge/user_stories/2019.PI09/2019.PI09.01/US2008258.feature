@@ -1,13 +1,16 @@
 # Last updated on 
+@Sheham
 @US2008258
 @2019.PI09
+@2019.PI09.01
 @releasePresent
-@iterationUnknown
+@iterationPresent
 Feature: US2008258 - Retro multiple contracts
 
   @TC953388
   @Manual
   @Functional
+  @Sheham
   Scenario: TC953388 - [RL0]
     Given the retro process exists
     When deal ids are part of the negotiation

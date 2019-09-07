@@ -27,7 +27,7 @@ Feature: US2027258 - Locked Language Request - Pricing
   Scenario: TC968849 - [RL2]
     Given "Locked Language Request - Pricing" exists
     When the radio button "Approve Locked Language Request" is used
-    Then the Locked Language Request - Operations" is created
+    Then the "Locked Language Request - UHN Legal" is created
 
   @TC968858
   @Manual

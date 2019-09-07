@@ -3,9 +3,9 @@
 @Adele_R
 @US2028413
 @2019.PI09
-@2019.PI09.01
+@2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US2028413 - Locked Language Request – UHN Legal - Modified
 
   @TC967062

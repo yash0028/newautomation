@@ -3,9 +3,9 @@
 @Adele_R
 @US2027396
 @2019.PI09
-@2019.PI09.01
+@2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US2027396 - Locked Language Request – UHN Legal
 
   @TC967051
@@ -15,7 +15,7 @@ Feature: US2027396 - Locked Language Request – UHN Legal
   @Adele_R
   Scenario: TC967051 - [RL0]
     Given language change need is identified in Physician workflow
-    When operations team approves the "Locked Language Request - Operations" task
+    When Pricing team approves the "Locked Language Request - Pricing task
     Then "Locked Language Request – UHN Legal" task is assigned to the UHN Legal team member
     And all of the data in fields about locked language from the "Language Change: UHC & Provider Agree" are displayed in read only format
     And the data from the help text, how close are we to agreement on language, and comments are not displayed
@@ -30,6 +30,7 @@ Feature: US2027396 - Locked Language Request – UHN Legal
     When UHN Legal team member opens "Locked Language Request – UHN Legal"
     Then UHN Legal team member has 3 radio buttons - *"Approve Locked Language Request", "Deny Locked Language Request" and "Modify Locked Language Request"
     And a comments field to write in user input - "Comments" field will be optional only if "Deny Locked Language Request" is selected.
+    And the form contains, "Will this language need to be filed and approved?" (Yes/No)
 
   @TC967073
   @Manual
@@ -39,7 +40,7 @@ Feature: US2027396 - Locked Language Request – UHN Legal
   Scenario: TC967073 - [RL2]
     Given "Locked Language Request - UHN Legal" exists
     When the radio button "Modify Locked Language Request" is selected
-    Then he "Locked Language Counter" task is created
+    Then the "Locked Language Counter" task is created
 
   @TC967079
   @Manual
@@ -49,7 +50,7 @@ Feature: US2027396 - Locked Language Request – UHN Legal
   Scenario: TC967079 - [RL3]
     Given "Locked Language Request - UHN Legal" exists
     When the radio button "Approve Locked Language Request" is used
-    Then the Locked Language Request - Unlock Template" is created
+    Then the "Locked Language Request - Operations" is created
 
   @TC967086
   @Manual

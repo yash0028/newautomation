@@ -1,17 +1,15 @@
 # Last updated on 
-@Shiva
 @Sheham
 @US1778517
-@2019.PI08
-@2019.PI08.05
-@releasePast
-@iterationPast
+@2019.PI09
+@2019.PI09.01
+@releasePresent
+@iterationPresent
 Feature: US1778517 - [Continued] Update email text
 
   @TC815270
   @Manual
   @Functional
-  @Shiva
   @Sheham
   Scenario: TC815270 - [RL0]
     Given an email exists

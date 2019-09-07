@@ -3,9 +3,9 @@
 @Adele_R
 @US2027428
 @2019.PI09
-@2019.PI09.01
+@2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US2027428 - Locked Language Request – UHN Legal Denied
 
   @TC967053
