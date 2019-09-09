@@ -28,14 +28,15 @@ public class ETMASteps implements IRestStep {
 
     private static final String ENDPOINT = "http://exari-table-maint-api-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private static final String RESOURCE_MARKETS = "/v1.0/markets";
-    private static final String RESOURCE_CONTRACT_CLASSES_SEARCH = "/v1.0/contract_classes/search";
-    private static final String RESOURCE_CONTRACT_VALIDATION = "/v1.0/contract_validations";
-    private static final String RESOURCE_CONTRACT_VALIDATION_ALL = "/v1.0/contract_validations/all";
-    private static final String RESOURCE_RETRO_REASON_CODE = "/v1.0/retro_reason_codes";
+    private static final String RESOURCE_CONTRACT_CLASSES_SEARCH = "/v1.0/contract-classes/search";
+    private static final String RESOURCE_CONTRACT_VALIDATION = "/v1.0/contract-validations";
+    private static final String RESOURCE_CONTRACT_VALIDATION_ALL = "/v1.0/contract-validations/all";
+    private static final String RESOURCE_RETRO_REASON_CODE = "/v1.0/retro-reason-codes";
 
     private RequestSpecification request;
     private Response response;
     private String contractType = "";
+    private String specialtyIndicator = "";
     private JsonObject requestBody = new JsonObject();
 
 //F182490
@@ -68,8 +69,10 @@ public class ETMASteps implements IRestStep {
     @Given("^the provider's specialty indicator is \"([^\"]*)\" and contract type is \"([^\"]*)\"$")
     public void theProviderSSpecialtyIndicatorIsAndContractTypeIs(String specialtyIndicator, String contractType) throws Throwable {
         this.contractType = contractType;
+        this.specialtyIndicator = specialtyIndicator;
 
         requestBody.addProperty("specialtyIndicator", specialtyIndicator);
+        requestBody.addProperty("contractClass", contractType);
 
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody.toString());
     }
@@ -100,12 +103,11 @@ public class ETMASteps implements IRestStep {
 
     @Then("^the service will return a \"([^\"]*)\" value$")
     public void theServiceWillReturnAValue(String value) throws Throwable {
-
-        requestBody.addProperty("contractClass", contractType);
-
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody.toString());
-        response = request.post(RESOURCE_CONTRACT_VALIDATION);
-
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json")
+                .queryParam("contractClass", contractType)
+                .queryParam("specialtyIndicator", specialtyIndicator);
+        response = request.get(RESOURCE_CONTRACT_VALIDATION);
+        response.prettyPrint();
         assertTrue(response.asString().toLowerCase().contains(value.toLowerCase()));
     }
 

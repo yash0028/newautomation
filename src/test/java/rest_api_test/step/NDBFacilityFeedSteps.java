@@ -27,7 +27,7 @@ public class NDBFacilityFeedSteps implements IRestStep, IMapSub {
 
     //TODO: fill this in when the endpoints are established
     private static final String ENDPOINT = "http://ndb-facility-feed-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String RESOURCE_VALIDATE = "/v1.0/ndb_facility_feed_final_ack";
+    private static final String RESOURCE_VALIDATE = "/v1.0/final-acknowledgements";
 
     private static final long TIMEOUTMS = 60 * 1000;
 
