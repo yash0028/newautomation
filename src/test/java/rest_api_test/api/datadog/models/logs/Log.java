@@ -9,16 +9,16 @@ import com.google.gson.annotations.Expose;
 public class Log {
 
     @Expose
-    private Content content;
+    private LogContent logContent;
     @Expose
     private String id;
 
-    public Content getContent() {
-        return content;
+    public LogContent getLogContent() {
+        return logContent;
     }
 
-    public void setContent(Content content) {
-        this.content = content;
+    public void setLogContent(LogContent logContent) {
+        this.logContent = logContent;
     }
 
     public String getId() {
