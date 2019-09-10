@@ -4,8 +4,8 @@ import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.IRestApi;
-import rest_api_test.api.datastructure.gson.fallout.ContractMaster;
-import rest_api_test.api.datastructure.gson.fallout.WorkObjectItem;
+import rest_api_test.api.fallout.model.ContractMaster;
+import rest_api_test.api.fallout.model.WorkObjectItem;
 
 public interface IFalloutWorkObjectItemContractMasterContollerInteract extends IRestApi {
     Logger log = LoggerFactory.getLogger(IFalloutWorkObjectItemContractMasterContollerInteract.class);

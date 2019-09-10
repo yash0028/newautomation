@@ -9,18 +9,19 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rest_api_test.api.datastructure.gson.contractsquery.QueryResponse;
-import rest_api_test.api.datastructure.gson.transaction.TransactionStatus;
-import rest_api_test.api.datastructure.list.TransactionDetails;
+import rest_api_test.api.contractsquery.model.QueryResponse;
+import rest_api_test.api.transaction.model.TransactionDetails;
+import rest_api_test.api.transaction.model.TransactionStatus;
+import rest_api_test.util.IRestStep;
 
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public abstract class AbstractRestApi implements ISharedValueReader {
+public abstract class AbstractRestApi implements ISharedValueReader, IRestStep {
     private static final Logger log = LoggerFactory.getLogger(AbstractRestApi.class);
     protected static Env env = Env.dev;
-    protected final Gson gson;
+    public final Gson gson;
 
     /*
     CONSTRUCTOR

@@ -6,9 +6,9 @@ import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.AbstractRestApi;
-import rest_api_test.api.datastructure.gson.eventgateway.BusinessEvent;
-import rest_api_test.api.datastructure.gson.transaction.TransactionId;
-import rest_api_test.api.datastructure.type.BusinessEventType;
+import rest_api_test.api.eventgateway.model.BusinessEvent;
+import rest_api_test.api.eventgateway.model.BusinessEventType;
+import rest_api_test.api.transaction.model.TransactionId;
 import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;

@@ -6,7 +6,7 @@ import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.AbstractRestApi;
-import rest_api_test.api.datastructure.gson.contractsquery.QueryResponse;
+import rest_api_test.api.contractsquery.model.QueryResponse;
 import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;

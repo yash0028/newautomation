@@ -14,7 +14,7 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.contractsquery.IContractsQueryInteract;
-import rest_api_test.api.datastructure.gson.contractsquery.QueryResponse;
+import rest_api_test.api.contractsquery.model.QueryResponse;
 import rest_api_test.util.IRestStep;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;

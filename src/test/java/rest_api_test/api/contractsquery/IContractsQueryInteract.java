@@ -3,7 +3,7 @@ package rest_api_test.api.contractsquery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.IRestApi;
-import rest_api_test.api.datastructure.gson.contractsquery.QueryResponse;
+import rest_api_test.api.contractsquery.model.QueryResponse;
 
 public interface IContractsQueryInteract extends IRestApi {
     Logger log = LoggerFactory.getLogger(IContractsQueryInteract.class);
