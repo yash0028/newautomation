@@ -30,7 +30,7 @@ public class ETMASteps implements IRestStep {
     private static final String RESOURCE_MARKETS = "/v1.0/markets";
     private static final String RESOURCE_CONTRACT_CLASSES_SEARCH = "/v1.0/contract-classes/search";
     private static final String RESOURCE_CONTRACT_VALIDATION = "/v1.0/contract-validations";
-    private static final String RESOURCE_CONTRACT_VALIDATION_ALL = "/v1.0/contract-validations/all";
+    private static final String RESOURCE_CONTRACT_VALIDATION_ALL = "/v1.0/contract-validations/validate-multiple";
     private static final String RESOURCE_RETRO_REASON_CODE = "/v1.0/retro-reason-codes";
 
     private RequestSpecification request;
@@ -107,7 +107,6 @@ public class ETMASteps implements IRestStep {
                 .queryParam("contractClass", contractType)
                 .queryParam("specialtyIndicator", specialtyIndicator);
         response = request.get(RESOURCE_CONTRACT_VALIDATION);
-        response.prettyPrint();
         assertTrue(response.asString().toLowerCase().contains(value.toLowerCase()));
     }
 
