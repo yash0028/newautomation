@@ -1,6 +1,7 @@
 # Last updated on 
 @Arvind
 @Adele_R
+@Go_Live
 @US2028413
 @2019.PI09
 @2019.PI09.02
@@ -13,6 +14,7 @@ Feature: US2028413 - Locked Language Request – UHN Legal - Modified
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967062 - [RL0]
     Given "Locked Language Request - UHN Legal" exists
     When the radio button "Modify Locked Language Request" is selected
@@ -25,6 +27,7 @@ Feature: US2028413 - Locked Language Request – UHN Legal - Modified
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967070 - [RL1]
     Given "Should this language be sent to the provider as is?" exists
     When yes is selected
@@ -35,6 +38,7 @@ Feature: US2028413 - Locked Language Request – UHN Legal - Modified
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967077 - [RL2]
     Given language change request is modified by UHN Legal team member
     When contractor opens the task assigned "Locked Language Counter"
@@ -48,6 +52,7 @@ Feature: US2028413 - Locked Language Request – UHN Legal - Modified
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967084 - [RL3]
     Given "Does the provider agree with the changes?" exists
     When No is selected
@@ -58,6 +63,7 @@ Feature: US2028413 - Locked Language Request – UHN Legal - Modified
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967087 - [RL4]
     Given "Does the provider agree with the changes?" exists
     When Yes is selected

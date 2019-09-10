@@ -1,6 +1,7 @@
 # Last updated on 
 @Arvind
 @Adele_R
+@Go_Live
 @US2027396
 @2019.PI09
 @2019.PI09.02
@@ -13,6 +14,7 @@ Feature: US2027396 - Locked Language Request – UHN Legal
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967051 - [RL0]
     Given language change need is identified in Physician workflow
     When Pricing team approves the "Locked Language Request - Pricing task
@@ -25,6 +27,7 @@ Feature: US2027396 - Locked Language Request – UHN Legal
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967065 - [RL1]
     Given "Locked Language Request – UHN Legal" exists
     When UHN Legal team member opens "Locked Language Request – UHN Legal"
@@ -37,6 +40,7 @@ Feature: US2027396 - Locked Language Request – UHN Legal
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967073 - [RL2]
     Given "Locked Language Request - UHN Legal" exists
     When the radio button "Modify Locked Language Request" is selected
@@ -47,6 +51,7 @@ Feature: US2027396 - Locked Language Request – UHN Legal
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967079 - [RL3]
     Given "Locked Language Request - UHN Legal" exists
     When the radio button "Approve Locked Language Request" is used
@@ -57,6 +62,7 @@ Feature: US2027396 - Locked Language Request – UHN Legal
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967086 - [RL4]
     Given "Locked Language Request - UHN Legal" exists
     When the radio button "Deny Locked Language Request" is used

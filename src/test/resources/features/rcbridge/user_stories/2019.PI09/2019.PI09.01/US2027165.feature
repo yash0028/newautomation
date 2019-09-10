@@ -1,6 +1,7 @@
 # Last updated on 
 @Arvind
 @Adele_R
+@Go_Live
 @US2027165
 @2019.PI09
 @2019.PI09.01
@@ -8,24 +9,12 @@
 @iterationPresent
 Feature: US2027165 - Locked Language Request – Market Lead
 
-  @TC967059
-  @Manual
-  @Functional
-  @Arvind
-  @Adele_R
-  Scenario: TC967059 - [RL0]
-    Given language change need is identified in Physician workflow
-    When the "Locked Language Request - Market Lead" task is created
-    Then "Locked Language Request – Market Lead" task is assigned to the market lead
-    And the market lead is identified based on the market number of "Create Negotiation Record task" of physician flow
-    And all of the data in fields about locked language from the "Language Change: UHC & Provider Agree" are displayed in read only format
-    And the data from the help text, how close are we to agreement on language, and comments are not displayed
-
   @TC967069
   @Manual
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967069 - [RL1]
     Given "Locked Language Request – Market Lead" exists
     When Market Lead opens "Locked Language Request – Market Lead"
@@ -37,6 +26,7 @@ Feature: US2027165 - Locked Language Request – Market Lead
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967076 - [RL2]
     Given "Locked Language Request - Market Lead" exists
     When the radio button "Approve Locked Language Request" is used
@@ -47,6 +37,7 @@ Feature: US2027165 - Locked Language Request – Market Lead
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967082 - [RL3]
     Given "Locked Language Request - Market Lead" exists
     When the radio button "Deny Locked Language Request" is used

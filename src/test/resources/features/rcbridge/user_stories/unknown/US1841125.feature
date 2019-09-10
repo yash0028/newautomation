@@ -1,7 +1,6 @@
 # Last updated on 
 @US1841125
-@2019.PI08
-@releasePast
+@releaseUnknown
 @iterationUnknown
 Feature: US1841125 - Number of days until planned effective date
 

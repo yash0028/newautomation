@@ -1,6 +1,7 @@
 # Last updated on 
 @Arvind
 @Adele_R
+@Go_Live
 @US2027271
 @2019.PI09
 @2019.PI09.01
@@ -13,6 +14,7 @@ Feature: US2027271 - Locked Language Request – Market Lead Denied
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967063 - [RL0]
     Given the "Locked Language Request – Market Lead Denied" task is created
     When it is assigned an owner
@@ -25,6 +27,7 @@ Feature: US2027271 - Locked Language Request – Market Lead Denied
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967071 - [RL1]
     Given language change request is denied by Market Lead
     When contractor opens the task assigned "Locked Language Request Denied"
@@ -37,6 +40,7 @@ Feature: US2027271 - Locked Language Request – Market Lead Denied
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967078 - [RL2]
     Given "Are changes to locked language needed?" is answered YES
     When the task is completed
@@ -48,6 +52,7 @@ Feature: US2027271 - Locked Language Request – Market Lead Denied
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967085 - [RL3]
     Given "Are changes to locked language needed?" is answered NO
     When the task is completed

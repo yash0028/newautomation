@@ -1,6 +1,7 @@
 # Last updated on 
 @Arvind
 @Adele_R
+@Go_Live
 @US2024052
 @2019.PI09
 @2019.PI09.01
@@ -13,6 +14,7 @@ Feature: US2024052 - UHC and Provider agreement- Language changes
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC962604 - [RL0]
     Given language change is requested by provider
     When the contractor is on the "Language Changes" task
@@ -24,6 +26,7 @@ Feature: US2024052 - UHC and Provider agreement- Language changes
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC962606 - [RL1]
     Given "Are changes to locked language needed?"* exists
     When yes, is selected
@@ -38,6 +41,7 @@ Feature: US2024052 - UHC and Provider agreement- Language changes
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967061 - [RL2]
     Given "Language Changes" task exist
     When "Are changes to locked language needed?"* is answered with a Yes

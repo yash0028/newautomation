@@ -2,8 +2,7 @@
 @Visio
 @Suman
 @US1885667
-@2019.PI09
-@releasePresent
+@releaseUnknown
 @iterationUnknown
 Feature: US1885667 - Create Search Delegate for Name
 

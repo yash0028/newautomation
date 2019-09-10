@@ -1,12 +1,15 @@
 # Last updated on 
+@Go_Live
 @US2022719
-@releaseUnknown
+@2019.PI09
+@releasePresent
 @iterationUnknown
 Feature: US2022719 - Ensure workflow is being used
 
   @TC960462
   @Manual
   @Functional
+  @Go_Live
   Scenario: TC960462 - [RL0]
     Given the Physician workflow has open tasks
     And the Planned Effective date is within one month of the current date
@@ -17,6 +20,7 @@ Feature: US2022719 - Ensure workflow is being used
   @TC960464
   @Manual
   @Functional
+  @Go_Live
   Scenario: TC960464 - [RL1]
     Given the Physician workflow has open tasks
     And the Planned Effective date is more than one month of the current date

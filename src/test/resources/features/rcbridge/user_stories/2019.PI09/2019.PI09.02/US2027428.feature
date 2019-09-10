@@ -1,6 +1,7 @@
 # Last updated on 
 @Arvind
 @Adele_R
+@Go_Live
 @US2027428
 @2019.PI09
 @2019.PI09.02
@@ -13,6 +14,7 @@ Feature: US2027428 - Locked Language Request – UHN Legal Denied
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967053 - [RL0]
     Given the "Locked Language Request – UHN Legal Denied" task is created
     When it is assigned an owner
@@ -25,6 +27,7 @@ Feature: US2027428 - Locked Language Request – UHN Legal Denied
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967067 - [RL1]
     Given language change request is denied by UHN Legal team member
     When contractor opens the task assigned "Locked Language Request Denied"
@@ -37,6 +40,7 @@ Feature: US2027428 - Locked Language Request – UHN Legal Denied
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967075 - [RL2]
     Given "Are changes to locked language needed?" is answered YES
     When the task is completed
@@ -48,6 +52,7 @@ Feature: US2027428 - Locked Language Request – UHN Legal Denied
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967081 - [RL3]
     Given "Are changes to locked language needed?" is answered NO
     When the task is completed

@@ -1,6 +1,7 @@
 # Last updated on 
 @Arvind
 @Adele_R
+@Go_Live
 @US2030511
 @2019.PI09
 @2019.PI09.02
@@ -13,6 +14,7 @@ Feature: US2030511 - Locked Language Request – UHN Legal contract offer - Unlo
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC968850 - [RL0]
     Given a locked language change process exists
     When contractor submits "Locked Language Counter"
@@ -24,6 +26,7 @@ Feature: US2030511 - Locked Language Request – UHN Legal contract offer - Unlo
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC968860 - [RL1]
     Given a locked language change process exists
     When the a task "Locked Language: Unlock template" is created
@@ -39,6 +42,7 @@ Feature: US2030511 - Locked Language Request – UHN Legal contract offer - Unlo
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC970890 - [RL2]
     Given a Legal Selected Yes for "Will this language need to filed and approved?"
     When the agreement has been signed

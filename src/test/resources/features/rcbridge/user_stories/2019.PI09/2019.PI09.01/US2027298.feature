@@ -1,6 +1,7 @@
 # Last updated on 
 @Arvind
 @Adele_R
+@Go_Live
 @US2027298
 @2019.PI09
 @2019.PI09.01
@@ -13,6 +14,7 @@ Feature: US2027298 - Locked Language Request - Operations
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967057 - [RL0]
     Given language change need is identified in Physician workflow
     When the task "Locked Language Request - Operations" is created
@@ -25,6 +27,7 @@ Feature: US2027298 - Locked Language Request - Operations
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967068 - [RL1]
     Given "Locked Language Request - Operations" is assigned to the contractor
     When "Approve Locked Language Request" button is selected
@@ -37,6 +40,7 @@ Feature: US2027298 - Locked Language Request - Operations
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967074 - [RL2]
     Given "Locked Language Request - Operations" is assigned to the contractor
     When "Deny Locked Language Request" button is selected
@@ -49,6 +53,7 @@ Feature: US2027298 - Locked Language Request - Operations
   @Functional
   @Arvind
   @Adele_R
+  @Go_Live
   Scenario: TC967080 - [RL3]
     Given language change request is denied due to operations team comments
     When contractor opens the task assigned "Locked Language Request Denied"

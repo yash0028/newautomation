@@ -1,6 +1,7 @@
 # Last updated on 
 @#Optum
 @Suman
+@Go_Live
 @AM-Terminations
 @US1550626
 @2019.PI09
@@ -13,6 +14,7 @@ Feature: US1550626 - Integrate search capability on Termination Process
   @Functional
   @#Optum
   @Suman
+  @Go_Live
   @AM-Terminations
   Scenario: TC868373 - [RL1]
     Given I have searched contract for defined search parameters

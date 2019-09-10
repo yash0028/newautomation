@@ -20,3 +20,14 @@ Feature: US1971337 - MAHP GHMO IPA 777 Configuration Details (Capitation does NO
       | feeSchedule | "All_Payer_Fee_Schedule_ID" or "All_Payer_Fee_Schedule_ID_NPPA" |
       | ipa         | "777"                                                           |
 
+  @TC928901
+  @Manual
+  @Functional
+  Scenario: TC928901 - [RL1]
+    Given the ndbcontractmaster processed successfully
+    And request response details returned
+    Then only records with 'contract master name' matching below will be used for selection
+      | [fee_schedule]/777/0/G0/23 |
+    # Example: nnnnn_95192/777/0/G0/23
+    # Format: [marketnumber] / [fee schedule] / [IPA] / [CONARR] / [PRODUCT CODE] / 23
+
