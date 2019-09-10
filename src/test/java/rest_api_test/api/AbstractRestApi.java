@@ -14,6 +14,8 @@ import rest_api_test.api.transaction.model.TransactionDetails;
 import rest_api_test.api.transaction.model.TransactionStatus;
 import rest_api_test.util.IRestStep;
 
+import java.util.Map;
+
 import static io.restassured.RestAssured.given;
 
 public abstract class AbstractRestApi implements ISharedValueReader, IRestStep {
@@ -65,6 +67,16 @@ public abstract class AbstractRestApi implements ISharedValueReader, IRestStep {
     }
 
     public Response doBasicPost(String resourceEndpoint, JsonElement payload) {
+        log.trace("sending 'post' to {}", resourceEndpoint);
+        RequestSpecification request = given().baseUri(getEndpoint())
+                .header("Content-Type", "application/json")
+                .body(payload);
+
+        // Get the POST response
+        return request.post(resourceEndpoint);
+    }
+
+    public Response doBasicPost(String resourceEndpoint, Map<String, Object> payload) {
         log.trace("sending 'post' to {}", resourceEndpoint);
         RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json")

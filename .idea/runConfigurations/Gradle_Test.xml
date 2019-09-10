@@ -10,7 +10,7 @@
       <option name="executionName" />
       <option name="externalProjectPath" value="$PROJECT_DIR$" />
       <option name="externalSystemIdString" value="GRADLE" />
-      <option name="scriptParameters" value="-PcucumberTags=&quot;@US1234077&quot;" />
+      <option name="scriptParameters" value="-PcucumberTags=&quot;@TC674586&quot;" />
       <option name="taskDescriptions">
         <list />
       </option>
