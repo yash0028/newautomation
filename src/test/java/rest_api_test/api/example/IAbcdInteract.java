@@ -1,10 +1,11 @@
-package rest_api_test.api.example.endpoint;
+package rest_api_test.api.example;
 
 import com.google.gson.JsonElement;
 import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.IRestApi;
+import rest_api_test.api.example.model.Letter;
 
 /**
  * This is an example of a Rest Api interact interface
@@ -52,10 +53,10 @@ public interface IAbcdInteract extends IRestApi {
      * @param htmlNamedCode the html named code for the letter to get
      * @return the response from Abcd API
      */
-    default Response getLetter(String htmlNamedCode) {
+    default Letter getLetter(String htmlNamedCode) {
         final String r = RESOURCE_GET_LETTER.replace("{}", htmlNamedCode);
-
-        return AbcdHelper.getInstance().doBasicGet(r);
+        Response response = AbcdHelper.getInstance().doBasicGet(r);
+        return AbcdHelper.getInstance().getLetter(response);
     }
     
     /*
