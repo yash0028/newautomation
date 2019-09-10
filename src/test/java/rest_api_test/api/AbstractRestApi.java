@@ -19,7 +19,7 @@ import static io.restassured.RestAssured.given;
 
 public abstract class AbstractRestApi implements ISharedValueReader {
     private static final Logger log = LoggerFactory.getLogger(AbstractRestApi.class);
-    protected static boolean useDev = true;
+    protected static Env env = Env.dev;
     protected final Gson gson;
 
     /*
@@ -46,13 +46,15 @@ public abstract class AbstractRestApi implements ISharedValueReader {
     */
 
     public Response doBasicGet(String resourceEndpoint) {
+        log.trace("sending 'get' to {}", resourceEndpoint);
         RequestSpecification request = given().baseUri(getEndpoint());
 
         // Get the GET response
         return request.get(resourceEndpoint);
     }
 
-    public Response doParamGet(String endpoint, Map<String, String> params) {
+    public Response doParamGet(String resourceEndpoint, Map<String, Object> params) {
+        log.trace("sending 'get' to {} with params [{}]", resourceEndpoint, params);
         RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json");
 
@@ -60,12 +62,11 @@ public abstract class AbstractRestApi implements ISharedValueReader {
         params.forEach(request::param);
 
         // Get the GET response
-
-        return request.get(endpoint);
+        return request.get(resourceEndpoint);
     }
 
-
     public Response doBasicPost(String resourceEndpoint, JsonElement payload) {
+        log.trace("sending 'post' to {}", resourceEndpoint);
         RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json")
                 .body(payload);
@@ -81,4 +82,10 @@ public abstract class AbstractRestApi implements ISharedValueReader {
     /*
     UTILITY CLASS
     */
+
+    public enum Env {
+        dev,
+        test,
+        stage
+    }
 }

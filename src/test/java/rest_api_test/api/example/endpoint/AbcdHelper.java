@@ -1,29 +1,29 @@
-package rest_api_test.api.activiti;
+package rest_api_test.api.example.endpoint;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.AbstractRestApi;
 
-class ActivitiHelper extends AbstractRestApi {
-    private static final Logger log = LoggerFactory.getLogger(ActivitiHelper.class);
+class AbcdHelper extends AbstractRestApi {
+    private static final Logger log = LoggerFactory.getLogger(AbcdHelper.class);
 
-    private static final String ENDPOINT_DEV = "http://activiti-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String ENDPOINT_TEST = "http://activiti-api-clm-test.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String ENDPOINT_DEV = "http://abcd-dev.com";
+    private static final String ENDPOINT_TEST = "http://abcd-test.com";
 
-    private static ActivitiHelper INSTANCE = new ActivitiHelper();
+    private static AbcdHelper INSTANCE = new AbcdHelper();
 
     /*
     CONSTRUCTOR
     */
 
-    private ActivitiHelper() {
+    private AbcdHelper() {
     }
     
     /*
     STATIC METHODS
     */
 
-    static ActivitiHelper getInstance() {
+    static AbcdHelper getInstance() {
         return INSTANCE;
     }
     

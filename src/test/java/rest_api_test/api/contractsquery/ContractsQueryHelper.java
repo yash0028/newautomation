@@ -63,7 +63,14 @@ class ContractsQueryHelper extends AbstractRestApi implements IRestStep {
 
     @Override
     protected String getEndpoint() {
-        return useDev ? ENDPOINT_DEV : ENDPOINT_TEST;
+        switch (env) {
+            case stage:
+            case test:
+                return ENDPOINT_TEST;
+            case dev:
+            default:
+                return ENDPOINT_DEV;
+        }
     }
 
     /*

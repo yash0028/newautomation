@@ -49,7 +49,14 @@ class MockServiceHelper extends AbstractRestApi {
 
     @Override
     protected String getEndpoint() {
-        return ENDPOINT_TEST;
+        switch (env) {
+            case stage:
+            case test:
+                return ENDPOINT_TEST;
+            case dev:
+            default:
+                return ENDPOINT_DEV;
+        }
     }
 
     /*
