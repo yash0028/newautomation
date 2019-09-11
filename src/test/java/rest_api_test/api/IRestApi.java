@@ -15,13 +15,18 @@ public interface IRestApi {
     */
 
     default void useDevApi() {
-        AbstractRestApi.useDev = true;
-        log.debug("set environment to DEV");
+        log.debug("set rest api env from {} to {}", AbstractRestApi.env.name(), AbstractRestApi.Env.dev.name());
+        AbstractRestApi.env = AbstractRestApi.Env.dev;
     }
 
     default void useTestApi() {
-        AbstractRestApi.useDev = false;
-        log.debug("set environment to TEST");
+        log.debug("set rest api env from {} to {}", AbstractRestApi.env.name(), AbstractRestApi.Env.test.name());
+        AbstractRestApi.env = AbstractRestApi.Env.test;
+    }
+
+    default void useStageApi() {
+        log.debug("set rest api env from {} to {}", AbstractRestApi.env.name(), AbstractRestApi.Env.stage.name());
+        AbstractRestApi.env = AbstractRestApi.Env.stage;
     }
     
     /*

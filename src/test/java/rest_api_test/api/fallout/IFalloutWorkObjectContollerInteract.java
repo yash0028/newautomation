@@ -4,11 +4,11 @@ import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.IRestApi;
-import rest_api_test.api.datastructure.gson.fallout.WorkObjectCount;
-import rest_api_test.api.datastructure.gson.fallout.page.Pageable;
-import rest_api_test.api.datastructure.list.ListProductGroup;
-import rest_api_test.api.datastructure.list.PageTransactionIds;
-import rest_api_test.api.datastructure.type.WorkObjectStatus;
+import rest_api_test.api.fallout.model.ListProductGroup;
+import rest_api_test.api.fallout.model.PageTransactionIds;
+import rest_api_test.api.fallout.model.WorkObjectCount;
+import rest_api_test.api.fallout.model.WorkObjectStatus;
+import rest_api_test.api.fallout.model.page.Pageable;
 
 public interface IFalloutWorkObjectContollerInteract extends IRestApi {
     Logger log = LoggerFactory.getLogger(IFalloutWorkObjectContollerInteract.class);

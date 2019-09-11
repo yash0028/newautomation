@@ -8,6 +8,9 @@ import rest_api_test.api.IRestApi;
 
 public interface IActivitiInteract extends IRestApi {
     Logger log = LoggerFactory.getLogger(IActivitiInteract.class);
+
+    String RESOURCE_CREATE_RECORD = "/v1.0/processes";
+
     
     /*
     INTERFACE METHODS
@@ -25,7 +28,7 @@ public interface IActivitiInteract extends IRestApi {
      * @return the response from Activiti API
      */
     default Response createRecord(JsonElement payload) {
-        return ActivitiHelper.getInstance().createRecord(payload);
+        return ActivitiHelper.getInstance().doBasicPost(RESOURCE_CREATE_RECORD, payload);
     }
     
     /*
