@@ -37,6 +37,7 @@ public class ETMASteps implements IRestStep {
     private Response response;
     private String contractType = "";
     private String specialtyIndicator = "";
+    private String orgType = "";
     private JsonObject requestBody = new JsonObject();
 
 //F182490
@@ -104,8 +105,12 @@ public class ETMASteps implements IRestStep {
     @Then("^the service will return a \"([^\"]*)\" value$")
     public void theServiceWillReturnAValue(String value) throws Throwable {
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json")
-                .queryParam("contractClass", contractType)
-                .queryParam("specialtyIndicator", specialtyIndicator);
+                .queryParam("contractClass", contractType);
+        if(specialtyIndicator.isEmpty()){
+            request.queryParam("organizationType", orgType);
+        } else {
+            request.queryParam("specialtyIndicator", specialtyIndicator);
+        }
         response = request.get(RESOURCE_CONTRACT_VALIDATION);
         assertTrue(response.asString().toLowerCase().contains(value.toLowerCase()));
     }
@@ -156,6 +161,7 @@ public class ETMASteps implements IRestStep {
     public void theProviderSOrganizationTypeIsAndContractTypeIs(String orgType, String contractType) throws Throwable {
         requestBody.addProperty("organizationType", orgType);
         this.contractType = contractType;
+        this.orgType = orgType;
 
         request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody.toString());
     }
