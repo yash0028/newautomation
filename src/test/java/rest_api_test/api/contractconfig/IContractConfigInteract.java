@@ -4,8 +4,7 @@ import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.IRestApi;
-
-import java.util.Map;
+import rest_api_test.api.PayloadMap;
 
 /**
  * This is an example of a Rest Api interact interface
@@ -30,7 +29,7 @@ public interface IContractConfigInteract extends IRestApi {
      * @param payload the json element containing a contractID, mpin, npi, productGroup, or tin
      * @return the response from contract config api
      */
-    default Response checkProviderStatus(Map<String, Object> payload) {
+    default Response checkProviderStatus(PayloadMap<?> payload) {
         return ContractConfigHelper.getInstance().doBasicPost(RESOURCE_PROVIDER_STATUS, payload);
     }
     

@@ -32,7 +32,7 @@ public class CMDUtilitySteps implements IRestStep, IMapSub, IContractMetadataInt
     @When("^the user provides values$")
     public void requestInputData(DataTable dataTable) {
         Map<String, String> payload = subMapStringValues(dataTable.asMap(String.class, String.class));
-        this.response = searchProviderCategory(payload);
+        this.response = exariSearchProviderCategory(payload);
     }
 
     @Then("^the query \"(.*)\" provides the matching table records data$")
@@ -47,12 +47,12 @@ public class CMDUtilitySteps implements IRestStep, IMapSub, IContractMetadataInt
 
     @When("^the user requests for legal entity data$")
     public void hitLegalLicensedEntityRequest() {
-        response = getLegalEntities(null);
+        response = exariGetLegalEntities(null);
     }
 
     @When("^the user initiates the affiliation micro service$")
     public void hitAffiliationRequest() {
-        response = searchAffiliationType(null);
+        response = exariSearchAffiliationType(null);
     }
 
     @Then("^the service returns the entire table records$")
