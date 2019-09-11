@@ -1,5 +1,6 @@
 # Last updated on 
 @Arvind
+@Suman
 @Go_Live
 @Adele_R
 @US2027165
@@ -13,6 +14,7 @@ Feature: US2027165 - Locked Language Request – Market Lead
   @Manual
   @Functional
   @Arvind
+  @Suman
   @Go_Live
   @Adele_R
   Scenario: TC967069 - [RL1]
@@ -25,6 +27,7 @@ Feature: US2027165 - Locked Language Request – Market Lead
   @Manual
   @Functional
   @Arvind
+  @Suman
   @Go_Live
   @Adele_R
   Scenario: TC967076 - [RL2]
@@ -36,6 +39,7 @@ Feature: US2027165 - Locked Language Request – Market Lead
   @Manual
   @Functional
   @Arvind
+  @Suman
   @Go_Live
   @Adele_R
   Scenario: TC967082 - [RL3]
