@@ -1,7 +1,7 @@
 # Last updated on 
 @Arvind
-@Adele_R
 @Go_Live
+@Adele_R
 @US2027165
 @2019.PI09
 @2019.PI09.01
@@ -13,8 +13,8 @@ Feature: US2027165 - Locked Language Request – Market Lead
   @Manual
   @Functional
   @Arvind
-  @Adele_R
   @Go_Live
+  @Adele_R
   Scenario: TC967069 - [RL1]
     Given "Locked Language Request – Market Lead" exists
     When Market Lead opens "Locked Language Request – Market Lead"
@@ -25,8 +25,8 @@ Feature: US2027165 - Locked Language Request – Market Lead
   @Manual
   @Functional
   @Arvind
-  @Adele_R
   @Go_Live
+  @Adele_R
   Scenario: TC967076 - [RL2]
     Given "Locked Language Request - Market Lead" exists
     When the radio button "Approve Locked Language Request" is used
@@ -36,8 +36,8 @@ Feature: US2027165 - Locked Language Request – Market Lead
   @Manual
   @Functional
   @Arvind
-  @Adele_R
   @Go_Live
+  @Adele_R
   Scenario: TC967082 - [RL3]
     Given "Locked Language Request - Market Lead" exists
     When the radio button "Deny Locked Language Request" is used

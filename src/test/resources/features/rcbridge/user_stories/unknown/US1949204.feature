@@ -1,5 +1,6 @@
 # Last updated on 
 @Adele_R
+@Non_MVP
 @US1949204
 @releaseUnknown
 @iterationUnknown
@@ -9,6 +10,7 @@ Feature: US1949204 - MNSPS Fee Schedule Market CEO - Physician
   @Manual
   @Functional
   @Adele_R
+  @Non_MVP
   Scenario: TC920651 - [RL0]
     Given MNSPS Fee Schedule need is identified in Physician workflow
     When the task MNSPS: Market CEO Approval Request is created

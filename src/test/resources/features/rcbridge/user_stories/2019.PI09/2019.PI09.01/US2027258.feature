@@ -1,7 +1,7 @@
 # Last updated on 
 @Arvind
-@Adele_R
 @Go_Live
+@Adele_R
 @US2027258
 @2019.PI09
 @2019.PI09.01
@@ -13,8 +13,8 @@ Feature: US2027258 - Locked Language Request - Pricing
   @Manual
   @Functional
   @Arvind
-  @Adele_R
   @Go_Live
+  @Adele_R
   Scenario: TC967052 - [RL1]
     Given market lead approves the language change request
     When Pricing team member opens "Locked Language Request - Pricing"
@@ -25,8 +25,8 @@ Feature: US2027258 - Locked Language Request - Pricing
   @Manual
   @Functional
   @Arvind
-  @Adele_R
   @Go_Live
+  @Adele_R
   Scenario: TC968849 - [RL2]
     Given "Locked Language Request - Pricing" exists
     When the radio button "Approve Locked Language Request" is used
@@ -36,8 +36,8 @@ Feature: US2027258 - Locked Language Request - Pricing
   @Manual
   @Functional
   @Arvind
-  @Adele_R
   @Go_Live
+  @Adele_R
   Scenario: TC968858 - [RL3]
     Given "Locked Language Request - Pricing" exists
     When the radio button "Deny Locked Language Request" is used

@@ -1,5 +1,6 @@
 # Last updated on 
 @Adele_R
+@Non_MVP
 @US1956577
 @releaseUnknown
 @iterationUnknown
@@ -9,6 +10,7 @@ Feature: US1956577 - MNSPS Fee Schedule withdrawal - Physician
   @Manual
   @Functional
   @Adele_R
+  @Non_MVP
   Scenario: TC949605 - [RL0]
     Given a MNSPS approval request exists
     When the initial task is completed
@@ -19,6 +21,7 @@ Feature: US1956577 - MNSPS Fee Schedule withdrawal - Physician
   @Manual
   @Functional
   @Adele_R
+  @Non_MVP
   Scenario: TC949607 - [RL1]
     Given a MNSPS approval request exists
     When requestor completes the "Withdraws MNSPS Approval Request"

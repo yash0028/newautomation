@@ -23,7 +23,7 @@ Feature: US1384733 - Exari API Testing for New Contract JSON
       | 69494430   |
 
   @TC625885
-  @Automated
+  @Manual
   @Regression
   @Exari_Automation
   Scenario: TC625885 - [RL1] Verify Latest SPA Contracts Using New JSON and Do Null Checks

@@ -1,5 +1,6 @@
 # Last updated on 
 @Adele_R
+@Non_MVP
 @US2005051
 @releaseUnknown
 @iterationUnknown
@@ -9,6 +10,7 @@ Feature: US2005051 - MNSPS Fee Schedule PROS Pricing Operations Senior Manager d
   @Manual
   @Functional
   @Adele_R
+  @Non_MVP
   Scenario: TC951873 - [RL0]
     Given MNSPS Fee Schedule need is identified in Physician workflow
     When the task MNSPS: PROS Pricing Operations Senior Manager Approval Request is created

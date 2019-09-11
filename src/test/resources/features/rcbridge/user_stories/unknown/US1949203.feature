@@ -1,5 +1,6 @@
 # Last updated on 
 @Adele_R
+@Non_MVP
 @US1949203
 @releaseUnknown
 @iterationUnknown
@@ -9,6 +10,7 @@ Feature: US1949203 - MNSPS Fee Schedule submission  and HCE decision- Physician
   @Manual
   @Functional
   @Adele_R
+  @Non_MVP
   Scenario: TC920654 - [RL0]
     Given MNSPS Fee Schedule need is identified in Physician workflow
     When the task MNSPS: Submit Request is created
@@ -20,6 +22,7 @@ Feature: US1949203 - MNSPS Fee Schedule submission  and HCE decision- Physician
   @Manual
   @Functional
   @Adele_R
+  @Non_MVP
   Scenario: TC920655 - [RL1]
     Given MNSPS Fee Schedule need is identified in Physician workflow
     When the task HCE Approval Request is created

@@ -1,5 +1,6 @@
 # Last updated on 
 @Adele_R
+@Non_MVP
 @US1956565
 @releaseUnknown
 @iterationUnknown
@@ -9,6 +10,7 @@ Feature: US1956565 - MNSPS Fee Schedule Government Vice President decision - Phy
   @Manual
   @Functional
   @Adele_R
+  @Non_MVP
   Scenario: TC949603 - [RL0]
     Given MNSPS Fee Schedule need is identified in Physician workflow
     When the task MNSPS: Government Vice President Approval Request is created

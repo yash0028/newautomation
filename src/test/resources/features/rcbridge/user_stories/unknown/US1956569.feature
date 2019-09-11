@@ -1,5 +1,6 @@
 # Last updated on 
 @Adele_R
+@Non_MVP
 @US1956569
 @releaseUnknown
 @iterationUnknown
@@ -9,6 +10,7 @@ Feature: US1956569 - MNSPS Fee Schedule Custom PROS Pricing Operations Manager d
   @Manual
   @Functional
   @Adele_R
+  @Non_MVP
   Scenario: TC949602 - [RL0]
     Given MNSPS Fee Schedule need is identified in Physician workflow
     When the task MNSPS: Custom PROS Pricing Operations Manager Approval Request is created

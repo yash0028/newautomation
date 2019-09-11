@@ -1,5 +1,6 @@
 # Last updated on 
 @Visio
+@Facility
 @US1824421
 @releaseUnknown
 @iterationUnknown
@@ -9,6 +10,7 @@ Feature: US1824421 - User Groups - No claim if only one person - Chargemaster
   @Manual
   @Functional
   @Visio
+  @Facility
   Scenario: TC835329 - [RL0]
     Given as task is assigned to a User Group
     When there is only one person in the User Group

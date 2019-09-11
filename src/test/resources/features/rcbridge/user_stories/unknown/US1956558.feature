@@ -1,5 +1,6 @@
 # Last updated on 
 @Adele_R
+@Non_MVP
 @US1956558
 @releaseUnknown
 @iterationUnknown
@@ -9,6 +10,7 @@ Feature: US1956558 - MNSPS Fee Schedule UHN Regional President - Physician
   @Manual
   @Functional
   @Adele_R
+  @Non_MVP
   Scenario: TC949606 - [RL0]
     Given MNSPS Fee Schedule need is identified in Physician workflow
     When the task MNSPS: UHN Regional President Approval Request is created

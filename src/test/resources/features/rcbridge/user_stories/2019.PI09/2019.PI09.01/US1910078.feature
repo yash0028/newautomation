@@ -1,8 +1,8 @@
 # Last updated on 
 @US1910078
-@2019.PI08
+@2019.PI09
 @2019.PI09.01
-@releasePast
+@releasePresent
 @iterationPresent
 Feature: US1910078 - [E2E Testing] Select related errors within a single contract ID - Type 2
 
@@ -10,7 +10,7 @@ Feature: US1910078 - [E2E Testing] Select related errors within a single contrac
   @Manual
   @Functional
   Scenario: TC909548 - [RL0]
-    Given a contract has resulted in Type 1 errors or Type 2 errors
+    Given a contract has resulted in Type 2 errors
     When a user searches for the contract ID
     And navigates to the Action Required section from the 4-blocker
     Then the user will see a checkbox to the left of the target/transaction record
@@ -20,7 +20,7 @@ Feature: US1910078 - [E2E Testing] Select related errors within a single contrac
   @Manual
   @Functional
   Scenario: TC909552 - [RL1]
-    Given a contract has resulted in Type 1 errors or Type 2 errors
+    Given a contract has resulted in Type 2 errors
     When a user searches for the contract ID
     And navigates to the Action Required section from the 4-blocker
     And the user wants to select all targets that errored

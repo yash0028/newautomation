@@ -1,8 +1,8 @@
 # Last updated on 
 @US1910072
-@2019.PI08
+@2019.PI09
 @2019.PI09.01
-@releasePast
+@releasePresent
 @iterationPresent
 Feature: US1910072 - [E2E Testing] Select related transactions within a Mass Actions project - Type 1
 

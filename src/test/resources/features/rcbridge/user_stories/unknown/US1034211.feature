@@ -1,4 +1,5 @@
 # Last updated on 
+@Facility
 @US1034211
 @releaseUnknown
 @iterationUnknown
@@ -7,6 +8,7 @@ Feature: US1034211 - Identify contract with a chargemaster via Compliance Manage
   @TC565566
   @Manual
   @Functional
+  @Facility
   Scenario: TC565566 - [RL0]
     Given an executed or active agreement
     When it has a Percentage of Payment Rate (PPR) payment method

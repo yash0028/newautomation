@@ -1,4 +1,5 @@
 # Last updated on 
+@Facility
 @US1031489
 @releaseUnknown
 @iterationUnknown
@@ -7,6 +8,7 @@ Feature: US1031489 - Chargemaster notice on Dashboard
   @TC564629
   @Manual
   @Functional
+  @Facility
   Scenario: TC564629 - [RL0]
     Given a contract with a chargemaster is identified
     When the contractor associated to the contracts views their dashboard

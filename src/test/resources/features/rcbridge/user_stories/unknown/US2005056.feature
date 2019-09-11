@@ -1,4 +1,5 @@
 # Last updated on 
+@Non_MVP
 @US2005056
 @releaseUnknown
 @iterationUnknown
@@ -7,6 +8,7 @@ Feature: US2005056 - MNSPS Fee Schedule PROS Vice-President decision - Physician
   @TC951874
   @Manual
   @Functional
+  @Non_MVP
   Scenario: TC951874 - [RL0]
     Given MNSPS Fee Schedule need is identified in Physician workflow
     When the task MNSPS: PROS Vice-President Approval Request is created
