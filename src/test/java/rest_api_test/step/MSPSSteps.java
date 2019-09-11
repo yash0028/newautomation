@@ -32,7 +32,7 @@ public class MSPSSteps implements IRestStep, IFileWriter {
     private static final String RESOURCE_FACILITY_FEE_SCHEDULES_SEARCH = "/v1.0/facility-fee-schedules/search";
     private static final String RESOURCE_PROFESSIONAL_FEE_SCHEDULES_SEARCH_V1 = "/v1.0/professional-fee-schedules/search";
     private static final String RESOURCE_PROFESSIONAL_FEE_SCHEDULES_SEARCH_V2 = "/v2.0/professional-fee-schedules/search";
-    private static final String RESOURCE_GET_FEE_SCHEDULES = "/v1.0/fee_schedules";
+    private static final String RESOURCE_GET_FEE_SCHEDULES = "/v1.0/fee-schedules";
 
 
     private JsonObject requestBody = new JsonObject();
@@ -106,7 +106,7 @@ public class MSPSSteps implements IRestStep, IFileWriter {
         requestBody.add(field, jsonArray);
         requestBody.addProperty("loggedInUserName","clmqe1");
         //Build out the request and add the JSON Request Body
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody.toString());
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
 
         response = request.post(RESOURCE_GET_FEE_SCHEDULES);
     }

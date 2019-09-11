@@ -25,7 +25,7 @@ public class MEGSteps implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(MEGSteps.class);
 
     private static final String ENDPOINT = "http://market-exception-api-clm-test.ocp-ctc-core-nonprod.optum.com";
-    private static final String RESOURCE_MARKET_EXCEPTION_SEARCH = "/v1.0/market_exceptions/search";
+    private static final String RESOURCE_MARKET_EXCEPTION_SEARCH = "/v1.0/market-exceptions";
 
     private JsonObject requestBody = new JsonObject();
     private RequestSpecification request;
@@ -58,7 +58,7 @@ public class MEGSteps implements IRestStep {
     @Then("^I receive data that I would get from reading SQL db directly including the fields:$")
     public void iReceiveDataThatIWouldGetFromReadingSQLDbDirectlyIncludingTheFields(DataTable responseFieldsDT) throws Throwable {
         //Get the response
-        response = request.post(RESOURCE_MARKET_EXCEPTION_SEARCH);
+        response = request.get(RESOURCE_MARKET_EXCEPTION_SEARCH);
 
         //Get the response fields from the data table as a list
         List<String> responseFields = responseFieldsDT.asList();
