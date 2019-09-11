@@ -1,6 +1,5 @@
 package rest_api_test.api.example;
 
-import com.google.gson.JsonElement;
 import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +31,7 @@ public interface IAbcdInteract extends IRestApi {
      * @param payload the json element containing the unicode, html named code, and a url to the svg
      * @return the response from Abcd API
      */
-    default Response createLetter(JsonElement payload) {
+    default Response createLetter(Object payload) {
         return AbcdHelper.getInstance().doBasicPost(RESOURCE_CREATE_LETTER, payload);
     }
 

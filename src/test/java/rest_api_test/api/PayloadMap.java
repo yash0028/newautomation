@@ -5,8 +5,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 
-public class ParamMap<T> extends HashMap<String, T> {
-    private static final Logger log = LoggerFactory.getLogger(ParamMap.class);
+public class PayloadMap<T> extends HashMap<String, T> {
+    private static final Logger log = LoggerFactory.getLogger(PayloadMap.class);
 
     /*
     CONSTRUCTOR

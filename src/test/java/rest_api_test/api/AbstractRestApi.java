@@ -2,7 +2,6 @@ package rest_api_test.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import general_test.util.ISharedValueReader;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -13,8 +12,6 @@ import rest_api_test.api.contractsquery.model.QueryResponse;
 import rest_api_test.api.transaction.model.TransactionDetails;
 import rest_api_test.api.transaction.model.TransactionStatus;
 import rest_api_test.util.IRestStep;
-
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
@@ -54,33 +51,26 @@ public abstract class AbstractRestApi implements ISharedValueReader, IRestStep {
         return request.get(resourceEndpoint);
     }
 
-    public Response doParamGet(String resourceEndpoint, ParamMap params) {
+    public Response doParamGet(String resourceEndpoint, ParamMap<?> params) {
         log.trace("sending 'get' to {} with params [{}]", resourceEndpoint, params);
         RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json");
 
         // Add params
-        params.forEach(request::param);
+        if (params != null)
+            params.forEach(request::param);
 
         // Get the GET response
         return request.get(resourceEndpoint);
     }
 
-    public Response doBasicPost(String resourceEndpoint, JsonElement payload) {
-        log.trace("sending 'post' to {}", resourceEndpoint);
+    public Response doBasicPost(String resourceEndpoint, Object payload) {
+        log.trace("sending 'post' to {} with payload [{}]", resourceEndpoint, payload);
         RequestSpecification request = given().baseUri(getEndpoint())
-                .header("Content-Type", "application/json")
-                .body(payload);
+                .header("Content-Type", "application/json");
 
-        // Get the POST response
-        return request.post(resourceEndpoint);
-    }
-
-    public Response doBasicPost(String resourceEndpoint, Map<String, Object> payload) {
-        log.trace("sending 'post' to {}", resourceEndpoint);
-        RequestSpecification request = given().baseUri(getEndpoint())
-                .header("Content-Type", "application/json")
-                .body(payload);
+        if (payload != null)
+            request.body(payload);
 
         // Get the POST response
         return request.post(resourceEndpoint);
