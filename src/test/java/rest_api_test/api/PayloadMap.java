@@ -27,7 +27,12 @@ public class PayloadMap<T> extends HashMap<String, T> {
     /*
     CLASS METHODS
     */
-    
+
+    @Override
+    public void putAll(Map<? extends String, ? extends T> m) {
+        super.putAll(m);
+    }
+
     /*
     HELPER METHODS
     */
