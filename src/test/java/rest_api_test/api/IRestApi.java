@@ -1,9 +1,11 @@
 package rest_api_test.api;
 
+import general_test.util.ISharedValueParam;
+import general_test.util.ISharedValuePayload;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public interface IRestApi {
+public interface IRestApi extends ISharedValuePayload, ISharedValueParam {
     Logger log = LoggerFactory.getLogger(IRestApi.class);
     
     /*

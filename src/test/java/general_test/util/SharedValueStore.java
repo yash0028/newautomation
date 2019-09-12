@@ -2,6 +2,8 @@ package general_test.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rest_api_test.api.ParamMap;
+import rest_api_test.api.PayloadMap;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +13,8 @@ class SharedValueStore {
     private static final Logger log = LoggerFactory.getLogger(SharedValueStore.class);
     private static SharedValueStore ourInstance = new SharedValueStore();
     private Map<String, Object> map;
+    Map<String, ParamMap<?>> paramMapMap;
+    Map<String, PayloadMap<?>> payloadMapMap;
 
     /*
     CONSTRUCTOR
@@ -34,6 +38,11 @@ class SharedValueStore {
 
     public void reset() {
         map = new HashMap<>();
+        paramMapMap = new HashMap<>();
+        paramMapMap.put("default", new ParamMap<>());
+
+        payloadMapMap = new HashMap<>();
+        payloadMapMap.put("default", new PayloadMap<>());
     }
 
     public void putSharedObject(String key, Object obj) {
