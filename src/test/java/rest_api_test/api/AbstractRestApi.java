@@ -17,7 +17,7 @@ import static io.restassured.RestAssured.given;
 
 public abstract class AbstractRestApi implements ISharedValueReader, IRestStep {
     private static final Logger log = LoggerFactory.getLogger(AbstractRestApi.class);
-    protected static Env env = Env.dev;
+    protected static Env env = Env.test;
     public final Gson gson;
 
     /*
