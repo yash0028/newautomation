@@ -44,6 +44,7 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
     @When("^the Domain Service queries for additional contract details from Exari$")
     public void getValidResponse() throws Throwable {
         // TODO change contract id to work in test env
+        useDevApi(); // Test Env does not have data yet
         response = getExariContractModel("91414303");
         log.debug("Contract query response: {}", response.asString());
     }
@@ -65,6 +66,7 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
     @When("^the Domain Service queries for invalid contract details from Exari$")
     public void getInvalidResponse() throws Throwable {
         // TODO change contract id to work in test env
+        useDevApi(); // Test Env does not have data yet
         response = getExariContractModel("455292");
         log.debug("Contract query response: {}", response.asString());
     }
