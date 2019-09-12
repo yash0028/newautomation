@@ -11,7 +11,6 @@ import io.restassured.response.Response;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rest_api_test.api.PayloadMap;
 import rest_api_test.api.contractmetadata.IContractMetadataInteract;
 import rest_api_test.util.IRestStep;
 import util.file.IFileReader;
@@ -27,7 +26,6 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader, IContra
 
     private Response response;
     private List<String> productDescriptions;
-    private PayloadMap payload;
 
     //US1185585 Contract Product Description Crosswalk
     @Given("^a product description to product code crosswalk exists$")
@@ -230,8 +228,8 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader, IContra
 
     // US1806699 - CMD Determine PCP Indicator for each Provider on Roster Based on Market
     @Given("a request to the PCP Indicator Lookup endpoint:")
-    public void aRequestToThePCPIndicatorLookupEndpoint(DataTable requestDT) {
-        payload = new PayloadMap(requestDT.asMap(String.class, String.class));
+    public void aRequestToThePCPIndicatorLookupEndpoint(DataTable dataTable) {
+        getPayload().put2ColDataTable(dataTable);
     }
 
     @When("sending the request to the PCP Indicator Lookup endpoint")
@@ -241,14 +239,14 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader, IContra
 
     @Then("we get a responseErrorMessage stating {string}")
     public void weGetAResponseErrorMessageStating(String responseMessage) {
-        this.response = pcpLookup(payload);
+        this.response = pcpLookup(getPayload());
         JsonElement responseJson = parseJsonElementResponse(response);
         Assert.assertEquals(responseMessage, responseJson.getAsJsonObject().get("responseMessage").getAsString());
     }
 
     @Then("we get a response indicating that the provider is {string}")
     public void weGetAResponseIndicatingThatTheProviderIs(String pcpIndicatorCMD) {
-        this.response = pcpLookup(payload);
+        this.response = pcpLookup(getPayload());
         JsonElement responseJson = parseJsonElementResponse(response);
         Assert.assertEquals(pcpIndicatorCMD, responseJson.getAsJsonObject().get("providerNetworkRole").getAsString());
     }
