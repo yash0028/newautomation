@@ -13,8 +13,8 @@ class SharedValueStore {
     private static final Logger log = LoggerFactory.getLogger(SharedValueStore.class);
     private static SharedValueStore ourInstance = new SharedValueStore();
     private Map<String, Object> map;
-    Map<String, ParamMap<?>> paramMapMap;
-    Map<String, PayloadMap<?>> payloadMapMap;
+    Map<String, ParamMap<Object>> paramMapMap;
+    Map<String, PayloadMap<Object>> payloadMapMap;
 
     /*
     CONSTRUCTOR

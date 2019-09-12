@@ -1,6 +1,5 @@
 package rest_api_test.api.activiti;
 
-import com.google.gson.JsonElement;
 import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +26,7 @@ public interface IActivitiInteract extends IRestApi {
      * @param payload the json element containing contract ID, Process ID, and/or Process Name
      * @return the response from Activiti API
      */
-    default Response createRecord(JsonElement payload) {
+    default Response createRecord(Object payload) {
         return ActivitiHelper.getInstance().doBasicPost(RESOURCE_CREATE_RECORD, payload);
     }
     

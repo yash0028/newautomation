@@ -4,11 +4,11 @@ import rest_api_test.api.PayloadMap;
 
 public interface ISharedValuePayload {
 
-    default PayloadMap<?> getPayload() {
+    default PayloadMap<Object> getPayload() {
         return SharedValueStore.getInstance().payloadMapMap.get("default");
     }
 
-    default PayloadMap<?> getPayload(String key) {
+    default PayloadMap<Object> getPayload(String key) {
         if (!SharedValueStore.getInstance().payloadMapMap.containsKey(key)) {
             return SharedValueStore.getInstance().payloadMapMap.put(key, new PayloadMap<>());
         }
