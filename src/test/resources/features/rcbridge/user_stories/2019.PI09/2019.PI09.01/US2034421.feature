@@ -1,5 +1,6 @@
 # Last updated on 
 @Sheham
+@Go_Live
 @US2034421
 @2019.PI09
 @2019.PI09.01
@@ -11,6 +12,7 @@ Feature: US2034421 - Remediate Start Retro and Close Retro
   @Manual
   @Functional
   @Sheham
+  @Go_Live
   Scenario: TC970889 - [RL0]
     Given the retro process exists
     When the start retro is executed
@@ -20,6 +22,7 @@ Feature: US2034421 - Remediate Start Retro and Close Retro
   @Manual
   @Functional
   @Sheham
+  @Go_Live
   Scenario: TC970900 - [RL1]
     Given the retro process exists
     When the close retro is executed
