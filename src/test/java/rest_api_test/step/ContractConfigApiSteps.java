@@ -33,7 +33,7 @@ public class ContractConfigApiSteps implements IRestStep, IEventGatewayInteract,
 
     @When("^the contract configuration api is invoked with the following data$")
     public void sendRequestToContractConfigurationApi(DataTable dataTable) throws Throwable {
-        PayloadMap<?> payload = new PayloadMap<>(dataTable.asMap(String.class, String.class));
+        PayloadMap payload = new PayloadMap(dataTable.asMap(String.class, String.class));
         response = checkProviderStatus(payload);
 
         log.info("Response from contract-config-service: {}", response.asString());

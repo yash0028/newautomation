@@ -50,7 +50,7 @@ public abstract class AbstractRestApi implements IRestStep {
         return request.get(resourceEndpoint);
     }
 
-    public Response doParamGet(String resourceEndpoint, ParamMap<?> params) {
+    public Response doParamGet(String resourceEndpoint, ParamMap params) {
         log.trace("sending 'get' to {} with params [{}]", resourceEndpoint, params);
         RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json");

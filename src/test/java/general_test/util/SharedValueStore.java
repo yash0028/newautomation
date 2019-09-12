@@ -13,8 +13,8 @@ class SharedValueStore {
     private static final Logger log = LoggerFactory.getLogger(SharedValueStore.class);
     private static SharedValueStore ourInstance = new SharedValueStore();
     private Map<String, Object> map;
-    Map<String, ParamMap<Object>> paramMapMap;
-    Map<String, PayloadMap<Object>> payloadMapMap;
+    Map<String, ParamMap> paramMapMap;
+    Map<String, PayloadMap> payloadMapMap;
 
     /*
     CONSTRUCTOR
@@ -39,10 +39,10 @@ class SharedValueStore {
     public void reset() {
         map = new HashMap<>();
         paramMapMap = new HashMap<>();
-        paramMapMap.put("default", new ParamMap<>());
+        paramMapMap.put("default", new ParamMap());
 
         payloadMapMap = new HashMap<>();
-        payloadMapMap.put("default", new PayloadMap<>());
+        payloadMapMap.put("default", new PayloadMap());
     }
 
     public void putSharedObject(String key, Object obj) {

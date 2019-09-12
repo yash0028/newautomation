@@ -27,7 +27,7 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader, IContra
 
     private Response response;
     private List<String> productDescriptions;
-    private PayloadMap<?> payload;
+    private PayloadMap payload;
 
     //US1185585 Contract Product Description Crosswalk
     @Given("^a product description to product code crosswalk exists$")
@@ -231,7 +231,7 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader, IContra
     // US1806699 - CMD Determine PCP Indicator for each Provider on Roster Based on Market
     @Given("a request to the PCP Indicator Lookup endpoint:")
     public void aRequestToThePCPIndicatorLookupEndpoint(DataTable requestDT) {
-        payload = new PayloadMap<>(requestDT.asMap(String.class, String.class));
+        payload = new PayloadMap(requestDT.asMap(String.class, String.class));
     }
 
     @When("sending the request to the PCP Indicator Lookup endpoint")

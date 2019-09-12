@@ -2,7 +2,7 @@ package general_test.util;
 
 import java.util.Optional;
 
-public interface ISharedValueReader {
+public interface ISharedValueReader extends ISharedValueReset {
 
     default Optional<Object> getSharedObject(String key) {
         return SharedValueStore.getInstance().getSharedObject(key);
@@ -18,9 +18,5 @@ public interface ISharedValueReader {
 
     default Optional<String> getSharedString(String key) {
         return SharedValueStore.getInstance().getSharedString(key);
-    }
-
-    default void resetStore() {
-        SharedValueStore.getInstance().reset();
     }
 }

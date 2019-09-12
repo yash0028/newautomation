@@ -15,7 +15,6 @@ import rest_api_test.util.IRestStep;
 import util.map.IMapSub;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CMDUtilitySteps implements IRestStep, IMapSub, IContractMetadataInteract {
@@ -31,8 +30,8 @@ public class CMDUtilitySteps implements IRestStep, IMapSub, IContractMetadataInt
 
     @When("^the user provides values$")
     public void requestInputData(DataTable dataTable) {
-        Map<String, String> payload = subMapStringValues(dataTable.asMap(String.class, String.class));
-        this.response = exariSearchProviderCategory(payload);
+        getPayload().put2ColDataTable(dataTable);
+        this.response = exariSearchProviderCategory(getPayload());
     }
 
     @Then("^the query \"(.*)\" provides the matching table records data$")

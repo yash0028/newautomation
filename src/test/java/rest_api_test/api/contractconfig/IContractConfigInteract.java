@@ -29,7 +29,7 @@ public interface IContractConfigInteract extends IRestApi {
      * @param payload the json element containing a contractID, mpin, npi, productGroup, or tin
      * @return the response from contract config api
      */
-    default Response checkProviderStatus(PayloadMap<?> payload) {
+    default Response checkProviderStatus(PayloadMap payload) {
         return ContractConfigHelper.getInstance().doBasicPost(RESOURCE_PROVIDER_STATUS, payload);
     }
     
