@@ -14,6 +14,7 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
+
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
@@ -31,28 +32,17 @@ public class ContractRulesSteps implements IRestStep {
 
     private RequestSpecification request;
     private Response response;
-    private JsonObject requestBody = new JsonObject();
+    private JsonObject payload = new JsonObject();
 
 
     // US1439048 (silent inclusion)
 
-    @Given("^\"([^\"]*)\" contains \"([^\"]*)\"$")
-    public void uhg_siteContains(String field, String value) throws Throwable {
-        requestBody.addProperty(field, value);
-    }
-
-    @And("^\"([^\"]*)\" = \"([^\"]*)\"$")
-    public void marketNumberEquals(String field, String value){
-        // Add the field and value to the request JSON
-        requestBody.addProperty(field, value);
-    }
-
     @When("^\"([^\"]*)\" (does|does NOT) contain the word \"([^\"]*)\"$")
     public void doesContainTheWord(String field, String doesContain, String value) throws Throwable {
         if(doesContain.equalsIgnoreCase("does")){
-            requestBody.addProperty(field, value);
+            payload.addProperty(field, value);
         }else {
-            requestBody.addProperty(field, "");
+            payload.addProperty(field, "");
         }
 
     }
@@ -60,7 +50,7 @@ public class ContractRulesSteps implements IRestStep {
     @Then("^silent inclusion criteria has been met is \"([^\"]*)\"$")
     public void silentInclusionCriteriaHasBeenMetIs(String result) throws Throwable {
         // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
 
         // Get the response
         response = request.post(RESOURCE_SILENT_INCLUSION);
@@ -94,9 +84,9 @@ public class ContractRulesSteps implements IRestStep {
     public void doesInclude(String field, String includes, String value) throws Throwable {
         // Add the field and value to the request JSON
         if(includes.equalsIgnoreCase("does")){
-            requestBody.addProperty(field, value);
+            payload.addProperty(field, value);
         } else{
-            requestBody.addProperty(field, "doesNotIncludeTestValue");
+            payload.addProperty(field, "doesNotIncludeTestValue");
         }
 
     }
@@ -106,7 +96,7 @@ public class ContractRulesSteps implements IRestStep {
     @Then("^\"([^\"]*)\" value of \"([^\"]*)\" recorded in the OCM record$")
     public void valueAndValueOfRecordedInTheOCMRecord(String field, String value) throws Throwable {
         // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
 
         // Get the response
         response = request.post(RESOURCE_IPA_DETERMINATION);
@@ -129,7 +119,7 @@ public class ContractRulesSteps implements IRestStep {
     @Then("^return a Bad Request error$")
     public void returnABadRequestError() throws Throwable {
         // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
 
         // Get the response
         response = request.post(RESOURCE_IPA_DETERMINATION);
@@ -149,20 +139,10 @@ public class ContractRulesSteps implements IRestStep {
 
     // US1367739 (Pilot Markets)
 
-    @Given("^\"([^\"]*)\" equals \"([^\"]*)\"$")
-    public void equals(String field, String value) throws Throwable {
-        requestBody.addProperty(field, value);
-    }
-
-    @When("^\"([^\"]*)\" equals one of \"([^\"]*)\"$")
-    public void equalsOneOf(String field, String value) throws Throwable {
-        requestBody.addProperty(field, value);
-    }
-
     @Then("^contract (is|is NOT) included in Pilot$")
     public void contractIsIncludedInPilot(String isOrIsNot) throws Throwable {
         // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
 
         Thread.sleep(300);
 
@@ -195,24 +175,24 @@ public class ContractRulesSteps implements IRestStep {
 
         switch (field) {
             case "uhgMarketNumber":
-                requestBody.addProperty(field, "");
-                requestBody.addProperty("uhgSite", "Central UHN");
-                requestBody.addProperty("uhgContractSubtypeHealthcare", "Medical Group Agreement");
+                payload.addProperty(field, "");
+                payload.addProperty("uhgSite", "Central UHN");
+                payload.addProperty("uhgContractSubtypeHealthcare", "Medical Group Agreement");
                 break;
             case "uhgSite":
-                requestBody.addProperty("uhgMarketNumber", "03413");
-                requestBody.addProperty(field, "");
-                requestBody.addProperty("uhgContractSubtypeHealthcare", "Medical Group Agreement");
+                payload.addProperty("uhgMarketNumber", "03413");
+                payload.addProperty(field, "");
+                payload.addProperty("uhgContractSubtypeHealthcare", "Medical Group Agreement");
                 break;
             case "uhgContractSubtypeHealthcare":
-                requestBody.addProperty("uhgMarketNumber", "03413");
-                requestBody.addProperty("uhgSite", "Southeast UHN");
-                requestBody.addProperty(field, "");
+                payload.addProperty("uhgMarketNumber", "03413");
+                payload.addProperty("uhgSite", "Southeast UHN");
+                payload.addProperty(field, "");
                 break;
             default:
-                requestBody.addProperty("uhgMarketNumber", "");
-                requestBody.addProperty("uhgSite", "");
-                requestBody.addProperty("uhgContractSubtypeHealthcare", "");
+                payload.addProperty("uhgMarketNumber", "");
+                payload.addProperty("uhgSite", "");
+                payload.addProperty("uhgContractSubtypeHealthcare", "");
                 break;
         }
 
@@ -222,24 +202,23 @@ public class ContractRulesSteps implements IRestStep {
 
     @Given("^the provider record \"([^\"]*)\" equals \"([^\"]*)\"$")
     public void theProviderRecordEquals(String field, String value) throws Throwable {
-        requestBody.addProperty(field, value);
-
+        payload.addProperty(field, value);
     }
 
     @And("^the NDB \"([^\"]*)\" equals \"([^\"]*)\"$")
     public void theNDBEquals(String field, String value) throws Throwable {
-        requestBody.addProperty(field, value);
+        payload.addProperty(field, value);
     }
 
     @When("^the primary \"([^\"]*)\" value equals one of (?:invalid )?\"([^\"]*)\"$")
     public void thePrimaryValueEqualsOneOf(String field, String value) throws Throwable {
-        requestBody.addProperty(field, value);
+        payload.addProperty(field, value);
     }
 
     @Then("^the provider record will be flagged as a \"([^\"]*)\" within the optum contract$")
     public void theProviderRecordWillBeAsAWithinTheOptumContract(String result) throws Throwable {
         // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
 
         // Get the response
         response = request.post(RESOURCE_PCP_SPECIALTY);
@@ -265,30 +244,21 @@ public class ContractRulesSteps implements IRestStep {
 
     // US1368000 (ENW Indicator)
 
-    @Given("^\"([^\"]*)\" includes \"([^\"]*)\"$")
-    public void includes(String field, String value) throws Throwable {
-        requestBody.addProperty(field, value);
-    }
 
-    @And("^\"([^\"]*)\" is \"([^\"]*)\"$")
-    public void is(String field, String value) throws Throwable {
-        requestBody.addProperty(field, value);
-
-    }
 
     @When("^\"([^\"]*)\" (does not include|include) one or more below the line \"([^\"]*)\"$")
     public void includeOneOrMoreBelowTheLine(String field, String includes, String value) throws Throwable {
         if (includes.equals("include")) {
-            requestBody.addProperty(field, value);
+            payload.addProperty(field, value);
         } else {
-            requestBody.addProperty(field, "");
+            payload.addProperty(field, "");
         }
     }
 
     @Then("^the ENW IND will be populated with \"([^\"]*)\" within the OCM Contract Model$")
     public void theENWINDWillBePopulatedWithWithinTheOCMContractModel(String result) throws Throwable {
         // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
 
         Thread.sleep(700);
 
@@ -325,13 +295,13 @@ public class ContractRulesSteps implements IRestStep {
         }
 
         // Add the array to the requestBody
-        requestBody.add(field, requestArray);
+        payload.add(field, requestArray);
     }
 
     @Then("^Penalty Notification Table (is|is not) required in the OCM$")
     public void penaltyNotificationTableIsRequiredInTheOCM(String isOrIsNot) throws Throwable {
         // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
+        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
 
         Thread.sleep(700);
 
