@@ -1,5 +1,6 @@
 package rest_api_test.api;
 
+import io.cucumber.datatable.DataTable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,6 +32,10 @@ public class PayloadMap<T> extends HashMap<String, T> {
     @Override
     public void putAll(Map<? extends String, ? extends T> m) {
         super.putAll(m);
+    }
+
+    public void put2ColDataTable(DataTable dataTable) {
+        this.putAll(dataTable.asMap(String.class, String.class));
     }
 
     /*
