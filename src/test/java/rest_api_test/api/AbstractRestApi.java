@@ -58,7 +58,7 @@ public abstract class AbstractRestApi implements ISharedValueReader, IRestStep {
 
         // Add params
         if (params != null)
-            params.forEach(request::param);
+            request.param(String.valueOf(params));
 
         // Get the GET response
         return request.get(resourceEndpoint);
