@@ -19,8 +19,7 @@ Feature: US2027396 - Locked Language Request – UHN Legal
     Given language change need is identified in Physician workflow
     When Pricing team approves the "Locked Language Request - Pricing task
     Then "Locked Language Request – UHN Legal" task is assigned to the UHN Legal team member
-    And all of the data in fields about locked language from the "Language Change: UHC & Provider Agree" are displayed in read only format
-    And the data from the help text, how close are we to agreement on language, and comments are not displayed
+    And all of the data in fields about locked language from the "Language Changes are displayed in read only format
 
   @TC967065
   @Manual

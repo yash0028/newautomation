@@ -1,5 +1,6 @@
 # Last updated on 
 @Arvind
+@#QA
 @US1552986
 @2019.PI09
 @2019.PI09.01
@@ -11,6 +12,7 @@ Feature: US1552986 - Close the retro approval process - successful - physician -
   @Manual
   @Functional
   @Arvind
+  @#QA
   Scenario: TC714612 - [RL1]
     Given the "Retro Approval - Successful" task is created
     When the initiator views the task
