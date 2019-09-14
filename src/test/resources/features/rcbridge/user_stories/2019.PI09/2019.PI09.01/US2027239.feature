@@ -1,7 +1,8 @@
 # Last updated on 
 @Arvind
-@Adele_R
+@Suman
 @Go_Live
+@Adele_R
 @US2027239
 @2019.PI09
 @2019.PI09.01
@@ -13,8 +14,9 @@ Feature: US2027239 - Locked Language Request – Pricing team  Denied
   @Manual
   @Functional
   @Arvind
-  @Adele_R
+  @Suman
   @Go_Live
+  @Adele_R
   Scenario: TC967054 - [RL0]
     Given the "Locked Language Request – Pricing team Denied" task is created
     When it is assigned an owner
@@ -26,8 +28,9 @@ Feature: US2027239 - Locked Language Request – Pricing team  Denied
   @Manual
   @Functional
   @Arvind
-  @Adele_R
+  @Suman
   @Go_Live
+  @Adele_R
   Scenario: TC967066 - [RL1]
     Given language change request is denied by pricing team member
     When contractor opens the task assigned "Locked Language Request Denied"
@@ -39,8 +42,9 @@ Feature: US2027239 - Locked Language Request – Pricing team  Denied
   @Manual
   @Functional
   @Arvind
-  @Adele_R
+  @Suman
   @Go_Live
+  @Adele_R
   Scenario: TC968853 - [RL2]
     Given "Are changes to locked language needed?" is answered YES
     When the task is completed
@@ -51,8 +55,9 @@ Feature: US2027239 - Locked Language Request – Pricing team  Denied
   @Manual
   @Functional
   @Arvind
-  @Adele_R
+  @Suman
   @Go_Live
+  @Adele_R
   Scenario: TC968859 - [RL3]
     Given "Are changes to locked language needed?" is answered NO
     When the task is completed
