@@ -10,7 +10,7 @@ import rest_api_test.api.example.model.Letter;
 class ContractConfigHelper extends AbstractRestApi {
     private static final Logger log = LoggerFactory.getLogger(ContractConfigHelper.class);
 
-    private static final String ENDPOINT_DEV = "http://contract-config-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
+    private static final String ENDPOINT_DEV = "https://contract-config-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
     private static final String ENDPOINT_TEST = "http://contract-config-service-clm-test.ocp-ctc-dmz-nonprod.optum.com";
 
     private static ContractConfigHelper INSTANCE = new ContractConfigHelper();
