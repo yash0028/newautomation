@@ -4,7 +4,7 @@
 @2019.PI09.02
 @releasePresent
 @iterationFuture
-Feature: US1987903 - Loading: Submit for loading
+Feature: US1987903 - Loading: Submit for loading - Escalator
 
   @TC938302
   @Manual

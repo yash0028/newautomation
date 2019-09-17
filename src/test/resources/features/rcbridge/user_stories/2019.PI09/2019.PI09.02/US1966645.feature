@@ -5,7 +5,7 @@
 @2019.PI09.02
 @releasePresent
 @iterationFuture
-Feature: US1966645 - Request Clarification on Request
+Feature: US1966645 - Request Clarification on Request - Escalator
 
   @TC960850
   @Manual
