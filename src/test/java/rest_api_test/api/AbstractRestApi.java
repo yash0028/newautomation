@@ -2,7 +2,6 @@ package rest_api_test.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import general_test.util.ISharedValueReader;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -15,7 +14,7 @@ import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;
 
-public abstract class AbstractRestApi implements ISharedValueReader, IRestStep {
+public abstract class AbstractRestApi implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(AbstractRestApi.class);
     protected static Env env = Env.test;
     public final Gson gson;
@@ -51,7 +50,7 @@ public abstract class AbstractRestApi implements ISharedValueReader, IRestStep {
         return request.get(resourceEndpoint);
     }
 
-    public Response doParamGet(String resourceEndpoint, ParamMap<?> params) {
+    public Response doParamGet(String resourceEndpoint, ParamMap params) {
         log.trace("sending 'get' to {} with params [{}]", resourceEndpoint, params);
         RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json");

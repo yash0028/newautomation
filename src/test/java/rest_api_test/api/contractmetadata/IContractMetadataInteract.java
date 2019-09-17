@@ -40,11 +40,11 @@ public interface IContractMetadataInteract extends IRestApi {
         return ContractMetadataHelper.getInstance().doBasicPost(RESOURCE_PROVIDER_CATEGORY, payload);
     }
 
-    default Response exariGetLegalEntities(ParamMap<?> params) {
+    default Response exariGetLegalEntities(ParamMap params) {
         return ContractMetadataHelper.getInstance().doParamGet(RESOURCE_LEGAL_LICENSE_ENTITY, params);
     }
 
-    default Response exariSearchAffiliationType(ParamMap<?> params) {
+    default Response exariSearchAffiliationType(ParamMap params) {
         return ContractMetadataHelper.getInstance().doParamGet(RESOURCE_AFFILIATION_ENTITY, params);
     }
 
@@ -61,12 +61,12 @@ public interface IContractMetadataInteract extends IRestApi {
         return ContractMetadataHelper.getInstance().doBasicGet(r);
     }
 
-    default Response productGroupCodeLookupAll(ParamMap<?> params) {
+    default Response productGroupCodeLookupAll(ParamMap params) {
         return ContractMetadataHelper.getInstance().doParamGet(RESOURCE_PRODUCT_CODE_ALL, params);
     }
 
     default Response productGroupCodeLookupWithProductDescription(List<String> productDescription) {
-        ParamMap<List<String>> params = new ParamMap<>();
+        ParamMap params = new ParamMap();
         params.put("productDescriptions", productDescription);
         return ContractMetadataHelper.getInstance().doParamGet(RESOURCE_PRODUCT_CODE_ALL, params);
     }
@@ -76,7 +76,7 @@ public interface IContractMetadataInteract extends IRestApi {
         return ContractMetadataHelper.getInstance().doBasicGet(r);
     }
 
-    default Response productDescriptionLookupAll(ParamMap<?> params) {
+    default Response productDescriptionLookupAll(ParamMap params) {
         return ContractMetadataHelper.getInstance().doParamGet(RESOURCE_PRODUCT_DESCRIPTIONS_ALL, params);
     }
 
