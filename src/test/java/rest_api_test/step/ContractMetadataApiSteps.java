@@ -190,13 +190,16 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader, IContra
      * @return returns true if the expectedProductCode is contained in the result array, false if not.
      */
     private boolean assertResultContainsProductCode(JsonArray result, String expectedProductCode) {
+        boolean match = false;
 
         for(JsonElement elm: result) {
             String actualProductCode = elm.getAsJsonObject().get("productCodeList").getAsString();
-            assert actualProductCode.contains(expectedProductCode);
+            if(actualProductCode.contains(expectedProductCode)){
+                match = true;
+            }
         }
 
-        return true;
+        return match;
     }
 
     // US1852455 - Exclude inactive Contract Product Description table records in API response (Optum)
