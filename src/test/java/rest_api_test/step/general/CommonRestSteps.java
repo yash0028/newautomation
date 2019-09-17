@@ -41,4 +41,28 @@ public class CommonRestSteps implements ISharedValuePayload {
         getPayload().put(field, value);
 
     }
+
+    @Given("^the provider record \"([^\"]*)\" equals \"([^\"]*)\"$")
+    public void theProviderRecordEquals(String field, String value) throws Throwable {
+        getPayload().put(field, value);
+    }
+
+    @And("^the NDB \"([^\"]*)\" equals \"([^\"]*)\"$")
+    public void theNDBEquals(String field, String value) throws Throwable {
+        getPayload().put(field, value);
+    }
+
+    @When("^the primary \"([^\"]*)\" value equals one of (?:invalid )?\"([^\"]*)\"$")
+    public void thePrimaryValueEqualsOneOf(String field, String value) throws Throwable {
+        getPayload().put(field, value);
+    }
+
+    @When("^\"([^\"]*)\" (does not include|include) one or more below the line \"([^\"]*)\"$")
+    public void includeOneOrMoreBelowTheLine(String field, String includes, String value) throws Throwable {
+        if (includes.equals("include")) {
+            getPayload().put(field, value);
+        } else {
+            getPayload().put(field, "");
+        }
+    }
 }

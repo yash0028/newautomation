@@ -9,30 +9,19 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rest_api_test.api.PayloadMap;
+import rest_api_test.api.contractrules.contractmetadata.IContractRulesInteract;
 import rest_api_test.util.IRestStep;
 
 import java.util.List;
 
-import static io.restassured.RestAssured.given;
-
-public class ContractRulesSteps implements IRestStep {
+public class ContractRulesSteps implements IRestStep, IContractRulesInteract {
     private static final Logger log = LoggerFactory.getLogger(ContractRulesSteps.class);
 
-    private static final String ENDPOINT = "http://contract-rules-api-clm-test.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String RESOURCE_IPA_DETERMINATION = "/v1.0/rules/ipa_determination/validate_market_network_values";
-    private static final String RESOURCE_PILOT_MARKET = "/v1.0/rules/pilot_market/validate";
-    private static final String RESOURCE_SILENT_INCLUSION = "/v1.0/rules/heritage_silent_inclusion/market_product_met";
-    private static final String RESOURCE_PCP_SPECIALTY = "/v1.0/rules/pcp_specialty/validate_pcp";
-    private static final String RESOURCE_ENW_INDICATOR = "/v1.0/rules/enw_indicator/validate_enw";
-    private static final String RESOURCE_PENALTY_TABLE = "/v1.0/rules/penalty_table_determination/penalty_table_required";
-
-    private RequestSpecification request;
     private Response response;
-    private JsonObject payload = new JsonObject();
 
 
     // US1439048 (silent inclusion)
@@ -40,20 +29,16 @@ public class ContractRulesSteps implements IRestStep {
     @When("^\"([^\"]*)\" (does|does NOT) contain the word \"([^\"]*)\"$")
     public void doesContainTheWord(String field, String doesContain, String value) throws Throwable {
         if(doesContain.equalsIgnoreCase("does")){
-            payload.addProperty(field, value);
+            getPayload().put(field, value);
         }else {
-            payload.addProperty(field, "");
+            getPayload().put(field, "");
         }
 
     }
 
     @Then("^silent inclusion criteria has been met is \"([^\"]*)\"$")
     public void silentInclusionCriteriaHasBeenMetIs(String result) throws Throwable {
-        // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-
-        // Get the response
-        response = request.post(RESOURCE_SILENT_INCLUSION);
+        response = getSilentInclusion(getPayload());
 
         // Get the whole result element, then get the "result" JSON Object which contains the response data we need
         JsonElement responseElement = parseJsonElementResponse(response);
@@ -84,22 +69,17 @@ public class ContractRulesSteps implements IRestStep {
     public void doesInclude(String field, String includes, String value) throws Throwable {
         // Add the field and value to the request JSON
         if(includes.equalsIgnoreCase("does")){
-            payload.addProperty(field, value);
+            getPayload().put(field, value);
         } else{
-            payload.addProperty(field, "doesNotIncludeTestValue");
+            getPayload().put(field, "doesNotIncludeTestValue");
         }
-
     }
 
     // Uses same @And step as US1368002 (marketNumberEquals())
 
     @Then("^\"([^\"]*)\" value of \"([^\"]*)\" recorded in the OCM record$")
     public void valueAndValueOfRecordedInTheOCMRecord(String field, String value) throws Throwable {
-        // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-
-        // Get the response
-        response = request.post(RESOURCE_IPA_DETERMINATION);
+        response = getIpaDetermination(getPayload());
 
         // Assert successful response
         Assert.assertEquals("Response did not return status code 200", 200, response.getStatusCode());
@@ -118,11 +98,7 @@ public class ContractRulesSteps implements IRestStep {
 
     @Then("^return a Bad Request error$")
     public void returnABadRequestError() throws Throwable {
-        // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-
-        // Get the response
-        response = request.post(RESOURCE_IPA_DETERMINATION);
+        response = getIpaDetermination(getPayload());
 
         // Assert successful response
         Assert.assertEquals("Response did not return status code 400", 400, response.getStatusCode());
@@ -141,13 +117,10 @@ public class ContractRulesSteps implements IRestStep {
 
     @Then("^contract (is|is NOT) included in Pilot$")
     public void contractIsIncludedInPilot(String isOrIsNot) throws Throwable {
-        // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-
         Thread.sleep(300);
 
         // Get the response
-        response = request.post(RESOURCE_PILOT_MARKET);
+        response = getPilotMarket(getPayload());
 
         // Assert successful response
         Assert.assertEquals("Response did not return status code 200", 200, response.getStatusCode());
@@ -172,56 +145,39 @@ public class ContractRulesSteps implements IRestStep {
 
     @When("^\"([^\"]*)\" does not equal one of (?:.*)$")
     public void doesNotEqualOneOf(String field) throws Throwable {
+        PayloadMap pm = new PayloadMap();
 
         switch (field) {
             case "uhgMarketNumber":
-                payload.addProperty(field, "");
-                payload.addProperty("uhgSite", "Central UHN");
-                payload.addProperty("uhgContractSubtypeHealthcare", "Medical Group Agreement");
+                pm.put(field, "");
+                pm.put("uhgSite", "Central UHN");
+                pm.put("uhgContractSubtypeHealthcare", "Medical Group Agreement");
                 break;
             case "uhgSite":
-                payload.addProperty("uhgMarketNumber", "03413");
-                payload.addProperty(field, "");
-                payload.addProperty("uhgContractSubtypeHealthcare", "Medical Group Agreement");
+                pm.put("uhgMarketNumber", "03413");
+                pm.put(field, "");
+                pm.put("uhgContractSubtypeHealthcare", "Medical Group Agreement");
                 break;
             case "uhgContractSubtypeHealthcare":
-                payload.addProperty("uhgMarketNumber", "03413");
-                payload.addProperty("uhgSite", "Southeast UHN");
-                payload.addProperty(field, "");
+                pm.put("uhgMarketNumber", "03413");
+                pm.put("uhgSite", "Southeast UHN");
+                pm.put(field, "");
                 break;
             default:
-                payload.addProperty("uhgMarketNumber", "");
-                payload.addProperty("uhgSite", "");
-                payload.addProperty("uhgContractSubtypeHealthcare", "");
+                pm.put("uhgMarketNumber", "");
+                pm.put("uhgSite", "");
+                pm.put("uhgContractSubtypeHealthcare", "");
                 break;
         }
 
+        getPayload().putAll(pm);
     }
 
     // US1367999 (PCP Standards definition)
 
-    @Given("^the provider record \"([^\"]*)\" equals \"([^\"]*)\"$")
-    public void theProviderRecordEquals(String field, String value) throws Throwable {
-        payload.addProperty(field, value);
-    }
-
-    @And("^the NDB \"([^\"]*)\" equals \"([^\"]*)\"$")
-    public void theNDBEquals(String field, String value) throws Throwable {
-        payload.addProperty(field, value);
-    }
-
-    @When("^the primary \"([^\"]*)\" value equals one of (?:invalid )?\"([^\"]*)\"$")
-    public void thePrimaryValueEqualsOneOf(String field, String value) throws Throwable {
-        payload.addProperty(field, value);
-    }
-
     @Then("^the provider record will be flagged as a \"([^\"]*)\" within the optum contract$")
     public void theProviderRecordWillBeAsAWithinTheOptumContract(String result) throws Throwable {
-        // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-
-        // Get the response
-        response = request.post(RESOURCE_PCP_SPECIALTY);
+        response = getPcpSpeciality(getPayload());
 
         // Assert successful response
         Assert.assertEquals("Response did not return status code 200", 200, response.getStatusCode());
@@ -244,26 +200,11 @@ public class ContractRulesSteps implements IRestStep {
 
     // US1368000 (ENW Indicator)
 
-
-
-    @When("^\"([^\"]*)\" (does not include|include) one or more below the line \"([^\"]*)\"$")
-    public void includeOneOrMoreBelowTheLine(String field, String includes, String value) throws Throwable {
-        if (includes.equals("include")) {
-            payload.addProperty(field, value);
-        } else {
-            payload.addProperty(field, "");
-        }
-    }
-
     @Then("^the ENW IND will be populated with \"([^\"]*)\" within the OCM Contract Model$")
     public void theENWINDWillBePopulatedWithWithinTheOCMContractModel(String result) throws Throwable {
-        // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-
         Thread.sleep(700);
 
-        // Get the response
-        response = request.post(RESOURCE_ENW_INDICATOR);
+        response = getEnwIndicator(getPayload());
 
         // Assert successful response
         Assert.assertEquals("Response did not return status code 200", 200, response.getStatusCode());
@@ -295,18 +236,14 @@ public class ContractRulesSteps implements IRestStep {
         }
 
         // Add the array to the requestBody
-        payload.add(field, requestArray);
+        getPayload().put(field, requestArray);
     }
 
     @Then("^Penalty Notification Table (is|is not) required in the OCM$")
     public void penaltyNotificationTableIsRequiredInTheOCM(String isOrIsNot) throws Throwable {
-        // Build out the request
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-
         Thread.sleep(700);
 
-        // Get the response
-        response = request.post(RESOURCE_PENALTY_TABLE);
+        response = getPenaltyTable(getPayload());
 
         // Assert successful response
         Assert.assertEquals("Response did not return status code 200", 200, response.getStatusCode());
