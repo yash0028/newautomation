@@ -21,7 +21,7 @@ Feature: US2027165 - Locked Language Request – Market Lead
     Given "Locked Language Request – Market Lead" exists
     When Market Lead opens "Locked Language Request – Market Lead"
     Then Market lead has 2 radio buttons - "Approve Locked Language Request" and "Deny Locked Language Request"
-    And a comments field to write in user input - "Comments" field will be optional only if "Deny Locked Language Request" is selected.
+    And a comments field to write in user input - "Comments" field will be mandatory if "Deny Locked Language Request" is selected.
 
   @TC967076
   @Manual

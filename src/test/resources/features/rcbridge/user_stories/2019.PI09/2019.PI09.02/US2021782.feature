@@ -1,5 +1,4 @@
 # Last updated on 
-@Arvind
 @Suman
 @US2021782
 @2019.PI09
@@ -11,7 +10,6 @@ Feature: US2021782 - FS on MSPS for West  - Rate Escalator - IdahoWashington
   @TC967058
   @Manual
   @Functional
-  @Arvind
   @Suman
   Scenario: TC967058 - [RL0]
     Given a rate escalator process exists
@@ -24,7 +22,6 @@ Feature: US2021782 - FS on MSPS for West  - Rate Escalator - IdahoWashington
   @TC960460
   @Manual
   @Functional
-  @Arvind
   @Suman
   Scenario: TC960460 - [RL1]
     Given a rate escalator process exists

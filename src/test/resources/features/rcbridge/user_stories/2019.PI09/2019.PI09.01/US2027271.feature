@@ -30,7 +30,7 @@ Feature: US2027271 - Locked Language Request – Market Lead Denied
   @Go_Live
   Scenario: TC967071 - [RL1]
     Given language change request is denied by Market Lead
-    When contractor opens the task assigned "Locked Language Request Denied"
+    When contractor opens the task assigned "Locked Language Request – Market Lead Denied"
     Then the contractor is able to modify the request as per the comments provided by the Market Lead
     And once contractor completes, the process must re-route to the same Market Lead
     And comments are still shown on the form

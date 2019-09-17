@@ -1,5 +1,6 @@
 # Last updated on 
 @Arvind
+@#QA
 @Suman
 @US1937042
 @2019.PI09
@@ -12,6 +13,7 @@ Feature: US1937042 - Contractor Name and withdraw rate escalator process
   @Manual
   @Functional
   @Arvind
+  @#QA
   @Suman
   Scenario: TC960461 - [RL0]
     Given a rate escalator process exists
@@ -23,6 +25,7 @@ Feature: US1937042 - Contractor Name and withdraw rate escalator process
   @Manual
   @Functional
   @Arvind
+  @#QA
   @Suman
   Scenario: TC960463 - [RL1]
     Given a rate escalator process exists
@@ -30,12 +33,13 @@ Feature: US1937042 - Contractor Name and withdraw rate escalator process
     Then a task "Withdraw Rate Escalator Request" task is created
     And the task is assigned to the initiator
     And the task has these options as a radio button (Work is not needed as Fee Schedules were pre-constructed, Created in error, Other)
-    And the task has a comments box (not required)
+    And the task has a withdrawal comments box (not required)
 
   @TC960465
   @Manual
   @Functional
   @Arvind
+  @#QA
   @Suman
   Scenario: TC960465 - [RL2]
     Given a rate escalator process exists

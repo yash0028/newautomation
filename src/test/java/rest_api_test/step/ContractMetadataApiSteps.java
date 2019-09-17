@@ -188,13 +188,16 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader, IContra
      * @return returns true if the expectedProductCode is contained in the result array, false if not.
      */
     private boolean assertResultContainsProductCode(JsonArray result, String expectedProductCode) {
+        boolean match = false;
 
         for(JsonElement elm: result) {
             String actualProductCode = elm.getAsJsonObject().get("productCodeList").getAsString();
-            assert actualProductCode.contains(expectedProductCode);
+            if(actualProductCode.contains(expectedProductCode)){
+                match = true;
+            }
         }
 
-        return true;
+        return match;
     }
 
     // US1852455 - Exclude inactive Contract Product Description table records in API response (Optum)
@@ -212,13 +215,13 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader, IContra
     @Then("only matched records with a {string} of {string} are returned")
     public void onlyMatchedRecordsWithAOfAreReturned(String property, String expectedValue) {
         JsonElement result = parseJsonElementResponse(response);
-        JsonArray resultArray = result.getAsJsonArray();
+        JsonArray resultArray = result.getAsJsonObject().get("content").getAsJsonArray();
 
         for(JsonElement elm: resultArray) {
             Assert.assertTrue("Array element is not a JSON Object", elm.isJsonObject());
 
             String actualValue = elm.getAsJsonObject().get(property).getAsString();
-            String product = elm.getAsJsonObject().get("productDescription").getAsString();
+            String product = elm.getAsJsonObject().get("productCodeDescription").getAsString();
 
             log.info("Product: {} ----- Expected: {}, Actual: {}", product, expectedValue, actualValue);
 

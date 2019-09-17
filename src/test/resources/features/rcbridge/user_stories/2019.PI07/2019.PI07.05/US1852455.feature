@@ -27,5 +27,5 @@ Feature: US1852455 - Exclude inactive Contract Product Description table records
       | VA Medicaid LTSS                      |
       | OneNet PPO LLC workers compensation   |
     When sending a request to validate the product groups
-    Then only matched records with a "productDescriptionStatus" of "A" are returned
+    Then only matched records with a "recordStatus" of "A" are returned
 

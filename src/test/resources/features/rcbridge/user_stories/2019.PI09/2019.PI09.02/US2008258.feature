@@ -2,9 +2,9 @@
 @Sheham
 @US2008258
 @2019.PI09
-@2019.PI09.01
+@2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US2008258 - Retro multiple contracts
 
   @TC953388
