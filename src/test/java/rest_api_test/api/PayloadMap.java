@@ -22,6 +22,11 @@ public class PayloadMap extends HashMap<String, Object> implements IMapSub {
         super(m);
     }
 
+    public PayloadMap(String firstKey, Object firstValue) {
+        super();
+        this.put(firstKey, firstValue);
+    }
+
     /*
     STATIC METHODS
     */  

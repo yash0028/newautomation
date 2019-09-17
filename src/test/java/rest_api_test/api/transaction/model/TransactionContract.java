@@ -25,6 +25,42 @@ public class TransactionContract extends TransactionUnit {
     CLASS METHODS
     */
 
+    public String getContractId() {
+        return contractId;
+    }
+
+    public String getContractName() {
+        return contractName;
+    }
+
+    public String getMarket() {
+        return market;
+    }
+
+    public String getPaperType() {
+        return paperType;
+    }
+
+    public String getSite() {
+        return site;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getWorkObjectReady() {
+        return workObjectReady;
+    }
+
     @Override
     public String toString() {
         return String.format("[%s][%s::%s] - %s", site, status, state, getTransactionId());

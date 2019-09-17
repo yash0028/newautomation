@@ -81,6 +81,23 @@ public class Page<T> {
         return totalPages;
     }
 
+    @Override
+    public String toString() {
+        return "Page{" +
+                "content=" + content +
+                ", first=" + first +
+                ", last=" + last +
+                ", number=" + number +
+                ", numberOfElements=" + numberOfElements +
+                ", pageable=" + pageable +
+                ", size=" + size +
+                ", sort=" + sort +
+                ", totalElements=" + totalElements +
+                ", totalPages=" + totalPages +
+                ", response=" + response +
+                '}';
+    }
+
     public static class Builder<T> {
 
         private List<T> content;
