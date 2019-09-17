@@ -183,6 +183,7 @@ public class ContractStatusApiSteps implements IRestStep {
                         .concat("TYPE_2_ERROR_DOWNSTREAM")
                         .concat("?sort=timestamp,desc"));
         JsonElement result = parseJsonElementResponse(response);
+        log.info("TODO there is no Type 2 Error Contract in Dev Env, switching to use Test Env soon");
         log.info("Result: {}", result.getAsJsonObject());
         JsonArray results = result.getAsJsonObject().get("content").getAsJsonArray();
 
