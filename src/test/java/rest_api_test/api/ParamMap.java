@@ -22,6 +22,11 @@ public class ParamMap extends HashMap<String, Object> implements IMapSub {
         super(m);
     }
 
+    public ParamMap(String firstKey, Object firstValue) {
+        super();
+        this.put(firstKey, firstValue);
+    }
+
     /*
     STATIC METHODS
     */  
