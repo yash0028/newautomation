@@ -2,13 +2,11 @@ package rest_api_test.step;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,27 +32,10 @@ import java.util.Arrays;
 public class ContractStatusApiSteps implements IRestStep, ITransactionInteract, IFalloutContractControllerInteract, IContractStatusInteract {
     private static final Logger log = LoggerFactory.getLogger(TransactionSteps.class);
 
-    private final String ENDPOINT = "http://contract-status-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private final String RESOURCE_CONTRACT_STATUS = "/v1.0/contract-status";
-
-    private final String TX_ENDPOINT = "https://transaction-status-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private final String RESOURCE_TRANSACTION_STATUS = "/v1.0/transactions/results";
-
-    private final String FALLOUT_ENDPOINT = "https://fallout-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private final String RESOURCE_CONTRACT_DETAILS = "/v1.0/contract-details";
-    private final String RESOURCE_CONTRACT_SUMMARIES = "/v1.0/contract-summaries/work-objects";
-
-    private final String ENDPOINT_EVENT_GATEWAY = "http://event-gateway-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private final String RESOURCE_EVENT_GATEWAY_CONTRACT_INSTALLED = "/v1.0/events/contract-installed";
-
-    private RequestSpecification request;
     private Response response;
-    private JsonObject payload;
 
     private String exariStorageNodeId;
     private String contractId;
-    private String timestamp = "";
-    private String txId;
 
     @Given("a new contract exists in Exari that has just become {string}")
     public void aNewContractExistsInExariThatHasJustBecomeActive(String contractStatus) {
@@ -67,7 +48,7 @@ public class ContractStatusApiSteps implements IRestStep, ITransactionInteract, 
     @When("the contract has been successfully installed")
     public void theContractHasBeenSuccessfullyInstalled() {
         TransactionDetails details = transactionQueryDetails(Arrays.asList(ContractStatus.SUCCESS), Arrays.asList(TSortField.TIME_STAMP), true, 0, 10);
-        txId = details.stream().filter(dd -> dd.getType().equals("InstallContract")).map(TransactionId::getTransactionId).findFirst().orElse(null);
+        String txId = details.stream().filter(dd -> dd.getType().equals("InstallContract")).map(TransactionId::getTransactionId).findFirst().orElse(null);
 
         // Query Fallout to get Contract ID
         ContractModel model = falloutQueryContractModel(txId);
@@ -90,11 +71,7 @@ public class ContractStatusApiSteps implements IRestStep, ITransactionInteract, 
     @And("a call to the Optum Transaction Status with the Exari contract ID and Exari Transaction ID for the install contract event")
     public void aCallToTheOptumTransactionStatusWithTheExariContractIDAndExariTransactionIDForTheInstallContractEvent() {
         // call with Exari Storage Node ID
-        if (timestamp == null || timestamp.isEmpty()) {
-            response = getContractStatus(contractId, exariStorageNodeId);
-        } else {
-            response = getContractStatus(contractId, exariStorageNodeId, timestamp);
-        }
+        response = getContractStatus(contractId, exariStorageNodeId);
         Assert.assertEquals(200, response.getStatusCode());
     }
 
