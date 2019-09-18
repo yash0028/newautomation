@@ -3,7 +3,6 @@ package rest_api_test.step;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.sun.tools.javac.util.List;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -25,6 +24,8 @@ import rest_api_test.api.transaction.model.TransactionContract;
 import rest_api_test.api.transaction.model.TransactionDetails;
 import rest_api_test.api.transaction.model.TransactionId;
 import rest_api_test.util.IRestStep;
+
+import java.util.Arrays;
 
 /***
  *** Created by vkyrasa on 3/26/19
@@ -65,7 +66,7 @@ public class ContractStatusApiSteps implements IRestStep, ITransactionInteract, 
 
     @When("the contract has been successfully installed")
     public void theContractHasBeenSuccessfullyInstalled() {
-        TransactionDetails details = transactionQueryDetails(List.of(ContractStatus.SUCCESS), List.of(TSortField.TIME_STAMP), true, 0, 10);
+        TransactionDetails details = transactionQueryDetails(Arrays.asList(ContractStatus.SUCCESS), Arrays.asList(TSortField.TIME_STAMP), true, 0, 10);
         txId = details.stream().filter(dd -> dd.getType().equals("InstallContract")).map(TransactionId::getTransactionId).findFirst().orElse(null);
 
         // Query Fallout to get Contract ID
