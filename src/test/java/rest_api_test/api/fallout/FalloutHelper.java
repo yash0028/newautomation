@@ -2,7 +2,6 @@ package rest_api_test.api.fallout;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
@@ -22,10 +21,7 @@ class FalloutHelper extends AbstractRestApi implements IRestStep {
     private static final String ENDPOINT_TEST = "https://fallout-service-clm-test.ocp-ctc-dmz-nonprod.optum.com";
 
     //CONTRACT CONTROLLER
-    private static final String RESOURCE_CONTRACT_DETAILS_BY_TRANSACTION_ID = "/v1.0/contract-details/";//{transaction id}
-    private static final String RESOURCE_CONTRACT_SEARCH = "/v1.0/contract-search/";
-    private static final String RESOURCE_CONTRACT_SUMMARIES_BY_STATUS = "/v1.0/contract-summaries/";//{status}
-    private static final String RESOURCE_CONTRACT_SUMMARIES_BY_TYPE = "/v1.0/contract-summaries/work-objects/";//{type}
+
 
     //WORK OBJECT CONTROLLER
     private static final String RESOURCE_WORKOBJECTS_COMPLETE_TID = "/v1.0/workobjects/complete/";//{transaction id}
@@ -67,14 +63,10 @@ class FalloutHelper extends AbstractRestApi implements IRestStep {
      * Search for a contract by matching a specific TransactionId
      * maps to GET /v1.0/contract-details/{transactionId}
      *
-     * @param transactionId of the contract to lookup
+     * @param response of the contract to lookup
      * @return ContractModel object built from the returned JSON
      */
-    public ContractModel queryContractModelByTransactionID(String transactionId) {
-        RestAssured.useRelaxedHTTPSValidation();
-        RequestSpecification request = given().baseUri(getEndpoint())
-                .header("Content-Type", "application/json");
-        Response response = request.get(RESOURCE_CONTRACT_DETAILS_BY_TRANSACTION_ID + transactionId);
+    public ContractModel queryContractModelByTransactionID(Response response) {
         JsonElement jsonElement = parseJsonElementResponse(response);
 
         ContractModel model = gson.fromJson(jsonElement, ContractModel.class);
@@ -87,17 +79,10 @@ class FalloutHelper extends AbstractRestApi implements IRestStep {
      * Search for a contract by matching a specific ContractId
      * maps to POST /v1.0/contract-search/
      *
-     * @param contractId the id to search by
+     * @param response the id to search by
      * @return List of TransactionContract objects built from the returned JSON
      */
-    public PageTransactionContract queryTransactionContractByContractId(String contractId) {
-        JsonObject payload = new JsonObject();
-        payload.addProperty("contractId", contractId);
-
-        RequestSpecification request = given().baseUri(getEndpoint())
-                .header("Content-Type", "application/json")
-                .body(payload);
-        Response response = request.post(RESOURCE_CONTRACT_SEARCH);
+    public PageTransactionContract queryTransactionContractByContractId(Response response) {
         JsonElement jsonElement = parseJsonElementResponse(response);
 
         PageTransactionContract contracts = gson.fromJson(jsonElement, PageTransactionContract.class);
@@ -110,18 +95,10 @@ class FalloutHelper extends AbstractRestApi implements IRestStep {
      * Search for contracts with a specific ContractStatus
      * maps to GET /v1.0/contract-summaries/{status}
      *
-     * @param status   contract status to search by
-     * @param pageable page configuration
+     * @param response   contract status to search by
      * @return List of TransactionContract objects built from the returned JSON
      */
-    public PageTransactionContract queryTransactionContractByStatus(ContractStatus status, Pageable pageable) {
-        RequestSpecification request = given().baseUri(getEndpoint())
-                .header("Content-Type", "application/json");
-        if (pageable != null) {
-            request = pageable.addParameters(request);
-        }
-
-        Response response = request.get(RESOURCE_CONTRACT_SUMMARIES_BY_STATUS + status.name());
+    public PageTransactionContract queryTransactionContractByStatus(Response response) {
         JsonElement jsonElement = parseJsonElementResponse(response);
 
         PageTransactionContract contracts = gson.fromJson(jsonElement, PageTransactionContract.class);
@@ -134,18 +111,10 @@ class FalloutHelper extends AbstractRestApi implements IRestStep {
      * Search for contracts with a specific ContractType
      * maps to GET /v1.0/contract-summaries/work-objects/{type}
      *
-     * @param type     contract type to search by
-     * @param pageable page configuration
+     * @param response     contract type to search by
      * @return List of TransactionContract objects built from the returned JSON
      */
-    public PageTransactionContract queryTransactionContractByType(ContractType type, Pageable pageable) {
-        RequestSpecification request = given().baseUri(getEndpoint())
-                .header("Content-Type", "application/json");
-        if (pageable != null) {
-            request = pageable.addParameters(request);
-        }
-
-        Response response = request.get(RESOURCE_CONTRACT_SUMMARIES_BY_TYPE + type.type);
+    public PageTransactionContract queryTransactionContractByType(Response response) {
         JsonElement jsonElement = parseJsonElementResponse(response);
 
         PageTransactionContract contracts = gson.fromJson(jsonElement, PageTransactionContract.class);

@@ -13,7 +13,7 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.PayloadMap;
-import rest_api_test.api.contractrules.contractmetadata.IContractRulesInteract;
+import rest_api_test.api.contractrules.IContractRulesInteract;
 import rest_api_test.util.IRestStep;
 
 import java.util.List;

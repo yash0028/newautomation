@@ -1,4 +1,4 @@
-package rest_api_test.api.contractrules.contractmetadata;
+package rest_api_test.api.contractrules;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
