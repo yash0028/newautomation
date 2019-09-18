@@ -47,7 +47,7 @@ public abstract class AbstractRestApi implements IRestStep {
         RequestSpecification request = given().log().everything().baseUri(getEndpoint());
 
         // Get the GET response
-        return request.get(resourceEndpoint);
+        return request.get(resourceEndpoint).prettyPeek();
     }
 
     public Response doParamGet(String resourceEndpoint, ParamMap params) {
@@ -60,7 +60,7 @@ public abstract class AbstractRestApi implements IRestStep {
             request.params(params);
 
         // Get the GET response
-        return request.get(resourceEndpoint);
+        return request.get(resourceEndpoint).prettyPeek();
     }
 
     public Response doBasicPost(String resourceEndpoint, Object payload) {
@@ -72,7 +72,7 @@ public abstract class AbstractRestApi implements IRestStep {
             request.body(payload);
 
         // Get the POST response
-        return request.post(resourceEndpoint);
+        return request.post(resourceEndpoint).prettyPeek();
     }
     
     /*
