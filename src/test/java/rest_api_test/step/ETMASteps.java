@@ -1,44 +1,40 @@
 package rest_api_test.step;
 
+import com.google.common.collect.Streams;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import cucumber.api.PendingException;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rest_api_test.api.ParamMap;
+import rest_api_test.api.etma.IEtmaInteract;
 import rest_api_test.util.IRestStep;
 
-import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by jwacker on 5/11/2018.
  */
-public class ETMASteps implements IRestStep {
+public class ETMASteps implements IRestStep, IEtmaInteract {
     private final static Logger log = LoggerFactory.getLogger(ETMASteps.class);
 
-    private static final String ENDPOINT = "http://exari-table-maint-api-clm-test.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String RESOURCE_MARKETS = "/v1.0/markets";
-    private static final String RESOURCE_CONTRACT_CLASSES_SEARCH = "/v1.0/contract-classes/search";
-    private static final String RESOURCE_CONTRACT_VALIDATION = "/v1.0/contract-validations";
-    private static final String RESOURCE_CONTRACT_VALIDATION_ALL = "/v1.0/contract-validations/validate-multiple";
-    private static final String RESOURCE_RETRO_REASON_CODE = "/v1.0/retro-reason-codes";
-
-    private RequestSpecification request;
     private Response response;
     private String contractType = "";
     private String specialtyIndicator = "";
     private String orgType = "";
-    private JsonObject requestBody = new JsonObject();
+
+    //This is a special variable since the normal payload pattern does not allow arrays as the root class
+    // TODO refactor List<ParamMap> into payload pattern
+    private List<ParamMap> content;
 
 //F182490
 
@@ -54,7 +50,7 @@ public class ETMASteps implements IRestStep {
     @When("^the micro service calls the ETMA tables$")
     public void theMicroServiceCallsTheETMATables() throws Throwable {
 
-        response = when().get(ENDPOINT + RESOURCE_MARKETS);
+        response = getAllMarkets();
 
     }
 
@@ -72,15 +68,13 @@ public class ETMASteps implements IRestStep {
         this.contractType = contractType;
         this.specialtyIndicator = specialtyIndicator;
 
-        requestBody.addProperty("specialtyIndicator", specialtyIndicator);
-        requestBody.addProperty("contractClass", contractType);
-
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody.toString());
+        getPayload().put("specialtyIndicator", specialtyIndicator);
+        getPayload().put("contractClass", contractType);
     }
 
     @When("^finding the Specialty in ETMA$")
     public void findingTheSpecialtyInETMA() throws Throwable {
-        response = request.post(RESOURCE_CONTRACT_CLASSES_SEARCH);
+        response = getSpecialties(getPayload());
     }
 
     @When("^(?:And the|the) service returns paper types \"([^\"]*)\" as matched in ETMA table$")
@@ -104,14 +98,13 @@ public class ETMASteps implements IRestStep {
 
     @Then("^the service will return a \"([^\"]*)\" value$")
     public void theServiceWillReturnAValue(String value) throws Throwable {
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json")
-                .queryParam("contractClass", contractType);
-        if(specialtyIndicator.isEmpty()){
-            request.queryParam("organizationType", orgType);
+        getParams().put("contractClass", contractType);
+        if (specialtyIndicator == null || specialtyIndicator.isEmpty()) {
+            getParams().put("organizationType", orgType);
         } else {
-            request.queryParam("specialtyIndicator", specialtyIndicator);
+            getParams().put("specialtyIndicator", specialtyIndicator);
         }
-        response = request.get(RESOURCE_CONTRACT_VALIDATION);
+        response = validateContract(getParams());
         assertTrue(response.asString().toLowerCase().contains(value.toLowerCase()));
     }
 
@@ -119,9 +112,7 @@ public class ETMASteps implements IRestStep {
 
     @Given("^the provider's specialty indicator is \"([^\"]*)\" and contract type is not known$")
     public void theProviderSSpecialtyIndicatorIsAndContractTypeIsNotKnown(String specialtyIndicator) throws Throwable {
-        requestBody.addProperty("specialtyIndicator", specialtyIndicator);
-
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody.toString());
+        getPayload().put("specialtyIndicator", specialtyIndicator);
     }
 
     @Then("^service will NOT return paper types \"([^\"]*)\" from the ETMA table$")
@@ -138,82 +129,63 @@ public class ETMASteps implements IRestStep {
             }
         }
 
-        assertEquals(false, match);
+        assertFalse(match);
     }
 
     //US1103710
 
     @Given("^the provider's organization type is \"([^\"]*)\" and contract type is not known$")
     public void theProviderSOrganizationTypeIsAndContractTypeIsNotKnown(String organizationType) throws Throwable {
-        requestBody.addProperty("organizationType", organizationType);
-
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody.toString());
+        getPayload().put("organizationType", organizationType);
     }
 
     @When("^finding the Org Type in ETMA$")
     public void findingTheOrgTypeInETMA() throws Throwable {
-        response = request.post(RESOURCE_CONTRACT_CLASSES_SEARCH);
+        response = getValidContractClasses(getPayload());
     }
 
     //US1097030
 
     @Given("^the provider's organization type is \"([^\"]*)\" and contract type is \"([^\"]*)\"$")
     public void theProviderSOrganizationTypeIsAndContractTypeIs(String orgType, String contractType) throws Throwable {
-        requestBody.addProperty("organizationType", orgType);
+        getPayload().put("organizationType", orgType);
         this.contractType = contractType;
         this.orgType = orgType;
-
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody.toString());
     }
 
     //US1097065
 
     @Given("^the provider's Specialty Code \"([^\"]*)\" is passed to the service$")
     public void theProviderSSpecialtyCodeIsPassedToTheService(String specialtyIndicator) throws Throwable {
-        requestBody.addProperty("specialtyIndicator", specialtyIndicator);
+        getPayload().put("specialtyIndicator", specialtyIndicator);
 
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody.toString());
     }
 
     @Given("^the provider's Org Type \"([^\"]*)\" is passed to the service$")
     public void theProviderSOrgTypeIsPassedToTheService(String orgType) throws Throwable {
-        requestBody.addProperty("organizationType", orgType);
-
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody.toString());
+        getPayload().put("organizationType", orgType);
     }
 
     //US1129434
 
     @Given("^the providers (Specialty codes|Org Types) \"([^\"]*)\" and paper types \"([^\"]*)\" are passed to the service$")
     public void theProvidersSpecialtyCodesAndPaperTypesArePassedToTheService(String parameterType, String properties, String paperTypes) throws Throwable {
-        String[] propertiesArray = properties.split(",");
-        String[] paperTypesArray = paperTypes.split(",");
-        JsonArray requestBodyArray = new JsonArray();
-        JsonObject tmp;
-        String propertyName;
+        final String propertyName = parameterType.equalsIgnoreCase("Specialty codes") ? "specialtyIndicator" : "organizationType";
+        Stream<String> propertyStream = Stream.of(properties.split(","));
+        Stream<String> paperTypeStream = Stream.of(paperTypes.split(","));
 
-        //Change request property value to whatever is mentioned in feature file (for 'Specialty code' or 'Org Types')
-        if (parameterType.equalsIgnoreCase("Specialty codes")) {
-            propertyName = "specialtyIndicator";
-        } else {
-            propertyName = "organizationType";
-        }
-
-        for (int i = 0; i < propertiesArray.length; i++) {
-            tmp = new JsonObject();
-            tmp.addProperty(propertyName, propertiesArray[i].trim());
-            tmp.addProperty("contractClass", paperTypesArray[i].trim());
-            requestBodyArray.add(tmp);
-        }
-
-//        System.out.println(requestBodyArray.toString());
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBodyArray.toString());
+        content = Streams.zip(propertyStream, paperTypeStream, (propValue, paperType) -> {
+            ParamMap tempMap = new ParamMap();
+            tempMap.put(propertyName, propValue);
+            tempMap.put("contractClass", paperType);
+            return tempMap;
+        }).collect(Collectors.toList());
     }
 
     //Same general_test.step for specialty codes and org types
     @When("^the (?:Specialty Codes|Org Types) are not found in ETMA$")
     public void theSpecialtyCodesAreNotFoundInETMA() throws Throwable {
-        response = request.post(RESOURCE_CONTRACT_VALIDATION_ALL);
+        response = validateAllContract(content);
     }
 
     //Same general_test.step for specialty codes and org types
@@ -241,8 +213,7 @@ public class ETMASteps implements IRestStep {
 
     @When("^ETMA is queried for the retro reason code$")
     public void etmaIsQueriedForTheRetroReasonCode() throws Throwable {
-        request = given().baseUri(ENDPOINT);
-        response = request.get(RESOURCE_RETRO_REASON_CODE);
+        response = getRetroReasonCode();
     }
 
     @Then("^all of the retro reason codes are returned$")
