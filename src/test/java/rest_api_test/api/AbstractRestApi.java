@@ -74,6 +74,26 @@ public abstract class AbstractRestApi implements IRestStep {
         // Get the POST response
         return request.post(resourceEndpoint).prettyPeek();
     }
+
+    public Response doBasicDelete(String resourceEndpoint) {
+        log.trace("sending 'delete' to {}", resourceEndpoint);
+        RequestSpecification request = given().log().everything().baseUri(getEndpoint());
+
+        // Get the DELETE response
+        return request.delete(resourceEndpoint).prettyPeek();
+    }
+
+    public Response doSoapPost(String resourceEndpoint, Object payload) {
+        log.trace("sending 'soap post' to {} with payload [{}]", resourceEndpoint, payload);
+        RequestSpecification request = given().log().everything().baseUri(getEndpoint())
+                .header("Content-Type", "application/soap+xml");
+
+        if (payload != null)
+            request.body(payload);
+
+        // Get the POST response
+        return request.post(resourceEndpoint).prettyPeek();
+    }
     
     /*
     HELPER METHODS
