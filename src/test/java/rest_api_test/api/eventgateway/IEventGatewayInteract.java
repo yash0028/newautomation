@@ -11,6 +11,8 @@ public interface IEventGatewayInteract extends IRestApi {
     Logger log = LoggerFactory.getLogger(IEventGatewayInteract.class);
 
     String RESOURCE_EVENTS = "/v1.0/events/{}";
+    String RESOURCE_EVENT_GATEWAY_CONTRACT_INSTALLED = "/v1.0/events/contract-installed";
+
 
     /*
     INTERFACE METHODS
