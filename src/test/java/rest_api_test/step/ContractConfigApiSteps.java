@@ -25,9 +25,10 @@ public class ContractConfigApiSteps implements IRestStep, IEventGatewayInteract,
 
     @Given("^a valid contract installation transaction has been received from Exari$")
     public void aValidContractInstallationTransactionHasBeenReceivedFromExari() throws Throwable {
+        useTestApi();
         // Post a contract-installed event to event-gateway for the contract that will be used in below steps
-        // TODO get new data that works in Test Env (or any env)
-        eventGatewayPostContractInstalledEvent("67937858");
+//        Uncomment below and run if we ever need to reinstall this contract
+//        eventGatewayPostContractInstalledEvent("70997634");
         Thread.sleep(5000);
     }
 
