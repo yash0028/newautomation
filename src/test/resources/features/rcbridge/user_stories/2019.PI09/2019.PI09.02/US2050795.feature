@@ -1,17 +1,17 @@
 # Last updated on 
-@Arvind
+@Sheham
 @#QA
 @US2050795
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2050795 - Retro Approval Statuses
 
   @TC979534
   @Manual
   @Functional
-  @Arvind
+  @Sheham
   @#QA
   Scenario: TC979534 - [RL0]
     Given the retro process is started
@@ -21,7 +21,7 @@ Feature: US2050795 - Retro Approval Statuses
   @TC979535
   @Manual
   @Functional
-  @Arvind
+  @Sheham
   @#QA
   Scenario: TC979535 - [RL1]
     Given the retro process is started
@@ -31,7 +31,7 @@ Feature: US2050795 - Retro Approval Statuses
   @TC979536
   @Manual
   @Functional
-  @Arvind
+  @Sheham
   @#QA
   Scenario: TC979536 - [RL2]
     Given the retro process is started
@@ -41,7 +41,7 @@ Feature: US2050795 - Retro Approval Statuses
   @TC979537
   @Manual
   @Functional
-  @Arvind
+  @Sheham
   @#QA
   Scenario: TC979537 - [RL3]
     Given the retro is in the monitor phase
@@ -51,7 +51,7 @@ Feature: US2050795 - Retro Approval Statuses
   @TC979538
   @Manual
   @Functional
-  @Arvind
+  @Sheham
   @#QA
   Scenario: TC979538 - [RL4]
     Given the retro process is started

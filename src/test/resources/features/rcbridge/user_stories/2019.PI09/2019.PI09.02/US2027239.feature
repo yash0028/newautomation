@@ -5,7 +5,7 @@
 @Adele_R
 @US2027239
 @2019.PI09
-@2019.PI09.01
+@2019.PI09.02
 @releasePresent
 @iterationPresent
 Feature: US2027239 - Locked Language Request – Pricing team  Denied

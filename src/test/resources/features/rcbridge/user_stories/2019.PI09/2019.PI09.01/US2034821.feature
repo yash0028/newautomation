@@ -5,7 +5,7 @@
 @2019.PI09
 @2019.PI09.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2034821 - Move physician to stage environment
 
   @TC970893

@@ -5,7 +5,7 @@
 @2019.PI09
 @2019.PI09.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1935858 - Move retro to stage environment
 
   @TC911635

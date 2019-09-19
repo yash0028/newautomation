@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1957285 - Send Network Role / PCP Indicator for each Provider on Roster to downstreams
 
   @TC922985

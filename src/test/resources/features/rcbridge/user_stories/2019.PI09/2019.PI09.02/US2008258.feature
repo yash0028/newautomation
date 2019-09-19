@@ -4,7 +4,7 @@
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2008258 - Retro multiple contracts
 
   @TC953388

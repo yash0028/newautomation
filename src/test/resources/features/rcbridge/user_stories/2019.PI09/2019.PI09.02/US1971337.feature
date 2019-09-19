@@ -1,7 +1,7 @@
 # Last updated on 
 @US1971337
 @2019.PI09
-@2019.PI09.01
+@2019.PI09.02
 @releasePresent
 @iterationPresent
 Feature: US1971337 - MAHP GHMO IPA 777 Configuration Details (Capitation does NOT apply)

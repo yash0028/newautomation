@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1898487 - [SPIKE] CMD Data Source Integration - Market Platform Matrix for sourcing Commercial Product identifiers
 
   @TC954874

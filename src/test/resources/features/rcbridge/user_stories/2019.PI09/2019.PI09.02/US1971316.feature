@@ -1,7 +1,7 @@
 # Last updated on 
 @US1971316
 @2019.PI09
-@2019.PI09.01
+@2019.PI09.02
 @releasePresent
 @iterationPresent
 Feature: US1971316 - MAHP GHMO - PCPs require additional IPA 777 contract record

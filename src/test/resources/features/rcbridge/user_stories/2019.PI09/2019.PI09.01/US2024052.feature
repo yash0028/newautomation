@@ -6,7 +6,7 @@
 @2019.PI09
 @2019.PI09.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2024052 - UHC and Provider agreement- Language changes
 
   @TC962604

@@ -4,7 +4,7 @@
 @2019.PI09
 @2019.PI09.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2045809 - HERITAGE PRODUCT IPA DETERMINATION - Update
 
   @TC975752

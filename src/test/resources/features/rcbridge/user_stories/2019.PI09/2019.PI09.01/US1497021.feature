@@ -6,7 +6,7 @@
 @2019.PI09
 @2019.PI09.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1497021 - Integration - Create Unique Identifier for each Termination Process
 
   @TC710725

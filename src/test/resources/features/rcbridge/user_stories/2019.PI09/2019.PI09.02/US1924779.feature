@@ -1,7 +1,7 @@
 # Last updated on 
 @US1924779
 @2019.PI09
-@2019.PI09.01
+@2019.PI09.02
 @releasePresent
 @iterationPresent
 Feature: US1924779 - CMD and OCM Alignment - IPA numbers (NetworkGroups - Groups / Individuals and PCP / SPEC)

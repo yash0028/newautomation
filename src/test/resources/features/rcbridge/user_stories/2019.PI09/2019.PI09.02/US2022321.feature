@@ -1,14 +1,18 @@
 # Last updated on 
+@Arvind
+@Suman
 @US2022321
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2022321 - Inform user to get retro approval during rate escalator (hopper) - physician
 
   @TC960848
   @Manual
   @Functional
+  @Arvind
+  @Suman
   Scenario: TC960848 - [RL0]
     Given for a physician process with hoppers
     When the difference of effective date and current date is less than or equal to 15 days

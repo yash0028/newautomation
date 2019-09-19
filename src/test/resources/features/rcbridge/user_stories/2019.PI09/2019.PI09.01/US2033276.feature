@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2033276 - MAHP GHMP Lab Rad Exception tollgate-2 api implementation
 
   @TC970892

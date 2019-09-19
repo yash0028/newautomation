@@ -6,7 +6,7 @@
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2027428 - Locked Language Request – UHN Legal Denied
 
   @TC967053

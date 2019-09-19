@@ -1,14 +1,18 @@
 # Last updated on 
+@Arvind
+@Suman
 @US1835739
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1835739 - Inform user to get retro approval during rate escalator (non-hopper)
 
   @TC960849
   @Manual
   @Functional
+  @Arvind
+  @Suman
   Scenario: TC960849 - [RL1]
     Given the difference of effective date and current date is less than or equal to 15 days
     When Submit for Loading task is not completed for West region
@@ -20,6 +24,8 @@ Feature: US1835739 - Inform user to get retro approval during rate escalator (no
   @TC968848
   @Manual
   @Functional
+  @Arvind
+  @Suman
   Scenario: TC968848 - [RL2]
     Given a retro approval is required
     When it is automatically started

@@ -1,17 +1,19 @@
 # Last updated on 
 @Sheham
+@#QA
 @Go_Live
 @US2034421
 @2019.PI09
 @2019.PI09.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2034421 - Remediate Start Retro and Close Retro
 
   @TC970889
   @Manual
   @Functional
   @Sheham
+  @#QA
   @Go_Live
   Scenario: TC970889 - [RL0]
     Given the retro process exists
@@ -22,6 +24,7 @@ Feature: US2034421 - Remediate Start Retro and Close Retro
   @Manual
   @Functional
   @Sheham
+  @#QA
   @Go_Live
   Scenario: TC970900 - [RL1]
     Given the retro process exists

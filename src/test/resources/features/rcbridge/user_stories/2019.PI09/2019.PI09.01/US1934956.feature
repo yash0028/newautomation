@@ -5,7 +5,7 @@
 @2019.PI09
 @2019.PI09.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1934956 - Financial Analysis/Rates task needs product
 
   @TC909549

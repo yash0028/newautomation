@@ -1,7 +1,7 @@
 # Last updated on 
 @US1977864
 @2019.PI09
-@2019.PI09.01
+@2019.PI09.02
 @releasePresent
 @iterationPresent
 Feature: US1977864 - MAHP GHMO - Capitated PCP Contracts IPA 048

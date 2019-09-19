@@ -1,14 +1,16 @@
 # Last updated on 
+@Suman
 @US1824414
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1824414 - User Groups - No claim if only one person - Rate Escalator
 
   @TC835327
   @Manual
   @Functional
+  @Suman
   Scenario: TC835327 - [RL0]
     Given a rate escalator process exists
     When there is one person in the User Group for West region

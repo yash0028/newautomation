@@ -7,7 +7,7 @@
 @2019.PI09
 @2019.PI09.01
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2027165 - Locked Language Request – Market Lead
 
   @TC967069

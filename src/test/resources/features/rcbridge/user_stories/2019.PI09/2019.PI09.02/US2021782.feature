@@ -4,7 +4,7 @@
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2021782 - FS on MSPS for West  - Rate Escalator - IdahoWashington
 
   @TC967058
