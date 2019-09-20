@@ -62,7 +62,7 @@ public class ContractStatusApiSteps implements IRestStep, ITransactionInteract, 
         // get first event in result
         for (JsonElement element : results) {
             if (element.isJsonObject() && element.getAsJsonObject().get("transactionResult").getAsString().equals("SUCCESS")) {
-                exariStorageNodeId = element.getAsJsonObject().get("transactionResult").getAsString();
+                exariStorageNodeId = element.getAsJsonObject().get("exari_StorageNodeID").getAsString();
                 break;
             }
         }
