@@ -4,7 +4,7 @@
 @2019.PI09.02
 @releasePresent
 @iterationPresent
-Feature: US1910078 - [E2E Testing] Select related errors within a single contract ID - Type 2 (UI Refinement)
+Feature: US1910078 - Select related errors within a single contract ID - Type 2 (UI Refinement)
 
   @TC909548
   @Manual

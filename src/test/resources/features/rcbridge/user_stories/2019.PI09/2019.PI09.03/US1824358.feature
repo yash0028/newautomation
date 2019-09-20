@@ -2,9 +2,9 @@
 @Suman
 @US1824358
 @2019.PI09
-@2019.PI09.02
+@2019.PI09.03
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1824358 - User group has no users - Escalator
 
   @TC835326
