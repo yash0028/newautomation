@@ -29,7 +29,7 @@ Feature: US2028413 - Locked Language Request – UHN Legal - Modified
   @Adele_R
   @Go_Live
   Scenario: TC967070 - [RL1]
-    Given "Should this language be sent to the provider as is?" exists
+    Given "Should this language be sent to the provider as is?" exists on the "Locked Language Request - UHN Legal" task
     When yes is selected
     Then the form contains "Should we meet with the provider to discuss the language?" radio button with options as Yes or No
 
@@ -42,10 +42,10 @@ Feature: US2028413 - Locked Language Request – UHN Legal - Modified
   Scenario: TC967077 - [RL2]
     Given language change request is modified by UHN Legal team member
     When contractor opens the task assigned "Locked Language Counter"
-    Then the form contains a text "The language change you requested has been modified. "
+    Then the form contains a text "The language change you requested has been modified."
+    And the questions answered in the "Locked Language Request - UHN Legal" in the above appear in read-only format
     And the form contains a radio button "Does the provider agree with the changes?"* with options as Yes and No
     And the contractor is not able to modify the existing details of the form
-    And once contractor completes, the process must re-route to the same UHN Legal team member
 
   @TC967084
   @Manual
@@ -54,19 +54,9 @@ Feature: US2028413 - Locked Language Request – UHN Legal - Modified
   @Adele_R
   @Go_Live
   Scenario: TC967084 - [RL3]
-    Given "Does the provider agree with the changes?" exists
+    Given "Does the provider agree with the changes?" exists on the "Locked Language Counter" task
     When No is selected
     Then the form contains "What does the provider want?" text field appears as a Multi line text box
-
-  @TC967087
-  @Manual
-  @Functional
-  @Arvind
-  @Adele_R
-  @Go_Live
-  Scenario: TC967087 - [RL4]
-    Given "Does the provider agree with the changes?" exists
-    When Yes is selected
-    Then the process must re-route to the same UHN Legal team member
-    And the task "Locked Language Request - UHN Legal Contract offer" is created
+    And upon completion the process must re-route to the same UHN Legal team member
+    And the task "Locked Language Request – UHN Legal" is created
 

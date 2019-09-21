@@ -19,6 +19,7 @@ Feature: US1930492 - Multiple agreements on physician requiring retro
     Then one retro process is started
     And the contractor can get approval for all agreements in one request based on the market number chosen in the Physician Negotiation.
     And the contractor doesn't need to input the deal IDs
+    And it is non-editable
 
   @TC970894
   @Manual
@@ -30,4 +31,5 @@ Feature: US1930492 - Multiple agreements on physician requiring retro
     When retro is required
     Then one retro process is started
     And the contractor doesn't need to input the deal IDs
+    And it is non-editable
 

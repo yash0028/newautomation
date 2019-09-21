@@ -24,7 +24,7 @@ Feature: US2027298 - Locked Language Request - Operations
   Scenario: TC967068 - [RL1]
     Given "Locked Language Request - Operations" is assigned to the contractor
     When "Yes" is the answer for "Have you discussed this request with operations and can it be supported on our platforms?"
-    Then the "Locked Language: Unlock template & Insert Language" task is created
+    Then the "Locked Language: UHN Legal Contract Offer" task is created
 
   @TC967074
   @Manual

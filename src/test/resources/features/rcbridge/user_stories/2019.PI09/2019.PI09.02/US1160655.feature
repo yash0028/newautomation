@@ -16,3 +16,13 @@ Feature: US1160655 - Variable - Attach Escalator Driver supporting file - Rate E
     When initiator opens "HCE Modeling Received Task"
     Then the process initiator is able to Attach Escalator Driver supporting file
 
+  @TC989430
+  @Manual
+  @Functional
+  @Arvind
+  Scenario: TC989430 - [RL1]
+    Given a contractor is on the Review Rate Escalator Details task in the rate escalator process
+    When they select "No work needed as Fee schedules were pre-constructed'
+    Then no new tasks are created when the task is completed
+    And the process ends
+
