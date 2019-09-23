@@ -23,6 +23,7 @@ Feature: US1987612 - Select related transactions within a Mass Actions project -
     When the user selects one of the Type 2 error groupings
     Then the user will see a checkbox to the left of the target/transaction record
     And the user will be able to select one or more target/transactions within the Mass Action Project
+    And the display will include Name, Deal ID, MPIN, TIN, Status, Action, Retry Count
 
   @TC958773
   @Manual

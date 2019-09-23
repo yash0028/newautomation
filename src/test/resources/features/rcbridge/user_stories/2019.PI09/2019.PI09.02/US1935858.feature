@@ -16,5 +16,5 @@ Feature: US1935858 - Move retro to test environment
   Scenario: TC911635 - [RL0]
     Given the retro process revamp is completed
     When the process is downloaded from dev and uploaded into stage
-    Then the retro process is in Stage (test)
+    Then the retro process is in test
 

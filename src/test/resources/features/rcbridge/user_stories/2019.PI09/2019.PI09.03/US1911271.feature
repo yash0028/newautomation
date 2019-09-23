@@ -1,14 +1,15 @@
 # Last updated on 
-@US1862701
+@US1911271
 @2019.PI09
+@2019.PI09.03
 @releasePresent
-@iterationUnknown
-Feature: US1862701 - Platform Unet - Create OCM upon first transaction in Exari for migrated contracts (Demo Only - TermContract)
+@iterationFuture
+Feature: US1911271 - Platform Cosmos - Create OCM upon first transaction in Exari for migrated contracts (Demo Only - TermContract)
 
-  @TC857034
+  @TC886617
   @Manual
   @Functional
-  Scenario: TC857034 - [RL0]
+  Scenario: TC886617 - [RL0]
     Given an Emptoris contract has migrated to Exari
     When a valid termContract event occurs in Exari for the contract
     Then an OCM Contract Configuration record is created

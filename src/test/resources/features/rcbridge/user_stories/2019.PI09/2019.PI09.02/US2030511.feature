@@ -16,9 +16,9 @@ Feature: US2030511 - Locked Language Request – UHN Legal contract offer - Unlo
   @Adele_R
   @Go_Live
   Scenario: TC968850 - [RL0]
-    Given a locked language change process exists
-    When contractor submits "Locked Language Counter"
-    Then a task "Locked Language Request – UHN Legal contract offer" is assigned to UHN Legal team
+    Given "Will this agreement need to be filed with regulatory bodies? Yes/No*" on the "Locked Language Request – UHN Legal" is answered as Yes
+    When the "Locked Language: Unlock template & Insert Language" is completed
+    Then the a task "Locked Language Request – UHN Legal filing" is assigned to UHN Legal team
     And the text displayed in the form is "Please complete this task after we can legally offer this contact to the provider."
 
   @TC968860

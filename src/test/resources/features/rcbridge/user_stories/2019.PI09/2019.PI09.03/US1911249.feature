@@ -1,14 +1,15 @@
 # Last updated on 
-@US1862698
+@US1911249
 @2019.PI09
+@2019.PI09.03
 @releasePresent
-@iterationUnknown
-Feature: US1862698 - Platform Unet - Create OCM upon first transaction in Exari for migrated contracts (Demo Only - AmendContract Replace Payment Appendix)
+@iterationFuture
+Feature: US1911249 - Platform Cosmos - Create OCM upon first transaction in Exari for migrated contracts (Demo Only - AmendContract Replace Payment Appendix)
 
-  @TC857029
+  @TC886616
   @Manual
   @Functional
-  Scenario: TC857029 - [RL0]
+  Scenario: TC886616 - [RL0]
     Given an Emptoris contract has migrated to Exari
     When a valid amendcontract event occurs in Exari for the contract
     And the transaction request is to Replace Payment Appendix

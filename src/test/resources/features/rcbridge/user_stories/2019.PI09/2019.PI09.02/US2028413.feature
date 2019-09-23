@@ -1,5 +1,6 @@
 # Last updated on 
 @Arvind
+@Suman
 @Go_Live
 @Adele_R
 @US2028413
@@ -13,6 +14,7 @@ Feature: US2028413 - Locked Language Request – UHN Legal - Modified
   @Manual
   @Functional
   @Arvind
+  @Suman
   @Go_Live
   @Adele_R
   Scenario: TC967062 - [RL0]
@@ -26,6 +28,7 @@ Feature: US2028413 - Locked Language Request – UHN Legal - Modified
   @Manual
   @Functional
   @Arvind
+  @Suman
   @Go_Live
   @Adele_R
   Scenario: TC967070 - [RL1]
@@ -37,6 +40,7 @@ Feature: US2028413 - Locked Language Request – UHN Legal - Modified
   @Manual
   @Functional
   @Arvind
+  @Suman
   @Go_Live
   @Adele_R
   Scenario: TC967077 - [RL2]
@@ -51,6 +55,7 @@ Feature: US2028413 - Locked Language Request – UHN Legal - Modified
   @Manual
   @Functional
   @Arvind
+  @Suman
   @Go_Live
   @Adele_R
   Scenario: TC967084 - [RL3]

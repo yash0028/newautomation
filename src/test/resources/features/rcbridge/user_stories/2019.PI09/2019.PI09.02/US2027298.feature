@@ -24,7 +24,7 @@ Feature: US2027298 - Locked Language Request - Operations
   Scenario: TC967068 - [RL1]
     Given "Locked Language Request - Operations" is assigned to the contractor
     When "Yes" is the answer for "Have you discussed this request with operations and can it be supported on our platforms?"
-    Then the "Locked Language: UHN Legal Contract Offer" task is created
+    Then the "Locked Language: Unlock template & Insert Language" task is created
 
   @TC967074
   @Manual
@@ -41,21 +41,24 @@ Feature: US2027298 - Locked Language Request - Operations
   @Functional
   @Go_Live
   Scenario: TC967080 - [RL3]
-    Given the "Locked Language Denied by Operations" is created
-    When it is assigned
-    Then it is assigned to the contractor
+    Given the contractor is assigned the "Locked Language Denied by Operations"
+    When they view the task
+    Then they have to determine if the request should be modified or ended
+    And the form contains, "Please have discussions to determine if this Locked Language request should continue or end."
+    And the form contains, "Are changes to locked language needed?" Yes/No (I want the variable to be the same "language_changes_present"
+    And if Yes chosen, the question, "What is the new language agreed upon by UHN Legal, the provider, the Market Lead and Pricing?" (multi line text box)
+    And upon completion, Then the same Locked Language Request - Operations is created
 
   @TC974929
   @Manual
   @Functional
   @Go_Live
   Scenario: TC974929 - [RL4]
-    Given the contractor is assigned the "Locked Language Denied by Operations"
-    When they view the task
-    Then they have to determine if the request should be modified or ended
-    And the form contains, "Please have discussions to determine if this Locked Language request should continue or end." (Continue/End)
-    And if Continue is chosen, the question, "What is the new language agreed upon by UHN Legal, the provider, the Market Lead and Pricing?" (multi line text box)
+    Given the contractor is on the "Locked Language Denied by Operations"
+    When "Are changes to locked language needed?" is answered No
+    Then no new tasks are created
 
+  @RC_unlinked
   @TC974930
   @Manual
   @Functional
@@ -65,6 +68,7 @@ Feature: US2027298 - Locked Language Request - Operations
     When "Please have discussions to determine if this Locked Language request should continue or end." (Continue/End) is answered End
     Then no new tasks are created
 
+  @RC_unlinked
   @TC974931
   @Manual
   @Functional

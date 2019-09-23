@@ -16,7 +16,7 @@ Feature: US2008258 - Retro multiple contracts
   Scenario: TC953388 - [RL0]
     Given the retro process exists
     When multiple deal ids are part of the request
-    Then the details are shown in a table with (Deal ID, Counterparty Name, Counterparty TIN, State, Region, Market, Provider Count, Contract Owner, Paper Type)
+    Then the details are shown in a table with (Deal ID, Contract Owner, Paper Type, Counterparty MPIN, Counterparty Name, Counterparty TIer, Counterparty TIN, Market, Region, State, Total Number of Providers)
     And multiple deal ids can be part of a retro approval
 
   @TC989429
