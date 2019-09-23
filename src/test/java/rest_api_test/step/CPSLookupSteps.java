@@ -18,6 +18,7 @@ import rest_api_test.api.fallout.IFalloutContractControllerInteract;
 import rest_api_test.api.fallout.model.contract.ContractModel;
 import rest_api_test.api.transaction.model.TransactionId;
 import rest_api_test.util.IRestStep;
+import util.TimeKeeper;
 
 import static io.restassured.RestAssured.given;
 
@@ -70,8 +71,8 @@ public class CPSLookupSteps implements IRestStep, ISharedValueReader, IEventGate
         BusinessEvent.Builder eventBuilder = new BusinessEvent.Builder();
         eventBuilder.withContractId(contractNumber);
         eventBuilder.withEventName(BusinessEventType.CONTRACT_INSTALLED);
-        eventBuilder.withTimestamp("1533137086203");
-        eventBuilder.withUserId("QE Test three");
+        eventBuilder.withTimestamp(TimeKeeper.getInstance().getCurrentEpochSeconds());
+        eventBuilder.withUserId("clmqe1");
 
         // send payload
         TransactionId tid = eventGatewayPostContractInstalledEvent(eventBuilder.build());
