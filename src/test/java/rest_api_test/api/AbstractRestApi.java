@@ -11,15 +11,14 @@ import rest_api_test.api.contractsquery.model.QueryResponse;
 import rest_api_test.api.transaction.model.TransactionDetails;
 import rest_api_test.api.transaction.model.TransactionStatus;
 import rest_api_test.util.IRestStep;
-import util.configuration.IConfigurable;
 
 import static io.restassured.RestAssured.given;
 
-public abstract class AbstractRestApi implements IRestStep, IConfigurable {
+public abstract class AbstractRestApi implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(AbstractRestApi.class);
+    public static LogLevel logLevel = LogLevel.all;
     protected static Env env = Env.test;
     public final Gson gson;
-    public static LogLevel logLevel = LogLevel.all;
 
     /*
     CONSTRUCTOR
