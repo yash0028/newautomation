@@ -70,7 +70,9 @@ public class EventGatewayHelper extends AbstractRestApi implements IRestStep {
     }
 
     TransactionId getTransactionId(Response response) {
-        return gson.fromJson(parseJsonElementResponse(response), TransactionId.class);
+        TransactionId tid = gson.fromJson(parseJsonElementResponse(response), TransactionId.class);
+        tid.setResponse(response);
+        return tid;
     }
     
     /*
