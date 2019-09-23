@@ -4,8 +4,8 @@
 @US1954851
 @2019.PI08
 @2019.PI08.04
-@releasePresent
-@iterationFuture
+@releasePast
+@iterationPast
 Feature: US1954851 - ANB productGroup Exclusion - ENW Indicator determination update
 
   @TC921994

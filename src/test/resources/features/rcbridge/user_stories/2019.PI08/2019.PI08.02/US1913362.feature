@@ -2,7 +2,7 @@
 @US1913362
 @2019.PI08
 @2019.PI08.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1913362 - MAHP GHMO Exception Check - VIRGINIA Exception Provider MAHP GHMO tollgate 1 - Crosswalk upload/downlod
 

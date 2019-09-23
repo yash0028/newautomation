@@ -3,8 +3,8 @@
 @US1891897
 @2019.PI08
 @2019.PI08.03
-@releasePresent
-@iterationPresent
+@releasePast
+@iterationPast
 Feature: US1891897 - Identify user's manager for escalations and dashboards - create delegate
 
   @TC874168

@@ -2,7 +2,7 @@
 @US1858910
 @2019.PI08
 @2019.PI08.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1858910 - Build OCM upon initial transaction using PES Contracts API
 

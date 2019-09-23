@@ -2,7 +2,7 @@
 @US1854694
 @2019.PI08
 @2019.PI08.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1854694 - Tracking discrepancies identified during initial OCM build
 

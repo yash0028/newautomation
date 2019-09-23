@@ -1,4 +1,5 @@
 # Last updated on 
+@Facility
 @US1034167
 @releaseUnknown
 @iterationUnknown
@@ -7,6 +8,7 @@ Feature: US1034167 - Provide chargemaster summary via the 'Contract Summary'
   @TC565059
   @Manual
   @Functional
+  @Facility
   Scenario: TC565059 - [RL0]
     Given a contract with chargemaster is identified
     When I click on 'Chargemaster Summary"

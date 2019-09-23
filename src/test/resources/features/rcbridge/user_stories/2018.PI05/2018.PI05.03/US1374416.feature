@@ -7,7 +7,7 @@
 Feature: US1374416 - [Continued] [Continued] CMD - Create fallout-service REST endpoints for Contract Management Dashboard
 
   @TC605561
-  @Automated
+  @Manual
   @Functional
   Scenario Outline: TC605561 - [RL0] query flag to load override <tid>
     # Scenario Outline: query flag to load override

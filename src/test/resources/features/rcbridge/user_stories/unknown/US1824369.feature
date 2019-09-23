@@ -1,4 +1,5 @@
 # Last updated on 
+@Facility
 @US1824369
 @releaseUnknown
 @iterationUnknown
@@ -7,6 +8,7 @@ Feature: US1824369 - User group has no users - Rate Update
   @TC835333
   @Manual
   @Functional
+  @Facility
   Scenario: TC835333 - [RL0]
     Given a process has looked at a User Group
     When there is no user in a User Group
@@ -21,6 +23,7 @@ Feature: US1824369 - User group has no users - Rate Update
   @TC835337
   @Manual
   @Functional
+  @Facility
   Scenario: TC835337 - [RL1]
     Given a process has looked at a User Group
     When there is no user in a User Group

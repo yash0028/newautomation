@@ -3,7 +3,7 @@
 @US1797284
 @2019.PI08
 @2019.PI08.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1797284 - CMD UI - Transaction identifier MassProject vs Not
 

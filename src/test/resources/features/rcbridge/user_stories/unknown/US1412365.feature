@@ -4,51 +4,51 @@
 @iterationUnknown
 Feature: US1412365 - New UCM - Credentialing Status Code
 
-  @TC743355
+  @TC958747
   @Manual
   @Functional
-  Scenario: TC743355 - [RL0]
+  Scenario: TC958747 - [RL0]
     Given a valid contract exists in Exari environment
     When the contract includes individual person healthcare providers
     Then a property is available in the Exari UCM to store Credentialing Status Code for each distinct Provider record
 
-  @TC743512
+  @TC958762
   @Manual
   @Functional
-  Scenario: TC743512 - [RL1]
+  Scenario: TC958762 - [RL1]
     Given a valid contract exists in Exari environment
     When the contract includes individual person healthcare providers
     Then a property is available in the Exari UCM to store Credentialing Status Code for each distinct Provider record
 
-  @TC743532
+  @TC958775
   @Manual
   @Functional
-  Scenario: TC743532 - [RL2]
+  Scenario: TC958775 - [RL2]
     Given a valid contract exists in Exari environment
     When the contract does not include individual person healthcare providers
     Then a property is available in the Exari UCM to store Credentialing Status Code
     And the property value is NULL
 
-  @TC743544
+  @TC958787
   @Manual
   @Functional
-  Scenario: TC743544 - [RL3]
+  Scenario: TC958787 - [RL3]
     Given a valid contract exists in Exari environment
     When the contract includes individual person healthcare providers
     Then a property is available in the Optum OCM to store Credentialing Status Code for each distinct Provider record
 
-  @TC743549
+  @TC958799
   @Manual
   @Functional
-  Scenario: TC743549 - [RL4]
+  Scenario: TC958799 - [RL4]
     Given a valid contract exists in Exari environment
     When the contract includes individual person healthcare providers
     Then a property is available in the Optum OCM to store Credentialing Status Name for each distinct Provider record
 
-  @TC743559
+  @TC958808
   @Manual
   @Functional
-  Scenario: TC743559 - [RL5]
+  Scenario: TC958808 - [RL5]
     Given a valid contract exists in Exari environment
     When the contract does not include individual person healthcare providers
     Then a property is available in the Optum OCM to store Credentialing Status Code

@@ -4,7 +4,7 @@
 @US1849466
 @2019.PI08
 @2019.PI08.01
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1849466 - Create Search Delegate
 

@@ -2,7 +2,7 @@
 @US1877731
 @2019.PI08
 @2019.PI08.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1877731 - SPIKE - UXDS discovery and prep work effort
 

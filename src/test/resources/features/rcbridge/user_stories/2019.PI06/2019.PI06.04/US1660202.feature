@@ -9,7 +9,7 @@ Feature: US1660202 - Create service to provide Transaction installation status t
   @TC759646
   @Automated
   @Functional
-  Scenario: TC759646 - [RL0]
+  Scenario: TC759646 - [RL0] successful install
     Given a new contract exists in Exari that has just become 'Active'
     When the contract has been successfully installed
     And a call to the Optum Transaction Status with the Exari contract ID and Exari Transaction ID for the install contract event
@@ -18,7 +18,7 @@ Feature: US1660202 - Create service to provide Transaction installation status t
   @TC759650
   @Automated
   @Functional
-  Scenario: TC759650 - [RL1]
+  Scenario: TC759650 - [RL1] inprogress install
     Given a new contract exists in Exari that has just become 'Active'
     When the contract's installation process generates a Type 1 Contract Master error
     And a call to the Optum Transaction Status with the Exari contract ID and Exari Transaction ID for the install contract event
@@ -27,7 +27,7 @@ Feature: US1660202 - Create service to provide Transaction installation status t
   @TC759653
   @Manual
   @Functional
-  Scenario: TC759653 - [RL2]
+  Scenario: TC759653 - [RL2] successful install after type 1 remediation
     Given a new contract exists in Exari that has just become 'Active'
     When the contract's installation process generates a Type 1 Contract Master error
     And the Type 1 Contract Master error has been remediated
@@ -37,7 +37,7 @@ Feature: US1660202 - Create service to provide Transaction installation status t
   @TC759654
   @Automated
   @Functional
-  Scenario: TC759654 - [RL3]
+  Scenario: TC759654 - [RL3] partial success install
     Given a new contract exists in Exari that has just become 'Active'
     When the contract's installation process generates a Type 2 error for 1 of N Contract Line Adds
     And a call to the Optum Transaction Status with the Exari contract ID and Exari Transaction ID for the install contract event
@@ -46,7 +46,7 @@ Feature: US1660202 - Create service to provide Transaction installation status t
   @TC759655
   @Manual
   @Functional
-  Scenario: TC759655 - [RL4]
+  Scenario: TC759655 - [RL4] successful install after type 2 remediation
     Given a new contract exists in Exari that has just become 'Active'
     When the contract's installation process generates a Type 2 error for 1 of N Contract Line Adds
     And the Type 2 Contract Line error has been remediated

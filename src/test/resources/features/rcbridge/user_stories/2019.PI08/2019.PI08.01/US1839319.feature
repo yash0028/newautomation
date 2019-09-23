@@ -3,7 +3,7 @@
 @US1839319
 @2019.PI08
 @2019.PI08.01
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1839319 - 6 & 59 Update Agreement Fee Schedule Detail & Submit for Loading a contract for Hoppers - Rate Escalator
 

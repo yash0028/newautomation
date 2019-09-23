@@ -4,9 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public interface IFalloutInteract extends
-        IFalloutContractContollerInteract,
-        IFalloutWorkObjectContollerInteract,
-        IFalloutWorkObjectItemContractMasterContollerInteract {
+        IFalloutContractControllerInteract,
+        IFalloutWorkObjectControllerInteract {
     Logger log = LoggerFactory.getLogger(IFalloutInteract.class);
     
     /*

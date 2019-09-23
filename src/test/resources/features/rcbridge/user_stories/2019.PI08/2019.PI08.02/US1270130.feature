@@ -2,7 +2,7 @@
 @US1270130
 @2019.PI08
 @2019.PI08.02
-@releasePresent
+@releasePast
 @iterationPast
 Feature: US1270130 - Enhance OCM to capture and store Financial Penalty Table exceptions provided in PES Contracts API
 

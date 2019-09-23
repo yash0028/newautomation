@@ -8,7 +8,7 @@
 Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
 
   @TC600537
-  @Automated
+  @Manual
   @Functional
   @Contract_Rules
   Scenario: TC600537 - [RL0] Validate receiving 706
@@ -18,7 +18,7 @@ Feature: US1368004 - HERITAGE PRODUCT IPA DETERMINATION
     Then "marketProductNetwork" value of "706" recorded in the OCM record
 
   @TC611124
-  @Automated
+  @Manual
   @Functional
   @Contract_Rules
   Scenario: TC611124 - [RL1] Validate receiving 705

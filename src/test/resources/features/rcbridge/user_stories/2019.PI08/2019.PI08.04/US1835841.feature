@@ -3,8 +3,8 @@
 @US1835841
 @2019.PI08
 @2019.PI08.04
-@releasePresent
-@iterationFuture
+@releasePast
+@iterationPast
 Feature: US1835841 - Prevent closure of "Loading:Submit for loading" - physician
 
   @TC840367

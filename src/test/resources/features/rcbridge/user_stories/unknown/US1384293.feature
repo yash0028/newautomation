@@ -5,11 +5,11 @@
 @iterationUnknown
 Feature: US1384293 - New UCM - [ProductGroup] Rate condition (UI story)
 
-  @TC612453
+  @TC958731
   @Manual
   @Functional
   @A_UI_Story
-  Scenario: TC612453 - [RL0]
+  Scenario: TC958731 - [RL0]
     Given a rate differential applies to a contract
     When a rate condition category property needs to be defined
     Then a web UI is available to the user to populate the values

@@ -3,18 +3,16 @@ package rest_api_test.step;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.contractsquery.IContractsQueryInteract;
-import rest_api_test.api.datastructure.gson.contractsquery.QueryResponse;
+import rest_api_test.api.contractsquery.model.QueryResponse;
 import rest_api_test.util.IRestStep;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
@@ -22,24 +20,15 @@ import util.file.IFileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.restassured.RestAssured.given;
-
 /**
  * Created by aberns on 8/14/2018.
  */
 public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable, IContractsQueryInteract {
     private final static Logger log = LoggerFactory.getLogger(ContractQuerySteps.class);
 
-    private static final String ENDPOINT = "http://contracts-query-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String RESOURCE_ECM = "/v1.0/exari/ecm";
-    private static final String RESOURCE_FACILITY = "/v1.0/exari/facilitycontracts";
-    private static final String RESOURCE_CONTRACT_JSON = "/v1.0/exari/json";
-    private static final String RESOURCE_CONTRACT_SEARCH = "/v1.0/exari/contracts/search";
-
     private String contractId;
     private List<String> contractIds = new ArrayList<>();
-    private JsonElement result;
-    private RequestSpecification request;
+    private JsonElement jsonResponse;
     private Response response;
     private List<Response> responses = new ArrayList<>();
     private int numContracts;
@@ -49,41 +38,44 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
 
     @Given("^the Domain Service has received a business event from Exari$")
     public void buildValidRequest() throws Throwable {
-        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json");
+        // NO OP
     }
 
     @When("^the Domain Service queries for additional contract details from Exari$")
     public void getValidResponse() throws Throwable {
-        response = request.param("contractId", "91414303").get(RESOURCE_ECM);
-
-        log.info("Contract query response: {}", response.asString());
+        // TODO change contract id to work in test env
+        useDevApi(); // Test Env does not have data yet
+        response = getExariContractModel("91414303");
+        log.debug("Contract query response: {}", response.asString());
     }
 
     @Then("^the Domain Service receives the Exari contract model$")
     public void checkValidResponse() throws Throwable {
-        JsonElement result = parseJsonElementResponse(response);
-        Assert.assertTrue(result.isJsonObject());
-        Assert.assertEquals("Unexpected response", 200, response.statusCode());
+        jsonResponse = parseJsonElementResponse(response);
+        Assert.assertTrue(jsonResponse.isJsonObject());
+        Assert.assertEquals(200, response.statusCode());
 
-        String tempMessage = result.getAsJsonObject().get("responseMessage").getAsString();
+        String tempMessage = jsonResponse.getAsJsonObject().get("responseMessage").getAsString();
         JsonElement ecm = parseJsonElementString(tempMessage);
         Assert.assertTrue(ecm.isJsonObject());
 
-//        System.out.println(ecm.toString());
         List<String> masterSet = getFileLines("/support/ecm/ecm.txt");
         Assert.assertTrue(verifyFields(ecm, masterSet, "\\."));
     }
 
     @When("^the Domain Service queries for invalid contract details from Exari$")
     public void getInvalidResponse() throws Throwable {
-        response = request.param("contractId", "455292").get(RESOURCE_ECM);
+        // TODO change contract id to work in test env
+        useDevApi(); // Test Env does not have data yet
+        response = getExariContractModel("455292");
+        log.debug("Contract query response: {}", response.asString());
     }
 
     @Then("^the Domain Service returns a service error$")
     public void checkInvalidResponse() throws Throwable {
-        result = parseJsonElementResponse(response);
-        Assert.assertTrue(result.isJsonObject());
-        Assert.assertNotEquals("Unexpected response: should have received a service error", 200, result.getAsJsonObject().get("responseCode").getAsInt());
+        jsonResponse = parseJsonElementResponse(response);
+        Assert.assertTrue(jsonResponse.isJsonObject());
+        Assert.assertNotEquals("Unexpected response: should have received a service error", 200, jsonResponse.getAsJsonObject().get("responseCode").getAsInt());
     }
 
     @Given("^Exari has received a request to send data to PIC$")
@@ -94,8 +86,7 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
     @When("^the micro service has received the contract id of \"([^\"]*)\" from Exari$")
     public void recieveContractId(String contractId) throws Throwable {
         this.contractId = contractId;
-        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").param("contractId", contractId);
-        this.response = request.get(RESOURCE_FACILITY);
+        this.response = getFacilityContractData(contractId);
         Assert.assertEquals(200, this.response.getStatusCode());
     }
 
@@ -103,31 +94,29 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
     public void isContractIdDataValid() throws Throwable {
         log.info("Response: {}", response.asString());
 
-        result = parseJsonElementResponse(this.response);
-        Assert.assertTrue(result.isJsonObject());
-        String agreementId = result.getAsJsonObject().get("responseData").getAsJsonArray().get(0).getAsJsonObject().get("agreementId").getAsString();
+        jsonResponse = parseJsonElementResponse(this.response);
+        Assert.assertTrue(jsonResponse.isJsonObject());
+        String agreementId = jsonResponse.getAsJsonObject().get("responseData").getAsJsonArray().get(0).getAsJsonObject().get("agreementId").getAsString();
         Assert.assertEquals(contractId, agreementId);
     }
 
     @Then("^the micro service sends the data to PIC$")
     public void sendDataToPIC() throws Throwable {
-        Assert.assertEquals(0, result.getAsJsonObject().get("responseCode").getAsInt());
-//        Assert.assertEquals("Success", result.get("responseStatus").getAsString());
+        Assert.assertEquals(0, jsonResponse.getAsJsonObject().get("responseCode").getAsInt());
     }
 
     @And("^the micro service finds the data invalid based on the selection criteria$")
     public void theMicroServiceFindsTheDataInvalidBasedOnTheSelectionCriteria() throws Throwable {
-        result = parseJsonElementResponse(this.response);
-        Assert.assertTrue(result.isJsonObject());
-        String responseMessage = result.getAsJsonObject().get("responseMessage").getAsString();
+        jsonResponse = parseJsonElementResponse(this.response);
+        Assert.assertTrue(jsonResponse.isJsonObject());
+        String responseMessage = jsonResponse.getAsJsonObject().get("responseMessage").getAsString();
         Assert.assertTrue(responseMessage.contains("A contract has not been found for contract"));
     }
 
 
     @Then("^the micro service returns a service error$")
     public void theMicroServiceReturnsAServiceError() throws Throwable {
-        Assert.assertNotEquals(200, result.getAsJsonObject().get("responseCode").getAsInt());
-//        Assert.assertEquals("Failure", result.get("responseStatus").getAsString());
+        Assert.assertNotEquals(200, jsonResponse.getAsJsonObject().get("responseCode").getAsInt());
     }
 
     //US1367884 and US1384733 (Exari Automation Testing using Contract Query API)
@@ -139,20 +128,18 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
 
     @When("^hitting the Exari API for Contract JSON Data$")
     public void hittingTheExariAPIForContractJSONData() throws Throwable {
-        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").param("contractId", contractId);
-        this.response = request.get(RESOURCE_CONTRACT_JSON);
+        this.response = getExariContractJson(contractId);
         Assert.assertEquals(200, this.response.getStatusCode());
     }
 
     @Then("^the fields from file \"([^\"]*)\" are returned$")
     public void theFollowingFieldsAreReturned(String filename) throws Throwable {
-
-        result = parseJsonElementResponse(this.response);
-        Assert.assertTrue(result.isJsonObject());
+        jsonResponse = parseJsonElementResponse(this.response);
+        Assert.assertTrue(jsonResponse.isJsonObject());
 
         log.info("Response: {}", response.asString());
 
-        String responseMessage = result.getAsJsonObject().get("responseMessage").getAsString();
+        String responseMessage = jsonResponse.getAsJsonObject().get("responseMessage").getAsString();
         JsonObject responseJson = parseJsonElementString(responseMessage).getAsJsonObject();
 
         List<String> masterSet = getFileLines("/support/ecm/" + filename);
@@ -162,7 +149,7 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
 
     @And("^the fields from file \"([^\"]*)\" are not null$")
     public void theFieldsFromFileAreNotNull(String filename) throws Throwable {
-        String responseMessage = result.getAsJsonObject().get("responseMessage").getAsString();
+        String responseMessage = jsonResponse.getAsJsonObject().get("responseMessage").getAsString();
         JsonObject responseJson = parseJsonElementString(responseMessage).getAsJsonObject();
 
         List<String> masterSet = getFileLines("/support/ecm/" + filename);
@@ -177,7 +164,7 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
         this.numContracts = numContracts;
 
         // JSON request to get latest contracts from Exari (swagger page: https://uhgpoc-dev.exaricontracts.com/exaricm/contracts-api-ui/index.html)
-        String jsonRequestString = "{\n" +
+        String searchString = "{\n" +
                 "  \"anyFieldQuery\": \"" + contractType + "\",\n" +
                 "  \"filter\": {\n" +
                 "    \"filters\": {\n" +
@@ -197,27 +184,21 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
                 "    \"cm:created\"\n" +
                 "  ]\n" +
                 "}";
-        JsonElement requestBody = parseJsonElementString(jsonRequestString);
-
-        // Build out the request
-        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(requestBody);
-        //this.request.header("Authorization", configGetOptionalString("exari.searchAuthorization").orElse(""));
-
-        this.response = request.post(RESOURCE_CONTRACT_SEARCH);
-
+        JsonElement searchPayload = parseJsonElementString(searchString);
+        this.response = searchContractsWithFilter(searchPayload);
         Assert.assertEquals(200, response.getStatusCode());
 
         log.info("Response from contract query api: {}", response.asString());
 
-        this.result = parseJsonElementResponse(response);
+        this.jsonResponse = parseJsonElementResponse(response);
 
         // Since the API returns nested JSON in a JSON Primitive object, we need to first get the response message
         // And then parse it as a JSON element, so that we can get the nested array later
-        JsonPrimitive responseMessage = result.getAsJsonObject().get("responseMessage").getAsJsonPrimitive();
-        JsonElement responseJson = parseJsonElementString(responseMessage.getAsString());
+        String message = jsonResponse.getAsJsonObject().get("responseMessage").getAsJsonPrimitive().getAsString();
+        jsonResponse = parseJsonElementString(message);
 
         // All the contract data we're interested in resides in the "entries" object
-        JsonArray entries = responseJson.getAsJsonObject().get("entries").getAsJsonArray();
+        JsonArray entries = jsonResponse.getAsJsonObject().get("entries").getAsJsonArray();
 
         // Go through each entry and put each contract ID into an array list
         for(JsonElement entry: entries){
@@ -229,12 +210,11 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
 
     @When("^hitting Exari for each contract's JSON$")
     public void hittingExariForEachContractSJSON() throws Throwable {
-        // Get JSON data for each contract ID, and store each result in another array list
+        // Get JSON data for each contract ID, and store each jsonResponse in another array list
         for(String contractId: this.contractIds){
             log.info("Hitting Exari to get JSON for Contract ID: {}", contractId);
 
-            this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").param("contractId", contractId);
-            this.response = request.get(RESOURCE_CONTRACT_JSON);
+            this.response = searchContractsById(contractId);
             Assert.assertEquals(200, this.response.getStatusCode());
 
             // Array list holding all of the response data for each contract ID
@@ -249,11 +229,11 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
 
         // Go through each response and verify it has the necessary JSON fields/elements
         for(Response resp: this.responses){
-            result = parseJsonElementResponse(resp);
-            Assert.assertTrue(result.isJsonObject());
+            jsonResponse = parseJsonElementResponse(resp);
+            Assert.assertTrue(jsonResponse.isJsonObject());
 
             // The data we need resides in the "responseMessage" object
-            String responseMessage = result.getAsJsonObject().get("responseMessage").getAsString();
+            String responseMessage = jsonResponse.getAsJsonObject().get("responseMessage").getAsString();
             JsonObject responseJson = parseJsonElementString(responseMessage).getAsJsonObject();
 
             String contract = responseJson.get("contractID").getAsString();
@@ -281,11 +261,11 @@ public class ContractQuerySteps implements IRestStep, IFileReader, IConfigurable
 
         // Go through each response and verify that fields that shouldn't be null/blank, aren't null/blank
         for(Response resp: this.responses){
-            result = parseJsonElementResponse(resp);
-            Assert.assertTrue(result.isJsonObject());
+            jsonResponse = parseJsonElementResponse(resp);
+            Assert.assertTrue(jsonResponse.isJsonObject());
 
             // The data we need resides in the "responseMessage" object
-            String responseMessage = result.getAsJsonObject().get("responseMessage").getAsString();
+            String responseMessage = jsonResponse.getAsJsonObject().get("responseMessage").getAsString();
             JsonObject responseJson = parseJsonElementString(responseMessage).getAsJsonObject();
 
             String contract = responseJson.get("contractID").getAsString();

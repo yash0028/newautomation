@@ -2,7 +2,7 @@
 @US1362216
 @2019.PI09
 @2019.PI07.04
-@releaseFuture
+@releasePresent
 @iterationPast
 Feature: US1362216 - Processing when provider record does not slot(E2E?)
 

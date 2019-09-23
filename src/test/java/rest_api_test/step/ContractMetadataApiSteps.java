@@ -2,41 +2,30 @@ package rest_api_test.step;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rest_api_test.api.contractmetadata.IContractMetadataInteract;
 import rest_api_test.util.IRestStep;
 import util.file.IFileReader;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import static io.restassured.RestAssured.given;
 
 /**
  * Created by dtimaul on 9/11/18.
  */
-public class ContractMetadataApiSteps implements IRestStep, IFileReader {
+public class ContractMetadataApiSteps implements IRestStep, IFileReader, IContractMetadataInteract {
     private final static Logger log = LoggerFactory.getLogger(ContractMetadataApiSteps.class);
 
-    private final static String ENDPOINT = "https://contract-metadata-api-clm-test-ui.ocp-ctc-dmz-nonprod.optum.com";
-    private final static String RESOURCE_PRODUCT_CODE = "/v1.0/product_group_codes";
-    private final static String RESOURCE_PRODUCT_DESCRIPTIONS = "/v1.0/contract-product-descriptions/search";
-    private final static String RESOURCE_PCP_INDICATOR = "/v1.0/pcp/lookup";
-    private RequestSpecification request;
     private Response response;
     private List<String> productDescriptions;
-    private JsonObject requestBody;
 
     //US1185585 Contract Product Description Crosswalk
     @Given("^a product description to product code crosswalk exists$")
@@ -60,70 +49,54 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
     // Make REST call to get product code list
     @When("^exchanging information about the products included or excluded from an Exari contract$")
     public void getProductCodeIdentifier() throws Throwable {
-        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").relaxedHTTPSValidation();
+        // NO OP
     }
 
     //verify product Code list Was returned For a single ProductDescription
     @Then("^the crosswalk provides the product code identifier of \"([^\"]*)\"$")
     public void verifySingleProductCodeList(String expectedProductCodes) throws Throwable {
-        // Make GET request and store response
-        response = request.param("productDescriptions", productDescriptions).get(RESOURCE_PRODUCT_CODE);
+        response = productGroupCodeLookupWithProductDescription(productDescriptions);
         Assert.assertEquals(200, response.getStatusCode());
 
         JsonArray result = parseJsonElementResponse(response).getAsJsonObject().get("content").getAsJsonArray();
         Assert.assertTrue(result.isJsonArray());
 
         // Check that the result is a valid json object and returns list of product codes
-        Assert.assertTrue("Expected product code is not contained in the response. Expected: " +
-                expectedProductCodes + " Response: " +
-                response.asString(), resultContainsCorrectProductCode(result, expectedProductCodes));
+        assertResultContainsProductCode(result, expectedProductCodes);
     }
 
     //verify multiple product Code lists Was returned For multiple ProductDescriptions
     @Then("^the crosswalk provides the product code identifiers of \"([^\"]*)\" and \"([^\"]*)\"$")
     public void verifyMultipleProductCodeList(String expectedProductCodes1, String expectedProductCodes2) throws Throwable {
-        // Make GET request and store response
-        response = request.param("productDescriptions", productDescriptions).get(RESOURCE_PRODUCT_CODE);
+        response = productGroupCodeLookupWithProductDescription(productDescriptions);
         Assert.assertEquals(200, response.getStatusCode());
 
         JsonArray result = parseJsonElementResponse(response).getAsJsonObject().get("content").getAsJsonArray();
         Assert.assertTrue(result.isJsonArray());
 
-        // Check that the result is a valid json object and returns list of product codes
-        Assert.assertTrue("Expected product code is not contained in the response. Expected: " +
-                expectedProductCodes1 + " Response: " +
-                response.asString(), resultContainsCorrectProductCode(result, expectedProductCodes1));
-
-        Assert.assertTrue("Expected product code is not contained in the response. Expected: " +
-                expectedProductCodes2 + " Response: " +
-                response.asString(), resultContainsCorrectProductCode(result, expectedProductCodes2));
+        assertResultContainsProductCode(result, expectedProductCodes1);
+        assertResultContainsProductCode(result, expectedProductCodes2);
     }
 
     // Verify single product description does not exist
     @Given("^a product description that does not exist$")
     public void aProductDescriptionThatDoesNotExist() throws Throwable {
         productDescriptions = new ArrayList<>();
-
-        String invalidProductDescription = "this is not a valid product description";
-        productDescriptions.add(invalidProductDescription);
+        productDescriptions.add("this is not a valid product description");
     }
 
     // Verify multiple product description does not exist
     @Given("^multiple product descriptions that do not exist$")
     public void multipleProductDescriptionsThatDoNotExist() throws Throwable {
         productDescriptions = new ArrayList<>();
-
-        String invalidProductDescription1 = "this is not a invalid product description";
-        String invalidProductDescription2 = "this is another a invalid product description";
-        productDescriptions.add(invalidProductDescription1);
-        productDescriptions.add(invalidProductDescription2);
+        productDescriptions.add("this is not a invalid product description");
+        productDescriptions.add("this is another a invalid product description");
     }
-
 
     @Then("^the crosswalk provides an empty list$")
     public void theCrosswalkProvidesAnEmptyList() throws Throwable {
-        // Make GET request and store response
-        response = request.param("productDescriptions", productDescriptions).get(RESOURCE_PRODUCT_CODE);
+        response = productGroupCodeLookupWithProductDescription(productDescriptions);
+
         Assert.assertEquals(200, response.getStatusCode());
 
         JsonElement result = parseJsonElementResponse(response).getAsJsonObject().get("totalElements");
@@ -140,8 +113,7 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
 
     @Then("^the crosswalk only provides the product code identifier of \"([^\"]*)\" for the valid product description$")
     public void theCrosswalkOnlyProvidesTheProductCodeIdentifierOfForTheValidProductDescription(String expectedProductCodes) throws Throwable {
-        // Make GET request and store response
-        response = request.param("productDescriptions", productDescriptions).get(RESOURCE_PRODUCT_CODE);
+        response = productGroupCodeLookupWithProductDescription(productDescriptions);
         Assert.assertEquals(200, response.getStatusCode());
 
         JsonArray result = parseJsonElementResponse(response).getAsJsonObject().get("content").getAsJsonArray();
@@ -162,19 +134,17 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
     // US1820475 - [Continued] Market Product integration EDQ work (Exari) (QE) - Update CMD Tables
     @Given("a need get product-group information for pilot products")
     public void aNeedGetProductGroupInformationForPilotProducts() {
-        // noop
+        //NO OP
     }
 
     @When("sending a request to validate the product group {string}")
     public void sendingARequestToValidateTheProductGroup(String productGroup) throws Throwable {
         setSingleProductDescription(productGroup);
-
-        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").relaxedHTTPSValidation();
     }
 
     @Then("we receive a response back with details of that product")
     public void weReceiveAResponseBackWithDetailsOfThatProduct() throws Throwable {
-        response = request.param("productDescriptions", productDescriptions).get(RESOURCE_PRODUCT_CODE);
+        response = productGroupCodeLookupWithProductDescription(productDescriptions);
 
         Assert.assertEquals("Service did not return 200 response", 200, response.getStatusCode());
 
@@ -217,17 +187,17 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
      * @param expectedProductCode the product code we're checking for
      * @return returns true if the expectedProductCode is contained in the result array, false if not.
      */
-    private boolean resultContainsCorrectProductCode(JsonArray result, String expectedProductCode) {
+    private boolean assertResultContainsProductCode(JsonArray result, String expectedProductCode) {
+        boolean match = false;
 
         for(JsonElement elm: result) {
             String actualProductCode = elm.getAsJsonObject().get("productCodeList").getAsString();
-
-            if(actualProductCode.contains(expectedProductCode)) {
-                return true;
+            if(actualProductCode.contains(expectedProductCode)){
+                match = true;
             }
         }
 
-        return false;
+        return match;
     }
 
     // US1852455 - Exclude inactive Contract Product Description table records in API response (Optum)
@@ -235,35 +205,23 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
     @Given("Exari provides valid Contract Product Descriptions:")
     public void exariProvidesValidContractProductDescriptions(DataTable dt) {
         productDescriptions = dt.asList();
-
-        JsonArray productDescriptionsArray = new JsonArray();
-        requestBody = new JsonObject();
-
-        for(String product: productDescriptions) {
-            productDescriptionsArray.add(product);
-        }
-
-        requestBody.add("productDescriptions", productDescriptionsArray);
     }
 
     @When("sending a request to validate the product groups")
     public void sendingARequestToValidateTheProductGroups() {
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json")
-                .body(requestBody).relaxedHTTPSValidation();
-
-        response = request.post(RESOURCE_PRODUCT_DESCRIPTIONS);
+        response = productGroupCodeLookupWithProductDescription(productDescriptions);
     }
 
     @Then("only matched records with a {string} of {string} are returned")
     public void onlyMatchedRecordsWithAOfAreReturned(String property, String expectedValue) {
         JsonElement result = parseJsonElementResponse(response);
-        JsonArray resultArray = result.getAsJsonArray();
+        JsonArray resultArray = result.getAsJsonObject().get("content").getAsJsonArray();
 
         for(JsonElement elm: resultArray) {
             Assert.assertTrue("Array element is not a JSON Object", elm.isJsonObject());
 
             String actualValue = elm.getAsJsonObject().get(property).getAsString();
-            String product = elm.getAsJsonObject().get("productDescription").getAsString();
+            String product = elm.getAsJsonObject().get("productCodeDescription").getAsString();
 
             log.info("Product: {} ----- Expected: {}, Actual: {}", product, expectedValue, actualValue);
 
@@ -273,36 +231,26 @@ public class ContractMetadataApiSteps implements IRestStep, IFileReader {
 
     // US1806699 - CMD Determine PCP Indicator for each Provider on Roster Based on Market
     @Given("a request to the PCP Indicator Lookup endpoint:")
-    public void aRequestToThePCPIndicatorLookupEndpoint(DataTable requestDT) {
-        Map<String, String> requestMap = requestDT.asMap(String.class, String.class);
-        Set<String> keys = requestMap.keySet();
-        this.requestBody = new JsonObject();
-        for(String key : keys) {
-            if(requestMap.get(key).equals("null")) {
-                this.requestBody.addProperty(key, "");
-            } else {
-                this.requestBody.addProperty(key,requestMap.get(key));
-            }
-        }
-
+    public void aRequestToThePCPIndicatorLookupEndpoint(DataTable dataTable) {
+        getPayload().put2ColDataTable(dataTable);
     }
 
     @When("sending the request to the PCP Indicator Lookup endpoint")
     public void sendingTheRequestToThePCPIndicatorLookupEndpoint() {
-        this.request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").relaxedHTTPSValidation().body(this.requestBody);
+        // NO OP
     }
 
     @Then("we get a responseErrorMessage stating {string}")
     public void weGetAResponseErrorMessageStating(String responseMessage) {
-        response = this.request.post(RESOURCE_PCP_INDICATOR);
+        this.response = pcpLookup(getPayload());
         JsonElement responseJson = parseJsonElementResponse(response);
-        Assert.assertEquals(responseMessage, responseJson.getAsJsonObject().get("responseErrorMessage").getAsString());
+        Assert.assertEquals(responseMessage, responseJson.getAsJsonObject().get("responseMessage").getAsString());
     }
 
     @Then("we get a response indicating that the provider is {string}")
     public void weGetAResponseIndicatingThatTheProviderIs(String pcpIndicatorCMD) {
-        response = this.request.post(RESOURCE_PCP_INDICATOR);
+        this.response = pcpLookup(getPayload());
         JsonElement responseJson = parseJsonElementResponse(response);
-        Assert.assertEquals(pcpIndicatorCMD, responseJson.getAsJsonObject().get("pcpIndicatorCMD").getAsString());
+        Assert.assertEquals(pcpIndicatorCMD, responseJson.getAsJsonObject().get("providerNetworkRole").getAsString());
     }
 }

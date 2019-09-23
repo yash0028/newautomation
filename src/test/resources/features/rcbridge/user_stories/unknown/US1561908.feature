@@ -1,4 +1,5 @@
 # Last updated on 
+@Facility
 @US1561908
 @releaseUnknown
 @iterationUnknown
@@ -7,6 +8,7 @@ Feature: US1561908 - Close the process - successful - chargemaster
   @TC716033
   @Manual
   @Functional
+  @Facility
   Scenario: TC716033 - [RL0]
     Given the retro request has an associated workflow (facility, chargemaster, escalator)
     When the associated agreement has been executed (status is active)
@@ -17,6 +19,7 @@ Feature: US1561908 - Close the process - successful - chargemaster
   @TC716036
   @Manual
   @Functional
+  @Facility
   Scenario: TC716036 - [RL1]
     Given the retro request does not have an associated workflow (Benefit Ops)
     When the associated agreement has been executed

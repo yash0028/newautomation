@@ -1,4 +1,5 @@
 # Last updated on 
+@Facility
 @US1824348
 @releaseUnknown
 @iterationUnknown
@@ -7,6 +8,7 @@ Feature: US1824348 - User group has no users - Chargemaster
   @TC835328
   @Manual
   @Functional
+  @Facility
   Scenario: TC835328 - [RL0]
     Given a process has looked at a User Group
     When there is no user in a User Group
@@ -21,6 +23,7 @@ Feature: US1824348 - User group has no users - Chargemaster
   @TC835339
   @Manual
   @Functional
+  @Facility
   Scenario: TC835339 - [RL1]
     Given a process has looked at a User Group
     When there is no user in a User Group

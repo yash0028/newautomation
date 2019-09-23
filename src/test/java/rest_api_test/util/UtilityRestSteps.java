@@ -18,7 +18,7 @@ public class UtilityRestSteps implements IRestApi, IMockServiceInteract {
 
     @Before
     public void resetRestApiEnv() {
-        useDevApi();
+//        useDevApi();
     }
 
     @Before(value = "@US1332127", order = BookendOrder.REST)

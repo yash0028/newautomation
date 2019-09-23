@@ -1,30 +1,21 @@
 package rest_api_test.api.transaction;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.AbstractRestApi;
-import rest_api_test.api.datastructure.gson.transaction.TransactionStatus;
-import rest_api_test.api.datastructure.list.TransactionDetails;
-import rest_api_test.api.datastructure.type.ContractStatus;
-import rest_api_test.api.datastructure.type.TSortField;
+import rest_api_test.api.transaction.model.TransactionDetails;
+import rest_api_test.api.transaction.model.TransactionStatus;
 import rest_api_test.util.IRestStep;
 
-import java.util.List;
-
-import static io.restassured.RestAssured.given;
 
 class TransactionHelper extends AbstractRestApi implements IRestStep {
     private static final Logger log = LoggerFactory.getLogger(TransactionHelper.class);
 
     private static final String ENDPOINT_DEV = "https://transaction-status-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private static final String ENDPOINT_TEST = "https://transaction-status-clm-test.ocp-ctc-dmz-nonprod.optum.com";
-    private static final String RESOURCE_TRANSACTION = "/v1.0/transactions/"; //need to add the {trans_id} to the end
-    private static final String RESOURCE_RESULT = "/v1.0/transactions/results";
+
 
     private static TransactionHelper INSTANCE = new TransactionHelper();
 
@@ -52,13 +43,10 @@ class TransactionHelper extends AbstractRestApi implements IRestStep {
      * Get the Transaction Status for a transaction id
      * maps to GET /v1.0/transactions/{transactionId}
      *
-     * @param transactionId transaction id to lookup
+     * @param response response object to convert to Trasnaction status
      * @return the transaction status
      */
-    TransactionStatus getTransactionStatus(String transactionId) {
-        RequestSpecification request = given().baseUri(getEndpoint())
-                .header("Content-Type", "application/json");
-        Response response = request.get(RESOURCE_TRANSACTION + transactionId);
+    TransactionStatus getTransactionStatus(Response response) {
         JsonElement jsonElement = parseJsonElementResponse(response);
 
         TransactionStatus status = gson.fromJson(jsonElement, TransactionStatus.class);
@@ -78,30 +66,7 @@ class TransactionHelper extends AbstractRestApi implements IRestStep {
      * @param pageSize       size of pages
      * @return List of Transaction Details
      */
-    TransactionDetails getTransactionDetails(List<ContractStatus> resultStatuses, List<TSortField> sortBy, boolean sortDescend, int pageNum, int pageSize) {
-        JsonObject payload = new JsonObject();
-        payload.addProperty("offset", 0);
-        payload.addProperty("pageNumber", pageNum);
-        payload.addProperty("pageSize", pageSize);
-        payload.addProperty("sortDirection", sortDescend ? "DESC" : "ASC");
-
-        JsonArray resultStatusArr = new JsonArray();
-        for (ContractStatus type : resultStatuses) {
-            resultStatusArr.add(type.name());
-        }
-        payload.add("resultStatus", resultStatusArr);
-
-        JsonArray sortFields = new JsonArray();
-        for (TSortField sortField : sortBy) {
-            sortFields.add(sortField.type);
-        }
-
-        payload.add("sortFields", sortFields);
-
-        RequestSpecification request = given().baseUri(getEndpoint())
-                .header("Content-Type", "application/json")
-                .body(payload);
-        Response response = request.post(RESOURCE_RESULT);
+    TransactionDetails getTransactionDetails(Response response) {
         JsonElement jsonElement = parseJsonElementResponse(response);
 
         TransactionDetails details = gson.fromJson(jsonElement, TransactionDetails.class);
@@ -116,7 +81,14 @@ class TransactionHelper extends AbstractRestApi implements IRestStep {
 
     @Override
     protected String getEndpoint() {
-        return this.useDev ? ENDPOINT_DEV : ENDPOINT_TEST;
+        switch (env) {
+            case stage:
+            case test:
+                return ENDPOINT_TEST;
+            case dev:
+            default:
+                return ENDPOINT_DEV;
+        }
     }
     
     /*

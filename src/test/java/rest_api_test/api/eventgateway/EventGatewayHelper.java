@@ -6,9 +6,9 @@ import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.AbstractRestApi;
-import rest_api_test.api.datastructure.gson.eventgateway.BusinessEvent;
-import rest_api_test.api.datastructure.gson.transaction.TransactionId;
-import rest_api_test.api.datastructure.type.BusinessEventType;
+import rest_api_test.api.eventgateway.model.BusinessEvent;
+import rest_api_test.api.eventgateway.model.BusinessEventType;
+import rest_api_test.api.transaction.model.TransactionId;
 import rest_api_test.util.IRestStep;
 
 import static io.restassured.RestAssured.given;
@@ -68,6 +68,12 @@ public class EventGatewayHelper extends AbstractRestApi implements IRestStep {
 
         return tid.getTransactionId();
     }
+
+    TransactionId getTransactionId(Response response) {
+        TransactionId tid = gson.fromJson(parseJsonElementResponse(response), TransactionId.class);
+        tid.setResponse(response);
+        return tid;
+    }
     
     /*
     HELPER METHODS
@@ -75,7 +81,14 @@ public class EventGatewayHelper extends AbstractRestApi implements IRestStep {
 
     @Override
     protected String getEndpoint() {
-        return useDev ? ENDPOINT_DEV : ENDPOINT_TEST;
+        switch (env) {
+            case stage:
+            case test:
+                return ENDPOINT_TEST;
+            case dev:
+            default:
+                return ENDPOINT_DEV;
+        }
     }
     
     /*
