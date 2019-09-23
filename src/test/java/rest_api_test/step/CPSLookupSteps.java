@@ -1,6 +1,5 @@
 package rest_api_test.step;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import cucumber.api.java.en.And;
@@ -12,14 +11,21 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rest_api_test.api.eventgateway.IEventGatewayInteract;
+import rest_api_test.api.eventgateway.model.BusinessEvent;
+import rest_api_test.api.eventgateway.model.BusinessEventType;
+import rest_api_test.api.fallout.IFalloutContractControllerInteract;
+import rest_api_test.api.fallout.model.contract.ContractModel;
+import rest_api_test.api.transaction.model.TransactionId;
 import rest_api_test.util.IRestStep;
+import util.TimeKeeper;
 
 import static io.restassured.RestAssured.given;
 
 /**
  * Created by dtimaul on 1/15/19.
  */
-public class CPSLookupSteps implements IRestStep, ISharedValueReader {
+public class CPSLookupSteps implements IRestStep, ISharedValueReader, IEventGatewayInteract, IFalloutContractControllerInteract {
     private static final Logger log = LoggerFactory.getLogger(CPSLookupSteps.class);
 
     private static final String ENDPOINT_EVENT_GATEWAY = "http://event-gateway-api-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
@@ -62,21 +68,17 @@ public class CPSLookupSteps implements IRestStep, ISharedValueReader {
         // get the contract id from the contract that was created by Selenium during the previous steps.
         String contractNumber = getSharedString("contractNumber").orElse(" ");
 
-        // Make a POST request to the event gateway API with the contract number
-        // and get back the transaction status number
-        payload.addProperty("eventName", "ContractInstalled");
-        payload.addProperty("userId", "QE Test three");
-        payload.addProperty("timestamp", "1533137086203");
-        payload.addProperty("contractId", contractNumber);
-        payload.addProperty("transactionId", " ");
-        payload.addProperty("orderId", "");
+        BusinessEvent.Builder eventBuilder = new BusinessEvent.Builder();
+        eventBuilder.withContractId(contractNumber);
+        eventBuilder.withEventName(BusinessEventType.CONTRACT_INSTALLED);
+        eventBuilder.withTimestamp(TimeKeeper.getInstance().getCurrentEpochSeconds());
+        eventBuilder.withUserId("clmqe1");
 
         // send payload
-        eventGatewayRequest = given().baseUri(ENDPOINT_EVENT_GATEWAY).header("Content-Type", "application/json").body(payload);
-        eventGatewayResponse = eventGatewayRequest.post(RESOURCE_EVENT_GATEWAY_CONTRACT_INSTALLED);
+        TransactionId tid = eventGatewayPostContractInstalledEvent(eventBuilder.build());
 
         // Verify successful HTTP response
-        Assert.assertEquals("HTTP Status code 200 was not rerturned", 200, eventGatewayResponse.getStatusCode());
+        Assert.assertEquals(200, tid.getResponse().getStatusCode());
 
         // retrieve transaction id
         JsonElement gatewayResultElement = parseJsonElementResponse(eventGatewayResponse);
@@ -84,31 +86,14 @@ public class CPSLookupSteps implements IRestStep, ISharedValueReader {
         log.trace("Transaction id from response: {}", transactionId);
 
         // Make a GET request to the fallout service with the transaction id
-        // to get the OCM json
         falloutRequest = given().baseUri(ENDPOINT_FALLOUT_SERVICE).header("Content-Type", "application/json").relaxedHTTPSValidation();
         falloutResponse = falloutRequest.get(RESOURCE_FALLOUT_SERVICE_CONTRACT_DETAILS + transactionId);
-        Assert.assertEquals(200, falloutResponse.getStatusCode());
-
-        // retrieve the OCM Json
-        JsonElement falloutResultElement = parseJsonElementResponse(falloutResponse);
-        String OCMJson = falloutResultElement.toString();
-        log.trace("OCM JSON response: {}", OCMJson);
+        ContractModel model = falloutQueryContractModel(transactionId);
+        Assert.assertEquals(200, model.getResponse().getStatusCode());
 
         // Verify OCM Json contains "marketDivRegion": "DIV" and "contractOrPackage": "22503"
-        boolean marketDivRegionFound = false;
-        boolean packageNumberFound = false;
-
-        JsonArray feeScheduleDetails = falloutResultElement.getAsJsonObject().get("feeScheduleDetails").getAsJsonArray();
-        log.trace("feeScheduleDetails: {}", feeScheduleDetails.toString());
-
-        for (int i = 0; i < feeScheduleDetails.size(); i++) {
-            String marketDivRegion = feeScheduleDetails.get(i).getAsJsonObject().get("marketDivRegion").getAsString();
-            if (marketDivRegion.equals(expectedMarketDivRegion))
-                marketDivRegionFound = true;
-            String packageNumber = feeScheduleDetails.get(i).getAsJsonObject().get("contractOrPackage").getAsString();
-            if (packageNumber.equals(expectedPackageNumber))
-                packageNumberFound = true;
-        }
+        boolean marketDivRegionFound = model.getFeeScheduleDetails().stream().anyMatch(f -> f.getMarketDivRegion().equals(expectedMarketDivRegion));
+        boolean packageNumberFound = model.getFeeScheduleDetails().stream().anyMatch(f -> f.getContractOrPackage().equals(expectedPackageNumber));
 
         Assert.assertTrue("The specified marketDivRegion was not found", marketDivRegionFound);
         Assert.assertTrue("The specified package number was not found", packageNumberFound);

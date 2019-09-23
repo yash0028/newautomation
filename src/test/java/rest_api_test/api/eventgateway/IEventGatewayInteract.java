@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import rest_api_test.api.IRestApi;
 import rest_api_test.api.eventgateway.model.BusinessEvent;
 import rest_api_test.api.eventgateway.model.BusinessEventType;
+import rest_api_test.api.transaction.model.TransactionId;
 
 public interface IEventGatewayInteract extends IRestApi {
     Logger log = LoggerFactory.getLogger(IEventGatewayInteract.class);
@@ -34,10 +35,12 @@ public interface IEventGatewayInteract extends IRestApi {
         eventBuilder.withContractId(contractId);
         eventBuilder.withEventName(BusinessEventType.CONTRACT_INSTALLED);
 
-        String r = RESOURCE_EVENTS.replace("{}", BusinessEventType.CONTRACT_INSTALLED.url);
-        Response response = EventGatewayHelper.getInstance().doBasicPost(r, eventBuilder.build());
+        return eventGatewayPostContractInstalledEvent(eventBuilder.build()).getTransactionId();
+    }
 
-        return EventGatewayHelper.getInstance().getTransactionId(response).getTransactionId();
+    default TransactionId eventGatewayPostContractInstalledEvent(Object payload) {
+        Response response = EventGatewayHelper.getInstance().doBasicPost(RESOURCE_EVENT_GATEWAY_CONTRACT_INSTALLED, payload);
+        return EventGatewayHelper.getInstance().getTransactionId(response);
     }
     
     /*

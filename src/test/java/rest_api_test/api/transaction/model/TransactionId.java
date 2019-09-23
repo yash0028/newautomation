@@ -1,5 +1,6 @@
 package rest_api_test.api.transaction.model;
 
+import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -7,6 +8,7 @@ public class TransactionId {
     private static final Logger log = LoggerFactory.getLogger(TransactionId.class);
 
     protected String transactionId;
+    protected Response response;
 
     /*
     CONSTRUCTOR
@@ -19,7 +21,15 @@ public class TransactionId {
     public String getTransactionId() {
         return transactionId;
     }
-    
+
+    public Response getResponse() {
+        return response;
+    }
+
+    public void setResponse(Response response) {
+        this.response = response;
+    }
+
     /*
     HELPER METHODS
     */
