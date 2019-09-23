@@ -7,6 +7,7 @@ import util.map.IMapSub;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class PayloadMap extends HashMap<String, Object> implements IMapSub {
     private static final Logger log = LoggerFactory.getLogger(PayloadMap.class);
@@ -42,6 +43,11 @@ public class PayloadMap extends HashMap<String, Object> implements IMapSub {
 
     public void put2ColDataTable(DataTable dataTable) {
         this.putAll(subMapStringValues(dataTable.asMap(String.class, String.class)));
+    }
+
+    public String getString(String key) {
+        Optional<Object> optional = Optional.ofNullable(this.get(key));
+        return String.valueOf(optional.filter(o -> o instanceof String).orElse(""));
     }
 
     /*

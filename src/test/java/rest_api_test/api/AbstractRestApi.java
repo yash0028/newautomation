@@ -75,6 +75,18 @@ public abstract class AbstractRestApi implements IRestStep {
         return request.post(resourceEndpoint).prettyPeek();
     }
 
+    public Response doBasicPut(String resourceEndpoint, Object payload) {
+        log.trace("sending 'post' to {} with payload [{}]", resourceEndpoint, payload);
+        RequestSpecification request = given().log().everything().baseUri(getEndpoint())
+                .header("Content-Type", "application/json");
+
+        if (payload != null)
+            request.body(payload);
+
+        // Get the POST response
+        return request.put(resourceEndpoint).prettyPeek();
+    }
+
     public Response doBasicDelete(String resourceEndpoint) {
         log.trace("sending 'delete' to {}", resourceEndpoint);
         RequestSpecification request = given().log().everything().baseUri(getEndpoint());
