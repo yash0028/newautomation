@@ -30,6 +30,22 @@ public interface IRestApi extends ISharedValuePayload, ISharedValueParam {
         log.debug("set rest api env from {} to {}", AbstractRestApi.env.name(), AbstractRestApi.Env.stage.name());
         AbstractRestApi.env = AbstractRestApi.Env.stage;
     }
+
+    default void logRestAll() {
+        AbstractRestApi.logLevel = AbstractRestApi.LogLevel.all;
+    }
+
+    default void logRestRequest() {
+        AbstractRestApi.logLevel = AbstractRestApi.LogLevel.request;
+    }
+
+    default void logRestResponse() {
+        AbstractRestApi.logLevel = AbstractRestApi.LogLevel.response;
+    }
+
+    default void logRestNone() {
+        AbstractRestApi.logLevel = AbstractRestApi.LogLevel.none;
+    }
     
     /*
     UTILITY CLASS

@@ -11,13 +11,15 @@ import rest_api_test.api.contractsquery.model.QueryResponse;
 import rest_api_test.api.transaction.model.TransactionDetails;
 import rest_api_test.api.transaction.model.TransactionStatus;
 import rest_api_test.util.IRestStep;
+import util.configuration.IConfigurable;
 
 import static io.restassured.RestAssured.given;
 
-public abstract class AbstractRestApi implements IRestStep {
+public abstract class AbstractRestApi implements IRestStep, IConfigurable {
     private static final Logger log = LoggerFactory.getLogger(AbstractRestApi.class);
     protected static Env env = Env.test;
     public final Gson gson;
+    public static LogLevel logLevel = LogLevel.all;
 
     /*
     CONSTRUCTOR
@@ -44,67 +46,151 @@ public abstract class AbstractRestApi implements IRestStep {
 
     public Response doBasicGet(String resourceEndpoint) {
         log.trace("sending 'get' to {}", resourceEndpoint);
-        RequestSpecification request = given().log().everything().baseUri(getEndpoint());
+        RequestSpecification request = given().baseUri(getEndpoint());
+
+        switch (logLevel) {
+            case all:
+            case request:
+                request.log().everything();
+        }
 
         // Get the GET response
-        return request.get(resourceEndpoint).prettyPeek();
+        Response response = request.get(resourceEndpoint);
+
+        switch (logLevel) {
+            case all:
+            case response:
+                return response.prettyPeek();
+            default:
+                return response;
+        }
     }
 
     public Response doParamGet(String resourceEndpoint, ParamMap params) {
         log.trace("sending 'get' to {} with params [{}]", resourceEndpoint, params);
-        RequestSpecification request = given().log().everything().baseUri(getEndpoint())
+        RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json");
+
+        switch (logLevel) {
+            case all:
+            case request:
+                request.log().everything();
+        }
 
         // Add params
         if (params != null)
             request.params(params);
 
         // Get the GET response
-        return request.get(resourceEndpoint).prettyPeek();
+        Response response = request.get(resourceEndpoint).prettyPeek();
+
+        switch (logLevel) {
+            case all:
+            case response:
+                return response.prettyPeek();
+            default:
+                return response;
+        }
     }
 
     public Response doBasicPost(String resourceEndpoint, Object payload) {
         log.trace("sending 'post' to {} with payload [{}]", resourceEndpoint, payload);
-        RequestSpecification request = given().log().everything().baseUri(getEndpoint())
+        RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json");
+
+        switch (logLevel) {
+            case all:
+            case request:
+                request.log().everything();
+        }
 
         if (payload != null)
             request.body(payload);
 
         // Get the POST response
-        return request.post(resourceEndpoint).prettyPeek();
+        Response response = request.post(resourceEndpoint).prettyPeek();
+
+        switch (logLevel) {
+            case all:
+            case response:
+                return response.prettyPeek();
+            default:
+                return response;
+        }
     }
 
     public Response doBasicPut(String resourceEndpoint, Object payload) {
         log.trace("sending 'post' to {} with payload [{}]", resourceEndpoint, payload);
-        RequestSpecification request = given().log().everything().baseUri(getEndpoint())
+        RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/json");
+
+        switch (logLevel) {
+            case all:
+            case request:
+                request.log().everything();
+        }
 
         if (payload != null)
             request.body(payload);
 
         // Get the POST response
-        return request.put(resourceEndpoint).prettyPeek();
+        Response response = request.put(resourceEndpoint).prettyPeek();
+
+        switch (logLevel) {
+            case all:
+            case response:
+                return response.prettyPeek();
+            default:
+                return response;
+        }
     }
 
     public Response doBasicDelete(String resourceEndpoint) {
         log.trace("sending 'delete' to {}", resourceEndpoint);
-        RequestSpecification request = given().log().everything().baseUri(getEndpoint());
+        RequestSpecification request = given().baseUri(getEndpoint());
+
+        switch (logLevel) {
+            case all:
+            case request:
+                request.log().everything();
+        }
 
         // Get the DELETE response
-        return request.delete(resourceEndpoint).prettyPeek();
+        Response response = request.delete(resourceEndpoint).prettyPeek();
+
+        switch (logLevel) {
+            case all:
+            case response:
+                return response.prettyPeek();
+            default:
+                return response;
+        }
     }
 
     public Response doSoapPost(String resourceEndpoint, Object payload) {
         log.trace("sending 'soap post' to {} with payload [{}]", resourceEndpoint, payload);
-        RequestSpecification request = given().log().everything().baseUri(getEndpoint())
+        RequestSpecification request = given().baseUri(getEndpoint())
                 .header("Content-Type", "application/soap+xml");
+
+        switch (logLevel) {
+            case all:
+            case request:
+                request.log().everything();
+        }
 
         if (payload != null)
             request.body(payload);
 
         // Get the POST response
-        return request.post(resourceEndpoint).prettyPeek();
+        Response response = request.post(resourceEndpoint).prettyPeek();
+
+        switch (logLevel) {
+            case all:
+            case response:
+                return response.prettyPeek();
+            default:
+                return response;
+        }
     }
     
     /*
@@ -119,5 +205,12 @@ public abstract class AbstractRestApi implements IRestStep {
         dev,
         test,
         stage
+    }
+
+    public enum LogLevel {
+        all,
+        request,
+        response,
+        none
     }
 }
