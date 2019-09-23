@@ -5,44 +5,23 @@ import com.google.gson.JsonObject;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rest_api_test.api.fallout.IFalloutInteract;
+import rest_api_test.api.fallout.model.WorkObjectItem;
 import rest_api_test.util.IRestStep;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import static io.restassured.RestAssured.given;
 
 /**
  * Created by aberns on 6/29/2018.
  */
-public class FalloutServiceSteps implements IRestStep {
+public class FalloutServiceSteps implements IRestStep, IFalloutInteract {
     private static final Logger log = LoggerFactory.getLogger(FalloutServiceSteps.class);
 
-    private static final String ENDPOINT = "https://fallout-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com";
-
-    private static final String RESOURCE_WORKOBJECTS_COMPLETE_TID = "/v1.0/workobjects/complete/{transactionId}";//{transaction id}
-    private static final String RESOURCE_WORKOBJECTS_ITEMS_CONTRACT_MASTER = "/v1.0/workobjects/items/contract-master";
-    private static final String RESOURCE_WORKOBJECTS_ITEMS_PRODUCTS_TID = "/v1.0/workobjects/items/products/";//{transaction id}
-    private static final String RESOURCE_WORKOBJECTS_ITEMS_READY = "/v1.0/workobjects/items/ready";
-    private static final String RESOURCE_WORKOBJECTS_ITEMS_ID = "/v1.0/workobjects/items/";//{id}
-    private static final String RESOURCE_WORKOBJECTS_LOAD_CONTRACT_TID = "/v1.0/workobjects/load-contract/";//{transaction id}
-    private static final String RESOURCE_WORKOBJECTS_OPEN_COUNT = "/v1.0/workobjects/open-count";
-    private static final String RESOURCE_WORKOBJECTS_READ_TID = "/v1.0/workobjects/ready/";//{transaction id}
-    private static final String RESOURCE_WORKOBJECTS_STATUS = "/v1.0/workobjects/";//{status}
-
-    private RequestSpecification request;
     private Response response;
-    private Map<String, String> payload;
 
     public FalloutServiceSteps(){
-        RestAssured.useRelaxedHTTPSValidation();
     }
 
     //US1374416 - CMD - Create fallout-service REST endpoints for Contract Management Dashboard
@@ -51,8 +30,7 @@ public class FalloutServiceSteps implements IRestStep {
 
     @When("^I send the work object status \"([^\"]*)\" to the work object endpoint$")
     public void sendStatus(String status) throws Throwable {
-        request = given().baseUri(ENDPOINT);
-        response = request.get(RESOURCE_WORKOBJECTS_STATUS + status);
+        response = falloutQueryWorkObjects(status).getResponse();
 
         Assert.assertEquals(200, response.getStatusCode());
     }
@@ -75,9 +53,7 @@ public class FalloutServiceSteps implements IRestStep {
 
     @When("^I send the transaction id \"([^\"]*)\" to work object complete endpoint$")
     public void queryCompleteWorkObjects(String tid) throws Throwable {
-        request = given().baseUri(ENDPOINT).pathParam("transactionId", tid);
-        response = request.get(RESOURCE_WORKOBJECTS_COMPLETE_TID);
-
+        response = falloutCompleteTransaction(tid);
         log.info("response: {}", response.asString());
 
         Assert.assertEquals(200, response.getStatusCode());
@@ -95,10 +71,9 @@ public class FalloutServiceSteps implements IRestStep {
 
     @When("^I send the following payload to update contract master work object$")
     public void updateWorkObject(DataTable dataTable) throws Throwable {
-        payload = dataTable.asMap(String.class, String.class);
+        getPayload().put2ColDataTable(dataTable);
+        response = falloutUpdateWorkObjectItemContractMaster(getPayload());
 
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-        response = request.put(RESOURCE_WORKOBJECTS_ITEMS_CONTRACT_MASTER);
         Assert.assertEquals(200, response.getStatusCode());
     }
 
@@ -109,49 +84,30 @@ public class FalloutServiceSteps implements IRestStep {
 
         Thread.sleep(1000);
 
-        queryWorkObjectItem(payload.get("id"));
-        JsonElement jsonCheck = parseJsonElementResponse(response);
-        log.info(jsonCheck.toString());
-        Assert.assertTrue(jsonCheck.isJsonObject());
-        Assert.assertTrue(jsonCheck.getAsJsonObject().get("contractMasters").isJsonArray());
-        List<JsonObject> checkList = new ArrayList<>();
+        WorkObjectItem item = falloutQueryWorkObjectItem(getPayload().getString("id")); //queryWorkObjectItem(getPayload().get("id"));
+        assert !item.getContractMasters().isEmpty();
 
-        for (JsonElement element : jsonCheck.getAsJsonObject().get("contractMasters").getAsJsonArray()) {
-            Assert.assertTrue(element.isJsonObject());
-            checkList.add(element.getAsJsonObject());
-        }
 
-        assert checkList.size() > 0;
+//        List<JsonObject> checkList = new ArrayList<>();
+//        for (JsonElement element : jsonCheck.getAsJsonObject().get("contractMasters").getAsJsonArray()) {
+//            Assert.assertTrue(element.isJsonObject());
+//            checkList.add(element.getAsJsonObject());
+//        }
+//        assert checkList.size() > 0;
 
-        //Make sure that the contract that was updated was actually set to the new status
-        boolean updated = checkList.stream()
-                .filter(jsonObject -> {
-                    String payloadSelect = payload.get("selectedContractMaster");
-                    String jsonId = jsonObject.get("id").getAsString();
-                    String jsonCm = jsonObject.get("contractMasterNumber").getAsString();
-                    return payloadSelect.equalsIgnoreCase(jsonId) || payloadSelect.equalsIgnoreCase(jsonCm);
-                })
-                .anyMatch(jsonObject -> {
-                    String jsonId = jsonObject.get("id").getAsString();
-                    String jsonCm = jsonObject.get("contractMasterNumber").getAsString();
+        final String pSelectId = getPayload().getString("selectedContractMaster");
+        final String pUsage = getPayload().getString("usage");
 
-                    String payloadUsage = payload.get("usage");
-                    String jsonStatus = jsonObject.get("status").getAsString();
-                    log.info(payload.toString());
-                    log.info(jsonObject.toString());
-                    log.info("{}::{} {} == {}", jsonId, jsonCm, payloadUsage, jsonStatus);
-                    return payloadUsage.equalsIgnoreCase(jsonStatus);
-                });
-
-        Assert.assertTrue(updated);
+        assert item.getContractMasters().stream()
+                .filter(cm -> pSelectId.equalsIgnoreCase(String.valueOf(cm.getId())) || pSelectId.equalsIgnoreCase(cm.getContractMasterNumber()))
+                .anyMatch(cm -> pUsage.equalsIgnoreCase(cm.getStatus()));
     }
 
     //TEST CASE :: query product group list by transaction id
 
     @When("^I send the transaction id \"([^\"]*)\" to products group endpoint$")
     public void queryProductGroupList(String tid) throws Throwable {
-        request = given().baseUri(ENDPOINT);
-        response = request.get(RESOURCE_WORKOBJECTS_ITEMS_PRODUCTS_TID + tid);
+        response = falloutQueryProductGroups(tid).getResponse();
         Assert.assertEquals(200, response.getStatusCode());
     }
 
@@ -166,10 +122,9 @@ public class FalloutServiceSteps implements IRestStep {
 
     @When("^I send the following payload to update work object ready state$")
     public void updateWorkObjectReady(DataTable dataTable) throws Throwable {
-        Map<String, String> payload = dataTable.asMap(String.class, String.class);
+        getPayload().put2ColDataTable(dataTable);
+        response = falloutUpdateWorkObjectItemReady(getPayload());
 
-        request = given().baseUri(ENDPOINT).header("Content-Type", "application/json").body(payload);
-        response = request.put(RESOURCE_WORKOBJECTS_ITEMS_READY);
         Assert.assertEquals(200, response.getStatusCode());
     }
 
@@ -177,6 +132,7 @@ public class FalloutServiceSteps implements IRestStep {
     public void theWorkObjectIsReady() throws Throwable {
         JsonElement jsonElement = parseJsonElementResponse(response);
         log.info(jsonElement.toString());
+
         Assert.assertTrue(jsonElement.isJsonNull());
     }
 
@@ -184,8 +140,7 @@ public class FalloutServiceSteps implements IRestStep {
 
     @When("^I send the id \"([^\"]*)\" to the work object items endpoint$")
     public void queryWorkObjectItem(String id) throws Throwable {
-        request = given().baseUri(ENDPOINT);
-        response = request.get(RESOURCE_WORKOBJECTS_ITEMS_ID + id);
+        response = falloutQueryWorkObjectItem(id).getResponse();
         Assert.assertEquals(200, response.getStatusCode());
     }
 
@@ -206,8 +161,7 @@ public class FalloutServiceSteps implements IRestStep {
 
     @When("^I send the transaction id \"([^\"]*)\" to load contract endpoint$")
     public void rerunContract(String tid) throws Throwable {
-        request = given().baseUri(ENDPOINT);
-        response = request.post(RESOURCE_WORKOBJECTS_LOAD_CONTRACT_TID + tid);
+        response = falloutRerunWorkObject(tid);
         Assert.assertEquals(200, response.getStatusCode());
     }
 
@@ -221,8 +175,7 @@ public class FalloutServiceSteps implements IRestStep {
 
     @When("^I send a request to the work object count endpoint$")
     public void queryWorkObjectCount() throws Throwable {
-        request = given().baseUri(ENDPOINT);
-        response = request.get(RESOURCE_WORKOBJECTS_OPEN_COUNT);
+        response = falloutQueryWorkObjectCount().getResponse();
         Assert.assertEquals(200, response.getStatusCode());
     }
 
@@ -239,8 +192,7 @@ public class FalloutServiceSteps implements IRestStep {
 
     @When("^I send the transaction id \"([^\"]*)\" to the ready work object endpoint$")
     public void iSendTheTransactionIdToTheReadyWorkObjectEndpoint(String tid) throws Throwable {
-        request = given().baseUri(ENDPOINT);
-        response = request.get(RESOURCE_WORKOBJECTS_READ_TID + tid);
+        response = falloutReadyTransaction(tid);
         Assert.assertEquals(200, response.getStatusCode());
     }
 

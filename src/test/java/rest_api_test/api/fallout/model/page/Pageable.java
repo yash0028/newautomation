@@ -3,6 +3,7 @@ package rest_api_test.api.fallout.model.page;
 
 import com.google.gson.annotations.Expose;
 import io.restassured.specification.RequestSpecification;
+import rest_api_test.api.ParamMap;
 
 import javax.annotation.Generated;
 
@@ -57,6 +58,18 @@ public class Pageable {
         request.param("sort.unsorted", getSort().getUnsorted());
 
         return request;
+    }
+
+    public ParamMap getParameters() {
+        ParamMap paramMap = new ParamMap();
+        paramMap.put("offset", getOffset());
+        paramMap.put("pageNumber", getPageNumber());
+        paramMap.put("pageSize", getPageSize());
+        paramMap.put("paged", getPaged());
+        paramMap.put("unpaged", getUnpaged());
+        paramMap.put("sort.sorted", getSort().getSorted());
+        paramMap.put("sort.unsorted", getSort().getUnsorted());
+        return paramMap;
     }
 
     public static class Builder {
