@@ -8,7 +8,7 @@
 Feature: US1244333 - 2 & 3 HCE Modeling - Rate Escalator
 
   @TC564831
-  @Automated
+  @Manual
   @Functional
   @Arvind
   Scenario: TC564831 - [RL0]
