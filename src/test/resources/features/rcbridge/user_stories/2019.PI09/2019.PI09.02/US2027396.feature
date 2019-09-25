@@ -32,7 +32,7 @@ Feature: US2027396 - Locked Language Request – UHN Legal
     When UHN Legal team member opens "Locked Language Request – UHN Legal"
     Then UHN Legal team member has 3 radio buttons - *"Approve Locked Language Request", "Deny Locked Language Request" and "Modify Locked Language Request"
     And a comments field to write in user input - "Comments" field will be mandatory only if "Deny Locked Language Request" is selected.
-    And the form contains, "Will this language need to be filed and approved?" (Yes/No)
+    And the form contains, "Will this language need to be filed with regulatory bodies?" (Yes/No) if Approve Locked Language Request" or 'Modify Locked Language Request' is selected
 
   @TC967073
   @Manual

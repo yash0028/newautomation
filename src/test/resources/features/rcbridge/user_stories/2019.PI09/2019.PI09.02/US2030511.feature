@@ -19,7 +19,7 @@ Feature: US2030511 - Locked Language Request – UHN Legal contract offer - Unlo
     Given "Will this agreement need to be filed with regulatory bodies? Yes/No*" on the "Locked Language Request – UHN Legal" is answered as Yes
     When the "Locked Language: Unlock template & Insert Language" is completed
     Then the a task "Locked Language Request – UHN Legal filing" is assigned to UHN Legal team
-    And the text displayed in the form is "Please complete this task after we can legally offer this contact to the provider."
+    And the text displayed in the form is "Please complete this task after the agreement has been successfully filed with the regulatory bodies."
 
   @TC968860
   @Manual
@@ -29,7 +29,7 @@ Feature: US2030511 - Locked Language Request – UHN Legal contract offer - Unlo
   @Go_Live
   Scenario: TC968860 - [RL1]
     Given a locked language change process exists
-    When the a task "Locked Language: Unlock template" is created
+    When the a task "Locked Language: Unlock template & Insert Language"" is created
     Then it is assigned to Template team
     And a notification mail is sent to the "UHN Contract Template Team <uhn_contract_template_team@uhc.com>
     And the text displayed in the form is "Please unlock the template and insert the agreed upon language as UHN legal team has approved the language change."
