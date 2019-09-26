@@ -16,7 +16,7 @@ Feature: US2050795 - Retro Approval Statuses
   Scenario: TC979534 - [RL0]
     Given the retro process is started
     When the process exists but has not gone beyond the initial task
-    Then the retro status is "Created"
+    Then the retro status is "Created" in the variable "process_state"
 
   @TC979535
   @Manual
