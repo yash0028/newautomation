@@ -9,7 +9,7 @@
 Feature: US1160655 - Variable - Attach Escalator Driver supporting file - Rate Escalator
 
   @TC564693
-  @Automated
+  @Manual
   @Functional
   @Arvind
   @Suman

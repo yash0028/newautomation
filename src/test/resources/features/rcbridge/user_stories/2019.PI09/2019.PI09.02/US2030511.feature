@@ -1,7 +1,8 @@
 # Last updated on 
 @Arvind
-@Adele_R
+@Suman
 @Go_Live
+@Adele_R
 @US2030511
 @2019.PI09
 @2019.PI09.02
@@ -13,8 +14,9 @@ Feature: US2030511 - Locked Language Request – UHN Legal contract offer - Unlo
   @Manual
   @Functional
   @Arvind
-  @Adele_R
+  @Suman
   @Go_Live
+  @Adele_R
   Scenario: TC968850 - [RL0]
     Given "Will this agreement need to be filed with regulatory bodies? Yes/No*" on the "Locked Language Request – UHN Legal" is answered as Yes
     When the "Locked Language: Unlock template & Insert Language" is completed
@@ -25,8 +27,9 @@ Feature: US2030511 - Locked Language Request – UHN Legal contract offer - Unlo
   @Manual
   @Functional
   @Arvind
-  @Adele_R
+  @Suman
   @Go_Live
+  @Adele_R
   Scenario: TC968860 - [RL1]
     Given a locked language change process exists
     When the a task "Locked Language: Unlock template & Insert Language"" is created
@@ -41,8 +44,9 @@ Feature: US2030511 - Locked Language Request – UHN Legal contract offer - Unlo
   @Manual
   @Functional
   @Arvind
-  @Adele_R
+  @Suman
   @Go_Live
+  @Adele_R
   Scenario: TC970890 - [RL2]
     Given a Legal Selected Yes for "Will this language need to filed and approved?"
     When the agreement has been signed
