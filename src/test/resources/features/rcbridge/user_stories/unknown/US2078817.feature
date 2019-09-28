@@ -1,9 +1,7 @@
 # Last updated on 
 @US2078817
-@2019.PI09
-@2019.PI09.03
-@releasePresent
-@iterationFuture
+@releaseUnknown
+@iterationUnknown
 Feature: US2078817 - CMD and OCM Alignment - Add 'PCP REQUIRED' column to Market Product Network table
 
   @TC997016

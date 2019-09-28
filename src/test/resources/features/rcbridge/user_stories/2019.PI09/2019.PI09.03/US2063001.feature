@@ -53,13 +53,12 @@ Feature: US2063001 - Rate Escalator Statuses
     When the "Withdraw Rate Escalator" task is completed
     Then the rate escalator status is "Withdrawn"
 
-  @RC_unlinked
   @TC989431
   @Manual
   @Functional
   @Arvind
   Scenario: TC989431 - [RL6]
     Given the rate escalator process is started
-    When the Withdraw task is completed
-    Then the rate escalator status is "Withdrawn"
+    When the user is viewing any task
+    Then the current status is displayed on each task (for testing we'll create a dummy task to display the status for post withdrawal)
 

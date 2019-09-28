@@ -12,19 +12,26 @@ Feature: US1924528 - Addition of "Edit" button on OCM Display - contract level (
   Scenario: TC902689 - [RL0]
     Given a user has clicked to view the contract configuration record in CMD
     When the user wants to update one of the data elements at the contract level
-    Then the user can click to edit/open the configuration record
+    And the user has appropriate access
+    Then the user can view editable fields within the confirmation record
     And the user will be able to edit the contract master field at the contract level
-    And the user will be able to edit the COSMOS network number field at the contract level
-    And the user will be able to edit the ConArr field at the contract level
-    And the user will be able to edit the GTN field at the contract level
-    And the user will be able to edit the FPT field at the contract level
 
   @TC902702
   @Manual
   @Functional
   Scenario: TC902702 - [RL1]
     Given a user has clicked to view the contract configuration record in CMD
-    When the user wants to update one of the data elements at the contract level
-    And the data element is not contract master, network number, ConArr, GTN, FPT
-    Then the user will not be able to edit the data
+    When the user wants to update the contract master contract level
+    And the user has appropriate access
+    Then the user can either select a contract master from a drop down list
+    And the user can type in a contract master value
+
+  @TC998205
+  @Manual
+  @Functional
+  Scenario: TC998205 - [RL2]
+    Given a user has made an edit to the configuration record
+    Then a confirmation of the changes will be displayed to the user before the changes are made
+    And the confirmation will include the current value(s)
+    And the confirmation will include the changed/selected value(s)
 
