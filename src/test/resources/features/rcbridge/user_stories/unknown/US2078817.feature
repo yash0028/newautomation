@@ -10,7 +10,7 @@ Feature: US2078817 - CMD and OCM Alignment - Add 'PCP REQUIRED' column to Market
   Scenario: TC997016 - [RL0]
     Given the Market Product Network table exists
     When the table has been stored in the database
-    Thenthe table includes a column PCP REQ
+    Then the table includes a column PCP REQ
 
   @TC997019
   @Manual

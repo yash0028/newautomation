@@ -2,9 +2,9 @@
 @Sachin
 @US2032121
 @2019.PI09
-@2019.PI09.02
+@2019.PI09.03
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US2032121 - Integration - Fee Schedule: Summary
 
   @TC970898
