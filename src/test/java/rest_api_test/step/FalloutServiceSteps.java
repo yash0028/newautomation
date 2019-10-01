@@ -2,6 +2,7 @@ package rest_api_test.step;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
@@ -10,8 +11,15 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.fallout.IFalloutInteract;
+import rest_api_test.api.fallout.model.ContractStatus;
+import rest_api_test.api.fallout.model.PageTransactionContract;
 import rest_api_test.api.fallout.model.WorkObjectItem;
+import rest_api_test.api.fallout.model.contract.ContractModel;
+import rest_api_test.api.fallout.model.contract.ProductDetail;
 import rest_api_test.util.IRestStep;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by aberns on 6/29/2018.
@@ -201,5 +209,18 @@ public class FalloutServiceSteps implements IRestStep, IFalloutInteract {
         JsonElement jsonElement = parseJsonElementResponse(response);
         log.info(jsonElement.toString());
         Assert.assertFalse(jsonElement.isJsonObject());
+    }
+
+    @And("Network Access Code stored as part of the OCM")
+    public void networkAccessCodeStoredAsPartOfTheOCM() {
+        // get newest successful contract install
+        PageTransactionContract contracts = falloutQueryTransactionContracts(ContractStatus.SUCCESS);
+        String txId = contracts.getContent().get(0).getTransactionId();
+        ContractModel myContract = falloutQueryContractModel(txId);
+        // verify that the NetworkAccessCode field is present in some productDetails
+        List<ProductDetail> productDetails = myContract.getProductDetails().stream()
+                .filter(n -> !n.getNetworkAccessCode().isEmpty())
+                .collect(Collectors.toList());
+        assert !productDetails.isEmpty();
     }
 }

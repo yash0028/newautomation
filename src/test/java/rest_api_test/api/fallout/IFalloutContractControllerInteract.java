@@ -4,6 +4,7 @@ import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.IRestApi;
+import rest_api_test.api.ParamMap;
 import rest_api_test.api.PayloadMap;
 import rest_api_test.api.fallout.model.ContractStatus;
 import rest_api_test.api.fallout.model.ContractType;
@@ -61,7 +62,10 @@ public interface IFalloutContractControllerInteract extends IRestApi {
      */
     default PageTransactionContract falloutQueryTransactionContracts(ContractStatus status) {
         String r = RESOURCE_CONTRACT_SUMMARIES_BY_STATUS.replace("{}", status.name());
-        Response response = FalloutHelper.getInstance().doBasicGet(r);
+        ParamMap params = new ParamMap();
+        params.put("page", 0);
+        params.put("sort", "timestamp,desc");
+        Response response = FalloutHelper.getInstance().doParamGet(r, params);
         return FalloutHelper.getInstance().queryTransactionContractByStatus(response);
     }
 

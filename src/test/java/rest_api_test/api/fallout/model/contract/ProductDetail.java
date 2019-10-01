@@ -16,6 +16,14 @@ public class ProductDetail {
     private String productCode;
     @Expose
     private String productGroupCode;
+    @Expose
+    private String networkAccessCode;
+
+    //    TODO: add the following fields
+//    contractType
+//    networkId
+//    networkOrgMarket
+//    platform
 
     public List<FeeScheduleRate> getFeeScheduleRates() {
         return feeScheduleRates;
@@ -29,11 +37,13 @@ public class ProductDetail {
         return productGroupCode;
     }
 
+    public String getNetworkAccessCode() { return networkAccessCode; }
     public static class Builder {
 
         private List<FeeScheduleRate> feeScheduleRates;
         private String productCode;
         private String productGroupCode;
+        private String networkAccessCode;
 
         public ProductDetail.Builder withFeeScheduleRates(List<FeeScheduleRate> feeScheduleRates) {
             this.feeScheduleRates = feeScheduleRates;
@@ -50,11 +60,17 @@ public class ProductDetail {
             return this;
         }
 
+        public ProductDetail.Builder withNetworkAccessCode(String networkAccessCode) {
+            this.networkAccessCode = networkAccessCode;
+            return this;
+        }
+
         public ProductDetail build() {
             ProductDetail productDetail = new ProductDetail();
             productDetail.feeScheduleRates = feeScheduleRates;
             productDetail.productCode = productCode;
             productDetail.productGroupCode = productGroupCode;
+            productDetail.networkAccessCode = networkAccessCode;
             return productDetail;
         }
 
