@@ -5,9 +5,9 @@
 @Adele_R
 @US2027258
 @2019.PI09
-@2019.PI09.02
+@2019.PI09.03
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US2027258 - Locked Language Request - Pricing
 
   @TC967052

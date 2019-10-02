@@ -9,14 +9,31 @@ Feature: US1924779 - CMD and OCM Alignment - IPA numbers (NetworkGroups - Groups
   @TC954881
   @Manual
   @Functional
-  Scenario: TC954881 - [RL0]
+  Scenario Outline: TC954881 - [RL0]
     Given a valid Exari contract event exists
-    And UHG_Paper_Type == | MGA | SMGA | SPGA | PHO |
-    And OCM/CSI Exceptions == FALSE
-    And contract_NetworkRoleType == 'P'
-    When "ipa" value for ndbcontractmaster search parameter is needed
-    Then values from Column R in the PRODUCT DESCRIPTION GROUP table will be used
+    And UHG_Paper_Type is "<paperType>"
+    And OCM/CSI Exceptions == "FALSE"
+    And contract_NetworkRoleType == "<contractNetworkRoleType>"
+    When ipa value for ndbcontractmaster search parameter is needed
+    Then values from Column "<columnName>" in the PRODUCT DESCRIPTION GROUP table will be used
+    Examples:
+      | paperType | contractNetworkRoleType | columnName |
+      | MGA       | P                       | R          |
+      | SMGA      | P                       | R          |
+      | SPGA      | P                       | R          |
+      | PHO       | P                       | R          |
+      | MGA       | S                       | T          |
+      | SMGA      | S                       | T          |
+      | SPGA      | S                       | T          |
+      | PHO       | S                       | T          |
+      | SPA       | P                       | S          |
+      | PAT       | P                       | S          |
+      | IPA       | P                       | S          |
+      | SPA       | S                       | U          |
+      | PAT       | S                       | U          |
+      | IPA       | S                       | U          |
 
+  @RC_unlinked
   @TC972778
   @Manual
   @Functional
@@ -39,6 +56,7 @@ Feature: US1924779 - CMD and OCM Alignment - IPA numbers (NetworkGroups - Groups
     When "ipa" value for ndbcontractmaster search parameter is needed
     Then values from Column S in the PRODUCT DESCRIPTION GROUP table will be used
 
+  @RC_unlinked
   @TC972780
   @Manual
   @Functional

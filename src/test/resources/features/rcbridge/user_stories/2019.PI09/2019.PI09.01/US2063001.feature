@@ -2,9 +2,9 @@
 @Arvind
 @US2063001
 @2019.PI09
-@2019.PI09.03
+@2019.PI09.01
 @releasePresent
-@iterationFuture
+@iterationPast
 Feature: US2063001 - Rate Escalator Statuses
 
   @TC987534

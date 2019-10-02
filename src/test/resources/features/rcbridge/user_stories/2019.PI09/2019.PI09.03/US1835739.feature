@@ -3,9 +3,9 @@
 @Suman
 @US1835739
 @2019.PI09
-@2019.PI09.02
+@2019.PI09.03
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US1835739 - Inform user to get retro approval during rate escalator (non-hopper)
 
   @TC960849
@@ -18,7 +18,7 @@ Feature: US1835739 - Inform user to get retro approval during rate escalator (no
     When Submit for Loading task is not completed for West region
     Then contractor or initiator needs to start the retro process
     And the contractor need to get retro approval
-    And the initiator is not able to open Submit for Loading task
+    And the initiator is not able to complete Submit for Loading task
     And the retro is automatically started
 
   @TC968848
