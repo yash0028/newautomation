@@ -7,7 +7,7 @@
 Feature: US1986249 - CMD and OCM Alignment - Add Network Access Code (CON ARR) to OCM
 
   @TC954873
-  @Manual
+  @Automated
   @Functional
   Scenario: TC954873 - [RL0]
     Given a product should be included in the OCM
