@@ -7,7 +7,7 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2030511 - Locked Language Request – UHN Legal contract offer - Unlock Template - Template unlocked
 
   @TC968850

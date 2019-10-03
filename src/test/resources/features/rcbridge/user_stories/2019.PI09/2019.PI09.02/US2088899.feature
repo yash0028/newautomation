@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2088899 - SPIKE CMD and OCM Alignment - IPA numbers (NetworkGroups - Groups / Individuals and PCP / SPEC)
 
   @TC1004340

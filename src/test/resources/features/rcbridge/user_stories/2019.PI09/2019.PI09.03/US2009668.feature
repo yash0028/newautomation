@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2009668 - Search for like transactions within a Mass Actions project
 
   @TC958745
@@ -12,6 +12,7 @@ Feature: US2009668 - Search for like transactions within a Mass Actions project
   Scenario: TC958745 - [RL0]
     Given a Mass Actions project resulted in Type 1 errors
     When a user navigates to the Contract Master Override tab
+    And the user clicks on "search"
     Then search fields (fee schedule ID, market product, market number, IPA) will be visible
     And the user can type into any of the fields
     And the user will have an action button to enact the search

@@ -3,8 +3,16 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1992261 - CMD and OCM Alignment - EFF START DT - add new column to PILOT PROD INDIV AND GRPS table
+
+  @TC954877
+  @Manual
+  @Functional
+  Scenario: TC954877 - [RL0]
+    Given a new record is added to the table
+    When the table record is added to the database
+    Then the effective start date is also stored as part of the table record
 
   @TC1004539
   @Manual

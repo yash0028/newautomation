@@ -6,7 +6,7 @@
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2027271 - Locked Language Request – Market Lead Denied
 
   @TC967063

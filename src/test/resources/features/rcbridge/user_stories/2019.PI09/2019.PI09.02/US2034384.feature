@@ -5,7 +5,7 @@
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2034384 - Multiple agreements on physician choosing Market
 
   @TC970896

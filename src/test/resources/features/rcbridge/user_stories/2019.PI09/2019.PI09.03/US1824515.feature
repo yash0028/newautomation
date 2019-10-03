@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1824515 - User group has no users - Physician
 
   @TC835334

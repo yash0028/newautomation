@@ -4,7 +4,7 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2027298 - Locked Language Request - Operations
 
   @TC967057

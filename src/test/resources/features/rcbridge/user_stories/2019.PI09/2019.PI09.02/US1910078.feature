@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1910078 - Select related errors within a single contract ID - Type 2 (UI Refinement)
 
   @TC909548

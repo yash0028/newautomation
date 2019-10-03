@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2009667 - Record and Display user details for Type 2 Error Resolution transaction
 
   @TC968851

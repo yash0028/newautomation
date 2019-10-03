@@ -5,7 +5,7 @@
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1160655 - Variable - Attach Escalator Driver supporting file - Rate Escalator
 
   @TC564693

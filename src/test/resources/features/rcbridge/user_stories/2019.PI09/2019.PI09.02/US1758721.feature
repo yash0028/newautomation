@@ -4,7 +4,7 @@
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1758721 - Modify denied by Network COO and Operations COO with physician workflow
 
   @RC_unlinked

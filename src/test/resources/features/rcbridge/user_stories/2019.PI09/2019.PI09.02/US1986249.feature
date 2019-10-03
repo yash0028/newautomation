@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1986249 - CMD and OCM Alignment - Add Network Access Code (CON ARR) to OCM
 
   @TC954873

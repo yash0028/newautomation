@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2026493 - Addition of "Edit" button on OCM Display - provider level (UI) - continuation
 
   @TC962603

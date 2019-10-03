@@ -7,7 +7,7 @@
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2027239 - Locked Language Request – Pricing team  Denied
 
   @TC967054

@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.02
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2062465 - Contracts Domain messages handling and code refactor
 
   @TC1004339

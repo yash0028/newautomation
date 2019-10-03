@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2061852 - [E2E Testing] Select related transactions within a Mass Actions project - Type 1
 
   @TC985446
