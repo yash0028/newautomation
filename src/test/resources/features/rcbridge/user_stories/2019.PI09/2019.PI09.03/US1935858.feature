@@ -3,9 +3,9 @@
 @Suman
 @US1935858
 @2019.PI09
-@2019.PI09.02
+@2019.PI09.03
 @releasePresent
-@iterationPast
+@iterationPresent
 Feature: US1935858 - Move retro to test environment
 
   @TC911635

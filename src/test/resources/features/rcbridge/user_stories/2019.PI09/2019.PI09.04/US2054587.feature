@@ -2,9 +2,9 @@
 @Suman
 @US2054587
 @2019.PI09
-@2019.PI09.03
+@2019.PI09.04
 @releasePresent
-@iterationPresent
+@iterationFuture
 Feature: US2054587 - Retro - shouldn't need to input the contract id from physician
 
   @TC998203

@@ -3,9 +3,9 @@
 @#QA
 @US2050795
 @2019.PI09
-@2019.PI09.02
+@2019.PI09.03
 @releasePresent
-@iterationPast
+@iterationPresent
 Feature: US2050795 - Retro Approval Statuses
 
   @TC979534
