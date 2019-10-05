@@ -1,5 +1,6 @@
 # Last updated on 
-@Sachin
+@Dushyant
+@Suman
 @US2032121
 @2019.PI09
 @2019.PI09.03
@@ -10,7 +11,8 @@ Feature: US2032121 - Integration - Fee Schedule: Summary
   @TC970898
   @Manual
   @Functional
-  @Sachin
+  @Dushyant
+  @Suman
   Scenario: TC970898 - [RL0]
     Given a contractor is on the "Fee Schedule: Summary" task
     When they know the Fee Schedules to be used

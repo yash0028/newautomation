@@ -1,16 +1,16 @@
 # Last updated on 
-@Arvind
+@Suman
 @US1987903
 @2019.PI09
-@2019.PI09.04
+@2019.PI09.03
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1987903 - Loading: Submit for loading - Escalator
 
   @TC938302
   @Manual
   @Functional
-  @Arvind
+  @Suman
   Scenario: TC938302 - [RL0]
     Given a rate escalator exists
     When the "Submit Fee Schedules on the MSPS site" task is completed for region as West
@@ -22,7 +22,7 @@ Feature: US1987903 - Loading: Submit for loading - Escalator
   @TC987537
   @Manual
   @Functional
-  @Arvind
+  @Suman
   Scenario: TC987537 - [RL2]
     Given a rate escalator exists
     When the "Loading: Submit for loading" task is completed for region as both West and Not West

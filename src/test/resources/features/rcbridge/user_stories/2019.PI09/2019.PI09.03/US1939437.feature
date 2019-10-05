@@ -1,5 +1,5 @@
 # Last updated on 
-@Arvind
+@Suman
 @US1939437
 @2019.PI09
 @2019.PI09.03
@@ -10,7 +10,7 @@ Feature: US1939437 - Apply retro to fee schedule hoppers
   @TC911639
   @Manual
   @Functional
-  @Arvind
+  @Suman
   Scenario: TC911639 - [RL0]
     Given the "Hopper: Submit for loading" task exists
     When the effective date of the hopper is 15 days or less than the current day
@@ -20,7 +20,7 @@ Feature: US1939437 - Apply retro to fee schedule hoppers
   @TC925279
   @Manual
   @Functional
-  @Arvind
+  @Suman
   Scenario: TC925279 - [RL1]
     Given the "Hopper: Retro Required" task exists
     When the contractor is viewing the task
