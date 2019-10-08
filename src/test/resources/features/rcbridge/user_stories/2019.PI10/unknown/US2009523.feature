@@ -1,7 +1,7 @@
 # Last updated on 
 @US2009523
-@2019.PI09
-@releasePresent
+@2019.PI10
+@releaseFuture
 @iterationUnknown
 Feature: US2009523 - CMD Data Source Integration - MPM for Commercial NDB UNET Product identifiers
 
