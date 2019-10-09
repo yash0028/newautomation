@@ -1,7 +1,7 @@
 # Last updated on 
 @Arvind
-@Dushyant
 @Suman
+@Dushyant
 @US2032121
 @2019.PI09
 @2019.PI09.03
@@ -13,8 +13,8 @@ Feature: US2032121 - Integration - Fee Schedule: Summary
   @Manual
   @Functional
   @Arvind
-  @Dushyant
   @Suman
+  @Dushyant
   Scenario: TC970898 - [RL0]
     Given a contractor is on the "Fee Schedule: Summary" task
     When they know the Fee Schedules to be used and have selected that the Fee Schedules are standard
@@ -26,8 +26,8 @@ Feature: US2032121 - Integration - Fee Schedule: Summary
   @Manual
   @Functional
   @Arvind
-  @Dushyant
   @Suman
+  @Dushyant
   Scenario: TC1011008 - [RL2]
     Given the task "Validate MSPS Fee Schedule Details" is created
     When the initiator clicks Change "MSPS and Product"
@@ -37,8 +37,8 @@ Feature: US2032121 - Integration - Fee Schedule: Summary
   @Manual
   @Functional
   @Arvind
-  @Dushyant
   @Suman
+  @Dushyant
   Scenario: TC1011009 - [RL3]
     Given the task "Validate MSPS Fee Schedule Details" is created
     When the initiator clicks Change "Accept"
