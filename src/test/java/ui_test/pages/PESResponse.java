@@ -11,13 +11,6 @@ public class PESResponse {
     }
 
     public void selectEntry() throws InterruptedException {
-//        Thread.sleep(5000);
-//        driver.findElement(By.xpath("//input[@type='checkbox']")).click();
-//        Thread.sleep(3000);
-//        driver.findElement(By.xpath("//input[@type='checkbox']")).click();
-////        checkBox.get(0).click();
-//        Thread.sleep(5000);
-//         driver.findElement(By.xpath("//input[@type='radio']")).click();
 
         selectCounterParty();
 

@@ -3,24 +3,34 @@ package ui_test.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import ui_test.page.exari.contract.GenericInputPage;
+
+import java.util.HashMap;
 
 
-public class PracticeLocations
+public class PracticeLocations extends GenericInputPage
 {
-    private final WebDriver driver;
+
 
     public PracticeLocations(WebDriver driver)
     {
-        this.driver=driver;
+        super(driver);
+
     }
 
-    public void selectLocation() throws InterruptedException {
-        String conLoc = "Y";
+    public WebElement selectPracticeLocation(String answer){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+answer+"')]"});
+    }
+
+    public void selectLocation(HashMap<String,String>hmap) throws InterruptedException {
+
         Thread.sleep(2000);
-        WebElement conLocSelection = driver.findElement(By.xpath("//input[contains(@value,'"+conLoc+"')]"));
-        conLocSelection.click();
-        Thread.sleep(2000);
-        commonMethod.next();
+        click("Practice Location",selectPracticeLocation(hmap.get("PracticeLocation")));
+
+
+        assert clickNext();
+        assert waitForPageLoad();
+
 
     }
 }

@@ -3,32 +3,33 @@ package ui_test.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import ui_test.page.exari.contract.GenericInputPage;
+import ui_test.util.IWebInteract;
 
 import java.util.HashMap;
 
-public class DocumentSelection
+public class DocumentSelection extends GenericInputPage
 {
-    private final WebDriver driver;
+
+
+
 
     public DocumentSelection(WebDriver driver)
     {
-        this.driver=driver;
+        super(driver);
+
     }
 
-    public void selectDocumentType(HashMap<String,String> data) throws InterruptedException {
-        String docType="SPGA";
-        System.out.println(docType);
-        Thread.sleep(2000);
-        WebElement docSelection=driver.findElement(By.xpath("//input[contains(@value,'"+docType+"')]"));
-        Thread.sleep(1000);
-        System.out.println("cLICKING"+docSelection);
+    public WebElement selectPaperType(String Name){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    }
 
-        docSelection.click();
+    public void selectDocumentType(HashMap<String,String> hmap) throws InterruptedException {
 
-        System.out.println("cLICKED");
-        Thread.sleep(5000);
-        commonMethod.next();
+        click("Paper Type",selectPaperType(hmap.get("Paper Type")));
 
+        assert clickNext();
+        assert waitForPageLoad();
 
 
     }

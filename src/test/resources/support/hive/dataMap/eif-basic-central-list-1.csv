@@ -1,2 +1,2 @@
-commonName,eifFile,MPIN,TIN,Market Number,Paper Type,Phycon,FS All Payer,CounterPartyName
-TC624355,eif-hive-central.json,350555,352078493,13479,SPGA,1234,IN 57568,OPTOMETRY
+commonName,MPIN,TIN,Market Number,Paper Type,Phycon,FS All Payer,CounterPartyName,CounterPartyAddress,CounterPartyApproach,PracticeLocation,HBP
+TC624355,000350555,352078493,13479,SPGA,1234,IN 57568,OPTOMETRY,BILLING,counterparty,Y,NO

@@ -5,6 +5,7 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
@@ -14,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PESInputActions implements IWebInteract, IFactoryPage, IConfigurable {
+public class PESInputActions extends GenericInputPage implements IWebInteract, IFactoryPage, IConfigurable {
 
     @Override
     public WebDriver getDriver() {
@@ -29,12 +30,14 @@ public class PESInputActions implements IWebInteract, IFactoryPage, IConfigurabl
     private PageElements elements;
 
     public PESInputActions(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
+
         this.elements = new PageElements(driver);
     }
 
     public void enterPESInput(HashMap<String, String> readFile) {
-        for (Map.Entry<String, String> entry : readFile.entrySet()) {
+        for (Map.Entry<String, String> entry : readFile.entrySet())
+        {
             System.out.println("Heloo");
             System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
 
@@ -69,7 +72,8 @@ public class PESInputActions implements IWebInteract, IFactoryPage, IConfigurabl
                         break;
                 }
         }
-        commonMethod.next();
+        assert clickNext();
+        assert waitForPageLoad();
     }
 
     private static class PageElements  extends AbstractPageElements {

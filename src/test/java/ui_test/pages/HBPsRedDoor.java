@@ -3,24 +3,29 @@ package ui_test.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import ui_test.page.exari.contract.GenericInputPage;
 
-public class HBPsRedDoor
+import java.util.HashMap;
+
+public class HBPsRedDoor  extends GenericInputPage
 {
     private WebDriver driver;
 
     public HBPsRedDoor(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
+
     }
 
-    public void selectRedDoor() throws InterruptedException {
-        String hbp = "No";
+    public WebElement getHBPResponse(String answer){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+answer+"')]"});
+    }
 
-        WebElement hbpSelect = driver.findElement(By.xpath("//input[contains(@value,'"+hbp+"')]"));
-        Thread.sleep(2000);
-        hbpSelect.click();
 
-        Thread.sleep(1000);
+    public void selectRedDoor(HashMap<String,String> hmap) throws InterruptedException {
 
-        commonMethod.next();
+
+        click("MarketNumber",getHBPResponse(hmap.get("HBP")));
+        assert clickNext();
+        assert waitForPageLoad();
     }
 }
