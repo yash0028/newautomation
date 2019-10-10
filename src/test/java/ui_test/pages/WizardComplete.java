@@ -1,22 +1,19 @@
 package ui_test.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import ui_test.page.exari.contract.GenericInputPage;
 
-public class WizardComplete
+public class WizardComplete extends GenericInputPage
 {
-    private WebDriver driver;
 
     public WizardComplete(WebDriver driver)
     {
-        this.driver=driver;
+        super(driver);
     }
 
-    public void completeWizard() throws InterruptedException {
-        WebElement nextButton=driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/div[1]/div[1]/a"));
-        Thread.sleep(2000);
-        nextButton.click();
+    public void completeWizard(){
+        assert clickNext();
+        assert waitForPageLoad();
     }
 
 }

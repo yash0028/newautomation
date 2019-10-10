@@ -1,19 +1,17 @@
 package ui_test.pages;
 
 import org.openqa.selenium.WebDriver;
+import ui_test.page.exari.contract.GenericInputPage;
 
-public class Appendix2 {
-    private WebDriver driver;
+public class Appendix2 extends GenericInputPage {
 
     public Appendix2(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    public void selectAppendix() throws InterruptedException {
-        commonMethod.next();
-
+    public void selectAppendix(){
+        assert clickNext();
+        assert waitForPageLoad();
     }
-
-
 
 }

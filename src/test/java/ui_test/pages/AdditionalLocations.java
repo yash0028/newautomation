@@ -1,25 +1,23 @@
 package ui_test.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import ui_test.page.exari.contract.GenericInputPage;
 
-public class AdditionalLocations
+public class AdditionalLocations extends GenericInputPage
 {
-    private final WebDriver driver;
 
-    public AdditionalLocations(WebDriver driver)
-    {
-        this.driver=driver;
+    public AdditionalLocations(WebDriver driver) {
+        super(driver);
     }
 
-    public void selectAdditionalLocations() throws InterruptedException {
-        String addLoc="None";
-        WebElement selectLoc=driver.findElement(By.xpath("//input[contains(@value,'"+addLoc+"')]"));
-        Thread.sleep(2000);
-        selectLoc.click();
-        Thread.sleep(2000);
-        commonMethod.next();
+    public void selectAdditionalLocations(String addLoc){
+        assert click("Additional Location", additionalLocationsElement(addLoc));
+        assert clickNext();
+        assert waitForPageLoad();
     }
 
+    public WebElement additionalLocationsElement(String addLoc){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+addLoc+"')]"});
+    }
 }

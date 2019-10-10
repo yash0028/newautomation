@@ -1,19 +1,18 @@
 package ui_test.pages;
 
 import org.openqa.selenium.WebDriver;
+import ui_test.page.exari.contract.GenericInputPage;
 
-public class CounterpartyDetails
+public class CounterpartyDetails extends GenericInputPage
 {
-    private final WebDriver driver;
-
     public CounterpartyDetails(WebDriver driver)
     {
-        this.driver=driver;
+        super(driver);
     }
 
-    public void counterpartyTINDuplicateCheck() throws InterruptedException
+    public void counterpartyTINDuplicateCheck()
     {
-        Thread.sleep(2000);
-        commonMethod.next();
+        assert clickNext();
+        assert waitForPageLoad();
     }
 }
