@@ -1,19 +1,18 @@
 package ui_test.pages;
 
 import org.openqa.selenium.WebDriver;
+import ui_test.page.exari.contract.GenericInputPage;
 
-public class MarketExceptionGrid
+public class MarketExceptionGrid extends GenericInputPage
 {
-    private final WebDriver driver;
-
     public MarketExceptionGrid(WebDriver driver)
     {
-        this.driver=driver;
+        super(driver);
     }
 
-    public void previewMarketDetails() throws InterruptedException {
-        Thread.sleep(1000);
-        commonMethod.next();
+    public void previewMarketDetails(){
+        assert clickNext();
+        assert waitForPageLoad();
     }
 }
 

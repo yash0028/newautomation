@@ -148,7 +148,7 @@ public class StartContract  {
         paymentAppendix.verifyFeeScheduleID();
 
         AdditionalLocations additionalLocations=new AdditionalLocations(driver);
-        additionalLocations.selectAdditionalLocations();
+        //additionalLocations.selectAdditionalLocations();
 
         RegulatoryAppendices regulatoryAppendices=new RegulatoryAppendices(driver);
         regulatoryAppendices.selectRegulatoryAppendix();

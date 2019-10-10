@@ -1,18 +1,17 @@
 package ui_test.pages;
 
 import org.openqa.selenium.WebDriver;
+import ui_test.page.exari.contract.GenericInputPage;
 
-public class RequestForParticipationResponse
+public class RequestForParticipationResponse extends GenericInputPage
 {
-    private WebDriver driver;
     public RequestForParticipationResponse(WebDriver driver)
     {
-        this.driver=driver;
+        super(driver);
     }
 
-    public void performAction() throws InterruptedException {
-        Thread.sleep(2000);
-        commonMethod.next();
-
+    public void performAction(){
+        assert clickNext();
+        assert waitForPageLoad();
     }
 }

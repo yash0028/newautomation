@@ -81,7 +81,6 @@ public class PESInputActions extends GenericInputPage implements IWebInteract, I
         @FindBy(id = "xri-Request.MPIN-UTQField_1")
         private WebElement mpin;
 
-
         @FindBy(xpath = "//span[@id='UTQField_2']/input")
         private WebElement tin;
 
