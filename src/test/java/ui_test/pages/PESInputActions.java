@@ -19,7 +19,7 @@ public class PESInputActions implements IWebInteract, IFactoryPage, IConfigurabl
     @Override
     public WebDriver getDriver() {
         return driver;
-    }
+}
 
     @Override
     public boolean confirmCurrentPage() {
@@ -32,20 +32,6 @@ public class PESInputActions implements IWebInteract, IFactoryPage, IConfigurabl
         this.driver = driver;
         this.elements = new PageElements(driver);
     }
-
-    /*public void enterData(HashMap<String, String> readFile, HashMap<String, String> elements) throws InterruptedException {
-        for (Map.Entry<String, String> entry : readFile.entrySet()) {
-            System.out.println("Heloo");
-            System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
-            if (elements.containsKey(entry.getKey())) {
-                //System.out.println("if statement");
-                System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
-
-//                performAction(entry.getKey(), entry.getValue());
-            }
-        }
-        commonMethod.next();
-    }*/
 
     public void enterPESInput(HashMap<String, String> readFile) {
         for (Map.Entry<String, String> entry : readFile.entrySet()) {
@@ -64,66 +50,27 @@ public class PESInputActions implements IWebInteract, IFactoryPage, IConfigurabl
                     case "NPI":
                         sendKeys("NPI textbox", this.elements.npi, entry.getValue());
                         break;
+                    case "ZIP":
+                        sendKeys("ZIP textbox", this.elements.zip, entry.getValue());
+                        break;
+                    case "CITY":
+                        sendKeys("CITY textbox", this.elements.city, entry.getValue());
+                        break;
+                    case "PROVIDERFIRSTNAME":
+                        sendKeys("PROVIDERFIRSTNAME textbox", this.elements.providerfirstname, entry.getValue());
+                        break;
+                    case "PROVIDERLASTNAME":
+                        sendKeys("PROVIDERLASTNAME textbox", this.elements.providerlastname, entry.getValue());
+                        break;
+                    case "STATE":
+                        sendKeys("STATE textbox", this.elements.state, entry.getValue());
+                        break;
                     case "default":
                         break;
                 }
         }
         commonMethod.next();
     }
-
-    /*private void performAction(String key, String value)
-    {
-        if(key.equalsIgnoreCase("MPIN")){
-//            System.out.println(key + value);
-            //InterviewElements.mpin
-            driver.findElement(By.xpath("//*[@id=\"xri-Request.MPIN-UTQField_1\"]")).sendKeys(value);
-            //Aisehee.InterviewElements.mpin.sendKeys(value);
-
-        }
-
-        if(key.equalsIgnoreCase("TIN")){
-//            System.out.println(key + value);
-            driver.findElement(By.id("xri-Request.TIN-UTQField_2")).sendKeys(value);
-            //InterviewElements.tin.sendKeys(value);
-        }
-
-
-        if(key.equalsIgnoreCase("provider first name")){
-//            System.out.println(key + value);
-            driver.findElement(By.xpath("//*[@id=\"xri-Request.TIN-UTQField_2\"]")).sendKeys(value);
-            //InterviewElements.tin.sendKeys(value);
-        }
-
-        if(key.equalsIgnoreCase("provider last name")){
-//            System.out.println(key + value);
-            driver.findElement(By.xpath("//*[@id=\"xri-Request.TIN-UTQField_2\"]")).sendKeys(value);
-            //InterviewElements.tin.sendKeys(value);
-        }
-
-        if(key.equalsIgnoreCase("city")){
-//            System.out.println(key + value);
-            driver.findElement(By.xpath("//*[@id=\"xri-Request.TIN-UTQField_2\"]")).sendKeys(value);
-            //InterviewElements.tin.sendKeys(value);
-        }
-
-        if(key.equalsIgnoreCase("state")){
-//            System.out.println(key + value);
-            driver.findElement(By.xpath("//*[@id=\"xri-Request.TIN-UTQField_2\"]")).sendKeys(value);
-            //InterviewElements.tin.sendKeys(value);
-        }
-
-        if(key.equalsIgnoreCase("zip")){
-//            System.out.println(key + value);
-            driver.findElement(By.xpath("//*[@id=\"xri-Request.TIN-UTQField_2\"]")).sendKeys(value);
-            //InterviewElements.tin.sendKeys(value);
-        }
-
-        if(key.equalsIgnoreCase("npi")){
-//            System.out.println(key + value);
-            driver.findElement(By.xpath("//*[@id=\"xri-Request.TIN-UTQField_2\"]")).sendKeys(value);
-            //InterviewElements.tin.sendKeys(value);
-        }
-    }*/
 
     private static class PageElements  extends AbstractPageElements {
 

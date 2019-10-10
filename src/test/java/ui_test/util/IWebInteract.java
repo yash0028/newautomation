@@ -1,5 +1,6 @@
 package ui_test.util;
 
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
@@ -614,5 +615,131 @@ public interface IWebInteract {
     default boolean waitForPageLoad() {
         return waitForPageLoad(15);
     }
+
+
+    default WebElement findElement(WebDriver driver,String[] elementProperties)
+    {
+        try
+        {
+            switch (ElementLocator.valueOf(elementProperties[0].toUpperCase())) {
+                case ID:
+                    return waitForElementToPresent(driver, By.id(elementProperties[1]));
+                case CLASSNAME:
+                    return waitForElementToPresent(driver, By.className(elementProperties[1]));
+                case LINKTEXT:
+                    return waitForElementToPresent(driver, By.linkText(elementProperties[1]));
+                case PARTIALLINKTEXT:
+                    return waitForElementToPresent(driver, By.partialLinkText(elementProperties[1]));
+                case XPATH:
+                    return waitForElementToPresent(driver, By.xpath(elementProperties[1]));
+                case CSSSELECTOR:
+                    return waitForElementToPresent(driver, By.cssSelector(elementProperties[1]));
+                case NAME:
+                    return waitForElementToPresent(driver, By.name(elementProperties[1]));
+                case TAGNAME:
+                    return waitForElementToPresent(driver, By.tagName(elementProperties[1]));
+            }
+        }
+        catch(Exception e)
+        {
+            Assert.fail("Element with locator "+ ElementLocator.valueOf(elementProperties[0].toUpperCase()) + " is not found");
+        }
+        return null;
+    }
+
+    /**
+     * This method is similar to explicit wait but without a condition
+     * @param by - the element locator with By class
+     * @return WebElement if element found within the timeout
+     */
+    default WebElement waitForElementToPresent(WebDriver driver,final By by)
+    {
+        try
+        {
+            //threadSleep(5000);
+            WebElement element = (new WebDriverWait(driver, 15))
+                    .until(ExpectedConditions.presenceOfElementLocated(by));
+            return element;
+        }
+        catch(Exception e)
+        {
+            Assert.fail("Element with locator " + by + " is not present.");
+        }
+        return null;
+    }
+
+    default List<WebElement> findElements(WebDriver driver,String[] elementProperties)
+    {
+        try
+        {
+            switch (ElementLocator.valueOf(elementProperties[0].toUpperCase())) {
+                case ID:
+                    return waitForElementsToPresent(driver, By.id(elementProperties[1]));
+                case CLASSNAME:
+                    return waitForElementsToPresent(driver, By.className(elementProperties[1]));
+                case LINKTEXT:
+                    return waitForElementsToPresent(driver, By.linkText(elementProperties[1]));
+                case PARTIALLINKTEXT:
+                    return waitForElementsToPresent(driver, By.partialLinkText(elementProperties[1]));
+                case XPATH:
+                    return waitForElementsToPresent(driver, By.xpath(elementProperties[1]));
+                case CSSSELECTOR:
+                    return waitForElementsToPresent(driver, By.cssSelector(elementProperties[1]));
+                case NAME:
+                    return waitForElementsToPresent(driver, By.name(elementProperties[1]));
+                case TAGNAME:
+                    return waitForElementsToPresent(driver, By.tagName(elementProperties[1]));
+            }
+        }
+        catch(Exception e)
+        {
+            Assert.fail("List of Elements with expected locator are not present.");
+        }
+
+        return null;
+    }
+
+    /**
+     * This method is similar to explicit wait but without a condition
+     * @param by - the element locator with By class
+     * @return WebElement if element found within the timeout
+     */
+    default List<WebElement> waitForElementsToPresent(WebDriver driver,final By by)
+    {
+        try
+        {
+            //threadSleep(5000);
+            List<WebElement> elements = (new WebDriverWait(driver, 15))
+                    .until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+            return elements;
+        }
+        catch(Exception e)
+        {
+            Assert.fail("List of Elements with locator " + by + " are not present.");
+        }
+        return null;
+    }
+
+
+    enum ExplicitConditions
+    {
+        CLICK, VISIBLE, staleness,title, textPresent, INVISIBLE, PRESENCE
+    }
+
+
+    enum ElementLocator {
+
+        ID,
+        CLASSNAME,
+        LINKTEXT,
+        PARTIALLINKTEXT,
+        XPATH,
+        CSSSELECTOR,
+        TAGNAME,
+        NAME
+    }
+
+
+
 
 }
