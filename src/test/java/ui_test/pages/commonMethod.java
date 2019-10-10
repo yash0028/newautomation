@@ -10,9 +10,13 @@ public class commonMethod
     {
         this.driver=driver;
     }
-    public static void next() throws InterruptedException {
+    /*public static void next() throws InterruptedException {
         Thread.sleep(4000);
         driver.findElement(By.xpath("//*[@id=\"interviewArea\"]/form/div[2]/div/div[1]/div[1]/button")).click();
 
+    }*/
+
+    public static void next(){
+        driver.findElement(By.xpath("//*[@id=\"interviewArea\"]/form/div[2]/div/div[1]/div[1]/button")).click();
     }
 }

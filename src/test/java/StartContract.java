@@ -88,13 +88,13 @@ public class StartContract  {
         commonMethod commonMethod=new commonMethod(driver);
         CSVReader csvReader = new CSVReader();
         String path2="C:\\Users\\asomani1\\Desktop\\pom\\acceptance-testing\\src\\test\\resources\\support\\hive\\dataMap\\elements.csv";
-        HashMap<String,String> elements=csvReader.readFile(path2);
+        HashMap<String,String> elements=csvReader.readFile(path2, "xyz");
 
         String path1="C:\\Users\\asomani1\\Desktop\\pom\\acceptance-testing\\src\\test\\resources\\support\\hive\\dataMap\\eif-basic-central-list-1.csv";
-        HashMap<String,String> data = csvReader.readFile(path1);
+        HashMap<String,String> data = csvReader.readFile(path1, "xyz");
         PESInputActions pi= new PESInputActions(driver);
 
-        pi.enterData(data,elements);
+        /*pi.enterData(data,elements);*/
 
 
         PESResponse pesResponse=new PESResponse(driver);

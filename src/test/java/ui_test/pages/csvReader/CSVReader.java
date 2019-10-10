@@ -1,5 +1,7 @@
 package ui_test.pages.csvReader;
 
+import org.junit.Assert;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,7 +12,7 @@ import java.util.List;
 
 public class CSVReader {
 
-    public HashMap readFile(String path) {
+    public HashMap readFile(String path, String testName) {
 
         String csvFile = path;
         BufferedReader br = null;
@@ -22,6 +24,7 @@ public class CSVReader {
 
         try {
 
+
             int count=0;
             br = new BufferedReader(new FileReader(csvFile));
             while ((line = br.readLine()) != null)
@@ -31,28 +34,38 @@ public class CSVReader {
                 {
                     for(int i=0;i<data.length;i++)
                     {
+
                         list.add(data[i]);
-                        //System.out.println(list.get(i)+""+i);
+                        System.out.println(list.get(i)+""+i);
                     }
                     count++;
 
                 }
                 else
                 {
-                    //System.out.println("Putting to hash");
-
-                    for(int i=0;i<list.size();i++)
+                    System.out.println("Putting to hash");
+                    System.out.println("data of 0 is "+data[0]);
+                    System.out.println("test name is "+testName);
+                    if(data[0].equalsIgnoreCase(testName))
                     {
-                        System.out.println("Index is"+i);
-                        imap.put(list.get(i),data[i]);
+                        for(int i=0;i<list.size();i++)
+                        {
+                            System.out.println("Index is"+i);
+                            if(data[i]!=null)
+                            {
+                                imap.put(list.get(i),data[i]);
+                            }
 
-
+                        }
+                        hashList.add(imap);
                     }
-                    hashList.add(imap);
+
+
                     count++;
                 }
                 //System.out.println(count+" Data recorded in hash");
             }
+            Assert.assertNotNull("Test Data for this case not present",imap);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

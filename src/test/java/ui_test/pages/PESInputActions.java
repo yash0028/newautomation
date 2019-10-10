@@ -5,11 +5,13 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 import util.configuration.IConfigurable;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PESInputActions implements IWebInteract, IFactoryPage, IConfigurable {
@@ -31,7 +33,7 @@ public class PESInputActions implements IWebInteract, IFactoryPage, IConfigurabl
         this.elements = new PageElements(driver);
     }
 
-    public void enterData(HashMap<String, String> readFile, HashMap<String, String> elements) throws InterruptedException {
+    /*public void enterData(HashMap<String, String> readFile, HashMap<String, String> elements) throws InterruptedException {
         for (Map.Entry<String, String> entry : readFile.entrySet()) {
             System.out.println("Heloo");
             System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
@@ -39,14 +41,37 @@ public class PESInputActions implements IWebInteract, IFactoryPage, IConfigurabl
                 //System.out.println("if statement");
                 System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
 
-                performAction(entry.getKey(), entry.getValue());
+//                performAction(entry.getKey(), entry.getValue());
             }
+        }
+        commonMethod.next();
+    }*/
+
+    public void enterPESInput(HashMap<String, String> readFile) {
+        for (Map.Entry<String, String> entry : readFile.entrySet()) {
+            System.out.println("Heloo");
+            System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
+
+                System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
+
+                switch (entry.getKey().toUpperCase()){
+                    case "MPIN":
+                        sendKeys("MPIN textbox", this.elements.mpin, entry.getValue());
+                        break;
+                    case "TIN":
+                        sendKeys("TIN textbox", this.elements.tin, entry.getValue());
+                        break;
+                    case "NPI":
+                        sendKeys("NPI textbox", this.elements.npi, entry.getValue());
+                        break;
+                    case "default":
+                        break;
+                }
         }
         commonMethod.next();
     }
 
-
-    private void performAction(String key, String value)
+    /*private void performAction(String key, String value)
     {
         if(key.equalsIgnoreCase("MPIN")){
 //            System.out.println(key + value);
@@ -98,34 +123,37 @@ public class PESInputActions implements IWebInteract, IFactoryPage, IConfigurabl
             driver.findElement(By.xpath("//*[@id=\"xri-Request.TIN-UTQField_2\"]")).sendKeys(value);
             //InterviewElements.tin.sendKeys(value);
         }
-    }
+    }*/
 
-    private static class PageElements{
+    private static class PageElements  extends AbstractPageElements {
 
-        @FindBy(xpath = "xpath=//*[@id=\"xri-Request.MPIN-UTQField_1\"]")
-        private static WebElement mpin;
+        @FindBy(id = "xri-Request.MPIN-UTQField_1")
+        private WebElement mpin;
 
 
-        @FindBy(xpath = "xpath=//span[@id='UTQField_2']/input")
-        private static WebElement tin;
+        @FindBy(xpath = "//span[@id='UTQField_2']/input")
+        private WebElement tin;
 
-        @FindBy(xpath = "xpath=//span[@id='UTQField_3']/input")
+        @FindBy(xpath = "//span[@id='UTQField_3']/input")
         private WebElement providerfirstname;
 
-        @FindBy(xpath = "xpath=//span[@id='UTQField_4']/input")
+        @FindBy(xpath = "//span[@id='UTQField_4']/input")
         private WebElement providerlastname;
 
-        @FindBy(xpath = "xpath=//span[@id='UTQField_5']/input")
+        @FindBy(xpath = "//span[@id='UTQField_5']/input")
         private WebElement city;
 
-        @FindBy(xpath = "xpath=//span[@id='UTQField_6']/input")
+        @FindBy(xpath = "//span[@id='UTQField_6']/input")
         private WebElement state;
 
-        @FindBy(xpath = "xpath=//span[@id='UTQField_7']/input")
+        @FindBy(xpath = "//span[@id='UTQField_7']/input")
         private WebElement zip;
 
-        @FindBy(xpath = "xpath=//span[@id='UTQField_8']/input")
+        @FindBy(xpath = "//span[@id='UTQField_8']/input")
         private WebElement npi;
+
+        @FindBy(xpath = "//span[@id='UTQField_3']/input")
+        private List<WebElement> providerfirstnam;
 
         PageElements(SearchContext context) {
             super(context);

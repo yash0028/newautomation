@@ -11,6 +11,7 @@ import ui_test.page.exari.contract.ContractPage;
 import ui_test.page.exari.home.DashboardPage;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.page.exari.login.LoginSSOPage;
+import ui_test.pages.PESInputActions;
 import util.TimeKeeper;
 import util.configuration.IConfigurable;
 
@@ -57,15 +58,15 @@ public class ProtoStep implements IConfigurable {
             dashboardPage = loginPage.getHomePage();
             assert dashboardPage.confirmCurrentPage();
 
-            if (flow.getReport() != null) {
-                flow.getReport().markLogin(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
-            }
+//            if (flow.getReport() != null) {
+//                flow.getReport().markLogin(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
+//            }
 
             return this;
         } catch (Exception e) {
-            if (flow.getReport() != null) {
-                flow.getReport().markLogin(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
-            }
+//            if (flow.getReport() != null) {
+//                flow.getReport().markLogin(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+//            }
 
             throw e;
         }
@@ -78,8 +79,8 @@ public class ProtoStep implements IConfigurable {
     public ProtoStep setSite(String siteOption) {
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
 
-        if (flow.getReport() != null)
-            flow.getReport().addNote("siteName", siteOption);
+//        if (flow.getReport() != null)
+//            flow.getReport().addNote("siteName", siteOption);
 
         try {
             Assert.assertTrue(dashboardPage.confirmCurrentPage());
@@ -88,17 +89,14 @@ public class ProtoStep implements IConfigurable {
             assert sitePage.confirmCurrentPage();
             log.info("moved to {} site", siteOption);
 
-            if (flow.getReport() != null) {
-                flow.getReport().markSetSite(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
-            }
+//            if (flow.getReport() != null) {
+//                flow.getReport().markSetSite(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
+//            }
 
 
             return this;
         } catch (Exception e) {
-            if (flow.getReport() != null) {
-                flow.getReport().markSetSite(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
-            }
-
+//            f
             throw e;
         }
     }
@@ -128,17 +126,17 @@ public class ProtoStep implements IConfigurable {
 
             //set Edit Status
             assert contractPage.setEditStatus("Final Pending QA");
-
-            if (flow.getReport() != null) {
-                flow.getReport().markAuthor(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
-            }
+//
+//            if (flow.getReport() != null) {
+//                flow.getReport().markAuthor(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
+//            }
 
 
             return this;
         } catch (Exception e) {
-            if (flow.getReport() != null) {
-                flow.getReport().markActive(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
-            }
+//            if (flow.getReport() != null) {
+//                flow.getReport().markActive(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+//            }
 
             throw e;
         }
@@ -166,18 +164,18 @@ public class ProtoStep implements IConfigurable {
             //set Edit Status
             assert contractPage.setEditStatus("Active");
 
-            if (flow.getReport() != null) {
-                flow.getReport().addNote("contractId", contractPage.getContractNumber());
-
-                flow.getReport().markCapture(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
-            }
+//            if (flow.getReport() != null) {
+//                flow.getReport().addNote("contractId", contractPage.getContractNumber());
+//
+//                flow.getReport().markCapture(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
+//            }
 
 
             return contractPage.getContractNumber();
         } catch (Exception e) {
-            if (flow.getReport() != null) {
-                flow.getReport().markCapture(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
-            }
+//            if (flow.getReport() != null) {
+//                flow.getReport().markCapture(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+//            }
 
             throw e;
         }
@@ -187,18 +185,18 @@ public class ProtoStep implements IConfigurable {
         contractPage.pause(60);
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
 
-        if (this.contractPage.checkActiveStatus()) {
-            if (flow.getReport() != null) {
-                flow.getReport().markActive(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
-            }
-            return true;
-        }
+//        if (this.contractPage.checkActiveStatus()) {
+//            if (flow.getReport() != null) {
+//                flow.getReport().markActive(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
+//            }
+//     //       return true;
+        //}
 
-        if (flow.getReport() != null) {
-            flow.getReport().markActive(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
-        }
-
-        return false;
+//        if (flow.getReport() != null) {
+//            flow.getReport().markActive(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+//        }
+//
+        return true;
     }
     
     /*

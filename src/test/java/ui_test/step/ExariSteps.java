@@ -12,9 +12,14 @@ import io.cucumber.datatable.DataTable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
+import ui_test.page.exari.home.site.subpages.GenericSitePage;
+import ui_test.pages.PESInputActions;
+import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
+
+import java.util.HashMap;
 
 
 public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster, IContractFlowLoader {
@@ -25,10 +30,20 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     private ProtoStep protoStep = new ProtoStep(getDriver());
 
     private ContractFlow contractFlow;
+    public GenericSitePage sitePage;
+
+    public HashMap<String,String> hmap = null;
 
     @Given("^I am using the \"([^\"]*)\" flow$")
     public void prepareEIF(String fileName) {
         contractFlow = loadFlowContract(fileName);
+    }
+
+    @Given("^I am using the \"([^\"]*)\" data$")
+    public void getData(String testName) {
+        CSVReader csvReader = new CSVReader();
+        String path1="C:\\Users\\asomani1\\Desktop\\pom\\acceptance-testing\\src\\test\\resources\\support\\hive\\dataMap\\eif-basic-central-list-1.csv";
+        hmap = csvReader.readFile(path1, testName);
     }
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
@@ -56,6 +71,14 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         setupProtoStep(contractDataTable);
         this.protoStep.authorContract();
         this.protoStep.finalCapture();
+    }
+
+    @When("^I create a Contract$")
+    public void createContract() {
+        //setupProtoStep();
+        assert this.protoStep.sitePage.startContractAuthor();
+        PESInputActions pesInputPage = new PESInputActions(getDriver());
+        pesInputPage.enterPESInput(hmap);
     }
 
     @Then("^I have an active contract in Exari$")
