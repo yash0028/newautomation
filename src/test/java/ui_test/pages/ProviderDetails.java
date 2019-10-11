@@ -31,10 +31,10 @@ public class ProviderDetails extends GenericInputPage {
         System.out.println("Inside text_dropdown");
 
 
-        if (elements.dropdown_open == null) {
-//            return true;
-            System.out.println("I am true");
-        }
+//        if (elements.dropdown_open == null) {
+//////            return true;
+////            System.out.println("I am true");
+////        }
 
         elements.dropdown_open.click();
 
@@ -60,12 +60,12 @@ public class ProviderDetails extends GenericInputPage {
 
     }
 
-        public void previewProfile() {
+    public void previewProfile() {
 
-            assert clickNext();
-            assert waitForPageLoad();
+        assert clickNext();
+        assert waitForPageLoad();
 
-        }
+    }
 
     private static class PageElements  extends AbstractPageElements
     {

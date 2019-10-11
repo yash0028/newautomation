@@ -1,20 +1,36 @@
 package ui_test.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import ui_test.page.exari.contract.GenericInputPage;
 
-public class ProviderRoaster
+import java.util.HashMap;
+
+public class ProviderRoaster extends GenericInputPage
 {
     private WebDriver driver;
     public ProviderRoaster(WebDriver driver)
     {
-        this.driver=driver;
-    }
-
-    public void roasterAction() throws InterruptedException {
-        Thread.sleep(2000);
-        commonMethod.next();
+        super(driver);
 
     }
+
+
+    public WebElement clickRosterAction(String Name){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    }
+
+    public void roasterAction(HashMap<String,String>hmap)  {
+        pause(4);
+        click("Provider Roster", clickRosterAction(hmap.get("Roster")));
+        assert clickNext();
+        assert waitForPageLoad();
+
+    }
+
+
+
+
 
 
 

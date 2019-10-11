@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ui_test.page.exari.contract.GenericInputPage;
 
+import java.util.HashMap;
+
 public class AdditionalLocations extends GenericInputPage
 {
 
@@ -11,8 +13,8 @@ public class AdditionalLocations extends GenericInputPage
         super(driver);
     }
 
-    public void selectAdditionalLocations(String addLoc){
-        assert click("Additional Location", additionalLocationsElement(addLoc));
+    public void selectAdditionalLocations(HashMap<String,String> hmap){
+        assert click("Additional Location", additionalLocationsElement(hmap.get("Additional Location")));
         assert clickNext();
         assert waitForPageLoad();
     }

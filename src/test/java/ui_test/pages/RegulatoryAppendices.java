@@ -1,28 +1,47 @@
 package ui_test.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import ui_test.page.exari.contract.GenericInputPage;
+import ui_test.util.AbstractPageElements;
 
-public class RegulatoryAppendices
+import java.util.HashMap;
+
+public class RegulatoryAppendices extends GenericInputPage
 {
-    private final WebDriver driver;
 
+    private PageElements elements;
     public RegulatoryAppendices(WebDriver driver)
     {
-        this.driver=driver;
+        super(driver);
+        this.elements = new PageElements(driver);
+
     }
 
-    public void selectRegulatoryAppendix() throws InterruptedException {
-        String regulatoryAppendix="ACO Medicare Advantage Regulatory Appendix";
-        WebElement clickOnBar=driver.findElement(By.xpath("//*[@id=\"MCQAnswerBlock244\"]/span[1]/span[1]/span/ul/li/input"));
-        Thread.sleep(2000);
-        clickOnBar.click();
-        Thread.sleep(2000);
-        WebElement regulatory=driver.findElement(By.xpath("//li[contains(text(),'"+regulatoryAppendix+"')]"));
-        Thread.sleep(2000);
-        regulatory.click();
+    public WebElement regulatory(String Name){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    }
 
-        commonMethod.next();
+
+    public void selectRegulatoryAppendix(HashMap<String,String> hmap) {
+
+        click("Click on Search Bar",elements.clickOnBar);
+        pause(2);
+        click("Click Regulatory Appendix",regulatory(hmap.get("Regulatory Appendix")));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
+    private static class PageElements  extends AbstractPageElements {
+
+        @FindBy(xpath = "//*[@id=\"MCQAnswerBlock244\"]/span[1]/span[1]/span/ul/li/input")
+        private WebElement clickOnBar;
+
+        public PageElements(SearchContext context) {
+            super(context);
+        }
     }
 }

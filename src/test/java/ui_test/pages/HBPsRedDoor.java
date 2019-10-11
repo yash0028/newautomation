@@ -21,7 +21,7 @@ public class HBPsRedDoor  extends GenericInputPage
     }
 
 
-    public void selectRedDoor(HashMap<String,String> hmap) throws InterruptedException {
+    public void selectRedDoor(HashMap<String,String> hmap){
 
 
         click("MarketNumber",getHBPResponse(hmap.get("HBP")));

@@ -22,9 +22,9 @@ public class PracticeLocations extends GenericInputPage
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+answer+"')]"});
     }
 
-    public void selectLocation(HashMap<String,String>hmap) throws InterruptedException {
+    public void selectLocation(HashMap<String,String>hmap) {
 
-        Thread.sleep(2000);
+
         click("Practice Location",selectPracticeLocation(hmap.get("PracticeLocation")));
 
 

@@ -13,12 +13,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
+import ui_test.pages.BasePage;
 import ui_test.pages.PESInputActions;
 import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
-
 import java.util.HashMap;
 
 
@@ -27,10 +27,14 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
 
+    String csvFile = configGetOptionalString("exari.csvFile").orElse("");
+    String contractFlowPath = System.getProperty("user.dir")+"\\src\\test\\resources\\support\\hive\\dataMap\\"+csvFile;
+
     private ProtoStep protoStep = new ProtoStep(getDriver());
 
     private ContractFlow contractFlow;
     public GenericSitePage sitePage;
+    public BasePage basePage=new BasePage(getDriver());
 
     public HashMap<String,String> hmap = null;
 
@@ -42,8 +46,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @Given("^I am using the \"([^\"]*)\" data$")
     public void getData(String testName) {
         CSVReader csvReader = new CSVReader();
-        String path1="C:\\Users\\asomani1\\Desktop\\pom\\acceptance-testing\\src\\test\\resources\\support\\hive\\dataMap\\eif-basic-central-list-1.csv";
-        hmap = csvReader.readFile(path1, testName);
+        hmap = csvReader.readFile(contractFlowPath, testName);
     }
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
@@ -65,6 +68,131 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         contractFlow = loadFlowContract(fileName);
         this.protoStep.authorContract();
     }
+    @And("^I enter PES Inputs$")
+    public void PESInputs() {
+        assert this.protoStep.sitePage.startContractAuthor();
+
+        basePage.getPesInputActions().enterPESInput(hmap);
+    }
+
+
+    @And("^I enter PES Response$")
+    public void PESResponse() {
+        basePage.getPes_response().selectCounterParty(hmap);
+        basePage.getPes_response().specifyApproachForCounter(hmap);
+        basePage.getPes_response().selectCounterPartyAddress(hmap);
+    }
+
+
+    @And("^I select Market Number$")
+    public void selectMarketNumber()
+    {
+        basePage.getProviderDetails().selectEntry(hmap);
+
+    }
+
+
+    @And("^I enter Request For Participation Response$")
+    public void RequestForParticipationResponse() {
+        basePage.getRequestForParticipationResponse().performAction();
+    }
+
+
+    @And("^I enter Document Selection$")
+    public void DocumentSelection() {
+        basePage.getDocumentSelection().selectDocumentType(hmap);
+
+    }
+
+    @And("^I preview Provider Details$")
+    public void reviewProviderDetails() {
+        basePage.getProviderDetails().previewProfile();
+
+    }
+
+
+    @And("^I enter Practice Locations$")
+    public void PracticeLocations()
+    {
+        basePage.getPracticeLocations().selectLocation(hmap);
+    }
+
+
+    @And("^I enter Market Exception Grid$")
+    public void MarketExceptionGrid() {
+        basePage.getMarketExceptionGrid().previewMarketDetails();
+    }
+
+
+    @And("^I enter Contract Details$")
+    public void ContractDetails()
+    {
+        basePage.getContractDetails().enterPhyConNumber(hmap);
+    }
+    @And("^I enter HBPs Red Door$")
+    public void HBPsRedDoor() {
+        basePage.getHbPsRedDoor().selectRedDoor(hmap);
+    }
+
+    @And("^I enter Market Strategy Grid$")
+    public void MarketStrategyGrid()
+    {
+        basePage.getMarketStrategyGrid().marketStrategyGridCheck();
+    }
+
+
+    @And("^I enter Appendix 2$")
+    public void Appendix2()
+    {
+        basePage.getAppendix2().selectAppendix();
+    }
+
+    @And("^I enter Payment Appendix$")
+    public void PaymentAppendix()
+    {
+        basePage.getPaymentAppendix().selectPaymentAppendix(hmap);
+        basePage.getPaymentAppendix().enterFeeScheduleID(hmap);
+        basePage.getPaymentAppendix().verifyFeeScheduleID();
+    }
+
+    @And("^I enter Additional Locations$")
+    public void AdditionalLocations()
+    {
+        basePage.getAdditionalLocations().selectAdditionalLocations(hmap);
+    }
+
+
+    @And("^I enter Regulatory Appendices$")
+    public void RegulatoryAppendices()
+    {
+        basePage.getRegulatoryAppendices().selectRegulatoryAppendix(hmap);
+    }
+
+
+    @And("^I enter Provider Roster$")
+    public void ProviderRoster()
+    {
+        basePage.getProviderRoaster().roasterAction(hmap);
+    }
+
+
+    @And("^I enter Amendments$")
+    public void Amendments()
+    {
+        basePage.getAmendements().authorAmendments(hmap);
+    }
+    @And("^I enter Group Summary$")
+    public void GroupSummary()
+    {
+        basePage.getGroupSummary().readInterviewSummary();
+    }
+
+    @And("^I enter Wizard Complete$")
+    public void WizardComplete() {
+        basePage.getWizardComplete().completeWizard();
+    }
+
+
 
     @When("^I author a contract using the following contract information$")
     public void authorContractWithSubstitute(DataTable contractDataTable) {
@@ -77,8 +205,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void createContract() {
         //setupProtoStep();
         assert this.protoStep.sitePage.startContractAuthor();
-        PESInputActions pesInputPage = new PESInputActions(getDriver());
-        pesInputPage.enterPESInput(hmap);
+
     }
 
     @Then("^I have an active contract in Exari$")

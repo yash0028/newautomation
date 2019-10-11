@@ -18,9 +18,9 @@ public class Amendements extends GenericInputPage {
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
     }
 
-    void authorAmendments(HashMap<String, String> hmap)
+    public void authorAmendments(HashMap<String, String> hmap)
     {
-        click("Amendments",selectAmendments(hmap.get("amendments")));
+        click("Amendments",selectAmendments(hmap.get("Amendments")));
         assert clickNext();
         assert waitForPageLoad();
     }

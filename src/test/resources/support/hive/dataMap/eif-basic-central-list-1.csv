@@ -1,2 +1,4 @@
-commonName,MPIN,TIN,Market Number,Paper Type,Phycon,FS All Payer,CounterPartyName,CounterPartyAddress,CounterPartyApproach,PracticeLocation,HBP
-TC624355,000350555,352078493,13479,SPGA,1234,IN 57568,OPTOMETRY,BILLING,counterparty,Y,NO
+commonName,MPIN,TIN,Market Number,Paper Type,Phycon,FS All Payer,CounterPartyName,CounterPartyAddress,CounterPartyApproach,PracticeLocation,HBP,Payment Appendix,Additional Location,Regulatory Appendix,Roster,Amendments
+TC624355,000350555,352078493,13479,SPGA,1234,IN 57568,OPTOMETRY,BILLING,counterparty,Y,NO,All Payer,Yes,Indiana Regulatory Appendix,NONE,No
+TC624356,000350556,352078493,13479,SPGA,1234,IN 57568,OPTOMETRY,BILLING,counterparty,Y,NO,All Payer,Yes,Indiana Regulatory Appendix,NONE,No
+TC624357,000350557,352078493,13479,SPGA,1234,IN 57568,OPTOMETRY,BILLING,counterparty,Y,NO,All Payer,Yes,Indiana Regulatory Appendix,NONE,No

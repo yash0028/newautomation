@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 
+import java.util.HashMap;
+
 public class PaymentAppendix extends GenericInputPage {
 
     private PageElements elements;
@@ -13,8 +15,8 @@ public class PaymentAppendix extends GenericInputPage {
         super(driver);
     }
 
-    public void selectPaymentAppendix(String paymentAppendix) {
-        assert click("paymentAppendix", paymentAppendixElement(paymentAppendix));
+    public void selectPaymentAppendix(HashMap<String,String> hmap) {
+        assert click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix")));
         assert clickNext();
         assert waitForPageLoad();
 
@@ -24,13 +26,13 @@ public class PaymentAppendix extends GenericInputPage {
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+paymentAppendix+"')]"});
     }
 
-    public void enterFeeScheduleID(String feeSchduleID){
-        assert sendKeys("FeeSchduleID", this.elements.feeSchduleID, feeSchduleID);
+    public void enterFeeScheduleID(HashMap<String,String> hmap){
+        assert sendKeys("FeeSchduleID", this.elements.feeSchduleID, hmap.get("FS All Payer"));
         assert clickNext();
         assert waitForPageLoad();
 
     }
-    public void verifyFeeScheduleID() throws InterruptedException {
+    public void verifyFeeScheduleID() {
         assert clickNext();
         assert waitForPageLoad();
     }

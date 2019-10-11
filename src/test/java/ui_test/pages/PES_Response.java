@@ -32,21 +32,24 @@ public class PES_Response extends GenericInputPage {
 
 
 
-    void selectCounterParty(HashMap<String, String> hmap) throws InterruptedException
+    public void selectCounterParty(HashMap<String, String> hmap)
     {
+        pause(3);
         setCheckBox("CouterParty Name checkbox", counterPartyName(hmap.get("CounterPartyName")), true);
         assert clickNext();
         assert waitForPageLoad();
     }
 
-    void selectCounterPartyAddress(HashMap<String, String> hmap) throws InterruptedException {
+    public void selectCounterPartyAddress(HashMap<String, String> hmap)  {
+        pause(3);
         setCheckBox("CounterParty address checkbox",counterPartyAddress(hmap.get("CounterPartyAddress")),true);
         assert clickNext();
         assert waitForPageLoad();
     }
 
-    void specifyApproachForCounter(HashMap<String, String> hmap) throws InterruptedException {
-        setCheckBox("CounterParty address checkbox",counterPartyApproach(hmap.get("CounterPartyApproach")),true);
+   public void specifyApproachForCounter(HashMap<String, String> hmap)  {
+        pause(3);
+        setCheckBox("Approach for Counter Party",counterPartyApproach(hmap.get("CounterPartyApproach")),true);
         assert clickNext();
         assert waitForPageLoad();
     }

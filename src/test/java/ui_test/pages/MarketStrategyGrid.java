@@ -8,10 +8,11 @@ public class MarketStrategyGrid extends GenericInputPage {
         super(driver);
     }
 
-    public void marketStrategyGridCheck() throws InterruptedException {
+    public void marketStrategyGridCheck() {
         assert clickNext();
         assert waitForPageLoad();
 
+        pause(2);
         assert clickNext();
         assert waitForPageLoad();
     }

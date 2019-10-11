@@ -9,21 +9,31 @@ Feature: US1407216 - Author SPA Contact UI Path
   @User_Interface
   Scenario Outline: TC624355 - [RL0] Author SPA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    And I am using the "TC624355" data
-    When I create a Contract
-    When I author a contract using the following contract information
-      | MPIN          | <mpin>          |
-      | TIN           | <tin>           |
-      | Market Number | <market number> |
-      | County        | <county>        |
-      | Paper Type    | SPA             |
-      | Phycon        | <phycon>        |
-      | Fee Schedule  | <fee>           |
+    And I am using the "<TCName>" data
+    And I enter PES Inputs
+    And I enter PES Response
+    And I select Market Number
+    And I enter Request For Participation Response
+    And I enter Document Selection
+    And I preview Provider Details
+    And I enter Practice Locations
+    And I preview Provider Details
+    And I enter Market Exception Grid
+    And I enter Market Exception Grid
+    And I enter Contract Details
+    And I enter HBPs Red Door
+    And I enter Market Strategy Grid
+    And I enter Appendix 2
+    And I enter Payment Appendix
+    And I enter Additional Locations
+    And I enter Regulatory Appendices
+    And I enter Provider Roster
+    And I enter Amendments
+    And I enter Group Summary
+    And I enter Wizard Complete
     Then I have an active contract in Exari
     Examples:
-      | site          | mpin    | tin       | market number | phycon | fee      | county   |
-      | central uhn   | 1916833 | 731624480 | 13476         | 1234   | IN 52716 | clay     |
-      | northeast uhn | 1916833 | 731624480 | 45592         | 1234   | IN 52716 | caroline |
-      | southeast uhn | 1916833 | 731624480 | 23503         | 1234   | AR 10417 | lee      |
-      | west uhn      | 1916833 | 731624480 | 36555         | 1234   | OR 10409 | baker    |
-
+      | site          | TCName   |
+      | central uhn   | TC624355 |
+      | central uhn   | TC624356 |
+      | central uhn   | TC624357 |
