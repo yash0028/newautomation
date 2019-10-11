@@ -5,10 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ui_test.pages.*;
-import ui_test.pages.amendements.Amendements;
+import ui_test.pages.Amendements;
 import ui_test.pages.csvReader.CSVReader;
 
 import java.util.ArrayList;
@@ -115,7 +114,7 @@ public class StartContract  {
         providerDetails.previewProfile();
 
         PracticeLocations practiceLocations=new PracticeLocations(driver);
-        practiceLocations.selectLocation();
+        //practiceLocations.selectLocation();
 
         providerDetails.previewProfile();
         CounterpartyDetails counterpartyDetails= new CounterpartyDetails(driver);
@@ -128,10 +127,10 @@ public class StartContract  {
 
         ContractDetails contractDetails=new ContractDetails(driver);
         System.out.println("Phycon ID"+data.get("Phycon"));
-        contractDetails.enterData(data.get("Phycon"));
+        //contractDetails.enterData(data.get("Phycon"));
 
         HBPsRedDoor hbPsRedDoor = new HBPsRedDoor(driver);
-        hbPsRedDoor.selectRedDoor();
+        //hbPsRedDoor.selectRedDoor();
 
         MarketStrategyGrid marketStrategyGrid = new MarketStrategyGrid(driver);
         marketStrategyGrid.marketStrategyGridCheck();
@@ -141,7 +140,7 @@ public class StartContract  {
         appendix2.selectAppendix();
 
         PaymentAppendix paymentAppendix = new PaymentAppendix(driver);
-        paymentAppendix.selectPaymentAppendix();
+        //paymentAppendix.selectPaymentAppendix();
         Thread.sleep(2000);
         paymentAppendix.enterFeeScheduleID(data.get("FS All Payer"));
         Thread.sleep(2000);

@@ -1,32 +1,20 @@
 package ui_test.pages;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
-import ui_test.util.IFactoryPage;
-import ui_test.util.IWebInteract;
-import util.configuration.IConfigurable;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PESInputActions extends GenericInputPage implements IWebInteract, IFactoryPage, IConfigurable {
+public class PESInputActions extends GenericInputPage  {
 
-    @Override
-    public WebDriver getDriver() {
-        return driver;
-}
 
-    @Override
-    public boolean confirmCurrentPage() {
-        return isVisible(elements.npi);
-    }
-    private WebDriver driver;
     private PageElements elements;
 
     public PESInputActions(WebDriver driver) {
@@ -38,23 +26,23 @@ public class PESInputActions extends GenericInputPage implements IWebInteract, I
     public void enterPESInput(HashMap<String, String> readFile) {
         for (Map.Entry<String, String> entry : readFile.entrySet())
         {
-            System.out.println("Heloo");
+//            System.out.println("Heloo");
             System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
 
                 System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
 
                 switch (entry.getKey().toUpperCase()){
                     case "MPIN":
-                        sendKeys("MPIN textbox", this.elements.mpin, entry.getValue());
+                        assert sendKeys("MPIN textbox", this.elements.mpin, entry.getValue());
                         break;
                     case "TIN":
-                        sendKeys("TIN textbox", this.elements.tin, entry.getValue());
+                        assert sendKeys("TIN textbox", this.elements.tin, entry.getValue());
                         break;
                     case "NPI":
-                        sendKeys("NPI textbox", this.elements.npi, entry.getValue());
+                        assert sendKeys("NPI textbox", this.elements.npi, entry.getValue());
                         break;
                     case "ZIP":
-                        sendKeys("ZIP textbox", this.elements.zip, entry.getValue());
+                        assert sendKeys("ZIP textbox", this.elements.zip, entry.getValue());
                         break;
                     case "CITY":
                         sendKeys("CITY textbox", this.elements.city, entry.getValue());
@@ -68,8 +56,7 @@ public class PESInputActions extends GenericInputPage implements IWebInteract, I
                     case "STATE":
                         sendKeys("STATE textbox", this.elements.state, entry.getValue());
                         break;
-                    case "default":
-                        break;
+
                 }
         }
         assert clickNext();

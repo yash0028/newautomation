@@ -11,15 +11,12 @@ import java.util.List;
 public class PES_Response extends GenericInputPage {
 
 
-
-
     public PES_Response(WebDriver driver)
     {
         super(driver);
 
     }
 
-    String test;
 
     public WebElement counterPartyName(String Name){
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});

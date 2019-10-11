@@ -7,6 +7,7 @@ import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
+
 public class ContractDetails extends GenericInputPage implements IWebInteract, IFactoryPage
 {
     private PageElements elements;
@@ -27,3 +28,4 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
 
     }
 }
+

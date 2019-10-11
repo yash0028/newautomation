@@ -7,29 +7,24 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
-import ui_test.util.IWebInteract;
 
 import java.util.HashMap;
 
 public class ProviderDetails extends GenericInputPage {
-    private WebDriver driver;
+
     private PageElements elements;
     public ProviderDetails(WebDriver driver){
         super(driver);
-
+        this.elements = new PageElements(driver);
     }
 
 
-
-
-
-
-    public void selectEntry(HashMap<String,String> data , HashMap<String,String> elements) throws InterruptedException
+    public void selectEntry(HashMap<String,String> data)
     {
      text_dropdown(data.get("Market Number"));
     }
 
-    public void text_dropdown(String answer) throws InterruptedException {
+    public void text_dropdown(String answer)  {
 
 
         System.out.println("Answer is " + answer);
@@ -40,13 +35,11 @@ public class ProviderDetails extends GenericInputPage {
 //            return true;
             System.out.println("I am true");
         }
-        Thread.sleep(4000);
+
         elements.dropdown_open.click();
 
         System.out.println("dropdown_open click");
 
-
-        Thread.sleep(2000);
         selectOption(answer);
         System.out.println("send key executed");
 
@@ -54,11 +47,12 @@ public class ProviderDetails extends GenericInputPage {
     }
 
     public WebElement selectOptionForMarketNumber(String answer){
-        return findElement(getDriver(), new String[]{"xpath","//li[contains(text(),\"+answer+\")]"});
+        return findElement(getDriver(), new String[]{"xpath","//li[contains(text(),'"+answer+"'" + ")]"});
     }
 
 
-    private void selectOption(String answer) throws InterruptedException {
+    private void selectOption(String answer)  {
+//        sendKeys("Market Number Sent", selectOptionForMarketNumber());
         click("MarketNumber",selectOptionForMarketNumber(answer));
 
         assert clickNext();
@@ -66,7 +60,7 @@ public class ProviderDetails extends GenericInputPage {
 
     }
 
-        public void previewProfile() throws InterruptedException {
+        public void previewProfile() {
 
             assert clickNext();
             assert waitForPageLoad();
