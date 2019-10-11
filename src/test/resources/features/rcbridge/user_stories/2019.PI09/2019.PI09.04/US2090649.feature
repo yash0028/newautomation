@@ -6,6 +6,17 @@
 @iterationFuture
 Feature: US2090649 - UI/UX: Create the Upload/Download functionality for the Type 2 Message Catalog Crosswalk table
 
+  @TC1015068
+  @Manual
+  @Functional
+  Scenario: TC1015068 - [RL0]
+    Given the TYPE 2 ERROR RESOLUTION TABLE service is up and running
+    When A new spreadsheet is uploaded and stored in the database
+    And The import is processed successfully
+    Then The existing data is deleted
+    And The content of spreadsheet is parsed and stored in a database table
+    And The database is updated to indicate that the spreadsheet was processed successfully
+
   @TC1013516
   @Manual
   @Functional
