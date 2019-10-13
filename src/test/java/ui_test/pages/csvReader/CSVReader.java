@@ -30,7 +30,7 @@ public class CSVReader {
 
             int count=0;
             br = new BufferedReader(new FileReader(csvFile));
-            log.info("Fetching Test Data From {}",csvFile);
+            log.info("Reading Test Data From {}",csvFile);
             while ((line = br.readLine()) != null)
             {
                 String[] data = line.split(cvsSplitBy);
