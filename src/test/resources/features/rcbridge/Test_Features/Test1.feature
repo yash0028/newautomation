@@ -34,4 +34,3 @@ Feature: US1407216 - Author SPA Contact UI Path
     Examples:
       | site          | TCName   |
       | central uhn   | TC624355 |
-      #| Southeast uhn | TC10     |
