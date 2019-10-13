@@ -20,6 +20,7 @@ public class ProviderRoaster extends GenericInputPage
     }
 
     public void roasterAction(HashMap<String,String>hmap)  {
+        pause(4);
         assert click("Provider Roster", clickRosterAction(hmap.get("Roster")));
         assert clickNext();
         assert waitForPageLoad();
