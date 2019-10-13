@@ -9,8 +9,6 @@ import java.util.HashMap;
 
 public class HBPsRedDoor  extends GenericInputPage
 {
-    private WebDriver driver;
-
     public HBPsRedDoor(WebDriver driver) {
         super(driver);
 
