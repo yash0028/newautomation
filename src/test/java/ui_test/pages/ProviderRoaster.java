@@ -8,7 +8,6 @@ import java.util.HashMap;
 
 public class ProviderRoaster extends GenericInputPage
 {
-    private WebDriver driver;
     public ProviderRoaster(WebDriver driver)
     {
         super(driver);
@@ -21,7 +20,6 @@ public class ProviderRoaster extends GenericInputPage
     }
 
     public void roasterAction(HashMap<String,String>hmap)  {
-        assert waitForPageLoad();
         assert click("Provider Roster", clickRosterAction(hmap.get("Roster")));
         assert clickNext();
         assert waitForPageLoad();
