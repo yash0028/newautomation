@@ -2,7 +2,7 @@
 @US1407217
 @releaseUnknown
 @iterationUnknown
-Feature: US1407216 - Author SPA Contact UI Path
+Feature: US1407217 - Author SPA Contact UI Path
 
   @TC624355
   @Manual
