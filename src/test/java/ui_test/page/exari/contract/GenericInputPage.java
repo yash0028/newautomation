@@ -1,9 +1,12 @@
 package ui_test.page.exari.contract;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.util.AbstractPageElements;
@@ -48,7 +51,16 @@ public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
      */
 
     public boolean clickNext() {
-        return click("next button", elements.navigationNext);
+        new WebDriverWait(driver, 15).until(ExpectedConditions.elementToBeClickable(elements.navigationNext));
+        int count =0;
+        while(count<=10){
+            if(click("next button", elements.navigationNext)){
+                return true;
+            }
+            pause(3);
+            count++;
+        }
+        return false;
     }
 
     public boolean clickBack() {

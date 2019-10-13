@@ -19,9 +19,8 @@ public class GroupSummary extends GenericInputPage {
     }
 
     public void readInterviewSummary() {
-       pause(4);
-       click("Complete Group Summary",this.elements.next);
-
+       assert click("Complete Group Summary",this.elements.next);
+       assert waitForPageLoad();
     }
 
     private static class PageElements  extends AbstractPageElements {

@@ -52,32 +52,70 @@ public class ExariNavigationPanel implements IWebInteract, IFactoryPage {
     }
 
     public NortheastUHNSitePage setSiteEnvironment2NortheastUHN() {
-        click("site tab", elements.headerTabSite);
-        click("northeast uhn", elements.headerTabSiteOptionNortheastUHN);
+        int count =0;
+        while(count<=10){
+            click("site tab", elements.headerTabSite);
+            if(click("northeast uhn", elements.headerTabSiteOptionNortheastUHN)){
+                break;
+            }
+            pause(2);
+            count++;
+        }
         return getSiteManager().getNortheastUHNSitePage();
     }
 
     public CentralUHNSitePage setSiteEnvironment2CentralUHN() {
-        click("site tab", elements.headerTabSite);
-        click("central uhn", elements.headerTabSiteOptionCentralUHN);
+        int count =0;
+        while(count<=10){
+            click("site tab", elements.headerTabSite);
+            if(click("central uhn", elements.headerTabSiteOptionCentralUHN)){
+                break;
+            }
+            pause(2);
+            count++;
+        }
         return getSiteManager().getCentralUHNSitePage();
     }
 
     public WestUHNSitePage setSiteEnvironment2WestUHN() {
-        click("site tab", elements.headerTabSite);
-        click("central uhn", elements.headerTabSiteOptionWestUHN);
+        int count =0;
+        while(count<=10){
+            click("site tab", elements.headerTabSite);
+            if(click("central uhn", elements.headerTabSiteOptionWestUHN)){
+                break;
+            }
+            pause(2);
+            count++;
+        }
+
         return getSiteManager().getWestUHNSitePage();
     }
 
     public SouthEastUHNSitePage setSiteEnvironment2SouthEastUHN() {
-        click("site tab", elements.headerTabSite);
-        click("central uhn", elements.headerTabSiteOptionSouthEastUHN);
+        int count =0;
+        while(count<=10){
+            click("site tab", elements.headerTabSite);
+            if(click("central uhn", elements.headerTabSiteOptionSouthEastUHN)){
+                break;
+            }
+            pause(2);
+            count++;
+        }
+
         return getSiteManager().getSouthEastUHNSitePage();
     }
 
     public NationalUHNSitePage setSiteEnvironment2NationalUHN() {
-        click("site tab", elements.headerTabSite);
-        click("central uhn", elements.headerTabSiteOptionNationalUHN);
+        int count =0;
+        while(count<=10){
+            click("site tab", elements.headerTabSite);
+            if(click("central uhn", elements.headerTabSiteOptionNationalUHN)){
+                break;
+            }
+            pause(2);
+            count++;
+        }
+
         return getSiteManager().getNationalUHNSitePage();
     }
 

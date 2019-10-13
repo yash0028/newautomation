@@ -14,11 +14,13 @@ import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.pages.BasePage;
-import ui_test.pages.PESInputActions;
 import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 
 
@@ -28,8 +30,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
 
     String csvFile = configGetOptionalString("exari.csvFile").orElse("");
-    String contractFlowPath = System.getProperty("user.dir")+"\\src\\test\\resources\\support\\hive\\dataMap\\"+csvFile;
-
+    String home = System.getProperty("user.dir");
+    Path contractFlowPath = Paths.get(home, "src", "test", "resources","support","hive","dataMap",csvFile);
+    //String contractFlowPath = System.getProperty("user.dir")+"\\src\\test\\resources\\support\\hive\\dataMap\\"+csvFile;
     private ProtoStep protoStep = new ProtoStep(getDriver());
 
     private ContractFlow contractFlow;
@@ -46,7 +49,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @Given("^I am using the \"([^\"]*)\" data$")
     public void getData(String testName) {
         CSVReader csvReader = new CSVReader();
-        hmap = csvReader.readFile(contractFlowPath, testName);
+        hmap = csvReader.readFile(contractFlowPath.toString(), testName);
     }
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
@@ -187,7 +190,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getGroupSummary().readInterviewSummary();
     }
 
-    @And("^I enter Wizard Complete$")
+    @Then("^I Complete Wizard$")
     public void WizardComplete() {
         basePage.getWizardComplete().completeWizard();
     }

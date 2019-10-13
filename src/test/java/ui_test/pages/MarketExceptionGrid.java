@@ -11,6 +11,7 @@ public class MarketExceptionGrid extends GenericInputPage
     }
 
     public void previewMarketDetails(){
+        pause(3);
         assert clickNext();
         assert waitForPageLoad();
     }

@@ -25,10 +25,8 @@ public class PESInputActions extends GenericInputPage  {
 
     public void enterPESInput(HashMap<String, String> readFile) {
         assert waitForPageLoad();
-        pause(5);
         for (Map.Entry<String, String> entry : readFile.entrySet())
         {
-//            System.out.println("Heloo");
             System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
 
                 System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
@@ -62,8 +60,7 @@ public class PESInputActions extends GenericInputPage  {
                 }
         }
         assert clickNext();
-
-        //assert waitForPageLoad();
+        assert waitForPageLoad();
     }
 
     private static class PageElements  extends AbstractPageElements {

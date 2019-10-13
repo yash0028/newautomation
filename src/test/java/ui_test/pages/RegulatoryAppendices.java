@@ -9,6 +9,7 @@ import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class RegulatoryAppendices extends GenericInputPage
 {
@@ -27,18 +28,19 @@ public class RegulatoryAppendices extends GenericInputPage
 
 
     public void selectRegulatoryAppendix(HashMap<String,String> hmap) {
-
-        click("Click on Search Bar",elements.clickOnBar);
-        pause(2);
-        click("Click Regulatory Appendix",regulatory(hmap.get("Regulatory Appendix")));
+        assert sendKeys("Send Data to egulatory Appendix",elements.clickOnBar,hmap.get("Regulatory Appendix"));
+        pause(1);
+        assert click("Click Regulatory Appendix", elements.dropdown_selection.get(0));
         assert clickNext();
         assert waitForPageLoad();
     }
 
     private static class PageElements  extends AbstractPageElements {
 
-        @FindBy(xpath = "//*[@id=\"MCQAnswerBlock244\"]/span[1]/span[1]/span/ul/li/input")
+        @FindBy(xpath = "//*[@id=\"MCQAnswerBlock243\"]/span[1]/span[1]/span/ul/li/input")
         private WebElement clickOnBar;
+        @FindBy(xpath = "//span[@class='select2-results']//li")
+        public List<WebElement> dropdown_selection;
 
         public PageElements(SearchContext context) {
             super(context);

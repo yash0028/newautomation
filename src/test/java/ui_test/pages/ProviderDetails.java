@@ -25,25 +25,14 @@ public class ProviderDetails extends GenericInputPage {
     }
 
     public void text_dropdown(String answer)  {
-
-
-        System.out.println("Answer is " + answer);
-        System.out.println("Inside text_dropdown");
-
-
-//        if (elements.dropdown_open == null) {
-//////            return true;
-////            System.out.println("I am true");
-////        }
-
-        elements.dropdown_open.click();
-
-        System.out.println("dropdown_open click");
-
+        //Open dropdown search
+        click("dropdown open", this.elements.dropdown_open);
+        pause(1);
+        //Enter search term
+        sendKeys("dropdown textbox", this.elements.dropdown_textbox, answer);
+        pause(1);
+        //Click index option
         selectOption(answer);
-        System.out.println("send key executed");
-
-
     }
 
     public WebElement selectOptionForMarketNumber(String answer){
@@ -52,9 +41,7 @@ public class ProviderDetails extends GenericInputPage {
 
 
     private void selectOption(String answer)  {
-//        sendKeys("Market Number Sent", selectOptionForMarketNumber());
         click("MarketNumber",selectOptionForMarketNumber(answer));
-
         assert clickNext();
         assert waitForPageLoad();
 
@@ -71,6 +58,8 @@ public class ProviderDetails extends GenericInputPage {
     {
         @FindBy(xpath = "//span[@class='select2-selection__arrow']")
         private WebElement dropdown_open;
+        @FindBy(xpath = "//input[@class='select2-search__field']")
+        public WebElement dropdown_textbox;
 
         public PageElements(SearchContext context) {
             super(context);

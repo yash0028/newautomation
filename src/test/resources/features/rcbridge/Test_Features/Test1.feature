@@ -30,10 +30,8 @@ Feature: US1407216 - Author SPA Contact UI Path
     And I enter Provider Roster
     And I enter Amendments
     And I enter Group Summary
-    And I enter Wizard Complete
-    Then I have an active contract in Exari
+    Then I Complete Wizard
     Examples:
       | site          | TCName   |
       | central uhn   | TC624355 |
-      | central uhn   | TC624356 |
-      | central uhn   | TC624357 |
+      #| Southeast uhn | TC10     |

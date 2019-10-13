@@ -30,7 +30,7 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
     }
 
     private static class PageElements extends AbstractPageElements {
-        @FindBy(xpath = "//*[@id=\"xri-PhyCon_Number_UTQ-UTQField_227\"]")
+        @FindBy(xpath = "//input[contains(@name,'PhyCon')]")
         private WebElement phyConNumber;
 
         public PageElements(SearchContext context) {

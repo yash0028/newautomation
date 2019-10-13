@@ -22,9 +22,7 @@ public class DocumentSelection extends GenericInputPage
     }
 
     public void selectDocumentType(HashMap<String,String> hmap) {
-
-        click("Paper Type",selectPaperType(hmap.get("Paper Type")));
-        pause(3);
+        assert  click("Paper Type",selectPaperType(hmap.get("Paper Type")));
         assert clickNext();
         assert waitForPageLoad();
 

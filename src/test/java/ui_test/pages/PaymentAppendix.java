@@ -1,10 +1,11 @@
 package ui_test.pages;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
+import ui_test.util.AbstractPageElements;
 
 import java.util.HashMap;
 
@@ -13,6 +14,7 @@ public class PaymentAppendix extends GenericInputPage {
     private PageElements elements;
     public PaymentAppendix(WebDriver driver) {
         super(driver);
+        elements=new PageElements(driver);
     }
 
     public void selectPaymentAppendix(HashMap<String,String> hmap) {
@@ -37,10 +39,13 @@ public class PaymentAppendix extends GenericInputPage {
         assert waitForPageLoad();
     }
 
-    private static class PageElements{
+    private static class PageElements  extends AbstractPageElements {
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name']")
         private WebElement feeSchduleID;
 
+        public PageElements(SearchContext context) {
+            super(context);
+        }
     }
 
 
