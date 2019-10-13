@@ -4,7 +4,7 @@
 @iterationUnknown
 Feature: US1407217 - Author SPA Contact UI Path
 
-  @TC624355
+  @TC624356
   @Manual
   @User_Interface
   Scenario Outline: TC624355 - [RL0] Author SPA contract in <site>
@@ -33,4 +33,4 @@ Feature: US1407217 - Author SPA Contact UI Path
     Then I Complete Wizard
     Examples:
       | site          | TCName   |
-      | central uhn   | TC624355 |
+      | central uhn   | TC624356 |
