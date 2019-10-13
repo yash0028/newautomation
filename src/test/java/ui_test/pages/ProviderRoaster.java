@@ -17,12 +17,12 @@ public class ProviderRoaster extends GenericInputPage
 
 
     public WebElement clickRosterAction(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+Name+"')]"});
     }
 
     public void roasterAction(HashMap<String,String>hmap)  {
-        pause(4);
-        click("Provider Roster", clickRosterAction(hmap.get("Roster")));
+        assert waitForPageLoad();
+        assert click("Provider Roster", clickRosterAction(hmap.get("Roster")));
         assert clickNext();
         assert waitForPageLoad();
 
