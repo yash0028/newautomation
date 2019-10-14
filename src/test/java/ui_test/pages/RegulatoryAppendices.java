@@ -37,7 +37,7 @@ public class RegulatoryAppendices extends GenericInputPage
 
     private static class PageElements  extends AbstractPageElements {
 
-        @FindBy(xpath = "//*[@id=\"MCQAnswerBlock243\"]/span[1]/span[1]/span/ul/li/input")
+        @FindBy(xpath = "//input[@type='search']")
         private WebElement clickOnBar;
         @FindBy(xpath = "//span[@class='select2-results']//li")
         public List<WebElement> dropdown_selection;
