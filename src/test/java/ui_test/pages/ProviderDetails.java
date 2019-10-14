@@ -48,6 +48,9 @@ public class ProviderDetails extends GenericInputPage {
     }
 
     public void previewProfile() {
+        assert clickNext();
+        assert waitForPageLoad();
+        pause(4);
 
         assert clickNext();
         assert waitForPageLoad();
