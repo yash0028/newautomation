@@ -24,10 +24,10 @@ public class PracticeLocations extends GenericInputPage
 
     public void selectLocation(HashMap<String,String>hmap) {
 
-
-        click("Practice Location",selectPracticeLocation(hmap.get("PracticeLocation")));
-
-
+        assert clickNext();
+        assert waitForPageLoad();
+        pause(4);
+        assert click("Practice Location",selectPracticeLocation(hmap.get("PracticeLocation")));
         assert clickNext();
         assert waitForPageLoad();
 
