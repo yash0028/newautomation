@@ -47,25 +47,25 @@ public class ProviderDetails extends GenericInputPage {
 
     }
 
-    @Override
-    public boolean confirmCurrentPage() {
-        return isVisible(elements.checkCounterpartyDetails);
-    }
-
-
 
     public void previewProfile() {
         assert clickNext();
         assert waitForPageLoad();
 
-
-        if(confirmCurrentPage())
+        if(isElementPresent())
         {
-            pause(4);
             assert clickNext();
             assert waitForPageLoad();
         }
 
+    }
+    public boolean isElementPresent() {
+        try {
+            driver.findElement(By.xpath("//b[contains(text(),'Counterparty TIN duplicate check failed')]"));
+            return true;
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
     }
 
     private static class PageElements  extends AbstractPageElements
@@ -74,11 +74,11 @@ public class ProviderDetails extends GenericInputPage {
         private WebElement dropdown_open;
         @FindBy(xpath = "//input[@class='select2-search__field']")
         public WebElement dropdown_textbox;
-        @FindBy(xpath="//b[contains(text(),'Counterparty TIN duplicate check failed')]")
-        public WebElement checkCounterpartyDetails;
+
 
         public PageElements(SearchContext context) {
             super(context);
         }
     }
+
 }
