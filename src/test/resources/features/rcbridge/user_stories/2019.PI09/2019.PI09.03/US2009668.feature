@@ -34,5 +34,4 @@ Feature: US2009668 - Search for like transactions within a Mass Actions project
     When a user inputs values into any of the search fields
     And NO matching records are found
     Then an onscreen message will be displayed - "No matching records found"
-    And the display of Type 1 errors will show all Type 1 errors
 

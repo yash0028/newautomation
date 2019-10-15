@@ -16,5 +16,4 @@ Feature: US2062862 - Locked Language - Market Lead User Groups
     When the Market Lead routing is done
     Then the Physician Local Contract Approver user groups are used
     And the group is chosen based upon market number
-    And if the market number doesn't exist as a group it is based upon the State of the contract.
 
