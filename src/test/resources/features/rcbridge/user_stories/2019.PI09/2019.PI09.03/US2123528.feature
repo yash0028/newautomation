@@ -1,23 +1,23 @@
 # Last updated on 
-@US1987612
+@US2123528
 @2019.PI09
 @2019.PI09.03
 @releasePresent
 @iterationPresent
-Feature: US1987612 - Select related transactions within a Mass Actions project - Type 2
+Feature: US2123528 - [Unfinished] Select related transactions within a Mass Actions project - Type 2
 
-  @TC958744
+  @TC1019822
   @Manual
   @Functional
-  Scenario: TC958744 - [RL0]
+  Scenario: TC1019822 - [RL0]
     Given a Mass Action Project has resulted in Type 2 errors
     When a user navigates into the Action Required section from the 4-blocker
     Then the user will see the Type 2 (or downstream system) errors grouped by Message Code
 
-  @TC958759
+  @TC1019823
   @Manual
   @Functional
-  Scenario: TC958759 - [RL1]
+  Scenario: TC1019823 - [RL1]
     Given a Mass Action Project has resulted in Type 2 errors
     And the user has navigated to the Action Required section of the 4-blocker
     When the user selects one of the Type 2 error groupings
@@ -25,10 +25,10 @@ Feature: US1987612 - Select related transactions within a Mass Actions project -
     And the user will be able to select one or more target/transactions within the Mass Action Project
     And the display will include Name, Deal ID, MPIN, TIN, Status, Action, Retry Count
 
-  @TC958773
+  @TC1019824
   @Manual
   @Functional
-  Scenario: TC958773 - [RL2]
+  Scenario: TC1019824 - [RL2]
     Given a Mass Action Project has resulted in Type 2 errors
     When a user navigates into the Action Required section from the 4-blocker
     And the user wants to select all targets that errored
@@ -39,10 +39,10 @@ Feature: US1987612 - Select related transactions within a Mass Actions project -
     And the user can deselect targets individually
     And the user can select targets individually
 
-  @TC958785
+  @TC1019825
   @Manual
   @Functional
-  Scenario: TC958785 - [RL3]
+  Scenario: TC1019825 - [RL3]
     Given a Mass Action Project has resulted in Type 2 errors
     And a user navigates into the Action Required section from the 4-blocker
     When the user has selected the targets for resolution
@@ -50,10 +50,10 @@ Feature: US1987612 - Select related transactions within a Mass Actions project -
     And the user will be able to input the Type 2 error resolution once for all selected targets
     And the input error resolution persists to all selected targets
 
-  @TC958797
+  @TC1019826
   @Manual
   @Functional
-  Scenario: TC958797 - [RL4]
+  Scenario: TC1019826 - [RL4]
     Given a user has selected multiple targets for error resolution
     When the targets do not have like characteristics (i.e. market number, fee schedule, product group)
     Then the service will display on onscreen error of, "The selected providers do not share characteristics to will enable mass resolution. Please select providers with like characteristics."
