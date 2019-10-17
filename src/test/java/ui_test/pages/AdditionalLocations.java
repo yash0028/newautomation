@@ -13,6 +13,7 @@ public class AdditionalLocations extends GenericInputPage
         super(driver);
     }
 
+
     public void selectAdditionalLocations(HashMap<String,String> hmap){
         assert click("Additional Location", additionalLocationsElement(hmap.get("Additional Location")));
         assert clickNext();

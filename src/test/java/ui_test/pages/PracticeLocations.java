@@ -26,10 +26,12 @@ public class PracticeLocations extends GenericInputPage
 
         assert clickNext();
         assert waitForPageLoad();
-
+/*
         assert click("Practice Location",selectPracticeLocation(hmap.get("PracticeLocation")));
         assert clickNext();
         assert waitForPageLoad();
+
+ */
 
 
     }
