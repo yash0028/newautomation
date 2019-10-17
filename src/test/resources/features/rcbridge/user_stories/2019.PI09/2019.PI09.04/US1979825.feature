@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1979825 - User Help Guide:  CLM Message Catalog API to GET message details by message code
 
   @TC1019545

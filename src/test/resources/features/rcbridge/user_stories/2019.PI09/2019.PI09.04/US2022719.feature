@@ -4,7 +4,7 @@
 @2019.PI09
 @2019.PI09.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2022719 - Ensure workflow is being used
 
   @TC960462

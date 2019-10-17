@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2123528 - [Unfinished] Select related transactions within a Mass Actions project - Type 2
 
   @TC1019822

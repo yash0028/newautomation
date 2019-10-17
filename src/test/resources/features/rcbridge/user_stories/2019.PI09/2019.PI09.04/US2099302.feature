@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2099302 - Type 2 Regular Resolve Multiple UI/Backend Integration
 
   @TC1008968

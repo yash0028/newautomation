@@ -1,10 +1,9 @@
 # Last updated on 
 @Go_Live
 @US1469837
-@2019.PI09
-@2019.PI09.04
-@releasePresent
-@iterationFuture
+@2019.PI10
+@releaseFuture
+@iterationUnknown
 Feature: US1469837 - Calculate disposition - Non-NAR using AM for Rate Escalator
 
   @TC743473

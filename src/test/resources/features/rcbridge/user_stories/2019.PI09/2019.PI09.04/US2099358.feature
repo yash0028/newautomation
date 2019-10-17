@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2099358 - Type 2 Mass Actions Resolve Multiple UI/Backend Integration
 
   @TC1008967

@@ -2,8 +2,8 @@
 @Exari
 @Go_Live
 @US1469831
-@2019.PI09
-@releasePresent
+@2019.PI10
+@releaseFuture
 @iterationUnknown
 Feature: US1469831 - Calculate disposition - NAR Physician using AM, Non-1/1 effective date
 

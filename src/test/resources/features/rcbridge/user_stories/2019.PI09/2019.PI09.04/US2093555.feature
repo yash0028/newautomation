@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2093555 - Canned emails
 
   @TC1005298

@@ -4,7 +4,7 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2062862 - Locked Language - Market Lead User Groups
 
   @TC987532

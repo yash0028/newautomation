@@ -6,7 +6,7 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2027428 - Locked Language Request – UHN Legal Denied
 
   @TC967053
@@ -20,7 +20,6 @@ Feature: US2027428 - Locked Language Request – UHN Legal Denied
     When it is assigned an owner
     Then the task is assigned back to the contractor with the comments added by UHN Legal Team member
     And the contractor sees the original form in edit mode, submitted along with the additional comments provided by UHN Legal Team member
-    And the contractor receives an email about the denial.
 
   @TC967067
   @Manual

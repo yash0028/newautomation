@@ -1,7 +1,7 @@
 # Last updated on 
 @US1405372
-@2019.PI06
-@releasePast
+@2020.PI03
+@releaseFuture
 @iterationUnknown
 Feature: US1405372 - Itemize explicit language changes within Exari
 

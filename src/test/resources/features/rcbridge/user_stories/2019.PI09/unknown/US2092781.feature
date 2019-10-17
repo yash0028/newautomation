@@ -1,9 +1,8 @@
 # Last updated on 
 @US2092781
 @2019.PI09
-@2019.PI09.04
 @releasePresent
-@iterationFuture
+@iterationUnknown
 Feature: US2092781 - Dev Clean Up in APS
 
   @TC1013511

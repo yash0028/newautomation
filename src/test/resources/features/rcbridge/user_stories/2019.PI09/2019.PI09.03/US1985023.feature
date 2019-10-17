@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US1985023 - Provide users an option when aborting Type 1 errors
 
   @TC968856

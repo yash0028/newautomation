@@ -4,7 +4,7 @@
 @2019.PI09
 @2019.PI09.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1824414 - User Groups - No claim if only one person - Rate Escalator
 
   @TC835327

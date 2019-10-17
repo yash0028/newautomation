@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2009668 - Search for like transactions within a Mass Actions project
 
   @TC958745

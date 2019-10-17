@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2087897 - MAHP GHMO - Determine ConArr for PCP and SPEC Contracts VIRGINIA (038 , 040, 010)
 
   @TC1004338

@@ -1,7 +1,7 @@
 # Last updated on 
 @US1404732
-@2019.PI06
-@releasePast
+@2020.PI03
+@releaseFuture
 @iterationUnknown
 Feature: US1404732 - Determine amendment impact state (Passive or No)
 

@@ -4,7 +4,7 @@
 @2019.PI09
 @2019.PI09.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US1824358 - User group has no users - Escalator
 
   @TC835326

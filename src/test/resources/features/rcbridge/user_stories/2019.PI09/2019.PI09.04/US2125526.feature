@@ -1,17 +1,17 @@
 # Last updated on 
 @Sheham
-@US1935858
+@US2125526
 @2019.PI09
-@2019.PI09.03
+@2019.PI09.04
 @releasePresent
-@iterationPast
-Feature: US1935858 - Move retro to test environment
+@iterationPresent
+Feature: US2125526 - Move retro to test environment
 
-  @TC911635
+  @TC1022062
   @Manual
   @Functional
   @Sheham
-  Scenario: TC911635 - [RL0]
+  Scenario: TC1022062 - [RL0]
     Given the retro process revamp is completed
     When the process is downloaded from dev and uploaded into stage
     Then the retro process is in test

@@ -2,9 +2,8 @@
 @Suman
 @US1824515
 @2019.PI09
-@2019.PI09.04
 @releasePresent
-@iterationFuture
+@iterationUnknown
 Feature: US1824515 - User group has no users - Physician
 
   @TC835334

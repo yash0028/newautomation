@@ -3,11 +3,11 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2099163 - Product Network Microservice Iteration 1
 
   @TC1019544
-  @Manual
+  @Automated
   @Functional
   Scenario: TC1019544 - [RL0]
     Given an OCM without the product details field
@@ -15,7 +15,7 @@ Feature: US2099163 - Product Network Microservice Iteration 1
     Then I receive a list of product details
 
   @TC1019546
-  @Manual
+  @Automated
   @Functional
   Scenario: TC1019546 - [RL1]
     Given an OCM without the product details field
