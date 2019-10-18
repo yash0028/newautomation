@@ -22,17 +22,28 @@ public class PracticeLocations extends GenericInputPage
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+answer+"')]"});
     }
 
+
+    //Select Practice Location when Paper Type is SPGA
     public void selectLocation(HashMap<String,String>hmap) {
 
         assert clickNext();
         assert waitForPageLoad();
-/*
-        assert click("Practice Location",selectPracticeLocation(hmap.get("PracticeLocation")));
-        assert clickNext();
-        assert waitForPageLoad();
-
- */
-
 
     }
+
+
+    //Select Practice Location when Paper Type is MPA
+    public void selectPracticeLocation()
+    {
+        pause(3);
+        WebElement webElement=driver.findElement(By.xpath("//input[@type='radio']"));
+        assert  click("Select Practice Location",webElement);
+        pause(3);
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
+
+
+
 }
