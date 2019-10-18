@@ -9,7 +9,7 @@ Feature: US1987612 - [Continued] Select related transactions within a Mass Actio
   @TC958744
   @Manual
   @Functional
-  Scenario: TC958744 - [RL0]
+  Scenario: TC958744 - [RL0] Verify grouping by error
     Given a Mass Action Project has resulted in Type 2 errors
     When a user navigates into the Action Required section from the 4-blocker
     Then the user will see the Type 2 (or downstream system) errors grouped by Message Code
@@ -17,7 +17,7 @@ Feature: US1987612 - [Continued] Select related transactions within a Mass Actio
   @TC958759
   @Manual
   @Functional
-  Scenario: TC958759 - [RL1]
+  Scenario: TC958759 - [RL1] Verify select some and display data
     Given a Mass Action Project has resulted in Type 2 errors
     And the user has navigated to the Action Required section of the 4-blocker
     When the user selects one of the Type 2 error groupings
@@ -28,7 +28,7 @@ Feature: US1987612 - [Continued] Select related transactions within a Mass Actio
   @TC958773
   @Manual
   @Functional
-  Scenario: TC958773 - [RL2]
+  Scenario: TC958773 - [RL2] Verify select all
     Given a Mass Action Project has resulted in Type 2 errors
     When a user navigates into the Action Required section from the 4-blocker
     And the user wants to select all targets that errored
@@ -42,7 +42,7 @@ Feature: US1987612 - [Continued] Select related transactions within a Mass Actio
   @TC958785
   @Manual
   @Functional
-  Scenario: TC958785 - [RL3]
+  Scenario: TC958785 - [RL3] Verify Resolution Page
     Given a Mass Action Project has resulted in Type 2 errors
     And a user navigates into the Action Required section from the 4-blocker
     When the user has selected the targets for resolution
@@ -53,7 +53,7 @@ Feature: US1987612 - [Continued] Select related transactions within a Mass Actio
   @TC958797
   @Manual
   @Functional
-  Scenario: TC958797 - [RL4]
+  Scenario: TC958797 - [RL4] Verify Selecting Unlike Displays Error
     Given a user has selected multiple targets for error resolution
     When the targets do not have like characteristics (i.e. market number, fee schedule, product group)
     Then the service will display on onscreen error of, "The selected providers do not share characteristics to will enable mass resolution. Please select providers with like characteristics."

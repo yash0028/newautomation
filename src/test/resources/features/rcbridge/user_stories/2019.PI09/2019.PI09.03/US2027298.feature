@@ -2,9 +2,9 @@
 @Go_Live
 @US2027298
 @2019.PI09
-@2019.PI09.04
+@2019.PI09.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2027298 - Locked Language Request - Operations
 
   @TC967057
