@@ -2,9 +2,8 @@
 @Go_Live
 @US2022719
 @2019.PI09
-@2019.PI09.04
 @releasePresent
-@iterationPresent
+@iterationUnknown
 Feature: US2022719 - Ensure workflow is being used
 
   @TC960462

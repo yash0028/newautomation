@@ -4,9 +4,8 @@
 @Dushyant
 @US2032121
 @2019.PI09
-@2019.PI09.04
 @releasePresent
-@iterationPresent
+@iterationUnknown
 Feature: US2032121 - Integration - Fee Schedule: Summary
 
   @TC970898

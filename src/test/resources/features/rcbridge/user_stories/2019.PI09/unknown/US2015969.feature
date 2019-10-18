@@ -3,9 +3,8 @@
 @Adele_R
 @US2015969
 @2019.PI09
-@2019.PI09.04
 @releasePresent
-@iterationPresent
+@iterationUnknown
 Feature: US2015969 - Manual Rate Escalator with multiple effective date
 
   @TC1004337

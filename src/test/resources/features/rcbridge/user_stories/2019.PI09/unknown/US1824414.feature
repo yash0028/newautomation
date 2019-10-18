@@ -2,9 +2,8 @@
 @Suman
 @US1824414
 @2019.PI09
-@2019.PI09.04
 @releasePresent
-@iterationPresent
+@iterationUnknown
 Feature: US1824414 - User Groups - No claim if only one person - Rate Escalator
 
   @TC835327

@@ -1,15 +1,13 @@
 # Last updated on 
-@US1964036
-@2019.PI09
-@2019.PI09.03
-@releasePresent
-@iterationPast
-Feature: US1964036 - Do not move to Type 1 Error when NDB Contract Master service is down
+@US2128345
+@releaseUnknown
+@iterationUnknown
+Feature: US2128345 - Do not move to Type 1 Error when NDB Contract Master service is down
 
-  @TC958741
+  @TC1024266
   @Manual
   @Functional
-  Scenario: TC958741 - [RL0]
+  Scenario: TC1024266 - [RL0]
     Given a valid transaction exists
     When the contract master search service response indicates the service is unavailable
     Then the contract state does not change to Action Required

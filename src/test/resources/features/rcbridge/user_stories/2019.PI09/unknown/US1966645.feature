@@ -2,9 +2,8 @@
 @Arvind
 @US1966645
 @2019.PI09
-@2019.PI09.04
 @releasePresent
-@iterationPresent
+@iterationUnknown
 Feature: US1966645 - Request Clarification on Request - Escalator
 
   @TC960850

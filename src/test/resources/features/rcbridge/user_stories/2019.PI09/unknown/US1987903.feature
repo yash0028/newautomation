@@ -2,9 +2,8 @@
 @Suman
 @US1987903
 @2019.PI09
-@2019.PI09.03
 @releasePresent
-@iterationPast
+@iterationUnknown
 Feature: US1987903 - Loading: Submit for loading - Escalator
 
   @TC938302

@@ -2,9 +2,8 @@
 @Sheham
 @US2125526
 @2019.PI09
-@2019.PI09.04
 @releasePresent
-@iterationPresent
+@iterationUnknown
 Feature: US2125526 - Move retro to test environment
 
   @TC1022062
