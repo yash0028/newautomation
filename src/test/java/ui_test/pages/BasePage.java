@@ -8,6 +8,7 @@ public class BasePage extends GenericInputPage {
 
     private AdditionalLocations additionalLocations;
     private Appendix2 appendix2;
+    private Article article;
     private ContractDetails contractDetails;
     private CounterpartyDetails counterpartyDetails;
     private DocumentSelection documentSelection;
@@ -23,6 +24,7 @@ public class BasePage extends GenericInputPage {
     private ProviderRoaster providerRoaster;
     private RegulatoryAppendices regulatoryAppendices;
     private RequestForParticipationResponse requestForParticipationResponse;
+    private SignatureBlock signatureBlock;
     private WizardComplete wizardComplete;
     private Amendements amendements;
 
@@ -38,9 +40,16 @@ public class BasePage extends GenericInputPage {
         return (appendix2==null) ? new Appendix2(getDriver()) :appendix2;
     }
 
+
+    public Article getArticle() {
+        return (article==null) ? new Article(getDriver()) :article;
+    }
+
+
     public ContractDetails getContractDetails() {
         return (contractDetails==null) ? new ContractDetails(getDriver()) :contractDetails;
     }
+
 
     public CounterpartyDetails getCounterpartyDetails() {
         return (counterpartyDetails==null) ? new CounterpartyDetails(getDriver()) :counterpartyDetails;
@@ -96,6 +105,10 @@ public class BasePage extends GenericInputPage {
 
     public RequestForParticipationResponse getRequestForParticipationResponse() {
         return (requestForParticipationResponse==null) ? new RequestForParticipationResponse(getDriver()) :requestForParticipationResponse;
+    }
+
+    public SignatureBlock getSignatureBlock(){
+        return (signatureBlock==null) ? new SignatureBlock(getDriver()): signatureBlock;
     }
 
     public WizardComplete getWizardComplete() {

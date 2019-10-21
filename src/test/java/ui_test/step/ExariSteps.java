@@ -128,10 +128,16 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
 
-    @And("^I enter Practice Locations$")
-    public void PracticeLocations()
+    @And("^I enter Practice Locations for SPGA Contract$")
+    public void SPGAPracticeLocations()
     {
         basePage.getPracticeLocations().selectLocation(hmap);
+    }
+
+    @And("^I enter Practice Locations for MGA Contract$")
+    public void MGAPracticeLocations()
+    {
+        basePage.getPracticeLocations().selectPracticeLocation();
     }
 
 
@@ -151,6 +157,17 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getHbPsRedDoor().selectRedDoor(hmap);
     }
 
+    @And("^I enter Article Page$")
+    public void Article() {
+        basePage.getArticle().handleArticle(hmap);
+    }
+
+
+    @And("^I enter Signature Block$")
+    public void SignatureBlock() {
+        basePage.getSignatureBlock().handleSignatureBlock(hmap);
+    }
+
     @And("^I enter Market Strategy Grid$")
     public void MarketStrategyGrid()
     {
@@ -161,7 +178,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I enter Appendix 2$")
     public void Appendix2()
     {
-        basePage.getAppendix2().selectAppendix();
+        basePage.getAppendix2().selectAppendix(hmap);
     }
 
     @And("^I enter Payment Appendix$")

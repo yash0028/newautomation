@@ -24,7 +24,9 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
 
 
     public void enterPhyConNumber(HashMap<String,String> hmap){
-        assert sendKeys("PhyConNumber", this.elements.phyConNumber, hmap.get("Phycon"));
+        if(hmap.containsKey("Phycon")) {
+            assert sendKeys("PhyConNumber", this.elements.phyConNumber, hmap.get("Phycon"));
+        }
         assert clickNext();
         assert waitForPageLoad();
     }

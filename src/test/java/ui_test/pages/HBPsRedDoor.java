@@ -22,7 +22,7 @@ public class HBPsRedDoor  extends GenericInputPage
     public void selectRedDoor(HashMap<String,String> hmap){
 
 
-        click("MarketNumber",getHBPResponse(hmap.get("HBP")));
+        click("HBP Red Door",getHBPResponse(hmap.get("HBP")));
         assert clickNext();
         assert waitForPageLoad();
     }
