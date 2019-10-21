@@ -1,9 +1,14 @@
 package ui_test.pages.csvReader;
 
+import exari_test.eif.data.EifReport;
+import exari_test.eif.data.EifTestData;
+import exari_test.eif.report.Result;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.AbstractRestApi;
+import ui_test.pages.Report;
+import util.TimeKeeper;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -15,8 +20,11 @@ import java.util.List;
 
 public class CSVReader {
     private static final Logger log = LoggerFactory.getLogger(AbstractRestApi.class);
-    public HashMap readFile(String path, String testName) {
+    private Report report = Report.getReportInstance();
 
+
+    public HashMap readFile(String path, String testName) {
+        long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
         String csvFile = path;
         BufferedReader br = null;
         String line = "";
@@ -26,8 +34,8 @@ public class CSVReader {
         List<String> list = new ArrayList<String>();
 
         try {
-
-
+            if (report.getReport() != null)
+                report.getReport().addNote("TestName", testName);
             int count=0;
             br = new BufferedReader(new FileReader(csvFile));
             log.info("Reading Test Data From {}",csvFile);
@@ -74,17 +82,33 @@ public class CSVReader {
 
             Assert.assertNotNull("Test Data for this case not present",imap);
 
+
         } catch (FileNotFoundException e) {
+            if (report.getReport()!= null) {
+                report.getReport().markCSVReader(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+            }
             e.printStackTrace();
         } catch (IOException e) {
+            if (report.getReport()!= null) {
+                report.getReport().markCSVReader(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+            }
             e.printStackTrace();
         } finally {
             if (br != null) {
                 try {
                     br.close();
                 } catch (IOException e) {
+                    if (report.getReport()!= null) {
+                        report.getReport().markCSVReader(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+                    }
                     e.printStackTrace();
                 }
+            }
+            if (report.getReport()!= null) {
+                report.getReport().markCSVReader(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
+            }
+            if (report.getReport() != null) {
+                report.saveReport();
             }
         }
 

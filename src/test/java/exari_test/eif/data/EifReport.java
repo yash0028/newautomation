@@ -19,6 +19,7 @@ public class EifReport {
 
     private Step loginStep;
     private Step siteStep;
+    private Step CSVReaderStep;
     private Step authorStep;
     private Step captureStep;
     private Step activeStep;
@@ -33,7 +34,7 @@ public class EifReport {
     /**
      * Create new EifReport with default stage of 100
      */
-    EifReport() {
+    public EifReport() {
         this.noteMap = new HashMap<>();
         init();
     }
@@ -63,6 +64,10 @@ public class EifReport {
         this.siteStep.setResult(result);
 
     }
+    public void markCSVReader(Result result) {
+        this.CSVReaderStep.setResult(result);
+
+    }
 
     public void markAuthor(Result result) {
         this.authorStep.setResult(result);
@@ -85,7 +90,13 @@ public class EifReport {
      * @return List of Steps with states and any additional details
      */
     public List<Step> getStepsReport() {
-        return Arrays.asList(loginStep, siteStep, authorStep, captureStep, activeStep);
+        return Arrays.asList(
+                loginStep,
+                siteStep,
+                CSVReaderStep,
+                authorStep,
+                captureStep,
+                activeStep);
     }
 
     /*
@@ -94,8 +105,11 @@ public class EifReport {
 
     private void init() {
         final String siteName = noteMap.getOrDefault("siteName", "unknown");
-        final String contractId = noteMap.getOrDefault("contractId", "unknown");
+        //final String contractId = noteMap.getOrDefault("contractId", "unknown");
+        final String testName = noteMap.getOrDefault("testName", "unknown");
+
         Step.Builder builder = new Step.Builder();
+
 
         /* GIVEN I login to Exari Test */
         builder.withName("I login to Exari Test");
@@ -117,7 +131,18 @@ public class EifReport {
         builder = new Step.Builder();
 
 
-        /* AND I author a contract */
+        /* I am using the "<TCName>" data */
+        builder.withName("I am using the data: " + testName);
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.CSVReaderStep = builder.build();
+        builder = new Step.Builder();
+
+
+/*
+        // AND I author a contract
         builder.withName("I author a contract");
         builder.withKeyword(Step.Keyword.AND);
         builder.withMatch(new Match("ProtoStep.authorContract()"));
@@ -126,8 +151,8 @@ public class EifReport {
         this.authorStep = builder.build();
         builder = new Step.Builder();
 
+        // AND I sign the final capture
 
-        /* AND I sign the final capture */
         builder.withName("I sign the final capture");
         builder.withKeyword(Step.Keyword.AND);
         builder.withMatch(new Match("ProtoStep.finalCapture()"));
@@ -135,18 +160,18 @@ public class EifReport {
 
         this.captureStep = builder.build();
         builder = new Step.Builder();
-
-
-        /* THEN I have an active contract */
+*/
+        // THEN I have an active contract
+/*
         builder.withName("I have an active contract");
         builder.withKeyword(Step.Keyword.THEN);
         builder.withMatch(new Match("ProtoStep.checkActiveContractStatus()"));
         builder.withLine(5);
 
-        this.activeStep = builder.build();
-
         // Add additional output
-//        this.captureStep.addOutput("Contract Id: " + contractId);
+        this.captureStep.addOutput("Contract Id: " + contractId);
+
+      */
     }
     
     /*
