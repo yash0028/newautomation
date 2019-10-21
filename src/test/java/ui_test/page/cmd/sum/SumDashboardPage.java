@@ -39,6 +39,7 @@ public class SumDashboardPage implements IFactoryPage, IWebInteract, ICMDNavigat
 
     @Override
     public boolean confirmCurrentPage() {
+
         return isVisible(elements.cardCompleted);
     }
 
@@ -135,16 +136,16 @@ public class SumDashboardPage implements IFactoryPage, IWebInteract, ICMDNavigat
 
     private class PageElements extends AbstractPageElements {
 
-        @FindBy(xpath = "//mat-card/h3[contains(text(),\"Completed\")]/preceding-sibling::p/a")
+        @FindBy(xpath = "//mat-card/h3[contains(text(),\"Completed\")]/preceding-sibling::p/a[text()!='0']")
         public WebElement cardCompleted;
 
-        @FindBy(xpath = "//mat-card/h3[contains(text(),\"In-Progress\")]/preceding-sibling::p/a")
+        @FindBy(xpath = "//mat-card/h3[contains(text(),\"In-Progress\")]/preceding-sibling::p/a[text()!='0']")
         public WebElement cardInProgress;
 
-        @FindBy(xpath = "//mat-card/h3[contains(text(),\"Action Required\")]/preceding-sibling::p/a")
+        @FindBy(xpath = "//mat-card/h3[contains(text(),\"Action Required\")]/preceding-sibling::p/a[text()!='0']")
         public WebElement cardActionRequired;
 
-        @FindBy(xpath = "//mat-card/h3[contains(text(),\"Errors\")]/preceding-sibling::p/a")
+        @FindBy(xpath = "//mat-card/h3[contains(text(),\"Errors\")]/preceding-sibling::p/a[text()!='0']")
         public WebElement cardErrors;
 
         @FindBy(xpath = "//input")
