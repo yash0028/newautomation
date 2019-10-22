@@ -36,7 +36,7 @@ public class Report {
         }
         return report;
     }
-    public void saveReport()
+    public void saveReport(String reportName)
     {
         String home = System.getProperty("user.dir");
         // Save Report
@@ -55,9 +55,8 @@ public class Report {
             }
             */
             // Find name of report
-            String fileName = config.configGetOptionalString("hive.reportName").orElse("jsonreport").replaceAll(" ", "_");
-            fileName = StringUtils.appendIfMissing(fileName, ".json");
-            Path path = Paths.get(home, "src", "test", "resources","output","report",fileName);
+            reportName = StringUtils.appendIfMissing(reportName, ".json");
+            Path path = Paths.get(home, "src", "test", "resources","output","report",reportName);
             // Try to save report
             try {
                 FileHandler.getInstance().saveFile(path.toString(), gson.toJson(this.eifReport));

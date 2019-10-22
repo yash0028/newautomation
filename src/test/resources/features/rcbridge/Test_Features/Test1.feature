@@ -7,7 +7,7 @@ Feature: US1407217 - Author SPA Contact UI Path
   @TC624356
   @Manual
   @User_Interface
-  Scenario Outline: TC624356 - [RL0] Author SPA contract in <site>
+  Scenario Outline: TC624356 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     And I am using the "<TCName>" data
     And I enter PES Inputs

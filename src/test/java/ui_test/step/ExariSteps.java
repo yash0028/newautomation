@@ -223,7 +223,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @Then("^I Complete Wizard$")
     public void WizardComplete() {
-        basePage.getWizardComplete().completeWizard();
+        basePage.getWizardComplete().completeWizard(hmap);
     }
 
 

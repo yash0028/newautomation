@@ -65,7 +65,7 @@ public class CSVReader {
 
                     if(data[0].equalsIgnoreCase(testName))
                     {
-                        for(int i=0;i<list.size();i++)
+                        for(int i=0;i<data.length;i++)
                         {
                             System.out.println("Index is"+i);
                             if(!data[i].isEmpty())
@@ -111,9 +111,7 @@ public class CSVReader {
             if (report.getReport()!= null) {
                 report.getReport().markCSVReader(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
             }
-            if (report.getReport() != null) {
-                report.saveReport();
-            }
+
         }
 
 

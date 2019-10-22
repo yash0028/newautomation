@@ -97,6 +97,9 @@ public class ProtoStep implements IConfigurable {
             }
             return this;
         } catch (Exception e) {
+            if (report.getReport() != null) {
+                report.getReport().markSetSite(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+            }
             throw e;
         }
 

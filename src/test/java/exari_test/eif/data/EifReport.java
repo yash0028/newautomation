@@ -20,6 +20,32 @@ public class EifReport {
     private Step loginStep;
     private Step siteStep;
     private Step CSVReaderStep;
+    private Step PESInputs;
+    private Step PESResponse;
+    private Step MarketNumber;
+    private Step RequestForParticipationResponse;
+    private Step DocumentSelection;
+    private Step previewProviderDetails_1;
+    private Step PracticeLocationsforSPGAContract;
+    private Step PracticeLocationsforMGAContract;
+    private Step PracticeLocationsforSPAContract;
+    private Step previewProviderDetails_2;
+    private Step MarketExceptionGrid_1;
+    private Step MarketExceptionGrid_2;
+    private Step ContractDetails;
+    private Step ArticlePage;
+    private Step SignatureBlock;
+    private Step HBPsRedDoor;
+    private Step MarketStrategyGrid;
+    private Step Appendix2;
+    private Step PaymentAppendix;
+    private Step AdditionalLocations;
+    private Step RegulatoryAppendices;
+    private Step ProviderRoster;
+    private Step Amendments;
+    private Step GroupSummary;
+    private Step ICompleteWizard;
+
     private Step authorStep;
     private Step captureStep;
     private Step activeStep;
@@ -64,10 +90,111 @@ public class EifReport {
         this.siteStep.setResult(result);
 
     }
+    public void markPESInputs(Result result) {
+        this.PESInputs.setResult(result);
+
+    }
+    public void markPESResponse(Result result) {
+        this.PESResponse.setResult(result);
+
+    }
+    public void markMarketNumber(Result result) {
+        this.MarketNumber.setResult(result);
+
+    }
+    public void markRequestForParticipationResponse(Result result) {
+        this.RequestForParticipationResponse.setResult(result);
+
+    }
+    public void markDocumentSelection(Result result) {
+        this.DocumentSelection.setResult(result);
+
+    }
+    public void markpreviewProviderDetails_1(Result result) {
+        this.previewProviderDetails_1.setResult(result);
+
+    }
+    public void markPracticeLocationsforSPGAContract(Result result) {
+        this.PracticeLocationsforSPGAContract.setResult(result);
+
+    }
+    public void markPracticeLocationsforSPAContract(Result result) {
+        this.PracticeLocationsforSPAContract.setResult(result);
+
+    }
+    public void markPracticeLocationsforMGAContract(Result result) {
+        this.PracticeLocationsforMGAContract.setResult(result);
+
+    }
+    public void previewProviderDetails_2(Result result) {
+        this.previewProviderDetails_2.setResult(result);
+
+    }
+    public void markMarketExceptionGrid_1(Result result) {
+        this.MarketExceptionGrid_1.setResult(result);
+
+    }
+    public void markMarketExceptionGrid_2(Result result) {
+        this.MarketExceptionGrid_2.setResult(result);
+
+    }
+    public void markContractDetails(Result result) {
+        this.ContractDetails.setResult(result);
+
+    }
+    public void markArticlePage(Result result) {
+        this.ArticlePage.setResult(result);
+
+    }
+    public void markSignatureBlock(Result result) {
+        this.SignatureBlock.setResult(result);
+
+    }
+    public void markHBPsRedDoor(Result result) {
+        this.HBPsRedDoor.setResult(result);
+
+    }
+    public void markMarketStrategyGrid(Result result) {
+        this.MarketStrategyGrid.setResult(result);
+
+    }
+    public void markAppendix2(Result result) {
+        this.Appendix2.setResult(result);
+
+    }
+    public void markPaymentAppendix(Result result) {
+        this.PaymentAppendix.setResult(result);
+
+    }
+    public void markAdditionalLocations(Result result) {
+        this.AdditionalLocations.setResult(result);
+
+    }
+    public void markRegulatoryAppendices(Result result) {
+        this.RegulatoryAppendices.setResult(result);
+
+    }
+    public void markProviderRoster(Result result) {
+        this.ProviderRoster.setResult(result);
+
+    }
+    public void markAmendments(Result result) {
+        this.Amendments.setResult(result);
+
+    }
+    public void markGroupSummary(Result result) {
+        this.GroupSummary.setResult(result);
+
+    }
+    public void markICompleteWizard(Result result) {
+        this.ICompleteWizard.setResult(result);
+
+    }
     public void markCSVReader(Result result) {
         this.CSVReaderStep.setResult(result);
 
     }
+
 
     public void markAuthor(Result result) {
         this.authorStep.setResult(result);
@@ -94,6 +221,31 @@ public class EifReport {
                 loginStep,
                 siteStep,
                 CSVReaderStep,
+                PESInputs,
+                PESResponse,
+                MarketNumber,
+                RequestForParticipationResponse,
+                DocumentSelection,
+                previewProviderDetails_1,
+                PracticeLocationsforSPGAContract,
+                PracticeLocationsforMGAContract,
+                PracticeLocationsforSPAContract,
+                previewProviderDetails_2,
+                MarketExceptionGrid_1,
+                MarketExceptionGrid_2,
+                ContractDetails,
+                ArticlePage,
+                SignatureBlock,
+                HBPsRedDoor,
+                MarketStrategyGrid,
+                Appendix2,
+                PaymentAppendix,
+                AdditionalLocations,
+                RegulatoryAppendices,
+                ProviderRoster,
+                Amendments,
+                GroupSummary,
+                ICompleteWizard,
                 authorStep,
                 captureStep,
                 activeStep);
@@ -122,7 +274,7 @@ public class EifReport {
 
 
         /* WHEN I navigate to the site */
-        builder.withName("I navigate to the site: " + siteName);
+        builder.withName("I navigate to the site: noteMap->siteName");
         builder.withKeyword(Step.Keyword.WHEN);
         builder.withMatch(new Match("ProtoStep.setSite()"));
         builder.withLine(2);
@@ -131,13 +283,240 @@ public class EifReport {
         builder = new Step.Builder();
 
 
-        /* I am using the "<TCName>" data */
-        builder.withName("I am using the data: " + testName);
+        /* And I am using the "<TCName>" data */
+        builder.withName("I am using the data: noteMap->testName");
         builder.withKeyword(Step.Keyword.AND);
         builder.withMatch(new Match("CSVReader.readFile()"));
         builder.withLine(3);
 
         this.CSVReaderStep = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter PES Inputs */
+        builder.withName("I enter PES Inputs");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("basePage.getPesInputActions().enterPESInput(hmap)"));
+        builder.withLine(3);
+
+        this.PESInputs = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter PES Response */
+        builder.withName("I enter PES Response");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("basePage.getPes_response().selectCounterParty(hmap)," +
+                "basePage.getPes_response().specifyApproachForCounter(hmap)," +
+                "basePage.getPes_response().selectCounterPartyAddress(hmap)"));
+        builder.withLine(3);
+
+        this.PESResponse = builder.build();
+        builder = new Step.Builder();
+
+        /* And I select Market Number */
+        builder.withName("I select Market Number");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.MarketNumber = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Request For Participation Response */
+        builder.withName("I enter Request For Participation Response");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.RequestForParticipationResponse = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Document Selection */
+        builder.withName("I enter Document Selection");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.DocumentSelection = builder.build();
+        builder = new Step.Builder();
+
+        /* And I preview Provider Details */
+        builder.withName("I preview Provider Details");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.previewProviderDetails_1= builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Practice Locations for SPGA Contract */
+        builder.withName("I enter Practice Locations for SPGA Contract");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.PracticeLocationsforSPGAContract = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Practice Locations for MGA Contract */
+        builder.withName("I enter Practice Locations for MGA Contract");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.PracticeLocationsforMGAContract = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Practice Locations for SPA Contract */
+        builder.withName("I enter Practice Locations for SPA Contract");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.PracticeLocationsforSPAContract = builder.build();
+        builder = new Step.Builder();
+
+        /* And I preview Provider Details */
+        builder.withName("I preview Provider Details");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.previewProviderDetails_2 = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Market Exception Grid */
+        builder.withName("I enter Market Exception Grid");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.MarketExceptionGrid_1 = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Market Exception Grid */
+        builder.withName("I enter Market Exception Grid");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.MarketExceptionGrid_2 = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Contract Details */
+        builder.withName("I enter Contract Details");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.ContractDetails = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Article Page */
+        builder.withName("I enter Article Page");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.ArticlePage = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Signature Block */
+        builder.withName("I enter Signature Block");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.SignatureBlock = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter HBPs Red Door */
+        builder.withName("I enter HBPs Red Door");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.HBPsRedDoor = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Market Strategy Grid */
+        builder.withName("I enter Market Strategy Grid");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.MarketStrategyGrid = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Appendix 2 */
+        builder.withName("I enter Appendix 2");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.Appendix2 = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Payment Appendix */
+        builder.withName("I enter Payment Appendix");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.PaymentAppendix = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Additional Locations */
+        builder.withName("I enter Additional Locations");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.AdditionalLocations = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Regulatory Appendices */
+        builder.withName("I enter Regulatory Appendices");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.RegulatoryAppendices = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Provider Roster */
+        builder.withName("I enter Provider Roster");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.ProviderRoster = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Amendments */
+        builder.withName("I enter Amendments");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.Amendments = builder.build();
+        builder = new Step.Builder();
+
+        /* And I enter Group Summary */
+        builder.withName("I enter Group Summary");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.GroupSummary = builder.build();
+        builder = new Step.Builder();
+
+        /* Then I Complete Wizard */
+        builder.withName("I Complete Wizard");
+        builder.withKeyword(Step.Keyword.AND);
+        builder.withMatch(new Match("CSVReader.readFile()"));
+        builder.withLine(3);
+
+        this.ICompleteWizard = builder.build();
         builder = new Step.Builder();
 
 
