@@ -1,4 +1,6 @@
 # Last updated on 
+@Samir_Ahmed
+@PES
 @US2131589
 @2019.PI09
 @2019.PI09.04
@@ -9,6 +11,8 @@ Feature: US2131589 - Revise constraint in PES CP search/response (Optum Dev)
   @TC1025759
   @Manual
   @Functional
+  @Samir_Ahmed
+  @PES
   Scenario: TC1025759 - [RL0]
     Given the UHN data constraint has been removed from the PES search parameters
     When PES microservice is initiated by CLM

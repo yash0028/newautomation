@@ -1,6 +1,7 @@
 # Last updated on 
 @Samir_Ahmed
 @Damodar
+@PES
 @US2086690
 @2019.PI09
 @2019.PI09.04
@@ -13,6 +14,7 @@ Feature: US2086690 - PES CP Add Attributes to Microservice(Optum Dev)
   @Functional
   @Samir_Ahmed
   @Damodar
+  @PES
   Scenario: TC1025764 - [RL0]
     Given the PES Summary0002 service is up and running
     When a valid request is initiated
