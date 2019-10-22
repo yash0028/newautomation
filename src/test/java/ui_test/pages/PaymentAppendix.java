@@ -58,6 +58,11 @@ public class PaymentAppendix extends GenericInputPage {
                 assert sendKeys("FeeSchedule ID Non Physician", this.elements.feeSchduleIDNonPhysician, hmap.get("FS All Payer Non Physician"));
                 break;
             }
+            case "SPA":
+            {    assert sendKeys("FeeSchdeuleID", this.elements.feeSchduleID, hmap.get("FS All Payer"));
+                break;
+
+            }
         }
         assert clickNext();
         assert waitForPageLoad();

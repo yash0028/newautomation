@@ -1,9 +1,12 @@
 package ui_test.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
+import ui_test.util.AbstractPageElements;
 
 import java.util.HashMap;
 
@@ -11,10 +14,12 @@ import java.util.HashMap;
 public class PracticeLocations extends GenericInputPage
 {
 
+    private PageElements elements;
 
     public PracticeLocations(WebDriver driver)
     {
         super(driver);
+        elements=new PageElements(driver);
 
     }
 
@@ -35,15 +40,20 @@ public class PracticeLocations extends GenericInputPage
     //Select Practice Location when Paper Type is MPA
     public void selectPracticeLocation()
     {
-        pause(3);
-        WebElement webElement=driver.findElement(By.xpath("//input[@type='radio']"));
-        assert  click("Select Practice Location",webElement);
-        pause(3);
+        click(elements.radioBtnSelection);
         assert clickNext();
         assert waitForPageLoad();
     }
 
+    private static class PageElements  extends AbstractPageElements {
 
+        @FindBy(xpath = "//input[@type='radio']")
+        private WebElement radioBtnSelection;
+
+        public PageElements(SearchContext context) {
+            super(context);
+        }
+    }
 
 
 }

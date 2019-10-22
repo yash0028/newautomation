@@ -54,8 +54,8 @@ public class ProviderDetails extends GenericInputPage {
 
         if(isElementPresent())
         {
-            assert clickNext();
-            assert waitForPageLoad();
+            //assert clickNext();
+            //assert waitForPageLoad();
         }
 
     }

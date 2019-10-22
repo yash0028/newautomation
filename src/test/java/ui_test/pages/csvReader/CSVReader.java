@@ -53,9 +53,11 @@ public class CSVReader {
                     System.out.println("test name is "+testName);
 
 
+                    //System.out.println("I am HERE  Key is "+list.get(24)+" Data is"+data[24]);
+
                     if(data[0].equalsIgnoreCase(testName))
                     {
-                        for(int i=0;i<list.size();i++)
+                        for(int i=0;i<data.length;i++)
                         {
                             System.out.println("Index is"+i);
                             if(!data[i].isEmpty())
