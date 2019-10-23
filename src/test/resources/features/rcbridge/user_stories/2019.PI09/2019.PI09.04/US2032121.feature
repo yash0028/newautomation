@@ -1,6 +1,4 @@
 # Last updated on 
-@Arvind
-@Suman
 @Dushyant
 @US2032121
 @2019.PI09
@@ -12,8 +10,6 @@ Feature: US2032121 - Integration - Fee Schedule: Summary
   @TC970898
   @Manual
   @Functional
-  @Arvind
-  @Suman
   @Dushyant
   Scenario: TC970898 - [RL0]
     Given a contractor is on the "Fee Schedule: Summary" task
@@ -25,8 +21,6 @@ Feature: US2032121 - Integration - Fee Schedule: Summary
   @TC1011008
   @Manual
   @Functional
-  @Arvind
-  @Suman
   @Dushyant
   Scenario: TC1011008 - [RL2]
     Given the task "Validate MSPS Fee Schedule Details" is created
@@ -36,8 +30,6 @@ Feature: US2032121 - Integration - Fee Schedule: Summary
   @TC1011009
   @Manual
   @Functional
-  @Arvind
-  @Suman
   @Dushyant
   Scenario: TC1011009 - [RL3]
     Given the task "Validate MSPS Fee Schedule Details" is created

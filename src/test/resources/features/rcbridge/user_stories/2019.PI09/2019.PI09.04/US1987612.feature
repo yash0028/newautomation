@@ -14,17 +14,6 @@ Feature: US1987612 - [Continued] Select related transactions within a Mass Actio
     When a user navigates into the Action Required section from the 4-blocker
     Then the user will see the Type 2 (or downstream system) errors grouped by Message Code
 
-  @TC958759
-  @Manual
-  @Functional
-  Scenario: TC958759 - [RL1] Verify select some and display data
-    Given a Mass Action Project has resulted in Type 2 errors
-    And the user has navigated to the Action Required section of the 4-blocker
-    When the user selects one of the Type 2 error groupings
-    Then the user will see a checkbox to the left of the target/transaction record
-    And the user will be able to select one or more target/transactions within the Mass Action Project
-    And the display will include Name, Deal ID, MPIN, TIN, Status, Action, Retry Count
-
   @TC958773
   @Manual
   @Functional

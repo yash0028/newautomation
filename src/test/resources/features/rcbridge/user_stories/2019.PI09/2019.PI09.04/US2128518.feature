@@ -1,4 +1,5 @@
 # Last updated on 
+@Suman
 @US2128518
 @2019.PI09
 @2019.PI09.04
@@ -9,6 +10,7 @@ Feature: US2128518 - Choosing a Primary Contract
   @TC1024269
   @Manual
   @Functional
+  @Suman
   Scenario: TC1024269 - [RL0]
     Given a physician negotiation exists with multiple deal IDs
     When the create negotiation record is viewed
@@ -20,6 +22,7 @@ Feature: US2128518 - Choosing a Primary Contract
   @TC1025767
   @Manual
   @Functional
+  @Suman
   Scenario: TC1025767 - [RL1]
     Given a standalone retro approval exists with multiple deal IDs
     When the provide retro details task is viewed

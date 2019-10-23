@@ -33,7 +33,7 @@ Feature: US2030511 - Locked Language Request – UHN Legal contract offer - Unlo
   Scenario: TC968860 - [RL1]
     Given a locked language change process exists
     When the a task "Locked Language: Unlock template & Insert Language"" is created
-    Then it is assigned to Template team
+    Then it is assigned to Template team (Power_Author_Administrator)
     And a notification mail is sent to the "UHN Contract Template Team <uhn_contract_template_team@uhc.com>
     And the text displayed in the form is "Please unlock the template and insert the agreed upon language as UHN legal team has approved the language change."
     And the contract ID is shown
