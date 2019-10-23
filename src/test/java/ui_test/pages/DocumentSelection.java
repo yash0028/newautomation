@@ -56,6 +56,12 @@ public class DocumentSelection extends GenericInputPage
                 assert waitForPageLoad();
                 break;
             }
+            case "SPA":
+            {
+                assert clickNext();
+                assert waitForPageLoad();
+                break;
+            }
         }
 
     }

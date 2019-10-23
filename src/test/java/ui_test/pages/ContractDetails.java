@@ -9,6 +9,9 @@ import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 
@@ -21,6 +24,11 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
         this.elements = new PageElements(driver);
     }
 
+    public void contractEffectiveDate(HashMap<String,String> hmap){
+        assert sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, commonMethod.formatDate(hmap.get("Contract Effective Date")));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
 
 
     public void enterPhyConNumber(HashMap<String,String> hmap){
@@ -34,6 +42,8 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[contains(@name,'PhyCon')]")
         private WebElement phyConNumber;
+        @FindBy(xpath = "//input[contains(@id,'EffectiveDate')]")
+        private WebElement contractEffectiveDate;
 
         public PageElements(SearchContext context) {
             super(context);

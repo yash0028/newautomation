@@ -149,7 +149,6 @@ class ArticleVIII extends Article
     public void handleArticleVIII(HashMap<String,String> hmap)
     {
         assert setCheckBox("Select Article 8", selectArticle(hmap.get("Article 8")), true);
-
         assert clickNext();
         assert waitForPageLoad();
     }

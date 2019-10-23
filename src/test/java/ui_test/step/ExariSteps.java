@@ -88,7 +88,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I enter PES Inputs$")
     public void PESInputs() {
         assert this.protoStep.sitePage.startContractAuthor();
-
         basePage.getPesInputActions().enterPESInput(hmap);
     }
 
@@ -107,6 +106,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getProviderDetails().selectEntry(hmap);
 
     }
+
 
 
     @And("^I enter Request For Participation Response$")
@@ -226,8 +226,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getWizardComplete().completeWizard(hmap);
     }
 
-
-
     @When("^I author a contract using the following contract information$")
     public void authorContractWithSubstitute(DataTable contractDataTable) {
         setupProtoStep(contractDataTable);
@@ -246,6 +244,71 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void checkActiveContact() {
         log.info("checking for active status");
         assert this.protoStep.checkActiveContractStatus();
+    }
+    @And("^I Start Workflow$")
+    public void workflow()
+    {
+        basePage.getContractDetailsDashboard().startWorkFlow();
+
+    }
+    @And("^I Start Process for Initial Transaction$")
+    public void initialTransaction()
+    {
+        basePage.getInitialTransaction().initialTransaction(hmap);
+
+    }
+    @And("^I Set Status as Final Pending QA$")
+    public void finalPendingQA()
+    {
+        basePage.getContractDetailsDashboard().editStatus("Final Pending QA");
+
+    }
+    @And("^I Start Final Capture$")
+    public void finalCapture()
+    {
+        basePage.getContractDetailsDashboard().finalCapture();
+
+    }
+    @And("^I enter Contract Details in Final Capture$")
+    public void contractDetailsFinalCapture()
+    {
+        basePage.getContractDetails().contractEffectiveDate(hmap);
+    }
+    @And("^I enter Provider Signatory$")
+    public void providerSignatory()
+    {
+        basePage.getProviderSignatory().ProviderSignatory(hmap);
+
+    }
+    @And("^I enter Our Signatory$")
+    public void ourSignatory()
+    {
+        basePage.getOurSignatory().ourSignatoryDate(hmap);
+
+    }
+    @And("^I enter Market Exception Grid in Final Capture$")
+    public void MEGFinalCapture()
+    {
+        basePage.getMarketExceptionGrid().chooseTask(hmap);
+
+    }
+    @And("^I enter retro code in Provider Roster$")
+    public void retrocodeProviderRoster()
+    {
+        basePage.getProviderRoaster().selectretrocode(hmap);
+
+    }
+    @And("^I acknowledge the warning$")
+    public void warning()
+    {
+        basePage.getWarning().acknowledgment();
+
+    }
+    @And("^I Set Status as Active$")
+    public void setStatusActive()
+    {
+        basePage.getContractDetailsDashboard().editStatus("Active");
+
     }
 
     /*
