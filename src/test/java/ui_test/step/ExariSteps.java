@@ -69,7 +69,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
     public void loginSitePage(String siteOption) {
         this.protoStep.loginHome();
-        this.protoStep.setSite(siteOption);
+        //this.protoStep.setSite(siteOption);
     }
 
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
@@ -346,7 +346,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getMarketExceptionGrid().chooseTask(hmap,"MC_Task");
 
     }
-    @And("^I enter Provider Roster and Upload a spreadsheet containing the roster in Make Correction$")
+    @And("^I enter Provider Roster in Make Correction$")
     public void providerRosterMakeCorrection()
     {
         basePage.getProviderRoaster().roasterAction(hmap,"MC_Roster");
@@ -373,6 +373,30 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void validation()
     {
         basePage.getValidation().validation();
+
+    }
+    @And("^I select approach for Provider Entry$")
+    public void approachForProvider()
+    {
+        basePage.getProviderRoaster().approachForProvider(hmap);
+
+    }
+    @And("^I enter TIN in Provider Roster$")
+    public void TINinProviderRoster()
+    {
+        basePage.getProviderRoaster().enterTIN(hmap);
+
+    }
+    @And("^I select Providers$")
+    public void selectProviders()
+    {
+        basePage.getProviderRoaster().selectProviders(hmap);
+
+    }
+    @And("^I enter Provider Start Date$")
+    public void providerStartDate()
+    {
+        basePage.getProviderRoaster().providerStartDate(hmap);
 
     }
 
