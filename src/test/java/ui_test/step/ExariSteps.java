@@ -99,6 +99,17 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPes_response().selectCounterPartyAddress(hmap);
     }
 
+    @And("^I enter PES Responses$")
+    public void PESResponses() {
+        basePage.getPes_response().selectCounterParty(hmap);
+        basePage.getPes_response().specifyApproachForCounter(hmap);
+//        basePage.getPes_response().selectCounterPartyAddress(hmap);
+    }
+
+    @And("^I enter Counterparty Details Page$")
+    public void CounterpartyDerails() {
+        basePage.getCounterpartyDetails().counterpartyTINDuplicateCheck();
+    }
 
     @And("^I select Market Number$")
     public void selectMarketNumber()
@@ -138,6 +149,19 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void MGAPracticeLocations()
     {
         basePage.getPracticeLocations().selectPracticeLocation();
+    }
+
+    @And("^I enter Practice Locations for SMGA Contract$")
+    public void SMGAPracticeLocations()
+    {
+        basePage.getPracticeLocations().selectLocation(hmap);
+    }
+
+
+    @And("^I enter Practice Locations for SPA Contract$")
+    public void SPAPracticeLocations()
+    {
+        basePage.getPracticeLocations().selectLocation(hmap);
     }
 
 

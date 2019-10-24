@@ -4,10 +4,10 @@
 @iterationUnknown
 Feature: US1407217 - Author SPA Contact UI Path
 
-  @TC000053
+  @TC_CEN_MGA_IN_53
   @Manual
   @User_Interface
-  Scenario Outline: TC000053 - [RL0] Author MGA contract in <site>
+  Scenario Outline: TC_CEN_MGA_IN_53 - [RL0] Author MGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     And I am using the "<TCName>" data
     And I enter PES Inputs
@@ -33,4 +33,4 @@ Feature: US1407217 - Author SPA Contact UI Path
     Then I Complete Wizard
     Examples:
       | site          | TCName   |
-      | central uhn   | TC000053 |
+      | central uhn   | TC_CEN_MGA_IN_53 |

@@ -1,13 +1,13 @@
-# Last updated on
+# Last updated on 
 @US1407217
 @releaseUnknown
 @iterationUnknown
-Feature: TC000031 - Author SMGA Contact UI Path
+Feature: US1407217 - Author SPA Contact UI Path
 
-  @TC000031
+  @TC624356
   @Manual
   @User_Interface
-  Scenario Outline: TC000031 - [RL0] Author SPA contract in <site>
+  Scenario Outline: TC624356 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     And I am using the "<TCName>" data
     And I enter PES Inputs
@@ -18,6 +18,7 @@ Feature: TC000031 - Author SMGA Contact UI Path
     And I preview Provider Details
     And I enter Practice Locations for SPGA Contract
     And I preview Provider Details
+    And I enter Counterparty Details Page
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
@@ -31,6 +32,21 @@ Feature: TC000031 - Author SMGA Contact UI Path
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA
+    And I Start Final Capture
+    And I enter Contract Details in Final Capture
+    And I enter Provider Signatory
+    And I enter Our Signatory
+    And I enter Market Exception Grid in Final Capture
+    And I enter Market Exception Grid
+    And I enter Provider Roster
+    And I enter retro code in Provider Roster
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    And I Set Status as Active
     Examples:
       | site          | TCName   |
-      | central uhn   | TC000031 |
+      | central uhn   | TC624356 |
