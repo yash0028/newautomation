@@ -346,7 +346,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getMarketExceptionGrid().chooseTask(hmap,"MC_Task");
 
     }
-    @And("^I enter Provider Roster in Make Correction$")
+    @And("^I enter Provider Roster and Upload a spreadsheet containing the roster in Make Correction$")
     public void providerRosterMakeCorrection()
     {
         basePage.getProviderRoaster().roasterAction(hmap,"MC_Roster");
