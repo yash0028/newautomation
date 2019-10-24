@@ -1,4 +1,5 @@
 # Last updated on 
+@Suman
 @US1824515
 @2019.PI09
 @2019.PI09.04
@@ -9,6 +10,7 @@ Feature: US1824515 - User group has no users - Physician
   @TC835334
   @Manual
   @Functional
+  @Suman
   Scenario: TC835334 - [RL0]
     Given a process has looked at a User Group
     When there is no user in a User Group
@@ -23,6 +25,7 @@ Feature: US1824515 - User group has no users - Physician
   @TC835340
   @Manual
   @Functional
+  @Suman
   Scenario: TC835340 - [RL1]
     Given a process has looked at a User Group
     When there is no user in a User Group
@@ -33,6 +36,7 @@ Feature: US1824515 - User group has no users - Physician
   @TC857033
   @Manual
   @Functional
+  @Suman
   Scenario: TC857033 - [RL2]
     Given the retro process has this work already implemented
     When you view the assigned User group
@@ -41,6 +45,7 @@ Feature: US1824515 - User group has no users - Physician
   @TC857037
   @Manual
   @Functional
+  @Suman
   Scenario: TC857037 - [RL3]
     Given as task is assigned to a User Group
     When there is only one person in the User Group

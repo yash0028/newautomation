@@ -260,7 +260,7 @@ public class Hive implements IConfigurable {
     UTILITY CLASS
     */
 
-    static class ListAdapter implements JsonSerializer<List<String>> {
+    public static class ListAdapter implements JsonSerializer<List<String>> {
         @Override
         public JsonElement serialize(List<String> src, Type typeOfSrc, JsonSerializationContext context) {
             if (src == null || src.isEmpty()) // exclusion is made here

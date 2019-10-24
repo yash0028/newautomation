@@ -3,7 +3,6 @@ package ui_test.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ui_test.page.exari.contract.GenericInputPage;
-import ui_test.pages.commonMethod;
 
 import java.util.HashMap;
 

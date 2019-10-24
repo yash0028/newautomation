@@ -27,7 +27,27 @@ public class BasePage extends GenericInputPage {
     private SignatureBlock signatureBlock;
     private WizardComplete wizardComplete;
     private Amendements amendements;
+    private ContractDetailsDashboard contractDetailsDashboard;
+    private InitialTransaction initialTransaction;
+    private OurSignatory ourSignatory;
+    private ProviderSignatory providerSignatory;
+    private Warning warning;
 
+    public Warning getWarning() {
+        return (warning==null) ? new Warning(getDriver()) :warning;
+    }
+    public ProviderSignatory getProviderSignatory() {
+        return (providerSignatory==null) ? new ProviderSignatory(getDriver()) :providerSignatory;
+    }
+    public OurSignatory getOurSignatory() {
+        return (ourSignatory==null) ? new OurSignatory(getDriver()) :ourSignatory;
+    }
+    public InitialTransaction getInitialTransaction() {
+        return (initialTransaction==null) ? new InitialTransaction(getDriver()) :initialTransaction;
+    }
+    public ContractDetailsDashboard getContractDetailsDashboard() {
+        return (contractDetailsDashboard==null) ? new ContractDetailsDashboard(getDriver()) :contractDetailsDashboard;
+    }
 
     public Amendements getAmendements() {
         return (amendements==null) ? new Amendements(getDriver()) :amendements;

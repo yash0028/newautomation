@@ -9,31 +9,24 @@ import ui_test.util.AbstractPageElements;
 
 import java.util.HashMap;
 
-public class WizardComplete extends GenericInputPage
-{
+public class OurSignatory extends GenericInputPage {
     private PageElements elements;
-    private Report report = Report.getReportInstance();
-
-    public WizardComplete(WebDriver driver)
-    {
+    public OurSignatory(WebDriver driver) {
         super(driver);
         this.elements = new PageElements(driver);
     }
-
-    public void completeWizard(HashMap<String, String> hmap){
+    public void ourSignatoryDate(HashMap<String,String> hmap){
+        assert sendKeys("Provider Signatory Date", this.elements.signatoryDate, commonMethod.formatDate(hmap.get("Our Signatory Date")));
+        assert clickNext();
         assert waitForPageLoad();
-        assert click("Complete Wizard",this.elements.completeWizardElement);
-        assert waitForPageLoad();
-        if (report.getReport() != null) {
-            report.saveReport(hmap.get("commonName"));
-        }
     }
+
     private static class PageElements extends AbstractPageElements {
-        @FindBy(xpath = "/html/body/div[3]/div[2]/div[1]/div[1]/div[1]/a")
-        private WebElement completeWizardElement;
+        @FindBy(xpath = "//input[contains(@id,'OurSignatoryDate')]")
+        private WebElement signatoryDate;
+
         public PageElements(SearchContext context) {
             super(context);
         }
     }
-
 }

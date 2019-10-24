@@ -2,8 +2,9 @@
 @Go_Live
 @US2022719
 @2019.PI09
+@2019.PI09.04
 @releasePresent
-@iterationUnknown
+@iterationFuture
 Feature: US2022719 - Ensure workflow is being used
 
   @TC960462
@@ -12,10 +13,10 @@ Feature: US2022719 - Ensure workflow is being used
   @Go_Live
   Scenario: TC960462 - [RL0]
     Given the Physician workflow has open tasks
-    And the Planned Effective date is within one month of the current date
+    And the Planned Effective date is within one month of the current date (or in the past)
     When 7 days have passed with no tasks being completed
-    Then the process initiator is sent an email
-    And the process initiator's manager is sent an email
+    Then the process initiator is sent an email (To:)
+    And the process initiator's manager is sent an email (CC:)
 
   @TC960464
   @Manual

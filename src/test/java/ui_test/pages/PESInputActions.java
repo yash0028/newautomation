@@ -1,18 +1,20 @@
 package ui_test.pages;
 
 
+import exari_test.eif.report.Result;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
+import util.TimeKeeper;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 public class PESInputActions extends GenericInputPage  {
-
+    private Report report = Report.getReportInstance();
 
     private PageElements elements;
 
@@ -23,10 +25,12 @@ public class PESInputActions extends GenericInputPage  {
     }
 
     public void enterPESInput(HashMap<String, String> readFile) {
-        assert waitForPageLoad();
-        for (Map.Entry<String, String> entry : readFile.entrySet())
-        {
-            //System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
+        long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
+        try{
+            assert waitForPageLoad();
+            for (Map.Entry<String, String> entry : readFile.entrySet())
+            {
+                //System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
 
                 //System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
 
@@ -57,9 +61,19 @@ public class PESInputActions extends GenericInputPage  {
                         break;
 
                 }
+            }
+            assert clickNext();
+            assert waitForPageLoad();
+            if (report.getReport() != null) {
+                report.getReport().markPESInputs(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
+            }
+        }catch(Exception e){
+            if (report.getReport() != null) {
+                report.getReport().markPESInputs(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+            }
+            e.printStackTrace();
         }
-        assert clickNext();
-        assert waitForPageLoad();
+
     }
 
     private static class PageElements  extends AbstractPageElements {

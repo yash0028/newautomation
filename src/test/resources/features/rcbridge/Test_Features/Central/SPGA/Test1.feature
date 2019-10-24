@@ -32,6 +32,21 @@ Feature: US1407217 - Author SPA Contact UI Path
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA
+    And I Start Final Capture
+    And I enter Contract Details in Final Capture
+    And I enter Provider Signatory
+    And I enter Our Signatory
+    And I enter Market Exception Grid in Final Capture
+    And I enter Market Exception Grid
+    And I enter Provider Roster
+    And I enter retro code in Provider Roster
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    And I Set Status as Active
     Examples:
       | site          | TCName   |
       | central uhn   | TC624356 |
