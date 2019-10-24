@@ -22,8 +22,8 @@ public class MarketExceptionGrid extends GenericInputPage
         assert clickNext();
         assert waitForPageLoad();
     }
-    public void chooseTask(HashMap<String,String> hmap){
-        assert click("Select Task", clickTask(hmap.get("Task")));
+    public void chooseTask(HashMap<String,String> hmap,String Task){
+        assert click("Select Task", clickTask(hmap.get(Task)));
         assert clickNext();
         assert waitForPageLoad();
     }

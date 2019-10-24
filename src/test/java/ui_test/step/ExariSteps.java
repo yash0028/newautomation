@@ -230,7 +230,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I enter Provider Roster$")
     public void ProviderRoster()
     {
-        basePage.getProviderRoaster().roasterAction(hmap);
+        basePage.getProviderRoaster().roasterAction(hmap,"Roster");
     }
 
 
@@ -313,7 +313,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I enter Market Exception Grid in Final Capture$")
     public void MEGFinalCapture()
     {
-        basePage.getMarketExceptionGrid().chooseTask(hmap);
+        basePage.getMarketExceptionGrid().chooseTask(hmap,"Task");
 
     }
     @And("^I enter retro code in Provider Roster$")
@@ -332,6 +332,47 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void setStatusActive()
     {
         basePage.getContractDetailsDashboard().editStatus("Active");
+
+    }
+    @And("^I click Make Correction$")
+    public void makeCorrection()
+    {
+         basePage.getContractDetailsDashboard().makeCorrection();
+
+    }
+    @And("^I enter Market Exception Grid in Make Correction$")
+    public void MEGMakeCorrection()
+    {
+        basePage.getMarketExceptionGrid().chooseTask(hmap,"MC_Task");
+
+    }
+    @And("^I enter Provider Roster in Make Correction$")
+    public void providerRosterMakeCorrection()
+    {
+        basePage.getProviderRoaster().roasterAction(hmap,"MC_Roster");
+
+    }
+    @And("^I Download Current Roster$")
+    public void downloadCurrentRoster()
+    {
+        basePage.getProviderRoaster().downloadCurrentRoster();
+
+    }
+    @And("^I Upload Completed Roster$")
+    public void uploadCompletedRoster()
+    {
+        basePage.getProviderRoaster().uploadCompletedRoster(hmap);
+
+    }
+    @And("^I enter warning in Make Correction$")
+    public void warningMakeCorrection()
+    {
+        basePage.getWarning().warningMakeCorrection();
+    }
+    @And("^I enter validation$")
+    public void validation()
+    {
+        basePage.getValidation().validation();
 
     }
 

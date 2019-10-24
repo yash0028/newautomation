@@ -70,6 +70,10 @@ public class ContractDetailsDashboard extends GenericInputPage {
         assert click("Final Capture",this.elements.finalCapture);
         assert waitForPageLoad();
     }
+    public void makeCorrection(){
+        assert click("Make Correction",this.elements.makeCorrection);
+        assert waitForPageLoad();
+    }
 
 
 
@@ -82,6 +86,8 @@ public class ContractDetailsDashboard extends GenericInputPage {
         private WebElement editStatusPopup;
         @FindBy(xpath = "//div[@id='onPrepFinalCaptureClick']/a")
         private WebElement finalCapture;
+        @FindBy(xpath = "//div[contains(@class,'correction')]/a/span")
+        private WebElement makeCorrection;
 
 
 

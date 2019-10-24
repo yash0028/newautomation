@@ -47,6 +47,17 @@ Feature: US1407217 - Author SPA Contact UI Path
     And I enter Group Summary
     Then I Complete Wizard
     And I Set Status as Active
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I enter Provider Roster in Make Correction
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
     Examples:
       | site          | TCName   |
       | central uhn   | TC624356 |

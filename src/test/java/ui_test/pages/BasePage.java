@@ -32,7 +32,11 @@ public class BasePage extends GenericInputPage {
     private OurSignatory ourSignatory;
     private ProviderSignatory providerSignatory;
     private Warning warning;
+    private Validation validation;
 
+    public Validation getValidation() {
+        return (validation ==null) ? new Validation(getDriver()) :validation;
+    }
     public Warning getWarning() {
         return (warning==null) ? new Warning(getDriver()) :warning;
     }
