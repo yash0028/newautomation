@@ -30,6 +30,7 @@ public class WizardComplete extends GenericInputPage
         public PageElements(SearchContext context) {
             super(context);
         }
+
     }
 
 }
