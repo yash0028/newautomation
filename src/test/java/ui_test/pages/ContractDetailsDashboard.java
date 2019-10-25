@@ -1,18 +1,13 @@
 package ui_test.pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IWebInteract;
-
-import java.util.HashMap;
 import java.util.List;
 
 public class ContractDetailsDashboard extends GenericInputPage {
@@ -25,28 +20,20 @@ public class ContractDetailsDashboard extends GenericInputPage {
         assert click("Start WorkFlow",this.elements.startWorkFlow);
         assert waitForPageLoad();
     }
-    public boolean isElementPresent() {
-        try {
-            driver.findElement(By.xpath("//div[contains(@class,'edit-status')]/a/span"));
-            return true;
-        } catch (org.openqa.selenium.NoSuchElementException e) {
-            return false;
-        }
-    }
     public void editStatus(String option){
         int count=1;
         while(true){
-            pause(6);
-            if(isElementPresent()){
+            if(commonMethod.isElementPresent(driver,By.xpath(elements.editStatusButton))){
                 assert click("Edit Status",this.elements.editStatus);
                 break;
-            }else{
-                refreshPage();
             }
+            assert click("Initial Transaction",this.elements.initialTransaction);
+            waitForElementToDissapear(driver,waitForElementToPresent(driver,By.xpath(elements.message)));
             IWebInteract.log.info("Retrying for Edit Status Option, Retry: {}",count);
             count++;
         }
-        pause(3);
+        waitForElementsToPresent(driver,By.xpath(elements.editDetails));
+        pause(1);
         Select status = new Select(this.elements.editStatusPopup.findElement(By.tagName("select")));
         status.selectByVisibleText(option);
         List<WebElement> buttons = this.elements.editStatusPopup.findElements(By.tagName("button"));
@@ -64,6 +51,7 @@ public class ContractDetailsDashboard extends GenericInputPage {
                 break;
             }
         }
+        waitForElementToDissapear(driver,waitForElementToPresent(driver,By.xpath(elements.message)));
     }
 
     public void finalCapture(){
@@ -74,9 +62,6 @@ public class ContractDetailsDashboard extends GenericInputPage {
         assert click("Make Correction",this.elements.makeCorrection);
         assert waitForPageLoad();
     }
-
-
-
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//div[@id='onStartExariWorkflowClick']/a")
         private WebElement startWorkFlow;
@@ -88,8 +73,12 @@ public class ContractDetailsDashboard extends GenericInputPage {
         private WebElement finalCapture;
         @FindBy(xpath = "//div[contains(@class,'correction')]/a/span")
         private WebElement makeCorrection;
+        @FindBy(xpath = "//table/tbody/tr/td[3]/span[1][contains(.,'Initial Transaction')]")
+        private WebElement initialTransaction;
 
-
+        private String message= "//*[@id='message']";
+        private String editDetails= "//div[2][contains(@id,'editDetails')]";
+        private String editStatusButton= "//div[contains(@class,'edit-status')]/a/span";
 
         public PageElements(SearchContext context) {
             super(context);

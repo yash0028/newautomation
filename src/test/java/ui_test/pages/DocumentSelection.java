@@ -16,15 +16,6 @@ public class DocumentSelection extends GenericInputPage
         super(driver);
 
     }
-
-    public WebElement selectPaperType(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
-    }
-
-    public WebElement selectTypeOfAgreement(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
-    }
-
     public void selectAgreementType(String name)
     {
         assert  click("Agreement Type",selectTypeOfAgreement(name));
@@ -64,5 +55,12 @@ public class DocumentSelection extends GenericInputPage
             }
         }
 
+    }
+    public WebElement selectPaperType(String Name){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    }
+
+    public WebElement selectTypeOfAgreement(String Name){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
     }
 }

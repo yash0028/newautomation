@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ui_test.page.exari.contract.GenericInputPage;
 
@@ -20,6 +21,14 @@ public class commonMethod{
         }catch (ParseException e){
             e.printStackTrace();
             return null;
+        }
+    }
+    public static boolean isElementPresent(WebDriver driver,final By by) {
+        try {
+            driver.findElement(by);
+            return true;
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
         }
     }
 

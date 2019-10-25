@@ -21,21 +21,6 @@ public class PES_Response extends GenericInputPage {
 
     }
 
-
-    public WebElement counterPartyName(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
-    }
-
-    public WebElement counterPartyAddress(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
-    }
-
-    public WebElement counterPartyApproach(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
-    }
-
-
-
     public void selectCounterParty(HashMap<String, String> hmap)
     {
 
@@ -93,5 +78,16 @@ public class PES_Response extends GenericInputPage {
             e.printStackTrace();
         }
 
+    }
+    public WebElement counterPartyName(String Name){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    }
+
+    public WebElement counterPartyAddress(String Name){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    }
+
+    public WebElement counterPartyApproach(String Name){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
     }
 }

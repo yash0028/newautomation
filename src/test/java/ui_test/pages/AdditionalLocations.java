@@ -19,39 +19,32 @@ public class AdditionalLocations extends GenericInputPage
         WebElement webElement=driver.findElement(By.xpath("//input[@type='checkbox']"));
         assert  click("Select Address from NDB",webElement);
 
-
     }
 
     public void selectAdditionalLocations(HashMap<String,String> hmap){
         assert click("Additional Location", additionalLocationsElement(hmap.get("Additional Location")));
-
+//TODO recheck
         switch(hmap.get("Additional Location"))
         {
             case "Yes":
             {
-                assert clickNext();
-                assert waitForPageLoad();
                 break;
             }
             case "No":
             {
                 pause(5);
                 selectAddressFromNDB();
-                assert clickNext();
-                assert waitForPageLoad();
                 break;
             }
             case "None":
             {
-                assert clickNext();
-                assert waitForPageLoad();
                 break;
             }
         }
+        assert clickNext();
+        assert waitForPageLoad();
 
     }
-
-
 
     public WebElement additionalLocationsElement(String addLoc){
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+addLoc+"')]"});

@@ -13,17 +13,12 @@ public class HBPsRedDoor  extends GenericInputPage
         super(driver);
 
     }
-
-    public WebElement getHBPResponse(String answer){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+answer+"')]"});
-    }
-
-
     public void selectRedDoor(HashMap<String,String> hmap){
-
-
         click("HBP Red Door",getHBPResponse(hmap.get("HBP")));
         assert clickNext();
         assert waitForPageLoad();
+    }
+    public WebElement getHBPResponse(String answer){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+answer+"')]"});
     }
 }

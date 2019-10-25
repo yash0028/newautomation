@@ -13,15 +13,14 @@ public class Amendements extends GenericInputPage {
         super(driver);
     }
 
-    public WebElement selectAmendments(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
-    }
-
     public void authorAmendments(HashMap<String, String> hmap)
     {
         click("Amendments",selectAmendments(hmap.get("Amendments")));
         assert clickNext();
         assert waitForPageLoad();
+    }
+    public WebElement selectAmendments(String Name){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
     }
 
 }

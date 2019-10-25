@@ -30,10 +30,6 @@ public class PESInputActions extends GenericInputPage  {
             assert waitForPageLoad();
             for (Map.Entry<String, String> entry : readFile.entrySet())
             {
-                //System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
-
-                //System.out.println("elements key"+entry.getKey()+"Element Value"+entry.getValue() );
-
                 switch (entry.getKey().toUpperCase()){
                     case "MPIN":
                         assert sendKeys("MPIN textbox", this.elements.mpin, entry.getValue());

@@ -29,10 +29,6 @@ public class PaymentAppendix extends GenericInputPage {
 
     }
 
-    public WebElement paymentAppendixElement(String paymentAppendix){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+paymentAppendix+"')]"});
-    }
-
     //For SPGA contracts
     public void enterFeeScheduleID(HashMap<String,String> hmap)
     {
@@ -41,7 +37,7 @@ public class PaymentAppendix extends GenericInputPage {
         {
             case "SPGA":
             {    assert sendKeys("FeeSchdeuleID", this.elements.feeSchduleID, hmap.get("FS All Payer"));
-                break;
+                 break;
 
             }
             case "MGA":
@@ -54,26 +50,25 @@ public class PaymentAppendix extends GenericInputPage {
             case "SMGA":
             {
                 assert sendKeys("FeeSchedule ID Physician", this.elements.feeSchduleIDPhysician, hmap.get("FS All Payer Physician"));
-                pause(3);
                 assert sendKeys("FeeSchedule ID Non Physician", this.elements.feeSchduleIDNonPhysician, hmap.get("FS All Payer Non Physician"));
                 break;
             }
             case "SPA":
-            {    assert sendKeys("FeeSchdeuleID", this.elements.feeSchduleID, hmap.get("FS All Payer"));
+            {
+                assert sendKeys("FeeSchdeuleID", this.elements.feeSchduleID, hmap.get("FS All Payer"));
                 break;
-
             }
         }
         assert clickNext();
         assert waitForPageLoad();
 
     }
-
-
-
     public void verifyFeeScheduleID() {
         assert clickNext();
         assert waitForPageLoad();
+    }
+    public WebElement paymentAppendixElement(String paymentAppendix){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+paymentAppendix+"')]"});
     }
 
     private static class PageElements  extends AbstractPageElements {

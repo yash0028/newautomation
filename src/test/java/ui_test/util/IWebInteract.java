@@ -667,6 +667,25 @@ public interface IWebInteract {
         }
         return null;
     }
+    default boolean waitForElementToDissapear(WebDriver driver,WebElement element)
+    {
+        try
+        {
+            //threadSleep(5000);
+            (new WebDriverWait(driver, 15)).until(ExpectedConditions.invisibilityOf(element));
+            return true;
+        }
+        catch(Exception e)
+        {
+            Assert.fail("Element with id " + element.getAttribute("id") + " is not present.");
+        }
+        return false;
+    }
+
+
+
+
+
 
     default List<WebElement> findElements(WebDriver driver,String[] elementProperties)
     {

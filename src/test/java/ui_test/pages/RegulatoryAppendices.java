@@ -1,6 +1,5 @@
 package ui_test.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,11 +21,6 @@ public class RegulatoryAppendices extends GenericInputPage
 
     }
 
-    public WebElement regulatory(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
-    }
-
-
     public void selectRegulatoryAppendix(HashMap<String,String> hmap) {
         assert sendKeys("Send Data to egulatory Appendix",elements.clickOnBar,hmap.get("Regulatory Appendix"));
         pause(1);
@@ -34,7 +28,9 @@ public class RegulatoryAppendices extends GenericInputPage
         assert clickNext();
         assert waitForPageLoad();
     }
-
+    public WebElement regulatory(String Name){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    }
     private static class PageElements  extends AbstractPageElements {
 
         @FindBy(xpath = "//input[@type='search']")

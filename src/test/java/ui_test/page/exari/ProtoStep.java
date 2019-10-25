@@ -61,7 +61,7 @@ public class ProtoStep implements IConfigurable {
             assert loginPage.login();
 
             dashboardPage = loginPage.getHomePage();
-            //assert dashboardPage.confirmCurrentPage();
+            assert dashboardPage.confirmCurrentPage();
            if (report.getReport()!= null) {
                 report.getReport().markLogin(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
             }

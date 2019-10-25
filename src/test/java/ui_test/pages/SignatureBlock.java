@@ -8,7 +8,6 @@ import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class SignatureBlock extends GenericInputPage {
     private PageElements elements;
@@ -24,7 +23,7 @@ public class SignatureBlock extends GenericInputPage {
 
 
 
-
+//TODO recheck
     private static class PageElements extends AbstractPageElements{
 
         @FindBy(xpath = "//input[contains(@name,'Notice_Address_Street')]")

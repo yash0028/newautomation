@@ -9,9 +9,6 @@ import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 
 
@@ -32,7 +29,6 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
 
 
     public void enterPhyConNumber(HashMap<String,String> hmap){
-        pause(3);
         if(hmap.containsKey("Phycon")) {
             assert sendKeys("PhyConNumber", this.elements.phyConNumber, hmap.get("Phycon"));
         }

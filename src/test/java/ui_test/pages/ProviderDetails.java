@@ -35,11 +35,6 @@ public class ProviderDetails extends GenericInputPage {
         selectOption(answer);
     }
 
-    public WebElement selectOptionForMarketNumber(String answer){
-        return findElement(getDriver(), new String[]{"xpath","//li[contains(text(),'"+answer+"'" + ")]"});
-    }
-
-
     private void selectOption(String answer)  {
         click("MarketNumber",selectOptionForMarketNumber(answer));
         assert clickNext();
@@ -47,34 +42,28 @@ public class ProviderDetails extends GenericInputPage {
 
     }
 
-
     public void previewProfile() {
         assert clickNext();
         assert waitForPageLoad();
 
-        if(isElementPresent())
+        if(commonMethod.isElementPresent(driver,By.xpath(elements.duplicateTIN)))
         {
             //assert clickNext();
             //assert waitForPageLoad();
         }
 
     }
-    public boolean isElementPresent() {
-        try {
-            driver.findElement(By.xpath("//b[contains(text(),'Counterparty TIN duplicate check failed')]"));
-            return true;
-        } catch (org.openqa.selenium.NoSuchElementException e) {
-            return false;
-        }
+    public WebElement selectOptionForMarketNumber(String answer){
+        return findElement(getDriver(), new String[]{"xpath","//li[contains(text(),'"+answer+"'" + ")]"});
     }
-
     private static class PageElements  extends AbstractPageElements
     {
         @FindBy(xpath = "//span[@class='select2-selection__arrow']")
         private WebElement dropdown_open;
         @FindBy(xpath = "//input[@class='select2-search__field']")
-        public WebElement dropdown_textbox;
+        private WebElement dropdown_textbox;
 
+        private String duplicateTIN = "TIN duplicate";
 
         public PageElements(SearchContext context) {
             super(context);
