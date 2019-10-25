@@ -70,7 +70,13 @@ public class ProviderRoaster extends GenericInputPage
     }
     public void providerStartDate(HashMap<String,String>hmap)
     {
-        assert sendKeys("Provider Start Date",elements.providerStartDate,commonMethod.formatDate(hmap.get("Provider Start Date")));
+        String date;
+        if(hmap.get("Provider Start Date").equals("today")){
+            date = commonMethod.todaysDate();
+        }else{
+            date = commonMethod.formatDate(hmap.get("Provider Start Date"));
+        }
+        assert sendKeys("Provider Start Date",elements.providerStartDate,date);
         assert clickNext();
         assert waitForPageLoad();
     }

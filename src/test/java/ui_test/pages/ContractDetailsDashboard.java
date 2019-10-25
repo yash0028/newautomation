@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.Select;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IWebInteract;
-import java.util.List;
 
 public class ContractDetailsDashboard extends GenericInputPage {
     private PageElements elements;
@@ -34,23 +33,11 @@ public class ContractDetailsDashboard extends GenericInputPage {
         }
         waitForElementsToPresent(driver,By.xpath(elements.editDetails));
         pause(1);
-        Select status = new Select(this.elements.editStatusPopup.findElement(By.tagName("select")));
+        Select status = new Select(this.elements.selectStatus);
         status.selectByVisibleText(option);
-        List<WebElement> buttons = this.elements.editStatusPopup.findElements(By.tagName("button"));
         pause(1);
-        for(WebElement button : buttons){
-            if(button.getText().equals("Save")){
-                button.click();
-                break;
-            }
-        }
-        List<WebElement> anchors = this.elements.editStatusPopup.findElements(By.tagName("a"));
-        for(WebElement anchor : anchors){
-            if(anchor.getText().equals("Close")){
-                anchor.click();
-                break;
-            }
-        }
+        assert click("Save",this.elements.save);
+        assert click("Close",this.elements.close);
         waitForElementToDissapear(driver,waitForElementToPresent(driver,By.xpath(elements.message)));
     }
 
@@ -75,9 +62,16 @@ public class ContractDetailsDashboard extends GenericInputPage {
         private WebElement makeCorrection;
         @FindBy(xpath = "//table/tbody/tr/td[3]/span[1][contains(.,'Initial Transaction')]")
         private WebElement initialTransaction;
+        @FindBy(xpath = "//select[contains(@id,'ContractDealStatus')]")
+        private WebElement selectStatus;
+        @FindBy(xpath = "//button[contains(@id,'form-submit-button')]")
+        private WebElement save;
+        @FindBy(xpath = "//div[contains(@id,'editDetails')]/a")
+        private WebElement close;
+
 
         private String message= "//*[@id='message']";
-        private String editDetails= "//div[2][contains(@id,'editDetails')]";
+        private String editDetails= "//select[contains(@id,'ContractDealStatus')]";
         private String editStatusButton= "//div[contains(@class,'edit-status')]/a/span";
 
         public PageElements(SearchContext context) {

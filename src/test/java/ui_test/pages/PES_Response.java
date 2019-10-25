@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class PES_Response extends GenericInputPage {
-    private Report report = Report.getReportInstance();
     private long startTime;
 
     public PES_Response(WebDriver driver)
@@ -28,14 +27,8 @@ public class PES_Response extends GenericInputPage {
             assert setCheckBox("CouterParty Name checkbox", counterPartyName(hmap.get("CounterPartyName")), true);
             assert clickNext();
             assert waitForPageLoad();
-            if (report.getReport() != null) {
-                report.getReport().markPESResponse(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
-            }
 
         }catch(Exception e){
-            if (report.getReport() != null) {
-                report.getReport().markPESResponse(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
-            }
             e.printStackTrace();
         }
     }
@@ -46,17 +39,7 @@ public class PES_Response extends GenericInputPage {
             assert setCheckBox("CounterParty address checkbox",counterPartyAddress(hmap.get("CounterPartyAddress")),true);
             assert clickNext();
             assert waitForPageLoad();
-            if (report.getReport() != null) {
-                report.getReport().markPESResponse(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
-            }
-            //for testing purpose
-            if (report.getReport() != null) {
-                report.saveReport(hmap.get("commonName"));
-            }
         }catch(Exception e){
-            if (report.getReport() != null) {
-                report.getReport().markPESResponse(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
-            }
             e.printStackTrace();
         }
 
@@ -68,13 +51,7 @@ public class PES_Response extends GenericInputPage {
             assert setCheckBox("Approach for Counter Party",counterPartyApproach(hmap.get("CounterPartyApproach")),true);
             assert clickNext();
             assert waitForPageLoad();
-            if (report.getReport() != null) {
-                report.getReport().markPESResponse(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
-            }
             }catch (Exception e){
-            if (report.getReport() != null) {
-                report.getReport().markPESResponse(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
-            }
             e.printStackTrace();
         }
 

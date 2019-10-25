@@ -14,7 +14,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 public class PESInputActions extends GenericInputPage  {
-    private Report report = Report.getReportInstance();
 
     private PageElements elements;
 
@@ -60,13 +59,7 @@ public class PESInputActions extends GenericInputPage  {
             }
             assert clickNext();
             assert waitForPageLoad();
-            if (report.getReport() != null) {
-                report.getReport().markPESInputs(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
-            }
         }catch(Exception e){
-            if (report.getReport() != null) {
-                report.getReport().markPESInputs(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
-            }
             e.printStackTrace();
         }
 

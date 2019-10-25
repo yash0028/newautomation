@@ -1,42 +1,27 @@
 package ui_test.step;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import exari_test.eif.data.EifReport;
 import exari_test.eif.data.EifTestData;
 import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.flow.IContractFlowLoader;
-import exari_test.eif.report.CukeReport;
-import exari_test.eif.report.Match;
-import exari_test.eif.report.Step;
-import exari_test.hive.Hive;
 import general_test.util.ISharedValuePoster;
 import io.cucumber.datatable.DataTable;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.pages.BasePage;
-import ui_test.pages.Report;
 import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
-import util.TimeKeeper;
-import util.configuration.ConfigStub;
 import util.configuration.IConfigurable;
-import util.file.FileHandler;
 import util.file.IFileReader;
-import exari_test.eif.report.Result;
-
-import java.lang.reflect.Array;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.List;
+
 
 
 public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster, IContractFlowLoader {
@@ -104,6 +89,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPes_response().selectCounterParty(hmap);
         basePage.getPes_response().specifyApproachForCounter(hmap);
 //        basePage.getPes_response().selectCounterPartyAddress(hmap);
+
     }
 
     @And("^I enter Counterparty Details Page$")
@@ -421,6 +407,5 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     private void setupProtoStep() {
         setupProtoStep(null);
     }
-
 
 }

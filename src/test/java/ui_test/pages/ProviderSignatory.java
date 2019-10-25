@@ -16,7 +16,13 @@ public class ProviderSignatory extends GenericInputPage {
         this.elements = new PageElements(driver);
     }
     public void ProviderSignatory(HashMap<String,String> hmap){
-        assert sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, commonMethod.formatDate(hmap.get("Provider Signatory Date")));
+        String date;
+        if(hmap.get("Provider Signatory Date").equals("today")){
+            date = commonMethod.todaysDate();
+        }else{
+            date = commonMethod.formatDate(hmap.get("Provider Signatory Date"));
+        }
+        assert sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date);
         assert sendKeys("Provider Signatory Email", this.elements.email, hmap.get("Provider Signatory Email"));
         assert clickNext();
         assert waitForPageLoad();

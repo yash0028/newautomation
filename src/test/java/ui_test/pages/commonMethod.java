@@ -23,6 +23,11 @@ public class commonMethod{
             return null;
         }
     }
+    public static String todaysDate(){
+        String pattern = "MMMM dd, yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        return simpleDateFormat.format(new Date());
+    }
     public static boolean isElementPresent(WebDriver driver,final By by) {
         try {
             driver.findElement(by);

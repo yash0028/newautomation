@@ -9,6 +9,8 @@ import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 
@@ -22,7 +24,13 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
     }
 
     public void contractEffectiveDate(HashMap<String,String> hmap){
-        assert sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, commonMethod.formatDate(hmap.get("Contract Effective Date")));
+        String date;
+        if(hmap.get("Contract Effective Date").equals("today")){
+            date = commonMethod.todaysDate();
+        }else{
+            date = commonMethod.formatDate(hmap.get("Contract Effective Date"));
+        }
+        assert sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date);
         assert clickNext();
         assert waitForPageLoad();
     }
