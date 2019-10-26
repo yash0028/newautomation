@@ -1,14 +1,16 @@
 package ui_test.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import ui_test.page.exari.contract.GenericInputPage;
+import ui_test.util.AbstractPageElements;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class commonMethod{
+public class CommonMethods{
 
     public static String formatDate(String OldDate){
         try{
@@ -36,5 +38,6 @@ public class commonMethod{
             return false;
         }
     }
+
 
 }

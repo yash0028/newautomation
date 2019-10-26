@@ -22,7 +22,7 @@ public class ContractDetailsDashboard extends GenericInputPage {
     public void editStatus(String option){
         int count=1;
         while(true){
-            if(commonMethod.isElementPresent(driver,By.xpath(elements.editStatusButton))){
+            if(CommonMethods.isElementPresent(driver,By.xpath(elements.editStatusButton))){
                 assert click("Edit Status",this.elements.editStatus);
                 break;
             }

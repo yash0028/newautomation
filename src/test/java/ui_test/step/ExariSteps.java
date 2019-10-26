@@ -81,7 +81,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void PESResponse() {
         basePage.getPes_response().selectCounterParty(hmap);
         basePage.getPes_response().specifyApproachForCounter(hmap);
-        basePage.getPes_response().selectCounterPartyAddress(hmap);
     }
 
     @And("^I enter PES Responses$")
@@ -90,11 +89,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPes_response().specifyApproachForCounter(hmap);
 //        basePage.getPes_response().selectCounterPartyAddress(hmap);
 
-    }
-
-    @And("^I enter Counterparty Details Page$")
-    public void CounterpartyDerails() {
-        basePage.getCounterpartyDetails().counterpartyTINDuplicateCheck();
     }
 
     @And("^I select Market Number$")

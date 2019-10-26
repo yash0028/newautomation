@@ -18,7 +18,6 @@ Feature: US1407217 - Author SPA Contact UI Path
     And I preview Provider Details
     And I enter Practice Locations for SPGA Contract
     And I preview Provider Details
-    And I enter Counterparty Details Page
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details

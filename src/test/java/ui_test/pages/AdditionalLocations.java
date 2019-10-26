@@ -1,23 +1,26 @@
 package ui_test.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
+import ui_test.util.AbstractPageElements;
 
 import java.util.HashMap;
 
 public class AdditionalLocations extends GenericInputPage
 {
-
+    private PageElements elements;
     public AdditionalLocations(WebDriver driver) {
         super(driver);
+        elements=new PageElements(driver);
     }
 
     private void selectAddressFromNDB()
     {
-        WebElement webElement=driver.findElement(By.xpath("//input[@type='checkbox']"));
-        assert  click("Select Address from NDB",webElement);
+        assert  click("Select Address from NDB",elements.addressFromNDB);
 
     }
 
@@ -32,7 +35,6 @@ public class AdditionalLocations extends GenericInputPage
             }
             case "No":
             {
-                pause(5);
                 selectAddressFromNDB();
                 break;
             }
@@ -41,6 +43,7 @@ public class AdditionalLocations extends GenericInputPage
                 break;
             }
         }
+        waitForElementToDissapear(driver,waitForElementToPresent(driver, By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
 
@@ -48,5 +51,15 @@ public class AdditionalLocations extends GenericInputPage
 
     public WebElement additionalLocationsElement(String addLoc){
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+addLoc+"')]"});
+    }
+    private static class PageElements  extends AbstractPageElements {
+        @FindBy(xpath = "//input[@type='checkbox']")
+        private WebElement addressFromNDB;
+
+        private String message= "//div[contains(@class,'DialogBox')]";
+
+        public PageElements(SearchContext context) {
+            super(context);
+        }
     }
 }

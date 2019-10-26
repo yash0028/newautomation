@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,6 +25,7 @@ public class ProviderRoaster extends GenericInputPage
     }
     public void roasterAction(HashMap<String,String>hmap,String Roster)  {
         assert click("Provider Roster", clickRosterAction(hmap.get(Roster)));
+        waitForElementToDissapear(driver,waitForElementToPresent(driver, By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
 
@@ -47,6 +49,7 @@ public class ProviderRoaster extends GenericInputPage
         assert sendKeys("Search retro code",elements.retroCode,hmap.get("Retro code"));
         pause(1);
         assert click("Select retro code", elements.selectRetroCode.get(0));
+        waitForElementToDissapear(driver,waitForElementToPresent(driver, By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
     }
@@ -72,9 +75,9 @@ public class ProviderRoaster extends GenericInputPage
     {
         String date;
         if(hmap.get("Provider Start Date").equals("today")){
-            date = commonMethod.todaysDate();
+            date = CommonMethods.todaysDate();
         }else{
-            date = commonMethod.formatDate(hmap.get("Provider Start Date"));
+            date = CommonMethods.formatDate(hmap.get("Provider Start Date"));
         }
         assert sendKeys("Provider Start Date",elements.providerStartDate,date);
         assert clickNext();
@@ -106,7 +109,7 @@ public class ProviderRoaster extends GenericInputPage
         private List<WebElement> selectProviderWithName;
         @FindBy(xpath = "//input[contains(@name,'StartDate')]")
         private WebElement providerStartDate;
-
+        private String message= "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {
             super(context);

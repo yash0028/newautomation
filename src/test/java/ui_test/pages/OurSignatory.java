@@ -18,9 +18,9 @@ public class OurSignatory extends GenericInputPage {
     public void ourSignatoryDate(HashMap<String,String> hmap){
         String date;
         if(hmap.get("Our Signatory Date").equals("today")){
-            date = commonMethod.todaysDate();
+            date = CommonMethods.todaysDate();
         }else{
-            date = commonMethod.formatDate(hmap.get("Our Signatory Date"));
+            date = CommonMethods.formatDate(hmap.get("Our Signatory Date"));
         }
         assert sendKeys("Provider Signatory Date", this.elements.signatoryDate, date);
         assert clickNext();

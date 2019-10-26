@@ -37,6 +37,7 @@ public class ProviderDetails extends GenericInputPage {
 
     private void selectOption(String answer)  {
         click("MarketNumber",selectOptionForMarketNumber(answer));
+        waitForElementToDissapear(driver,waitForElementToPresent(driver, By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
 
@@ -46,10 +47,10 @@ public class ProviderDetails extends GenericInputPage {
         assert clickNext();
         assert waitForPageLoad();
 
-        if(commonMethod.isElementPresent(driver,By.xpath(elements.duplicateTIN)))
+        if(CommonMethods.isElementPresent(driver,By.xpath(elements.duplicateTIN)))
         {
-            //assert clickNext();
-            //assert waitForPageLoad();
+            assert clickNext();
+            assert waitForPageLoad();
         }
 
     }
@@ -63,7 +64,8 @@ public class ProviderDetails extends GenericInputPage {
         @FindBy(xpath = "//input[@class='select2-search__field']")
         private WebElement dropdown_textbox;
 
-        private String duplicateTIN = "TIN duplicate";
+        private String duplicateTIN = "//label[contains(.,'Counterparty TIN duplicate check failed')]/b";
+        private String message= "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {
             super(context);

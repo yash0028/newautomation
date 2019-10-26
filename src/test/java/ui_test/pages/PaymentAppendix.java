@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,10 +20,8 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void selectPaymentAppendix(HashMap<String,String> hmap)
     {
-        if(hmap.containsKey("High Fee Schedule than Default")) {
-            assert click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
-        }
-        pause(2);
+        assert click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
+        waitForElementToDissapear(driver,waitForElementToPresent(driver, By.xpath(elements.message)));
         assert click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix")));
         assert clickNext();
         assert waitForPageLoad();
@@ -43,7 +42,6 @@ public class PaymentAppendix extends GenericInputPage {
             case "MGA":
             {
                 assert sendKeys("FeeSchedule ID Physician", this.elements.feeSchduleIDPhysician, hmap.get("FS All Payer Physician"));
-                pause(3);
                 assert sendKeys("FeeSchedule ID Non Physician", this.elements.feeSchduleIDNonPhysician, hmap.get("FS All Payer Non Physician"));
                 break;
             }
@@ -78,6 +76,7 @@ public class PaymentAppendix extends GenericInputPage {
         private WebElement feeSchduleIDPhysician;
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name_NPPA']")
         private WebElement feeSchduleIDNonPhysician;
+        private String message= "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {
             super(context);

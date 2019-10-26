@@ -1,20 +1,22 @@
 package ui_test.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ui_test.page.exari.contract.GenericInputPage;
+import ui_test.util.AbstractPageElements;
 
 
 import java.util.HashMap;
 
 public class DocumentSelection extends GenericInputPage
 {
-
+    private PageElements elements;
     public DocumentSelection(WebDriver driver)
     {
         super(driver);
-
+        this.elements = new PageElements(driver);
     }
     public void selectAgreementType(String name)
     {
@@ -25,7 +27,7 @@ public class DocumentSelection extends GenericInputPage
     public void selectDocumentType(HashMap<String,String> hmap)
     {
         assert  click("Paper Type",selectPaperType(hmap.get("Paper Type")));
-
+        waitForElementToDissapear(driver,waitForElementToPresent(driver, By.xpath(elements.message)));
         switch(hmap.get("Paper Type")) {
 
             case "SPGA":
@@ -36,7 +38,6 @@ public class DocumentSelection extends GenericInputPage
             }
             case "MGA":
             {
-                pause(5);
                 selectAgreementType(hmap.get("Agreement Type"));
                 break;
 
@@ -62,5 +63,13 @@ public class DocumentSelection extends GenericInputPage
 
     public WebElement selectTypeOfAgreement(String Name){
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    }
+    private static class PageElements extends AbstractPageElements {
+
+        private String message= "//div[contains(@class,'DialogBox')]";
+
+        public PageElements(SearchContext context) {
+            super(context);
+        }
     }
 }

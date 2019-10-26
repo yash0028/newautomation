@@ -671,15 +671,13 @@ public interface IWebInteract {
     {
         try
         {
-            //threadSleep(5000);
             (new WebDriverWait(driver, 15)).until(ExpectedConditions.invisibilityOf(element));
             return true;
         }
         catch(Exception e)
         {
-            Assert.fail("Element with id " + element.getAttribute("id") + " is not present.");
+            return false;
         }
-        return false;
     }
 
 
