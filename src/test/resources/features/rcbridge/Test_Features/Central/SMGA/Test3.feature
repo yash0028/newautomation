@@ -2,14 +2,14 @@
 @US1407217
 @releaseUnknown
 @iterationUnknown
-Feature: TC_CEN_SMGA_IN_31 - Author SMGA Contact UI Path
+Feature: US1407217
 
   @TC_CEN_SMGA_IN_31
   @Manual
   @User_Interface
-  Scenario Outline: TC_CEN_SMGA_IN_31 - [RL0] Author SMGA contract in <site>
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    And I am using the "<TCName>" data
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -32,5 +32,5 @@ Feature: TC_CEN_SMGA_IN_31 - Author SMGA Contact UI Path
     And I enter Group Summary
     Then I Complete Wizard
     Examples:
-      | site          | TCName   |
-      | central uhn   | TC_CEN_SMGA_IN_31 |
+      | site          | paperType     | TCName            |
+      | central uhn   | SMGA          | TC_CEN_SMGA_IN_31 |

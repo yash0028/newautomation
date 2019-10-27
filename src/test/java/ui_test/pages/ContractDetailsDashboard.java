@@ -16,8 +16,8 @@ public class ContractDetailsDashboard extends GenericInputPage {
         this.elements = new PageElements(driver);
     }
     public void startWorkFlow(){
-        waitForElementToAppear(driver,By.xpath(elements.startWorkFlowPath));
-        assert click("Start WorkFlow",this.elements.startWorkFlow);
+        waitTillClickable(elements.startWorkFlow,20);
+        assert click("Start WorkFlow",elements.startWorkFlow);
         assert waitForPageLoad();
     }
     public void editStatus(String option){

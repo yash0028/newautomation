@@ -28,9 +28,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
 
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
-    String csvFile = configGetOptionalString("exari.csvFile").orElse("");
     String home = System.getProperty("user.dir");
-    Path contractFlowPath = Paths.get(home, "src", "test", "resources","support","hive","dataMap",csvFile);
+    Path contractFlowPath = Paths.get(home, "src", "test", "resources","support","hive","dataMap");
     private ProtoStep protoStep = new ProtoStep(getDriver());
 
 
@@ -44,11 +43,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void prepareEIF(String fileName) {
         contractFlow = loadFlowContract(fileName);
     }
-
-    @Given("^I am using the \"([^\"]*)\" data$")
-    public void getData(String testName) {
+    @Given("^I am using the \"([^\"]*)\" data from \"([^\"]*)\" of \"([^\"]*)\" and paper type \"([^\"]*)\"$")
+    public void getData(String testName, String fileName, String site, String paperType) {
+        Path CSVpath = Paths.get(contractFlowPath.toString(),site,paperType,fileName);
         CSVReader csvReader = new CSVReader();
-        this.hmap = csvReader.readFile(contractFlowPath.toString(), testName);
+        this.hmap = csvReader.readFile(CSVpath.toString(), testName);
     }
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
