@@ -25,7 +25,7 @@ public class WizardComplete extends GenericInputPage
         assert waitForPageLoad();
     }
     private static class PageElements extends AbstractPageElements {
-        @FindBy(xpath = "/html/body/div[3]/div[2]/div[1]/div[1]/div[1]/a")
+        @FindBy(xpath = "//a[contains(@class,'nextButtonLink')]")
         private WebElement completeWizardElement;
         public PageElements(SearchContext context) {
             super(context);
