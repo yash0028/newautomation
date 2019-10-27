@@ -16,6 +16,7 @@ public class ContractDetailsDashboard extends GenericInputPage {
         this.elements = new PageElements(driver);
     }
     public void startWorkFlow(){
+        waitForElementToAppear(driver,By.xpath(elements.startWorkFlowPath));
         assert click("Start WorkFlow",this.elements.startWorkFlow);
         assert waitForPageLoad();
     }
@@ -37,7 +38,8 @@ public class ContractDetailsDashboard extends GenericInputPage {
         status.selectByVisibleText(option);
         pause(1);
         assert click("Save",this.elements.save);
-        //assert click("Close",this.elements.close);
+        //dont give assert for close.
+        click("Close",this.elements.close);
 
         waitForElementToDissapear(driver,waitForElementToAppear(driver,By.xpath(elements.message)));
     }
@@ -72,6 +74,7 @@ public class ContractDetailsDashboard extends GenericInputPage {
 
 
         private String message= "//*[@id='message']";
+        private String startWorkFlowPath= "//div[@id='onStartExariWorkflowClick']/a";
         private String editDetails= "//select[contains(@id,'ContractDealStatus')]";
         private String editStatusButton= "//div[contains(@class,'edit-status')]/a/span";
 

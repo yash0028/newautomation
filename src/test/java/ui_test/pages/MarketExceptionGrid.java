@@ -20,6 +20,7 @@ public class MarketExceptionGrid extends GenericInputPage
     }
 
     public void previewMarketDetails(){
+        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
     }
