@@ -19,7 +19,7 @@ public class HBPsRedDoor  extends GenericInputPage
     }
     public void selectRedDoor(HashMap<String,String> hmap){
         click("HBP Red Door",getHBPResponse(hmap.get("HBP")));
-        waitForElementToDissapear(driver,waitForElementToPresent(driver, By.xpath(elements.message)));
+        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
     }

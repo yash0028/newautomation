@@ -33,9 +33,9 @@ public class PES_Response extends GenericInputPage {
 
         try{
             assert setCheckBox("Approach for Counter Party",counterPartyApproach(hmap.get("CounterPartyApproach")),true);
-            waitForElementToDissapear(driver,waitForElementToPresent(driver, By.xpath(elements.message)));
+            waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
             assert setCheckBox("CounterParty address checkbox",counterPartyAddress(hmap.get("CounterPartyAddress")),true);
-            waitForElementToDissapear(driver,waitForElementToPresent(driver, By.xpath(elements.message)));
+            waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
             assert clickNext();
             assert waitForPageLoad();
         }catch (Exception e){

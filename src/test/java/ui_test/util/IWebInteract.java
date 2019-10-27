@@ -667,6 +667,21 @@ public interface IWebInteract {
         }
         return null;
     }
+    default WebElement waitForElementToAppear(WebDriver driver,final By by)
+    {
+        try
+        {
+            //threadSleep(5000);
+            WebElement element = (new WebDriverWait(driver, 15))
+                    .until(ExpectedConditions.presenceOfElementLocated(by));
+            return element;
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
+
+    }
     default boolean waitForElementToDissapear(WebDriver driver,WebElement element)
     {
         try

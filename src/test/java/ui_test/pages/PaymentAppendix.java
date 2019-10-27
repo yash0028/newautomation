@@ -21,7 +21,7 @@ public class PaymentAppendix extends GenericInputPage {
     public void selectPaymentAppendix(HashMap<String,String> hmap)
     {
         assert click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
-        waitForElementToDissapear(driver,waitForElementToPresent(driver, By.xpath(elements.message)));
+        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
         assert click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix")));
         assert clickNext();
         assert waitForPageLoad();

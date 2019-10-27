@@ -37,7 +37,7 @@ public class ProviderDetails extends GenericInputPage {
 
     private void selectOption(String answer)  {
         click("MarketNumber",selectOptionForMarketNumber(answer));
-        waitForElementToDissapear(driver,waitForElementToPresent(driver, By.xpath(elements.message)));
+        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
 

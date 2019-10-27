@@ -27,7 +27,7 @@ public class ContractDetailsDashboard extends GenericInputPage {
                 break;
             }
             assert click("Initial Transaction",this.elements.initialTransaction);
-            waitForElementToDissapear(driver,waitForElementToPresent(driver,By.xpath(elements.message)));
+            waitForElementToDissapear(driver,waitForElementToAppear(driver,By.xpath(elements.message)));
             IWebInteract.log.info("Retrying for Edit Status Option, Retry: {}",count);
             count++;
         }
@@ -38,7 +38,7 @@ public class ContractDetailsDashboard extends GenericInputPage {
         pause(1);
         assert click("Save",this.elements.save);
         assert click("Close",this.elements.close);
-        waitForElementToDissapear(driver,waitForElementToPresent(driver,By.xpath(elements.message)));
+        waitForElementToDissapear(driver,waitForElementToAppear(driver,By.xpath(elements.message)));
     }
 
     public void finalCapture(){
