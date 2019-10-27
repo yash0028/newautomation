@@ -672,7 +672,7 @@ public interface IWebInteract {
         try
         {
             //threadSleep(5000);
-            WebElement element = (new WebDriverWait(driver, 15))
+            WebElement element = (new WebDriverWait(driver, 3))
                     .until(ExpectedConditions.presenceOfElementLocated(by));
             return element;
         }
@@ -686,7 +686,7 @@ public interface IWebInteract {
     {
         try
         {
-            (new WebDriverWait(driver, 15)).until(ExpectedConditions.invisibilityOf(element));
+            (new WebDriverWait(driver, 10)).until(ExpectedConditions.invisibilityOf(element));
             return true;
         }
         catch(Exception e)
