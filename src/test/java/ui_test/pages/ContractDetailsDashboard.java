@@ -37,7 +37,8 @@ public class ContractDetailsDashboard extends GenericInputPage {
         status.selectByVisibleText(option);
         pause(1);
         assert click("Save",this.elements.save);
-        assert click("Close",this.elements.close);
+        //assert click("Close",this.elements.close);
+
         waitForElementToDissapear(driver,waitForElementToAppear(driver,By.xpath(elements.message)));
     }
 
