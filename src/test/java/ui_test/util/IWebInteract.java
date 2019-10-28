@@ -672,12 +672,14 @@ public interface IWebInteract {
         try
         {
             //threadSleep(5000);
+            log.info("Waiting for loader to Appear.");
             WebElement element = (new WebDriverWait(driver, 3))
                     .until(ExpectedConditions.presenceOfElementLocated(by));
             return element;
         }
         catch(Exception e)
         {
+            log.info("Waiting for loader to Appear : Failed");
             return null;
         }
 
@@ -686,11 +688,13 @@ public interface IWebInteract {
     {
         try
         {
+            log.info("Waiting for loader to Disappear.");
             (new WebDriverWait(driver, 10)).until(ExpectedConditions.invisibilityOf(element));
             return true;
         }
         catch(Exception e)
         {
+            log.info("Waiting for loader to Disappear : Failed");
             return false;
         }
     }

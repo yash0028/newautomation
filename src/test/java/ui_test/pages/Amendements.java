@@ -23,7 +23,7 @@ public class Amendements extends GenericInputPage {
     public void authorAmendments(HashMap<String, String> hmap)
     {
         click("Amendments",selectAmendments(hmap.get("Amendments")));
-        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
     }

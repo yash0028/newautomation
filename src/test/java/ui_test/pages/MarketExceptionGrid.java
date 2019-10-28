@@ -19,13 +19,13 @@ public class MarketExceptionGrid extends GenericInputPage
     }
 
     public void previewMarketDetails(){
-        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
     }
     public void chooseTask(HashMap<String,String> hmap,String Task){
         assert click("Select Task", clickTask(hmap.get(Task)));
-        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
     }

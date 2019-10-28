@@ -43,7 +43,7 @@ public class AdditionalLocations extends GenericInputPage
                 break;
             }
         }
-        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
 

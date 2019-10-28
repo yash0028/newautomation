@@ -25,7 +25,7 @@ public class ProviderRoaster extends GenericInputPage
     }
     public void roasterAction(HashMap<String,String>hmap,String Roster)  {
         assert click("Provider Roster", clickRosterAction(hmap.get(Roster)));
-        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
 
@@ -49,7 +49,7 @@ public class ProviderRoaster extends GenericInputPage
         assert sendKeys("Search retro code",elements.retroCode,hmap.get("Retro code"));
         pause(1);
         assert click("Select retro code", elements.selectRetroCode.get(0));
-        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
     }
