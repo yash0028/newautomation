@@ -132,10 +132,15 @@ public class ProviderRoaster extends GenericInputPage
         for(String provider :providers){
             //click
             if(count>0 && createNewRow){
-                assert click("Add Provider",elements.addnewProvider);
+                pause(3);
+                assert click("Add Provider Row",elements.addnewProvider);
                 pause(1);
             }
-            assert click("Open Cancel Provider Dropdown",openCancelProviderDropdown(count));
+            pause(3);
+            if(createNewRow){
+                assert click("Open Cancel Provider Dropdown",openCancelProviderDropdown(count));
+            }
+            pause(1);
             assert sendKeys("Search provider",elements.selectProvider,provider.trim());
             pause(1);
             if(CommonMethods.isElementPresent(driver,By.xpath(elements.selectProviderWithNamenotFound))){
@@ -145,13 +150,19 @@ public class ProviderRoaster extends GenericInputPage
                 continue;
             }else{
                 assert click("Select provider", elements.selectProviderWithName.get(0));
-                createNewRow=createNewRow==false;
+                createNewRow=true;
                 count++;
                 CANCEL_MULTIPLE_PROVIDERS++;
             }
             pause(1);
 
         }
+        if(CommonMethods.isElementPresent(driver,By.xpath(elements.selectProviderpath))){
+            if(elements.selectProvider.getAttribute("value").equals("")){
+                click("Remove Provider Row",removeProviderrow(CANCEL_MULTIPLE_PROVIDERS));
+            }
+        }
+
         //write func to enter date
         if(CANCEL_MULTIPLE_PROVIDERS>0){
             String[] dates = hmap.get("Cancel Date").split("//");
@@ -176,14 +187,19 @@ public class ProviderRoaster extends GenericInputPage
     {
         String[] errorCodes= hmap.get("Cancel Reason Code").split("//");
         for(int count=1;count<=CANCEL_MULTIPLE_PROVIDERS;count++){
-            //click
             assert click("Open Cancel Reason Dropdown",openCancelReasonDropdown(count-1));
             pause(1);
-            assert sendKeys("Search provider",elements.selectProvider,errorCodes.trim());
-
-
+            if(count<=errorCodes.length){
+                assert sendKeys("Search provider",elements.selectProvider,errorCodes[count-1]);
+            }else{
+                assert sendKeys("Search provider",elements.selectProvider,errorCodes[errorCodes.length-1]);
+            }
+            pause(1);
+            assert click("Select provider", elements.selectCancelReason.get(0));
+            pause(1);
         }
-
+        assert clickNext();
+        assert waitForPageLoad();
 
     }
 
@@ -206,8 +222,12 @@ public class ProviderRoaster extends GenericInputPage
         return findElement(getDriver(), new String[]{"xpath","//select[contains(@name,'ReasonCode__SL_Repeat_Cancel.rpti_"+count+"')]/following::span[4]"});
     }
     public WebElement providerCancelDate(int count){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@name,'DMCQ__SL_Repeat_Cancel.rpti_"+count+"')]"});
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@name,'CancelDate__SL_Repeat_Cancel.rpti_"+count+"')]"});
     }
+    public WebElement removeProviderrow(int count){
+        return findElement(getDriver(), new String[]{"xpath","//select[contains(@name,'ReasonCode__SL_Repeat_Cancel.rpti_"+count+"')]/following::button[3]"});
+    }
+
 
 
     private static class PageElements extends AbstractPageElements {
@@ -233,8 +253,11 @@ public class ProviderRoaster extends GenericInputPage
         private WebElement providerStartDate;
         @FindBy(xpath = "//tfoot[contains(@class,'repeater-table-add-items')]//button")
         private WebElement addnewProvider;
+        @FindBy(xpath = "//span[@class='select2-results']//li")
+        private List<WebElement> selectCancelReason;
 
         private String message= "//div[contains(@class,'DialogBox')]";
+        private String selectProviderpath= "//input[@type='search']";
         private String selectProviderWithNamenotFound= "//span[@class='select2-results']//li[contains(.,'No results found')]";
 
 

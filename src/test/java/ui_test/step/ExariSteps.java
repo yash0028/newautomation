@@ -373,14 +373,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I select provider and cancel date$")
     public void providerandcanceldate()
     {
-
-
+        basePage.getProviderRoaster().providerandcanceldate(hmap);
     }
     @And("^I enter cancel reason$")
     public void cancelreason()
     {
-
-
+        basePage.getProviderRoaster().cancelreason(hmap);
     }
 
     /*
