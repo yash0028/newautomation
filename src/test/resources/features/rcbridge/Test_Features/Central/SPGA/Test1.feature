@@ -31,6 +31,7 @@ Feature: US1407217
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
+    ##Final Capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -46,6 +47,7 @@ Feature: US1407217
     And I enter Group Summary
     Then I Complete Wizard
     And I Set Status as Active
+    ##Make Correction - Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
@@ -59,4 +61,4 @@ Feature: US1407217
     Then I Complete Wizard
     Examples:
       | site          | paperType     | TCName   |
-      | central uhn   | SMGA          | TC624356 |
+      | central uhn   | SPGA          | TC624356 |

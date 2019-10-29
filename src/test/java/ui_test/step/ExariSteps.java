@@ -22,8 +22,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
-
-
 public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster, IContractFlowLoader {
     private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
 
@@ -53,7 +51,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
     public void loginSitePage(String siteOption) {
         this.protoStep.loginHome();
-        this.protoStep.setSite(siteOption);
+        //this.protoStep.setSite(siteOption);
     }
 
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
@@ -360,12 +358,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getProviderRoaster().approachForProvider(hmap);
 
     }
-    @And("^I enter TIN in Provider Roster$")
-    public void TINinProviderRoster()
-    {
-        basePage.getProviderRoaster().enterTIN(hmap);
-
-    }
     @And("^I select Providers$")
     public void selectProviders()
     {
@@ -376,6 +368,18 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void providerStartDate()
     {
         basePage.getProviderRoaster().providerStartDate(hmap);
+
+    }
+    @And("^I select provider and cancel date$")
+    public void providerandcanceldate()
+    {
+
+
+    }
+    @And("^I enter cancel reason$")
+    public void cancelreason()
+    {
+
 
     }
 
