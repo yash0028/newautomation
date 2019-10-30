@@ -1,19 +1,22 @@
 # Last updated on 
-@US1407217
+@SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: US1407217
-
-  @TC624356
+Feature: SPGA Business Testcases_IN
+  
+  @TC_CEN_SPGA_IN_05
   @Manual
-  @User_Interface
-  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+  @User_Interface  
+  Scenario Outline: TC_CEN_SPGA_IN_04 - [RL0] Author SPGA contract in <site>
+	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+  
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
+    And new step
     And I enter Document Selection
     And I preview Provider Details
     And I enter Practice Locations for SPGA Contract
@@ -27,11 +30,12 @@ Feature: US1407217
     And I enter Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
-    And I enter Provider Roster
+    And I select Provider Roster as None
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-    ##Final Capture
+    
+    #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -41,24 +45,29 @@ Feature: US1407217
     And I enter Our Signatory
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
-    And I enter Provider Roster
+    And I add provider using TIN    
+    #And I select approach for Provider Entry
+    #And I enter TIN in Provider Roster    
+    And I select Providers     
     And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
     And I Set Status as Active
-    ##Make Correction - Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I enter Provider Roster in Make Correction
-    And I Download Current Roster
-    And I Upload Completed Roster
-    And I enter warning in Make Correction
-    And I enter validation
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
-    Examples:
-      | site          | paperType     | TCName   |
-      | central uhn   | SPGA          | TC624356 |
+    
+  
+   
+    
+    #NDB Checking 
+		#Draft Amandament
+		#Amandment final capture
+		
+		#Amendment CMD Checking
+		
+		
+    
+    Examples:    
+       | site          | paperType     | TCName|  				 
+       | central uhn   | SPGA          | TC_CEN_SPGA_IN_04|
+       
+    

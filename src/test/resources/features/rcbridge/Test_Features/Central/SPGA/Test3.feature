@@ -4,12 +4,12 @@
 @iterationUnknown
 Feature: US1407217
 
-  @TC624357
+  @TC624358
   @Manual
   @User_Interface
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
 #    And I enter PES Inputs
 #    And I enter PES Response
 #    And I select Market Number
@@ -47,18 +47,16 @@ Feature: US1407217
 #    And I enter Group Summary
 #    Then I Complete Wizard
 #    And I Set Status as Active
-    ##Make Correction - Provider Roster (Add one or more providers to the roster)
+    ##Make Correction - Provider Roster (Cancel one or more providers from the roster)
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
     And I enter Provider Roster in Make Correction
-    And I select approach for Provider Entry
-    And I select Providers
-    And I enter Provider Start Date
-    And I enter retro code in Provider Roster
+    And I select provider and cancel date
+    And I enter cancel reason
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
     Examples:
       | site          | paperType     | TCName   |
-      | central uhn   | SPGA          | TC624357 |
+      | central uhn   | SPGA          | demo |

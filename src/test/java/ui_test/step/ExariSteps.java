@@ -22,8 +22,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
-
-
 public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster, IContractFlowLoader {
     private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
 
@@ -92,6 +90,13 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I select Market Number$")
     public void selectMarketNumber()
+    {
+        basePage.getProviderDetails().selectEntry(hmap);
+
+    }
+
+    @And("^new step$")
+    public void newmethod()
     {
         basePage.getProviderDetails().selectEntry(hmap);
 
@@ -327,7 +332,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I enter Provider Roster in Make Correction$")
     public void providerRosterMakeCorrection()
     {
-        basePage.getProviderRoaster().roasterAction(hmap,"MC_Roster");
+        basePage.getProviderRoaster().roasterAction("Cancel");
 
     }
     @And("^I Download Current Roster$")
@@ -359,12 +364,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getProviderRoaster().approachForProvider(hmap);
 
     }
-    @And("^I enter TIN in Provider Roster$")
-    public void TINinProviderRoster()
-    {
-        basePage.getProviderRoaster().enterTIN(hmap);
-
-    }
     @And("^I select Providers$")
     public void selectProviders()
     {
@@ -377,36 +376,40 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getProviderRoaster().providerStartDate(hmap);
 
     }
-    
-    //Murty new 
+
+    @And("^I select provider and cancel date$")
+    public void providerandcanceldate()
+    {
+        basePage.getProviderRoaster().providerandcanceldate(hmap);
+    }
+    @And("^I enter cancel reason$")
+    public void cancelreason()
+    {
+        basePage.getProviderRoaster().cancelreason(hmap);
+    }
+
+
     @And("^I select Provider Roster as None$")
     public void ProviderRoster_SelectNone()
     {
-        basePage.getProviderRoaster().roasterActionAsNone();    	 
+        basePage.getProviderRoaster().roasterAction("NONE");    	 
     }
-    
-    //New Murthy
+
     @And("^I add provider using TIN$")
     public void addProvider_TIN()
     {
-    	basePage.getProviderRoaster().clickRosterAction("Add");    
-    	basePage.getProviderRoaster().clickNext();
+    	basePage.getProviderRoaster().roasterAction("Add");
     	basePage.getProviderRoaster().approachForProvider("TIN");
     	basePage.getProviderRoaster().enterTIN(hmap);
-    	//basePage.getProviderRoaster().clickNext();
-    	
     }
-    
-    //New Murthy
+
     @And("^And I select provider using MPIN$")
     public void selectProvider_MPIN()
     {
-    	basePage.getProviderRoaster().clickRosterAction("ADD");
+    	basePage.getProviderRoaster().roasterAction("Add");
     	basePage.getProviderRoaster().approachForProvider("MPIN");
     	basePage.getProviderRoaster().enterMPIN(hmap);
     }
-     
-    
     /*
     HELPER METHODS
      */
