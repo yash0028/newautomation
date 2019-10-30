@@ -1,6 +1,3 @@
-commonName,MPIN,TIN,Market Number,Paper Type,Agreement Type,Phycon,FS All Payer,CounterPartyName,CounterPartyAddress,CounterPartyApproach,PracticeLocation,HBP,Include Product,Exclude Product,High Fee Schedule than Default,Payment Appendix,Article 8,Additional Location,Regulatory Appendix,Roster,Amendments,FS All Payer Physician,FS All Payer Non Physician,Initial Transaction,Task,Contract Effective Date,Print Name and Title,Provider Signatory Date,Provider Signatory Email,Print Name,Our Signatory Date,Retro code
-TC624356,350555,352078493,13479,SPGA,,1234,IN 57568,OPTOMETRY,BILLING,counterparty,Y,No,,,No,All Payer,,Yes,Indiana Regulatory Appendix,NONE,No,,,Initiate Approval Process,Opt-Out,23-Oct-19,,23-Oct-19,test@email.com,,23-Oct-19,R00
-TC_CEN_MGA_IN_53,405860,620853566,13476,MGA,State,,,RADIOLOGY,BILLING,counterparty,,,,,Yes,All Payer,Yes,No,Indiana Regulatory Appendix,NONE,,IN 57574,IN 18904
-TC_CEN_SMGA_IN_31,4371637,464383540,13476,SMGA,,PH 1234,,ADVOCATING HEALTH,BILLING,counterparty,,No,Medicare Advantage,,No,All Payer,,None,Indiana Regulatory Appendix,NONE,No,IN 57574,IN 57574
-TC_CEN_SPA_IN_70,14985,571049452,13476,SPA,,1111,IN 18904,CARDIOVASCULAR,COMBINATION,counterparty,,,,,No,All Payer,,None,Indiana Regulatory Appendix,NONE,No,,
-TC_CEN_SPGA_IN_10,2195335,352100428,13476,SPGA,,PH 1234,IN 18904,ANESTHESIOLOGY,COMBINATION,counterparty,302 W 14TH ST STE 100B,No,,,No,All Payer,,No,Indiana Regulatory Appendix,NONE,No,,,Initiate Approval Process,Execution,23-Oct-19,Test Create Contract,23-Oct-19,sample@sample.com,test,23-Oct-19,R00
+﻿commonName      ,eifFile              ,MPIN  ,TIN      ,Market Number,Paper Type,Phycon,FS All Payer
+Valid Contract 0,eif-hive-central.json,11921,352078493,13479        ,SPA       ,1234  ,IN 57568
+

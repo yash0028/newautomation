@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,18 +20,13 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void selectPaymentAppendix(HashMap<String,String> hmap)
     {
-        if(hmap.containsKey("High Fee Schedule than Default")) {
-            assert click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
-        }
-        pause(2);
+        assert click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
+        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        System.out.println(hmap.get("Payment Appendix"));
         assert click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix")));
         assert clickNext();
         assert waitForPageLoad();
 
-    }
-
-    public WebElement paymentAppendixElement(String paymentAppendix){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+paymentAppendix+"')]"});
     }
 
     //For SPGA contracts
@@ -41,39 +37,37 @@ public class PaymentAppendix extends GenericInputPage {
         {
             case "SPGA":
             {    assert sendKeys("FeeSchdeuleID", this.elements.feeSchduleID, hmap.get("FS All Payer"));
-                break;
+                 break;
 
             }
             case "MGA":
             {
                 assert sendKeys("FeeSchedule ID Physician", this.elements.feeSchduleIDPhysician, hmap.get("FS All Payer Physician"));
-                pause(3);
                 assert sendKeys("FeeSchedule ID Non Physician", this.elements.feeSchduleIDNonPhysician, hmap.get("FS All Payer Non Physician"));
                 break;
             }
             case "SMGA":
             {
                 assert sendKeys("FeeSchedule ID Physician", this.elements.feeSchduleIDPhysician, hmap.get("FS All Payer Physician"));
-                pause(3);
                 assert sendKeys("FeeSchedule ID Non Physician", this.elements.feeSchduleIDNonPhysician, hmap.get("FS All Payer Non Physician"));
                 break;
             }
             case "SPA":
-            {    assert sendKeys("FeeSchdeuleID", this.elements.feeSchduleID, hmap.get("FS All Payer"));
+            {
+                assert sendKeys("FeeSchdeuleID", this.elements.feeSchduleID, hmap.get("FS All Payer"));
                 break;
-
             }
         }
         assert clickNext();
         assert waitForPageLoad();
 
     }
-
-
-
     public void verifyFeeScheduleID() {
         assert clickNext();
         assert waitForPageLoad();
+    }
+    public WebElement paymentAppendixElement(String paymentAppendix){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+paymentAppendix+"')]"});
     }
 
     private static class PageElements  extends AbstractPageElements {
@@ -83,6 +77,7 @@ public class PaymentAppendix extends GenericInputPage {
         private WebElement feeSchduleIDPhysician;
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name_NPPA']")
         private WebElement feeSchduleIDNonPhysician;
+        private String message= "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {
             super(context);

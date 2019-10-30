@@ -7,6 +7,7 @@ import util.map.IMapSub;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ParamMap extends HashMap<String, Object> implements IMapSub {
     private static final Logger log = LoggerFactory.getLogger(ParamMap.class);
@@ -47,6 +48,13 @@ public class ParamMap extends HashMap<String, Object> implements IMapSub {
 
     public void put2ColDataTable(DataTable dataTable) {
         this.putAll(subMapStringValues(dataTable.asMap(String.class, String.class)));
+    }
+
+    public String getUriString() {
+        if (this.size() == 0)
+            return "";
+
+        return "?" + this.entrySet().stream().map(entry -> entry.getKey() + (entry.getValue() != null ? ('=' + entry.getValue().toString()) : "")).collect(Collectors.joining("&"));
     }
 
     /*

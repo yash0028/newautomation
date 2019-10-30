@@ -81,7 +81,7 @@ public abstract class AbstractRestApi implements IRestStep {
             request.params(params);
 
         // Get the GET response
-        Response response = request.get(resourceEndpoint).prettyPeek();
+        Response response = request.get(resourceEndpoint);
 
         switch (logLevel) {
             case all:
@@ -107,7 +107,35 @@ public abstract class AbstractRestApi implements IRestStep {
             request.body(payload);
 
         // Get the POST response
-        Response response = request.post(resourceEndpoint).prettyPeek();
+        Response response = request.post(resourceEndpoint);
+
+        switch (logLevel) {
+            case all:
+            case response:
+                return response.prettyPeek();
+            default:
+                return response;
+        }
+    }
+
+    public Response doParamPost(String resourceEndpoint, ParamMap params, Object payload) {
+        log.trace("sending 'post' to {} with params [{}] and payload [{}]", resourceEndpoint, params, payload);
+
+        RequestSpecification request = given().baseUri(getEndpoint())
+                .header("Content-Type", "application/json");
+
+        switch (logLevel) {
+            case all:
+            case request:
+                request.log().everything();
+        }
+
+        // Add payload
+        if (payload != null)
+            request.body(payload);
+
+        // Get the POST response
+        Response response = request.post(resourceEndpoint + (params != null ? params.getUriString() : ""));
 
         switch (logLevel) {
             case all:

@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2090654 - UI/UX: Integrate Type 2 Message Catalog data within the UI
 
   @TC1013512

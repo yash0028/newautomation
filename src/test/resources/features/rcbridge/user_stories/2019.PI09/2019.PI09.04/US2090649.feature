@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.04
 @releasePresent
-@iterationFuture
+@iterationPresent
 Feature: US2090649 - UI/UX: Create the Upload/Download functionality for the Type 2 Message Catalog Crosswalk table
 
   @TC1015068

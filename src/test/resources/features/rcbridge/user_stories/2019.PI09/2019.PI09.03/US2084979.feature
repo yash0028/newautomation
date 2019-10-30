@@ -3,7 +3,7 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2084979 - Enhanced contract ID search response to include Mass when navigating into 4-blocker queues
 
   @TC1001185

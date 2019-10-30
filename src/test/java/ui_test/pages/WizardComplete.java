@@ -12,7 +12,6 @@ import java.util.HashMap;
 public class WizardComplete extends GenericInputPage
 {
     private PageElements elements;
-    private Report report = Report.getReportInstance();
 
     public WizardComplete(WebDriver driver)
     {
@@ -21,19 +20,17 @@ public class WizardComplete extends GenericInputPage
     }
 
     public void completeWizard(HashMap<String, String> hmap){
-        assert waitForPageLoad();
+        waitTillClickable(elements.completeWizardElement,10);
         assert click("Complete Wizard",this.elements.completeWizardElement);
         assert waitForPageLoad();
-        if (report.getReport() != null) {
-            report.saveReport(hmap.get("commonName"));
-        }
     }
     private static class PageElements extends AbstractPageElements {
-        @FindBy(xpath = "/html/body/div[3]/div[2]/div[1]/div[1]/div[1]/a")
+        @FindBy(xpath = "//a[contains(@class,'nextButtonLink')]")
         private WebElement completeWizardElement;
         public PageElements(SearchContext context) {
             super(context);
         }
+
     }
 
 }

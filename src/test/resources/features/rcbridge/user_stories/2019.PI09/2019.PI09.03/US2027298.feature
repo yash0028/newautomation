@@ -4,7 +4,7 @@
 @2019.PI09
 @2019.PI09.03
 @releasePresent
-@iterationPresent
+@iterationPast
 Feature: US2027298 - Locked Language Request - Operations
 
   @TC967057
@@ -47,8 +47,8 @@ Feature: US2027298 - Locked Language Request - Operations
     And the form contains, "Please have discussions to determine if this Locked Language request should continue or end."
     And the form contains, "Are changes to locked language needed?" Yes/No (I want the variable to be the same "language_changes_present"
     And if Yes chosen, the question, "What is the new language agreed upon by UHN Legal, the provider, the Market Lead and Pricing?" (multi line text box)
-    And the form contains, "This language has been discussed with operations and it can be supported on our platforms?" *(Yes)
-    And upon completion, "Locked Language: Unlock template & Insert Language" task is created
+    And if Yes chosen,the form contains, "This language has been discussed with operations and it can be supported on our platforms." checkbox
+    And if Yes chosen, upon completion, "Locked Language: Unlock template & Insert Language" task is created
 
   @TC974929
   @Manual

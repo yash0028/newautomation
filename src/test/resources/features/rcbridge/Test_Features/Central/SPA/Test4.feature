@@ -2,14 +2,13 @@
 @US1407217
 @releaseUnknown
 @iterationUnknown
-Feature: US1407217 - Author SPA Contact UI Path
-
+Feature: US1407217
   @TC_CEN_SPA_IN_70
   @Manual
   @User_Interface
-  Scenario Outline: TC_CEN_SPA_IN_70 - [RL0] Author SPA contract in <site>
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    And I am using the "<TCName>" data
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Responses
     And I select Market Number
@@ -18,7 +17,6 @@ Feature: US1407217 - Author SPA Contact UI Path
     And I preview Provider Details
     And I enter Practice Locations for SPA Contract
     And I preview Provider Details
-    And I enter Counterparty Details Page
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
@@ -32,5 +30,5 @@ Feature: US1407217 - Author SPA Contact UI Path
     And I enter Group Summary
     Then I Complete Wizard
     Examples:
-      | site          | TCName   |
-      | central uhn   | TC_CEN_SPA_IN_70 |
+      | site          | paperType     | TCName           |
+      | central uhn   | SPA           | TC_CEN_SPA_IN_70 |

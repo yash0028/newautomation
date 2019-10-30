@@ -10,7 +10,6 @@ public class BasePage extends GenericInputPage {
     private Appendix2 appendix2;
     private Article article;
     private ContractDetails contractDetails;
-    private CounterpartyDetails counterpartyDetails;
     private DocumentSelection documentSelection;
     private GroupSummary groupSummary;
     private HBPsRedDoor hbPsRedDoor;
@@ -32,7 +31,11 @@ public class BasePage extends GenericInputPage {
     private OurSignatory ourSignatory;
     private ProviderSignatory providerSignatory;
     private Warning warning;
+    private Validation validation;
 
+    public Validation getValidation() {
+        return (validation ==null) ? new Validation(getDriver()) :validation;
+    }
     public Warning getWarning() {
         return (warning==null) ? new Warning(getDriver()) :warning;
     }
@@ -68,11 +71,6 @@ public class BasePage extends GenericInputPage {
 
     public ContractDetails getContractDetails() {
         return (contractDetails==null) ? new ContractDetails(getDriver()) :contractDetails;
-    }
-
-
-    public CounterpartyDetails getCounterpartyDetails() {
-        return (counterpartyDetails==null) ? new CounterpartyDetails(getDriver()) :counterpartyDetails;
     }
 
     public DocumentSelection getDocumentSelection() {

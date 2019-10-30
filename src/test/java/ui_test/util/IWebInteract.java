@@ -667,6 +667,42 @@ public interface IWebInteract {
         }
         return null;
     }
+    default WebElement waitForElementToAppear(WebDriver driver,final By by)
+    {
+        try
+        {
+            //threadSleep(5000);
+            log.info("Waiting for loader to Appear.");
+            WebElement element = (new WebDriverWait(driver, 3))
+                    .until(ExpectedConditions.presenceOfElementLocated(by));
+            return element;
+        }
+        catch(Exception e)
+        {
+            log.info("Waiting for loader to Appear : Failed");
+            return null;
+        }
+
+    }
+    default boolean waitForElementToDissapear(WebDriver driver,WebElement element)
+    {
+        try
+        {
+            log.info("Waiting for loader to Disappear.");
+            (new WebDriverWait(driver, 10)).until(ExpectedConditions.invisibilityOf(element));
+            return true;
+        }
+        catch(Exception e)
+        {
+            log.info("Waiting for loader to Disappear : Failed");
+            return false;
+        }
+    }
+
+
+
+
+
 
     default List<WebElement> findElements(WebDriver driver,String[] elementProperties)
     {

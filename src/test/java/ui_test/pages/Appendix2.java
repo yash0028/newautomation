@@ -11,10 +11,6 @@ public class Appendix2 extends GenericInputPage {
     public Appendix2(WebDriver driver) {
         super(driver);
     }
-
-    public WebElement getXPath(String answer){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+answer+"')]"});
-    }
     public void selectAppendix(HashMap<String,String> hmap)
     {
 
@@ -23,9 +19,11 @@ public class Appendix2 extends GenericInputPage {
         if(hmap.containsKey("Exclude Product"))
             click("Exclude Product in Appendix 2",getXPath(hmap.get("Exclude Product")));
 
-
         assert clickNext();
         assert waitForPageLoad();
+    }
+    public WebElement getXPath(String answer){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+answer+"')]"});
     }
 
 }

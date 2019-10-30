@@ -18,7 +18,10 @@ public void acknowledgment(){
     assert clickNext();
     assert waitForPageLoad();
 }
-
+public void warningMakeCorrection(){
+    assert clickNext();
+    assert waitForPageLoad();
+}
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[contains(@value,'acknowledged')]")
         private WebElement acknowledge;

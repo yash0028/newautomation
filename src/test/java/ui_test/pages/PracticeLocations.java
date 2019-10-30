@@ -1,6 +1,5 @@
 package ui_test.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,11 +22,6 @@ public class PracticeLocations extends GenericInputPage
 
     }
 
-    public WebElement selectPracticeLocation(String answer){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+answer+"')]"});
-    }
-
-
     //Select Practice Location when Paper Type is SPGA
     public void selectLocation(HashMap<String,String>hmap) {
 
@@ -36,13 +30,16 @@ public class PracticeLocations extends GenericInputPage
 
     }
 
-
     //Select Practice Location when Paper Type is MPA
     public void selectPracticeLocation()
     {
         click(elements.radioBtnSelection);
         assert clickNext();
         assert waitForPageLoad();
+    }
+    //TODO need to modify
+    public WebElement selectPracticeLocation(String answer){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+answer+"')]"});
     }
 
     private static class PageElements  extends AbstractPageElements {

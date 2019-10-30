@@ -51,7 +51,7 @@ public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
      */
 
     public boolean clickNext() {
-        new WebDriverWait(driver, 15).until(ExpectedConditions.elementToBeClickable(elements.navigationNext));
+        waitTillClickable(elements.navigationNext,20);
         int count =0;
         while(count<=10){
             if(click("next button", elements.navigationNext)){

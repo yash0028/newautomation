@@ -27,19 +27,11 @@ public class InitialTransaction extends GenericInputPage {
         return findElement(getDriver(), new String[]{"xpath","//mat-option/span[contains(.,'"+Name+"')]"});
     }
 
-
-
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//mat-select[@id='mat-select-0']/div/div")
         private WebElement startProcess;
         @FindBy(xpath = "//button[@id='button-start']/span")
         private WebElement startProcessButton;
-
-
-
-
-
-
 
 
         public PageElements(SearchContext context) {

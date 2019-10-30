@@ -35,46 +35,37 @@ public class ProviderDetails extends GenericInputPage {
         selectOption(answer);
     }
 
-    public WebElement selectOptionForMarketNumber(String answer){
-        return findElement(getDriver(), new String[]{"xpath","//li[contains(text(),'"+answer+"'" + ")]"});
-    }
-
-
     private void selectOption(String answer)  {
         click("MarketNumber",selectOptionForMarketNumber(answer));
+        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
 
     }
-
 
     public void previewProfile() {
         assert clickNext();
         assert waitForPageLoad();
 
-        if(isElementPresent())
+        if(CommonMethods.isElementPresent(driver,By.xpath(elements.duplicateTIN)))
         {
-            //assert clickNext();
-            //assert waitForPageLoad();
+            assert clickNext();
+            assert waitForPageLoad();
         }
 
     }
-    public boolean isElementPresent() {
-        try {
-            driver.findElement(By.xpath("//b[contains(text(),'Counterparty TIN duplicate check failed')]"));
-            return true;
-        } catch (org.openqa.selenium.NoSuchElementException e) {
-            return false;
-        }
+    public WebElement selectOptionForMarketNumber(String answer){
+        return findElement(getDriver(), new String[]{"xpath","//li[contains(text(),'"+answer+"'" + ")]"});
     }
-
     private static class PageElements  extends AbstractPageElements
     {
         @FindBy(xpath = "//span[@class='select2-selection__arrow']")
         private WebElement dropdown_open;
         @FindBy(xpath = "//input[@class='select2-search__field']")
-        public WebElement dropdown_textbox;
+        private WebElement dropdown_textbox;
 
+        private String duplicateTIN = "//label[contains(.,'Counterparty TIN duplicate check failed')]/b";
+        private String message= "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {
             super(context);

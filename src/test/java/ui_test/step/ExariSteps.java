@@ -1,51 +1,35 @@
 package ui_test.step;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import exari_test.eif.data.EifReport;
 import exari_test.eif.data.EifTestData;
 import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.flow.IContractFlowLoader;
-import exari_test.eif.report.CukeReport;
-import exari_test.eif.report.Match;
-import exari_test.eif.report.Step;
-import exari_test.hive.Hive;
 import general_test.util.ISharedValuePoster;
 import io.cucumber.datatable.DataTable;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.pages.BasePage;
-import ui_test.pages.Report;
 import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
-import util.TimeKeeper;
-import util.configuration.ConfigStub;
 import util.configuration.IConfigurable;
-import util.file.FileHandler;
 import util.file.IFileReader;
-import exari_test.eif.report.Result;
-
-import java.lang.reflect.Array;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.List;
+
 
 
 public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster, IContractFlowLoader {
     private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
 
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
-    String csvFile = configGetOptionalString("exari.csvFile").orElse("");
     String home = System.getProperty("user.dir");
-    Path contractFlowPath = Paths.get(home, "src", "test", "resources","support","hive","dataMap",csvFile);
+    Path contractFlowPath = Paths.get(home, "src", "test", "resources","support","hive","dataMap");
     private ProtoStep protoStep = new ProtoStep(getDriver());
 
 
@@ -59,11 +43,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void prepareEIF(String fileName) {
         contractFlow = loadFlowContract(fileName);
     }
-
-    @Given("^I am using the \"([^\"]*)\" data$")
-    public void getData(String testName) {
+    @Given("^I am using the \"([^\"]*)\" data from \"([^\"]*)\" of \"([^\"]*)\" and paper type \"([^\"]*)\"$")
+    public void getData(String testName, String fileName, String site, String paperType) {
+        Path CSVpath = Paths.get(contractFlowPath.toString(),site,paperType,fileName);
         CSVReader csvReader = new CSVReader();
-        this.hmap = csvReader.readFile(contractFlowPath.toString(), testName);
+        this.hmap = csvReader.readFile(CSVpath.toString(), testName);
     }
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
@@ -96,7 +80,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void PESResponse() {
         basePage.getPes_response().selectCounterParty(hmap);
         basePage.getPes_response().specifyApproachForCounter(hmap);
-        basePage.getPes_response().selectCounterPartyAddress(hmap);
     }
 
     @And("^I enter PES Responses$")
@@ -104,11 +87,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPes_response().selectCounterParty(hmap);
         basePage.getPes_response().specifyApproachForCounter(hmap);
 //        basePage.getPes_response().selectCounterPartyAddress(hmap);
-    }
 
-    @And("^I enter Counterparty Details Page$")
-    public void CounterpartyDerails() {
-        basePage.getCounterpartyDetails().counterpartyTINDuplicateCheck();
     }
 
     @And("^I select Market Number$")
@@ -230,10 +209,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I enter Provider Roster$")
     public void ProviderRoster()
     {
-        basePage.getProviderRoaster().roasterAction(hmap);
+        basePage.getProviderRoaster().roasterAction(hmap,"Roster");
     }
-
-
+    
     @And("^I enter Amendments$")
     public void Amendments()
     {
@@ -313,7 +291,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I enter Market Exception Grid in Final Capture$")
     public void MEGFinalCapture()
     {
-        basePage.getMarketExceptionGrid().chooseTask(hmap);
+        basePage.getMarketExceptionGrid().chooseTask(hmap,"Task");
 
     }
     @And("^I enter retro code in Provider Roster$")
@@ -334,7 +312,101 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getContractDetailsDashboard().editStatus("Active");
 
     }
+    @And("^I click Make Correction$")
+    public void makeCorrection()
+    {
+         basePage.getContractDetailsDashboard().makeCorrection();
 
+    }
+    @And("^I enter Market Exception Grid in Make Correction$")
+    public void MEGMakeCorrection()
+    {
+        basePage.getMarketExceptionGrid().chooseTask(hmap,"MC_Task");
+
+    }
+    @And("^I enter Provider Roster in Make Correction$")
+    public void providerRosterMakeCorrection()
+    {
+        basePage.getProviderRoaster().roasterAction(hmap,"MC_Roster");
+
+    }
+    @And("^I Download Current Roster$")
+    public void downloadCurrentRoster()
+    {
+        basePage.getProviderRoaster().downloadCurrentRoster();
+
+    }
+    @And("^I Upload Completed Roster$")
+    public void uploadCompletedRoster()
+    {
+        basePage.getProviderRoaster().uploadCompletedRoster(hmap);
+
+    }
+    @And("^I enter warning in Make Correction$")
+    public void warningMakeCorrection()
+    {
+        basePage.getWarning().warningMakeCorrection();
+    }
+    @And("^I enter validation$")
+    public void validation()
+    {
+        basePage.getValidation().validation();
+
+    }
+    @And("^I select approach for Provider Entry$")
+    public void approachForProvider()
+    {
+        basePage.getProviderRoaster().approachForProvider(hmap);
+
+    }
+    @And("^I enter TIN in Provider Roster$")
+    public void TINinProviderRoster()
+    {
+        basePage.getProviderRoaster().enterTIN(hmap);
+
+    }
+    @And("^I select Providers$")
+    public void selectProviders()
+    {
+        basePage.getProviderRoaster().selectProviders(hmap);
+
+    }
+    @And("^I enter Provider Start Date$")
+    public void providerStartDate()
+    {
+        basePage.getProviderRoaster().providerStartDate(hmap);
+
+    }
+    
+    //Murty new 
+    @And("^I select Provider Roster as None$")
+    public void ProviderRoster_SelectNone()
+    {
+        basePage.getProviderRoaster().roasterActionAsNone();    	 
+    }
+    
+    //New Murthy
+    @And("^I add provider using TIN$")
+    public void addProvider_TIN()
+    {
+    	basePage.getProviderRoaster().clickRosterAction("Add");    
+    	basePage.getProviderRoaster().clickNext();
+    	basePage.getProviderRoaster().approachForProvider("TIN");
+    	basePage.getProviderRoaster().enterTIN(hmap);
+    	//basePage.getProviderRoaster().clickNext();
+    	
+    }
+    
+    //New Murthy
+    @And("^And I select provider using MPIN$")
+    public void selectProvider_MPIN()
+    {
+    	basePage.getProviderRoaster().clickRosterAction("ADD");
+    	basePage.getProviderRoaster().approachForProvider("MPIN");
+    	basePage.getProviderRoaster().enterMPIN(hmap);
+    }
+     
+    
     /*
     HELPER METHODS
      */
@@ -356,6 +428,5 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     private void setupProtoStep() {
         setupProtoStep(null);
     }
-
 
 }

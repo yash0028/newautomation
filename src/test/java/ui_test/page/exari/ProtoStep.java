@@ -12,9 +12,6 @@ import ui_test.page.exari.contract.ContractPage;
 import ui_test.page.exari.home.DashboardPage;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.page.exari.login.LoginSSOPage;
-import ui_test.pages.PESInputActions;
-import ui_test.pages.Report;
-import ui_test.step.ExariSteps;
 import util.TimeKeeper;
 import util.configuration.IConfigurable;
 
@@ -25,7 +22,6 @@ public class ProtoStep implements IConfigurable {
     public GenericSitePage sitePage;
     private WebDriver driver;
     private ContractFlow flow;
-    private Report report = Report.getReportInstance();
 
 
     /*
@@ -62,15 +58,15 @@ public class ProtoStep implements IConfigurable {
 
             dashboardPage = loginPage.getHomePage();
             assert dashboardPage.confirmCurrentPage();
-           if (report.getReport()!= null) {
-                report.getReport().markLogin(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
-            }
+//           if (flow.getReport()!= null) {
+//                flow.getReport().markLogin(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
+//            }
 
             return this;
         } catch (Exception e) {
-            if (report.getReport() != null) {
-                report.getReport().markLogin(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
-            }
+//            if (flow.getReport() != null) {
+//                flow.getReport().markLogin(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+//            }
             throw e;
         }
     }
@@ -83,8 +79,8 @@ public class ProtoStep implements IConfigurable {
     public ProtoStep setSite(String siteOption) {
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
 
-        if (report.getReport() != null)
-            report.getReport().addNote("siteName", siteOption);
+//        if (flow.getReport() != null)
+//            flow.getReport().addNote("siteName", siteOption);
         try {
             Assert.assertTrue(dashboardPage.confirmCurrentPage());
             sitePage = dashboardPage.getNavigationPanel().setSiteEnvironment(siteOption);
@@ -92,14 +88,14 @@ public class ProtoStep implements IConfigurable {
             assert sitePage.confirmCurrentPage();
             log.info("moved to {} site", siteOption);
 
-            if (report.getReport() != null) {
-                report.getReport().markSetSite(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
-            }
+//            if (flow.getReport() != null) {
+//                flow.getReport().markSetSite(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
+//            }
             return this;
         } catch (Exception e) {
-            if (report.getReport() != null) {
-                report.getReport().markSetSite(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
-            }
+//            if (flow.getReport() != null) {
+//                flow.getReport().markSetSite(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.FAILED));
+//            }
             throw e;
         }
 
