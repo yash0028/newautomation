@@ -62,7 +62,7 @@ Feature: SPGA Business Testcases_IN
     #CMD Check
 		#NDB Check
 		#Make a Correction - Add a new TIN to the existing provider in the Roster.
-		And I click Make Correction
+	And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
     And I enter Provider Roster in Make Correction

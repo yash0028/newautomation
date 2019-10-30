@@ -65,6 +65,8 @@ Feature: SPGA Business Testcases_IN
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
+    And I enter Provider Start Date
+   	And I enter retro code in Provider Roster
     And I enter warning in Make Correction
     And I enter validation
     And I acknowledge the warning
