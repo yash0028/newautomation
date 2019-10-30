@@ -395,8 +395,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     	basePage.getProviderRoaster().clickNext();
     	basePage.getProviderRoaster().approachForProvider("TIN");
     	basePage.getProviderRoaster().enterTIN(hmap);
-    	//basePage.getProviderRoaster().clickNext();
-    	
     }
 
     @And("^And I select provider using MPIN$")
