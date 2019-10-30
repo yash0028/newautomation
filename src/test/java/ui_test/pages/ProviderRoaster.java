@@ -30,12 +30,13 @@ public class ProviderRoaster extends GenericInputPage
         assert waitForPageLoad();
 
     }
-    public void roasterActionAsNone()  {
-        assert click("Provider Roster", clickRosterAction("NONE"));        
+    public void roasterAction(String action)  {
+        assert click("Provider Roster", clickRosterAction(action));        
         assert clickNext();
         assert waitForPageLoad();
 
     }
+    
     public void downloadCurrentRoster(){
         assert clickNext();
         assert waitForPageLoad();
