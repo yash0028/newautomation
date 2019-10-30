@@ -209,8 +209,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     {
         basePage.getProviderRoaster().roasterAction(hmap,"Roster");
     }
-
-
+    
     @And("^I enter Amendments$")
     public void Amendments()
     {
@@ -370,6 +369,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getProviderRoaster().providerStartDate(hmap);
 
     }
+
     @And("^I select provider and cancel date$")
     public void providerandcanceldate()
     {
@@ -381,6 +381,30 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getProviderRoaster().cancelreason(hmap);
     }
 
+
+    @And("^I select Provider Roster as None$")
+    public void ProviderRoster_SelectNone()
+    {
+        basePage.getProviderRoaster().roasterActionAsNone();    	 
+    }
+
+    @And("^I add provider using TIN$")
+    public void addProvider_TIN()
+    {
+    	basePage.getProviderRoaster().clickRosterAction("Add");
+    	
+    	basePage.getProviderRoaster().approachForProvider("TIN");
+    	basePage.getProviderRoaster().enterTIN(hmap);
+    	
+    }
+
+    @And("^And I select provider using MPIN$")
+    public void selectProvider_MPIN()
+    {
+    	basePage.getProviderRoaster().clickRosterAction("ADD");
+    	basePage.getProviderRoaster().approachForProvider("MPIN");
+    	basePage.getProviderRoaster().enterMPIN(hmap);
+    }
     /*
     HELPER METHODS
      */

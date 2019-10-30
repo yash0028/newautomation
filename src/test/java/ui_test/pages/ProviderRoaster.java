@@ -34,6 +34,12 @@ public class ProviderRoaster extends GenericInputPage
         assert waitForPageLoad();
 
     }
+    public void roasterActionAsNone()  {
+        assert click("Provider Roster", clickRosterAction("NONE"));        
+        assert clickNext();
+        assert waitForPageLoad();
+
+    }
     public void downloadCurrentRoster(){
         assert clickNext();
         assert waitForPageLoad();
@@ -83,6 +89,11 @@ public class ProviderRoaster extends GenericInputPage
         assert clickNext();
         assert waitForPageLoad();
     }
+    public void approachForProvider(String approach){
+        assert click("Select Approach For Provider",clickapproachForProvider(approach) );
+        assert clickNext();
+        assert waitForPageLoad();
+    }
     public void selectProviders(HashMap<String,String>hmap){
         String[] providers = hmap.get("Select Providers").split("//");
         for(String provider :providers){
@@ -120,6 +131,11 @@ public class ProviderRoaster extends GenericInputPage
             }
 
         }
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+    public void enterMPIN(HashMap<String,String>hmap){
+        assert sendKeys("MPIN",elements.enterTIN,hmap.get("MPIN"));
         assert clickNext();
         assert waitForPageLoad();
     }
