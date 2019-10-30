@@ -51,7 +51,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
     public void loginSitePage(String siteOption) {
         this.protoStep.loginHome();
-        //this.protoStep.setSite(siteOption);
+        this.protoStep.setSite(siteOption);
     }
 
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
@@ -90,6 +90,13 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I select Market Number$")
     public void selectMarketNumber()
+    {
+        basePage.getProviderDetails().selectEntry(hmap);
+
+    }
+
+    @And("^new step$")
+    public void newmethod()
     {
         basePage.getProviderDetails().selectEntry(hmap);
 
@@ -325,7 +332,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I enter Provider Roster in Make Correction$")
     public void providerRosterMakeCorrection()
     {
-        basePage.getProviderRoaster().roasterAction(hmap,"MC_Roster");
+        basePage.getProviderRoaster().roasterAction("Cancel");
 
     }
     @And("^I Download Current Roster$")
