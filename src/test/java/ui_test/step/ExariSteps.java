@@ -389,10 +389,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I add provider using TIN$")
     public void addProvider_TIN()
     {
-    	basePage.getProviderRoaster().clickRosterAction("Add");
-    	
+    	basePage.getProviderRoaster().clickRosterAction("Add");    
+    	basePage.getProviderRoaster().clickNext();
     	basePage.getProviderRoaster().approachForProvider("TIN");
     	basePage.getProviderRoaster().enterTIN(hmap);
+    	//basePage.getProviderRoaster().clickNext();
     	
     }
     
