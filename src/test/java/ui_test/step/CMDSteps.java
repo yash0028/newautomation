@@ -14,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
+import ui_test.page.contractManagement.CMDLoginSSOPage;
 import ui_test.page.contractManagement.CMDPage;
 import ui_test.util.IUiStep;
 
@@ -29,16 +30,26 @@ public class CMDSteps implements IRestStep, IUiStep {
     private final static String CMD_DASHBOARD_URL = "https://contract-management-test.optum.com";
     private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
     private CMDPage cmdPage = null;
-
+   // private ProtoStep protoStep = new ProtoStep(getDriver());
     private int totalElements = 0;
 
     @Given("^I have entered the CMD dashboard URL$")
     public void navigateToCMDdashboardUrl() {
         getDriver().get(CMD_DASHBOARD_URL);
         cmdPage = new CMDPage(getDriver());
+
+
         Assert.assertNotNull("CMD page not displayed", cmdPage);
+        CMDLoginSSOPage obj= new CMDLoginSSOPage(getDriver());
+        obj.login();
     }
 
+   // @Given("^I am logged into cmd$")
+  //  public void loginSitePage(String siteOption) {
+   //     this.protoStep.loginHome();
+
+
+   // }
     @Given("^I am on the CMD dashboard$")
     public void navigateToCMDdashboardPage() throws InterruptedException {
         navigateToCMDdashboardUrl();
@@ -190,6 +201,12 @@ public class CMDSteps implements IRestStep, IUiStep {
     public void validateContractDetails(DataTable contractDataTable) throws Throwable{
         Map<String, String> contractParam = contractDataTable.asMap(String.class, String.class);
         cmdPage.validateContractDetails(contractParam);
+    }
+    @Then("^Validate Contract \"([^\"]*)\" status and request type \"([^\"]*)\"$")
+    public void validateContracttype(String contract, String reqtype) throws Throwable {
+
+        cmdPage.ValidateConract(contract,reqtype);
+
     }
 
     public int getTransactionsCountService(String transactionStatus){
