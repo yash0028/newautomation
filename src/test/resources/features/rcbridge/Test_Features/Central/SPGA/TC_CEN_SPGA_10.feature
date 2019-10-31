@@ -6,7 +6,8 @@ Feature: SPGA Business Testcases_IN
   
   @TC_CEN_SPGA_IN_10
   @Manual
-  @User_Interface  
+  @User_Interface 
+  @Regression
   Scenario Outline: TC_CEN_SPGA_IN_10 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -63,7 +64,7 @@ Feature: SPGA Business Testcases_IN
     
     #NDB Check
     
-    Make a correction - Add a new TIN to the existing provider in the Roster.
+    #Make a correction - Add a new TIN to the existing provider in the Roster.
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
