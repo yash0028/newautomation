@@ -8,8 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IWebInteract;
-
-import java.nio.channels.MulticastChannel;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
