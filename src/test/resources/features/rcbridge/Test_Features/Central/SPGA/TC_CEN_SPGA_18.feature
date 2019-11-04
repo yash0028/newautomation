@@ -4,11 +4,10 @@
 @iterationUnknown
 Feature: SPGA Business Testcases_IN
   
-  @TC_CEN_SPGA_IN_15
+  @TC_CEN_SPGA_IN_05
   @Manual
-  @User_Interface
-  @Regression
-  Scenario Outline: TC_CEN_SPGA_IN_15 - [RL0] Author SPGA contract in <site>  
+  @User_Interface  
+   Scenario Outline: TC_CEN_SPGA_IN_05 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
@@ -36,46 +35,36 @@ Feature: SPGA Business Testcases_IN
     Then I Complete Wizard
     
     #Final capture
-    
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
-    And I Start Final Capture 
+    And I Start Final Capture
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
-    And I add provider using TIN  
+    And I add provider using TIN    
     And I select Providers     
     And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+    And I Set Status as Active
     
-    #Activate
-    And I Set Status as Active    
+   
     
-    #CMD Check
-    
-    #NDB Check
-    
-    #Add provider with Make a correction.   
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
-    And I enter Provider Start Date
-   	And I enter retro code in Provider Roster
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard   
-    
-    #create supporting document 
+    	#NDB Checking 
+		#Draft Amandament
+		#Amandment final capture
+		#Activate Amandament
 		
+		#Amendment CMD Checking
+		
+		
+    
     Examples:    
        | site          | paperType     | TCName|  				 
-       | central uhn   | SPGA          | TC_CEN_SPGA_IN_15|
+       | central uhn   | SPGA          | TC_CEN_SPGA_IN_18|
        
     
