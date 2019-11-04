@@ -1,9 +1,7 @@
 package ui_test.page.exari;
 
-import exari_test.eif.data.EifReport;
 import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.interview.InterviewFlowContract;
-import exari_test.eif.report.Result;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
@@ -57,7 +55,7 @@ public class ProtoStep implements IConfigurable {
             assert loginPage.login();
 
             dashboardPage = loginPage.getHomePage();
-            assert dashboardPage.confirmCurrentPage();
+            //assert dashboardPage.confirmCurrentPage();
 //           if (flow.getReport()!= null) {
 //                flow.getReport().markLogin(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
 //            }

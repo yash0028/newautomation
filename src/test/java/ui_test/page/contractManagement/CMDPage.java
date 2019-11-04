@@ -2,6 +2,7 @@ package ui_test.page.contractManagement;
 
 import general_test.util.ISharedValueReader;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -191,12 +192,26 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
      * @return True if the the data is entered in the input field or false otherwise.
      */
     public boolean enterContractNumber() {
-        return sendKeys(searchTransactionsTextBox, getSharedString("contractNumber").orElse(""));
+      //  return sendKeys(searchTransactionsTextBox, getSharedString("contractNumber").orElse(""));
+
+        return sendKeys(searchTransactionsTextBox, "11122328");
     }
 
     public void searchContract() {
         enterContractNumber();
         assert clickSearchButton();
+    }
+
+    public void ValidateConract(String contract,String reqtype)
+    {
+       String status= driver.findElement(By.xpath("//td[contains(text(),'"+contract+"')]/../td[contains(text(),'"+reqtype+"')]/../td[7]/span")).getText();
+    System.out.println(status);
+       String requesttype= driver.findElement(By.xpath("//td[contains(text(),'"+contract+"')]/../td[contains(text(),'"+reqtype+"')]")).getText();
+        System.out.println(requesttype);
+       Assert.assertEquals(status,"SUCCESS");
+       Assert.assertEquals(requesttype,"InstallContract");
+
+
     }
 
     public void validateContractDetails(Map<String, String> params) {
