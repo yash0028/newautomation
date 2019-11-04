@@ -4,11 +4,10 @@
 @iterationUnknown
 Feature: SPGA Business Testcases_IN
   
-  @TC_CEN_SMGA_IN_08
+  @TC_CEN_SMGA_IN_21
   @Manual
-  @User_Interface
-  @Regression
-  Scenario Outline: TC_CEN_SMGA_IN_08 - [RL0] Author SPGA contract in <site>  
+  @User_Interface  
+  Scenario Outline: TC_CEN_SMGA_IN_08 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
@@ -19,7 +18,7 @@ Feature: SPGA Business Testcases_IN
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SPGA Contract
+    And I enter Practice Locations for SMGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid

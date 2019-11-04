@@ -7,8 +7,8 @@ Feature: SPGA Business Testcases_IN
   @TC_CEN_SMGA_IN_08
   @Manual
   @User_Interface
-  @Regression
-  Scenario Outline: TC_CEN_SMGA_IN_08 - [RL0] Author SPGA contract in <site>  
+  @UAT_Automation
+  Scenario Outline: TC_CEN_SMGA_IN_08 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
@@ -19,7 +19,7 @@ Feature: SPGA Business Testcases_IN
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SPGA Contract
+    And I enter Practice Locations for SMGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -69,7 +69,7 @@ Feature: SPGA Business Testcases_IN
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    And I enter Provider Roster in Make Correction
+    And I set Roster Action as Upload
     And I Download Current Roster
     And I Upload Completed Roster
     And I enter warning in Make Correction
