@@ -4,11 +4,10 @@
 @iterationUnknown
 Feature: SPGA Business Testcases_IN
   
-  @TC_CEN_SPGA_IN_23
+  @TC_CEN_SMGA_IN_21
   @Manual
   @User_Interface  
-  @UAT_Automation
-  Scenario Outline: TC_CEN_SPGA_IN_23 - [RL0] Author SPGA contract in <site>  
+  Scenario Outline: TC_CEN_SMGA_IN_08 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
@@ -19,7 +18,7 @@ Feature: SPGA Business Testcases_IN
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SPGA Contract
+    And I enter Practice Locations for SMGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -36,53 +35,51 @@ Feature: SPGA Business Testcases_IN
     Then I Complete Wizard
     
     #Final capture
-        
+    
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
-    And I Start Final Capture 
+    And I Start Final Capture
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
-    And I add provider using TIN  
-    And I select Providers     
+    And I add provider using TIN
+    And I select Providers
     And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
     
     #Activate
-    And I Set Status as Active    
+    And I Set Status as Active
     
     #CMD Check
+    When I have entered the CMD dashboard URL
+    When I search for Contract
+    Then Validate Contract "11122328" status and request type "InstallContract"
+
     
     #NDB Check
     
-    #Make a correction - Add a new TIN to the existing provider in the Roster. 
+    #Add provider with Make a correction.   
+    
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    And I set Roster Action as Upload
-    And I Download Current Roster
-    And I Upload Completed Roster
-    And I enter warning in Make Correction
-    And I enter validation
+    And I add provider using TIN
+    And I select Providers
+    And I enter Provider Start Date
+   	And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
-    Then I Complete Wizard    
+    Then I Complete Wizard   
     
-    #create supporting document 
-    
-    #CMD Check
-    #NDB Check
+  
 		
-    #Cancel MPIN and TIN ,which has been added thru make a correction
     
-        
     Examples:    
-       | site          | paperType     | TCName|  				 
-       | central uhn   | SPGA          | TC_CEN_SPGA_IN_23|
-       
+       | site          | paperType     | TCName|
+       | central uhn   | SMGA          | TC_CEN_SMGA_IN_21|
     

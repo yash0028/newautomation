@@ -45,7 +45,8 @@ public class SauceLabs {
         // Create Remote Web Driver
         try {
             this.driver = new RemoteWebDriver(new URL(url), capabilities);
-            this.driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
+            //this.driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
+            this.driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
         } catch (MalformedURLException e) {
             log.error("Invalid SauceLabs URL <{}>", url);
             return;
