@@ -51,8 +51,7 @@ Feature: US1407217
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    And I enter Provider Roster in Make Correction
-    And I select approach for Provider Entry
+    And I add provider using TIN
     And I select Providers
     And I enter Provider Start Date
     And I enter retro code in Provider Roster
@@ -60,5 +59,5 @@ Feature: US1407217
     And I enter Group Summary
     Then I Complete Wizard
     Examples:
-      | site          | paperType     | TCName            |
-      | central uhn   | SPGA          | TC_CEN_SPGA_IN_15 |
+      | site          | paperType     | TCName |
+      | central uhn   | SPGA          | demo   |

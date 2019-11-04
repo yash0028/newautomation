@@ -51,7 +51,7 @@ Feature: US1407217
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    And I enter Provider Roster in Make Correction
+    And I set Roster Action as Upload
     And I Download Current Roster
     And I Upload Completed Roster
     And I enter warning in Make Correction
@@ -61,4 +61,4 @@ Feature: US1407217
     Then I Complete Wizard
     Examples:
       | site          | paperType     | TCName   |
-      | central uhn   | SPGA          | TC624356 |
+      | central uhn   | SPGA          | demo |

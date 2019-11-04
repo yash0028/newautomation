@@ -83,13 +83,6 @@ public class ProviderRoaster extends GenericInputPage
         assert clickNext();
         assert waitForPageLoad();
     }
-    public void approachForProvider(HashMap<String,String>hmap){
-        assert click("Select Approach For Provider",clickapproachForProvider(hmap.get("Select approach for provider entry")) );
-        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
-        assert sendKeys("TIN",elements.enterTIN,hmap.get("TIN"));
-        assert clickNext();
-        assert waitForPageLoad();
-    }
     public void approachForProvider(String approach){
         assert click("Select Approach For Provider",clickapproachForProvider(approach) );
         assert clickNext();
@@ -185,9 +178,11 @@ public class ProviderRoaster extends GenericInputPage
                 continue;
             }else{
                 assert click("Select provider", elements.selectProviderWithName.get(0));
-                createNewRow=true;
-                count++;
                 CANCEL_MULTIPLE_PROVIDERS++;
+                createNewRow=true;
+                //createNewRow=CANCEL_MULTIPLE_PROVIDERS>=elements.dropdown_open_count.size()?true:false;
+                count++;
+
             }
             pause(1);
 
@@ -233,10 +228,6 @@ public class ProviderRoaster extends GenericInputPage
         assert waitForPageLoad();
 
     }
-
-
-
-
     public WebElement providerStartDate(int Count){
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+Count+"')]"});
     }
