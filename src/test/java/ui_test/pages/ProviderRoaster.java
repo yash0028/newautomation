@@ -146,11 +146,23 @@ public class ProviderRoaster extends GenericInputPage
         assert clickNext();
         assert waitForPageLoad();
     }
+    public void removeExcessRow(int dropdown_count, int providersCount){
+        System.out.println("dropdowncount="+dropdown_count+" providersCount="+providersCount);
+        if(dropdown_count>providersCount){
+            for (int count=dropdown_count; count>providersCount;count--){
+                pause(3);
+                click("Remove Provider Row",removeProviderrow(count-1));
+            }
+        }
+    }
+
+
+
     public void providerandcanceldate(HashMap<String,String>hmap)
     {
         String[] providers = hmap.get("providers to cancel").split("//");
+        boolean createNewRow = elements.dropdown_open_count.size()>providers.length?false:true;
         int count =0;
-        boolean createNewRow = true;
         String date;
         for(String provider :providers){
             //click
@@ -180,12 +192,8 @@ public class ProviderRoaster extends GenericInputPage
             pause(1);
 
         }
-        if(CommonMethods.isElementPresent(driver,By.xpath(elements.selectProviderpath))){
-            if(elements.selectProvider.getAttribute("value").equals("")){
-                click("Remove Provider Row",removeProviderrow(CANCEL_MULTIPLE_PROVIDERS));
-            }
-        }
-
+        //cross check number of providers and row
+        removeExcessRow(elements.dropdown_open_count.size(),CANCEL_MULTIPLE_PROVIDERS);
         //write func to enter date
         if(CANCEL_MULTIPLE_PROVIDERS>0){
             String[] dates = hmap.get("Cancel Date").split("//");
@@ -258,6 +266,8 @@ public class ProviderRoaster extends GenericInputPage
         private WebElement dropdown_open;
         @FindBy(xpath = "//span[contains(@class,'select2-selection__rendered')]")
         private List<WebElement> dropdown_open_list;
+        @FindBy(xpath = "//select[contains(@name,'DMCQ__SL_Repeat_Cancel.rpti')]/following::span[4]")
+        private List<WebElement> dropdown_open_count;
         @FindBy(xpath = "//input[@type='search']")
         private WebElement retroCode;
         @FindBy(xpath = "//span[@class='select2-results']//li")

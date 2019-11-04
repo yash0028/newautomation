@@ -9,7 +9,7 @@ Feature: US1407217
   @User_Interface
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
 #    And I enter PES Inputs
 #    And I enter PES Response
 #    And I select Market Number
@@ -60,5 +60,5 @@ Feature: US1407217
     And I enter Group Summary
     Then I Complete Wizard
     Examples:
-      | site          | paperType     | TCName   |
-      | central uhn   | SPGA          | TC624357 |
+      | site          | paperType     | TCName            |
+      | central uhn   | SPGA          | TC_CEN_SPGA_IN_15 |

@@ -16,7 +16,8 @@ public class ContractDetailsDashboard extends GenericInputPage {
         this.elements = new PageElements(driver);
     }
     public void startWorkFlow(){
-        waitTillClickable(elements.startWorkFlow,20);
+        refreshPage();
+        assert waitTillClickable(elements.startWorkFlow,20);
         assert click("Start WorkFlow",elements.startWorkFlow);
         assert waitForPageLoad();
     }
