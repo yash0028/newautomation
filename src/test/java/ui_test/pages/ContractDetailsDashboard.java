@@ -1,4 +1,5 @@
 package ui_test.pages;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -28,9 +29,11 @@ public class ContractDetailsDashboard extends GenericInputPage {
     }
     public void editStatus(String option){
         int count=1;
-        while(true){
+        boolean foundEditStatus =false;
+        while(count<=20){
             if(CommonMethods.isElementPresent(driver,By.xpath(elements.editStatusButton))){
                 assert click("Edit Status",this.elements.editStatus);
+                foundEditStatus=true;
                 break;
             }
             assert click("Initial Transaction",this.elements.initialTransaction);
@@ -38,16 +41,16 @@ public class ContractDetailsDashboard extends GenericInputPage {
             IWebInteract.log.info("Retrying for Edit Status Option, Retry: {}",count);
             count++;
         }
-        waitForElementsToPresent(driver,By.xpath(elements.editDetails));
-        pause(1);
-        Select status = new Select(this.elements.selectStatus);
-        status.selectByVisibleText(option);
-        pause(1);
-        assert click("Save",this.elements.save);
-        //dont give assert for close.
-        click("Close",this.elements.close);
-
-        waitForElementToDissapear(driver,waitForElementToAppear(driver,By.xpath(elements.message)));
+        Assert.assertTrue("Contract is not Approved", foundEditStatus);
+            waitForElementsToPresent(driver,By.xpath(elements.editDetails));
+            pause(1);
+            Select status = new Select(this.elements.selectStatus);
+            status.selectByVisibleText(option);
+            pause(1);
+            assert click("Save",this.elements.save);
+            //dont give assert for close.
+            click("Close",this.elements.close);
+            waitForElementToDissapear(driver,waitForElementToAppear(driver,By.xpath(elements.message)));
     }
 
     public void finalCapture(){

@@ -27,36 +27,37 @@ Feature: US1407217
 #    And I enter Payment Appendix
 #    And I enter Additional Locations
 #    And I enter Regulatory Appendices
-#    And I enter Provider Roster
+#    And I select Provider Roster as None
 #    And I enter Amendments
 #    And I enter Group Summary
 #    Then I Complete Wizard
      ##Final Capture
-#    And I Start Workflow
-#    And I Start Process for Initial Transaction
-#    And I Set Status as Final Pending QA
-#    And I Start Final Capture
-#    And I enter Contract Details in Final Capture
-#    And I enter Provider Signatory
-#    And I enter Our Signatory
-#    And I enter Market Exception Grid in Final Capture
-#    And I enter Market Exception Grid
-#    And I enter Provider Roster
-#    And I enter retro code in Provider Roster
-#    And I acknowledge the warning
-#    And I enter Group Summary
-#    Then I Complete Wizard
-#    And I Set Status as Active
-    ##Make Correction - Provider Roster (Cancel one or more providers from the roster)
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA
+    And I Start Final Capture
+    And I enter Contract Details in Final Capture
+    And I enter Provider Signatory
+    And I enter Our Signatory
+    And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
-    And I set Roster Action as Cancel
-    And I select provider and cancel date
-    And I enter cancel reason
+    And I add provider using TIN
+    And I select Providers
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+    And I Set Status as Active
+    ##Make Correction - Provider Roster (Cancel one or more providers from the roster)
+#    And I click Make Correction
+#    And I enter Market Exception Grid in Make Correction
+#    And I enter Market Exception Grid
+#    And I set Roster Action as Cancel
+#    And I select provider and cancel date
+#    And I enter cancel reason
+#    And I acknowledge the warning
+#    And I enter Group Summary
+#    Then I Complete Wizard
     Examples:
       | site          | paperType     | TCName |
       | central uhn   | SPGA          | demo   |

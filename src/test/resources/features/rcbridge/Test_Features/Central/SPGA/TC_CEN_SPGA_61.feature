@@ -7,7 +7,7 @@ Feature: SPGA Business Testcases_IN
   @TC_CEN_SPGA_IN_61
   @Manual
   @User_Interface
-  @Regression  
+  @UAT_Automation 
   Scenario Outline: TC_CEN_SPGA_IN_61 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -40,19 +40,19 @@ Feature: SPGA Business Testcases_IN
     #Workflow Approval at Pricing level
     
     #Final Capture process
-     
+
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
-    And I Start Final Capture 
+    And I Start Final Capture
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
-    And I add provider using TIN  
-    And I select Providers     
-    And I enter retro code in Provider Roster
+    And I add provider using TIN
+    And I select Providers
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard

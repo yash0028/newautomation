@@ -8,8 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IWebInteract;
-
-import java.nio.channels.MulticastChannel;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -26,13 +24,6 @@ public class ProviderRoaster extends GenericInputPage
     {
         super(driver);
         this.elements = new PageElements(driver);
-    }
-    public void roasterAction(HashMap<String,String>hmap,String Roster)  {
-        assert click("Provider Roster", clickRosterAction(hmap.get(Roster)));
-        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
-        assert clickNext();
-        assert waitForPageLoad();
-
     }
     public void roasterAction(String action)  {
         assert click("Provider Roster", clickRosterAction(action));        
@@ -83,8 +74,27 @@ public class ProviderRoaster extends GenericInputPage
         assert clickNext();
         assert waitForPageLoad();
     }
-    public void approachForProvider(String approach){
+    public void selectretrocode(HashMap<String,String>hmap,boolean clickNext){
+        click("Retro code dropdown open", elements.dropdown_open);
+        pause(1);
+        assert sendKeys("Search retro code",elements.retroCode,hmap.get("Retro code"));
+        pause(1);
+        assert click("Select retro code", elements.selectRetroCode.get(0));
+        if(clickNext){
+            assert clickNext();
+            assert waitForPageLoad();
+        }
+    }
+    public void approachForProvider(HashMap<String,String>hmap,String approach){
+        if(CommonMethods.isElementPresent(driver,By.xpath(elements.retroDropdown))){
+            selectretrocode(hmap,false);
+        }
+
         assert click("Select Approach For Provider",clickapproachForProvider(approach) );
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+    public void verifyProviders(){
         assert clickNext();
         assert waitForPageLoad();
     }
@@ -143,29 +153,27 @@ public class ProviderRoaster extends GenericInputPage
         System.out.println("dropdowncount="+dropdown_count+" providersCount="+providersCount);
         if(dropdown_count>providersCount){
             for (int count=dropdown_count; count>providersCount;count--){
-                pause(3);
+                pause(1);
                 click("Remove Provider Row",removeProviderrow(count-1));
             }
         }
     }
-
-
-
     public void providerandcanceldate(HashMap<String,String>hmap)
     {
         String[] providers = hmap.get("providers to cancel").split("//");
         boolean createNewRow = elements.dropdown_open_count.size()>providers.length?false:true;
+        boolean nextInput =true;
         int count =0;
         String date;
         for(String provider :providers){
             //click
             if(count>0 && createNewRow){
-                pause(3);
+                pause(1);
                 assert click("Add Provider Row",elements.addnewProvider);
                 pause(1);
             }
-            pause(3);
-            if(createNewRow){
+            if(nextInput){
+                pause(1);
                 assert click("Open Cancel Provider Dropdown",openCancelProviderDropdown(count));
             }
             pause(1);
@@ -174,13 +182,14 @@ public class ProviderRoaster extends GenericInputPage
             if(CommonMethods.isElementPresent(driver,By.xpath(elements.selectProviderWithNamenotFound))){
                 elements.selectProvider.clear();
                 IWebInteract.log.info("Provider Name [{}] NOT FOUND",provider.trim());
+                nextInput = false;
                 createNewRow=false;
                 continue;
             }else{
                 assert click("Select provider", elements.selectProviderWithName.get(0));
                 CANCEL_MULTIPLE_PROVIDERS++;
-                createNewRow=true;
-                //createNewRow=CANCEL_MULTIPLE_PROVIDERS>=elements.dropdown_open_count.size()?true:false;
+                nextInput=true;
+                createNewRow=CANCEL_MULTIPLE_PROVIDERS>=elements.dropdown_open_count.size()?true:false;
                 count++;
 
             }
@@ -281,6 +290,7 @@ public class ProviderRoaster extends GenericInputPage
         private List<WebElement> selectCancelReason;
 
         private String message= "//div[contains(@class,'DialogBox')]";
+        private String retroDropdown= "//span[contains(@class,'select2-selection__rendered')]";
         private String selectProviderpath= "//input[@type='search']";
         private String selectProviderWithNamenotFound= "//span[@class='select2-results']//li[contains(.,'No results found')]";
 

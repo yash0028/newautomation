@@ -44,14 +44,13 @@ Feature: SPGA Business Testcases_IN
     And I enter Our Signatory
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
-    And I add provider using TIN    
-    #And I select approach for Provider Entry
-    #And I enter TIN in Provider Roster    
-    And I select Providers     
-    And I enter retro code in Provider Roster
+    And I add provider using TIN
+    And I select Providers
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+    #Activate
     And I Set Status as Active
     
   

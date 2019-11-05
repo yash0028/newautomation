@@ -74,8 +74,10 @@ public class LocalDriver implements IConfigurable, IFileReader {
 
     private void init() {
         try {
+
             String driverPath = "C:\\ProgramData\\Chrome_driver\\chromedriver.exe";
           //  String driverPath = getDriverPath();
+
             System.setProperty("webdriver.chrome.driver", driverPath);
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.setExperimentalOption("useAutomationExtension", false);

@@ -7,7 +7,7 @@ Feature: SPGA Business Testcases_IN
   @TC_CEN_SPGA_IN_10
   @Manual
   @User_Interface 
-  @Regression
+  @UAT_Automation
   Scenario Outline: TC_CEN_SPGA_IN_10 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -36,7 +36,6 @@ Feature: SPGA Business Testcases_IN
     Then I Complete Wizard
     
     #Final capture
-    
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -48,7 +47,7 @@ Feature: SPGA Business Testcases_IN
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -59,7 +58,7 @@ Feature: SPGA Business Testcases_IN
     #CMD Check
     When I have entered the CMD dashboard URL
     When I search for Contract
-    Then Validate Contract "11122328" status and request type "InstallContract"
+    #Then Validate Contract "11122328" status and request type "InstallContract"
 
     
     #NDB Check

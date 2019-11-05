@@ -4,11 +4,11 @@
 @iterationUnknown
 Feature: SMGA Business Testcases_IN
   
-  @TC_CEN_SMGA_IN_08
+  @TC_CEN_SMGA_IN_12
   @Manual
   @User_Interface
   @UAT_Automation
-  Scenario Outline: TC_CEN_SMGA_IN_08 - [RL0] Author SMGA contract in <site>  
+  Scenario Outline: TC_CEN_SMGA_IN_12 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
@@ -64,27 +64,23 @@ Feature: SMGA Business Testcases_IN
     
     #NDB Check
     
-    #Make a correction - Add a new TIN to the existing provider in the Roster.
+    #Add provider with Make a correction.   
     
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    And I set Roster Action as Upload
-    And I Download Current Roster
-    And I Upload Completed Roster
-    And I enter warning in Make Correction
-    And I enter validation
+    And I add provider using TIN
+    And I select Providers
+    And I enter Provider Start Date
+   	And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
-    Then I Complete Wizard
+    Then I Complete Wizard   
     
-    #Create supporting document 
-    
-    #CMD Check
-    #NDB Check
+  
 		
     
     Examples:    
        | site          | paperType     | TCName|
-       | central uhn   | SMGA          | TC_CEN_SMGA_IN_08|
+       | central uhn   | SMGA          | TC_CEN_SMGA_IN_12|
     
