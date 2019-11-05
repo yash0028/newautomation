@@ -51,7 +51,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
     public void loginSitePage(String siteOption) {
         this.protoStep.loginHome();
-        this.protoStep.setSite(siteOption);
+//        this.protoStep.setSite(siteOption);
     }
 
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
@@ -356,13 +356,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void selectProviders()
     {
         basePage.getProviderRoaster().selectProviders(hmap);
-
     }
     @And("^I enter Provider Start Date$")
     public void providerStartDate()
     {
         basePage.getProviderRoaster().providerStartDate(hmap);
-
     }
 
     @And("^I select provider and cancel date$")
@@ -401,6 +399,24 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getProviderRoaster().roasterAction("Upload");
     }
 
+
+
+    @And("I capture Contract Number")
+    public void iCaptureContractNumber()
+    {
+        basePage.getContractDetailsDashboard().captureContractNumber(hmap);
+
+    }
+
+    @And("^I search Contract using Contract Number$")
+    public void searchContractByContractNumber() {
+        basePage.getDashboard().searchContaractByContractNumber(hmap);
+        basePage.getDashboard().openContractDetails();
+        basePage.getContractDetailsDashboard().clickForContractSummary();
+
+    }
+
+
     @And("^And I select provider using MPIN$")
     public void selectProvider_MPIN()
     {
@@ -429,5 +445,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     private void setupProtoStep() {
         setupProtoStep(null);
     }
+
 
 }
