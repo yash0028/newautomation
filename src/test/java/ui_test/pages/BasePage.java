@@ -5,7 +5,7 @@ import ui_test.page.exari.contract.GenericInputPage;
 
 
 public class BasePage extends GenericInputPage {
-
+    private Dashboard dashboard;
     private AdditionalLocations additionalLocations;
     private Appendix2 appendix2;
     private Article article;
@@ -58,6 +58,11 @@ public class BasePage extends GenericInputPage {
     public AdditionalLocations getAdditionalLocations() {
         return (additionalLocations==null) ? new AdditionalLocations(getDriver()) :additionalLocations;
     }
+
+    public Dashboard getDashboard() {
+        return (dashboard==null) ? new Dashboard(getDriver()) :dashboard;
+    }
+
 
     public Appendix2 getAppendix2() {
         return (appendix2==null) ? new Appendix2(getDriver()) :appendix2;

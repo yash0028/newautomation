@@ -46,9 +46,9 @@ public class CMDLoginSSOPage implements IWebInteract, IFactoryPage, IConfigurabl
 
 
     public boolean login() {
-        sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
-        sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
-        click("sign in", elements.buttonSignIn);
+        assert sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
+        assert sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
+        assert click("sign in", elements.buttonSignIn);
 
         return true;
     }

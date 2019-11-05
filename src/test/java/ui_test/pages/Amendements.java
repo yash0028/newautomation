@@ -38,5 +38,4 @@ public class Amendements extends GenericInputPage {
             super(context);
         }
     }
-
 }
