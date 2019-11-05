@@ -58,7 +58,7 @@ Feature: SPGA Business Testcases_IN
     #CMD Check
     When I have entered the CMD dashboard URL
     When I search for Contract
-    Then Validate Contract "11122328" status and request type "InstallContract"
+    #Then Validate Contract "11122328" status and request type "InstallContract"
 
     
     #NDB Check
