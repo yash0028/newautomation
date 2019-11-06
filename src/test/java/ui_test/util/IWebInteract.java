@@ -673,7 +673,7 @@ public interface IWebInteract {
         {
             //threadSleep(5000);
             log.info("Waiting for loader to Appear.");
-            WebElement element = (new WebDriverWait(driver, 3))
+            WebElement element = (new WebDriverWait(driver, 5))
                     .until(ExpectedConditions.presenceOfElementLocated(by));
             return element;
         }

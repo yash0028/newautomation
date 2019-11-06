@@ -51,6 +51,36 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
         sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
         return clickWithForce("sign in", elements.buttonSignIn);
     }
+    public boolean login(String approverType) {
+        String username="";
+        String password="";
+        switch (approverType){
+            case "physician local contract approver":
+                username = configGetOptionalString("exari.phy_local_contract_approver_username").orElse("");
+                password = configGetOptionalString("exari.phy_local_contract_approver_password").orElse("");
+                break;
+            case "senior contract approver":
+                username = configGetOptionalString("exari.sr_contract_approver_username").orElse("");
+                password = configGetOptionalString("exari.sr_contract_approver_password").orElse("");
+                break;
+            case "regional pricing approver":
+                username = configGetOptionalString("exari.reg_prcicing_approver_username").orElse("");
+                password = configGetOptionalString("exari.reg_prcicing_approver_password").orElse("");
+                break;
+            case "physician local pricing approver":
+                username = configGetOptionalString("exari.phy_local_prcicing_approver_username").orElse("");
+                password = configGetOptionalString("exari.phy_local_prcicing_approver_password").orElse("");
+                break;
+            case "centralized":
+                login();
+                break;
+
+        }
+        sendKeys("username", elements.textBoxUsername, username);
+        sendKeys("password", elements.textBoxPassword, password);
+        return clickWithForce("sign in", elements.buttonSignIn);
+    }
+
 
     /*
     PAGE METHODS

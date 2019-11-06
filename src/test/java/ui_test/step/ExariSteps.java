@@ -50,7 +50,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
     public void loginSitePage(String siteOption) {
         this.protoStep.loginHome();
-        this.protoStep.setSite(siteOption);
+        //this.protoStep.setSite(siteOption);
     }
 
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
@@ -247,6 +247,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     {
         basePage.getInitialTransaction().initialTransaction(hmap);
     }
+    @And("^I Approve HBP Red Door$")
+    public void approveHBPRedDoor()
+    {
+        basePage.getContractDetailsDashboard().handleApprovals("Red Door Alternates");
+    }
 
     @And("^I Set Status as Final Pending QA$")
     public void finalPendingQA()
@@ -391,7 +396,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void addProvider_TIN()
     {
     	basePage.getProviderRoaster().roasterAction("Add");
-    	basePage.getProviderRoaster().approachForProvider(hmap,"TIN");
+    	basePage.getProviderRoaster().approachForProvider(hmap,"TIN",false);
     	basePage.getProviderRoaster().enterTIN(hmap);
     }
 
@@ -411,7 +416,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void selectProvider_MPIN()
     {
     	basePage.getProviderRoaster().roasterAction("Add");
-    	basePage.getProviderRoaster().approachForProvider(hmap,"MPIN");
+    	basePage.getProviderRoaster().approachForProvider(hmap,"MPIN",false);
     	basePage.getProviderRoaster().enterMPIN(hmap);
     }
     /*

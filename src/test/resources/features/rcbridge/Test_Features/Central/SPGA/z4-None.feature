@@ -4,7 +4,7 @@
 @iterationUnknown
 Feature: US1407217
 
-  @TC624358
+  @TC624359
   @Manual
   @User_Interface
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
@@ -31,24 +31,24 @@ Feature: US1407217
 #    And I enter Amendments
 #    And I enter Group Summary
 #    Then I Complete Wizard
-     ##Final Capture
-    And I Start Workflow
-    And I Start Process for Initial Transaction
-    And I Set Status as Final Pending QA
-    And I Start Final Capture
-    And I enter Contract Details in Final Capture
-    And I enter Provider Signatory
-    And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
-    And I enter retro code in Provider Roster
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
-    And I Set Status as Active
-    ##Make Correction - Provider Roster (Cancel one or more providers from the roster)
+     ##Final Capture - Provider Roster (None of the above)
+#    And I Start Workflow
+#    And I Start Process for Initial Transaction
+#    And I Set Status as Final Pending QA
+#    And I Start Final Capture
+#    And I enter Contract Details in Final Capture
+#    And I enter Provider Signatory
+#    And I enter Our Signatory
+#    And I enter Market Exception Grid in Final Capture
+#    And I enter Market Exception Grid
+#    And I add provider using TIN
+#    And I select Providers
+#    And I enter retro code in Provider Roster
+#    And I acknowledge the warning
+#    And I enter Group Summary
+#    Then I Complete Wizard
+#    And I Set Status as Active
+    ##Make Correction - Provider Roster (None of the above)
 #    And I click Make Correction
 #    And I enter Market Exception Grid in Make Correction
 #    And I enter Market Exception Grid

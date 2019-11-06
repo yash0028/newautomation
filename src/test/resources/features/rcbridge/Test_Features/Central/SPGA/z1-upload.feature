@@ -31,23 +31,23 @@ Feature: US1407217
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-    ##Final Capture
-    And I Start Workflow
-    And I Start Process for Initial Transaction
-    And I Set Status as Final Pending QA
-    And I Start Final Capture
-    And I enter Contract Details in Final Capture
-    And I enter Provider Signatory
-    And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
-    And I enter retro code in Provider Roster
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
-    And I Set Status as Active
+    ##Final Capture - Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
+#    And I Start Workflow
+#    And I Start Process for Initial Transaction
+#    And I Set Status as Final Pending QA
+#    And I Start Final Capture
+#    And I enter Contract Details in Final Capture
+#    And I enter Provider Signatory
+#    And I enter Our Signatory
+#    And I enter Market Exception Grid in Final Capture
+#    And I enter Market Exception Grid
+#    And I add provider using TIN
+#    And I select Providers
+#    And I enter retro code in Provider Roster
+#    And I acknowledge the warning
+#    And I enter Group Summary
+#    Then I Complete Wizard
+#    And I Set Status as Active
     ##Make Correction - Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
