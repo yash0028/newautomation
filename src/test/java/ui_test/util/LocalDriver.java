@@ -65,6 +65,7 @@ public class LocalDriver implements IConfigurable, IFileReader {
             return;
         }
 
+
         log.trace("browser closed");
     }
 
