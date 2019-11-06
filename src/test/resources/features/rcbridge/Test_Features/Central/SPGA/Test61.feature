@@ -9,7 +9,6 @@ Feature: SPGA Business Testcases_IN
   @User_Interface
   Scenario Outline: TC_61 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-
     #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
 #    And I enter PES Inputs
@@ -58,14 +57,13 @@ Feature: SPGA Business Testcases_IN
 #
     #Activate
 #    And I Set Status as Active
-
     #CMD Check
 		#NDB Check
 		#Make a Correction - Add a new TIN to the existing provider in the Roster.
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    And I enter Provider Roster in Make Correction
+    And I set Roster Action as Upload
     And I Download Current Roster
     And I Upload Completed Roster
     And I enter warning in Make Correction

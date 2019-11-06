@@ -17,6 +17,8 @@ import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
+
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -50,7 +52,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
     public void loginSitePage(String siteOption) {
         this.protoStep.loginHome();
-        this.protoStep.setSite(siteOption);
+        //this.protoStep.setSite(siteOption);
     }
 
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
@@ -324,15 +326,13 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("^I Download Current Roster$")
-    public void downloadCurrentRoster()
-    {
-        basePage.getProviderRoaster().downloadCurrentRoster();
+    public void downloadCurrentRoster() {
+        basePage.getProviderRoaster().downloadCurrentRoster(hmap);
 
     }
 
     @And("^I Upload Completed Roster$")
-    public void uploadCompletedRoster()
-    {
+    public void uploadCompletedRoster() throws IOException {
         basePage.getProviderRoaster().uploadCompletedRoster(hmap);
 
     }

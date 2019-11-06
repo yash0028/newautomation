@@ -9,6 +9,11 @@ import org.slf4j.LoggerFactory;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
@@ -82,9 +87,16 @@ public class LocalDriver implements IConfigurable, IFileReader {
             //String driverPath = "C:\\ProgramData\\Chrome_driver\\chromedriver.exe";
           //  String driverPath = getDriverPath();
 
+            Map<String, Object> prefs = new HashMap<String, Object>();
+            String home = System.getProperty("user.dir");
+            Path downloadFlowPath = Paths.get(home, "src", "test", "resources","features","rcbridge","ProviderRoster");
+            prefs.put("download.default_directory", downloadFlowPath.toString());
+            System.out.println("Downloaded Files Path "+downloadFlowPath.toString());
+
             System.setProperty("webdriver.chrome.driver", driverPath);
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.setExperimentalOption("useAutomationExtension", false);
+            chromeOptions.setExperimentalOption("prefs", prefs);
             driver = new ChromeDriver(chromeOptions);
             driver.manage().deleteAllCookies();
             driver.manage().window().maximize();
