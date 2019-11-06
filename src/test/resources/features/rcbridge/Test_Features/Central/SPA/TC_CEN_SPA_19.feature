@@ -1,30 +1,27 @@
-# Last updated on 
-@SPGABusinessTestcases_IN
+# Last updated on
+@ SPA Business Testcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_IN
-  
-  @TC_CEN_SPGA_IN_10
+Feature: SPA Business Testcases_IN
+  @TC_CEN_SPA_IN_19
   @Manual
-  @User_Interface 
-  @UAT_Automation
-  Scenario Outline: TC_CEN_SPGA_IN_10 - [RL0] Author SPGA contract in <site>  
-	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-  
+  @User_Interface
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-    And I enter PES Response
+    And I enter PES Responses
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SPGA Contract
+    And I enter Practice Locations for SPA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
-    And I enter HBPs Red Door
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -34,10 +31,11 @@ Feature: SPGA Business Testcases_IN
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-    
-    #Final capture
-    And I Start Workflow
-    And I Start Process for Initial Transaction
+
+
+
+     #Final capture
+
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -47,22 +45,29 @@ Feature: SPGA Business Testcases_IN
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I verify Providers
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    
+
     #Activate
     And I Set Status as Active
-    
-    #CMD Check
+
+
+     #CMD Check
     When I have entered the CMD dashboard URL
     When I search for Contract
     Then Validate Contract "<contract>" status and request type "<Contractstatus>"
 
-    
     #NDB Check
-    
+
+
+    #Draft Amendment
+      #Amendment Final Capture
+     #Activating Amendment
+    #Amendment CMD Check
+    #Cosmos Check
+
     #Make a correction - Add a new TIN to the existing provider in the Roster.
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
@@ -75,13 +80,9 @@ Feature: SPGA Business Testcases_IN
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    
-    #Create supporting document 
-    
-    #CMD Check
-    #NDB Check
-		
-    
-    Examples:    
-       | site          | paperType     | TCName|             |contract| |Contractstatus|
-       | central uhn   | SPGA          | TC_CEN_SPGA_IN_10|   |11122328| |InstallContract|
+
+
+
+    Examples:
+      | site          | paperType     | TCName           | |contract| |Contractstatus|
+      | central uhn   | SPA           | TC_CEN_SPA_IN_19 |  |11122328| |InstallContract|

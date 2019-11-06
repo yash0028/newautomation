@@ -52,15 +52,20 @@ public class CMDLoginSSOPage implements IWebInteract, IFactoryPage, IConfigurabl
 
         return true;
     }
-
+    public void checklogin() {
+         if (isVisible(elements.textBoxUsername)) {
+            sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
+            sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
+            clickWithForce("sign in", elements.buttonSignIn);
+        }
     /*
     PAGE METHODS
      */
 
 
-    /*
-    ELEMENT CLASS
-     */
+   // ELEMENT CLASS
+    }
+
 
     /**
      * private class to contain the webelements. This allows us to reload the context as needed and keeps the code clean.

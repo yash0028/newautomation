@@ -115,14 +115,16 @@ public class ProviderRoaster extends GenericInputPage
             assert waitForPageLoad();
         }
     }
-    public void approachForProvider(HashMap<String,String>hmap,String approach){
+    public void approachForProvider(HashMap<String,String>hmap,String approach,boolean clickNext){
         if(CommonMethods.isElementPresent(driver,By.xpath(elements.retroDropdown))){
             selectretrocode(hmap,false);
         }
-
+        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
         assert click("Select Approach For Provider",clickapproachForProvider(approach) );
-        assert clickNext();
-        assert waitForPageLoad();
+        if(clickNext){
+            assert clickNext();
+            assert waitForPageLoad();
+        }
     }
     public void verifyProviders(){
         assert clickNext();

@@ -385,11 +385,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getProviderRoaster().roasterAction("NONE");    	 
     }
 
-    @And("^I add provider using TIN$")
+     @And("^I add provider using TIN$")
     public void addProvider_TIN()
     {
     	basePage.getProviderRoaster().roasterAction("Add");
-    	basePage.getProviderRoaster().approachForProvider(hmap,"TIN");
+    	basePage.getProviderRoaster().approachForProvider(hmap,"TIN",false);
     	basePage.getProviderRoaster().enterTIN(hmap);
     }
 
@@ -427,7 +427,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void selectProvider_MPIN()
     {
     	basePage.getProviderRoaster().roasterAction("Add");
-    	basePage.getProviderRoaster().approachForProvider(hmap,"MPIN");
+    	basePage.getProviderRoaster().approachForProvider(hmap,"MPIN",false);
     	basePage.getProviderRoaster().enterMPIN(hmap);
     }
     /*
