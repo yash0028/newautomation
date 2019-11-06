@@ -6,12 +6,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
+import ui_test.pages.excelReaderWriter.ExcelReaderWriter;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IWebInteract;
+
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
 
 public class ProviderRoaster extends GenericInputPage
 {
@@ -19,6 +24,9 @@ public class ProviderRoaster extends GenericInputPage
     String home = System.getProperty("user.dir");
     private static int MULTIPLE_PROVIDERS;
     private static int CANCEL_MULTIPLE_PROVIDERS;
+    Path downloadFlowPath = Paths.get(home, "src", "test", "resources","features","rcbridge","ProviderRoster");
+    ExcelReaderWriter excelReaderWriter;
+
 
     public ProviderRoaster(WebDriver driver)
     {
@@ -32,19 +40,42 @@ public class ProviderRoaster extends GenericInputPage
 
     }
     
-    public void downloadCurrentRoster(){
+    public void downloadCurrentRoster(HashMap<String,String> hmap) {
+        assert click("Click here to Download Provider Roster",elements.downloadProviderRoster);
+        String findFileName = elements.downloadProviderRoster.getAttribute("href");
+        System.out.println("Href Value"+findFileName);
+        String fileName = findFileName.substring(findFileName.lastIndexOf('=') +1);
+        fileName = fileName.replace("%20"," ");
+        fileName = fileName.replace(":","_");
+        hmap.put("RosterFileName",fileName);
+        System.out.println("File path "+downloadFlowPath.toString());
+        System.out.println("File name "+hmap.get("RosterFileName"));
         assert clickNext();
         assert waitForPageLoad();
     }
-    public void uploadCompletedRoster(HashMap<String,String>hmap){
+    public void uploadCompletedRoster(HashMap<String,String>hmap) throws IOException {
+        callingExcelReaderWriter(hmap);
         assert click("Upload", elements.uploadButton);
         pause(3);
         Path RosterFilePath = Paths.get(home, "src", "test", "resources","features","rcbridge","ProviderRoster",hmap.get("RosterFileName"));
-        assert sendKeys("Search retro code",elements.chooseFile,RosterFilePath.toString());
+        System.out.println("Upload file path "+ RosterFilePath.toString());
+        assert sendKeys("Uploading File",elements.chooseFile,RosterFilePath.toString());
         pause(3);
         assert clickNext();
         assert waitForPageLoad();
     }
+
+    public void callingExcelReaderWriter(HashMap<String,String> hmap) throws IOException {
+        excelReaderWriter = new ExcelReaderWriter();
+        List<String> keys = excelReaderWriter.reader(downloadFlowPath.toString(),hmap.get("RosterFileName"),"Sheet1");
+        System.out.println("Size of List "+ keys.size());
+        int rowindex = parseInt(keys.get(keys.size()-1));
+        System.out.println("Row Index "+rowindex);
+        keys.remove(keys.size()-1);
+        List<String> dataToWrite = excelReaderWriter.matcher(keys,hmap,rowindex);
+        excelReaderWriter.writer(downloadFlowPath.toString(),hmap.get("RosterFileName"),"Sheet1",dataToWrite,rowindex);
+    }
+
     public void selectretrocode(HashMap<String,String>hmap){
         if(MULTIPLE_PROVIDERS>0){
             String[] retroCode= hmap.get("Retro code").split("//");
@@ -85,14 +116,16 @@ public class ProviderRoaster extends GenericInputPage
             assert waitForPageLoad();
         }
     }
-    public void approachForProvider(HashMap<String,String>hmap,String approach){
+    public void approachForProvider(HashMap<String,String>hmap,String approach,boolean clickNext){
         if(CommonMethods.isElementPresent(driver,By.xpath(elements.retroDropdown))){
             selectretrocode(hmap,false);
         }
-
+        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
         assert click("Select Approach For Provider",clickapproachForProvider(approach) );
-        assert clickNext();
-        assert waitForPageLoad();
+        if(clickNext){
+            assert clickNext();
+            assert waitForPageLoad();
+        }
     }
     public void verifyProviders(){
         assert clickNext();
@@ -288,6 +321,9 @@ public class ProviderRoaster extends GenericInputPage
         private WebElement addnewProvider;
         @FindBy(xpath = "//span[@class='select2-results']//li")
         private List<WebElement> selectCancelReason;
+        @FindBy(xpath = "//a[contains(@href,\"Roster\")]")
+        private WebElement downloadProviderRoster;
+
 
         private String message= "//div[contains(@class,'DialogBox')]";
         private String retroDropdown= "//span[contains(@class,'select2-selection__rendered')]";
