@@ -58,7 +58,8 @@ public class ProviderRoaster extends GenericInputPage
         assert click("Upload", elements.uploadButton);
         pause(3);
         Path RosterFilePath = Paths.get(home, "src", "test", "resources","features","rcbridge","ProviderRoster",hmap.get("RosterFileName"));
-        assert sendKeys("Search retro code",elements.chooseFile,RosterFilePath.toString());
+        System.out.println("Upload file path "+ RosterFilePath.toString());
+        assert sendKeys("Uploading File",elements.chooseFile,RosterFilePath.toString());
         pause(3);
         assert clickNext();
         assert waitForPageLoad();
