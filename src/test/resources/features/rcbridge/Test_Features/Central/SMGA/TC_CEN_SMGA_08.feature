@@ -9,7 +9,7 @@ Feature: SMGA Business Testcases_IN
   @User_Interface
   @UAT_Automation
   Scenario Outline: TC_CEN_SMGA_IN_08 - [RL0] Author SMGA contract in <site>  
-	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site	 
   
     #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
@@ -34,9 +34,9 @@ Feature: SMGA Business Testcases_IN
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-    
+    #
     #Final capture
-    
+    #
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -53,19 +53,22 @@ Feature: SMGA Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
     
+    #
     #Activate
-    And I Set Status as Active
+    #And I Set Status as Active
+    And I capture Contract Number
     
     #CMD Check
     When I have entered the CMD dashboard URL
     When I search for Contract
-    Then Validate Contract "11122328" status and request type "InstallContract"
+    #Then Validate Contract "71926900" status and request type "InstallContract"
 
     
     #NDB Check
     
     #Make a correction - Add a new TIN to the existing provider in the Roster.
-    
+    When I am logged into Exari Dev
+    And I search Contract using Contract Number
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid

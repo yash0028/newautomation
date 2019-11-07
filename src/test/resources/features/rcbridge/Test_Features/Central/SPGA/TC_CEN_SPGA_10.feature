@@ -58,7 +58,7 @@ Feature: SPGA Business Testcases_IN
     #CMD Check
     When I have entered the CMD dashboard URL
     When I search for Contract
-    #Then Validate Contract "11122328" status and request type "InstallContract"
+    Then Validate Contract "<contract>" status and request type "<Contractstatus>"
 
     
     #NDB Check
@@ -83,6 +83,5 @@ Feature: SPGA Business Testcases_IN
 		
     
     Examples:    
-       | site          | paperType     | TCName|
-       | central uhn   | SPGA          | TC_CEN_SPGA_IN_10|
-    
+       | site          | paperType     | TCName|             |contract| |Contractstatus|
+       | central uhn   | SPGA          | TC_CEN_SPGA_IN_10|   |11122328| |InstallContract|
