@@ -83,21 +83,26 @@ public class ProviderRoaster extends GenericInputPage
             for(WebElement dropdownopen: elements.dropdown_open_list){
                 click("Retro code dropdown open", dropdownopen);
                 pause(1);
+                waitForPageLoad(60);
                 if(count<=retroCode.length){
                     assert sendKeys("Search retro code",elements.retroCode,retroCode[count-1]);
                 }else{
                     assert sendKeys("Search retro code",elements.retroCode,retroCode[retroCode.length-1]);
                 }
+                waitForPageLoad(60);
                 pause(1);
                 assert click("Select retro code", elements.selectRetroCode.get(0));
                 pause(3);
+                waitForPageLoad(60);
             }
 
         }else{
             click("Retro code dropdown open", elements.dropdown_open);
             pause(1);
+            waitForPageLoad(60);
             assert sendKeys("Search retro code",elements.retroCode,hmap.get("Retro code"));
             pause(1);
+            waitForPageLoad(60);
             assert click("Select retro code", elements.selectRetroCode.get(0));
         }
 
@@ -108,8 +113,10 @@ public class ProviderRoaster extends GenericInputPage
     public void selectretrocode(HashMap<String,String>hmap,boolean clickNext){
         click("Retro code dropdown open", elements.dropdown_open);
         pause(1);
+        waitForPageLoad(60);
         assert sendKeys("Search retro code",elements.retroCode,hmap.get("Retro code"));
         pause(1);
+        waitForPageLoad(60);
         assert click("Select retro code", elements.selectRetroCode.get(0));
         if(clickNext){
             assert clickNext();
@@ -187,6 +194,7 @@ public class ProviderRoaster extends GenericInputPage
         if(dropdown_count>providersCount){
             for (int count=dropdown_count; count>providersCount;count--){
                 pause(1);
+                waitForPageLoad(60);
                 click("Remove Provider Row",removeProviderrow(count-1));
             }
         }
@@ -202,16 +210,21 @@ public class ProviderRoaster extends GenericInputPage
             //click
             if(count>0 && createNewRow){
                 pause(1);
+                waitForPageLoad(60);
                 assert click("Add Provider Row",elements.addnewProvider);
                 pause(1);
+                waitForPageLoad(60);
             }
             if(nextInput){
                 pause(1);
                 assert click("Open Cancel Provider Dropdown",openCancelProviderDropdown(count));
+                waitForPageLoad(60);
             }
             pause(1);
+            waitForPageLoad(60);
             assert sendKeys("Search provider",elements.selectProvider,provider.trim());
             pause(1);
+            waitForPageLoad(60);
             if(CommonMethods.isElementPresent(driver,By.xpath(elements.selectProviderWithNamenotFound))){
                 elements.selectProvider.clear();
                 IWebInteract.log.info("Provider Name [{}] NOT FOUND",provider.trim());
@@ -227,6 +240,7 @@ public class ProviderRoaster extends GenericInputPage
 
             }
             pause(1);
+            waitForPageLoad(60);
 
         }
         //cross check number of providers and row
@@ -257,14 +271,17 @@ public class ProviderRoaster extends GenericInputPage
         for(int count=1;count<=CANCEL_MULTIPLE_PROVIDERS;count++){
             assert click("Open Cancel Reason Dropdown",openCancelReasonDropdown(count-1));
             pause(1);
+            waitForPageLoad(60);
             if(count<=errorCodes.length){
                 assert sendKeys("Search provider",elements.selectProvider,errorCodes[count-1]);
             }else{
                 assert sendKeys("Search provider",elements.selectProvider,errorCodes[errorCodes.length-1]);
             }
             pause(1);
+            waitForPageLoad(60);
             assert click("Select provider", elements.selectCancelReason.get(0));
             pause(1);
+            waitForPageLoad(60);
         }
         assert clickNext();
         assert waitForPageLoad();

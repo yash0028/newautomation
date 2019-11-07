@@ -34,9 +34,9 @@ Feature: SMGA Business Testcases_IN
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-    #
+    
     #Final capture
-    #
+    
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -55,7 +55,7 @@ Feature: SMGA Business Testcases_IN
     
     #
     #Activate
-    #And I Set Status as Active
+    And I Set Status as Active
     And I capture Contract Number
     
     #CMD Check

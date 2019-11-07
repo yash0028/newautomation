@@ -36,7 +36,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public GenericSitePage sitePage;
     public BasePage basePage=new BasePage(getDriver());
 
-    public HashMap<String,String> hmap = null;
+    public static HashMap<String,String> hmap = null;
 
     @Given("^I am using the \"([^\"]*)\" flow$")
     public void prepareEIF(String fileName) {
@@ -446,6 +446,14 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     	basePage.getProviderRoaster().roasterAction("Add");
     	basePage.getProviderRoaster().approachForProvider(hmap,"MPIN",false);
     	basePage.getProviderRoaster().enterMPIN(hmap);
+    }
+    
+    @When("^I am logged into Exari Dev$")
+    public void I_am_Logged_intoExari()
+    {
+    	 String url = configGetOptionalString("exari.devURL").orElse("");
+         getDriver().get(url);       
+         basePage.waitForPageLoad();
     }
     /*
     HELPER METHODS

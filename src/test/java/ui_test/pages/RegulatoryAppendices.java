@@ -24,7 +24,9 @@ public class RegulatoryAppendices extends GenericInputPage
     public void selectRegulatoryAppendix(HashMap<String,String> hmap) {
         assert sendKeys("Send Data to egulatory Appendix",elements.clickOnBar,hmap.get("Regulatory Appendix"));
         pause(1);
+        waitForPageLoad(60);
         assert click("Click Regulatory Appendix", elements.dropdown_selection.get(0));
+        waitForPageLoad(60);
         assert clickNext();
         assert waitForPageLoad();
     }
