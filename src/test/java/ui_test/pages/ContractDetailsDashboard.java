@@ -9,12 +9,12 @@ import ui_test.util.AbstractPageElements;
 import ui_test.util.IWebInteract;
 import ui_test.util.LocalDriverProxy;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ContractDetailsDashboard extends GenericInputPage {
     private PageElements elements;
-    private static Boolean CHECKAPPROVAL =true;
+    private static Boolean CHECK_APPROVAL =true;
+    private static Boolean APPROVAL_COMPLETE =false;
     public ContractDetailsDashboard(WebDriver driver) {
         super(driver);
         this.elements = new PageElements(driver);
@@ -66,7 +66,7 @@ public class ContractDetailsDashboard extends GenericInputPage {
                         completedApprovalType = true;
                         continue;
                     }else if(getStatus(count,approvalType).getAttribute("title").equals("Open")){
-                        IWebInteract.log.info("[Task {}] : Added, Type : {}, Approver : {}, Status : Open",count,approvalType,title[1].trim());
+                        IWebInteract.log.info("[Task {}] : Queued, Type : {}, Approver : {}, Status : Open",count,approvalType,title[1].trim());
                         approverType = title[1].trim();
                         foundApprovalType = true;
                         break;
@@ -75,48 +75,55 @@ public class ContractDetailsDashboard extends GenericInputPage {
 
         }
         Assert.assertTrue("Failed to Find "+approvalType+" in Activity Manager", foundApprovalType || completedApprovalType);
-        if(completedApprovalType && CHECKAPPROVAL){
+        if(completedApprovalType && CHECK_APPROVAL){
             Assert.assertTrue(approvalType+" is already Completed",foundApprovalType);
-        }else{
+        }else if(completedApprovalType){
             IWebInteract.log.info("[COMPLETED] {} Approval",approvalType);
         }
-        CHECKAPPROVAL=false;
+        CHECK_APPROVAL =false;
         return approverType;
     }
 
-    public void handleApprovals(String approvalType){
+    public void handleApprovals(String approvalType,int max_no_approvals){
+        String url;
         String approver = getTask(approvalType);
         if(approver!=null){
             IWebInteract.log.info("[APPROVING], Type : {}, Approver : {}",approvalType,approver);
             assert click("Back",this.elements.backbutton);
-
-            pause(5);
-            //switchLogin(approver.trim());
+            assert waitForPageLoad();
+            url=driver.getCurrentUrl();
+            //switchLogin(approver.trim(),url);
             System.out.println("Login with : "+approver.trim());
             System.out.println("claim task");
             //claimTask(approvalType);
         }else{
-            IWebInteract.log.info("[COMPLETED] {} Approval",approvalType);
-            pause(5);
-            System.out.println("Login with : Centralized");
-            //switchLogin("Centralized");
+            APPROVAL_COMPLETE = true;
         }
-        CHECKAPPROVAL=true;
+        System.out.println("Login with : Centralized");
+        //switchLogin("Centralized",url);
+        while(!APPROVAL_COMPLETE){
+            if(max_no_approvals==0){
+                Assert.fail("[APPROVAL ERROR] Unable to complete approvals.");
+                break;
+            }
+            handleApprovals(approvalType,max_no_approvals-1);
+        }
+        CHECK_APPROVAL = true;
+        APPROVAL_COMPLETE = false;
     }
     public void claimTask(String approvalType){
         if(CommonMethods.isElementPresent(driver,By.xpath(elements.prompt))){
             click("Failed to get banner messages",elements.okbutton);
         }
-
+//click active link
+        //find approvaltype-approver status:open row
        ///find task > click on : >view task >> claim > comments >save >approve
-
     }
-    public void switchLogin(String approverType){
+    public void switchLogin(String approverType,String url){
         IWebInteract.log.info("[LOGIN]  {}",approverType);
-        String previousURL = driver.getCurrentUrl();
         LocalDriverProxy.resetDriver();
         //#############################
-        LocalDriverProxy.getDriver().get(previousURL);
+        LocalDriverProxy.getDriver().get(url);
         LoginSSOPage loginPage = new LoginSSOPage(getDriver());
         assert loginPage.confirmCurrentPage();
         assert loginPage.login(approverType.toLowerCase());
