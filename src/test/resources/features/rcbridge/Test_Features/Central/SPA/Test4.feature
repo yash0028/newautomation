@@ -25,7 +25,7 @@ Feature: US1407217
     And I enter Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
-    And I enter Provider Roster
+    And  I select Provider Roster as None
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
