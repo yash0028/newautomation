@@ -53,7 +53,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void loginSitePage(String siteOption) {
         this.protoStep.loginHome();
 
-        //this.protoStep.setSite(siteOption);
+        this.protoStep.setSite(siteOption);
 
 
 
