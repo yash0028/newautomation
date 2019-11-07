@@ -148,6 +148,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPracticeLocations().selectLocation(hmap);
     }
 
+    @And("^I enter Practice Locations for PAT Contract$")
+    public void PATPracticeLocations()
+    {
+        basePage.getPracticeLocations().selectLocation(hmap);
+    }
+
     @And("^I enter Market Exception Grid$")
     public void MarketExceptionGrid() {
         basePage.getMarketExceptionGrid().previewMarketDetails();
