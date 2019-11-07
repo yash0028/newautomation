@@ -53,7 +53,7 @@ public class LocalDriver implements IConfigurable, IFileReader {
         try {
             if (driver != null) {
                 driver.close();
-                driver.quit();
+                //driver.quit();
                 try {
                     driver.get("someURL");
                 } catch (Exception e) {

@@ -24,7 +24,7 @@ public class ContractDetailsDashboard extends GenericInputPage {
         assert click("Start WorkFlow",elements.startWorkFlow);
         assert waitForPageLoad();
     }
-    public void handleApprovals(String approvalType){
+    public void taskVerification(String approvalType){
         int count=1;
         boolean foundActiveWorkFlow =false;
         while(count<=20){
@@ -55,7 +55,11 @@ public class ContractDetailsDashboard extends GenericInputPage {
         }
         Assert.assertFalse("Failed load tasks in Activity Manager", CommonMethods.isElementPresent(driver,By.xpath(elements.notfound)));
         Assert.assertTrue("Failed to Find "+approvalType+" in Activity Manager", CommonMethods.isElementPresent(driver,By.xpath(taskrow(approvalType))));
-        Assert.assertTrue("Status of "+approvalType+" is not Open", CommonMethods.isElementPresent(driver,By.xpath(taskrowstatus(approvalType))));
+        Assert.assertFalse(approvalType+" is already Completed", CommonMethods.isElementPresent(driver,By.xpath(taskrowstatus(approvalType,"Completed"))));
+        Assert.assertTrue("Status of "+approvalType+" is not Open", CommonMethods.isElementPresent(driver,By.xpath(taskrowstatus(approvalType,"Open"))));
+    }
+    public void handleApprovals(String approvalType){
+        taskVerification(approvalType);
         String[] title = taskrowelement(approvalType).getAttribute("title").split("-");
         IWebInteract.log.info("Successfully detected {} task",approvalType);
         IWebInteract.log.info("{} task Status : Open",approvalType);
@@ -64,37 +68,22 @@ public class ContractDetailsDashboard extends GenericInputPage {
         assert waitForPageLoad();
         pause(5);
         switchLogin(title[1].trim());
-        //do approval
+        claimTask(approvalType);
         pause(5);
         switchLogin("Centralized");
     }
-    public void switchLogin(String approverType){
-        String previousURL = getDriver().getCurrentUrl();
-        System.out.println(previousURL);
-        //LocalDriverProxy.closeDriver();
-        //getDriver().close();
-        //pause(5);
-        //LocalDriverProxy.resetDriver();
-        //LocalDriverProxy.getDriver().get(previousURL);
-        //getDriver().get(previousURL);
-//        driver.get("chrome://settings/clearBrowserData");
-//        pause(2);
-//        driver.switchTo().activeElement();
-//        driver.findElement(By.cssSelector("* /deep/ #clearBrowsingDataConfirm")).click();
-//        pause(2);
-
-        //driver.findElement(By.xpath()).click();
-        ////cr-button[contains(@id,'clearBrowsingDataConfirm')]
-        Set<Cookie> allCookies = driver.manage().getCookies();
-        for (Cookie cookie : allCookies) {
-            driver.manage().deleteCookieNamed(cookie.getName());
+    public void claimTask(String approvalType){
+        if(CommonMethods.isElementPresent(driver,By.xpath(elements.prompt))){
+            click("Failed to get banner messages",elements.okbutton);
         }
-        pause(3);
-//        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
-//        driver.switchTo().window(tabs.get(1));
-        driver.get(previousURL);
-        //driver.switchTo().window(tabs.get(0)).close();
-
+        taskVerification(approvalType);
+        //click on :>view task
+    }
+    public void switchLogin(String approverType){
+        String previousURL = driver.getCurrentUrl();
+        LocalDriverProxy.resetDriver();
+        //#############################
+        getDriver().get(previousURL);
         LoginSSOPage loginPage = new LoginSSOPage(getDriver());
         assert loginPage.confirmCurrentPage();
         assert loginPage.login(approverType.toLowerCase());
@@ -137,8 +126,8 @@ public class ContractDetailsDashboard extends GenericInputPage {
     public String taskrow(String answer){
         return "//span[contains(@title,'"+answer+"')]";
     }
-    public String taskrowstatus(String answer){
-        return "//div[contains(@filename,'"+answer+"')][4]/div/div[contains(.,'Open')]";
+    public String taskrowstatus(String task, String status){
+        return "//div[contains(@filename,'"+task+"')][4]/div/div[contains(.,'"+status+"')]";
     }
     public WebElement taskrowelement(String answer){
         return findElement(getDriver(), new String[]{"xpath","//span[contains(@title,'"+answer+"')]"});
@@ -162,14 +151,17 @@ public class ContractDetailsDashboard extends GenericInputPage {
         private WebElement save;
         @FindBy(xpath = "//div[contains(@id,'editDetails')]/a")
         private WebElement close;
-        @FindBy(xpath = "//div[contains(@class,'workflows')]/div/div[contains(@class,'workflows')]/div[contains(@class,'workflow-last')]/a")
+        @FindBy(xpath = "//div[contains(@class,'workflows')]/div/div[contains(@class,'workflows')]/div[1][contains(@class,'workflow')]/a")
         private WebElement activeWorkFlowLink;
         @FindBy(xpath = "//mat-icon[@id='backButton']")
         private WebElement backbutton;
+        @FindBy(xpath = "//*[@id='prompt']//button[contains(.,'OK')]")
+        private WebElement okbutton;
 
 
         private String spinner= "//mat-progress-spinner";
         private String message= "//*[@id='message']";
+        private String prompt= "//*[@id='prompt']";
         private String notfound= "//p[contains(.,'No Tasks Found')]";
         private String dataTable= "//adf-datatable";
         private String startWorkFlowPath= "//div[@id='onStartExariWorkflowClick']/a";
