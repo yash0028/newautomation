@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.pages.textFileWriter.TextFileWriter;
+import ui_test.step.ExariSteps;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IWebInteract;
 
@@ -58,14 +59,14 @@ public class ContractDetailsDashboard extends GenericInputPage {
         assert waitForPageLoad();
     }
 
-    public void captureContractNumber(HashMap<String,String> hmap)
+    public void captureContractNumber(HashMap<String,String> hmap,String filepath)
     {
         String contractDetails=elements.contractSummary.getText();
         System.out.println("Contract Details : "+contractDetails);
         hmap.put("Contract Number",contractDetails.substring(contractDetails.lastIndexOf('-') +1));
         System.out.println("Comtract Number is:"+hmap.get("Contract Number"));
-        String filepath="C:\\Users\\asomani1\\Desktop\\finalPom\\acceptance-testing\\src\\test\\resources\\support\\hive\\textFiles\\contractDetails.txt";
         textFileWriter.writeInFile(filepath,hmap);
+
     }
 
     public void clickForContractSummary()

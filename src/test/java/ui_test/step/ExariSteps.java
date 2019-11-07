@@ -29,6 +29,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
     String home = System.getProperty("user.dir");
     Path contractFlowPath = Paths.get(home, "src", "test", "resources","support","hive","dataMap");
+    Path contractDetailsTextFile=Paths.get(home,"src","test","resources","support","hive","textFiles","contractDetails.txt");
     private ProtoStep protoStep = new ProtoStep(getDriver());
 
 
@@ -414,7 +415,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("I capture Contract Number")
     public void iCaptureContractNumber()
     {
-        basePage.getContractDetailsDashboard().captureContractNumber(hmap);
+        basePage.getContractDetailsDashboard().captureContractNumber(hmap,contractDetailsTextFile.toString());
 
     }
 

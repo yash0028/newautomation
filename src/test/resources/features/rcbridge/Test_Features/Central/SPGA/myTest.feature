@@ -34,9 +34,10 @@ Feature: SPGA Business Testcases_IN
 #    And I enter Group Summary
 #    Then I Complete Wizard
 
-    And I create supporting document
-    And I review supporting document
-#     And I capture Contract Number
+#    And I create supporting document
+#    And I review supporting document
+
+    And I capture Contract Number
 #     And I search Contract using Contract Number
 
 
