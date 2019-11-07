@@ -250,7 +250,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I Approve HBP Red Door$")
     public void approveHBPRedDoor()
     {
-        basePage.getContractDetailsDashboard().handleApprovals("Red Door Alternates");
+        //basePage.getContractDetailsDashboard().handleApprovals("Red Door Alternates");
+        basePage.getContractDetailsDashboard().handleApprovals("Non Standard Fee Schedule");
     }
 
     @And("^I Set Status as Final Pending QA$")

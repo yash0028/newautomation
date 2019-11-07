@@ -10,10 +10,11 @@ import ui_test.util.IWebInteract;
 import ui_test.util.LocalDriverProxy;
 
 import java.util.ArrayList;
-import java.util.Set;
+import java.util.List;
 
 public class ContractDetailsDashboard extends GenericInputPage {
     private PageElements elements;
+    private static Boolean CHECKAPPROVAL =true;
     public ContractDetailsDashboard(WebDriver driver) {
         super(driver);
         this.elements = new PageElements(driver);
@@ -24,8 +25,11 @@ public class ContractDetailsDashboard extends GenericInputPage {
         assert click("Start WorkFlow",elements.startWorkFlow);
         assert waitForPageLoad();
     }
-    public void taskVerification(String approvalType){
+    public String getTask(String approvalType){
         int count=1;
+        boolean foundApprovalType = false;
+        boolean completedApprovalType = false;
+        String approverType=null;
         boolean foundActiveWorkFlow =false;
         while(count<=20){
             if(CommonMethods.isElementPresent(driver,By.xpath(elements.activeWorkFlow))){
@@ -54,36 +58,65 @@ public class ContractDetailsDashboard extends GenericInputPage {
             count++;
         }
         Assert.assertFalse("Failed load tasks in Activity Manager", CommonMethods.isElementPresent(driver,By.xpath(elements.notfound)));
-        Assert.assertTrue("Failed to Find "+approvalType+" in Activity Manager", CommonMethods.isElementPresent(driver,By.xpath(taskrow(approvalType))));
-        Assert.assertFalse(approvalType+" is already Completed", CommonMethods.isElementPresent(driver,By.xpath(taskrowstatus(approvalType,"Completed"))));
-        Assert.assertTrue("Status of "+approvalType+" is not Open", CommonMethods.isElementPresent(driver,By.xpath(taskrowstatus(approvalType,"Open"))));
+        for(count=1;count<=taskrows();count++){
+                if(CommonMethods.isElementPresent(driver,By.xpath(getTilteXpath(count,approvalType)))){
+                    String[] title = getTilte(count,approvalType).getAttribute("title").split("-");
+                    if(getStatus(count,approvalType).getAttribute("title").equals("Completed")){
+                        IWebInteract.log.info("[Task {}] : Discarded, Type : {}, Approver : {}, Status : Completed",count,approvalType,title[1].trim());
+                        completedApprovalType = true;
+                        continue;
+                    }else if(getStatus(count,approvalType).getAttribute("title").equals("Open")){
+                        IWebInteract.log.info("[Task {}] : Added, Type : {}, Approver : {}, Status : Open",count,approvalType,title[1].trim());
+                        approverType = title[1].trim();
+                        foundApprovalType = true;
+                        break;
+                    }
+                }
+
+        }
+        Assert.assertTrue("Failed to Find "+approvalType+" in Activity Manager", foundApprovalType || completedApprovalType);
+        if(completedApprovalType && CHECKAPPROVAL){
+            Assert.assertTrue(approvalType+" is already Completed",foundApprovalType);
+        }else{
+            IWebInteract.log.info("[COMPLETED] {} Approval",approvalType);
+        }
+        CHECKAPPROVAL=false;
+        return approverType;
     }
+
     public void handleApprovals(String approvalType){
-        taskVerification(approvalType);
-        String[] title = taskrowelement(approvalType).getAttribute("title").split("-");
-        IWebInteract.log.info("Successfully detected {} task",approvalType);
-        IWebInteract.log.info("{} task Status : Open",approvalType);
-        IWebInteract.log.info("{} task Approver : {}",approvalType,title[1].trim());
-        assert click("Back",this.elements.backbutton);
-        assert waitForPageLoad();
-        pause(5);
-        switchLogin(title[1].trim());
-        claimTask(approvalType);
-        pause(5);
-        switchLogin("Centralized");
+        String approver = getTask(approvalType);
+        if(approver!=null){
+            IWebInteract.log.info("[APPROVING], Type : {}, Approver : {}",approvalType,approver);
+            assert click("Back",this.elements.backbutton);
+
+            pause(5);
+            //switchLogin(approver.trim());
+            System.out.println("Login with : "+approver.trim());
+            System.out.println("claim task");
+            //claimTask(approvalType);
+        }else{
+            IWebInteract.log.info("[COMPLETED] {} Approval",approvalType);
+            pause(5);
+            System.out.println("Login with : Centralized");
+            //switchLogin("Centralized");
+        }
+        CHECKAPPROVAL=true;
     }
     public void claimTask(String approvalType){
         if(CommonMethods.isElementPresent(driver,By.xpath(elements.prompt))){
             click("Failed to get banner messages",elements.okbutton);
         }
-        taskVerification(approvalType);
-        //click on :>view task
+
+       ///find task > click on : >view task >> claim > comments >save >approve
+
     }
     public void switchLogin(String approverType){
+        IWebInteract.log.info("[LOGIN]  {}",approverType);
         String previousURL = driver.getCurrentUrl();
         LocalDriverProxy.resetDriver();
         //#############################
-        getDriver().get(previousURL);
+        LocalDriverProxy.getDriver().get(previousURL);
         LoginSSOPage loginPage = new LoginSSOPage(getDriver());
         assert loginPage.confirmCurrentPage();
         assert loginPage.login(approverType.toLowerCase());
@@ -129,8 +162,21 @@ public class ContractDetailsDashboard extends GenericInputPage {
     public String taskrowstatus(String task, String status){
         return "//div[contains(@filename,'"+task+"')][4]/div/div[contains(.,'"+status+"')]";
     }
+    public int taskrows(){
+        List<WebElement> tasks = findElements(getDriver(), new String[]{"xpath","//div[contains(@class,'adf-datatable-row')]"});
+        return tasks.size()-1;
+    }
     public WebElement taskrowelement(String answer){
         return findElement(getDriver(), new String[]{"xpath","//span[contains(@title,'"+answer+"')]"});
+    }
+    public WebElement getTilte(int count,String approvalType){
+        return findElement(getDriver(), new String[]{"xpath","//div[contains(@class,'adf-datatable-row')]["+count+"]//span[contains(@title,'"+approvalType+"')]"});
+    }
+    public String getTilteXpath(int count,String approvalType){
+        return "//div[contains(@class,'adf-datatable-row')]["+count+"]//span[contains(@title,'"+approvalType+"')]";
+    }
+    public WebElement getStatus(int count,String approvalType){
+        return findElement(getDriver(), new String[]{"xpath","//div[contains(@class,'adf-datatable-row')]["+count+"]//div[contains(@filename,'"+approvalType+"')][4]/div/div"});
     }
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//div[@id='onStartExariWorkflowClick']/a")
