@@ -120,7 +120,7 @@ public class ProviderRoaster extends GenericInputPage
         assert click("Select retro code", elements.selectRetroCode.get(0));
         if(clickNext){
             assert clickNext();
-            assert waitForPageLoad();
+            assert waitForPageLoad(60);
         }
     }
     public void approachForProvider(HashMap<String,String>hmap,String approach,boolean clickNext){
@@ -128,6 +128,8 @@ public class ProviderRoaster extends GenericInputPage
             selectretrocode(hmap,false);
         }
         waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        waitForPageLoad(60);
+        pause(2);
         assert click("Select Approach For Provider",clickapproachForProvider(approach) );
         if(clickNext){
             assert clickNext();
