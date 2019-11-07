@@ -77,6 +77,20 @@ public class ContractDetailsDashboard extends GenericInputPage {
         assert click("Make Correction",this.elements.makeCorrection);
         assert waitForPageLoad();
     }
+
+    public void cickToCreateSupportingDocument(HashMap<String,String> hmap)
+    {
+        assert click("Create Supporting Document",this.elements.createSupportingDocument);
+        assert waitForPageLoad();
+        selectSupportingDocumentType(hmap);
+    }
+
+    private void selectSupportingDocumentType(HashMap<String,String>hmap)
+    {
+        assert click("Select Supporting Document Type",this.elements.supportingDocumentType);
+
+    }
+
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath="//h1[contains(text(),\"Agreement\")]")
         private WebElement contractSummary;
@@ -100,6 +114,12 @@ public class ContractDetailsDashboard extends GenericInputPage {
         private WebElement close;
         @FindBy(xpath = "//*[@id=\"ygtvlabelel1\"]")
         private WebElement clickToContractSummary;
+        @FindBy(xpath="//div[contains(@class,'create-transaction-supporting-document')]/a/span")
+        private WebElement createSupportingDocument;
+        @FindBy(xpath="//a[contains(text(),\"Provider Roster Output.xml\")]")
+        private WebElement supportingDocumentType;
+
+
 
         private String message= "//*[@id='message']";
         private String startWorkFlowPath= "//div[@id='onStartExariWorkflowClick']/a";

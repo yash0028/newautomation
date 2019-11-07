@@ -12,18 +12,18 @@ Feature: SPGA Business Testcases_IN
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
-    And I enter PES Inputs
-    And I enter PES Response
-    And I select Market Number
-    And I enter Request For Participation Response
-    And I enter Document Selection
-    And I preview Provider Details
-    And I enter Practice Locations for SPGA Contract
-    And I preview Provider Details
-    And I enter Market Exception Grid
-    And I enter Market Exception Grid
-    And I enter Contract Details
-    And I enter HBPs Red Door
+#    And I enter PES Inputs
+#    And I enter PES Response
+#    And I select Market Number
+#    And I enter Request For Participation Response
+#    And I enter Document Selection
+#    And I preview Provider Details
+#    And I enter Practice Locations for SPGA Contract
+#    And I preview Provider Details
+#    And I enter Market Exception Grid
+#    And I enter Market Exception Grid
+#    And I enter Contract Details
+#    And I enter HBPs Red Door
 #    And I enter Market Strategy Grid
 #    And I enter Appendix 2
 #    And I enter Payment Appendix
@@ -34,6 +34,8 @@ Feature: SPGA Business Testcases_IN
 #    And I enter Group Summary
 #    Then I Complete Wizard
 
+    And I create supporting document
+    And I review supporting document
 #     And I capture Contract Number
 #     And I search Contract using Contract Number
 

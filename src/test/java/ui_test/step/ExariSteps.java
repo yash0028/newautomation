@@ -53,9 +53,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void loginSitePage(String siteOption) {
         this.protoStep.loginHome();
 
-        this.protoStep.setSite(siteOption);
+        //this.protoStep.setSite(siteOption);
 
-        this.protoStep.setSite(siteOption);
+
 
     }
 
@@ -417,6 +417,19 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getContractDetailsDashboard().captureContractNumber(hmap);
 
     }
+
+    @And("I create supporting document")
+    public void createSupportingDocuments()
+    {
+        basePage.getContractDetailsDashboard().cickToCreateSupportingDocument(hmap);
+    }
+    @And("I review supporting document")
+    public void rreviewSupportingDocuments()
+    {
+        basePage.getSupportingDocumentSummary().reviewSupportingDocument();
+        basePage.getWizardComplete().completeWizard(hmap);
+    }
+
 
     @And("^I search Contract using Contract Number$")
     public void searchContractByContractNumber() {

@@ -32,6 +32,7 @@ public class BasePage extends GenericInputPage {
     private ProviderSignatory providerSignatory;
     private Warning warning;
     private Validation validation;
+    private SuppotingDocumentSummary supportingDocumentSummary;
 
     public Validation getValidation() {
         return (validation ==null) ? new Validation(getDriver()) :validation;
@@ -137,6 +138,10 @@ public class BasePage extends GenericInputPage {
     public WizardComplete getWizardComplete() {
         return (wizardComplete==null) ? new WizardComplete(getDriver()) :wizardComplete;
     }
+    public SuppotingDocumentSummary getSupportingDocumentSummary() {
+        return (supportingDocumentSummary==null) ? new SuppotingDocumentSummary(getDriver()) :supportingDocumentSummary;
+    }
+
 
     public BasePage(WebDriver driver) {
         super(driver);
