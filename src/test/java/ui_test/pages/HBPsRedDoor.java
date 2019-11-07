@@ -23,9 +23,10 @@ public class HBPsRedDoor  extends GenericInputPage
     {
         case "No":
         {
-            click("HBP Red Door",getHBPResponse(hmap.get("HBP")));
-            assert clickNext();
-            assert waitForPageLoad();
+            assert click("HBP Red Door",getHBPResponse(hmap.get("HBP")));
+            assert clickNext();            
+            waitForPageLoad();
+            break;
         }
         case "Yes":
         {
@@ -34,6 +35,7 @@ public class HBPsRedDoor  extends GenericInputPage
             assert clickNext();
             assert waitForPageLoad();
             handleTermsAndCondition();
+            break;
         }
     }
     }
