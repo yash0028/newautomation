@@ -68,7 +68,7 @@ Feature: SMGA Business Testcases_IN
     
     #Make a correction - Add a new TIN to the existing provider in the Roster.
     When I am logged into Exari Dev
-    And I search Contract using Contract Number
+    And I search Contract using Contract Number    
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid

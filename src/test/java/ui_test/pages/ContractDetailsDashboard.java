@@ -72,7 +72,8 @@ public class ContractDetailsDashboard extends GenericInputPage {
 
     public void clickForContractSummary()
     {
-        click("Open Contract Summary Page",elements.clickToContractSummary);
+    	assert click("Open Contract Summary Page",elements.clickToContractSummary);
+        assert click("Initial Transaction", elements.initialTransaction);
 
     }
     public void makeCorrection(){

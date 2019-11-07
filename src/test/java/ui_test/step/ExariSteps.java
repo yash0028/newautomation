@@ -435,7 +435,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void searchContractByContractNumber() {
         basePage.getDashboard().searchContaractByContractNumber(hmap);
         basePage.getDashboard().openContractDetails();
-        basePage.getContractDetailsDashboard().clickForContractSummary();
+        basePage.getContractDetailsDashboard().clickForContractSummary();        
 
     }
 
