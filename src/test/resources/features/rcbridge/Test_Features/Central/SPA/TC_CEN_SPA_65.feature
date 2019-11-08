@@ -3,7 +3,7 @@
 @releaseUnknown
 @iterationUnknown
 Feature: SPA Business Testcases_IN
-  @TC_CEN_SPA_IN_19
+  @TC_CEN_SPA_IN_65
   @Manual
   @User_Interface
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
@@ -32,10 +32,11 @@ Feature: SPA Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-
+     #Non Std approval process
 
      #Final capture
-
+    And I Start Workflow
+    And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -53,36 +54,15 @@ Feature: SPA Business Testcases_IN
     #Activate
     And I Set Status as Active
 
+     #NDB Check
+   #Draft Amendment
+   #Amendment Final Capture
+   #Activating Amendment
+   #NDB Checking
 
-     #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
-    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
-
-    #NDB Check
-
-
-    #Draft Amendment
-      #Amendment Final Capture
-     #Activating Amendment
-    #Amendment CMD Check
-    #Cosmos Check
-
-    #Make a correction - Add a new TIN to the existing provider in the Roster.
-    #And I click Make Correction
-    #And I enter Market Exception Grid in Make Correction
-    #And I enter Market Exception Grid
-    #And I set Roster Action as Upload
-    #And I Download Current Roster
-    #And I Upload Completed Roster
-    #And I enter warning in Make Correction
-    #And I enter validation
-    #And I acknowledge the warning
-    #And I enter Group Summary
-    #Then I Complete Wizard
 
 
 
     Examples:
       | site          | paperType     | TCName           | |contract| |Contractstatus|
-      | central uhn   | SPA           | TC_CEN_SPA_IN_19 |  |11122328| |InstallContract|
+      | central uhn   | SPA           | TC_CEN_SPA_IN_65 |  |11122328| |InstallContract|

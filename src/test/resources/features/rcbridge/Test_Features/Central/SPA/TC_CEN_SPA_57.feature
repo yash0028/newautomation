@@ -57,22 +57,22 @@ Feature: SPA Business Testcases_IN
      #CMD Check
     When I have entered the CMD dashboard URL
     When I search for Contract
-    Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
 
     #NDB Check
 
     #Make a correction - Add a new TIN to the existing provider in the Roster.
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I set Roster Action as Upload
-    And I Download Current Roster
-    And I Upload Completed Roster
-    And I enter warning in Make Correction
-    And I enter validation
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
+    #And I click Make Correction
+    #And I enter Market Exception Grid in Make Correction
+    #And I enter Market Exception Grid
+    #And I set Roster Action as Upload
+    #And I Download Current Roster
+    #And I Upload Completed Roster
+    #And I enter warning in Make Correction
+    #And I enter validation
+    #And I acknowledge the warning
+    #And I enter Group Summary
+    #Then I Complete Wizard
 
 
     Examples:

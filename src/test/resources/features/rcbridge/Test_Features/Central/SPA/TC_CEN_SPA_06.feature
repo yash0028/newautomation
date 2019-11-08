@@ -31,31 +31,33 @@ Feature: SPA Business Testcases_IN
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
+     #And I capture Contract Number
+     #And I search Contract using Contract Number
 
      #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-    #And I Set Status as Final Pending QA
-    #And I Start Final Capture
-    #And I enter Contract Details in Final Capture
-    #And I enter Provider Signatory
-    #And I enter Our Signatory
-    #And I enter Market Exception Grid in Final Capture
-    #And I enter Market Exception Grid
-    #And I add provider using TIN
-    #And I select Providers
-    #And I enter retro code in Provider Roster
-    #And I acknowledge the warning
-    #And I enter Group Summary
-    #Then I Complete Wizard
+    And I Set Status as Final Pending QA
+    And I Start Final Capture
+    And I enter Contract Details in Final Capture
+    And I enter Provider Signatory
+    And I enter Our Signatory
+    And I enter Market Exception Grid in Final Capture
+    And I enter Market Exception Grid
+    And I add provider using TIN
+    And I select Providers
+    And I enter retro code in Provider Roster
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
 
     #Activate
     And I Set Status as Active
 
 
      #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
+    When I have entered the CMD dashboard URL
+    When I search for Contract
     #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
 
     #NDB Check
