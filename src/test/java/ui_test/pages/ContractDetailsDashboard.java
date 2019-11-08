@@ -45,9 +45,11 @@ public class ContractDetailsDashboard extends GenericInputPage {
         Assert.assertTrue("Contract is not Approved", foundEditStatus);
             waitForElementsToPresent(driver,By.xpath(elements.editDetails));
             pause(1);
+            waitForPageLoad(60);
             Select status = new Select(this.elements.selectStatus);
             status.selectByVisibleText(option);
             pause(1);
+            waitForPageLoad(60);
             assert click("Save",this.elements.save);
             //dont give assert for close.
             click("Close",this.elements.close);
@@ -71,7 +73,8 @@ public class ContractDetailsDashboard extends GenericInputPage {
 
     public void clickForContractSummary()
     {
-        click("Open Contract Summary Page",elements.clickToContractSummary);
+    	assert click("Open Contract Summary Page",elements.clickToContractSummary);
+        assert click("Initial Transaction", elements.initialTransaction);
 
     }
     public void makeCorrection(){

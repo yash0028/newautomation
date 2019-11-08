@@ -21,7 +21,7 @@ public class WizardComplete extends GenericInputPage
 
     public void completeWizard(HashMap<String, String> hmap){
         waitTillClickable(elements.completeWizardElement,10);
-        assert click("Complete Wizard",this.elements.completeWizardElement);
+        click("Complete Wizard",this.elements.completeWizardElement);
         assert waitForPageLoad();
     }
     private static class PageElements extends AbstractPageElements {
