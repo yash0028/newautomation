@@ -191,7 +191,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     {
         basePage.getAppendix2().selectAppendix(hmap);
     }
-
+    
+    @And("^I enter Appendix 1$")
+    public void Appendix1()
+    {    	
+    	basePage.getAppendix2().SelectAppedix1("No");
+    }
     @And("^I enter Payment Appendix$")
     public void PaymentAppendix()
     {
