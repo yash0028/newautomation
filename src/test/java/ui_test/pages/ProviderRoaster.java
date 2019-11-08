@@ -143,21 +143,24 @@ public class ProviderRoaster extends GenericInputPage
     }
     public void selectProviders(HashMap<String,String>hmap){
         String[] providers = hmap.get("Select Providers").split("//");
+        waitForPageLoad(60);
         for(String provider :providers){
             assert sendKeys("Search provider",elements.selectProvider,provider.trim());
             pause(1);
+            waitForPageLoad(15);
             if(CommonMethods.isElementPresent(driver,By.xpath(elements.selectProviderWithNamenotFound))){
                 elements.selectProvider.clear();
                 IWebInteract.log.info("Provider Name [{}] NOT FOUND",provider.trim());
                 continue;
             }else{
                 assert click("Select provider", elements.selectProviderWithName.get(0));
+                waitForPageLoad(60);
                 MULTIPLE_PROVIDERS++;
             }
             pause(1);
         }
         assert clickNext();
-        assert waitForPageLoad();
+        assert waitForPageLoad(60);
     }
     public void providerStartDate(HashMap<String,String>hmap)
     {
@@ -171,9 +174,11 @@ public class ProviderRoaster extends GenericInputPage
                     }else{
                         date = CommonMethods.formatDate(dates[count-1]);
                     }
+                    waitForPageLoad(60);
                     sendKeys("Provider Start Date",providerStartDate(count-1),date);
                   
                 }else{
+                	waitForPageLoad(60);
                     sendKeys("Provider Start Date",providerStartDate(count-1),CommonMethods.todaysDate());
                 }
             }

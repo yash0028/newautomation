@@ -23,7 +23,7 @@ import org.junit.runner.RunWith;
 				"json:build/json-reports/json-report.json",
 				"junit:build/xml-reports/xml-report.xml",
 				},
-		features="src\\test\\resources\\features\\rcbridge\\Test_Features\\west\\SPGA\\TC_WEST_SPGA_10.feature", glue=""
+		features="src\\test\\resources\\features\\rcbridge\\Test_Features\\Central\\SMGA\\TC_CEN_SMGA_12.feature", glue=""
 		
 )
 public class TestRunner2 
