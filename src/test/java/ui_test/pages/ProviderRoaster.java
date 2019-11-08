@@ -171,9 +171,10 @@ public class ProviderRoaster extends GenericInputPage
                     }else{
                         date = CommonMethods.formatDate(dates[count-1]);
                     }
-                    assert sendKeys("Provider Start Date",providerStartDate(count-1),date);
+                    sendKeys("Provider Start Date",providerStartDate(count-1),date);
+                  
                 }else{
-                    assert sendKeys("Provider Start Date",providerStartDate(count-1),CommonMethods.todaysDate());
+                    sendKeys("Provider Start Date",providerStartDate(count-1),CommonMethods.todaysDate());
                 }
             }
 
