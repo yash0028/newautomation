@@ -83,5 +83,5 @@ Feature: SPGA Business Testcases_IN
 		
     
     Examples:    
-       | site          | paperType     | TCName|             |contract| |Contractstatus|
-       | central uhn   | SPGA          | TC_CEN_SPGA_IN_10|   |11122328| |InstallContract|
+       | site          | paperType     | TCName|          
+       | central uhn   | SPGA          | TC_CEN_SPGA_IN_10|
