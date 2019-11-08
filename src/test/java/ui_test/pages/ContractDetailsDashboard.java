@@ -16,7 +16,8 @@ import java.util.List;
 
 public class ContractDetailsDashboard extends GenericInputPage implements IUiStep {
     public PageElements elements;
-    private static Boolean CHECK_APPROVAL =true;
+    private static Boolean CHECK_APPROVAL_ALREADY_COMPLETED =true;
+    private static String DASHBOARD_URL;
     private static Boolean APPROVAL_COMPLETE =false;
     public ContractDetailsDashboard(WebDriver driver) {
         this.elements = new PageElements(driver);
@@ -27,27 +28,10 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         assert click("Start WorkFlow",elements.startWorkFlow);
         assert waitForPageLoad();
     }
-    public String getTask(String approvalType){
+    public void getActivityManager(boolean refresh){
         int count=1;
-        boolean foundApprovalType = false;
-        boolean completedApprovalType = false;
-        String approverType=null;
-        boolean foundActiveWorkFlow =false;
-        while(count<=20){
-            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.activeWorkFlow))){
-                assert click("Active Work Flow Link",elements.activeWorkFlowLink);
-                foundActiveWorkFlow=true;
-                break;
-            }
-            assert click("Initial Transaction",this.elements.initialTransaction);
-            waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.message)));
-            IWebInteract.log.info("Retrying for Active Work Flow, Retry: {}",count);
-            count++;
-        }
-        Assert.assertTrue("Failed to get Active WorkFlow Link", foundActiveWorkFlow);
-        count=1;
         while (count<=3){
-            pause(5);
+            pause(3);
             waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.spinner)));
             waitForElementsToPresent(getDriver(),By.xpath(elements.dataTable));
             if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.notfound))){
@@ -59,74 +43,103 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             count++;
         }
         Assert.assertFalse("Failed load tasks in Activity Manager", CommonMethods.isElementPresent(getDriver(),By.xpath(elements.notfound)));
-        for(count=1;count<=taskrows();count++){
-                if(CommonMethods.isElementPresent(getDriver(),By.xpath(getTilteXpath(count,approvalType)))){
-                    String[] title = getTilte(count,approvalType).getAttribute("title").split("-");
-                    if(getStatus(count,approvalType).getAttribute("title").equals("Completed")){
-                        IWebInteract.log.info("[Task {}] : Discarded, Type : {}, Approver : {}, Status : Completed",count,approvalType,title[1].trim());
-                        completedApprovalType = true;
-                        continue;
-                    }else if(getStatus(count,approvalType).getAttribute("title").equals("Open")){
-                        IWebInteract.log.info("[Task {}] : Queued, Type : {}, Approver : {}, Status : Open",count,approvalType,title[1].trim());
-                        approverType = title[1].trim();
-                        foundApprovalType = true;
-                        break;
-                    }
+        if(refresh){
+            refreshPage();
+            getActivityManager(false);
+        }
+    }
+    public void getActiveWorkFlow() {
+        int count=1;
+        boolean foundActiveWorkFlow =false;
+        while(count<=10){
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.activeWorkFlow))){
+                if(click("Active Work Flow Link",elements.activeWorkFlowLink)){
+                    foundActiveWorkFlow=true;
+                    break;
                 }
-
+            }
+            assert click("Initial Transaction",this.elements.initialTransaction);
+            waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.message)));
+            IWebInteract.log.info("Retrying for Active Work Flow, Retry: {}",count);
+            count++;
+        }
+        Assert.assertTrue("Failed to get Active WorkFlow Link", foundActiveWorkFlow);
+        getActivityManager(false);
+    }
+    public String getApproverType(String approvalType){
+        boolean foundApprovalType = false;
+        boolean completedApprovalType = false;
+        String approverType=null;
+        for(int count=1;count<=taskrows();count++){
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(getTilteXpath(count,approvalType)))){
+                String[] title = getTilte(count,approvalType).getAttribute("title").split("-");
+                if(getStatus(count,approvalType).getAttribute("title").equals("Completed")){
+                    IWebInteract.log.info("[Task {}] : Discarded, Type : {}, Approver : {}, Status : Completed",count,approvalType,title[1].trim());
+                    completedApprovalType = true;
+                    continue;
+                }else if(getStatus(count,approvalType).getAttribute("title").equals("Open")){
+                    IWebInteract.log.info("[Task {}] : Queued, Type : {}, Approver : {}, Status : Open",count,approvalType,title[1].trim());
+                    approverType = title[1].trim();
+                    foundApprovalType = true;
+                    break;
+                }
+            }
         }
         Assert.assertTrue("Failed to Find "+approvalType+" in Activity Manager", foundApprovalType || completedApprovalType);
-        if(completedApprovalType && CHECK_APPROVAL){
+        if(completedApprovalType && CHECK_APPROVAL_ALREADY_COMPLETED){
             Assert.assertTrue(approvalType+" is already Completed",foundApprovalType);
         }else if(completedApprovalType){
             IWebInteract.log.info("[COMPLETED] {} Approval",approvalType);
         }
-        CHECK_APPROVAL =false;
+        CHECK_APPROVAL_ALREADY_COMPLETED = false;
         return approverType;
     }
-
-    public void handleApprovals(String approvalType,int max_no_approvals){
-        String approver = getTask(approvalType);
-        assert click("Back",this.elements.backbutton);
-        assert waitForPageLoad();
-        String url=getDriver().getCurrentUrl();
-        if(approver!=null){
-            IWebInteract.log.info("[APPROVING], Type : {}, Approver : {}",approvalType,approver);
-            switchLogin(approver.trim(),url);
-            System.out.println("claim task");
-            claimTask(approvalType);
-        }else{
-            APPROVAL_COMPLETE = true;
-        }
-        switchLogin("Centralized",url);
-        while(!APPROVAL_COMPLETE){
-            if(max_no_approvals==0){
-                Assert.fail("[APPROVAL ERROR] Unable to complete approvals.");
-                break;
-            }
-            handleApprovals(approvalType,max_no_approvals-1);
-        }
-        CHECK_APPROVAL = true;
-        APPROVAL_COMPLETE = false;
-    }
-    public void claimTask(String approvalType){
-        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.prompt))){
-            click("Banner messages",elements.okbutton);
-        }
-        System.out.println("####claim not done######");
-//click active link
-        //find approvaltype-approver status:open row
-       ///find task > click on : >view task >> claim > comments >save >approve
-    }
-    public void switchLogin(String approverType,String url){
+    public void switchLogin(String approverType){
         IWebInteract.log.info("[LOGIN]  {}",approverType);
         relaunchDriver(approverType);
-        getDriver().get(url);
+        getDriver().get(DASHBOARD_URL);
         LoginSSOPage loginPage = new LoginSSOPage(getDriver());
         assert loginPage.confirmCurrentPage();
         assert loginPage.login(approverType.toLowerCase());
         this.elements = new PageElements(getDriver());
     }
+    public void doCaim(String approvalType, String approverType){
+        assert click("Open Task",getMenu(approvalType,approverType));
+        assert click("View Task",elements.viewtask);
+        waitTillClickable(elements.claimtask);
+        assert click("Claim Task",elements.claimtask);
+        System.out.println("#########"+elements.comments.getAttribute("value").equals(""));
+        if(elements.comments.getAttribute("value").equals("")){
+            assert sendKeys("Comments",elements.comments,"Approved");
+        }
+        assert click("Approve",elements.approve);
+        assert waitTillVisible(elements.confirmApproval);
+        IWebInteract.log.info("[APPROVED]  {}",approvalType+" - "+approverType);
+        assert waitForPageLoad();
+    }
+    public void startApprovalFlow(String approvalType){
+        String approverType = getApproverType(approvalType);
+        while(approverType!=null){
+            switchLogin(approverType);
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.prompt))){
+                click("Banner messages",elements.okbutton);
+            }
+            getActiveWorkFlow();
+            doCaim(approvalType,approverType);
+            assert click("Back",this.elements.backbutton);
+            assert waitForPageLoad();
+            getActivityManager(true);
+            approverType = getApproverType(approvalType);
+        }
+    }
+    public void handleApprovals(String approvalType) {
+        DASHBOARD_URL = getDriver().getCurrentUrl();
+        getActiveWorkFlow();
+        startApprovalFlow(approvalType);
+        CHECK_APPROVAL_ALREADY_COMPLETED = true;
+        switchLogin("Centralized");
+    }
+
     public void editStatus(String option){
         int count=1;
         boolean foundEditStatus =false;
@@ -184,6 +197,11 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public WebElement getStatus(int count,String approvalType){
         return findElement(getDriver(), new String[]{"xpath","//div[contains(@class,'adf-datatable-row')]["+count+"]//div[contains(@filename,'"+approvalType+"')][4]/div/div"});
     }
+    public WebElement getMenu(String approvalType,String approver){
+        return findElement(getDriver(), new String[]{"xpath","//div[contains(@class,'adf-datatable-row')]//div[contains(@filename,'"+approvalType+" - "+approver+"')][6]/div/button"});
+
+    }
+
     public static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//div[@id='onStartExariWorkflowClick']/a")
         private WebElement startWorkFlow;
@@ -209,6 +227,18 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private WebElement backbutton;
         @FindBy(xpath = "//*[@id='prompt']//button[contains(.,'OK')]")
         private WebElement okbutton;
+        @FindBy(xpath = "//button[contains(.,'View Task')]")
+        private WebElement viewtask;
+        @FindBy(xpath = "//button[contains(.,'Claim')]")
+        private WebElement claimtask;
+        @FindBy(xpath = "//textarea[contains(@id,'comments')]")
+        private WebElement comments;
+        @FindBy(xpath = "//button[contains(.,'APPROVE')]")
+        private WebElement approve;
+        @FindBy(xpath = "//button[contains(.,'SAVE')]")
+        private WebElement saveclaim;
+        @FindBy(xpath = "//div[contains(@class,'outcome-approved')]")
+        private WebElement confirmApproval;
 
 
         private String spinner= "//mat-progress-spinner";

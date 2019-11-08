@@ -140,7 +140,6 @@ public interface IWebInteract {
             log.error("click failed for {}", elementName);
             return false;
         }
-
         return true;
     }
 

@@ -1,5 +1,6 @@
 package ui_test.page.exari.login;
 
+import org.junit.Assert;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -75,7 +76,9 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
                 username = configGetOptionalString("exari.username").orElse("");
                 password = configGetOptionalString("exari.password").orElse("");
                 break;
-
+            default:
+                Assert.fail("[APPROVER CREDENTIALS NOT FOUND] "+approverType+"");
+                break;
         }
         sendKeys("username", elements.textBoxUsername, username);
         sendKeys("password", elements.textBoxPassword, password);
