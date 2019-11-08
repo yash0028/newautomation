@@ -52,6 +52,7 @@ public class ProviderRoaster extends GenericInputPage
         System.out.println("File name "+hmap.get("RosterFileName"));
         assert clickNext();
         assert waitForPageLoad();
+        pause(5);
     }
     public void uploadCompletedRoster(HashMap<String,String>hmap) throws IOException {
         callingExcelReaderWriter(hmap);

@@ -7,7 +7,7 @@ Feature: SPGA Business Testcases_OR
   @TC_WEST_SPGA_OR_10
   @Manual
   @User_Interface 
-  @UAT_Automation  
+  @UAT_Automation_Batch1  
    Scenario Outline: TC_WEST_SPGA_OR_10 - [RL0] Author SPGA contract in <site>  
 	Given I am logged into Exari Dev as a valid user and go to the "<site>" site  
     #Draft
@@ -31,7 +31,7 @@ Feature: SPGA Business Testcases_OR
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    #And I enter Amendments
+    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
     
@@ -52,8 +52,7 @@ Feature: SPGA Business Testcases_OR
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    
-    #
+   
     #Activate
     And I Set Status as Active
     #
@@ -61,7 +60,7 @@ Feature: SPGA Business Testcases_OR
     #When I have entered the CMD dashboard URL
     #When I search for Contract
     #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
-#
+
     #
     #NDB Check
     #
@@ -83,8 +82,8 @@ Feature: SPGA Business Testcases_OR
     #
     #CMD Check
     #NDB Check
-#		
-    #
+	
+    
     Examples:    
        | site          | paperType     | TCName|         
-       | west uhn      | SPGA          | TC_WEST_SPGA_IN_10|
+       | west uhn      | SPGA          | TC_WEST_SPGA_OR_10|
