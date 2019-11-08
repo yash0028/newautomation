@@ -1,4 +1,3 @@
-    And I select Providers
 # Last updated on 
 @SPGABusinessTestcases_IN
 @releaseUnknown
