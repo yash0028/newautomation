@@ -22,7 +22,6 @@ public class ProviderRoaster extends GenericInputPage
 
     public ProviderRoaster(WebDriver driver)
     {
-        super(driver);
         this.elements = new PageElements(driver);
     }
     public void roasterAction(String action)  {
@@ -70,7 +69,7 @@ public class ProviderRoaster extends GenericInputPage
             assert click("Select retro code", elements.selectRetroCode.get(0));
         }
 
-        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
     }
@@ -86,10 +85,10 @@ public class ProviderRoaster extends GenericInputPage
         }
     }
     public void approachForProvider(HashMap<String,String>hmap,String approach,boolean clickNext){
-        if(CommonMethods.isElementPresent(driver,By.xpath(elements.retroDropdown))){
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.retroDropdown))){
             selectretrocode(hmap,false);
         }
-        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert click("Select Approach For Provider",clickapproachForProvider(approach) );
         if(clickNext){
             assert clickNext();
@@ -105,7 +104,7 @@ public class ProviderRoaster extends GenericInputPage
         for(String provider :providers){
             assert sendKeys("Search provider",elements.selectProvider,provider.trim());
             pause(1);
-            if(CommonMethods.isElementPresent(driver,By.xpath(elements.selectProviderWithNamenotFound))){
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.selectProviderWithNamenotFound))){
                 elements.selectProvider.clear();
                 IWebInteract.log.info("Provider Name [{}] NOT FOUND",provider.trim());
                 continue;
@@ -181,7 +180,7 @@ public class ProviderRoaster extends GenericInputPage
             pause(1);
             assert sendKeys("Search provider",elements.selectProvider,provider.trim());
             pause(1);
-            if(CommonMethods.isElementPresent(driver,By.xpath(elements.selectProviderWithNamenotFound))){
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.selectProviderWithNamenotFound))){
                 elements.selectProvider.clear();
                 IWebInteract.log.info("Provider Name [{}] NOT FOUND",provider.trim());
                 nextInput = false;

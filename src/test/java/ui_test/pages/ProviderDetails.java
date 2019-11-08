@@ -14,7 +14,6 @@ public class ProviderDetails extends GenericInputPage {
 
     private PageElements elements;
     public ProviderDetails(WebDriver driver){
-        super(driver);
         this.elements = new PageElements(driver);
     }
 
@@ -37,7 +36,7 @@ public class ProviderDetails extends GenericInputPage {
 
     private void selectOption(String answer)  {
         click("MarketNumber",selectOptionForMarketNumber(answer));
-        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
 
@@ -47,7 +46,7 @@ public class ProviderDetails extends GenericInputPage {
         assert clickNext();
         assert waitForPageLoad();
 
-        if(CommonMethods.isElementPresent(driver,By.xpath(elements.duplicateTIN)))
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.duplicateTIN)))
         {
             assert clickNext();
             assert waitForPageLoad();

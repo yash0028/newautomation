@@ -15,6 +15,7 @@ import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.pages.BasePage;
 import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
+import ui_test.util.LocalDriverProxy;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
 import java.nio.file.Path;
@@ -27,12 +28,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
     String home = System.getProperty("user.dir");
     Path contractFlowPath = Paths.get(home, "src", "test", "resources","support","hive","dataMap");
-    private ProtoStep protoStep = new ProtoStep(getDriver());
-
+    private ProtoStep protoStep;
+    private BasePage basePage;
 
     private ContractFlow contractFlow;
     public GenericSitePage sitePage;
-    public BasePage basePage=new BasePage(getDriver());
+
 
     public HashMap<String,String> hmap = null;
 
@@ -49,6 +50,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
     public void loginSitePage(String siteOption) {
+        initializeObj();
         this.protoStep.loginHome();
         //this.protoStep.setSite(siteOption);
     }
@@ -252,6 +254,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     {
         basePage.getContractDetailsDashboard().handleApprovals("Red Door Alternates",10);
         //basePage.getContractDetailsDashboard().handleApprovals("Non Standard Fee Schedule",3);
+        initializeObj();
     }
 
     @And("^I Set Status as Final Pending QA$")
@@ -390,7 +393,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I select Provider Roster as None$")
     public void ProviderRoster_SelectNone()
     {
-        basePage.getProviderRoaster().roasterAction("NONE");    	 
+        basePage.getProviderRoaster().roasterAction("NONE");
     }
 
     @And("^I add provider using TIN$")
@@ -441,6 +444,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     private void setupProtoStep() {
         setupProtoStep(null);
     }
-
-
+    private void initializeObj() {
+        protoStep = new ProtoStep(getDriver());
+        basePage = new BasePage();
+    }
 }

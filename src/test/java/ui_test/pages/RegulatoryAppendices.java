@@ -16,7 +16,6 @@ public class RegulatoryAppendices extends GenericInputPage
     private PageElements elements;
     public RegulatoryAppendices(WebDriver driver)
     {
-        super(driver);
         this.elements = new PageElements(driver);
 
     }

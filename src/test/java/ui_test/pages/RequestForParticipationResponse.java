@@ -7,7 +7,6 @@ public class RequestForParticipationResponse extends GenericInputPage
 {
     public RequestForParticipationResponse(WebDriver driver)
     {
-        super(driver);
     }
 
     public void performAction(){

@@ -14,7 +14,6 @@ public class AdditionalLocations extends GenericInputPage
 {
     private PageElements elements;
     public AdditionalLocations(WebDriver driver) {
-        super(driver);
         elements=new PageElements(driver);
     }
 
@@ -44,7 +43,7 @@ public class AdditionalLocations extends GenericInputPage
                 break;
             }
         }
-        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
 

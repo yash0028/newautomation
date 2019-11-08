@@ -17,7 +17,6 @@ public class PracticeLocations extends GenericInputPage
 
     public PracticeLocations(WebDriver driver)
     {
-        super(driver);
         elements=new PageElements(driver);
 
     }

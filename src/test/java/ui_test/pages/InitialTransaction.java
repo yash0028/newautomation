@@ -12,7 +12,6 @@ import java.util.HashMap;
 public class InitialTransaction extends GenericInputPage {
     private PageElements elements;
     public InitialTransaction(WebDriver driver) {
-        super(driver);
         this.elements = new PageElements(driver);
     }
     public void initialTransaction(HashMap<String,String> hmap){

@@ -72,7 +72,8 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
                 password = configGetOptionalString("exari.phy_local_prcicing_approver_password").orElse("");
                 break;
             case "centralized":
-                login();
+                username = configGetOptionalString("exari.username").orElse("");
+                password = configGetOptionalString("exari.password").orElse("");
                 break;
 
         }

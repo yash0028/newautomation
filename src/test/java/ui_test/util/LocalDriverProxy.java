@@ -1,7 +1,5 @@
 package ui_test.util;
-
 import org.openqa.selenium.WebDriver;
-
 public class LocalDriverProxy {
     public static void closeDriver(){
         LocalDriver.getInstance().close();

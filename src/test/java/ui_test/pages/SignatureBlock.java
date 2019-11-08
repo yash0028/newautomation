@@ -12,7 +12,6 @@ import java.util.HashMap;
 public class SignatureBlock extends GenericInputPage {
     private PageElements elements;
     public SignatureBlock(WebDriver driver) {
-        super(driver);
         this.elements = new PageElements(driver);
     }
 

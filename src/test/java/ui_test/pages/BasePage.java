@@ -133,10 +133,6 @@ public class BasePage extends GenericInputPage {
         return (wizardComplete==null) ? new WizardComplete(getDriver()) :wizardComplete;
     }
 
-    public BasePage(WebDriver driver) {
-        super(driver);
-    }
-    
 
 
 }

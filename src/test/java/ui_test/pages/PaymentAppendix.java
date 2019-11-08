@@ -14,14 +14,13 @@ public class PaymentAppendix extends GenericInputPage {
 
     private PageElements elements;
     public PaymentAppendix(WebDriver driver) {
-        super(driver);
         elements=new PageElements(driver);
     }
 
     public void selectPaymentAppendix(HashMap<String,String> hmap)
     {
         assert click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
-        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         pause(2);
         assert click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix")));
         assert clickNext();
