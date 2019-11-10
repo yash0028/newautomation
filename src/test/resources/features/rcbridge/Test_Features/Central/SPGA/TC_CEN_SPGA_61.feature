@@ -13,6 +13,7 @@ Feature: SPGA Business Testcases_IN
   
     #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -58,7 +59,7 @@ Feature: SPGA Business Testcases_IN
     Then I Complete Wizard
     
     #Activate
-    And I Set Status as Active    
+    And I Set Status as Active
     
     #CMD Check
 		#NDB Check

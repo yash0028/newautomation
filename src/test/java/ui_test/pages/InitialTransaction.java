@@ -17,7 +17,9 @@ public class InitialTransaction extends GenericInputPage {
     public void initialTransaction(HashMap<String,String> hmap){
         assert click("Start Process",this.elements.startProcess);
         pause(1);
+        waitForPageLoad(60);
         assert click("Select Initial Transaction Type", clickInitialTransactionType(hmap.get("Initial Transaction")));
+        waitForPageLoad(60);
         assert click("Start Process Button",this.elements.startProcessButton);
         assert waitForPageLoad();
 

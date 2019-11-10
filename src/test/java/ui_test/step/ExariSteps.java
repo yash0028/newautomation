@@ -15,9 +15,9 @@ import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.pages.BasePage;
 import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
-import ui_test.util.LocalDriverProxy;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -35,7 +35,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public GenericSitePage sitePage;
 
 
-    public HashMap<String,String> hmap = null;
+    public static HashMap<String,String> hmap = null;
 
     @Given("^I am using the \"([^\"]*)\" flow$")
     public void prepareEIF(String fileName) {
@@ -52,7 +52,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void loginSitePage(String siteOption) {
         initializeObj();
         this.protoStep.loginHome();
+
         this.protoStep.setSite(siteOption);
+
+
+
     }
 
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
@@ -144,6 +148,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPracticeLocations().selectLocation(hmap);
     }
 
+    @And("^I enter Practice Locations for PAT Contract$")
+    public void PATPracticeLocations()
+    {
+        basePage.getPracticeLocations().selectLocation(hmap);
+    }
+
     @And("^I enter Market Exception Grid$")
     public void MarketExceptionGrid() {
         basePage.getMarketExceptionGrid().previewMarketDetails();
@@ -181,7 +191,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     {
         basePage.getAppendix2().selectAppendix(hmap);
     }
-
+    
+    @And("^I enter Appendix 1$")
+    public void Appendix1()
+    {    	
+    	basePage.getAppendix2().SelectAppedix1("No");
+    }
     @And("^I enter Payment Appendix$")
     public void PaymentAppendix()
     {
@@ -338,15 +353,13 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("^I Download Current Roster$")
-    public void downloadCurrentRoster()
-    {
-        basePage.getProviderRoaster().downloadCurrentRoster();
+    public void downloadCurrentRoster() {
+        basePage.getProviderRoaster().downloadCurrentRoster(hmap);
 
     }
 
     @And("^I Upload Completed Roster$")
-    public void uploadCompletedRoster()
-    {
+    public void uploadCompletedRoster() throws IOException {
         basePage.getProviderRoaster().uploadCompletedRoster(hmap);
 
     }
@@ -368,7 +381,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void selectProviders()
     {
         basePage.getProviderRoaster().selectProviders(hmap);
-
     }
     @And("^I verify Providers$")
     public void verifyProviders()
@@ -380,7 +392,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void providerStartDate()
     {
         basePage.getProviderRoaster().providerStartDate(hmap);
-
     }
 
     @And("^I select provider and cancel date$")
@@ -401,7 +412,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getProviderRoaster().roasterAction("NONE");
     }
 
-    @And("^I add provider using TIN$")
+     @And("^I add provider using TIN$")
     public void addProvider_TIN()
     {
     	basePage.getProviderRoaster().roasterAction("Add");
@@ -421,12 +432,51 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getProviderRoaster().roasterAction("Upload");
     }
 
+
+
+    @And("I capture Contract Number")
+    public void iCaptureContractNumber()
+    {
+        basePage.getContractDetailsDashboard().captureContractNumber(hmap);
+
+    }
+
+    @And("I create supporting document")
+    public void createSupportingDocuments()
+    {
+        basePage.getContractDetailsDashboard().cickToCreateSupportingDocument(hmap);
+    }
+    @And("I review supporting document")
+    public void rreviewSupportingDocuments()
+    {
+        basePage.getSupportingDocumentSummary().reviewSupportingDocument();
+        basePage.getWizardComplete().completeWizard(hmap);
+    }
+
+
+    @And("^I search Contract using Contract Number$")
+    public void searchContractByContractNumber() {
+        basePage.getDashboard().searchContaractByContractNumber(hmap);
+        basePage.getDashboard().openContractDetails();
+        basePage.getContractDetailsDashboard().clickForContractSummary();        
+
+    }
+
+
     @And("^And I select provider using MPIN$")
     public void selectProvider_MPIN()
     {
     	basePage.getProviderRoaster().roasterAction("Add");
     	basePage.getProviderRoaster().approachForProvider(hmap,"MPIN",false);
     	basePage.getProviderRoaster().enterMPIN(hmap);
+    }
+    
+    @When("^I am logged into Exari Dev$")
+    public void I_am_Logged_intoExari()
+    {
+    	 String url = configGetOptionalString("exari.devURL").orElse("");
+         getDriver().get(url);       
+         basePage.waitForPageLoad();
     }
     /*
     HELPER METHODS

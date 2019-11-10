@@ -56,7 +56,7 @@ Feature: SPGA Business Testcases_IN
   
    
     
-    #NDB Checking 
+        #NDB Checking 
 		#Draft Amandament
 		#Amandment final capture
 		

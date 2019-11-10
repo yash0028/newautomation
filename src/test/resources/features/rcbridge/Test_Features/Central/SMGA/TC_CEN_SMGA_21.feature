@@ -2,11 +2,12 @@
 @SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_IN
+Feature: SMGA Business Testcases_IN
   
   @TC_CEN_SMGA_IN_21
   @Manual
-  @User_Interface  
+  @User_Interface 
+  @UAT_Automation_Batch1 
   Scenario Outline: TC_CEN_SMGA_IN_08 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -56,9 +57,9 @@ Feature: SPGA Business Testcases_IN
     And I Set Status as Active
     
     #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
-    Then Validate Contract "11122328" status and request type "InstallContract"
+#    When I have entered the CMD dashboard URL
+#    When I search for Contract
+#    Then Validate Contract "11122328" status and request type "InstallContract"
 
     
     #NDB Check

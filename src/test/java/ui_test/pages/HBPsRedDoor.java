@@ -16,12 +16,37 @@ public class HBPsRedDoor  extends GenericInputPage
         this.elements = new PageElements(driver);
 
     }
-    public void selectRedDoor(HashMap<String,String> hmap){
-        click("HBP Red Door",getHBPResponse(hmap.get("HBP")));
-        //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+    public void selectRedDoor(HashMap<String,String> hmap)
+    {
+    switch(hmap.get("HBP"))
+    {
+        case "No":
+        {
+            assert click("HBP Red Door",getHBPResponse(hmap.get("HBP")));
+            assert clickNext();            
+            waitForPageLoad();
+            break;
+        }
+        case "Yes":
+        {
+            click("HBP Red Door",getHBPResponse(hmap.get("HBP")));
+            waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+            assert clickNext();
+            assert waitForPageLoad();
+            handleTermsAndCondition();
+            break;
+        }
+    }
+    }
+
+    private void handleTermsAndCondition()
+    {
         assert clickNext();
         assert waitForPageLoad();
+
     }
+
+
     public WebElement getHBPResponse(String answer){
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+answer+"')]"});
     }

@@ -10,6 +10,7 @@ import io.cucumber.datatable.DataTable;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,22 +28,29 @@ public class CMDSteps implements IRestStep, IUiStep {
     private final static String RESOURCE_CONTRACT_SUMMARIES = "/v1.0/transactions/tx/counts-contract";
     private final static String ENDPOINT_ACTIONREQUIRED = "https://fallout-service-clm-test.ocp-ctc-dmz-nonprod.optum.com";
     private final static String RESOURCE_OPENCOUNT = "/v1.0/workobjects/open-count";
-    private final static String CMD_DASHBOARD_URL = "https://contract-management-test.optum.com";
+    //private final static String CMD_DASHBOARD_URL = "https://contract-management-test.optum.com";
     private static Logger log = LoggerFactory.getLogger(CMDSteps.class);
     private CMDPage cmdPage = null;
-   // private ProtoStep protoStep = new ProtoStep(getDriver());
+    // private ProtoStep protoStep = new ProtoStep(getDriver());
     private int totalElements = 0;
 
     @Given("^I have entered the CMD dashboard URL$")
     public void navigateToCMDdashboardUrl() {
-        getDriver().get(CMD_DASHBOARD_URL);
+        String url = configGetOptionalString("CMD.DASHBOARD_URL").orElse("");
+        getDriver().get(url);
         cmdPage = new CMDPage(getDriver());
 
 
         Assert.assertNotNull("CMD page not displayed", cmdPage);
-        CMDLoginSSOPage obj= new CMDLoginSSOPage(getDriver());
-        obj.login();
+        CMDLoginSSOPage obj = new CMDLoginSSOPage(getDriver());
+        obj.checklogin();
+
     }
+
+
+
+
+
 
    // @Given("^I am logged into cmd$")
   //  public void loginSitePage(String siteOption) {

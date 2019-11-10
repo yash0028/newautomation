@@ -51,6 +51,7 @@ public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
                 return true;
             }
             pause(3);
+            waitForPageLoad();
             count++;
         }
         return false;

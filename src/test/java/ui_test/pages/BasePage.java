@@ -5,7 +5,7 @@ import ui_test.page.exari.contract.GenericInputPage;
 
 
 public class BasePage extends GenericInputPage {
-
+    private Dashboard dashboard;
     private AdditionalLocations additionalLocations;
     private Appendix2 appendix2;
     private Article article;
@@ -32,6 +32,7 @@ public class BasePage extends GenericInputPage {
     private ProviderSignatory providerSignatory;
     private Warning warning;
     private Validation validation;
+    private SuppotingDocumentSummary supportingDocumentSummary;
 
     public Validation getValidation() {
         return (validation ==null) ? new Validation(getDriver()) :validation;
@@ -58,6 +59,11 @@ public class BasePage extends GenericInputPage {
     public AdditionalLocations getAdditionalLocations() {
         return (additionalLocations==null) ? new AdditionalLocations(getDriver()) :additionalLocations;
     }
+
+    public Dashboard getDashboard() {
+        return (dashboard==null) ? new Dashboard(getDriver()) :dashboard;
+    }
+
 
     public Appendix2 getAppendix2() {
         return (appendix2==null) ? new Appendix2(getDriver()) :appendix2;
@@ -132,6 +138,10 @@ public class BasePage extends GenericInputPage {
     public WizardComplete getWizardComplete() {
         return (wizardComplete==null) ? new WizardComplete(getDriver()) :wizardComplete;
     }
+    public SuppotingDocumentSummary getSupportingDocumentSummary() {
+        return (supportingDocumentSummary==null) ? new SuppotingDocumentSummary(getDriver()) :supportingDocumentSummary;
+    }
+
 
 
 

@@ -27,9 +27,11 @@ public class ProviderDetails extends GenericInputPage {
         //Open dropdown search
         click("dropdown open", this.elements.dropdown_open);
         pause(1);
+        waitForPageLoad(60);
         //Enter search term
         sendKeys("dropdown textbox", this.elements.dropdown_textbox, answer);
         pause(1);
+        waitForPageLoad(60);
         //Click index option
         selectOption(answer);
     }

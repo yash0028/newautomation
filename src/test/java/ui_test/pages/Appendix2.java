@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ui_test.page.exari.contract.GenericInputPage;
@@ -21,8 +22,22 @@ public class Appendix2 extends GenericInputPage {
         assert clickNext();
         assert waitForPageLoad();
     }
+    
+    public void SelectAppedix1(String option)
+    {
+    		waitForPageLoad();
+    		 if(getDriver().findElement(By.xpath("//b[.='Will additional manuals apply?']")).isDisplayed())
+    		 {
+    			 click("Will additional manuals apply?",getXPath(option));
+    			 assert clickNext();
+    			 waitForPageLoad();
+    		 }
+		
+    	
+    }
     public WebElement getXPath(String answer){
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+answer+"')]"});
     }
+   
 
 }

@@ -11,11 +11,14 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.home.site.SiteManager;
+import ui_test.step.ExariSteps;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
 import java.util.List;
 import java.util.Map;
+
+import javax.xml.crypto.dsig.spec.HMACParameterSpec;
 
 public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     private static Logger log = LoggerFactory.getLogger(CMDPage.class);
@@ -194,7 +197,7 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     public boolean enterContractNumber() {
       //  return sendKeys(searchTransactionsTextBox, getSharedString("contractNumber").orElse(""));
 
-        return sendKeys(searchTransactionsTextBox, "11122328");
+        return sendKeys(searchTransactionsTextBox, ExariSteps.hmap.get("Contract Number"));
     }
 
     public void searchContract() {

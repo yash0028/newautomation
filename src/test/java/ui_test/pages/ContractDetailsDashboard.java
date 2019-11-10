@@ -5,14 +5,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.page.exari.login.LoginSSOPage;
+import ui_test.pages.textFileWriter.TextFileWriter;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IUiStep;
 import ui_test.util.IWebInteract;
-
 import java.util.List;
+import java.io.*;
+import java.util.HashMap;
 
 public class ContractDetailsDashboard extends GenericInputPage implements IUiStep {
     public PageElements elements;
+    public TextFileWriter textFileWriter=new TextFileWriter();
     private static Boolean CHECK_APPROVAL_ALREADY_COMPLETED =true;
     private static String DASHBOARD_URL;
     public ContractDetailsDashboard(WebDriver driver) {
@@ -158,9 +161,11 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         Assert.assertTrue("Contract is not Approved", foundEditStatus);
             waitForElementsToPresent(getDriver(),By.xpath(elements.editDetails));
             pause(1);
+            waitForPageLoad(60);
             Select status = new Select(this.elements.selectStatus);
             status.selectByVisibleText(option);
             pause(1);
+            waitForPageLoad(60);
             assert click("Save",this.elements.save);
             //dont give assert for close.
             click("Close",this.elements.close);
@@ -170,6 +175,23 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public void finalCapture(){
         assert click("Final Capture",this.elements.finalCapture);
         assert waitForPageLoad();
+    }
+
+    public void captureContractNumber(HashMap<String,String> hmap)
+    {
+        String contractDetails=elements.contractSummary.getText();
+        System.out.println("Contract Details : "+contractDetails);
+        hmap.put("Contract Number",contractDetails.substring(contractDetails.lastIndexOf('-') +1));
+        System.out.println("Comtract Number is:"+hmap.get("Contract Number"));
+        String filepath="C:\\Users\\asomani1\\Desktop\\finalPom\\acceptance-testing\\src\\test\\resources\\support\\hive\\textFiles\\contractDetails.txt";
+        textFileWriter.writeInFile(filepath,hmap);
+    }
+
+    public void clickForContractSummary()
+    {
+    	assert click("Open Contract Summary Page",elements.clickToContractSummary);
+        assert click("Initial Transaction", elements.initialTransaction);
+
     }
     public void makeCorrection(){
         assert click("Make Correction",this.elements.makeCorrection);
@@ -185,6 +207,17 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public int taskrows(){
         List<WebElement> tasks = findElements(getDriver(), new String[]{"xpath","//div[contains(@class,'adf-datatable-row')]"});
         return tasks.size()-1;
+    }
+    public void cickToCreateSupportingDocument(HashMap<String,String> hmap)
+    {
+        assert click("Create Supporting Document",this.elements.createSupportingDocument);
+        assert waitForPageLoad();
+        selectSupportingDocumentType(hmap);
+    }
+    private void selectSupportingDocumentType(HashMap<String,String>hmap)
+    {
+        assert click("Select Supporting Document Type",this.elements.supportingDocumentType);
+
     }
     public WebElement taskrowelement(String answer){
         return findElement(getDriver(), new String[]{"xpath","//span[contains(@title,'"+answer+"')]"});
@@ -202,8 +235,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         return findElement(getDriver(), new String[]{"xpath","//div[contains(@class,'adf-datatable-row')]//div[contains(@filename,'"+approvalType+" - "+approver+"')][6]/div/button"});
 
     }
-
     public static class PageElements extends AbstractPageElements {
+        @FindBy(xpath="//h1[contains(text(),'Agreement')]")
+        private WebElement contractSummary;
         @FindBy(xpath = "//div[@id='onStartExariWorkflowClick']/a")
         private WebElement startWorkFlow;
         @FindBy(xpath = "//div[contains(@class,'edit-status')]/a/span")
@@ -242,6 +276,13 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private WebElement confirmApproval;
         @FindBy(xpath = "//multiline-text-widget[@class='ng-star-inserted']/div[contains(@class,'adf-readonly')]")
         private WebElement detectapproval;
+        @FindBy(xpath = "//*[@id='ygtvlabelel1']")
+        private WebElement clickToContractSummary;
+        @FindBy(xpath="//div[contains(@class,'create-transaction-supporting-document')]/a/span")
+        private WebElement createSupportingDocument;
+        @FindBy(xpath="//a[contains(text(),'Provider Roster Output.xml')]")
+        private WebElement supportingDocumentType;
+
 
         private String spinner= "//mat-progress-spinner";
         private String message= "//*[@id='message']";
