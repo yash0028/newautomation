@@ -3,14 +3,11 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
-import ui_test.page.exari.ProtoStep;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.page.exari.login.LoginSSOPage;
-import ui_test.step.ExariSteps;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IUiStep;
 import ui_test.util.IWebInteract;
-import ui_test.util.LocalDriverProxy;
 
 import java.util.List;
 
@@ -18,7 +15,6 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public PageElements elements;
     private static Boolean CHECK_APPROVAL_ALREADY_COMPLETED =true;
     private static String DASHBOARD_URL;
-    private static Boolean APPROVAL_COMPLETE =false;
     public ContractDetailsDashboard(WebDriver driver) {
         this.elements = new PageElements(driver);
     }
@@ -95,24 +91,29 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         return approverType;
     }
     public void switchLogin(String approverType){
-        IWebInteract.log.info("[LOGIN]  {}",approverType);
-        relaunchDriver(approverType);
-        getDriver().get(DASHBOARD_URL);
-        LoginSSOPage loginPage = new LoginSSOPage(getDriver());
-        assert loginPage.confirmCurrentPage();
-        assert loginPage.login(approverType.toLowerCase());
-        this.elements = new PageElements(getDriver());
+            IWebInteract.log.info("[LOGIN]  {}",approverType);
+            relaunchDriver(approverType);
+            getDriver().get(DASHBOARD_URL);
+            LoginSSOPage loginPage = new LoginSSOPage(getDriver());
+            assert loginPage.confirmCurrentPage();
+            if(approverType.equals("exari.username")){
+                assert loginPage.login();
+            }else{
+                assert loginPage.login(approverType.toLowerCase());
+            }
+            this.elements = new PageElements(getDriver());
     }
     public void doCaim(String approvalType, String approverType){
         assert click("Open Task",getMenu(approvalType,approverType));
         assert click("View Task",elements.viewtask);
         waitTillClickable(elements.claimtask);
         assert click("Claim Task",elements.claimtask);
-        System.out.println("#########"+elements.comments.getAttribute("value").equals(""));
+        waitTillVisible(elements.comments);
         if(elements.comments.getAttribute("value").equals("")){
             assert sendKeys("Comments",elements.comments,"Approved");
         }
         assert click("Approve",elements.approve);
+        waitTillVisible(elements.detectapproval);
         assert waitTillVisible(elements.confirmApproval);
         IWebInteract.log.info("[APPROVED]  {}",approvalType+" - "+approverType);
         assert waitForPageLoad();
@@ -128,7 +129,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             doCaim(approvalType,approverType);
             assert click("Back",this.elements.backbutton);
             assert waitForPageLoad();
-            getActivityManager(true);
+            getActivityManager(false);
             approverType = getApproverType(approvalType);
         }
     }
@@ -137,7 +138,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         getActiveWorkFlow();
         startApprovalFlow(approvalType);
         CHECK_APPROVAL_ALREADY_COMPLETED = true;
-        switchLogin("Centralized");
+        switchLogin("exari.username");
     }
 
     public void editStatus(String option){
@@ -239,7 +240,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private WebElement saveclaim;
         @FindBy(xpath = "//div[contains(@class,'outcome-approved')]")
         private WebElement confirmApproval;
-
+        @FindBy(xpath = "//multiline-text-widget[@class='ng-star-inserted']/div[contains(@class,'adf-readonly')]")
+        private WebElement detectapproval;
 
         private String spinner= "//mat-progress-spinner";
         private String message= "//*[@id='message']";

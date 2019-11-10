@@ -72,10 +72,6 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
                 username = configGetOptionalString("exari.phy_local_prcicing_approver_username").orElse("");
                 password = configGetOptionalString("exari.phy_local_prcicing_approver_password").orElse("");
                 break;
-            case "centralized":
-                username = configGetOptionalString("exari.username").orElse("");
-                password = configGetOptionalString("exari.password").orElse("");
-                break;
             default:
                 Assert.fail("[APPROVER CREDENTIALS NOT FOUND] "+approverType+"");
                 break;
