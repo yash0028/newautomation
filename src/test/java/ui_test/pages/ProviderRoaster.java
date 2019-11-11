@@ -171,11 +171,19 @@ public class ProviderRoaster extends GenericInputPage
                         date = CommonMethods.formatDate(dates[count-1]);
                     }
                     waitForPageLoad(60);
-                    sendKeys("Provider Start Date",providerStartDate(count-1),date);
+                    int c = count-1;
+                    getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).click();
+                    waitForPageLoad();
+                    getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).sendKeys(date);
+                    //sendKeys("Provider Start Date",providerStartDate(count-1),date);
                   
                 }else{
                 	waitForPageLoad(60);
-                    sendKeys("Provider Start Date",providerStartDate(count-1),CommonMethods.todaysDate());
+                	int c = count-1;
+                	getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).click();
+                	waitForPageLoad();
+                	getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).sendKeys(CommonMethods.todaysDate());
+                    //sendKeys("Provider Start Date",providerStartDate(count-1),CommonMethods.todaysDate());
                 }
             }
 
