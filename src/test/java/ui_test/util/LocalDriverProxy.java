@@ -1,18 +1,19 @@
 package ui_test.util;
+
 import org.openqa.selenium.WebDriver;
-public class LocalDriverProxy {
-    public static void closeDriver(){
-        LocalDriver.getInstance().close();
+
+public class LocalDriverProxy implements IUiStep{
+    private static LocalDriverProxy  INSTANCE = new LocalDriverProxy();
+    public WebDriver getNewDriver(){
+         return getDriver();
     }
-    public static void resetDriver(){
-        LocalDriver.reset();
-    }
-    public static WebDriver getDriver(){
-        //TODO take ui.runLocalBrowser from properties file
-        if (true) {
-            return SauceLabs.getInstance() != null ? SauceLabs.getInstance().getDriver() : null;
-        } else {
-            return LocalDriver.getInstance() != null ? LocalDriver.getInstance().getDriver() : null;
-        }
+    public static LocalDriverProxy getInstance() {
+     if(INSTANCE!=null){
+         return INSTANCE;
+     }else{
+         INSTANCE = new LocalDriverProxy();
+         return INSTANCE;
+     }
+
     }
 }

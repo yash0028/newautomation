@@ -6,10 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui_test.util.AbstractPageElements;
-import ui_test.util.IFactoryPage;
-import ui_test.util.IWebInteract;
-import ui_test.util.LocalDriverProxy;
+import ui_test.util.*;
 
 public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
     private static final Logger log = LoggerFactory.getLogger(GenericInputPage.class);
@@ -31,7 +28,7 @@ public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
 
     @Override
     public WebDriver getDriver() {
-        return LocalDriverProxy.getDriver();
+        return LocalDriverProxy.getInstance().getDriver();
     }
 
     @Override
