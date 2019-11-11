@@ -14,6 +14,5 @@ public class LocalDriverProxy implements IUiStep{
          INSTANCE = new LocalDriverProxy();
          return INSTANCE;
      }
-
     }
 }
