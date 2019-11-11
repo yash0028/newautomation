@@ -71,7 +71,7 @@ public class ProtoStep implements IConfigurable {
 
     public ProtoStep loginHome() {
 
-        return loginHome("exari.devURL");
+        return loginHome("exari.stageURL");
     }
 
     public ProtoStep setSite(String siteOption) {

@@ -474,7 +474,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @When("^I am logged into Exari Dev$")
     public void I_am_Logged_intoExari()
     {
-    	 String url = configGetOptionalString("exari.devURL").orElse("");
+    	 String url = configGetOptionalString("exari.stageURL").orElse("");
          getDriver().get(url);       
          basePage.waitForPageLoad();
     }
