@@ -57,6 +57,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                     break;
                 }
             }
+            waitTillClickable(this.elements.initialTransaction);
             assert click("Initial Transaction",this.elements.initialTransaction);
             waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.message)));
             IWebInteract.log.info("Retrying for Active Work Flow, Retry: {}",count);
