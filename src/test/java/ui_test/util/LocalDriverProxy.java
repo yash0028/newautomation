@@ -8,6 +8,11 @@ public class LocalDriverProxy {
         LocalDriver.reset();
     }
     public static WebDriver getDriver(){
-        return LocalDriver.getInstance().getDriver();
+        //TODO take ui.runLocalBrowser from properties file
+        if (true) {
+            return SauceLabs.getInstance() != null ? SauceLabs.getInstance().getDriver() : null;
+        } else {
+            return LocalDriver.getInstance() != null ? LocalDriver.getInstance().getDriver() : null;
+        }
     }
 }
