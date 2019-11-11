@@ -6,7 +6,6 @@ import ui_test.page.exari.contract.GenericInputPage;
 public class SuppotingDocumentSummary extends GenericInputPage
 {
     public SuppotingDocumentSummary(WebDriver driver) {
-        super(driver);
     }
 
     public void reviewSupportingDocument()

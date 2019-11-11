@@ -30,7 +30,7 @@ public class HBPsRedDoor  extends GenericInputPage
         case "Yes":
         {
             click("HBP Red Door",getHBPResponse(hmap.get("HBP")));
-            waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+            waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             assert clickNext();
             assert waitForPageLoad();
             handleTermsAndCondition();
