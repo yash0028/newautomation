@@ -53,9 +53,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void loginSitePage(String siteOption) {
         this.protoStep.loginHome();
 
-        this.protoStep.setSite(siteOption);
-
-        this.protoStep.setSite(siteOption);
+       // this.protoStep.setSite(siteOption);
 
     }
 
@@ -457,4 +455,113 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
 
+    @And("I select the contract")
+    public void contractSelection() {
+        basePage.getContractDetailsDashboard().goToContractSummaryPage();
+    }
+
+
+    @And("I click on Create Amendment")
+    public void createAmendment() {
+        basePage.getContractDetailsDashboard().startAmendmentProcess(hmap);
+
+    }
+
+    @And("I enter title")
+    public void enterTitle() {
+        basePage.getContractDetailsDashboard().enterAmendmentTitle(hmap);
+    }
+
+    @And("I enter Amendment Selection")
+    public void enterAmendmentSelection() {
+        basePage.getAmendmentSelection().selectAmendmentTobeUsed(hmap);
+    }
+
+    @And("I select Amendments needed in Amendment Selection")
+    public void selectAmendmentsNeeded() {
+        basePage.getAmendmentSelection().amendmentNeeded(hmap);
+
+    }
+
+    @And("I select Amendment Type in Provider Details")
+    public void selectAmendmentType() {
+        basePage.getProviderDetails().amendmentType(hmap);
+
+    }
+
+    @And("I check Provider Details")
+    public void checkProviderDetails() {
+
+    }
+
+    @And("I select Types of Amendments")
+    public void selectTypesOfAmendments()
+    {
+        basePage.getAmendements().typeOfAmendmentsNeeded(hmap);
+    }
+
+    @And("I select Contract Applied in Amendments")
+    public void selectContractApplied() {
+        basePage.getAmendements().typeOfContractApplied(hmap);
+
+    }
+
+    @And("I enter Contract Details in Amendments")
+    public void enterContractDetails() {
+        basePage.getContractDetails().setSpecificEffectiveDate(hmap);
+
+    }
+
+    @And("I enter Effective date in Contract Details")
+    public void enterEffectiveDate() {
+        basePage.getContractDetails().contractEffectiveDate(hmap);
+
+    }
+
+    @And("I enter Appendix 2 in Amendments")
+    public void enterAppendix2InAmendments() {
+        basePage.getAppendix2().productsExcludedFromAgreement(hmap);
+
+    }
+
+    @And("I select applied Payment Appendix")
+    public void selectAppliedPaymentAppendix() {
+        basePage.getPaymentAppendix().appliedPaymentAppendix(hmap);
+
+    }
+
+    @And("I enter Payment Appendix in Amendments for SPGA contracts")
+    public void enterPaymentAppendixforSPGAContracts() {
+        basePage.getPaymentAppendix().enterDataInPaymentAppendixForSPGA(hmap);
+
+    }
+
+    @And("I enter Payment Appendix in Amendments for SMGA contracts")
+    public void enterPaymentAppendixforSMGAContracts() {
+        basePage.getPaymentAppendix().enterDataInPaymentAppendixForSMGA(hmap);
+
+    }
+
+    @And("I select Payment Appendix to include in Amendments for SMGA contracts")
+    public void includePaymentAppendixforSMGAContracts() {
+        basePage.getPaymentAppendix().paymentAppendixToInclude(hmap);
+
+    }
+
+    @And("I check Payment Appendix")
+    public void checkPaymentAppendix() {
+        basePage.getPaymentAppendix().verifyFeeScheduleID();
+
+    }
+
+    @And("I enter Additional Manuals")
+    public void enterAdditionalManuals() {
+        basePage.getAdditionalManuals().applyToBenefitPlans(hmap);
+    }
+
+    @And("I enter Steerage")
+    public void enterSteerage()
+    {
+        basePage.getSteerage().addLanguage(hmap);
+    }
 }

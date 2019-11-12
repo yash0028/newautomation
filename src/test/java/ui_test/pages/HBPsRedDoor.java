@@ -26,6 +26,7 @@ public class HBPsRedDoor  extends GenericInputPage
             click("HBP Red Door",getHBPResponse(hmap.get("HBP")));
             assert clickNext();
             assert waitForPageLoad();
+            break;
         }
         case "Yes":
         {

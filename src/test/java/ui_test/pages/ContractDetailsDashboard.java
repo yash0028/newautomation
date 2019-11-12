@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import ui_test.page.exari.contract.GenericInputPage;
@@ -11,6 +12,7 @@ import ui_test.pages.textFileWriter.TextFileWriter;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IWebInteract;
 
+import java.awt.*;
 import java.io.*;
 import java.util.HashMap;
 
@@ -77,6 +79,31 @@ public class ContractDetailsDashboard extends GenericInputPage {
         assert click("Make Correction",this.elements.makeCorrection);
         assert waitForPageLoad();
     }
+
+    public void goToContractSummaryPage() {
+        assert click("Contract Summary Page",elements.contractSummaryButton);
+        assert waitForPageLoad();
+    }
+
+    public void startAmendmentProcess(HashMap<String, String> hmap) {
+        assert click("Start Amendment Process",elements.createAmendmentButton);
+        assert waitForPageLoad();
+        pause(5);
+    }
+
+    public void enterAmendmentTitle(HashMap<String, String> hmap) {
+        Actions actions=new Actions(getDriver());
+//        actions.dragAndDropBy(elements.amendmentsWindow,0,0);
+
+        actions.clickAndHold(elements.amendmentsWindow).pause(5000).moveToElement(elements.fullWindow).release().build().perform();
+        pause(3);
+        assert sendKeys("Entering amendment Title",elements.amendentTitleBar,hmap.get("Amendment Title"));
+        pause(2);
+//        getDriver().findElement(By.xpath("//button[contains(@name,'create')]")).click();
+        assert click("Create Amendment Button",elements.getCreateAmendmentButton);
+        assert waitForPageLoad();
+    }
+
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath="//h1[contains(text(),\"Agreement\")]")
         private WebElement contractSummary;
@@ -100,6 +127,19 @@ public class ContractDetailsDashboard extends GenericInputPage {
         private WebElement close;
         @FindBy(xpath = "//*[@id=\"ygtvlabelel1\"]")
         private WebElement clickToContractSummary;
+        @FindBy(xpath = "//span[contains(text(),'Agreement')]")
+        private WebElement contractSummaryButton;
+        @FindBy(xpath = "//a[contains(@title,'Create Amendment')]")
+        private WebElement createAmendmentButton;
+        @FindBy(xpath = "//input[contains(@name,'amendmentId')]")
+        private WebElement amendentTitleBar;
+        @FindBy(xpath = "//*[@id=\"template_x002e_amend-popup_x002e_contract-details_x0023_default-createButton\"]")
+        private WebElement getCreateAmendmentButton;
+        @FindBy(xpath = "//div[text()=\"Create Amendment\"]")
+        private WebElement amendmentsWindow;
+        @FindBy(xpath = "//body[@id='Share']")
+        private WebElement fullWindow;
+
 
         private String message= "//*[@id='message']";
         private String startWorkFlowPath= "//div[@id='onStartExariWorkflowClick']/a";

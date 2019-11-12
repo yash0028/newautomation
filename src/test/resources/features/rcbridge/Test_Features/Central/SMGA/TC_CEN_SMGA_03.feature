@@ -1,15 +1,15 @@
-# Last updated on
+# Last updated on 
 @SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
 Feature: SPGA Business Testcases_IN
-
-  @Test3
+  
+  @TC_CEN_SMGA_IN_03
   @Manual
-  @User_Interface
-  Scenario Outline: Test3 - [RL0] Author SPGA contract in <site>
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-
+  @User_Interface  
+  Scenario Outline: TC_CEN_SMGA_IN_03 - [RL0] Author SPGA contract in <site>  
+	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+  
     #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
@@ -33,7 +33,7 @@ Feature: SPGA Business Testcases_IN
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-
+    
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -52,44 +52,25 @@ Feature: SPGA Business Testcases_IN
     Then I Complete Wizard
     #Activate
     And I Set Status as Active
-
+    
     #CMD Check
 #    When I have entered the CMD dashboard URL
 #    When I search for Contract
 #    #Then Validate Contract "71926900" status and request type "InstallContract"
-
-    #NDB Checking
-
+    
+    #NDB Checking 
+	
 	#Draft Amandament
-    And I select the contract
-    And I click on Create Amendment
-    And I enter title
-    And I enter Amendment Selection
-    And I select Amendments needed in Amendment Selection
-    And I select Amendment Type in Provider Details
-#    And I check Provider Details
-    And I select Types of Amendments
-    And I select Contract Applied in Amendments
-    And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
-    And I enter Appendix 2 in Amendments
-    And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments
-    And I check Payment Appendix
-    And I enter Additional Manuals
-    And I enter Steerage
-#    And I enter Regulatory Appendices
-    And I enter Group Summary
-    And I Complete Wizard
-
+	
 	#Amandment final capture
-
-
+		
+	
 	#Amendment CMD Checking
-
-
-
-    Examples:
-      | site          | paperType     | TCName|
-      | central uhn   | SMGA          | TC_CEN_SMGA_IN_03|
-
+		
+		
+    
+    Examples:    
+       | site          | paperType     | TCName|  				 
+       | central uhn   | SPGA          | TC_CEN_SMGA_IN_03|
+       
+    
