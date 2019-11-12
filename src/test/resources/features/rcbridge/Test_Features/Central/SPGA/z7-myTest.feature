@@ -69,34 +69,55 @@ Feature: SPGA Business Testcases_IN
 
     #NDB Checking
     #Draft Amandament
+#Amendment Steps to create Add Medicare Amendment
+#    And I select the contract
+#    And I click on Create Amendment
+#    And I enter title
+#    And I enter Amendment Selection
+#    And I select Amendments needed in Amendment Selection
+#    And I select Amendment Type in Provider Details
+##    And I check Provider Details
+#    And I select Types of Amendments
+#    And I select Contract Applied in Amendments
+#    And I enter Contract Details in Amendments
+#    And I enter Effective date in Contract Details
+#    And I enter Appendix 2 in Amendments
+#    And I select applied Payment Appendix
+#    And I enter Payment Appendix in Amendments for SPGA contracts
+#    And I select Payment Appendix to include in Amendments for SMGA contracts
+#    And I enter Payment Appendix in Amendments for SMGA contracts
+#    And I check Payment Appendix
+#    And I enter Additional Manuals
+#    And I enter Steerage
+##    And I enter Regulatory Appendices
+#    And I enter Group Summary
+#    And I Complete Wizard
 
+
+#    Steps to create Amendments to update Fee Schedule ID
     And I select the contract
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-#    And I check Provider Details
-    And I select Types of Amendments
-    And I select Contract Applied in Amendments
+	And I enter Amendments Page to amend Payment Appendix
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
-    And I enter Appendix 2 in Amendments
-    And I select applied Payment Appendix
-# And I enter Payment Appendix in Amendments for SPGA contracts
-    And I select Payment Appendix to include in Amendments for SMGA contracts
-    And I enter Payment Appendix in Amendments for SMGA contracts
-    And I check Payment Appendix
-    And I enter Additional Manuals
-    And I enter Steerage
-#    And I enter Regulatory Appendices
+	And I enter Payment Appendix in Amendments to replace Payment Appendix
+	And I select fee schedule id in Amendments
     And I enter Group Summary
     And I Complete Wizard
+
+
+
 		#Amandment final capture
 
 		#Amendment CMD Checking
 
-
+#    And I enter Amendments Page to amend Payment Appendix
+#    And I enter Payment Appendix in Amendments to replace Payment Appendix
+#    And I select fee schedule id in Amendments
 
     Examples:
       |site          |paperType     |TCName|

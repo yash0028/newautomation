@@ -54,7 +54,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void loginSitePage(String siteOption) {
         initializeObj();
         this.protoStep.loginHome();
-        this.protoStep.setSite(siteOption);
+       // this.protoStep.setSite(siteOption);
     }
 
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
@@ -563,6 +563,28 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void enterSteerage() {
         basePage.getSteerage().addLanguage(hmap);
     }
+
+
+
+    @And("I enter Amendments Page to amend Payment Appendix")
+    public void iEnterAmendmentsPageToAmendPaymentAppendix()
+    {
+        basePage.getAmendements().amendPaymentAppendix(hmap);
+    }
+
+    @And("I enter Payment Appendix in Amendments to replace Payment Appendix")
+    public void iEnterPaymentAppendixInAmendmentsToReplacePaymentAppendix()
+    {
+        basePage.getPaymentAppendix().replacePaymentAppendixInAmendments(hmap);
+    }
+
+    @And("I select fee schedule id in Amendments")
+    public void iSelectFeeScheduleIdInAmendments()
+    {
+        basePage.getPaymentAppendix().enterPaymentAppenidix(hmap);
+        basePage.getPaymentAppendix().verifyFeeScheduleID();
+    }
+
 
     private void initializeObj() {
         protoStep = new ProtoStep(getDriver());

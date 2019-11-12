@@ -9,6 +9,7 @@ import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class PaymentAppendix extends GenericInputPage {
 
@@ -106,7 +107,25 @@ public class PaymentAppendix extends GenericInputPage {
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+paymentAppendix+"')]"});
     }
 
+    public void replacePaymentAppendixInAmendments(HashMap<String, String> hmap)
+    {
+        if(hmap.containsKey("Payment Appendix to Replace"))
+        {
+            assert sendKeys("Replace Payment Appendix",elements.searchBar,hmap.get("Payment Appendix to Replace"));
+            assert click("Select Payment Appendix to Replace",elements.selectCode.get(0));
+            assert click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix to Include")));
+            assert clickNext();
+            assert waitForPageLoad();
+        }
+    }
 
+    public void enterPaymentAppenidix(HashMap<String, String> hmap)
+    {
+        elements.feeSchduleID.clear();
+        assert sendKeys("FeeSchdeuleID in Amendments", this.elements.feeSchduleID, hmap.get("FS All Payer Amendments"));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
 
 
     private static class PageElements  extends AbstractPageElements {
@@ -127,6 +146,14 @@ public class PaymentAppendix extends GenericInputPage {
         private WebElement feeSchduleIDPhysicianMedicare;
         @FindBy(xpath = "//input[contains(@name,'Fee_Schedule_Name_NPPA')]")
         private WebElement feeSchduleIDNonPhysicianMedicare;
+
+        @FindBy(xpath = "//input[@type='search']")
+        private WebElement searchBar;
+        @FindBy(xpath = "//span[@class='select2-results']//li")
+        private List<WebElement> selectCode;
+
+
+
 
         private String message= "//div[contains(@class,'DialogBox')]";
 

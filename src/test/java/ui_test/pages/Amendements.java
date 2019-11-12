@@ -48,6 +48,15 @@ public class Amendements extends GenericInputPage {
     public WebElement selectAmendments(String Name){
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
     }
+
+    public void amendPaymentAppendix(HashMap<String, String> hmap)
+    {
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!"+"    "+hmap.get("Amend Payment Appendix"));
+        assert click("Amend Payment Appendix", selectAmendments(hmap.get("Amend Payment Appendix")));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
     private static class PageElements extends AbstractPageElements {
 
         @FindBy(xpath = "//span[@role='combobox']")
