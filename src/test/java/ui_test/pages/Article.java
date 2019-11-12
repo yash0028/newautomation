@@ -11,30 +11,29 @@ public class Article extends GenericInputPage
 
     public Article(WebDriver driver)
     {
-        super(driver);
 
     }
     public void handleArticle(HashMap<String,String>hmap)
     {
-        ArticleI articleI=new ArticleI(driver);
+        ArticleI articleI=new ArticleI(getDriver());
         articleI.handleArticleI();
-        ArticleII articleII=new ArticleII(driver);
+        ArticleII articleII=new ArticleII(getDriver());
         articleII.handleArticleII();
-        ArticleIII articleIII=new ArticleIII(driver);
+        ArticleIII articleIII=new ArticleIII(getDriver());
         articleIII.handleArticleIII();
-        ArticleIV articleIV=new ArticleIV(driver);
+        ArticleIV articleIV=new ArticleIV(getDriver());
         articleIV.handleArticleIV();
-        ArticleV articleV=new ArticleV(driver);
+        ArticleV articleV=new ArticleV(getDriver());
         articleV.handleArticleV();
-        ArticleVI articleVI=new ArticleVI(driver);
+        ArticleVI articleVI=new ArticleVI(getDriver());
         articleVI.handleArticleVI();
-        ArticleVII articleVII=new ArticleVII(driver);
+        ArticleVII articleVII=new ArticleVII(getDriver());
         articleVII.handleArticleVII();
-        ArticleVIII articleVIII=new ArticleVIII(driver);
+        ArticleVIII articleVIII=new ArticleVIII(getDriver());
         articleVIII.handleArticleVIII(hmap);
-        ArticleIX articleIX=new ArticleIX(driver);
+        ArticleIX articleIX=new ArticleIX(getDriver());
         articleIX.handleArticlIX();
-        ArticleX articleX=new ArticleX(driver);
+        ArticleX articleX=new ArticleX(getDriver());
         articleX.handleArticleX();
     }
 }

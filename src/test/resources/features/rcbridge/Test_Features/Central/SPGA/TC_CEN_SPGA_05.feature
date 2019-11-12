@@ -52,13 +52,12 @@ Feature: SPGA Business Testcases_IN
     Then I Complete Wizard
     #Activate
     And I Set Status as Active
-    
-  
-   
-    
+
+
+
     #NDB Checking
 
-		#Draft Amandament
+    #Draft Amandament
     And I select the contract
     And I click on Create Amendment
     And I enter title
@@ -82,9 +81,9 @@ Feature: SPGA Business Testcases_IN
 
 
 
-		#Amandment final capture
+    #Amandment final capture
 		
-		#Amendment CMD Checking
+    #Amendment CMD Checking
 		
 		
     

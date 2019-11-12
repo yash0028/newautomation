@@ -1,17 +1,12 @@
 package ui_test.page.exari.contract;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ui_test.util.AbstractPageElements;
-import ui_test.util.IFactoryPage;
-import ui_test.util.IWebInteract;
+import ui_test.util.*;
 
 public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
     private static final Logger log = LoggerFactory.getLogger(GenericInputPage.class);
@@ -19,17 +14,12 @@ public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
     /*
     PROTECTED VARIABLES
      */
-
-    protected final WebDriver driver;
     private final PageElements elements;
-
     /*
     CONSTRUCTOR
      */
-
-    public GenericInputPage(WebDriver driver) {
-        this.driver = driver;
-        this.elements = new PageElements(driver);
+    public GenericInputPage() {
+        this.elements = new PageElements(getDriver());
     }
 
     /*
@@ -38,7 +28,7 @@ public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
 
     @Override
     public WebDriver getDriver() {
-        return driver;
+        return LocalDriverProxy.getInstance().getDriver();
     }
 
     @Override
@@ -58,6 +48,7 @@ public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
                 return true;
             }
             pause(3);
+            waitForPageLoad();
             count++;
         }
         return false;
@@ -78,6 +69,7 @@ public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
     public boolean clickFastForward() {
         return click("fast forward button", elements.navigationFastForward);
     }
+
 
     /*
     CLASS METHODS

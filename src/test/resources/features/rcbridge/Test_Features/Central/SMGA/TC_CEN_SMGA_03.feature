@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
@@ -54,9 +54,9 @@ Feature: SPGA Business Testcases_IN
     And I Set Status as Active
     
     #CMD Check
-#    When I have entered the CMD dashboard URL
-#    When I search for Contract
-#    #Then Validate Contract "71926900" status and request type "InstallContract"
+    When I have entered the CMD dashboard URL
+    When I search for Contract
+    #Then Validate Contract "71926900" status and request type "InstallContract"
     
     #NDB Checking 
 	
@@ -72,5 +72,5 @@ Feature: SPGA Business Testcases_IN
     Examples:    
        | site          | paperType     | TCName|  				 
        | central uhn   | SPGA          | TC_CEN_SMGA_IN_03|
-       
+
     

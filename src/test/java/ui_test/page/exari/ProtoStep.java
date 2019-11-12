@@ -197,7 +197,7 @@ public class ProtoStep implements IConfigurable {
 //
         return true;
     }
-    
+
     /*
     HELPER METHODS
     */

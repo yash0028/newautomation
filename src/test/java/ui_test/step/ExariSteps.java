@@ -17,7 +17,6 @@ import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
-
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -28,33 +27,33 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
     String home = System.getProperty("user.dir");
-    Path contractFlowPath = Paths.get(home, "src", "test", "resources","support","hive","dataMap");
-    private ProtoStep protoStep = new ProtoStep(getDriver());
-
+    Path contractFlowPath = Paths.get(home, "src", "test", "resources", "support", "hive", "dataMap");
+    private ProtoStep protoStep;
+    private BasePage basePage;
 
     private ContractFlow contractFlow;
     public GenericSitePage sitePage;
-    public BasePage basePage=new BasePage(getDriver());
 
-    public HashMap<String,String> hmap = null;
+
+    public static HashMap<String, String> hmap = null;
 
     @Given("^I am using the \"([^\"]*)\" flow$")
     public void prepareEIF(String fileName) {
         contractFlow = loadFlowContract(fileName);
     }
+
     @Given("^I am using the \"([^\"]*)\" data from \"([^\"]*)\" of \"([^\"]*)\" and paper type \"([^\"]*)\"$")
     public void getData(String testName, String fileName, String site, String paperType) {
-        Path CSVpath = Paths.get(contractFlowPath.toString(),site,paperType,fileName);
+        Path CSVpath = Paths.get(contractFlowPath.toString(), site, paperType, fileName);
         CSVReader csvReader = new CSVReader();
         this.hmap = csvReader.readFile(CSVpath.toString(), testName);
     }
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
     public void loginSitePage(String siteOption) {
+        initializeObj();
         this.protoStep.loginHome();
-
-       // this.protoStep.setSite(siteOption);
-
+        this.protoStep.setSite(siteOption);
     }
 
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
@@ -92,15 +91,13 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("^I select Market Number$")
-    public void selectMarketNumber()
-    {
+    public void selectMarketNumber() {
         basePage.getProviderDetails().selectEntry(hmap);
 
     }
 
     @And("^new step$")
-    public void newmethod()
-    {
+    public void newmethod() {
         basePage.getProviderDetails().selectEntry(hmap);
 
     }
@@ -123,26 +120,27 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("^I enter Practice Locations for SPGA Contract$")
-    public void SPGAPracticeLocations()
-    {
+    public void SPGAPracticeLocations() {
         basePage.getPracticeLocations().selectLocation(hmap);
     }
 
     @And("^I enter Practice Locations for MGA Contract$")
-    public void MGAPracticeLocations()
-    {
+    public void MGAPracticeLocations() {
         basePage.getPracticeLocations().selectPracticeLocation();
     }
 
     @And("^I enter Practice Locations for SMGA Contract$")
-    public void SMGAPracticeLocations()
-    {
+    public void SMGAPracticeLocations() {
         basePage.getPracticeLocations().selectLocation(hmap);
     }
 
     @And("^I enter Practice Locations for SPA Contract$")
-    public void SPAPracticeLocations()
-    {
+    public void SPAPracticeLocations() {
+        basePage.getPracticeLocations().selectLocation(hmap);
+    }
+
+    @And("^I enter Practice Locations for PAT Contract$")
+    public void PATPracticeLocations() {
         basePage.getPracticeLocations().selectLocation(hmap);
     }
 
@@ -152,8 +150,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("^I enter Contract Details$")
-    public void ContractDetails()
-    {
+    public void ContractDetails() {
         basePage.getContractDetails().enterPhyConNumber(hmap);
     }
 
@@ -173,46 +170,44 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("^I enter Market Strategy Grid$")
-    public void MarketStrategyGrid()
-    {
+    public void MarketStrategyGrid() {
         basePage.getMarketStrategyGrid().marketStrategyGridCheck();
     }
 
     @And("^I enter Appendix 2$")
-    public void Appendix2()
-    {
+    public void Appendix2() {
         basePage.getAppendix2().selectAppendix(hmap);
     }
 
+    @And("^I enter Appendix 1$")
+    public void Appendix1() {
+        basePage.getAppendix2().SelectAppedix1("No");
+    }
+
     @And("^I enter Payment Appendix$")
-    public void PaymentAppendix()
-    {
+    public void PaymentAppendix() {
         basePage.getPaymentAppendix().selectPaymentAppendix(hmap);
         basePage.getPaymentAppendix().enterFeeScheduleID(hmap);
         basePage.getPaymentAppendix().verifyFeeScheduleID();
     }
 
     @And("^I enter Additional Locations$")
-    public void AdditionalLocations()
-    {
+    public void AdditionalLocations() {
         basePage.getAdditionalLocations().selectAdditionalLocations(hmap);
     }
 
     @And("^I enter Regulatory Appendices$")
-    public void RegulatoryAppendices()
-    {
+    public void RegulatoryAppendices() {
         basePage.getRegulatoryAppendices().selectRegulatoryAppendix(hmap);
     }
 
     @And("^I enter Amendments$")
-    public void Amendments()
-    {
+    public void Amendments() {
         basePage.getAmendements().authorAmendments(hmap);
     }
 
     @And("^I enter Group Summary$")
-    public void GroupSummary()
-    {
+    public void GroupSummary() {
         basePage.getGroupSummary().readInterviewSummary();
     }
 
@@ -241,89 +236,88 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("^I Start Workflow$")
-    public void workflow()
-    {
+    public void workflow() {
         basePage.getContractDetailsDashboard().startWorkFlow();
     }
 
     @And("^I Start Process for Initial Transaction$")
-    public void initialTransaction()
-    {
+    public void initialTransaction() {
         basePage.getInitialTransaction().initialTransaction(hmap);
     }
 
+    @And("^I Approve HBP Red Door$")
+    public void approveHBPRedDoor() {
+        basePage.getContractDetailsDashboard().handleApprovals("Red Door Alternates");
+        initializeObj();
+    }
+
+    @And("^I Approve Payment Appendix$")
+    public void approvePaymentAppendix() {
+        basePage.getContractDetailsDashboard().handleApprovals("Non Standard Fee Schedule");
+        initializeObj();
+    }
+
     @And("^I Set Status as Final Pending QA$")
-    public void finalPendingQA()
-    {
+    public void finalPendingQA() {
         basePage.getContractDetailsDashboard().editStatus("Final Pending QA");
 
     }
 
     @And("^I Start Final Capture$")
-    public void finalCapture()
-    {
+    public void finalCapture() {
         basePage.getContractDetailsDashboard().finalCapture();
 
     }
 
     @And("^I enter Contract Details in Final Capture$")
-    public void contractDetailsFinalCapture()
-    {
+    public void contractDetailsFinalCapture() {
         basePage.getContractDetails().contractEffectiveDate(hmap);
     }
 
     @And("^I enter Provider Signatory$")
-    public void providerSignatory()
-    {
+    public void providerSignatory() {
         basePage.getProviderSignatory().ProviderSignatory(hmap);
     }
 
     @And("^I enter Our Signatory$")
-    public void ourSignatory()
-    {
+    public void ourSignatory() {
         basePage.getOurSignatory().ourSignatoryDate(hmap);
 
     }
 
     @And("^I enter Market Exception Grid in Final Capture$")
-    public void MEGFinalCapture()
-    {
-        basePage.getMarketExceptionGrid().chooseTask(hmap,"Task");
+    public void MEGFinalCapture() {
+        basePage.getMarketExceptionGrid().chooseTask(hmap, "Task");
 
     }
 
     @And("^I enter retro code in Provider Roster$")
-    public void retrocodeProviderRoster()
-    {
+    public void retrocodeProviderRoster() {
         basePage.getProviderRoaster().selectretrocode(hmap);
 
     }
 
     @And("^I acknowledge the warning$")
-    public void warning()
-    {
+    public void warning() {
         basePage.getWarning().acknowledgment();
 
     }
 
     @And("^I Set Status as Active$")
-    public void setStatusActive()
-    {
+    public void setStatusActive() {
         basePage.getContractDetailsDashboard().editStatus("Active");
 
     }
 
     @And("^I click Make Correction$")
-    public void makeCorrection()
-    {
-         basePage.getContractDetailsDashboard().makeCorrection();
+    public void makeCorrection() {
+        basePage.getContractDetailsDashboard().makeCorrection();
 
     }
 
     @And("^I enter Market Exception Grid in Make Correction$")
-    public void MEGMakeCorrection()
-    {
-        basePage.getMarketExceptionGrid().chooseTask(hmap,"MC_Task");
+    public void MEGMakeCorrection() {
+        basePage.getMarketExceptionGrid().chooseTask(hmap, "MC_Task");
 
     }
 
@@ -340,81 +334,82 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("^I enter warning in Make Correction$")
-    public void warningMakeCorrection()
-    {
+    public void warningMakeCorrection() {
         basePage.getWarning().warningMakeCorrection();
     }
 
     @And("^I enter validation$")
-    public void validation()
-    {
+    public void validation() {
         basePage.getValidation().validation();
 
     }
 
     @And("^I select Providers$")
-    public void selectProviders()
-    {
+    public void selectProviders() {
         basePage.getProviderRoaster().selectProviders(hmap);
     }
+
     @And("^I verify Providers$")
-    public void verifyProviders()
-    {
+    public void verifyProviders() {
         basePage.getProviderRoaster().verifyProviders();
 
     }
+
     @And("^I enter Provider Start Date$")
-    public void providerStartDate()
-    {
+    public void providerStartDate() {
         basePage.getProviderRoaster().providerStartDate(hmap);
     }
 
     @And("^I select provider and cancel date$")
-    public void providerandcanceldate()
-    {
+    public void providerandcanceldate() {
         basePage.getProviderRoaster().providerandcanceldate(hmap);
     }
 
     @And("^I enter cancel reason$")
-    public void cancelreason()
-    {
+    public void cancelreason() {
         basePage.getProviderRoaster().cancelreason(hmap);
     }
 
     @And("^I select Provider Roster as None$")
-    public void ProviderRoster_SelectNone()
-    {
-        basePage.getProviderRoaster().roasterAction("NONE");    	 
+    public void ProviderRoster_SelectNone() {
+        basePage.getProviderRoaster().roasterAction("NONE");
     }
 
-     @And("^I add provider using TIN$")
-    public void addProvider_TIN()
-    {
-    	basePage.getProviderRoaster().roasterAction("Add");
-    	basePage.getProviderRoaster().approachForProvider(hmap,"TIN",false);
-    	basePage.getProviderRoaster().enterTIN(hmap);
+    @And("^I add provider using TIN$")
+    public void addProvider_TIN() {
+        basePage.getProviderRoaster().roasterAction("Add");
+        basePage.getProviderRoaster().approachForProvider(hmap, "TIN", false);
+        basePage.getProviderRoaster().enterTIN(hmap);
     }
 
     @And("^I set Roster Action as Cancel$")
-    public void cancelProvider()
-    {
+    public void cancelProvider() {
         basePage.getProviderRoaster().roasterAction("Cancel");
     }
 
     @And("^I set Roster Action as Upload$")
-    public void uploadProvider()
-    {
+    public void uploadProvider() {
         basePage.getProviderRoaster().roasterAction("Upload");
     }
 
 
-
     @And("I capture Contract Number")
-    public void iCaptureContractNumber()
-    {
+    public void iCaptureContractNumber() {
         basePage.getContractDetailsDashboard().captureContractNumber(hmap);
 
     }
+
+    @And("I create supporting document")
+    public void createSupportingDocuments() {
+        basePage.getContractDetailsDashboard().cickToCreateSupportingDocument(hmap);
+    }
+
+    @And("I review supporting document")
+    public void rreviewSupportingDocuments() {
+        basePage.getSupportingDocumentSummary().reviewSupportingDocument();
+        basePage.getWizardComplete().completeWizard(hmap);
+    }
+
 
     @And("^I search Contract using Contract Number$")
     public void searchContractByContractNumber() {
@@ -426,11 +421,17 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
 
     @And("^And I select provider using MPIN$")
-    public void selectProvider_MPIN()
-    {
-    	basePage.getProviderRoaster().roasterAction("Add");
-    	basePage.getProviderRoaster().approachForProvider(hmap,"MPIN",false);
-    	basePage.getProviderRoaster().enterMPIN(hmap);
+    public void selectProvider_MPIN() {
+        basePage.getProviderRoaster().roasterAction("Add");
+        basePage.getProviderRoaster().approachForProvider(hmap, "MPIN", false);
+        basePage.getProviderRoaster().enterMPIN(hmap);
+    }
+
+    @When("^I am logged into Exari Dev$")
+    public void I_am_Logged_intoExari() {
+        String url = configGetOptionalString("exari.prodURL").orElse("");
+        getDriver().get(url);
+        basePage.waitForPageLoad();
     }
     /*
     HELPER METHODS
@@ -453,7 +454,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     private void setupProtoStep() {
         setupProtoStep(null);
     }
-
 
     @And("I select the contract")
     public void contractSelection() {
@@ -495,8 +495,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("I select Types of Amendments")
-    public void selectTypesOfAmendments()
-    {
+    public void selectTypesOfAmendments() {
         basePage.getAmendements().typeOfAmendmentsNeeded(hmap);
     }
 
@@ -560,8 +559,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("I enter Steerage")
-    public void enterSteerage()
-    {
+    public void enterSteerage() {
         basePage.getSteerage().addLanguage(hmap);
+    }
+
+    private void initializeObj() {
+        protoStep = new ProtoStep(getDriver());
+        basePage = new BasePage();
     }
 }

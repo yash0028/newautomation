@@ -35,6 +35,7 @@ public class BasePage extends GenericInputPage {
     private AmendmentSelection amendmentSelection;
     private AdditionalManuals additionalManuals;
     private Steerage steerage;
+    private SuppotingDocumentSummary supportingDocumentSummary;
 
 
     public Validation getValidation() {
@@ -155,10 +156,11 @@ public class BasePage extends GenericInputPage {
     public WizardComplete getWizardComplete() {
         return (wizardComplete==null) ? new WizardComplete(getDriver()) :wizardComplete;
     }
-
-    public BasePage(WebDriver driver) {
-        super(driver);
+    public SuppotingDocumentSummary getSupportingDocumentSummary() {
+        return (supportingDocumentSummary==null) ? new SuppotingDocumentSummary(getDriver()) :supportingDocumentSummary;
     }
+
+
 
 
 }

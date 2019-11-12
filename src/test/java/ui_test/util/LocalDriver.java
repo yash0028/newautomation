@@ -8,8 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
-
-import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -58,7 +56,7 @@ public class LocalDriver implements IConfigurable, IFileReader {
         try {
             if (driver != null) {
                 driver.close();
-                driver.quit();
+                //driver.quit();
                 try {
                     driver.get("someURL");
                 } catch (Exception e) {
@@ -79,8 +77,10 @@ public class LocalDriver implements IConfigurable, IFileReader {
 
     private void init() {
         try {
-                String driverPath = "C:\\ProgramData\\Chrome_driver\\chromedriver.exe";
-//              String driverPath = getDriverPath();
+
+              //String driverPath = "C:\\ProgramData\\Chrome_driver_77.0.3865.40\\chromedriver.exe";
+            //String driverPath = "C:\\ProgramData\\Chrome_driver\\chromedriver.exe";
+            String driverPath = getDriverPath();
 
             Map<String, Object> prefs = new HashMap<String, Object>();
             String home = System.getProperty("user.dir");

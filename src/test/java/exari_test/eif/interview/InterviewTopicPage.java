@@ -23,7 +23,6 @@ public class InterviewTopicPage extends GenericInputPage implements IFactoryPage
      */
 
     public InterviewTopicPage(WebDriver driver) {
-        super(driver);
         elements = new PageElements(driver);
     }
 
@@ -33,7 +32,7 @@ public class InterviewTopicPage extends GenericInputPage implements IFactoryPage
 
     @Override
     public WebDriver getDriver() {
-        return driver;
+        return getDriver();
     }
 
     @Override
@@ -62,7 +61,7 @@ public class InterviewTopicPage extends GenericInputPage implements IFactoryPage
         InterviewActionMap interviewActionMap = new InterviewActionMap();
 
         for (WebElement item : elements.interviewElementList) {
-            InterviewAction interviewAction = new InterviewAction(driver, item);
+            InterviewAction interviewAction = new InterviewAction(getDriver(), item);
             interviewActionMap.put(interviewAction);
         }
 

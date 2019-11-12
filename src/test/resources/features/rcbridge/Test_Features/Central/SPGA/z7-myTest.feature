@@ -11,6 +11,7 @@ Feature: SPGA Business Testcases_IN
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
+
      And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
 #    And I enter PES Inputs
 #    And I enter PES Response
@@ -33,11 +34,12 @@ Feature: SPGA Business Testcases_IN
 #    And I enter Amendments
 #    And I enter Group Summary
 #    Then I Complete Wizard
-#
-#     And I capture Contract Number
-#     And I search Contract using Contract Number
-#
-#
+
+#    And I create supporting document
+#    And I review supporting document
+      # And I capture Contract Number
+    # And I search Contract using Contract Number
+
 #    #Final capture
 #    And I Start Workflow
 #    And I Start Process for Initial Transaction

@@ -10,7 +10,6 @@ import ui_test.util.AbstractPageElements;
 public class Warning extends GenericInputPage {
     private PageElements elements;
     public Warning(WebDriver driver) {
-        super(driver);
         this.elements = new PageElements(driver);
     }
 public void acknowledgment(){

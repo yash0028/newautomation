@@ -12,13 +12,14 @@ import java.util.HashMap;
 public class InitialTransaction extends GenericInputPage {
     private PageElements elements;
     public InitialTransaction(WebDriver driver) {
-        super(driver);
         this.elements = new PageElements(driver);
     }
     public void initialTransaction(HashMap<String,String> hmap){
         assert click("Start Process",this.elements.startProcess);
         pause(1);
+        waitForPageLoad(60);
         assert click("Select Initial Transaction Type", clickInitialTransactionType(hmap.get("Initial Transaction")));
+        waitForPageLoad(60);
         assert click("Start Process Button",this.elements.startProcessButton);
         assert waitForPageLoad();
 

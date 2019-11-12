@@ -15,13 +15,12 @@ public class WizardComplete extends GenericInputPage
 
     public WizardComplete(WebDriver driver)
     {
-        super(driver);
         this.elements = new PageElements(driver);
     }
 
     public void completeWizard(HashMap<String, String> hmap){
         waitTillClickable(elements.completeWizardElement,10);
-        assert click("Complete Wizard",this.elements.completeWizardElement);
+        click("Complete Wizard",this.elements.completeWizardElement);
         assert waitForPageLoad();
     }
     private static class PageElements extends AbstractPageElements {
