@@ -11,7 +11,8 @@ Feature: SPGA Business Testcases_IN
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+
+     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
 #    And I enter PES Inputs
 #    And I enter PES Response
 #    And I select Market Number
@@ -34,19 +35,17 @@ Feature: SPGA Business Testcases_IN
 #    And I enter Group Summary
 #    Then I Complete Wizard
 
-<<<<<<< HEAD:src/test/resources/features/rcbridge/Test_Features/Central/SPGA/myTest.feature
 #    And I create supporting document
 #    And I review supporting document
 
 #    And I capture Contract Number
 #     And I search Contract using Contract Number
-=======
-    And I create supporting document
-    And I review supporting document
+
+#    And I create supporting document
+#    And I review supporting document
+
       # And I capture Contract Number
     # And I search Contract using Contract Number
->>>>>>> 26c619998eafed1cdd1ac6241f4d5c60d3731ae8:src/test/resources/features/rcbridge/Test_Features/Central/SPGA/z7-myTest.feature
-
 
 #    #Final capture
 #    And I Start Workflow
@@ -68,12 +67,31 @@ Feature: SPGA Business Testcases_IN
 #    Then I Complete Wizard
 #    And I Set Status as Active
 
-
-
-
     #NDB Checking
-		#Draft Amandament
+    #Draft Amandament
 
+    And I select the contract
+    And I click on Create Amendment
+    And I enter title
+    And I enter Amendment Selection
+    And I select Amendments needed in Amendment Selection
+    And I select Amendment Type in Provider Details
+#    And I check Provider Details
+    And I select Types of Amendments
+    And I select Contract Applied in Amendments
+    And I enter Contract Details in Amendments
+    And I enter Effective date in Contract Details
+    And I enter Appendix 2 in Amendments
+    And I select applied Payment Appendix
+# And I enter Payment Appendix in Amendments for SPGA contracts
+    And I select Payment Appendix to include in Amendments for SMGA contracts
+    And I enter Payment Appendix in Amendments for SMGA contracts
+    And I check Payment Appendix
+    And I enter Additional Manuals
+    And I enter Steerage
+#    And I enter Regulatory Appendices
+    And I enter Group Summary
+    And I Complete Wizard
 		#Amandment final capture
 
 		#Amendment CMD Checking
@@ -81,6 +99,6 @@ Feature: SPGA Business Testcases_IN
 
 
     Examples:
-      | site          | paperType     | TCName|
-      | central uhn   | SPGA          | TC_CEN_SPGA_IN_05|
+      |site          |paperType     |TCName|
+      |central uhn   |SPGA          |TC_CEN_SPGA_IN_05|
 

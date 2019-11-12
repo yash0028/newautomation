@@ -71,9 +71,43 @@ public class PaymentAppendix extends GenericInputPage {
         assert clickNext();
         assert waitForPageLoad();
     }
+
+    public void appliedPaymentAppendix(HashMap<String, String> hmap)
+    {
+        assert click("Apply Payment Appendix in Amendments",paymentAppendixElement(hmap.get("Apply Payment Appendix in Amendments")));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
+    public void enterDataInPaymentAppendixForSPGA(HashMap<String, String> hmap)
+    {
+        assert sendKeys("Enter Fees Schedule Id for Medicare in Amendments",elements.feeSchduleIDMedicareSPGA,hmap.get("FS Id Amendments"));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
+    public void paymentAppendixToInclude(HashMap<String, String> hmap)
+    {
+        assert click("Payment Appendix to include",elements.paymentAppendixToIncludePhysician);
+        assert clickNext();
+        assert waitForPageLoad();
+
+    }
+
+    public void enterDataInPaymentAppendixForSMGA(HashMap<String, String> hmap)
+    {
+        assert sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician"));
+        assert sendKeys("FeeSchedule ID Medicare Non Physician", this.elements.feeSchduleIDNonPhysicianMedicare, hmap.get("FS Id Amendments Non-Physician"));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
     public WebElement paymentAppendixElement(String paymentAppendix){
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+paymentAppendix+"')]"});
     }
+
+
+
 
     private static class PageElements  extends AbstractPageElements {
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name']")
@@ -82,6 +116,18 @@ public class PaymentAppendix extends GenericInputPage {
         private WebElement feeSchduleIDPhysician;
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name_NPPA']")
         private WebElement feeSchduleIDNonPhysician;
+        @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#MedicareAdvantage_Fee_Schedule_Name']")
+        private WebElement feeSchduleIDMedicareSPGA;
+        @FindBy(xpath = "//input[contains(@value,'Advantage for Physician')]")
+        private WebElement paymentAppendixToIncludePhysician;
+        @FindBy(xpath = "//input[contains(@value,'Advantage for Non-Physician')]")
+        private WebElement paymentAppendixToIncludeNonPhysician;
+
+        @FindBy(xpath = "//input[contains(@name,'Fee_Schedule_Name')]")
+        private WebElement feeSchduleIDPhysicianMedicare;
+        @FindBy(xpath = "//input[contains(@name,'Fee_Schedule_Name_NPPA')]")
+        private WebElement feeSchduleIDNonPhysicianMedicare;
+
         private String message= "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {

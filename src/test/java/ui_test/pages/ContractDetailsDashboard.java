@@ -1,6 +1,10 @@
 package ui_test.pages;
 import org.junit.Assert;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import ui_test.page.exari.contract.GenericInputPage;
@@ -11,7 +15,6 @@ import ui_test.util.AbstractPageElements;
 import ui_test.util.IUiStep;
 import ui_test.util.IWebInteract;
 import java.util.List;
-import java.io.*;
 import java.util.HashMap;
 
 public class ContractDetailsDashboard extends GenericInputPage implements IUiStep {
@@ -200,6 +203,27 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         assert waitForPageLoad();
     }
 
+    public void goToContractSummaryPage() {
+        assert click("Contract Summary Page",elements.contractSummaryButton);
+        assert waitForPageLoad();
+    }
+
+    public void startAmendmentProcess(HashMap<String, String> hmap) {
+        assert click("Start Amendment Process",elements.createAmendmentButton);
+        assert waitForPageLoad();
+        pause(5);
+    }
+
+    public void enterAmendmentTitle(HashMap<String, String> hmap) {
+        Actions actions=new Actions(getDriver());
+        actions.clickAndHold(elements.amendmentsWindow).moveToElement(elements.fullWindow).release().build().perform();
+        assert sendKeys("Entering amendment Title",elements.amendentTitleBar,hmap.get("Amendment Title"));
+        assert click("Create Amendment Button",elements.getCreateAmendmentButton);
+        assert waitForPageLoad();
+    }
+
+
+
     public String taskrow(String answer){
         return "//span[contains(@title,'"+answer+"')]";
     }
@@ -280,11 +304,22 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private WebElement detectapproval;
         @FindBy(xpath = "//*[@id='ygtvlabelel1']")
         private WebElement clickToContractSummary;
+        @FindBy(xpath = "//span[contains(text(),'Agreement')]")
+        private WebElement contractSummaryButton;
+        @FindBy(xpath = "//a[contains(@title,'Create Amendment')]")
+        private WebElement createAmendmentButton;
+        @FindBy(xpath = "//input[contains(@name,'amendmentId')]")
+        private WebElement amendentTitleBar;
+        @FindBy(xpath = "//*[@id=\"template_x002e_amend-popup_x002e_contract-details_x0023_default-createButton\"]")
+        private WebElement getCreateAmendmentButton;
+        @FindBy(xpath = "//div[text()=\"Create Amendment\"]")
+        private WebElement amendmentsWindow;
+        @FindBy(xpath = "//body[@id='Share']")
+        private WebElement fullWindow;
         @FindBy(xpath="//div[contains(@class,'create-transaction-supporting-document')]/a/span")
         private WebElement createSupportingDocument;
         @FindBy(xpath="//a[contains(text(),'Provider Roster Output.xml')]")
         private WebElement supportingDocumentType;
-
 
         private String spinner= "//mat-progress-spinner";
         private String message= "//*[@id='message']";
