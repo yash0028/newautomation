@@ -12,7 +12,6 @@ public class GroupSummary extends GenericInputPage {
 
     public GroupSummary(WebDriver driver)
     {
-        super(driver);
     }
 
     public void readInterviewSummary() {

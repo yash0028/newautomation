@@ -18,7 +18,6 @@ public class ContractPreviewPage extends GenericInputPage {
      */
 
     public ContractPreviewPage(WebDriver driver) {
-        super(driver);
         elements = new PageElements(driver);
     }
 

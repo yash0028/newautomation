@@ -74,5 +74,5 @@ Feature: PAT Business Testcases_IN
 
     Examples:
       | site          | paperType     | TCName|
-      | central uhn   | PAT          | TC_CEN_SPGA_IN_04|
+      | central uhn   | PAT          | TC_CEN_PAT_IN_04|
 

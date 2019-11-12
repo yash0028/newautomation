@@ -1,23 +1,24 @@
 # Last updated on
-@ SPA Business Testcases_IN
+# Author commercial with 1 ALD group and 1 Mid-level PAT contract, execute and load contract, verify contract fed_Standard_Fee schedule change
+@ PAT Business Testcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_IN
-  @TC_CEN_SPA_IN_19
+Feature: PAT Business Testcases_IN
+  @TC_CEN_PAT_IN_13
   @Manual
   @User_Interface
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Responses
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SPA Contract
+    And I enter Practice Locations for PAT Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -32,10 +33,9 @@ Feature: SPA Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-
-
      #Final capture
-
+    And I Start Workflow
+    And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -59,30 +59,15 @@ Feature: SPA Business Testcases_IN
     When I search for Contract
     #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
 
+
+
+      #NDB Check
+    #Draft Amendment
+    #Amendment Final Capture
+    #Amendment CMD Check
     #NDB Check
 
 
-    #Draft Amendment
-      #Amendment Final Capture
-     #Activating Amendment
-    #Amendment CMD Check
-    #Cosmos Check
-
-    #Make a correction - Add a new TIN to the existing provider in the Roster.
-    #And I click Make Correction
-    #And I enter Market Exception Grid in Make Correction
-    #And I enter Market Exception Grid
-    #And I set Roster Action as Upload
-    #And I Download Current Roster
-    #And I Upload Completed Roster
-    #And I enter warning in Make Correction
-    #And I enter validation
-    #And I acknowledge the warning
-    #And I enter Group Summary
-    #Then I Complete Wizard
-
-
-
     Examples:
-      | site          | paperType     | TCName           | |contract| |Contractstatus|
-      | central uhn   | SPA           | TC_CEN_SPA_IN_19 |  |11122328| |InstallContract|
+      | site          | paperType     | TCName           |
+      | central uhn   | PAT           | TC_CEN_PAT_IN_13 |

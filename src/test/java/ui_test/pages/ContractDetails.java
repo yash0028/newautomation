@@ -17,7 +17,6 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
     private PageElements elements;
     public ContractDetails(WebDriver driver)
     {
-        super(driver);
         this.elements = new PageElements(driver);
     }
 

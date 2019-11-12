@@ -12,7 +12,6 @@ import java.util.HashMap;
 public class ProviderSignatory extends GenericInputPage {
     private PageElements elements;
     public ProviderSignatory(WebDriver driver) {
-        super(driver);
         this.elements = new PageElements(driver);
     }
     public void ProviderSignatory(HashMap<String,String> hmap){

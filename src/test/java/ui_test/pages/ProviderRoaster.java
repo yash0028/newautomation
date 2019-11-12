@@ -30,7 +30,6 @@ public class ProviderRoaster extends GenericInputPage
 
     public ProviderRoaster(WebDriver driver)
     {
-        super(driver);
         this.elements = new PageElements(driver);
     }
     public void roasterAction(String action)  {
@@ -107,7 +106,7 @@ public class ProviderRoaster extends GenericInputPage
             assert click("Select retro code", elements.selectRetroCode.get(0));
         }
 
-        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
     }
@@ -125,12 +124,10 @@ public class ProviderRoaster extends GenericInputPage
         }
     }
     public void approachForProvider(HashMap<String,String>hmap,String approach,boolean clickNext){
-        if(CommonMethods.isElementPresent(driver,By.xpath(elements.retroDropdown))){
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.retroDropdown))){
             selectretrocode(hmap,false);
         }
-        waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
-        waitForPageLoad(60);
-        pause(2);
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert click("Select Approach For Provider",clickapproachForProvider(approach) );
         if(clickNext){
             assert clickNext();
@@ -143,11 +140,17 @@ public class ProviderRoaster extends GenericInputPage
     }
     public void selectProviders(HashMap<String,String>hmap){
         String[] providers = hmap.get("Select Providers").split("//");
+        waitForPageLoad(60);
         for(String provider :providers){
             assert sendKeys("Search provider",elements.selectProvider,provider.trim());
+<<<<<<< HEAD
             pause(1);
             if(CommonMethods.isElementPresent(driver,By.xpath(elements.selectProviderWithNamenotFound)))
             {
+=======
+            waitForPageLoad(15);
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.selectProviderWithNamenotFound))){
+>>>>>>> 26c619998eafed1cdd1ac6241f4d5c60d3731ae8
                 elements.selectProvider.clear();
                 IWebInteract.log.info("Provider Name [{}] NOT FOUND",provider.trim());
                 continue;
@@ -155,12 +158,13 @@ public class ProviderRoaster extends GenericInputPage
             else
             {
                 assert click("Select provider", elements.selectProviderWithName.get(0));
+                waitForPageLoad(60);
                 MULTIPLE_PROVIDERS++;
             }
             pause(1);
         }
         assert clickNext();
-        assert waitForPageLoad();
+        assert waitForPageLoad(60);
     }
     public void providerStartDate(HashMap<String,String>hmap)
     {
@@ -174,9 +178,20 @@ public class ProviderRoaster extends GenericInputPage
                     }else{
                         date = CommonMethods.formatDate(dates[count-1]);
                     }
-                    assert sendKeys("Provider Start Date",providerStartDate(count-1),date);
+                    waitForPageLoad(60);
+                    int c = count-1;
+                    getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).click();
+                    waitForPageLoad();
+                    getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).sendKeys(date);
+                    //sendKeys("Provider Start Date",providerStartDate(count-1),date);
+                  
                 }else{
-                    assert sendKeys("Provider Start Date",providerStartDate(count-1),CommonMethods.todaysDate());
+                	waitForPageLoad(60);
+                	int c = count-1;
+                	getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).click();
+                	waitForPageLoad();
+                	getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).sendKeys(CommonMethods.todaysDate());
+                    //sendKeys("Provider Start Date",providerStartDate(count-1),CommonMethods.todaysDate());
                 }
             }
 
@@ -229,9 +244,8 @@ public class ProviderRoaster extends GenericInputPage
             pause(1);
             waitForPageLoad(60);
             assert sendKeys("Search provider",elements.selectProvider,provider.trim());
-            pause(1);
             waitForPageLoad(60);
-            if(CommonMethods.isElementPresent(driver,By.xpath(elements.selectProviderWithNamenotFound))){
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.selectProviderWithNamenotFound))){
                 elements.selectProvider.clear();
                 IWebInteract.log.info("Provider Name [{}] NOT FOUND",provider.trim());
                 nextInput = false;

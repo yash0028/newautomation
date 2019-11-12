@@ -17,7 +17,6 @@ import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
 import util.configuration.IConfigurable;
 import util.file.IFileReader;
-
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -29,13 +28,18 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
     String home = System.getProperty("user.dir");
     Path contractFlowPath = Paths.get(home, "src", "test", "resources","support","hive","dataMap");
+
     Path contractDetailsTextFile=Paths.get(home,"src","test","resources","support","hive","textFiles","contractDetails.txt");
     private ProtoStep protoStep = new ProtoStep(getDriver());
 
 
+    private ProtoStep protoStep;
+    private BasePage basePage;
+
+
     private ContractFlow contractFlow;
     public GenericSitePage sitePage;
-    public BasePage basePage=new BasePage(getDriver());
+
 
     public static HashMap<String,String> hmap = null;
 
@@ -52,12 +56,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
     public void loginSitePage(String siteOption) {
+        initializeObj();
         this.protoStep.loginHome();
-
         this.protoStep.setSite(siteOption);
-
-
-
     }
 
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
@@ -265,6 +266,18 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     {
         basePage.getInitialTransaction().initialTransaction(hmap);
     }
+    @And("^I Approve HBP Red Door$")
+    public void approveHBPRedDoor()
+    {
+        basePage.getContractDetailsDashboard().handleApprovals("Red Door Alternates");
+        initializeObj();
+    }
+    @And("^I Approve Payment Appendix$")
+    public void approvePaymentAppendix()
+    {
+        basePage.getContractDetailsDashboard().handleApprovals("Non Standard Fee Schedule");
+        initializeObj();
+    }
 
     @And("^I Set Status as Final Pending QA$")
     public void finalPendingQA()
@@ -398,7 +411,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I select Provider Roster as None$")
     public void ProviderRoster_SelectNone()
     {
-        basePage.getProviderRoaster().roasterAction("NONE");    	 
+        basePage.getProviderRoaster().roasterAction("NONE");
     }
 
      @And("^I add provider using TIN$")
@@ -463,7 +476,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @When("^I am logged into Exari Dev$")
     public void I_am_Logged_intoExari()
     {
-    	 String url = configGetOptionalString("exari.devURL").orElse("");
+    	 String url = configGetOptionalString("exari.prodURL").orElse("");
          getDriver().get(url);       
          basePage.waitForPageLoad();
     }
@@ -488,6 +501,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     private void setupProtoStep() {
         setupProtoStep(null);
     }
-
-
+    private void initializeObj() {
+        protoStep = new ProtoStep(getDriver());
+        basePage = new BasePage();
+    }
 }

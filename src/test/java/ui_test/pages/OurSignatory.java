@@ -12,7 +12,6 @@ import java.util.HashMap;
 public class OurSignatory extends GenericInputPage {
     private PageElements elements;
     public OurSignatory(WebDriver driver) {
-        super(driver);
         this.elements = new PageElements(driver);
     }
     public void ourSignatoryDate(HashMap<String,String> hmap){

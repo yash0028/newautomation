@@ -16,14 +16,13 @@ public class Amendements extends GenericInputPage {
     private PageElements elements;
     public Amendements(WebDriver driver)
     {
-        super(driver);
         this.elements = new PageElements(driver);
     }
 
     public void authorAmendments(HashMap<String, String> hmap)
     {
         click("Amendments",selectAmendments(hmap.get("Amendments")));
-        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
     }

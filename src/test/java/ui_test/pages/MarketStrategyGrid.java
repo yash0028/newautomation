@@ -5,7 +5,6 @@ import ui_test.page.exari.contract.GenericInputPage;
 
 public class MarketStrategyGrid extends GenericInputPage {
     public MarketStrategyGrid(WebDriver driver) {
-        super(driver);
     }
 
     public void marketStrategyGridCheck() {

@@ -18,7 +18,6 @@ public class PESInputActions extends GenericInputPage  {
     private PageElements elements;
 
     public PESInputActions(WebDriver driver) {
-        super(driver);
 
         this.elements = new PageElements(driver);
     }

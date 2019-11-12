@@ -143,9 +143,6 @@ public class BasePage extends GenericInputPage {
     }
 
 
-    public BasePage(WebDriver driver) {
-        super(driver);
-    }
 
 
 }

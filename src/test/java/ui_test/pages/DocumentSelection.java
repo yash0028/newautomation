@@ -15,7 +15,6 @@ public class DocumentSelection extends GenericInputPage
     private PageElements elements;
     public DocumentSelection(WebDriver driver)
     {
-        super(driver);
         this.elements = new PageElements(driver);
     }
     public void selectAgreementType(String name)
@@ -27,7 +26,7 @@ public class DocumentSelection extends GenericInputPage
     public void selectDocumentType(HashMap<String,String> hmap)
     {
         assert  click("Paper Type",selectPaperType(hmap.get("Paper Type")));
-        //waitForElementToDissapear(driver,waitForElementToAppear(driver, By.xpath(elements.message)));
+        //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         switch(hmap.get("Paper Type")) {
 
             case "SPGA":

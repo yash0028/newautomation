@@ -10,7 +10,6 @@ import java.util.HashMap;
 public class Appendix2 extends GenericInputPage {
 
     public Appendix2(WebDriver driver) {
-        super(driver);
     }
     public void selectAppendix(HashMap<String,String> hmap)
     {

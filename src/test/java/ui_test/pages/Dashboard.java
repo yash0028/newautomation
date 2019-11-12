@@ -15,7 +15,6 @@ public class Dashboard extends GenericInputPage
     private PageElements elements;
 
     public Dashboard(WebDriver driver) {
-        super(driver);
         this.elements=new PageElements(driver);
     }
 

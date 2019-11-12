@@ -19,7 +19,6 @@ public class WizardCompletePage extends GenericInputPage {
      */
 
     public WizardCompletePage(WebDriver driver) {
-        super(driver);
         elements = new PageElements(driver);
     }
 
