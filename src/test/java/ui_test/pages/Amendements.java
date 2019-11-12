@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
+import ui_test.util.IWebInteract;
 
 import java.util.HashMap;
 import java.util.List;
@@ -51,7 +52,6 @@ public class Amendements extends GenericInputPage {
 
     public void amendPaymentAppendix(HashMap<String, String> hmap)
     {
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!"+"    "+hmap.get("Amend Payment Appendix"));
         assert click("Amend Payment Appendix", selectAmendments(hmap.get("Amend Payment Appendix")));
         assert clickNext();
         assert waitForPageLoad();
