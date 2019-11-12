@@ -37,7 +37,7 @@ Feature: SPGA Business Testcases_IN
 #    And I create supporting document
 #    And I review supporting document
 
-    And I capture Contract Number
+#    And I capture Contract Number
 #     And I search Contract using Contract Number
 
 
@@ -66,6 +66,7 @@ Feature: SPGA Business Testcases_IN
 
     #NDB Checking
 		#Draft Amandament
+
 		#Amandment final capture
 
 		#Amendment CMD Checking
