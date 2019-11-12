@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
@@ -72,5 +72,5 @@ Feature: SPGA Business Testcases_IN
     Examples:    
        | site          | paperType     | TCName|  				 
        | central uhn   | SPGA          | TC_CEN_SMGA_IN_03|
-       
+
     

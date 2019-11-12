@@ -32,7 +32,11 @@ public class BasePage extends GenericInputPage {
     private ProviderSignatory providerSignatory;
     private Warning warning;
     private Validation validation;
+    private AmendmentSelection amendmentSelection;
+    private AdditionalManuals additionalManuals;
+    private Steerage steerage;
     private SuppotingDocumentSummary supportingDocumentSummary;
+
 
     public Validation getValidation() {
         return (validation ==null) ? new Validation(getDriver()) :validation;
@@ -49,6 +53,20 @@ public class BasePage extends GenericInputPage {
     public InitialTransaction getInitialTransaction() {
         return (initialTransaction==null) ? new InitialTransaction(getDriver()) :initialTransaction;
     }
+
+    public Steerage getSteerage() {
+        return (steerage==null) ? new Steerage(getDriver()) :steerage;
+    }
+
+    public AdditionalManuals getAdditionalManuals() {
+        return (additionalManuals==null) ? new AdditionalManuals(getDriver()) :additionalManuals;
+    }
+
+
+    public AmendmentSelection getAmendmentSelection() {
+        return (amendmentSelection ==null) ? new AmendmentSelection(getDriver()) :amendmentSelection;
+    }
+
     public ContractDetailsDashboard getContractDetailsDashboard() {
         return (contractDetailsDashboard==null) ? new ContractDetailsDashboard(getDriver()) :contractDetailsDashboard;
     }

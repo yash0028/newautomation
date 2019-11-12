@@ -55,6 +55,19 @@ public class ProviderDetails extends GenericInputPage {
         }
 
     }
+
+    public void amendmentType(HashMap<String, String> hmap)
+    {
+        assert click("Amendmentment Type in Provider Details",selectProviderDetails(hmap.get("Amendment Type")));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
+    private WebElement selectProviderDetails(String Name){
+        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    }
+
+
     public WebElement selectOptionForMarketNumber(String answer){
         return findElement(getDriver(), new String[]{"xpath","//li[contains(text(),'"+answer+"'" + ")]"});
     }

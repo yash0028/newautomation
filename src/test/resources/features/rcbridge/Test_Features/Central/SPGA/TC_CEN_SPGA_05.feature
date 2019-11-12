@@ -52,15 +52,38 @@ Feature: SPGA Business Testcases_IN
     Then I Complete Wizard
     #Activate
     And I Set Status as Active
-    
-  
-   
-    
-        #NDB Checking 
-		#Draft Amandament
-		#Amandment final capture
+
+
+
+    #NDB Checking
+
+    #Draft Amandament
+    And I select the contract
+    And I click on Create Amendment
+    And I enter title
+    And I enter Amendment Selection
+    And I select Amendments needed in Amendment Selection
+    And I select Amendment Type in Provider Details
+    And I check Provider Details
+    And I select Types of Amendments
+    And I select Contract Applied in Amendments
+    And I enter Contract Details in Amendments
+    And I enter Effective date in Contract Details
+    And I enter Appendix 2 in Amendments
+    And I select applied Payment Appendix
+    And I enter Payment Appendix in Amendments
+    And I check Payment Appendix
+    And I enter Additional Manuals
+    And I enter Steerage
+    And I enter Regulatory Appendices
+    And I enter Group Summary
+    And I Complete Wizard
+
+
+
+    #Amandment final capture
 		
-		#Amendment CMD Checking
+    #Amendment CMD Checking
 		
 		
     

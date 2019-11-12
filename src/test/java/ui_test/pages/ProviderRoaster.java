@@ -140,12 +140,14 @@ public class ProviderRoaster extends GenericInputPage
         waitForPageLoad(60);
         for(String provider :providers){
             assert sendKeys("Search provider",elements.selectProvider,provider.trim());
-            waitForPageLoad(15);
+             assert waitForPageLoad(15);
             if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.selectProviderWithNamenotFound))){
                 elements.selectProvider.clear();
                 IWebInteract.log.info("Provider Name [{}] NOT FOUND",provider.trim());
                 continue;
-            }else{
+            }
+            else
+            {
                 assert click("Select provider", elements.selectProviderWithName.get(0));
                 waitForPageLoad(60);
                 MULTIPLE_PROVIDERS++;
