@@ -12,7 +12,6 @@ public class AmendmentSelection extends GenericInputPage {
     private PageElements elements;
 
     public AmendmentSelection(WebDriver driver) {
-        super(driver);
         this.elements = new PageElements(driver);
     }
 

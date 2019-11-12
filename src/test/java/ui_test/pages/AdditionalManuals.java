@@ -12,7 +12,6 @@ public class AdditionalManuals extends GenericInputPage {
     private PageElements elements;
 
     public AdditionalManuals(WebDriver driver) {
-        super(driver);
         this.elements = new PageElements(driver);
     }
 

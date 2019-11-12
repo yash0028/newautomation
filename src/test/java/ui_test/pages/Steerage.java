@@ -12,7 +12,6 @@ public class Steerage extends GenericInputPage {
     private PageElements elements;
 
     public Steerage(WebDriver driver) {
-        super(driver);
         this.elements = new PageElements(driver);
     }
 
