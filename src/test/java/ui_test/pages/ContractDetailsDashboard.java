@@ -10,7 +10,6 @@ import ui_test.util.AbstractPageElements;
 import ui_test.util.IUiStep;
 import ui_test.util.IWebInteract;
 import java.util.List;
-import java.io.*;
 import java.util.HashMap;
 
 public class ContractDetailsDashboard extends GenericInputPage implements IUiStep {
@@ -29,6 +28,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
     public void getActivityManager(boolean refresh){
         int count=1;
+        waitTillVisible(elements.inTaskApp);
         while (count<=3){
             pause(3);
             waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.spinner)));
@@ -56,6 +56,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                     foundActiveWorkFlow=true;
                     break;
                 }
+            }
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.error))){
+                Assert.fail("We may have hit an error or something might have been removed or deleted, so check that the URL is correct. Alternatively you might not have permission to view the page (it could be on a private site) or there could have been an internal error. Try checking with your IT team.");
             }
             waitTillClickable(this.elements.initialTransaction);
             assert click("Initial Transaction",this.elements.initialTransaction);
@@ -181,9 +184,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public void captureContractNumber(HashMap<String,String> hmap)
     {
         String contractDetails=elements.contractSummary.getText();
-        System.out.println("Contract Details : "+contractDetails);
+        IWebInteract.log.info("Contract Details : {}",contractDetails);
         hmap.put("Contract Number",contractDetails.substring(contractDetails.lastIndexOf('-') +1));
-        System.out.println("Comtract Number is:"+hmap.get("Contract Number"));
+        IWebInteract.log.info("Contract Number is: {}",hmap.get("Contract Number"));
         String filepath="C:\\Users\\asomani1\\Desktop\\finalPom\\acceptance-testing\\src\\test\\resources\\support\\hive\\textFiles\\contractDetails.txt";
         textFileWriter.writeInFile(filepath,hmap);
     }
@@ -283,8 +286,11 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private WebElement createSupportingDocument;
         @FindBy(xpath="//a[contains(text(),'Provider Roster Output.xml')]")
         private WebElement supportingDocumentType;
+        @FindBy(xpath="//div/span[contains(.,' in Task App')]")
+        private WebElement inTaskApp;
 
 
+        private String error= "//div[contains(@class,'alf-error-header')]";
         private String spinner= "//mat-progress-spinner";
         private String message= "//*[@id='message']";
         private String prompt= "//*[@id='prompt']";
