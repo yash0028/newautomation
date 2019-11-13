@@ -69,10 +69,33 @@ public class ProtoStep implements IConfigurable {
         }
     }
 
-    public ProtoStep loginHome() {
 
-        return loginHome("exari.devURL");
+public ProtoStep loginHome() {
+    	String env = configGetOptionalString("exari.environment").orElse("");
+    	String urlkey;
+    	switch (env.toUpperCase()) {
+			case "DEV":
+				 urlkey = "exari.devURL";
+				 break;
+			case "TEST":
+				 urlkey = "exari.testURL";
+				 break;
+			case "STAGE":
+				 urlkey = "exari.stageURL";
+				 break;
+			case "PROD":
+				 urlkey = "exari.prodURL";
+				 break;
+			case "TRAIN":
+				 urlkey = "exari.trainURL";
+				 break;
+			default:
+				urlkey = "exari.devURL";
+				break;
+			}    	
+        return loginHome(urlkey);
     }
+
 
     public ProtoStep setSite(String siteOption) {
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();

@@ -87,7 +87,7 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
 
         try {
             if (!configGetOptionalBoolean("hive.demoMode").orElse(false)) {
-                contractId = protoStep.loginHome("exari.devURL").setSite().authorContract().finalCapture();
+                contractId = protoStep.loginHome("exari.stageURL").setSite().authorContract().finalCapture();
             } else {
                 protoStep.loginHome().setSite();
             }
