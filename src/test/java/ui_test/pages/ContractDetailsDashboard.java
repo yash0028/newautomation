@@ -22,6 +22,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public TextFileWriter textFileWriter=new TextFileWriter();
     private static Boolean CHECK_APPROVAL_ALREADY_COMPLETED =true;
     private static String DASHBOARD_URL;
+    private static String USER = "exari.username";
     public ContractDetailsDashboard(WebDriver driver) {
         this.elements = new PageElements(driver);
     }
@@ -102,7 +103,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         CHECK_APPROVAL_ALREADY_COMPLETED = false;
         return approverType;
     }
-    public void switchLogin(String approverType){
+    public boolean switchLogin(String approverType){
+        if(!USER.equals(approverType)){
+            USER = approverType;
             IWebInteract.log.info("[LOGIN]  {}",approverType);
             relaunchDriver(approverType);
             getDriver().get(DASHBOARD_URL);
@@ -114,6 +117,11 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                 assert loginPage.login(approverType.toLowerCase());
             }
             this.elements = new PageElements(getDriver());
+            return true;
+        }else{
+            return false;
+        }
+
     }
     public void doCaim(String approvalType, String approverType){
         assert click("Open Task",getMenu(approvalType,approverType));
@@ -133,11 +141,12 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public void startApprovalFlow(String approvalType){
         String approverType = getApproverType(approvalType);
         while(approverType!=null){
-            switchLogin(approverType);
-            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.prompt))){
-                click("Banner messages",elements.okbutton);
+            if(switchLogin(approverType)){
+                if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.prompt))){
+                    click("Banner messages",elements.okbutton);
+                }
+                getActiveWorkFlow();
             }
-            getActiveWorkFlow();
             doCaim(approvalType,approverType);
             assert click("Back",this.elements.backbutton);
             assert waitForPageLoad();
@@ -153,7 +162,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         switchLogin("exari.username");
     }
 
-    public void editStatus(String option){
+    public void editStatus(String option,String Location){
         int count=1;
         boolean foundEditStatus =false;
         while(count<=20){
@@ -162,7 +171,12 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                 foundEditStatus=true;
                 break;
             }
-            assert click("Initial Transaction",this.elements.initialTransaction);
+            if(Location.equals("Draft")){
+                assert click("Initial Transaction",this.elements.initialTransaction);
+            }else if(Location.equals("Amendment")){
+                assert click("Amendment", this.elements.Amendment);
+            }
+
             waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.message)));
             IWebInteract.log.info("Retrying for Edit Status Option, Retry: {}",count);
             count++;
@@ -181,35 +195,6 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.message)));
 
 
-
-    }
-
-    public void editStatusforAmendment(String option) {
-        int count = 1;
-        boolean foundEditStatus = false;
-        while (count <= 20) {
-            if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.editStatusButton))) {
-                assert click("Edit Status", this.elements.editStatus);
-                foundEditStatus = true;
-                break;
-            }
-            assert click("Amendment", this.elements.Amendment);
-            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-            IWebInteract.log.info("Retrying for Edit Status Option, Retry: {}", count);
-            count++;
-        }
-        Assert.assertTrue("Contract is not Approved", foundEditStatus);
-        waitForElementsToPresent(getDriver(), By.xpath(elements.editDetails));
-        pause(1);
-        waitForPageLoad(60);
-        Select status = new Select(this.elements.selectStatus);
-        status.selectByVisibleText(option);
-        pause(1);
-        waitForPageLoad(60);
-        assert click("Save", this.elements.save);
-        //dont give assert for close.
-        click("Close", this.elements.close);
-        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
 
     }
     public void finalCapture(){
