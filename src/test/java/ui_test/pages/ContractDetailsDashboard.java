@@ -213,8 +213,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
 
     }
     public void finalCapture(){
-        assert click("Final Capture",this.elements.finalCapture);
-        assert waitForPageLoad();
+        click("Final Capture",this.elements.finalCapture);
+        assert waitForPageLoad(60);
     }
 
     public void captureContractNumber(HashMap<String,String> hmap,String filepath)
