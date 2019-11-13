@@ -179,8 +179,39 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             //dont give assert for close.
             click("Close",this.elements.close);
             waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.message)));
+
+
+
     }
 
+    public void editStatusforAmendment(String option) {
+        int count = 1;
+        boolean foundEditStatus = false;
+        while (count <= 20) {
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.editStatusButton))) {
+                assert click("Edit Status", this.elements.editStatus);
+                foundEditStatus = true;
+                break;
+            }
+            assert click("Amendment", this.elements.Amendment);
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            IWebInteract.log.info("Retrying for Edit Status Option, Retry: {}", count);
+            count++;
+        }
+        Assert.assertTrue("Contract is not Approved", foundEditStatus);
+        waitForElementsToPresent(getDriver(), By.xpath(elements.editDetails));
+        pause(1);
+        waitForPageLoad(60);
+        Select status = new Select(this.elements.selectStatus);
+        status.selectByVisibleText(option);
+        pause(1);
+        waitForPageLoad(60);
+        assert click("Save", this.elements.save);
+        //dont give assert for close.
+        click("Close", this.elements.close);
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+
+    }
     public void finalCapture(){
         assert click("Final Capture",this.elements.finalCapture);
         assert waitForPageLoad();
@@ -216,6 +247,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         assert click("Start Amendment Process",elements.createAmendmentButton);
         assert waitForPageLoad();
         pause(5);
+
     }
 
     public void enterAmendmentTitle(HashMap<String, String> hmap) {
@@ -280,8 +312,12 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private WebElement makeCorrection;
         @FindBy(xpath = "//table/tbody/tr/td[3]/span[1][contains(.,'Initial Transaction')]")
         private WebElement initialTransaction;
+        @FindBy(xpath = "//td/span[contains(.,'Amendment')]")
+        private WebElement Amendment;
+
         @FindBy(xpath = "//select[contains(@id,'ContractDealStatus')]")
         private WebElement selectStatus;
+
         @FindBy(xpath = "//button[contains(@id,'form-submit-button')]")
         private WebElement save;
         @FindBy(xpath = "//div[contains(@id,'editDetails')]/a")

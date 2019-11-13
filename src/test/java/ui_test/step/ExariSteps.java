@@ -11,8 +11,10 @@ import io.cucumber.datatable.DataTable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
+import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.pages.BasePage;
+import ui_test.pages.InitialTransaction;
 import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
 import util.configuration.IConfigurable;
@@ -245,6 +247,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void initialTransaction() {
         basePage.getInitialTransaction().initialTransaction(hmap);
     }
+    @And("^I Set edit status to Amendment$")
+    public void AmendmentTransaction() {
+        basePage.getContractDetailsDashboard().editStatusforAmendment("Final Pending QA");
+
+
+        }
 
     @And("^I Approve HBP Red Door$")
     public void approveHBPRedDoor() {
@@ -278,6 +286,15 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I enter Provider Signatory$")
     public void providerSignatory() {
         basePage.getProviderSignatory().ProviderSignatory(hmap);
+    }
+        @And("^I enter Provider Signatory in Amendment$")
+        public void Providertitle() {
+            basePage.getProviderSignatory().ProviderTitle(hmap);
+        }
+
+    @And("^I enter Our Signatory in Amendment$")
+    public void OurSignatorytitle() {
+        basePage.getOurSignatory().ourSignatorytitle(hmap);
     }
 
     @And("^I enter Our Signatory$")
@@ -478,6 +495,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void enterAmendmentSelection() {
         basePage.getAmendmentSelection().selectAmendmentTobeUsed(hmap);
     }
+
 
     @And("I select Amendments needed in Amendment Selection")
     public void selectAmendmentsNeeded() {

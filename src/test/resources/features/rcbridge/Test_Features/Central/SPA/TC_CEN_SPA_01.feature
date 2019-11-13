@@ -54,14 +54,50 @@ Feature: SPA Business Testcases_IN
 
 
      #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
+    #When I have entered the CMD dashboard URL
+    #When I search for Contract
     #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
 
      #NDB Check
     #Draft Amendment
+    And I select the contract
+    And I click on Create Amendment
+    And I enter title
+    And I enter Amendment Selection
+    And I select Amendments needed in Amendment Selection
+    And I select Amendment Type in Provider Details
+    And I check Provider Details
+    And I select Types of Amendments
+    And I select Contract Applied in Amendments
+    And I enter Contract Details in Amendments
+    And I enter Effective date in Contract Details
+    And I enter Appendix 2 in Amendments
+    And I select applied Payment Appendix
+    And I enter Payment Appendix in Amendments
+    And I check Payment Appendix
+    And I enter Additional Manuals
+    And I enter Steerage
+    And I enter Regulatory Appendices
+    And I enter Group Summary
+    And I Complete Wizard
+
     #Amendment Final Capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set edit status to Amendment
+    And I Start Final Capture
+   And I enter Provider Signatory in Amendment
+    And I enter Our Signatory in Amendment
+    And I enter Appendix 2
+    #And I enter Payment Appendix
+    And I enter Group Summary
+    And I Complete Wizard
+
+
     #Activating Amendment
+
+    And I Set Status as Active
+
     #Amendment CMD Check
     #Cosmos Check
 

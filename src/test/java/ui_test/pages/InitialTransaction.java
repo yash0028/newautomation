@@ -26,6 +26,7 @@ public class InitialTransaction extends GenericInputPage {
     }
     public WebElement clickInitialTransactionType(String Name){
         return findElement(getDriver(), new String[]{"xpath","//mat-option/span[contains(.,'"+Name+"')]"});
+
     }
 
     private static class PageElements extends AbstractPageElements {
