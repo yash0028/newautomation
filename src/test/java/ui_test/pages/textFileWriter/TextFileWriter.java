@@ -10,6 +10,7 @@ public class TextFileWriter
 {
     public void writeInFile(String filename, HashMap<String,String>hmap)
     {
+        System.out.println("Filename is: "+filename);
         try
         {
             File statText = new File(filename);

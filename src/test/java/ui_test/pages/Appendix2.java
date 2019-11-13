@@ -22,7 +22,15 @@ public class Appendix2 extends GenericInputPage {
         assert clickNext();
         assert waitForPageLoad();
     }
-    
+
+
+    public void productsExcludedFromAgreement(HashMap<String, String> hmap){
+        assert click("Exclude Product in Appendix 2",getXPath(hmap.get("Exclude Product in Amendment")));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
+
     public void SelectAppedix1(String option)
     {
     		waitForPageLoad();
@@ -35,6 +43,7 @@ public class Appendix2 extends GenericInputPage {
 		
     	
     }
+
     public WebElement getXPath(String answer){
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+answer+"')]"});
     }
