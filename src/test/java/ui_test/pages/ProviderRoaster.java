@@ -158,7 +158,7 @@ public class ProviderRoaster extends GenericInputPage
         assert clickNext();
         assert waitForPageLoad(60);
     }
-    public void providerStartDate(HashMap<String,String>hmap)
+    public void providerStartDate(HashMap<String,String>hmap) throws InterruptedException
     {
         String date;
         if(MULTIPLE_PROVIDERS>0){
@@ -171,19 +171,21 @@ public class ProviderRoaster extends GenericInputPage
                         date = CommonMethods.formatDate(dates[count-1]);
                     }
                     waitForPageLoad(60);
-                    int c = count-1;
+                    Thread.sleep(5000);
+                    /*int c = count-1;
                     getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).click();
                     waitForPageLoad();
-                    getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).sendKeys(date);
-                    //sendKeys("Provider Start Date",providerStartDate(count-1),date);
+                    getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).sendKeys(date);*/
+                    sendKeys("Provider Start Date",providerStartDate(count-1),date);
                   
                 }else{
                 	waitForPageLoad(60);
-                	int c = count-1;
+                	Thread.sleep(5000);
+                	/*int c = count-1;
                 	getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).click();
                 	waitForPageLoad();
-                	getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).sendKeys(CommonMethods.todaysDate());
-                    //sendKeys("Provider Start Date",providerStartDate(count-1),CommonMethods.todaysDate());
+                	getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).sendKeys(CommonMethods.todaysDate());*/
+                    sendKeys("Provider Start Date",providerStartDate(count-1),CommonMethods.todaysDate());
                 }
             }
 
