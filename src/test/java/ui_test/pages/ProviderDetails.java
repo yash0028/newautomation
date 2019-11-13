@@ -43,8 +43,16 @@ public class ProviderDetails extends GenericInputPage {
         assert waitForPageLoad();
 
     }
-
-    public void previewProfile() {
+    public void previewProfile(HashMap<String,String>hmap) {
+        String tier;
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.tierIndicator))){
+            tier = elements.tier.getAttribute("value");
+            if(tier.equals("")){
+                hmap.put("Tier","0");
+            }else{
+                hmap.put("Tier",tier);
+            }
+        }
         assert clickNext();
         assert waitForPageLoad();
 
@@ -77,7 +85,11 @@ public class ProviderDetails extends GenericInputPage {
         private WebElement dropdown_open;
         @FindBy(xpath = "//input[@class='select2-search__field']")
         private WebElement dropdown_textbox;
+        @FindBy(xpath = "//input[contains(@name,'TierIndicator')]")
+        private WebElement tier;
 
+
+        private String tierIndicator = "//input[contains(@name,'TierIndicator')]";
         private String duplicateTIN = "//label[contains(.,'Counterparty TIN duplicate check failed')]/b";
         private String message= "//div[contains(@class,'DialogBox')]";
 

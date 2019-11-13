@@ -95,6 +95,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         }
         if(!tierApproval){
             Assert.assertTrue("Failed to Find "+approvalType+" in Activity Manager", foundApprovalType || completedApprovalType);
+        }else if(tierApproval && !(foundApprovalType || completedApprovalType)){
+            approverType="TierApprovalNotRequired";
         }
         if(completedApprovalType && CHECK_APPROVAL_ALREADY_COMPLETED){
             Assert.assertTrue(approvalType+" is already Completed",foundApprovalType);
@@ -139,9 +141,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         IWebInteract.log.info("[APPROVED]  {}",approvalType+" - "+approverType);
         assert waitForPageLoad();
     }
-    public void startApprovalFlow(String approvalType,boolean tierApproval){
+    public String startApprovalFlow(String approvalType,boolean tierApproval){
         String approverType = getApproverType(approvalType,tierApproval);
-        while(approverType!=null){
+        while(approverType!=null && !approverType.equals("TierApprovalNotRequired")){
             if(switchLogin(approverType)){
                 if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.prompt))){
                     click("Banner messages",elements.okbutton);
@@ -154,21 +156,19 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             getActivityManager(false);
             approverType = getApproverType(approvalType,tierApproval);
         }
+        return approverType;
     }
-    public void handleApprovals(String approvalType) {
+    public void handleApprovals(String approvalType,boolean tierApproval) {
         DASHBOARD_URL = getDriver().getCurrentUrl();
         getActiveWorkFlow();
-        //tier1
-        startApprovalFlow(configGetOptionalString("exari.tier1_approval_type").orElse(""),true);
+        if(startApprovalFlow(approvalType,tierApproval)==null){
+            switchLogin(configGetOptionalString("exari.username").orElse(""));
+        }else{
+            IWebInteract.log.info("[SKIPPED] {}",approvalType);
+            assert click("Back",this.elements.backbutton);
+            assert waitForPageLoad();
+        }
         CHECK_APPROVAL_ALREADY_COMPLETED = true;
-        //tier23E
-        startApprovalFlow(configGetOptionalString("exari.tier23E_approval_type").orElse(""),true);
-        CHECK_APPROVAL_ALREADY_COMPLETED = true;
-        //current request
-        startApprovalFlow(approvalType,false);
-        CHECK_APPROVAL_ALREADY_COMPLETED = true;
-
-        switchLogin(configGetOptionalString("exari.username").orElse(""));
     }
 
     public void editStatus(String option,String Location){

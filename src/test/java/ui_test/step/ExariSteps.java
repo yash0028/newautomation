@@ -118,7 +118,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I preview Provider Details$")
     public void reviewProviderDetails() {
-        basePage.getProviderDetails().previewProfile();
+        basePage.getProviderDetails().previewProfile(hmap);
 
     }
 
@@ -246,6 +246,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I Start Process for Initial Transaction$")
     public void initialTransaction() {
         basePage.getInitialTransaction().initialTransaction(hmap);
+        if(hmap.get("Tier").equals("1")){
+            basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""),true);
+        }else if(!hmap.get("Tier").equals("0"))
+        {
+            basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier23E_approval_type").orElse(""),true);
+        }
     }
     @And("^I Set Status as Final Pending QA in Amendment$")
     public void finalPendingQAAmendment() {
@@ -255,13 +261,13 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I Approve HBP Red Door$")
     public void approveHBPRedDoor() {
-        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.red_door_approval_type").orElse(""));
+        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.red_door_approval_type").orElse(""),false);
         initializeObj();
     }
 
     @And("^I Approve Payment Appendix$")
     public void approvePaymentAppendix() {
-        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.non_std_approval_type").orElse(""));
+        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.non_std_approval_type").orElse(""),false);
         initializeObj();
     }
 
