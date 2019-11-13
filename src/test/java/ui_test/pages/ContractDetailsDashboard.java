@@ -75,7 +75,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         Assert.assertTrue("Failed to get Active WorkFlow Link", foundActiveWorkFlow);
         getActivityManager(false);
     }
-    public String getApproverType(String approvalType){
+    public String getApproverType(String approvalType,boolean tierApproval){
         boolean foundApprovalType = false;
         boolean completedApprovalType = false;
         String approverType=null;
@@ -94,7 +94,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                 }
             }
         }
-        Assert.assertTrue("Failed to Find "+approvalType+" in Activity Manager", foundApprovalType || completedApprovalType);
+        if(!tierApproval){
+            Assert.assertTrue("Failed to Find "+approvalType+" in Activity Manager", foundApprovalType || completedApprovalType);
+        }
         if(completedApprovalType && CHECK_APPROVAL_ALREADY_COMPLETED){
             Assert.assertTrue(approvalType+" is already Completed",foundApprovalType);
         }else if(completedApprovalType){
@@ -138,8 +140,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         IWebInteract.log.info("[APPROVED]  {}",approvalType+" - "+approverType);
         assert waitForPageLoad();
     }
-    public void startApprovalFlow(String approvalType){
-        String approverType = getApproverType(approvalType);
+    public void startApprovalFlow(String approvalType,boolean tierApproval){
+        String approverType = getApproverType(approvalType,tierApproval);
         while(approverType!=null){
             if(switchLogin(approverType)){
                 if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.prompt))){
@@ -151,14 +153,22 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             assert click("Back",this.elements.backbutton);
             assert waitForPageLoad();
             getActivityManager(false);
-            approverType = getApproverType(approvalType);
+            approverType = getApproverType(approvalType,tierApproval);
         }
     }
     public void handleApprovals(String approvalType) {
         DASHBOARD_URL = getDriver().getCurrentUrl();
         getActiveWorkFlow();
-        startApprovalFlow(approvalType);
+        //tier1
+        startApprovalFlow("Tier 1  Final Contract Approval",true);
         CHECK_APPROVAL_ALREADY_COMPLETED = true;
+        //tier23E
+        startApprovalFlow("Tier 23E  Final Contract Approval",true);
+        CHECK_APPROVAL_ALREADY_COMPLETED = true;
+        //current request
+        startApprovalFlow(approvalType,false);
+        CHECK_APPROVAL_ALREADY_COMPLETED = true;
+
         switchLogin("exari.username");
     }
 

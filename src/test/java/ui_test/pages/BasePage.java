@@ -37,7 +37,6 @@ public class BasePage extends GenericInputPage {
     private Steerage steerage;
     private SuppotingDocumentSummary supportingDocumentSummary;
 
-
     public Validation getValidation() {
         return (validation ==null) ? new Validation(getDriver()) :validation;
     }
