@@ -42,13 +42,12 @@ public class ProviderRoaster extends GenericInputPage
     public void downloadCurrentRoster(HashMap<String,String> hmap) {
         assert click("Click here to Download Provider Roster",elements.downloadProviderRoster);
         String findFileName = elements.downloadProviderRoster.getAttribute("href");
-        System.out.println("Href Value"+findFileName);
         String fileName = findFileName.substring(findFileName.lastIndexOf('=') +1);
         fileName = fileName.replace("%20"," ");
         fileName = fileName.replace(":","_");
         hmap.put("RosterFileName",fileName);
-        System.out.println("File path "+downloadFlowPath.toString());
-        System.out.println("File name "+hmap.get("RosterFileName"));
+        IWebInteract.log.info("File path : {}",downloadFlowPath.toString());
+        IWebInteract.log.info("File name : {}",hmap.get("RosterFileName"));
         assert clickNext();
         assert waitForPageLoad();
         pause(5);
@@ -58,7 +57,7 @@ public class ProviderRoaster extends GenericInputPage
         assert click("Upload", elements.uploadButton);
         pause(3);
         Path RosterFilePath = Paths.get(home, "src", "test", "resources","features","rcbridge","ProviderRoster",hmap.get("RosterFileName"));
-        System.out.println("Upload file path "+ RosterFilePath.toString());
+        IWebInteract.log.info("Upload file path : {}",RosterFilePath.toString());
         assert sendKeys("Uploading File",elements.chooseFile,RosterFilePath.toString());
         pause(3);
         assert clickNext();
@@ -68,9 +67,7 @@ public class ProviderRoaster extends GenericInputPage
     public void callingExcelReaderWriter(HashMap<String,String> hmap) throws IOException {
         excelReaderWriter = new ExcelReaderWriter();
         List<String> keys = excelReaderWriter.reader(downloadFlowPath.toString(),hmap.get("RosterFileName"),"Sheet1");
-        System.out.println("Size of List "+ keys.size());
         int rowindex = parseInt(keys.get(keys.size()-1));
-        System.out.println("Row Index "+rowindex);
         keys.remove(keys.size()-1);
         List<String> dataToWrite = excelReaderWriter.matcher(keys,hmap,rowindex);
         excelReaderWriter.writer(downloadFlowPath.toString(),hmap.get("RosterFileName"),"Sheet1",dataToWrite,rowindex);
@@ -205,7 +202,6 @@ public class ProviderRoaster extends GenericInputPage
         assert waitForPageLoad();
     }
     public void removeExcessRow(int dropdown_count, int providersCount){
-        System.out.println("dropdowncount="+dropdown_count+" providersCount="+providersCount);
         if(dropdown_count>providersCount){
             for (int count=dropdown_count; count>providersCount;count--){
                 pause(1);

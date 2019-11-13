@@ -27,7 +27,6 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
         }else{
             date = CommonMethods.formatDate(hmap.get("Contract Effective Date"));
         }
-        System.out.println("Date is"+date);
 
         assert sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date);
         assert clickNext();

@@ -33,6 +33,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
     public void getActivityManager(boolean refresh){
         int count=1;
+        waitTillVisible(elements.inTaskApp);
         while (count<=3){
             pause(3);
             waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.spinner)));
@@ -60,6 +61,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                     foundActiveWorkFlow=true;
                     break;
                 }
+            }
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.error))){
+                Assert.fail("We may have hit an error or something might have been removed or deleted, so check that the URL is correct. Alternatively you might not have permission to view the page (it could be on a private site) or there could have been an internal error. Try checking with your IT team.");
             }
             waitTillClickable(this.elements.initialTransaction);
             assert click("Initial Transaction",this.elements.initialTransaction);
@@ -175,8 +179,39 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             //dont give assert for close.
             click("Close",this.elements.close);
             waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.message)));
+
+
+
     }
 
+    public void editStatusforAmendment(String option) {
+        int count = 1;
+        boolean foundEditStatus = false;
+        while (count <= 20) {
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.editStatusButton))) {
+                assert click("Edit Status", this.elements.editStatus);
+                foundEditStatus = true;
+                break;
+            }
+            assert click("Amendment", this.elements.Amendment);
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            IWebInteract.log.info("Retrying for Edit Status Option, Retry: {}", count);
+            count++;
+        }
+        Assert.assertTrue("Contract is not Approved", foundEditStatus);
+        waitForElementsToPresent(getDriver(), By.xpath(elements.editDetails));
+        pause(1);
+        waitForPageLoad(60);
+        Select status = new Select(this.elements.selectStatus);
+        status.selectByVisibleText(option);
+        pause(1);
+        waitForPageLoad(60);
+        assert click("Save", this.elements.save);
+        //dont give assert for close.
+        click("Close", this.elements.close);
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+
+    }
     public void finalCapture(){
         assert click("Final Capture",this.elements.finalCapture);
         assert waitForPageLoad();
@@ -185,9 +220,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public void captureContractNumber(HashMap<String,String> hmap,String filepath)
     {
         String contractDetails=elements.contractSummary.getText();
-        System.out.println("Contract Details : "+contractDetails);
+        IWebInteract.log.info("Contract Details : {}",contractDetails);
         hmap.put("Contract Number",contractDetails.substring(contractDetails.lastIndexOf('-') +1));
-        System.out.println("Comtract Number is:"+hmap.get("Contract Number"));
+        IWebInteract.log.info("Contract Number is: {}",hmap.get("Contract Number"));
         textFileWriter.writeInFile(filepath,hmap);
 
     }
@@ -212,6 +247,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         assert click("Start Amendment Process",elements.createAmendmentButton);
         assert waitForPageLoad();
         pause(5);
+
     }
 
     public void enterAmendmentTitle(HashMap<String, String> hmap) {
@@ -276,8 +312,12 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private WebElement makeCorrection;
         @FindBy(xpath = "//table/tbody/tr/td[3]/span[1][contains(.,'Initial Transaction')]")
         private WebElement initialTransaction;
+        @FindBy(xpath = "//td/span[contains(.,'Amendment')]")
+        private WebElement Amendment;
+
         @FindBy(xpath = "//select[contains(@id,'ContractDealStatus')]")
         private WebElement selectStatus;
+
         @FindBy(xpath = "//button[contains(@id,'form-submit-button')]")
         private WebElement save;
         @FindBy(xpath = "//div[contains(@id,'editDetails')]/a")
@@ -320,7 +360,10 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private WebElement createSupportingDocument;
         @FindBy(xpath="//a[contains(text(),'Provider Roster Output.xml')]")
         private WebElement supportingDocumentType;
+        @FindBy(xpath="//div/span[contains(.,' in Task App')]")
+        private WebElement inTaskApp;
 
+        private String error= "//div[contains(@class,'alf-error-header')]";
         private String spinner= "//mat-progress-spinner";
         private String message= "//*[@id='message']";
         private String prompt= "//*[@id='prompt']";
