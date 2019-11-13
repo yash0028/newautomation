@@ -26,12 +26,28 @@ public class ProviderSignatory extends GenericInputPage {
         assert clickNext();
         assert waitForPageLoad();
     }
+    public void ProviderTitle(HashMap<String,String> hmap){
+        String date;
+        if(hmap.get("Provider Signatory Date").equals("today")){
+            date = CommonMethods.todaysDate();
+        }else{
+            date = CommonMethods.formatDate(hmap.get("Provider Signatory Date"));
+        }
+        assert sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date);
+        assert sendKeys("Provider Signatory title", this.elements.name, hmap.get("Provider Signatory title"));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
 
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[contains(@id,'CounterpartySignatoryDate')]")
         private WebElement CounterpartySignatoryDate;
         @FindBy(xpath = "//input[contains(@name,'CounterpartySignatoryEmail')]")
         private WebElement email;
+        @FindBy(xpath = "//div[@class='AnswerAboveAndBelow interview-item__answer']/span/input")
+        private WebElement name;
+
+
 
         public PageElements(SearchContext context) {
             super(context);
