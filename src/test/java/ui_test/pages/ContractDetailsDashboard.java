@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.Select;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.page.exari.login.LoginSSOPage;
 import ui_test.pages.textFileWriter.TextFileWriter;
-import ui_test.step.ExariSteps;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IUiStep;
 import ui_test.util.IWebInteract;
@@ -22,7 +21,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public TextFileWriter textFileWriter=new TextFileWriter();
     private static Boolean CHECK_APPROVAL_ALREADY_COMPLETED =true;
     private static String DASHBOARD_URL;
-    private static String USER = "exari.username";
+    private static String USER="";
     public ContractDetailsDashboard(WebDriver driver) {
         this.elements = new PageElements(driver);
     }
@@ -113,7 +112,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             getDriver().get(DASHBOARD_URL);
             LoginSSOPage loginPage = new LoginSSOPage(getDriver());
             assert loginPage.confirmCurrentPage();
-            if(approverType.equals("exari.username")){
+            if(approverType.equals(configGetOptionalString("exari.username").orElse(""))){
                 assert loginPage.login();
             }else{
                 assert loginPage.login(approverType.toLowerCase());
@@ -160,16 +159,16 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         DASHBOARD_URL = getDriver().getCurrentUrl();
         getActiveWorkFlow();
         //tier1
-        startApprovalFlow("Tier 1  Final Contract Approval",true);
+        startApprovalFlow(configGetOptionalString("exari.tier1_approval_type").orElse(""),true);
         CHECK_APPROVAL_ALREADY_COMPLETED = true;
         //tier23E
-        startApprovalFlow("Tier 23E  Final Contract Approval",true);
+        startApprovalFlow(configGetOptionalString("exari.tier23E_approval_type").orElse(""),true);
         CHECK_APPROVAL_ALREADY_COMPLETED = true;
         //current request
         startApprovalFlow(approvalType,false);
         CHECK_APPROVAL_ALREADY_COMPLETED = true;
 
-        switchLogin("exari.username");
+        switchLogin(configGetOptionalString("exari.username").orElse(""));
     }
 
     public void editStatus(String option,String Location){
