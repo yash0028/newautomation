@@ -63,5 +63,5 @@ Feature: US1407217
 #    And I enter Group Summary
 #    Then I Complete Wizard
     Examples:
-      | site          | paperType     | TCName       |
-      | central uhn   | SPGA          | approvaldemo |
+      | site          | paperType     | TCName             |
+      | central uhn   | SPGA          | approvaldemo-teir1 |
