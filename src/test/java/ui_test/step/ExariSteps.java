@@ -619,12 +619,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPaymentAppendix().verifyFeeScheduleID();
     }
 
-
-    private void initializeObj() {
-        protoStep = new ProtoStep(getDriver());
-        basePage = new BasePage();
-    }
-
     @And("I enter OurSignatory")
     public void iEnterOurSignatoryinAmendments()
     {
@@ -647,5 +641,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void iEnterOptOutInAmendments()
     {
         basePage.getAmendements().enterOptOut(hmap);
+    }
+
+    private void initializeObj() {
+        protoStep = new ProtoStep(getDriver());
+        basePage = new BasePage();
     }
 }

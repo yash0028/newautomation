@@ -53,15 +53,15 @@ Feature: US1407217
     Then I Complete Wizard
     And I Set Status as Active
     ##Make Correction - Provider Roster (Add one or more providers to the roster)
-#    And I click Make Correction
-#    And I enter Market Exception Grid in Make Correction
-#    And I enter Market Exception Grid
-#    And I set Roster Action as Cancel
-#    And I select provider and cancel date
-#    And I enter cancel reason
-#    And I acknowledge the warning
-#    And I enter Group Summary
-#    Then I Complete Wizard
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Cancel
+    And I select provider and cancel date
+    And I enter cancel reason
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
     Examples:
       | site          | paperType     | TCName       |
       | central uhn   | SPGA          | approvaldemo |
