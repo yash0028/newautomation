@@ -246,12 +246,15 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I Start Process for Initial Transaction$")
     public void initialTransaction() {
         basePage.getInitialTransaction().initialTransaction(hmap);
-        if(hmap.get("Tier").equals("1")){
-            basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""),true);
-        }else if(!hmap.get("Tier").equals("0"))
-        {
-            basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier23E_approval_type").orElse(""),true);
+        if(!hmap.get("Tier").equals("")){
+            if(hmap.get("Tier").equals("1")){
+                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""),true);
+            }else
+            {
+                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier23E_approval_type").orElse(""),true);
+            }
         }
+
     }
     @And("^I Set Status as Final Pending QA in Amendment$")
     public void finalPendingQAAmendment() {

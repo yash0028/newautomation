@@ -202,9 +202,6 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             //dont give assert for close.
             click("Close",this.elements.close);
             waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.message)));
-
-
-
     }
     public void finalCapture(){
         click("Final Capture",this.elements.finalCapture);
