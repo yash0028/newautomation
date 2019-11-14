@@ -77,8 +77,9 @@ public class LocalDriver implements IConfigurable, IFileReader {
 
     private void init() {
         try {
+
             //String driverPath = "C:\\ProgramData\\Chrome_driver_77.0.3865.40\\chromedriver.exe";
-           //String driverPath = "C:\\ProgramData\\Chrome_driver\\chromedriver.exe";
+            //String driverPath = "C:\\ProgramData\\Chrome_driver\\chromedriver.exe";
             String driverPath = getDriverPath();
 
             Map<String, Object> prefs = new HashMap<String, Object>();

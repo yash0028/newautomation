@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.Select;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.page.exari.login.LoginSSOPage;
 import ui_test.pages.textFileWriter.TextFileWriter;
-import ui_test.step.ExariSteps;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IUiStep;
 import ui_test.util.IWebInteract;
@@ -22,6 +21,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public TextFileWriter textFileWriter=new TextFileWriter();
     private static Boolean CHECK_APPROVAL_ALREADY_COMPLETED =true;
     private static String DASHBOARD_URL;
+    private static String USER="";
     public ContractDetailsDashboard(WebDriver driver) {
         this.elements = new PageElements(driver);
     }
@@ -31,7 +31,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         assert click("Start WorkFlow",elements.startWorkFlow);
         assert waitForPageLoad();
     }
-    public void getActivityManager(boolean refresh){
+    public void getActivityManager(boolean refresh,boolean tierApproval){
         int count=1;
         waitTillVisible(elements.inTaskApp);
         while (count<=3){
@@ -46,13 +46,15 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             }
             count++;
         }
-        Assert.assertFalse("Failed load tasks in Activity Manager", CommonMethods.isElementPresent(getDriver(),By.xpath(elements.notfound)));
+        if(!tierApproval){
+            Assert.assertFalse("Failed load tasks in Activity Manager", CommonMethods.isElementPresent(getDriver(),By.xpath(elements.notfound)));
+        }
         if(refresh){
             refreshPage();
-            getActivityManager(false);
+            getActivityManager(false, tierApproval);
         }
     }
-    public void getActiveWorkFlow() {
+    public void getActiveWorkFlow(boolean tierApproval) {
         int count=1;
         boolean foundActiveWorkFlow =false;
         while(count<=10){
@@ -72,9 +74,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             count++;
         }
         Assert.assertTrue("Failed to get Active WorkFlow Link", foundActiveWorkFlow);
-        getActivityManager(false);
+        getActivityManager(false,tierApproval);
     }
-    public String getApproverType(String approvalType){
+    public String getApproverType(String approvalType,boolean tierApproval){
         boolean foundApprovalType = false;
         boolean completedApprovalType = false;
         String approverType=null;
@@ -93,7 +95,11 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                 }
             }
         }
-        Assert.assertTrue("Failed to Find "+approvalType+" in Activity Manager", foundApprovalType || completedApprovalType);
+        if(!tierApproval){
+            Assert.assertTrue("Failed to Find "+approvalType+" in Activity Manager", foundApprovalType || completedApprovalType);
+        }else if(tierApproval && !(foundApprovalType || completedApprovalType)){
+            approverType="TierApprovalNotRequired";
+        }
         if(completedApprovalType && CHECK_APPROVAL_ALREADY_COMPLETED){
             Assert.assertTrue(approvalType+" is already Completed",foundApprovalType);
         }else if(completedApprovalType){
@@ -102,18 +108,25 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         CHECK_APPROVAL_ALREADY_COMPLETED = false;
         return approverType;
     }
-    public void switchLogin(String approverType){
+    public boolean switchLogin(String approverType){
+        if(!USER.equals(approverType)){
+            USER = approverType;
             IWebInteract.log.info("[LOGIN]  {}",approverType);
             relaunchDriver(approverType);
             getDriver().get(DASHBOARD_URL);
             LoginSSOPage loginPage = new LoginSSOPage(getDriver());
             assert loginPage.confirmCurrentPage();
-            if(approverType.equals("exari.username")){
+            if(approverType.equals(configGetOptionalString("exari.username").orElse(""))){
                 assert loginPage.login();
             }else{
                 assert loginPage.login(approverType.toLowerCase());
             }
             this.elements = new PageElements(getDriver());
+            return true;
+        }else{
+            return false;
+        }
+
     }
     public void doCaim(String approvalType, String approverType){
         assert click("Open Task",getMenu(approvalType,approverType));
@@ -130,30 +143,37 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         IWebInteract.log.info("[APPROVED]  {}",approvalType+" - "+approverType);
         assert waitForPageLoad();
     }
-    public void startApprovalFlow(String approvalType){
-        String approverType = getApproverType(approvalType);
-        while(approverType!=null){
-            switchLogin(approverType);
-            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.prompt))){
-                click("Banner messages",elements.okbutton);
+    public String startApprovalFlow(String approvalType,boolean tierApproval){
+        String approverType = getApproverType(approvalType,tierApproval);
+        while(approverType!=null && !approverType.equals("TierApprovalNotRequired")){
+            if(switchLogin(approverType)){
+                if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.prompt))){
+                    click("Banner messages",elements.okbutton);
+                }
+                getActiveWorkFlow(tierApproval);
             }
-            getActiveWorkFlow();
             doCaim(approvalType,approverType);
             assert click("Back",this.elements.backbutton);
             assert waitForPageLoad();
-            getActivityManager(false);
-            approverType = getApproverType(approvalType);
+            getActivityManager(false,tierApproval);
+            approverType = getApproverType(approvalType,tierApproval);
         }
+        return approverType;
     }
-    public void handleApprovals(String approvalType) {
+    public void handleApprovals(String approvalType,boolean tierApproval) {
         DASHBOARD_URL = getDriver().getCurrentUrl();
-        getActiveWorkFlow();
-        startApprovalFlow(approvalType);
+        getActiveWorkFlow(tierApproval);
+        if(startApprovalFlow(approvalType,tierApproval)==null){
+            switchLogin(configGetOptionalString("exari.username").orElse(""));
+        }else{
+            IWebInteract.log.info("[SKIPPED] {}",approvalType);
+            assert click("Back",this.elements.backbutton);
+            assert waitForPageLoad();
+        }
         CHECK_APPROVAL_ALREADY_COMPLETED = true;
-        switchLogin("exari.username");
     }
 
-    public void editStatus(String option){
+    public void editStatus(String option,String Location){
         int count=1;
         boolean foundEditStatus =false;
         while(count<=20){
@@ -162,7 +182,12 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                 foundEditStatus=true;
                 break;
             }
-            assert click("Initial Transaction",this.elements.initialTransaction);
+            if(Location.equals("Draft")){
+                assert click("Initial Transaction",this.elements.initialTransaction);
+            }else if(Location.equals("Amendment")){
+                assert click("Amendment", this.elements.Amendment);
+            }
+
             waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.message)));
             IWebInteract.log.info("Retrying for Edit Status Option, Retry: {}",count);
             count++;
@@ -179,42 +204,10 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             //dont give assert for close.
             click("Close",this.elements.close);
             waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.message)));
-
-
-
-    }
-
-    public void editStatusforAmendment(String option) {
-        int count = 1;
-        boolean foundEditStatus = false;
-        while (count <= 20) {
-            if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.editStatusButton))) {
-                assert click("Edit Status", this.elements.editStatus);
-                foundEditStatus = true;
-                break;
-            }
-            assert click("Amendment", this.elements.Amendment);
-            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-            IWebInteract.log.info("Retrying for Edit Status Option, Retry: {}", count);
-            count++;
-        }
-        Assert.assertTrue("Contract is not Approved", foundEditStatus);
-        waitForElementsToPresent(getDriver(), By.xpath(elements.editDetails));
-        pause(1);
-        waitForPageLoad(60);
-        Select status = new Select(this.elements.selectStatus);
-        status.selectByVisibleText(option);
-        pause(1);
-        waitForPageLoad(60);
-        assert click("Save", this.elements.save);
-        //dont give assert for close.
-        click("Close", this.elements.close);
-        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-
     }
     public void finalCapture(){
-        assert click("Final Capture",this.elements.finalCapture);
-        assert waitForPageLoad();
+        click("Final Capture",this.elements.finalCapture);
+        assert waitForPageLoad(60);
     }
 
     public void captureContractNumber(HashMap<String,String> hmap,String filepath)
