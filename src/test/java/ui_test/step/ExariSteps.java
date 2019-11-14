@@ -249,9 +249,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         if(!hmap.get("Tier").equals("")){
             if(hmap.get("Tier").equals("1")){
                 basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""),true);
+                initializeObj();
             }else
             {
                 basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier23E_approval_type").orElse(""),true);
+                initializeObj();
             }
         }
 

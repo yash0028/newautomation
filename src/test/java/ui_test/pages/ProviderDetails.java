@@ -44,11 +44,9 @@ public class ProviderDetails extends GenericInputPage {
 
     }
     public void previewProfile(HashMap<String,String>hmap) {
-        String tier;
         waitForPageLoad(60);
         if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.tierIndicator))){
-            tier = elements.tier.getAttribute("value");
-            hmap.put("Tier",tier);
+            hmap.put("Tier",elements.tier.getAttribute("value"));
         }
         assert clickNext();
         assert waitForPageLoad();
