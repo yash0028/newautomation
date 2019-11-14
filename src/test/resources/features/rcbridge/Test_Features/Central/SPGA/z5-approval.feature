@@ -56,12 +56,14 @@ Feature: US1407217
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    And I set Roster Action as Cancel
-    And I select provider and cancel date
-    And I enter cancel reason
+    And I add provider using TIN
+    And I select Providers
+    And I enter Provider Start Date
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+
     Examples:
       | site          | paperType     | TCName       |
       | central uhn   | SPGA          | approvaldemo |
