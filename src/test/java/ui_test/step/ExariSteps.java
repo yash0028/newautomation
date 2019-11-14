@@ -624,4 +624,28 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         protoStep = new ProtoStep(getDriver());
         basePage = new BasePage();
     }
+
+    @And("I enter OurSignatory")
+    public void iEnterOurSignatoryinAmendments()
+    {
+        basePage.getOurSignatory().ourSignatorytitle(hmap);
+    }
+
+    @And("I select Unilateral Contract in Amendments")
+    public void iSelectUnilateralContractInAmendments()
+    {
+        basePage.getAmendements().selectUnilateralContract(hmap);
+    }
+
+    @And("I select Provider Type Radio Button in Amendments")
+    public void iSelectProviderTypeRadioButtonInAmendments()
+    {
+        basePage.getAmendements().selectproviderTypeInAmendments(hmap);
+    }
+
+    @And("I enter Opt-out in Amendments")
+    public void iEnterOptOutInAmendments()
+    {
+        basePage.getAmendements().enterOptOut(hmap);
+    }
 }
