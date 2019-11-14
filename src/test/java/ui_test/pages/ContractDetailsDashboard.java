@@ -31,7 +31,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         assert click("Start WorkFlow",elements.startWorkFlow);
         assert waitForPageLoad();
     }
-    public void getActivityManager(boolean refresh){
+    public void getActivityManager(boolean refresh,boolean tierApproval){
         int count=1;
         waitTillVisible(elements.inTaskApp);
         while (count<=3){
@@ -46,13 +46,15 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             }
             count++;
         }
-        Assert.assertFalse("Failed load tasks in Activity Manager", CommonMethods.isElementPresent(getDriver(),By.xpath(elements.notfound)));
+        if(!tierApproval){
+            Assert.assertFalse("Failed load tasks in Activity Manager", CommonMethods.isElementPresent(getDriver(),By.xpath(elements.notfound)));
+        }
         if(refresh){
             refreshPage();
-            getActivityManager(false);
+            getActivityManager(false, tierApproval);
         }
     }
-    public void getActiveWorkFlow() {
+    public void getActiveWorkFlow(boolean tierApproval) {
         int count=1;
         boolean foundActiveWorkFlow =false;
         while(count<=10){
@@ -72,7 +74,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             count++;
         }
         Assert.assertTrue("Failed to get Active WorkFlow Link", foundActiveWorkFlow);
-        getActivityManager(false);
+        getActivityManager(false,tierApproval);
     }
     public String getApproverType(String approvalType,boolean tierApproval){
         boolean foundApprovalType = false;
@@ -148,19 +150,19 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                 if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.prompt))){
                     click("Banner messages",elements.okbutton);
                 }
-                getActiveWorkFlow();
+                getActiveWorkFlow(tierApproval);
             }
             doCaim(approvalType,approverType);
             assert click("Back",this.elements.backbutton);
             assert waitForPageLoad();
-            getActivityManager(false);
+            getActivityManager(false,tierApproval);
             approverType = getApproverType(approvalType,tierApproval);
         }
         return approverType;
     }
     public void handleApprovals(String approvalType,boolean tierApproval) {
         DASHBOARD_URL = getDriver().getCurrentUrl();
-        getActiveWorkFlow();
+        getActiveWorkFlow(tierApproval);
         if(startApprovalFlow(approvalType,tierApproval)==null){
             switchLogin(configGetOptionalString("exari.username").orElse(""));
         }else{
