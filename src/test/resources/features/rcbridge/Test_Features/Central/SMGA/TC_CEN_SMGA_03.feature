@@ -71,6 +71,6 @@ Feature: SPGA Business Testcases_IN
     
     Examples:    
        | site          | paperType     | TCName|  				 
-       | central uhn   | SPGA          | TC_CEN_SMGA_IN_03|
+       | central uhn   | SMGA          | TC_CEN_SMGA_IN_03|
 
     

@@ -34,6 +34,17 @@ public class PaymentAppendix extends GenericInputPage {
     public void enterFeeScheduleID(HashMap<String,String> hmap)
     {
 
+//        if(isVisible(elements.feeSchduleID))
+//        {
+//            assert sendKeys("FeeSchdeuleID", this.elements.feeSchduleID, hmap.get("FS All Payer"));
+//        }
+//        if(isVisible(elements.feeSchduleIDPhysician)){
+//            assert sendKeys("FeeSchedule ID Physician", this.elements.feeSchduleIDPhysician, hmap.get("FS All Payer Physician"));
+//        }
+//        if (isVisible(elements.feeSchduleIDNonPhysician)){
+//            assert sendKeys("FeeSchedule ID Non Physician", this.elements.feeSchduleIDNonPhysician, hmap.get("FS All Payer Non Physician"));
+//        }
+
         switch (hmap.get("Paper Type"))
         {
             case "SPGA":
@@ -41,6 +52,7 @@ public class PaymentAppendix extends GenericInputPage {
                  break;
 
             }
+
             case "MGA":
             {
                 assert sendKeys("FeeSchedule ID Physician", this.elements.feeSchduleIDPhysician, hmap.get("FS All Payer Physician"));
