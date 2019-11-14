@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,7 +28,7 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
         }else{
             date = CommonMethods.formatDate(hmap.get("Contract Effective Date"));
         }
-
+        waitForPageLoad(60);
         assert sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date);
         assert clickNext();
         assert waitForPageLoad();
@@ -56,7 +57,7 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[contains(@name,'PhyCon')]")
         private WebElement phyConNumber;
-        @FindBy(xpath = "//input[contains(@id,'Effective_Start_Date')]")
+        @FindBy(xpath = "//input[contains(@id,'Effective')]")
         private WebElement contractEffectiveDate;
 
         public PageElements(SearchContext context) {

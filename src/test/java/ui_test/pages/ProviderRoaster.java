@@ -136,6 +136,7 @@ public class ProviderRoaster extends GenericInputPage
         assert waitForPageLoad();
     }
     public void selectProviders(HashMap<String,String>hmap){
+    	MULTIPLE_PROVIDERS=0;
         String[] providers = hmap.get("Select Providers").split("//");
         waitForPageLoad(60);
         for(String provider :providers){
@@ -157,7 +158,7 @@ public class ProviderRoaster extends GenericInputPage
         assert clickNext();
         assert waitForPageLoad(60);
     }
-    public void providerStartDate(HashMap<String,String>hmap)
+    public void providerStartDate(HashMap<String,String>hmap) 
     {
         String date;
         if(MULTIPLE_PROVIDERS>0){
@@ -169,20 +170,25 @@ public class ProviderRoaster extends GenericInputPage
                     }else{
                         date = CommonMethods.formatDate(dates[count-1]);
                     }
-                    waitForPageLoad(60);
-                    int c = count-1;
-                    getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).click();
-                    waitForPageLoad();
-                    getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).sendKeys(date);
-                    //sendKeys("Provider Start Date",providerStartDate(count-1),date);
-                  
+                    
+                    try {
+                    	waitForPageLoad(60);
+						Thread.sleep(5000);
+						sendKeys("Provider Start Date",providerStartDate(count-1),date);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
                 }else{
-                	waitForPageLoad(60);
-                	int c = count-1;
-                	getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).click();
-                	waitForPageLoad();
-                	getDriver().findElement(By.xpath("//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_"+c+"')]")).sendKeys(CommonMethods.todaysDate());
-                    //sendKeys("Provider Start Date",providerStartDate(count-1),CommonMethods.todaysDate());
+                	
+                	try {
+                		waitForPageLoad(60);
+						Thread.sleep(5000);
+						sendKeys("Provider Start Date",providerStartDate(count-1),CommonMethods.todaysDate());
+					} catch (InterruptedException e) {						
+						e.printStackTrace();
+					}
+
                 }
             }
 
@@ -212,6 +218,7 @@ public class ProviderRoaster extends GenericInputPage
     }
     public void providerandcanceldate(HashMap<String,String>hmap)
     {
+    	CANCEL_MULTIPLE_PROVIDERS = 0;
         String[] providers = hmap.get("providers to cancel").split("//");
         boolean createNewRow = elements.dropdown_open_count.size()>providers.length?false:true;
         boolean nextInput =true;
@@ -253,9 +260,7 @@ public class ProviderRoaster extends GenericInputPage
             waitForPageLoad(60);
 
         }
-        //cross check number of providers and row
         removeExcessRow(elements.dropdown_open_count.size(),CANCEL_MULTIPLE_PROVIDERS);
-        //write func to enter date
         if(CANCEL_MULTIPLE_PROVIDERS>0){
             String[] dates = hmap.get("Cancel Date").split("//");
             for(count=1;count<=CANCEL_MULTIPLE_PROVIDERS;count++){
