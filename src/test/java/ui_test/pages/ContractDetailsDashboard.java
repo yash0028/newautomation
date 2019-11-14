@@ -255,7 +255,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         actions.clickAndHold(elements.amendmentsWindow).moveToElement(elements.fullWindow).release().build().perform();
         assert sendKeys("Entering amendment Title",elements.amendentTitleBar,hmap.get("Amendment Title"));
         assert click("Create Amendment Button",elements.getCreateAmendmentButton);
+        pause(10);
         assert waitForPageLoad();
+
     }
 
 
