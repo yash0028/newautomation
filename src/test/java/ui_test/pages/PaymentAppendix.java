@@ -139,6 +139,8 @@ public class PaymentAppendix extends GenericInputPage {
         assert waitForPageLoad();
     }
 
+    public void enterPaymentAppendixinAmendmentsFC(HashMap<String, String> hmap) {
+    }
 
     private static class PageElements  extends AbstractPageElements {
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name']")

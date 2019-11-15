@@ -11,10 +11,8 @@ import io.cucumber.datatable.DataTable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
-import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.pages.BasePage;
-import ui_test.pages.InitialTransaction;
 import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
 import util.configuration.IConfigurable;
@@ -26,13 +24,12 @@ import java.util.HashMap;
 
 public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster, IContractFlowLoader {
     private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
+
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
     String home = System.getProperty("user.dir");
-    Path contractDetailsTextFile=Paths.get(home,"src","test","resources","support","hive","textFiles","contractDetails.txt");
     Path contractFlowPath = Paths.get(home, "src", "test", "resources", "support", "hive", "dataMap");
     private ProtoStep protoStep;
     private BasePage basePage;
-
 
     private ContractFlow contractFlow;
     public GenericSitePage sitePage;
@@ -247,12 +244,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void initialTransaction() {
         basePage.getInitialTransaction().initialTransaction(hmap);
     }
-    @And("^I Set edit status to Amendment$")
-    public void AmendmentTransaction() {
-        basePage.getContractDetailsDashboard().editStatusforAmendment("Final Pending QA");
-
-
-        }
 
     @And("^I Approve HBP Red Door$")
     public void approveHBPRedDoor() {
@@ -286,15 +277,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I enter Provider Signatory$")
     public void providerSignatory() {
         basePage.getProviderSignatory().ProviderSignatory(hmap);
-    }
-        @And("^I enter Provider Signatory in Amendment$")
-        public void Providertitle() {
-            basePage.getProviderSignatory().ProviderTitle(hmap);
-        }
-
-    @And("^I enter Our Signatory in Amendment$")
-    public void OurSignatorytitle() {
-        basePage.getOurSignatory().ourSignatorytitle(hmap);
     }
 
     @And("^I enter Our Signatory$")
@@ -412,9 +394,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
 
     @And("I capture Contract Number")
-    public void iCaptureContractNumber()
-    {
-        basePage.getContractDetailsDashboard().captureContractNumber(hmap,contractDetailsTextFile.toString());
+    public void iCaptureContractNumber() {
+        basePage.getContractDetailsDashboard().captureContractNumber(hmap);
+
     }
 
     @And("I create supporting document")
@@ -446,11 +428,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @When("^I am logged into Exari Dev$")
-    public void I_am_Logged_intoExari()
-    {
-    	 String url = configGetOptionalString("exari.devURL").orElse("");
-         getDriver().get(url);       
-         basePage.waitForPageLoad();
+    public void I_am_Logged_intoExari() {
+        String url = configGetOptionalString("exari.prodURL").orElse("");
+        getDriver().get(url);
+        basePage.waitForPageLoad();
     }
     /*
     HELPER METHODS
@@ -495,7 +476,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void enterAmendmentSelection() {
         basePage.getAmendmentSelection().selectAmendmentTobeUsed(hmap);
     }
-
 
     @And("I select Amendments needed in Amendment Selection")
     public void selectAmendmentsNeeded() {
@@ -582,28 +562,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void enterSteerage() {
         basePage.getSteerage().addLanguage(hmap);
     }
-
-
-
-    @And("I enter Amendments Page to amend Payment Appendix")
-    public void iEnterAmendmentsPageToAmendPaymentAppendix()
-    {
-        basePage.getAmendements().amendPaymentAppendix(hmap);
-    }
-
-    @And("I enter Payment Appendix in Amendments to replace Payment Appendix")
-    public void iEnterPaymentAppendixInAmendmentsToReplacePaymentAppendix()
-    {
-        basePage.getPaymentAppendix().replacePaymentAppendixInAmendments(hmap);
-    }
-
-    @And("I select fee schedule id in Amendments")
-    public void iSelectFeeScheduleIdInAmendments()
-    {
-        basePage.getPaymentAppendix().enterPaymentAppenidix(hmap);
-        basePage.getPaymentAppendix().verifyFeeScheduleID();
-    }
-
 
     private void initializeObj() {
         protoStep = new ProtoStep(getDriver());

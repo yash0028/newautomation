@@ -29,7 +29,6 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
             date = CommonMethods.formatDate(hmap.get("Contract Effective Date"));
         }
         waitForPageLoad(60);
-        waitForElementToAppear(getDriver(), By.xpath("//input[contains(@id,'Effective_Start_Date')]"));
         assert sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date);
         assert clickNext();
         assert waitForPageLoad();
@@ -58,7 +57,7 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[contains(@name,'PhyCon')]")
         private WebElement phyConNumber;
-        @FindBy(xpath = "//input[contains(@id,'Effective_Start_Date')]")
+        @FindBy(xpath = "//input[contains(@id,'Effective')]")
         private WebElement contractEffectiveDate;
 
         public PageElements(SearchContext context) {

@@ -84,9 +84,9 @@ Feature: SPA Business Testcases_IN
     #Amendment Final Capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-    And I Set edit status to Amendment
+    And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-   And I enter Provider Signatory in Amendment
+    And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
     And I enter Appendix 2
     #And I enter Payment Appendix
@@ -95,8 +95,7 @@ Feature: SPA Business Testcases_IN
 
 
     #Activating Amendment
-
-    And I Set Status as Active
+    And I Set Status as Active in Amendment
 
     #Amendment CMD Check
     #Cosmos Check

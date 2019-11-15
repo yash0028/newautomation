@@ -41,7 +41,7 @@ public class Amendements extends GenericInputPage {
         assert click("Open Dropdown",elements.clickOnSearch);
         assert sendKeys("Select Type of Contract",elements.clickOnBar,hmap.get("Contract Type in Amendments"));
         pause(1);
-        assert click("Click Regulatory Appendix", elements.dropdown_selection.get(0));
+        assert click("Click Type of Amendments", elements.dropdown_selection.get(0));
         assert clickNext();
         assert waitForPageLoad();
     }
@@ -53,6 +53,27 @@ public class Amendements extends GenericInputPage {
     public void amendPaymentAppendix(HashMap<String, String> hmap)
     {
         assert click("Amend Payment Appendix", selectAmendments(hmap.get("Amend Payment Appendix")));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
+    public void selectUnilateralContract(HashMap<String, String> hmap)
+    {
+        assert click("Select Unilateral Contract",selectAmendments(hmap.get("Unilateral Contract")));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
+    public void selectproviderTypeInAmendments(HashMap<String, String> hmap)
+    {
+        assert click("Select Provider Type in Amendments",selectAmendments(hmap.get("Contract Type in Amendments")));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
+    public void enterOptOut(HashMap<String, String> hmap)
+    {
+        assert click("Select OptOut option in Amendments",selectAmendments(hmap.get("OptOut")));
         assert clickNext();
         assert waitForPageLoad();
     }
