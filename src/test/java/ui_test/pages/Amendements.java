@@ -15,65 +15,58 @@ import java.util.List;
 public class Amendements extends GenericInputPage {
 
     private PageElements elements;
-    public Amendements(WebDriver driver)
-    {
+
+    public Amendements(WebDriver driver) {
         this.elements = new PageElements(driver);
     }
 
-    public void authorAmendments(HashMap<String, String> hmap)
-    {
-        click("Amendments",selectAmendments(hmap.get("Amendments")));
+    public void authorAmendments(HashMap<String, String> hmap) {
+        click("Amendments", selectAmendments(hmap.get("Amendments")));
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
     }
 
-    public void typeOfAmendmentsNeeded(HashMap<String, String> hmap)
-    {
-        assert click("Type of Amendment needed in Amendments Page",selectAmendments(hmap.get("Amendment Type Needed")));
+    public void typeOfAmendmentsNeeded(HashMap<String, String> hmap) {
+        assert click("Type of Amendment needed in Amendments Page", selectAmendments(hmap.get("Amendment Type Needed")));
         assert clickNext();
         assert waitForPageLoad();
 
     }
 
-    public void typeOfContractApplied(HashMap<String, String> hmap)
-    {
-        assert click("Open Dropdown",elements.clickOnSearch);
-        assert sendKeys("Select Type of Contract",elements.clickOnBar,hmap.get("Contract Type in Amendments"));
+    public void typeOfContractApplied(HashMap<String, String> hmap) {
+        assert click("Open Dropdown", elements.clickOnSearch);
+        assert sendKeys("Select Type of Contract", elements.clickOnBar, hmap.get("Contract Type in Amendments"));
         pause(1);
         assert click("Click Type of Amendments", elements.dropdown_selection.get(0));
         assert clickNext();
         assert waitForPageLoad();
     }
 
-    public WebElement selectAmendments(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    public WebElement selectAmendments(String Name) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
     }
 
-    public void amendPaymentAppendix(HashMap<String, String> hmap)
-    {
+    public void amendPaymentAppendix(HashMap<String, String> hmap) {
         assert click("Amend Payment Appendix", selectAmendments(hmap.get("Amend Payment Appendix")));
         assert clickNext();
         assert waitForPageLoad();
     }
 
-    public void selectUnilateralContract(HashMap<String, String> hmap)
-    {
-        assert click("Select Unilateral Contract",selectAmendments(hmap.get("Unilateral Contract")));
+    public void selectUnilateralContract(HashMap<String, String> hmap) {
+        assert click("Select Unilateral Contract", selectAmendments(hmap.get("Unilateral Contract")));
         assert clickNext();
         assert waitForPageLoad();
     }
 
-    public void selectproviderTypeInAmendments(HashMap<String, String> hmap)
-    {
-        assert click("Select Provider Type in Amendments",selectAmendments(hmap.get("Contract Type in Amendments")));
+    public void selectproviderTypeInAmendments(HashMap<String, String> hmap) {
+        assert click("Select Provider Type in Amendments", selectAmendments(hmap.get("Contract Type in Amendments")));
         assert clickNext();
         assert waitForPageLoad();
     }
 
-    public void enterOptOut(HashMap<String, String> hmap)
-    {
-        assert click("Select OptOut option in Amendments",selectAmendments(hmap.get("OptOut")));
+    public void enterOptOut(HashMap<String, String> hmap) {
+        assert click("Select OptOut option in Amendments", selectAmendments(hmap.get("OptOut")));
         assert clickNext();
         assert waitForPageLoad();
     }
@@ -86,7 +79,7 @@ public class Amendements extends GenericInputPage {
         private WebElement clickOnBar;
         @FindBy(xpath = "//span[@class='select2-results']//li")
         public List<WebElement> dropdown_selection;
-        private String message= "//div[contains(@class,'DialogBox')]";
+        private String message = "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {
             super(context);

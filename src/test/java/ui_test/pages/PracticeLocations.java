@@ -10,23 +10,20 @@ import ui_test.util.AbstractPageElements;
 import java.util.HashMap;
 
 
-public class PracticeLocations extends GenericInputPage
-{
+public class PracticeLocations extends GenericInputPage {
 
     private PageElements elements;
 
-    public PracticeLocations(WebDriver driver)
-    {
-        elements=new PageElements(driver);
+    public PracticeLocations(WebDriver driver) {
+        elements = new PageElements(driver);
 
     }
 
     //Select Practice Location when Paper Type is SPGA
-    public void selectLocation(HashMap<String,String>hmap) {
+    public void selectLocation(HashMap<String, String> hmap) {
 
-        if(hmap.containsKey("Practice Location"))
-        {
-            assert click("I select Practise Location",selectPracticeLocation(hmap.get("Practice Location")));
+        if (hmap.containsKey("Practice Location")) {
+            assert click("I select Practise Location", selectPracticeLocation(hmap.get("Practice Location")));
         }
         assert clickNext();
         assert waitForPageLoad();
@@ -34,18 +31,18 @@ public class PracticeLocations extends GenericInputPage
     }
 
     //Select Practice Location when Paper Type is MPA
-    public void selectPracticeLocation()
-    {
+    public void selectPracticeLocation() {
         click(elements.radioBtnSelection);
         assert clickNext();
         assert waitForPageLoad();
     }
+
     //TODO need to modify
-    public WebElement selectPracticeLocation(String answer){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+answer+"')]"});
+    public WebElement selectPracticeLocation(String answer) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + answer + "')]"});
     }
 
-    private static class PageElements  extends AbstractPageElements {
+    private static class PageElements extends AbstractPageElements {
 
         @FindBy(xpath = "//input[@type='radio']")
         private WebElement radioBtnSelection;

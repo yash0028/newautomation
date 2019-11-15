@@ -11,14 +11,16 @@ import java.util.HashMap;
 
 public class ProviderSignatory extends GenericInputPage {
     private PageElements elements;
+
     public ProviderSignatory(WebDriver driver) {
         this.elements = new PageElements(driver);
     }
-    public void ProviderSignatory(HashMap<String,String> hmap){
+
+    public void ProviderSignatory(HashMap<String, String> hmap) {
         String date;
-        if(hmap.get("Provider Signatory Date").equals("today")){
+        if (hmap.get("Provider Signatory Date").equals("today")) {
             date = CommonMethods.todaysDate();
-        }else{
+        } else {
             date = CommonMethods.formatDate(hmap.get("Provider Signatory Date"));
         }
         assert sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date);
@@ -26,11 +28,12 @@ public class ProviderSignatory extends GenericInputPage {
         assert clickNext();
         assert waitForPageLoad();
     }
-    public void ProviderTitle(HashMap<String,String> hmap){
+
+    public void ProviderTitle(HashMap<String, String> hmap) {
         String date;
-        if(hmap.get("Provider Signatory Date").equals("today")){
+        if (hmap.get("Provider Signatory Date").equals("today")) {
             date = CommonMethods.todaysDate();
-        }else{
+        } else {
             date = CommonMethods.formatDate(hmap.get("Provider Signatory Date"));
         }
         assert sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date);
@@ -46,7 +49,6 @@ public class ProviderSignatory extends GenericInputPage {
         private WebElement email;
         @FindBy(xpath = "//input[contains(@name,'Name')]")
         private WebElement name;
-
 
 
         public PageElements(SearchContext context) {

@@ -13,7 +13,8 @@ import util.TimeKeeper;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-public class PESInputActions extends GenericInputPage  {
+
+public class PESInputActions extends GenericInputPage {
 
     private PageElements elements;
 
@@ -24,11 +25,10 @@ public class PESInputActions extends GenericInputPage  {
 
     public void enterPESInput(HashMap<String, String> readFile) {
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
-        try{
+        try {
             assert waitForPageLoad();
-            for (Map.Entry<String, String> entry : readFile.entrySet())
-            {
-                switch (entry.getKey().toUpperCase()){
+            for (Map.Entry<String, String> entry : readFile.entrySet()) {
+                switch (entry.getKey().toUpperCase()) {
                     case "MPIN":
                         assert sendKeys("MPIN textbox", this.elements.mpin, entry.getValue());
                         break;
@@ -58,13 +58,13 @@ public class PESInputActions extends GenericInputPage  {
             }
             assert clickNext();
             assert waitForPageLoad();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
-    private static class PageElements  extends AbstractPageElements {
+    private static class PageElements extends AbstractPageElements {
 
         @FindBy(id = "xri-Request.MPIN-UTQField_1")
         private WebElement mpin;

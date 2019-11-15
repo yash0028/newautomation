@@ -52,10 +52,11 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
         sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
         return clickWithForce("sign in", elements.buttonSignIn);
     }
+
     public boolean login(String approverType) {
-        String username="";
-        String password="";
-        switch (approverType){
+        String username = "";
+        String password = "";
+        switch (approverType) {
             case "physician local contract approver":
                 username = configGetOptionalString("exari.phy_local_contract_approver_username").orElse("");
                 password = configGetOptionalString("exari.phy_local_contract_approver_password").orElse("");
@@ -73,7 +74,7 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
                 password = configGetOptionalString("exari.phy_local_prcicing_approver_password").orElse("");
                 break;
             default:
-                Assert.fail("[APPROVER CREDENTIALS NOT FOUND] "+approverType+"");
+                Assert.fail("[APPROVER CREDENTIALS NOT FOUND] " + approverType + "");
                 break;
         }
         sendKeys("username", elements.textBoxUsername, username);

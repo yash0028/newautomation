@@ -15,22 +15,20 @@ public class AmendmentSelection extends GenericInputPage {
         this.elements = new PageElements(driver);
     }
 
-    public void selectAmendmentTobeUsed(HashMap<String, String> hmap)
-    {
-        assert click("Select Amendments 1",selectAmendments(hmap.get("Amendment Selection")));
+    public void selectAmendmentTobeUsed(HashMap<String, String> hmap) {
+        assert click("Select Amendments 1", selectAmendments(hmap.get("Amendment Selection")));
         assert clickNext();
         assert waitForPageLoad();
     }
 
-    public void amendmentNeeded(HashMap<String, String> hmap)
-    {
-        assert click("Select Amendments Needed",selectAmendments(hmap.get("Amendment Needed")));
+    public void amendmentNeeded(HashMap<String, String> hmap) {
+        assert click("Select Amendments Needed", selectAmendments(hmap.get("Amendment Needed")));
         assert clickNext();
         assert waitForPageLoad();
     }
 
-    private WebElement selectAmendments(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    private WebElement selectAmendments(String Name) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
     }
 
 
