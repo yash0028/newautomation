@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -156,6 +157,7 @@ public class ProviderRoaster extends GenericInputPage
             }
             pause(1);
         }
+        Assert.assertTrue("[ERROR] Didn't Found Any Valid Provider",MULTIPLE_PROVIDERS>0);
         assert clickNext();
         assert waitForPageLoad(60);
     }
