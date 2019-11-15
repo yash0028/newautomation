@@ -671,7 +671,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage = new BasePage();
     }
 
-    @And("I enter Payment Appendix in Amendments FC")
+    @And("I enter Payment Appendix in Amendments FinalCapture")
     public void iEnterPaymentAppendixInAmendmentsFC()
     {
         basePage.getPaymentAppendix().enterPaymentAppendixinAmendmentsFC(hmap);
