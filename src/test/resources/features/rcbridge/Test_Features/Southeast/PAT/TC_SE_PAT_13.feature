@@ -4,14 +4,14 @@
 @releaseUnknown
 @iterationUnknown
 Feature: PAT Business Testcases_IN
-  @TC_CEN_PAT_IN_13
+  @TC_SE_PAT_AR_13
   @Manual
   @User_Interface
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Responses
     And I select Market Number
@@ -62,6 +62,8 @@ Feature: PAT Business Testcases_IN
 
 
       #NDB Check
+   
+   #NDB Check
     #Draft Amendment
     #Draft Amandament
     And I select the contract
@@ -93,7 +95,15 @@ Feature: PAT Business Testcases_IN
     #Amendment CMD Check
     #NDB Check
 
+	#Amandment final capture
+
+
+	#Amendment CMD Checking
+    #Amendment Final Capture
+    #Amendment CMD Check
+    #NDB Check
+
 
     Examples:
       | site          | paperType     | TCName           |
-      | central uhn   | PAT           | TC_CEN_PAT_IN_13 |
+      | southeast uhn   | PAT           | TC_SE_PAT_AR_13 |

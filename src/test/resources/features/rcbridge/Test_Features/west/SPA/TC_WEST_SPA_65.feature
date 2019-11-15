@@ -1,25 +1,23 @@
 # Last updated on
-# Author commercial with 1 Mid-level Specialist for PAT contract, execute and load contract, verify contract fed_Standard.
-@PATBusinessTestcases_IN
+@SPABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_IN
-  @TC_CEN_PAT_IN_09
+Feature: SPA Business Testcases_IN
+  @TC_WEST_SPA_OR_65
   @Manual
   @User_Interface
-  @UAT_BATCH1
-  Scenario Outline: TC_CEN_PAT_IN_09 - [RL0] Author PAT contract in <site>
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-    And I enter PES Response
+    And I enter PES Responses
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for PAT Contract
+    And I enter Practice Locations for SPA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -34,7 +32,9 @@ Feature: PAT Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-    #Final capture
+     #Non Std approval process
+
+     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -46,7 +46,7 @@ Feature: PAT Business Testcases_IN
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I verify Providers
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -54,16 +54,15 @@ Feature: PAT Business Testcases_IN
     #Activate
     And I Set Status as Active
 
-    #CMD Check
-    #And I have entered the CMD dashboard URL
-    #And I am on the CMD dashboard
-    #And The dashboard page loads
-    #And I search for Contract
-    #Then Validate Contract details
+     #NDB Check
+   #Draft Amendment
+   #Amendment Final Capture
+   #Activating Amendment
+   #NDB Checking
 
-    #NDB Check
+
 
 
     Examples:
-      | site          | paperType   | TCName|
-      | central uhn   | PAT         | TC_CEN_PAT_IN_09|
+      | site          | paperType     | TCName           | |contract| |Contractstatus|
+      | west uhn   | SPA           | TC_WEST_SPA_OR_65 |  |11122328| |InstallContract|

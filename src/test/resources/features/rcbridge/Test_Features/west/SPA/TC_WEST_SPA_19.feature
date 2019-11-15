@@ -1,24 +1,23 @@
 # Last updated on
-# Author commercial with 1 ALD group and 1 Mid-level PAT contract, execute and load contract, verify contract fed_Standard_Fee schedule change
-@PATBusinessTestcases_IN
+@SPABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_IN
-  @TC_CEN_PAT_IN_13
+Feature: SPA Business Testcases_IN
+  @TC_WEST_SPA_OR_19
   @Manual
   @User_Interface
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Responses
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for PAT Contract
+    And I enter Practice Locations for SPA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -33,9 +32,10 @@ Feature: PAT Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
+
+
      #Final capture
-    And I Start Workflow
-    And I Start Process for Initial Transaction
+
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -59,41 +59,30 @@ Feature: PAT Business Testcases_IN
     When I search for Contract
     #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
 
-
-
-      #NDB Check
-    #Draft Amendment
-    #Draft Amandament
-    And I select the contract
-    And I click on Create Amendment
-    And I enter title
-    And I enter Amendment Selection
-    And I select Amendments needed in Amendment Selection
-    And I select Amendment Type in Provider Details
-#    And I check Provider Details
-    And I select Types of Amendments
-    And I select Contract Applied in Amendments
-    And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
-    And I enter Appendix 2 in Amendments
-    And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments
-    And I check Payment Appendix
-    And I enter Additional Manuals
-    And I enter Steerage
-#    And I enter Regulatory Appendices
-    And I enter Group Summary
-    And I Complete Wizard
-
-	#Amandment final capture
-
-
-	#Amendment CMD Checking
-    #Amendment Final Capture
-    #Amendment CMD Check
     #NDB Check
 
 
+    #Draft Amendment
+      #Amendment Final Capture
+     #Activating Amendment
+    #Amendment CMD Check
+    #Cosmos Check
+
+    #Make a correction - Add a new TIN to the existing provider in the Roster.
+    #And I click Make Correction
+    #And I enter Market Exception Grid in Make Correction
+    #And I enter Market Exception Grid
+    #And I set Roster Action as Upload
+    #And I Download Current Roster
+    #And I Upload Completed Roster
+    #And I enter warning in Make Correction
+    #And I enter validation
+    #And I acknowledge the warning
+    #And I enter Group Summary
+    #Then I Complete Wizard
+
+
+
     Examples:
-      | site          | paperType     | TCName           |
-      | central uhn   | PAT           | TC_CEN_PAT_IN_13 |
+      | site          | paperType     | TCName           | |contract| |Contractstatus|
+      | west uhn   | SPA           | TC_WEST_SPA_OR_19 |  |11122328| |InstallContract|

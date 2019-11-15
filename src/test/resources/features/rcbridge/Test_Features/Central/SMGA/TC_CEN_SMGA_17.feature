@@ -4,11 +4,11 @@
 @iterationUnknown
 Feature: SMGA Business Testcases_IN
   
-  @TC_CEN_SMGA_IN_26
+  @TC_CEN_SMGA_IN_17
   @Manual
   @User_Interface
   @UAT_Automation_Batch1
-  Scenario Outline: TC_CEN_SMGA_IN_26 - [RL0] Author SMGA contract in <site>  
+  Scenario Outline: TC_CEN_SMGA_IN_17 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
@@ -57,30 +57,22 @@ Feature: SMGA Business Testcases_IN
     And I Set Status as Active
     
     #CMD Check
-#    When I have entered the CMD dashboard URL
-#    When I search for Contract
-#    Then Validate Contract "11122328" status and request type "InstallContract"
+    #When I have entered the CMD dashboard URL
+    #When I search for Contract
+    #Then Validate Contract "11122328" status and request type "InstallContract"
 
     
     #NDB Check
     
-    #Add provider with Make a correction - USING MPIN and TIN     
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    #Select 'Select providers based on individual TIN , MPIN and NPI" and click on Next.
-    And I add provider using TIN
-    And I select Providers
-    And I enter Provider Start Date
-   	And I enter retro code in Provider Roster
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard   
-    
-  
+	  #Draft Amandament
+		
+		#Amandment final capture
+			
+		
+		#Amendment CMD Checking
 		
     
     Examples:    
        | site          | paperType     | TCName|
-       | central uhn   | SMGA          | TC_CEN_SMGA_IN_26|
+       | central uhn   | SMGA          | TC_CEN_SMGA_IN_17|
     
