@@ -24,6 +24,10 @@ public class PracticeLocations extends GenericInputPage
     //Select Practice Location when Paper Type is SPGA
     public void selectLocation(HashMap<String,String>hmap) {
 
+        if(hmap.containsKey("Practice Location"))
+        {
+            assert click("I select Practise Location",selectPracticeLocation(hmap.get("Practice Location")));
+        }
         assert clickNext();
         assert waitForPageLoad();
 

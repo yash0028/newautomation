@@ -54,7 +54,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             getActivityManager(false, tierApproval);
         }
     }
-    public void getActiveWorkFlow(boolean tierApproval) {
+    public void getActiveWorkFlow(boolean tierApproval,String location,HashMap<String,String> hmap) {
         int count=1;
         boolean foundActiveWorkFlow =false;
         while(count<=10){
@@ -67,8 +67,13 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.error))){
                 Assert.fail("We may have hit an error or something might have been removed or deleted, so check that the URL is correct. Alternatively you might not have permission to view the page (it could be on a private site) or there could have been an internal error. Try checking with your IT team.");
             }
-            waitTillClickable(this.elements.initialTransaction);
-            assert click("Initial Transaction",this.elements.initialTransaction);
+            if(location.equals("Draft")){
+                waitTillClickable(this.elements.initialTransaction);
+                assert click("Initial Transaction",this.elements.initialTransaction);
+            }else if(location.equals("Amendment")){
+                waitTillClickable(getAmendmentLink(hmap.get("Amendment Title")));
+                assert click("Amendment",getAmendmentLink(hmap.get("Amendment Title")));
+            }
             waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.message)));
             IWebInteract.log.info("Retrying for Active Work Flow, Retry: {}",count);
             count++;
@@ -143,14 +148,14 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         IWebInteract.log.info("[APPROVED]  {}",approvalType+" - "+approverType);
         assert waitForPageLoad();
     }
-    public String startApprovalFlow(String approvalType,boolean tierApproval){
+    public String startApprovalFlow(String approvalType,boolean tierApproval,String location,HashMap<String,String> hmap){
         String approverType = getApproverType(approvalType,tierApproval);
         while(approverType!=null && !approverType.equals("TierApprovalNotRequired")){
             if(switchLogin(approverType)){
                 if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.prompt))){
                     click("Banner messages",elements.okbutton);
                 }
-                getActiveWorkFlow(tierApproval);
+                getActiveWorkFlow(tierApproval,location,hmap);
             }
             doCaim(approvalType,approverType);
             assert click("Back",this.elements.backbutton);
@@ -160,10 +165,10 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         }
         return approverType;
     }
-    public void handleApprovals(String approvalType,boolean tierApproval) {
+    public void handleApprovals(String approvalType,boolean tierApproval,String location,HashMap<String,String> hmap) {
         DASHBOARD_URL = getDriver().getCurrentUrl();
-        getActiveWorkFlow(tierApproval);
-        if(startApprovalFlow(approvalType,tierApproval)==null){
+        getActiveWorkFlow(tierApproval,location,hmap);
+        if(startApprovalFlow(approvalType,tierApproval,location,hmap)==null){
             switchLogin(configGetOptionalString("exari.username").orElse(""));
         }else{
             IWebInteract.log.info("[SKIPPED] {}",approvalType);
@@ -275,6 +280,10 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     {
         assert click("Select Supporting Document Type",this.elements.supportingDocumentType);
 
+    }
+
+    public WebElement getAmendmentLink(String answer){
+        return findElement(getDriver(), new String[]{"xpath","//span[contains(.,'"+answer+"')]"});
     }
     public WebElement taskrowelement(String answer){
         return findElement(getDriver(), new String[]{"xpath","//span[contains(@title,'"+answer+"')]"});

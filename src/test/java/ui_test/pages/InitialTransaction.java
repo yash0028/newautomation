@@ -14,7 +14,8 @@ public class InitialTransaction extends GenericInputPage {
     public InitialTransaction(WebDriver driver) {
         this.elements = new PageElements(driver);
     }
-    public void initialTransaction(HashMap<String,String> hmap){
+    public void initialTransaction(HashMap<String,String> hmap)
+    {
         assert click("Start Process",this.elements.startProcess);
         pause(1);
         waitForPageLoad(60);
