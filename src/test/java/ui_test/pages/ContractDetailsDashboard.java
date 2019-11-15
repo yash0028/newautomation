@@ -264,11 +264,12 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public void enterAmendmentTitle(HashMap<String, String> hmap) {
         Actions actions=new Actions(getDriver());
         actions.clickAndHold(elements.amendmentsWindow).moveToElement(elements.fullWindow).release().build().perform();
+        elements.amendentTitleBar.clear();
+        pause(2);
         assert sendKeys("Entering amendment Title",elements.amendentTitleBar,hmap.get("Amendment Title"));
         assert click("Create Amendment Button",elements.getCreateAmendmentButton);
-        pause(10);
+        pause(3);
         assert waitForPageLoad();
-
     }
 
 
