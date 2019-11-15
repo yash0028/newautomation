@@ -210,10 +210,10 @@ public class CMDSteps implements IRestStep, IUiStep {
         Map<String, String> contractParam = contractDataTable.asMap(String.class, String.class);
         cmdPage.validateContractDetails(contractParam);
     }
-    @Then("^Validate Contract \"([^\"]*)\" status and request type \"([^\"]*)\"$")
-    public void validateContracttype(String contract, String reqtype) throws Throwable {
+    @Then("^Validate Contract status and request type$")
+    public void validateContracttype( String reqtype) throws Throwable {
 
-        cmdPage.ValidateConract(contract,reqtype);
+        cmdPage.ValidateConract();
 
     }
 

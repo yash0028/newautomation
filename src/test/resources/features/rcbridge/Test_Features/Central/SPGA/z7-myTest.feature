@@ -45,7 +45,7 @@ Feature: SPGA Business Testcases_IN
 #    And I review supporting document
 
       # And I capture Contract Number
-    # And I search Contract using Contract Number
+    #And I search Contract using Contract Number
 
 #    #Final capture
 #    And I Start Workflow
