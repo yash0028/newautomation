@@ -1,25 +1,21 @@
 # Last updated on
-# Author commercial with 1 Mid-level Specialist for PAT contract, execute and load contract, verify contract fed_Standard.
-@PATBusinessTestcases_IN
+@US1407217
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_IN
-  @TC_CEN_PAT_IN_09
+Feature: US1407217
+  @TC_WEST_SPA_OR_70
   @Manual
   @User_Interface
-  @UAT_BATCH1
-  Scenario Outline: TC_CEN_PAT_IN_09 - [RL0] Author PAT contract in <site>
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-
-    #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-    And I enter PES Response
+    And I enter PES Responses
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for PAT Contract
+    And I enter Practice Locations for SPA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -29,14 +25,15 @@ Feature: PAT Business Testcases_IN
     And I enter Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
-    And I select Provider Roster as None
+    And  I select Provider Roster as None
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 
-    #Final capture
-    And I Start Workflow
-    And I Start Process for Initial Transaction
+     #Non Std approval process
+
+     #Final capture
+
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -46,24 +43,28 @@ Feature: PAT Business Testcases_IN
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I verify Providers
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
 
-    #Activate
+     #Activate
     And I Set Status as Active
 
-    #CMD Check
-    #And I have entered the CMD dashboard URL
-    #And I am on the CMD dashboard
-    #And The dashboard page loads
-    #And I search for Contract
-    #Then Validate Contract details
+
+     #CMD Check
+    When I have entered the CMD dashboard URL
+    When I search for Contract
+   # Then Validate Contract "<contract>" status and request type "<Contractstatus>"
 
     #NDB Check
+   #Draft Amendment
+    #Amendment Final Capture
+    #Amendment CMD Checking
+   #COSMOS Check
+    #Make a correction - Terming a TIN
 
 
     Examples:
-      | site          | paperType   | TCName|
-      | central uhn   | PAT         | TC_CEN_PAT_IN_09|
+      | site          | paperType     | TCName           |
+      | west uhn   | SPA           | TC_WEST_SPA_OR_70 |

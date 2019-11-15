@@ -4,15 +4,15 @@
 @releaseUnknown
 @iterationUnknown
 Feature: PAT Business Testcases_IN
-  @TC_CEN_PAT_IN_09
+
+  @TC_SE_PAT_AR_09
   @Manual
   @User_Interface
-  @UAT_BATCH1
-  Scenario Outline: TC_CEN_PAT_IN_09 - [RL0] Author PAT contract in <site>
+  Scenario Outline: TC_SE_PAT_AR_09 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -66,4 +66,4 @@ Feature: PAT Business Testcases_IN
 
     Examples:
       | site          | paperType   | TCName|
-      | central uhn   | PAT         | TC_CEN_PAT_IN_09|
+      | southeast uhn   | PAT         | TC_SE_PAT_AR_09|

@@ -4,7 +4,7 @@
 @iterationUnknown
 Feature: SMGA Business Testcases_IN
   
-  @TC_CEN_SMGA_IN_72
+  @TC_CEN_SMGA_IN_78
   @Manual
   @User_Interface
   @UAT_Automation

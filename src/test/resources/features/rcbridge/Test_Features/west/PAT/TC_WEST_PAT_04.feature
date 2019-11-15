@@ -1,18 +1,18 @@
+#Create a Contract (mgaccent)- Author commercial with 1 Mid-level PCP for PAT contract, execute and load contract, verify contract_Standard_Add Medicare
 # Last updated on
-# Author commercial with 1 Mid-level Specialist for PAT contract, execute and load contract, verify contract fed_Standard.
 @PATBusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
 Feature: PAT Business Testcases_IN
-  @TC_CEN_PAT_IN_09
+
+  @TC_WEST_PAT_OR_04
   @Manual
   @User_Interface
-  @UAT_BATCH1
-  Scenario Outline: TC_CEN_PAT_IN_09 - [RL0] Author PAT contract in <site>
+  Scenario Outline: TC_WEST_PAT_OR_04 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -62,8 +62,17 @@ Feature: PAT Business Testcases_IN
     #Then Validate Contract details
 
     #NDB Check
+    #NDB Checking
+
+    #Draft Amandament
+    #Amandment final capture
+
+
+    #Amendment CMD Checking
+
 
 
     Examples:
-      | site          | paperType   | TCName|
-      | central uhn   | PAT         | TC_CEN_PAT_IN_09|
+      | site          | paperType     | TCName|
+      | west uhn   | PAT          | TC_WEST_PAT_OR_04|
+

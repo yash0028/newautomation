@@ -4,15 +4,15 @@
 @iterationUnknown
 Feature: SMGA Business Testcases_IN
   
-  @TC_CEN_SMGA_IN_26
+  @TC_WEST_SMGA_OR_21
   @Manual
-  @User_Interface
-  @UAT_Automation_Batch1
-  Scenario Outline: TC_CEN_SMGA_IN_26 - [RL0] Author SMGA contract in <site>  
+  @User_Interface 
+  @UAT_Automation_Batch1 
+  Scenario Outline: TC_WEST_SMGA_OR_21 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -25,13 +25,14 @@ Feature: SMGA Business Testcases_IN
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
+    #And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
     
@@ -48,7 +49,8 @@ Feature: SMGA Business Testcases_IN
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
+    And I acknowledge the warning
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -64,11 +66,11 @@ Feature: SMGA Business Testcases_IN
     
     #NDB Check
     
-    #Add provider with Make a correction - USING MPIN and TIN     
+    #Add provider with Make a correction.   
+    
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    #Select 'Select providers based on individual TIN , MPIN and NPI" and click on Next.
     And I add provider using TIN
     And I select Providers
     And I enter Provider Start Date
@@ -82,5 +84,5 @@ Feature: SMGA Business Testcases_IN
     
     Examples:    
        | site          | paperType     | TCName|
-       | central uhn   | SMGA          | TC_CEN_SMGA_IN_26|
+       | west uhn   | SMGA          | TC_WEST_SMGA_OR_21|
     

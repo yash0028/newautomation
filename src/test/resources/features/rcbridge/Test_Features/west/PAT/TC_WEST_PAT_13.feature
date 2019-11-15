@@ -4,14 +4,14 @@
 @releaseUnknown
 @iterationUnknown
 Feature: PAT Business Testcases_IN
-  @TC_CEN_PAT_IN_13
+  @TC_WEST_PAT_OR_13
   @Manual
   @User_Interface
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Responses
     And I select Market Number
@@ -96,4 +96,4 @@ Feature: PAT Business Testcases_IN
 
     Examples:
       | site          | paperType     | TCName           |
-      | central uhn   | PAT           | TC_CEN_PAT_IN_13 |
+      | west uhn   | PAT           | TC_WEST_PAT_OR_13 |
