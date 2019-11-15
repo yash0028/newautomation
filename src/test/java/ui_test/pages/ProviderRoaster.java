@@ -142,8 +142,7 @@ public class ProviderRoaster extends GenericInputPage
         waitForPageLoad(60);
         for(String provider :providers){
             assert sendKeys("Search provider",elements.selectProvider,provider.trim());
-            //mandatory pause
-            pause(1);
+            waitForPageLoad(60);
             if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.selectProviderWithNamenotFound))){
                 elements.selectProvider.clear();
                 IWebInteract.log.info("Provider Name [{}] NOT FOUND",provider.trim());
@@ -161,7 +160,7 @@ public class ProviderRoaster extends GenericInputPage
         assert clickNext();
         assert waitForPageLoad(60);
     }
-    public void providerStartDate(HashMap<String,String>hmap) 
+    public void providerStartDate(HashMap<String,String>hmap)
     {
         String date;
         if(MULTIPLE_PROVIDERS>0){
@@ -201,7 +200,7 @@ public class ProviderRoaster extends GenericInputPage
         
     }
     public void enterTIN(HashMap<String,String>hmap){
-        assert sendKeys("TIN",elements.enterTIN,hmap.get("TIN_FC"));
+        assert sendKeys("TIN",elements.enterTIN,hmap.get("TIN"));
         assert clickNext();
         assert waitForPageLoad();
     }
