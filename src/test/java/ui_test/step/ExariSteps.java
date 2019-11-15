@@ -273,8 +273,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
     @And("^I Set Status as Final Pending QA in Amendment$")
     public void finalPendingQAAmendment() {
-        basePage.getContractDetailsDashboard().editStatus("Final Pending QA","Amendment");
+        basePage.getContractDetailsDashboard().editStatus("Final Pending QA","Amendment",hmap);
     }
+
     @And("^I Approve HBP Red Door in Amendment$")
     public void approveHBPRedDoorAmendment() {
         basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.red_door_approval_type").orElse(""),false,"Amendment",hmap);
@@ -301,7 +302,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I Set Status as Final Pending QA$")
     public void finalPendingQA() {
-        basePage.getContractDetailsDashboard().editStatus("Final Pending QA","Draft");
+        basePage.getContractDetailsDashboard().editStatus("Final Pending QA","Draft",hmap);
 
     }
 
@@ -356,12 +357,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I Set Status as Active$")
     public void setStatusActive() {
-        basePage.getContractDetailsDashboard().editStatus("Active","Draft");
+        basePage.getContractDetailsDashboard().editStatus("Active","Draft",hmap);
 
     }
     @And("^I Set Status as Active in Amendment$")
     public void setStatusActiveAfterAmendment() {
-        basePage.getContractDetailsDashboard().editStatus("Active","Amendment");
+        basePage.getContractDetailsDashboard().editStatus("Active","Amendment",hmap);
 
     }
 

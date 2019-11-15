@@ -1,6 +1,6 @@
 # Last updated on
 # Author commercial with 1 ALD group and 1 Mid-level PAT contract, execute and load contract, verify contract fed_Standard_Fee schedule change
-@ PAT Business Testcases_IN
+@PATBusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
 Feature: PAT Business Testcases_IN

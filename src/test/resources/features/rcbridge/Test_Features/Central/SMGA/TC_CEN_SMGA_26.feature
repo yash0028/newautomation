@@ -7,7 +7,7 @@ Feature: SMGA Business Testcases_IN
   @TC_CEN_SMGA_IN_26
   @Manual
   @User_Interface
-  @UAT_Automation 
+  @UAT_Automation_Batch1
   Scenario Outline: TC_CEN_SMGA_IN_26 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -64,8 +64,7 @@ Feature: SMGA Business Testcases_IN
     
     #NDB Check
     
-    #Add provider with Make a correction - USING MPIN and TIN 
-    
+    #Add provider with Make a correction - USING MPIN and TIN     
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
