@@ -1,28 +1,29 @@
 # Last updated on
-# Author commercial with 1 ALD group and 1 Mid-level PAT contract, execute and load contract, verify contract fed_Standard_Fee schedule change
-@PATBusinessTestcases_IN
+@SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_IN
-  @TC_CEN_PAT_IN_13
+Feature: SPGA Business Testcases_IN
+
+  @Test3
   @Manual
   @User_Interface
-  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+  Scenario Outline: Test3 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-    And I enter PES Responses
+    And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for PAT Contract
+    And I enter Practice Locations for SMGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
+    And I enter HBPs Red Door
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -33,7 +34,7 @@ Feature: PAT Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-     #Final capture
+    #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -45,25 +46,21 @@ Feature: PAT Business Testcases_IN
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
     #Activate
     And I Set Status as Active
 
+    #CMD Check
+#    When I have entered the CMD dashboard URL
+#    When I search for Contract
+#    #Then Validate Contract "71926900" status and request type "InstallContract"
 
-     #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
-    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+    #NDB Checking
 
-
-
-      #NDB Check
-    #Draft Amendment
-    #Draft Amandament
+	#Draft Amandament
     And I select the contract
     And I click on Create Amendment
     And I enter title
@@ -89,11 +86,10 @@ Feature: PAT Business Testcases_IN
 
 
 	#Amendment CMD Checking
-    #Amendment Final Capture
-    #Amendment CMD Check
-    #NDB Check
+
 
 
     Examples:
-      | site          | paperType     | TCName           |
-      | central uhn   | PAT           | TC_CEN_PAT_IN_13 |
+      | site          | paperType     | TCName|
+      | central uhn   | SMGA          | TC_CEN_SMGA_IN_03|
+

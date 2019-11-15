@@ -4,15 +4,15 @@
 @iterationUnknown
 Feature: SMGA Business Testcases_IN
   
-  @TC_CEN_SMGA_IN_26
+  @TC_SE_SMGA_AR_21
   @Manual
-  @User_Interface
-  @UAT_Automation_Batch1
-  Scenario Outline: TC_CEN_SMGA_IN_26 - [RL0] Author SMGA contract in <site>  
+  @User_Interface 
+  @UAT_Automation_Batch1 
+  Scenario Outline: TC_SE_SMGA_AR_08 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -64,11 +64,11 @@ Feature: SMGA Business Testcases_IN
     
     #NDB Check
     
-    #Add provider with Make a correction - USING MPIN and TIN     
+    #Add provider with Make a correction.   
+    
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    #Select 'Select providers based on individual TIN , MPIN and NPI" and click on Next.
     And I add provider using TIN
     And I select Providers
     And I enter Provider Start Date
@@ -82,5 +82,5 @@ Feature: SMGA Business Testcases_IN
     
     Examples:    
        | site          | paperType     | TCName|
-       | central uhn   | SMGA          | TC_CEN_SMGA_IN_26|
+       | southeast uhn   | SMGA          | TC_SE_AR_IN_21|
     
