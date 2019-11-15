@@ -189,7 +189,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         }
     }
 
-    public void editStatus(String option,String Location){
+    public void editStatus(String option,String Location,HashMap<String,String> hmap){
         int count=1;
         boolean foundEditStatus =false;
         while(count<=20){
@@ -199,9 +199,11 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                 break;
             }
             if(Location.equals("Draft")){
+                waitTillClickable(this.elements.initialTransaction);
                 assert click("Initial Transaction",this.elements.initialTransaction);
             }else if(Location.equals("Amendment")){
-                assert click("Amendment", this.elements.Amendment);
+                waitTillClickable(getAmendmentLink(hmap.get("Amendment Title")));
+                assert click("Amendment",getAmendmentLink(hmap.get("Amendment Title")));
             }
 
             waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(),By.xpath(elements.message)));
