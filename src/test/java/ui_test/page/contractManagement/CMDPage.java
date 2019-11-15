@@ -205,8 +205,10 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
         assert clickSearchButton();
     }
 
-    public void ValidateConract(String contract,String reqtype)
+    public void ValidateConract()
     {
+        String contract= ExariSteps.hmap.get("Contract Number");
+        String reqtype="InstallContract";
        String status= driver.findElement(By.xpath("//td[contains(text(),'"+contract+"')]/../td[contains(text(),'"+reqtype+"')]/../td[7]/span")).getText();
     System.out.println(status);
        String requesttype= driver.findElement(By.xpath("//td[contains(text(),'"+contract+"')]/../td[contains(text(),'"+reqtype+"')]")).getText();
