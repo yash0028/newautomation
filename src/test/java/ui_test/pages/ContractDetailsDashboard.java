@@ -54,10 +54,15 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             getActivityManager(false, tierApproval);
         }
     }
-    public void getActiveWorkFlow(boolean tierApproval,String location,HashMap<String,String> hmap) {
+    public boolean getActiveWorkFlow(boolean tierApproval,String location,HashMap<String,String> hmap) {
         int count=1;
         boolean foundActiveWorkFlow =false;
-        while(count<=10){
+        boolean dontSkip = true;
+        while(count<=20){
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(getStatus("Approval Complete")))){
+                dontSkip=false;
+                break;
+            }
             if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.activeWorkFlow))){
                 if(click("Active Work Flow Link",elements.activeWorkFlowLink)){
                     foundActiveWorkFlow=true;
@@ -78,8 +83,13 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             IWebInteract.log.info("Retrying for Active Work Flow, Retry: {}",count);
             count++;
         }
-        Assert.assertTrue("Failed to get Active WorkFlow Link", foundActiveWorkFlow);
-        getActivityManager(false,tierApproval);
+        if(dontSkip){
+            Assert.assertTrue("Failed to get Active WorkFlow Link", foundActiveWorkFlow);
+            getActivityManager(false,tierApproval);
+        }else{
+            IWebInteract.log.info("[SKIPPED] Approvals, Status : Approval Complete");
+        }
+        return foundActiveWorkFlow;
     }
     public String getApproverType(String approvalType,boolean tierApproval){
         boolean foundApprovalType = false;
@@ -167,15 +177,16 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
     public void handleApprovals(String approvalType,boolean tierApproval,String location,HashMap<String,String> hmap) {
         DASHBOARD_URL = getDriver().getCurrentUrl();
-        getActiveWorkFlow(tierApproval,location,hmap);
-        if(startApprovalFlow(approvalType,tierApproval,location,hmap)==null){
-            switchLogin(configGetOptionalString("exari.username").orElse(""));
-        }else{
-            IWebInteract.log.info("[SKIPPED] {}",approvalType);
-            assert click("Back",this.elements.backbutton);
-            assert waitForPageLoad();
+        if(getActiveWorkFlow(tierApproval,location,hmap)){
+            if(startApprovalFlow(approvalType,tierApproval,location,hmap)==null){
+                switchLogin(configGetOptionalString("exari.username").orElse(""));
+            }else{
+                IWebInteract.log.info("[SKIPPED] {}",approvalType);
+                assert click("Back",this.elements.backbutton);
+                assert waitForPageLoad();
+            }
+            CHECK_APPROVAL_ALREADY_COMPLETED = true;
         }
-        CHECK_APPROVAL_ALREADY_COMPLETED = true;
     }
 
     public void editStatus(String option,String Location){
@@ -281,7 +292,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         assert click("Select Supporting Document Type",this.elements.supportingDocumentType);
 
     }
-
+    public String getStatus(String answer){
+        return "//span[contains(.,'Status')]/following-sibling::span/div[contains(.,'"+answer+"')]";
+    }
     public WebElement getAmendmentLink(String answer){
         return findElement(getDriver(), new String[]{"xpath","//span[contains(.,'"+answer+"')]"});
     }
