@@ -20,7 +20,8 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void selectPaymentAppendix(HashMap<String,String> hmap)
     {
-        assert click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
+        if(hmap.containsKey("High Fee Schedule than Default"))
+            assert click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         pause(2);
         waitForPageLoad(60);
@@ -139,7 +140,10 @@ public class PaymentAppendix extends GenericInputPage {
         assert waitForPageLoad();
     }
 
-    public void enterPaymentAppendixinAmendmentsFC(HashMap<String, String> hmap) {
+    public void enterPaymentAppendixinAmendmentsFC(HashMap<String, String> hmap)
+    {
+        assert clickNext();
+        assert waitForPageLoad();
     }
 
     private static class PageElements  extends AbstractPageElements {

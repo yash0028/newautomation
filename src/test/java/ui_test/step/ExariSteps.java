@@ -11,8 +11,10 @@ import io.cucumber.datatable.DataTable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
+import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.pages.BasePage;
+import ui_test.pages.InitialTransaction;
 import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
 import util.configuration.IConfigurable;
@@ -24,12 +26,13 @@ import java.util.HashMap;
 
 public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster, IContractFlowLoader {
     private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
-
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
     String home = System.getProperty("user.dir");
+    Path contractDetailsTextFile=Paths.get(home,"src","test","resources","support","hive","textFiles","contractDetails.txt");
     Path contractFlowPath = Paths.get(home, "src", "test", "resources", "support", "hive", "dataMap");
     private ProtoStep protoStep;
     private BasePage basePage;
+
 
     private ContractFlow contractFlow;
     public GenericSitePage sitePage;
@@ -53,7 +56,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void loginSitePage(String siteOption) {
         initializeObj();
         this.protoStep.loginHome();
-        this.protoStep.setSite(siteOption);
+        //this.protoStep.setSite(siteOption);
     }
 
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
@@ -115,7 +118,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I preview Provider Details$")
     public void reviewProviderDetails() {
-        basePage.getProviderDetails().previewProfile();
+        basePage.getProviderDetails().previewProfile(hmap);
 
     }
 
@@ -243,23 +246,62 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I Start Process for Initial Transaction$")
     public void initialTransaction() {
         basePage.getInitialTransaction().initialTransaction(hmap);
+        if(!hmap.get("Tier").equals("")){
+            if(hmap.get("Tier").equals("1")){
+                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""),true,"Draft",hmap);
+                initializeObj();
+            }else
+            {
+                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier23E_approval_type").orElse(""),true,"Draft",hmap);
+                initializeObj();
+            }
+        }
+    }
+    @And("^I Start Process for Initial Transaction in Amendment$")
+    public void initialTransactionAmendment() {
+        basePage.getInitialTransaction().initialTransaction(hmap);
+        if(!hmap.get("Tier").equals("")){
+            if(hmap.get("Tier").equals("1")){
+                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""),true,"Amendment",hmap);
+                initializeObj();
+            }else
+            {
+                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier23E_approval_type").orElse(""),true,"Amendment",hmap);
+                initializeObj();
+            }
+        }
+    }
+    @And("^I Set Status as Final Pending QA in Amendment$")
+    public void finalPendingQAAmendment() {
+        basePage.getContractDetailsDashboard().editStatus("Final Pending QA","Amendment");
+    }
+    @And("^I Approve HBP Red Door in Amendment$")
+    public void approveHBPRedDoorAmendment() {
+        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.red_door_approval_type").orElse(""),false,"Amendment",hmap);
+        initializeObj();
+    }
+
+    @And("^I Approve Payment Appendix in Amendment$")
+    public void approvePaymentAppendixAmendment() {
+        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.non_std_approval_type").orElse(""),false,"Amendment",hmap);
+        initializeObj();
     }
 
     @And("^I Approve HBP Red Door$")
     public void approveHBPRedDoor() {
-        basePage.getContractDetailsDashboard().handleApprovals("Red Door Alternates");
+        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.red_door_approval_type").orElse(""),false,"Draft",hmap);
         initializeObj();
     }
 
     @And("^I Approve Payment Appendix$")
     public void approvePaymentAppendix() {
-        basePage.getContractDetailsDashboard().handleApprovals("Non Standard Fee Schedule");
+        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.non_std_approval_type").orElse(""),false,"Draft",hmap);
         initializeObj();
     }
 
     @And("^I Set Status as Final Pending QA$")
     public void finalPendingQA() {
-        basePage.getContractDetailsDashboard().editStatus("Final Pending QA");
+        basePage.getContractDetailsDashboard().editStatus("Final Pending QA","Draft");
 
     }
 
@@ -277,6 +319,15 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I enter Provider Signatory$")
     public void providerSignatory() {
         basePage.getProviderSignatory().ProviderSignatory(hmap);
+    }
+    @And("^I enter Provider Signatory in Amendment$")
+    public void Providertitle() {
+        basePage.getProviderSignatory().ProviderTitle(hmap);
+    }
+
+    @And("^I enter Our Signatory in Amendment$")
+    public void OurSignatorytitle() {
+        basePage.getOurSignatory().ourSignatorytitle(hmap);
     }
 
     @And("^I enter Our Signatory$")
@@ -305,7 +356,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I Set Status as Active$")
     public void setStatusActive() {
-        basePage.getContractDetailsDashboard().editStatus("Active");
+        basePage.getContractDetailsDashboard().editStatus("Active","Draft");
+
+    }
+    @And("^I Set Status as Active in Amendment$")
+    public void setStatusActiveAfterAmendment() {
+        basePage.getContractDetailsDashboard().editStatus("Active","Amendment");
 
     }
 
@@ -394,9 +450,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
 
     @And("I capture Contract Number")
-    public void iCaptureContractNumber() {
-        basePage.getContractDetailsDashboard().captureContractNumber(hmap);
-
+    public void iCaptureContractNumber()
+    {
+        basePage.getContractDetailsDashboard().captureContractNumber(hmap,contractDetailsTextFile.toString());
     }
 
     @And("I create supporting document")
@@ -428,8 +484,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @When("^I am logged into Exari Dev$")
-    public void I_am_Logged_intoExari() {
-        String url = configGetOptionalString("exari.prodURL").orElse("");
+    public void I_am_Logged_intoExari()
+    {
+        String url = configGetOptionalString("exari.stageURL").orElse("");
         getDriver().get(url);
         basePage.waitForPageLoad();
     }
@@ -476,6 +533,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void enterAmendmentSelection() {
         basePage.getAmendmentSelection().selectAmendmentTobeUsed(hmap);
     }
+
 
     @And("I select Amendments needed in Amendment Selection")
     public void selectAmendmentsNeeded() {
@@ -563,8 +621,59 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getSteerage().addLanguage(hmap);
     }
 
+
+
+    @And("I enter Amendments Page to amend Payment Appendix")
+    public void iEnterAmendmentsPageToAmendPaymentAppendix()
+    {
+        basePage.getAmendements().amendPaymentAppendix(hmap);
+    }
+
+    @And("I enter Payment Appendix in Amendments to replace Payment Appendix")
+    public void iEnterPaymentAppendixInAmendmentsToReplacePaymentAppendix()
+    {
+        basePage.getPaymentAppendix().replacePaymentAppendixInAmendments(hmap);
+    }
+
+    @And("I select fee schedule id in Amendments")
+    public void iSelectFeeScheduleIdInAmendments()
+    {
+        basePage.getPaymentAppendix().enterPaymentAppenidix(hmap);
+        basePage.getPaymentAppendix().verifyFeeScheduleID();
+    }
+
+    @And("I enter OurSignatory")
+    public void iEnterOurSignatoryinAmendments()
+    {
+        basePage.getOurSignatory().ourSignatorytitle(hmap);
+    }
+
+    @And("I select Unilateral Contract in Amendments")
+    public void iSelectUnilateralContractInAmendments()
+    {
+        basePage.getAmendements().selectUnilateralContract(hmap);
+    }
+
+    @And("I select Provider Type Radio Button in Amendments")
+    public void iSelectProviderTypeRadioButtonInAmendments()
+    {
+        basePage.getAmendements().selectproviderTypeInAmendments(hmap);
+    }
+
+    @And("I enter Opt-out in Amendments")
+    public void iEnterOptOutInAmendments()
+    {
+        basePage.getAmendements().enterOptOut(hmap);
+    }
+
     private void initializeObj() {
         protoStep = new ProtoStep(getDriver());
         basePage = new BasePage();
+    }
+
+    @And("I enter Payment Appendix in Amendments FC")
+    public void iEnterPaymentAppendixInAmendmentsFC()
+    {
+        basePage.getPaymentAppendix().enterPaymentAppendixinAmendmentsFC(hmap);
     }
 }

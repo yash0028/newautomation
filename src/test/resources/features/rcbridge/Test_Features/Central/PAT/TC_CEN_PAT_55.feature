@@ -1,14 +1,14 @@
-#Create a Contract (mgaccent)- Author commercial with 1 Mid-level PCP for PAT contract, execute and load contract, verify contract_Standard_Add Medicare
+#Author commercial with 1 Mid-level PCP for PAT contract, execute and load contract, verify contract fed_Non standard_Add Medicare
 # Last updated on
 @PATBusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
 Feature: PAT Business Testcases_IN
 
-  @TC_CEN_PAT_IN_04
+  @TC_CEN_PAT_IN_55
   @Manual
   @User_Interface
-  Scenario Outline: TC_CEN_PAT_IN_04 - [RL0] Author PAT contract in <site>
+  Scenario Outline: TC_CEN_PAT_IN_55 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
@@ -96,5 +96,5 @@ Feature: PAT Business Testcases_IN
 
     Examples:
       | site          | paperType     | TCName|
-      | central uhn   | PAT          | TC_CEN_PAT_IN_04|
+      | central uhn   | PAT          | TC_CEN_PAT_IN_55|
 
