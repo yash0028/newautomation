@@ -44,7 +44,7 @@ public class ProviderSignatory extends GenericInputPage {
         private WebElement CounterpartySignatoryDate;
         @FindBy(xpath = "//input[contains(@name,'CounterpartySignatoryEmail')]")
         private WebElement email;
-        @FindBy(xpath = "//div[@class='AnswerAboveAndBelow interview-item__answer']/span/input")
+        @FindBy(xpath = "//input[contains(@name,'Name')]")
         private WebElement name;
 
 
