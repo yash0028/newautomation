@@ -198,7 +198,7 @@ public class ProviderRoaster extends GenericInputPage
         
     }
     public void enterTIN(HashMap<String,String>hmap){
-        assert sendKeys("TIN",elements.enterTIN,hmap.get("TIN"));
+        assert sendKeys("TIN",elements.enterTIN,hmap.get("TIN_FC"));
         assert clickNext();
         assert waitForPageLoad();
     }
