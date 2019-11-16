@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,7 +20,12 @@ public class WizardComplete extends GenericInputPage {
 
     public void completeWizard(HashMap<String, String> hmap) {
         waitTillClickable(elements.completeWizardElement, 10);
-        click("Complete Wizard", this.elements.completeWizardElement);
+        try {
+            this.elements.completeWizardElement.click();
+            IWebInteract.log.trace("clicked on {}", "Complete Wizard");
+        } catch (Exception e) {
+            Assert.fail("click failed for Complete Wizard");
+        }
         assert waitForPageLoad();
         IWebInteract.log.info("Contract Link : {}", getDriver().getCurrentUrl());
     }
