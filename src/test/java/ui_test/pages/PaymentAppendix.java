@@ -34,7 +34,6 @@ public class PaymentAppendix extends GenericInputPage {
     //For SPGA contracts
     public void enterFeeScheduleID(HashMap<String, String> hmap) {
 
-        pause(3);
         if(CommonMethods.isElementPresent(getDriver(),By.xpath(getFeeSchedule("All Payer?")))){
             assert sendKeys("All Payer",getFeeScheduleElement("All Payer?"), hmap.get("FS All Payer"));
         }
