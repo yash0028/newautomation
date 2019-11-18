@@ -187,21 +187,28 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public void handleApprovals(String approvalType, boolean tierApproval, String location, HashMap<String, String> hmap) {
-        DASHBOARD_URL = getDriver().getCurrentUrl();
-        if (getActiveWorkFlow(tierApproval, location, hmap)) {
-            if (startApprovalFlow(approvalType, tierApproval, location, hmap).equals("")) {
-                switchLogin(configGetOptionalString("exari.username").orElse(""));
-            } else {
-                IWebInteract.log.info("[SKIPPED] {}", approvalType);
-                assert click("Back", this.elements.backbutton);
-                assert waitForPageLoad();
+        waitTillVisible(elements.headerTabHome);
+        if (isVisible(elements.headerTabHome)) {
+            highlight(elements.headerTabHome);
+            DASHBOARD_URL = getDriver().getCurrentUrl();
+            if (getActiveWorkFlow(tierApproval, location, hmap)) {
+                if (startApprovalFlow(approvalType, tierApproval, location, hmap).equals("")) {
+                    switchLogin(configGetOptionalString("exari.username").orElse(""));
+                } else {
+                    IWebInteract.log.info("[SKIPPED] {}", approvalType);
+                    assert click("Back", this.elements.backbutton);
+                    assert waitForPageLoad();
+                }
+                CHECK_APPROVAL_ALREADY_COMPLETED = true;
             }
-            CHECK_APPROVAL_ALREADY_COMPLETED = true;
+        } else {
+            IWebInteract.log.error("Failed to get Dashboard");
         }
     }
 
     public void editStatus(String option, String Location, HashMap<String, String> hmap) {
         int count = 1;
+        boolean activated = false;
         boolean foundEditStatus = false;
         while (count <= 20) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.editStatusButton))) {
@@ -233,6 +240,20 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         //dont give assert for close.
         click("Close", this.elements.close);
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        if(option.equals("Active")){
+            for( count = 0; count<10 ; count++){
+                if (CommonMethods.isElementPresent(getDriver(), By.xpath(getStatus("Active")))) {
+                    activated = true;
+                    break;
+                }else{
+                    refreshPage();
+                    pause(3);
+                }
+            }
+            if(!activated){
+                Assert.fail("Contract is activation failed.");
+            }
+        }
     }
 
     public void finalCapture() {
@@ -398,6 +419,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private WebElement supportingDocumentType;
         @FindBy(xpath = "//div/span[contains(.,' in Task App')]")
         private WebElement inTaskApp;
+        @FindBy(xpath = "//div[@title='Home']")
+        public WebElement headerTabHome;
 
         private String error = "//div[contains(@class,'alf-error-header')]";
         private String spinner = "//mat-progress-spinner";
