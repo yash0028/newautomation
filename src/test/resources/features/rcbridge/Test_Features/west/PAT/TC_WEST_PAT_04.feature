@@ -1,9 +1,9 @@
 #Create a Contract (mgaccent)- Author commercial with 1 Mid-level PCP for PAT contract, execute and load contract, verify contract_Standard_Add Medicare
 # Last updated on
-@PATBusinessTestcases_IN
+@PATBusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_IN
+Feature: PAT Business Testcases_OR
 
   @TC_WEST_PAT_OR_04
   @Manual

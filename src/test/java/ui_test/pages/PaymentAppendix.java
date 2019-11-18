@@ -34,44 +34,14 @@ public class PaymentAppendix extends GenericInputPage {
     //For SPGA contracts
     public void enterFeeScheduleID(HashMap<String, String> hmap) {
 
-//        if(isVisible(elements.feeSchduleID))
-//        {
-//            assert sendKeys("FeeSchdeuleID", this.elements.feeSchduleID, hmap.get("FS All Payer"));
-//        }
-//        if(isVisible(elements.feeSchduleIDPhysician)){
-//            assert sendKeys("FeeSchedule ID Physician", this.elements.feeSchduleIDPhysician, hmap.get("FS All Payer Physician"));
-//        }
-//        if (isVisible(elements.feeSchduleIDNonPhysician)){
-//            assert sendKeys("FeeSchedule ID Non Physician", this.elements.feeSchduleIDNonPhysician, hmap.get("FS All Payer Non Physician"));
-//        }
-
-        switch (hmap.get("Paper Type"))
-        {
-            case "SPGA":
-            {    assert sendKeys("FeeSchdeuleID", this.elements.feeSchduleID, hmap.get("FS All Payer"));
-                 break;
-
-            }
-
-            case "MGA":
-            {
-                assert sendKeys("FeeSchedule ID Physician", this.elements.feeSchduleIDPhysician, hmap.get("FS All Payer Physician"));
-                assert sendKeys("FeeSchedule ID Non Physician", this.elements.feeSchduleIDNonPhysician, hmap.get("FS All Payer Non Physician"));
-                break;
-            }
-            case "SMGA": {
-                assert sendKeys("FeeSchedule ID Physician", this.elements.feeSchduleIDPhysician, hmap.get("FS All Payer Physician"));
-                assert sendKeys("FeeSchedule ID Non Physician", this.elements.feeSchduleIDNonPhysician, hmap.get("FS All Payer Non Physician"));
-                break;
-            }
-            case "SPA": {
-                assert sendKeys("FeeSchdeuleID", this.elements.feeSchduleID, hmap.get("FS All Payer"));
-                break;
-            }
-            case "PAT": {
-                assert sendKeys("FeeSchdeuleID", this.elements.feeSchduleID, hmap.get("FS All Payer"));
-                break;
-            }
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getFeeSchedule("All Payer?")))){
+            assert sendKeys("All Payer",getFeeScheduleElement("All Payer?"), hmap.get("FS All Payer"));
+        }
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getFeeSchedule("All Payer for Physicians")))){
+            assert sendKeys("All Payer for Physicians",getFeeScheduleElement("All Payer for Physicians"), hmap.get("FS All Payer Physician"));
+        }
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getFeeSchedule("All Payer for Non-Physicians")))){
+            assert sendKeys("All Payer for Non-Physicians",getFeeScheduleElement("All Payer for Non-Physicians"), hmap.get("FS All Payer Non Physician"));
         }
         assert clickNext();
         assert waitForPageLoad();
@@ -134,14 +104,15 @@ public class PaymentAppendix extends GenericInputPage {
         assert clickNext();
         assert waitForPageLoad();
     }
-
+    public WebElement getFeeScheduleElement(String allpayerType) {
+        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'"+allpayerType+"')]/../../../..//input[contains(@name,'AllPayer_Fee_Schedule_Name')]"});
+    }
+    public String getFeeSchedule(String allpayerType) {
+        return "//label/b[contains(.,'"+allpayerType+"')]/../../../..//input[contains(@name,'AllPayer_Fee_Schedule_Name')]";
+    }
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name']")
         private WebElement feeSchduleID;
-        @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name']")
-        private WebElement feeSchduleIDPhysician;
-        @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name_NPPA']")
-        private WebElement feeSchduleIDNonPhysician;
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#MedicareAdvantage_Fee_Schedule_Name']")
         private WebElement feeSchduleIDMedicareSPGA;
         @FindBy(xpath = "//input[contains(@value,'Advantage for Physician')]")
