@@ -114,6 +114,18 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                 }
                 return "";
     }
+    public String updateApprovalType(String approvalType, boolean tierApproval , String approverType){
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getMenuXpath(approvalType,approverType)))){
+            return approvalType;
+        }else{
+            if(approvalType.contains("Tier 1")){
+                return approvalType.replaceFirst("Tier 1","Tier 1 ");
+            }else if(approvalType.contains("Tier 23E")){
+                return approvalType.replaceFirst("Tier 23E","Tier 23E ");
+            }
+        }
+        return "";
+    }
     public String getApproverType(String approvalType, boolean tierApproval) {
         boolean foundApprovalType = false;
         boolean completedApprovalType = false;
@@ -171,7 +183,10 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
 
     }
 
-    public void doCaim(String approvalType, String approverType) {
+    public void doCaim(String approvalType, String approverType, boolean tierApproval) {
+        if(tierApproval){
+            approvalType = updateApprovalType(approvalType, tierApproval , approverType);
+        }
         assert click("Open Task", getMenu(approvalType, approverType));
         assert click("View Task", elements.viewtask);
         waitTillClickable(elements.claimtask);
@@ -196,7 +211,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                 }
                 getActiveWorkFlow(tierApproval, location, hmap);
             }
-            doCaim(approvalType, approverType);
+            doCaim(approvalType, approverType, tierApproval);
             assert click("Back", this.elements.backbutton);
             assert waitForPageLoad();
             getActivityManager(false, tierApproval);
@@ -372,6 +387,10 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
 
     public WebElement getMenu(String approvalType, String approver) {
         return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')]//div[contains(@filename,'" + approvalType + " - " + approver + "')][6]/div/button"});
+
+    }
+    public String getMenuXpath(String approvalType, String approver) {
+        return "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')]//div[contains(@filename,'" + approvalType + " - " + approver + "')][6]/div/button";
 
     }
 
