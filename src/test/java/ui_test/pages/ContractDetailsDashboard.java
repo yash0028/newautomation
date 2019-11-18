@@ -101,7 +101,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public String getApproverType(String approvalType, boolean tierApproval) {
         boolean foundApprovalType = false;
         boolean completedApprovalType = false;
-        String approverType = null;
+        String approverType = "";
         for (int count = 1; count <= taskrows(); count++) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType)))) {
                 String[] title = getTilte(count, approvalType).getAttribute("title").split("-");
@@ -128,6 +128,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             IWebInteract.log.info("[COMPLETED] {} Approval", approvalType);
         }
         CHECK_APPROVAL_ALREADY_COMPLETED = false;
+        System.out.println("Approver Type: "+approverType);
         return approverType;
     }
 
@@ -189,7 +190,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public void handleApprovals(String approvalType, boolean tierApproval, String location, HashMap<String, String> hmap) {
         DASHBOARD_URL = getDriver().getCurrentUrl();
         if (getActiveWorkFlow(tierApproval, location, hmap)) {
-            if (startApprovalFlow(approvalType, tierApproval, location, hmap) == null) {
+            if (startApprovalFlow(approvalType, tierApproval, location, hmap).equals("")) {
                 switchLogin(configGetOptionalString("exari.username").orElse(""));
             } else {
                 IWebInteract.log.info("[SKIPPED] {}", approvalType);
