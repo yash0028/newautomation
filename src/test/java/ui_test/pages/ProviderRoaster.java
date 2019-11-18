@@ -41,6 +41,8 @@ public class ProviderRoaster extends GenericInputPage {
 
     public void downloadCurrentRoster(HashMap<String, String> hmap) {
         assert click("Click here to Download Provider Roster", elements.downloadProviderRoster);
+        waitForPageLoad(120);
+        pause(5);
         String findFileName = elements.downloadProviderRoster.getAttribute("href");
         String fileName = findFileName.substring(findFileName.lastIndexOf('=') + 1);
         fileName = fileName.replace("%20", " ");
