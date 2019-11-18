@@ -367,19 +367,19 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public WebElement getTilte(int count, String approvalType) {
-        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')][" + count + "]//span[contains(@title,'" + approvalType + "')]"});
+        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-row')][" + count + "]//span[contains(@title,'" + approvalType + "')]"});
     }
 
     public String getTilteXpath(int count, String approvalType) {
-        return "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')][" + count + "]//span[contains(@title,'" + approvalType + "')]";
+        return "//div[contains(@class,'adf-datatable-row')][" + count + "]//span[contains(@title,'" + approvalType + "')]";
     }
 
     public WebElement getStatus(int count, String approvalType) {
-        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')][" + count + "]//div[contains(@filename,'" + approvalType + "')][4]/div/div"});
+        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-row')][" + count + "]//div[contains(@filename,'" + approvalType + "')][4]/div/div"});
     }
 
     public WebElement getMenu(String approvalType, String approver) {
-        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')]//div[contains(@filename,'" + approvalType + " - " + approver + "')][6]/div/button"});
+        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-row')]//div[contains(@filename,'" + approvalType + " - " + approver + "')][6]/div/button"});
 
     }
 
