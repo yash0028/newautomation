@@ -102,35 +102,27 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         }
         return foundActiveWorkFlow;
     }
-    public boolean CheckIfTileExist(String approvalType, boolean tierApproval , int count){
-            if(tierApproval){
-                //check for normal
+    public String updateApprovalType(String approvalType, boolean tierApproval , int count){
                 if(CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType)))){
-                    return true;
+                    return approvalType;
                 }else{
                         if(approvalType.contains("Tier 1")){
-                            if(CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType.replaceFirst("Tier 1","Tier 1 "))))){
-                                return true;
-                            }
-
+                            return approvalType.replaceFirst("Tier 1","Tier 1 ");
                         }else if(approvalType.contains("Tier 23E")){
-                            if(CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType.replaceFirst("Tier 23E","Tier 23E "))))){
-                                return true;
-                            }
+                            return approvalType.replaceFirst("Tier 23E","Tier 23E ");
                         }
                 }
-            }else if(CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType)))){
-                return true;
-            }
-            return false;
+                return "";
     }
     public String getApproverType(String approvalType, boolean tierApproval) {
         boolean foundApprovalType = false;
         boolean completedApprovalType = false;
         String approverType = "";
         for (int count = 1; count <= taskrows(); count++) {
-            //if title exist
-            if (CheckIfTileExist(approvalType, tierApproval , count)) {
+            if(tierApproval){
+                approvalType = updateApprovalType(approvalType, tierApproval , count);
+            }
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType)))) {
                 String[] title = getTilte(count, approvalType).getAttribute("title").split("-");
                 if (getStatus(count, approvalType).getAttribute("title").equals("Completed")) {
                     IWebInteract.log.info("[Task {}] : Discarded, Type : {}, Approver : {}, Status : Completed", count, approvalType, title[1].trim());
@@ -367,19 +359,19 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public WebElement getTilte(int count, String approvalType) {
-        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-row')][" + count + "]//span[contains(@title,'" + approvalType + "')]"});
+        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')][" + count + "]//span[contains(@title,'" + approvalType + "')]"});
     }
 
     public String getTilteXpath(int count, String approvalType) {
-        return "//div[contains(@class,'adf-datatable-row')][" + count + "]//span[contains(@title,'" + approvalType + "')]";
+        return "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')][" + count + "]//span[contains(@title,'" + approvalType + "')]";
     }
 
     public WebElement getStatus(int count, String approvalType) {
-        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-row')][" + count + "]//div[contains(@filename,'" + approvalType + "')][4]/div/div"});
+        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')][" + count + "]//div[contains(@filename,'" + approvalType + "')][4]/div/div"});
     }
 
     public WebElement getMenu(String approvalType, String approver) {
-        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-row')]//div[contains(@filename,'" + approvalType + " - " + approver + "')][6]/div/button"});
+        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')]//div[contains(@filename,'" + approvalType + " - " + approver + "')][6]/div/button"});
 
     }
 
