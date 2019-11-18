@@ -119,7 +119,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         }
         if (!tierApproval) {
             Assert.assertTrue("Failed to Find " + approvalType + " in Activity Manager", foundApprovalType || completedApprovalType);
-        } else if (!foundApprovalType && !completedApprovalType) {
+        } else if (!(foundApprovalType ||completedApprovalType)) {
             approverType = "TierApprovalNotRequired";
         }
         if (completedApprovalType && CHECK_APPROVAL_ALREADY_COMPLETED) {
