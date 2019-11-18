@@ -50,7 +50,7 @@ Feature: SMGA Business Testcases_IN
     And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
-    Then I Complete Wizard
+#    Then I Complete Wizard
     
     #Activate
     And I Set Status as Active
