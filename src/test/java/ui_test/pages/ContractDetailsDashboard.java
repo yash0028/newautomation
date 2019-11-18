@@ -128,7 +128,6 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             IWebInteract.log.info("[COMPLETED] {} Approval", approvalType);
         }
         CHECK_APPROVAL_ALREADY_COMPLETED = false;
-        System.out.println("Approver Type: "+approverType);
         return approverType;
     }
 
