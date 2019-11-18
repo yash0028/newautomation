@@ -1,8 +1,8 @@
 # Last updated on 
-@SPGABusinessTestcases_IN
+@SMGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_IN
+Feature: SMGA Business Testcases_IN
   
   @TC_CEN_SMGA_IN_08
   @Manual

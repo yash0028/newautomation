@@ -1,8 +1,8 @@
 # Last updated on
-@PATBusinessTestcases_IN
+@PATBusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_IN
+Feature: PAT Business Testcases_OR
 
   @TC_WEST_PAT_OR_60
   @Manual

@@ -58,7 +58,7 @@ Feature: SPGA Business Testcases_IN
     #CMD Check
     #When I have entered the CMD dashboard URL
     #When I search for Contract
-    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+    #Then Validate Contract
 
     
     #NDB Check

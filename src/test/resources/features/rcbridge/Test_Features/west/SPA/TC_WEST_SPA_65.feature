@@ -2,7 +2,7 @@
 @SPABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_IN
+Feature: SPA Business Testcases_OR
   @TC_WEST_SPA_OR_65
   @Manual
   @User_Interface

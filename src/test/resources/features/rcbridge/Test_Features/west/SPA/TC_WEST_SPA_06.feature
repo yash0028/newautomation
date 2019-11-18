@@ -1,9 +1,9 @@
 # Last updated on
-@SPABusinessTestcasesIN
+@SPABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_IN
-  @TC_CEN_SPA_IN_06
+Feature: SPA Business Testcases_OR
+  @TC_CEN_SPA_OR_06
   @Manual
   @User_Interface
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>

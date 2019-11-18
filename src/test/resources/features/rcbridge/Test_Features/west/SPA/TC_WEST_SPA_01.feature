@@ -1,8 +1,8 @@
 # Last updated on
-@SPABusinessTestcases_IN
+@SPABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_IN
+Feature: SPA Business Testcases_OR
   @TC_WEST_SPA_OR_01
   @Manual
   @User_Interface

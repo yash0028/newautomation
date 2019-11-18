@@ -1,5 +1,5 @@
 # Last updated on 
-@SPGABusinessTestcases_IN
+@SPGABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
 Feature: SPGA Business Testcases_OR
