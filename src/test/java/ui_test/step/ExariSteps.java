@@ -465,7 +465,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("I review supporting document")
-    public void rreviewSupportingDocuments() {
+    public void reviewSupportingDocuments() {
         basePage.getSupportingDocumentSummary().reviewSupportingDocument();
         basePage.getWizardComplete().completeWizard(hmap);
     }

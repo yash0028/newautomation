@@ -102,13 +102,35 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         }
         return foundActiveWorkFlow;
     }
+    public boolean CheckIfTileExist(String approvalType, boolean tierApproval , int count){
+            if(tierApproval){
+                //check for normal
+                if(CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType)))){
+                    return true;
+                }else{
+                        if(approvalType.contains("Tier 1")){
+                            if(CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType.replaceFirst("Tier 1","Tier 1 "))))){
+                                return true;
+                            }
 
+                        }else if(approvalType.contains("Tier 23E")){
+                            if(CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType.replaceFirst("Tier 23E","Tier 23E "))))){
+                                return true;
+                            }
+                        }
+                }
+            }else if(CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType)))){
+                return true;
+            }
+            return false;
+    }
     public String getApproverType(String approvalType, boolean tierApproval) {
         boolean foundApprovalType = false;
         boolean completedApprovalType = false;
         String approverType = "";
         for (int count = 1; count <= taskrows(); count++) {
-            if (CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType)))) {
+            //if title exist
+            if (CheckIfTileExist(approvalType, tierApproval , count)) {
                 String[] title = getTilte(count, approvalType).getAttribute("title").split("-");
                 if (getStatus(count, approvalType).getAttribute("title").equals("Completed")) {
                     IWebInteract.log.info("[Task {}] : Discarded, Type : {}, Approver : {}, Status : Completed", count, approvalType, title[1].trim());

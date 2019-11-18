@@ -19,6 +19,7 @@ public class WizardComplete extends GenericInputPage {
     }
 
     public void completeWizard(HashMap<String, String> hmap) {
+        pause(5);
         waitTillClickable(elements.completeWizardElement, 10);
         try {
             this.elements.completeWizardElement.click();
