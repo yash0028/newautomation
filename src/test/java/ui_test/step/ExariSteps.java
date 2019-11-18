@@ -56,7 +56,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void loginSitePage(String siteOption) {
         initializeObj();
         this.protoStep.loginHome();
-//        this.protoStep.setSite(siteOption);
+        this.protoStep.setSite(siteOption);
     }
 
     @Given("^I author a contract using the \"([^\"]*)\" flow$")
@@ -672,9 +672,14 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage = new BasePage();
     }
 
-    @And("I enter Payment Appendix in Amendments FC")
+    @And("I enter Payment Appendix in Amendments FinalCapture")
     public void iEnterPaymentAppendixInAmendmentsFC()
     {
         basePage.getPaymentAppendix().enterPaymentAppendixinAmendmentsFC(hmap);
+    }
+
+    @And("I enter Appendix 2 in Amendments FinalCapture")
+    public void iEnterAppendixInAmendmentsFC() {
+        basePage.getAppendix2().enterAppendix2FC();
     }
 }

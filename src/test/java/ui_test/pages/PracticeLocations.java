@@ -26,7 +26,7 @@ public class PracticeLocations extends GenericInputPage
 
         if(hmap.containsKey("Practice Location"))
         {
-            assert click("I select Practise Location",selectPracticeLocation(hmap.get("Practice Location")));
+            assert setCheckBox("I select Practise Location",selectPracticeLocation(hmap.get("Practice Location")),true);
         }
         assert clickNext();
         assert waitForPageLoad();

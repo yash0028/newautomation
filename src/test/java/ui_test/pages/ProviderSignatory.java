@@ -37,7 +37,7 @@ public class ProviderSignatory extends GenericInputPage {
             date = CommonMethods.formatDate(hmap.get("Provider Signatory Date"));
         }
         assert sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date);
-        assert sendKeys("Provider Signatory title", this.elements.name, hmap.get("Provider Signatory title"));
+        assert sendKeys("Provider Signatory title", this.elements.name, hmap.get("Provider our Signatory title"));
         assert clickNext();
         assert waitForPageLoad();
     }
@@ -47,7 +47,7 @@ public class ProviderSignatory extends GenericInputPage {
         private WebElement CounterpartySignatoryDate;
         @FindBy(xpath = "//input[contains(@name,'CounterpartySignatoryEmail')]")
         private WebElement email;
-        @FindBy(xpath = "//div[@class='AnswerAboveAndBelow interview-item__answer']/span/input")
+        @FindBy(xpath = "//input[contains(@name,'Name')]")
         private WebElement name;
 
 

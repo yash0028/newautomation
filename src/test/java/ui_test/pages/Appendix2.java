@@ -44,9 +44,12 @@ public class Appendix2 extends GenericInputPage {
     	
     }
 
+    public void enterAppendix2FC() {
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
     public WebElement getXPath(String answer){
         return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+answer+"')]"});
     }
-   
-
 }
