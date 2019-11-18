@@ -1,5 +1,5 @@
 # Last updated on
-@ SPA Business Testcases_IN
+@SPABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
 Feature: SPA Business Testcases_IN

@@ -1,8 +1,8 @@
 # Last updated on 
-@SPGABusinessTestcases_IN
+@SPGABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_IN
+Feature: SPGA Business Testcases_OR
   
   @TC_CEN_SPGA_OR_23
   @Manual
