@@ -10,18 +10,17 @@ import ui_test.util.AbstractPageElements;
 import java.util.HashMap;
 import java.util.List;
 
-public class RegulatoryAppendices extends GenericInputPage
-{
+public class RegulatoryAppendices extends GenericInputPage {
 
     private PageElements elements;
-    public RegulatoryAppendices(WebDriver driver)
-    {
+
+    public RegulatoryAppendices(WebDriver driver) {
         this.elements = new PageElements(driver);
 
     }
 
-    public void selectRegulatoryAppendix(HashMap<String,String> hmap) {
-        assert sendKeys("Send Data to egulatory Appendix",elements.clickOnBar,hmap.get("Regulatory Appendix"));
+    public void selectRegulatoryAppendix(HashMap<String, String> hmap) {
+        assert sendKeys("Send Data to egulatory Appendix", elements.clickOnBar, hmap.get("Regulatory Appendix"));
         pause(1);
         waitForPageLoad(60);
         assert click("Click Regulatory Appendix", elements.dropdown_selection.get(0));
@@ -29,10 +28,12 @@ public class RegulatoryAppendices extends GenericInputPage
         assert clickNext();
         assert waitForPageLoad();
     }
-    public WebElement regulatory(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+
+    public WebElement regulatory(String Name) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
     }
-    private static class PageElements  extends AbstractPageElements {
+
+    private static class PageElements extends AbstractPageElements {
 
         @FindBy(xpath = "//input[@type='search']")
         private WebElement clickOnBar;

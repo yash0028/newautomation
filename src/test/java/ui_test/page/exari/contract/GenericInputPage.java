@@ -15,6 +15,7 @@ public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
     PROTECTED VARIABLES
      */
     private final PageElements elements;
+
     /*
     CONSTRUCTOR
      */
@@ -41,10 +42,10 @@ public abstract class GenericInputPage implements IFactoryPage, IWebInteract {
      */
 
     public boolean clickNext() {
-        waitTillClickable(elements.navigationNext,20);
-        int count =0;
-        while(count<=10){
-            if(click("next button", elements.navigationNext)){
+        waitTillClickable(elements.navigationNext, 20);
+        int count = 0;
+        while (count <= 10) {
+            if (click("next button", elements.navigationNext)) {
                 return true;
             }
             pause(3);

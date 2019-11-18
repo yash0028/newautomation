@@ -10,8 +10,7 @@ import ui_test.util.AbstractPageElements;
 
 public class GroupSummary extends GenericInputPage {
 
-    public GroupSummary(WebDriver driver)
-    {
+    public GroupSummary(WebDriver driver) {
     }
 
     public void readInterviewSummary() {

@@ -15,15 +15,14 @@ public class AdditionalManuals extends GenericInputPage {
         this.elements = new PageElements(driver);
     }
 
-    public void applyToBenefitPlans(HashMap<String, String> hmap)
-    {
-        assert click("Additional Manuals Benefit Plans",selectAdditionalManuals(hmap.get("Benefit Plan")));
+    public void applyToBenefitPlans(HashMap<String, String> hmap) {
+        assert click("Additional Manuals Benefit Plans", selectAdditionalManuals(hmap.get("Benefit Plan")));
         assert clickNext();
         assert waitForPageLoad();
     }
 
-    public WebElement selectAdditionalManuals(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    public WebElement selectAdditionalManuals(String Name) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
     }
 
 

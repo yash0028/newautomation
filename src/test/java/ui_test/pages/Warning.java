@@ -9,18 +9,22 @@ import ui_test.util.AbstractPageElements;
 
 public class Warning extends GenericInputPage {
     private PageElements elements;
+
     public Warning(WebDriver driver) {
         this.elements = new PageElements(driver);
     }
-public void acknowledgment(){
-    assert setCheckBox("Check acknowledgment",this.elements.acknowledge, true);
-    assert clickNext();
-    assert waitForPageLoad();
-}
-public void warningMakeCorrection(){
-    assert clickNext();
-    assert waitForPageLoad();
-}
+
+    public void acknowledgment() {
+        assert setCheckBox("Check acknowledgment", this.elements.acknowledge, true);
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
+    public void warningMakeCorrection() {
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[contains(@value,'acknowledged')]")
         private WebElement acknowledge;

@@ -12,51 +12,52 @@ import java.util.HashMap;
 public class PES_Response extends GenericInputPage {
 
     private PageElements elements;
-    public PES_Response(WebDriver driver)
-    {
+
+    public PES_Response(WebDriver driver) {
         this.elements = new PageElements(driver);
     }
 
-    public void selectCounterParty(HashMap<String, String> hmap)
-    {
+    public void selectCounterParty(HashMap<String, String> hmap) {
 
-        try{
+        try {
             assert setCheckBox("CouterParty Name checkbox", counterPartyName(hmap.get("CounterPartyName")), true);
             assert clickNext();
             assert waitForPageLoad();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public void specifyApproachForCounter(HashMap<String, String> hmap)  {
 
-        try{
-            assert setCheckBox("Approach for Counter Party",counterPartyApproach(hmap.get("CounterPartyApproach")),true);
-            waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-            assert setCheckBox("CounterParty address checkbox",counterPartyAddress(hmap.get("CounterPartyAddress")),true);
+    public void specifyApproachForCounter(HashMap<String, String> hmap) {
+
+        try {
+            assert setCheckBox("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach")), true);
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            assert setCheckBox("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")), true);
             //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             assert clickNext();
             assert waitForPageLoad();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
 
-    public WebElement counterPartyName(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    public WebElement counterPartyName(String Name) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
     }
 
-    public WebElement counterPartyAddress(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    public WebElement counterPartyAddress(String Name) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
     }
 
-    public WebElement counterPartyApproach(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    public WebElement counterPartyApproach(String Name) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
     }
+
     private static class PageElements extends AbstractPageElements {
 
-        private String message= "//div[contains(@class,'DialogBox')]";
+        private String message = "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {
             super(context);

@@ -3,13 +3,11 @@ package ui_test.pages;
 import org.openqa.selenium.WebDriver;
 import ui_test.page.exari.contract.GenericInputPage;
 
-public class SuppotingDocumentSummary extends GenericInputPage
-{
+public class SuppotingDocumentSummary extends GenericInputPage {
     public SuppotingDocumentSummary(WebDriver driver) {
     }
 
-    public void reviewSupportingDocument()
-    {
+    public void reviewSupportingDocument() {
         assert clickNext();
         assert waitForPageLoad();
     }

@@ -7,7 +7,8 @@ public class Validation extends GenericInputPage {
 
     public Validation(WebDriver driver) {
     }
-    public void validation(){
+
+    public void validation() {
         assert clickNext();
         assert waitForPageLoad();
     }

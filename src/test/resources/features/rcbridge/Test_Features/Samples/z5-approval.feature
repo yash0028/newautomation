@@ -1,4 +1,4 @@
-# Last updated on 
+# Last updated on
 @US1407217
 @releaseUnknown
 @iterationUnknown
@@ -65,5 +65,5 @@ Feature: US1407217
 #    Then I Complete Wizard
 
     Examples:
-      | site          | paperType     | TCName       |
-      | central uhn   | SPGA          | approvaldemo |
+      | site        | paperType | TCName       |
+      | central uhn | SPGA      | approvaldemo |
