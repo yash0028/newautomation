@@ -79,7 +79,7 @@ public class ExcelReaderWriter {
         System.out.println("File Path: " + filePath);
         System.out.println("File Name: " + fileName);
         System.out.println("Sheet Name: " + sheetName);
-        File file = new File(filePath + "\\" + fileName);
+        File file = new File(filePath + File.separator + fileName);
         FileInputStream inputStream = new FileInputStream(file);
         Workbook workbook = null;
         String fileExtensionName = fileName.substring(fileName.indexOf("."));
