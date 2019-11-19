@@ -64,7 +64,12 @@ public class PaymentAppendix extends GenericInputPage {
         assert clickNext();
         assert waitForPageLoad();
     }
-
+    public void enterDataInPaymentAppendixForPAT(HashMap<String, String> hmap) {
+        assert sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician"));
+        //assert sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicarePAT, hmap.get("FS Id Amendments"));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
     public void paymentAppendixToInclude(HashMap<String, String> hmap) {
         assert click("Payment Appendix to include", elements.paymentAppendixToIncludePhysician);
         assert clickNext();

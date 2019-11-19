@@ -596,6 +596,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     }
 
+    @And("I enter Payment Appendix in Amendments for PAT contracts")
+    public void enterPaymentAppendixforPATContracts() {
+        basePage.getPaymentAppendix().enterDataInPaymentAppendixForPAT(hmap);
+
+    }
     @And("I enter Payment Appendix in Amendments for SMGA contracts")
     public void enterPaymentAppendixforSMGAContracts() {
         basePage.getPaymentAppendix().enterDataInPaymentAppendixForSMGA(hmap);
