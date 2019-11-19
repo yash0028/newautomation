@@ -52,11 +52,11 @@ Feature: SMGA Business Testcases_IN
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    
-    #
+        
     #Activate
     And I Set Status as Active
-    #And I capture Contract Number
+    And I capture Contract Number
+    
     #
     #CMD Check
     #When I have entered the CMD dashboard URL
@@ -74,7 +74,7 @@ Feature: SMGA Business Testcases_IN
     And I enter Market Exception Grid
     And I set Roster Action as Upload
     And I Download Current Roster
-    And I Upload Completed Roster
+   	And I Upload Completed Roster
     And I enter warning in Make Correction
     And I enter validation
     And I acknowledge the warning
