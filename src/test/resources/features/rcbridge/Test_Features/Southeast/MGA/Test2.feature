@@ -31,6 +31,15 @@ Feature: US1407217
     And I enter Provider Roster
     And I enter Group Summary
     Then I Complete Wizard
+
+
+
+
+
+#              #Approval
+#    And I Approve Payment Appendix
+
+
     Examples:
       | site          | paperType     | TCName           |
       | central uhn   | MGA           | TC_CEN_MGA_IN_53 |

@@ -4,16 +4,15 @@
 @iterationUnknown
 Feature: SPGA Business Testcases_OR
   
-  @TC_WEST_SPA_OR_61
+  @TC_WEST_SPGA_OR_61
   @Manual
   @User_Interface
   @UAT_Automation 
-  Scenario Outline: TC_WEST_SPA_OR_61 - [RL0] Author SPGA contract in <site>  
+  Scenario Outline: TC_WEST_SPGA_OR_61 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
-
+    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -26,13 +25,14 @@ Feature: SPGA Business Testcases_OR
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
+    #And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
     
@@ -69,6 +69,6 @@ Feature: SPGA Business Testcases_OR
     
     Examples:    
        | site          | paperType     | TCName|  				 
-       | west uhn   | SPGA          | TC_WEST_SPA_OR_61|
+       | west uhn   | SPGA          | TC_WEST_SPGA_OR_61|
        
     

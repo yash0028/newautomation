@@ -465,7 +465,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("I review supporting document")
-    public void rreviewSupportingDocuments() {
+    public void reviewSupportingDocuments() {
         basePage.getSupportingDocumentSummary().reviewSupportingDocument();
         basePage.getWizardComplete().completeWizard(hmap);
     }
@@ -596,11 +596,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     }
 
-    @And("I enter Payment Appendix in Amendments for PAT contracts")
-    public void enterPaymentAppendixforPATContracts() {
-        basePage.getPaymentAppendix().enterDataInPaymentAppendixForPAT(hmap);
-
+    @And("I enter Payment Appendix in Amendments for SPA contracts")
+    public void enterPaymentAppendixforSPAContracts() {
+        basePage.getPaymentAppendix().enterDataInPaymentAppendixForSPA(hmap);
     }
+
     @And("I enter Payment Appendix in Amendments for SMGA contracts")
     public void enterPaymentAppendixforSMGAContracts() {
         basePage.getPaymentAppendix().enterDataInPaymentAppendixForSMGA(hmap);

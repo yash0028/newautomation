@@ -48,15 +48,16 @@ Feature: SPA Business Testcases_IN
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
+    # And I capture Contract Number
     #Activate
     And I Set Status as Active
 
 
      #CMD Check
-   #When I have entered the CMD dashboard URL
+    #When I have entered the CMD dashboard URL
     #When I search for Contract
-    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+    #And The dashboard page loads
+    #Then Validate Contract status and request type
 
     #NDB Check
 
@@ -76,5 +77,5 @@ Feature: SPA Business Testcases_IN
     Then I Complete Wizard
 
     Examples:
-      | site          | paperType     | TCName           | |contract| |Contractstatus|
-      | central uhn   | SPA           | TC_CEN_SPA_IN_06 |  |11122328| |InstallContract|
+      | site          | paperType     | TCName           |
+      | central uhn   | SPA           | TC_CEN_SPA_IN_06 |

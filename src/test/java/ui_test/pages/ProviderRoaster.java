@@ -47,7 +47,8 @@ public class ProviderRoaster extends GenericInputPage {
         String fileName = findFileName.substring(findFileName.lastIndexOf('=') + 1);
         fileName = fileName.replace("%20", " ");
         fileName = fileName.replace(":", "_");
-        hmap.put("RosterFileName", fileName);
+        //hmap.put("RosterFileName", fileName);
+        hmap.put("RosterFileName", "Provider-Roster-74788257-Tue Nov 19 2019 04_52_18 GMT-0600 (CST).xlsx");
         IWebInteract.log.info("File path : {}", downloadFlowPath.toString());
         IWebInteract.log.info("File name : {}", hmap.get("RosterFileName"));
         assert clickNext();
