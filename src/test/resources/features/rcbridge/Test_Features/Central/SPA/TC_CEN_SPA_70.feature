@@ -33,7 +33,8 @@ Feature: US1407217
   #Non Std approval process
 
      #Final capture
-
+    And I Start Workflow
+    And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -53,9 +54,10 @@ Feature: US1407217
 
 
      #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
-   # Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+    #When I have entered the CMD dashboard URL
+    #And The dashboard page loads
+    #Then I search for Contract
+    #Then Validate Contract status and request type
 
     #NDB Check
    #Draft Amendment

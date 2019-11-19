@@ -52,14 +52,14 @@ Feature: SPA Business Testcases_IN
 
     And I capture Contract Number
     #Activate
-    And I Set Status as Active
+   And I Set Status as Active
 
 
      #CMD Check
-    When I have entered the CMD dashboard URL
-    And The dashboard page loads
-    Then I search for Contract
-    Then Validate Contract status and request type
+   # When I have entered the CMD dashboard URL
+    #And The dashboard page loads
+    #Then I search for Contract
+    #Then Validate Contract status and request type
 
 
 
