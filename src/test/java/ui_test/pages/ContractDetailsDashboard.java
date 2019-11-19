@@ -39,7 +39,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public void getActivityManager(boolean refresh, boolean tierApproval) {
         int count = 1;
         waitTillVisible(elements.inTaskApp);
-        while (count <= 3) {
+        while (count <= 5) {
             pause(3);
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.spinner)));
             waitForElementsToPresent(getDriver(), By.xpath(elements.dataTable));
