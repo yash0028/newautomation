@@ -6,7 +6,8 @@ Feature: SPGA Business Testcases_OR
   
   @TC_WEST_SPGA_OR_74
   @Manual
-  @UAT_Automation  
+  @User_Interface 
+  @UAT_Automation 
   Scenario Outline: TC_WEST_SPGA_OR_74 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -24,13 +25,14 @@ Feature: SPGA Business Testcases_OR
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
+    #And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
     
