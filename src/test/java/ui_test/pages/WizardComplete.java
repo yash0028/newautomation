@@ -19,29 +19,43 @@ public class WizardComplete extends GenericInputPage {
         this.elements = new PageElements(driver);
     }
 
-    public void completeWizard(HashMap<String, String> hmap) {
+    public void completeWizard() {
         waitTillClickable(elements.completeWizardElement, 10);
         try {
             this.elements.completeWizardElement.click();
             IWebInteract.log.trace("clicked on {}", "Complete Wizard");
             assert waitForPageLoad();
-            for(int count =0 ; count<=2 ; count++){
-                if(CommonMethods.isElementPresent(getDriver(), By.xpath(elements.getheaderTabHome))){
-                    break;
-                }else{
-                    refreshPage();
-                    pause(3);
-                }
+            confirmDashboard();
+        } catch (Exception e) {
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.wizardCompleteXpath))) {
+                Assert.fail("Complete Wizard process is taking long time than expected.");
+            } else {
+                confirmDashboard();
             }
+
+        }
+        IWebInteract.log.info("Contract Link : {}", getDriver().getCurrentUrl());
+    }
+
+    public void confirmDashboard() {
+        boolean dasboard = false;
+        for (int count = 0; count <= 2; count++) {
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.getheaderTabHome))) {
+                dasboard = true;
+                break;
+            } else {
+                refreshPage();
+                pause(3);
+            }
+        }
+        if (dasboard) {
             waitTillVisible(elements.headerTabHome);
             if (isVisible(elements.headerTabHome)) {
                 highlight(elements.headerTabHome);
             }
-        } catch (Exception e) {
-            Assert.fail("click failed for Complete Wizard");
+        } else {
+            Assert.fail("Unable to load Dashboard.");
         }
-        assert waitForPageLoad();
-        IWebInteract.log.info("Contract Link : {}", getDriver().getCurrentUrl());
     }
 
     private static class PageElements extends AbstractPageElements {
@@ -50,7 +64,9 @@ public class WizardComplete extends GenericInputPage {
         @FindBy(xpath = "//div[@title='Home']")
         public WebElement headerTabHome;
 
+        private String wizardCompleteXpath = "//h2[contains(.,'Wizard Complete')]";
         private String getheaderTabHome = "//div[@title='Home']";
+
         public PageElements(SearchContext context) {
             super(context);
         }

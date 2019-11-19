@@ -35,8 +35,11 @@ Feature: SPA Business Testcases_OR
     Then I Complete Wizard
 
 
-    #Non Std approval process
      #Final capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+      #Approval
+    And I Approve Payment Appendix
 
     And I Set Status as Final Pending QA
     And I Start Final Capture

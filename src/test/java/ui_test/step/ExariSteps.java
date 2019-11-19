@@ -218,7 +218,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @Then("^I Complete Wizard$")
     public void WizardComplete() {
-        basePage.getWizardComplete().completeWizard(hmap);
+        basePage.getWizardComplete().completeWizard();
     }
 
     @When("^I author a contract using the following contract information$")
@@ -467,7 +467,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("I review supporting document")
     public void reviewSupportingDocuments() {
         basePage.getSupportingDocumentSummary().reviewSupportingDocument();
-        basePage.getWizardComplete().completeWizard(hmap);
+        basePage.getWizardComplete().completeWizard();
     }
 
 
