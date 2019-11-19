@@ -38,6 +38,9 @@ Feature: SPGA Business Testcases_OR
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
+    #Approval
+    And I Approve HBP Red Door
+
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
