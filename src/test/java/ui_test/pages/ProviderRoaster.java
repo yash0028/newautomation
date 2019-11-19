@@ -33,6 +33,7 @@ public class ProviderRoaster extends GenericInputPage {
     }
 
     public void roasterAction(String action) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert click("Provider Roster", clickRosterAction(action));
         assert clickNext();
         assert waitForPageLoad();
