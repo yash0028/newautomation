@@ -65,6 +65,11 @@ public class PaymentAppendix extends GenericInputPage {
         assert waitForPageLoad();
     }
 
+    public void enterDataInPaymentAppendixForSPA(HashMap<String, String> hmap) {
+        assert sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician"));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
     public void paymentAppendixToInclude(HashMap<String, String> hmap) {
         assert click("Payment Appendix to include", elements.paymentAppendixToIncludePhysician);
         assert clickNext();
@@ -115,6 +120,8 @@ public class PaymentAppendix extends GenericInputPage {
         private WebElement feeSchduleID;
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#MedicareAdvantage_Fee_Schedule_Name']")
         private WebElement feeSchduleIDMedicareSPGA;
+       // @FindBy(xpath = "//input[contains(@value,'Advantage for Physician')]")
+       // private WebElement feeSchduleIDMedicareSPA;
         @FindBy(xpath = "//input[contains(@value,'Advantage for Physician')]")
         private WebElement paymentAppendixToIncludePhysician;
         @FindBy(xpath = "//input[contains(@value,'Advantage for Non-Physician')]")

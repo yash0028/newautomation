@@ -52,9 +52,9 @@ public class CMDSteps implements IRestStep, IUiStep {
 
 
 
-   // @Given("^I am logged into cmd$")
-  //  public void loginSitePage(String siteOption) {
-   //     this.protoStep.loginHome();
+    //@Given("^I am logged into cmd$")
+   //public void loginSitePage(String siteOption) {
+       //this.protoStep.loginHome();
 
 
    // }

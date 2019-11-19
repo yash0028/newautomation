@@ -53,6 +53,7 @@ Feature: SPGA Business Testcases_IN
     Then I Complete Wizard
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
 
 
 
