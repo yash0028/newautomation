@@ -4,10 +4,10 @@
 @iterationUnknown
 Feature: SPGA Business Testcases_OR
   
-  @TC_WEST_SPA_OR_05
+  @TC_WEST_SPGA_OR_18
   @Manual
   @User_Interface  
-   Scenario Outline: TC_WEST_SPA_OR_05 - [RL0] Author SPGA contract in <site>  
+   Scenario Outline: TC_WEST_SPGA_OR_18 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
