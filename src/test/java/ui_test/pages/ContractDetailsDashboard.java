@@ -157,6 +157,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             Assert.assertTrue(approvalType + " is already Completed", foundApprovalType);
         } else if (completedApprovalType) {
             IWebInteract.log.info("[COMPLETED] {} Approval", approvalType);
+            approverType="";
         }
         CHECK_APPROVAL_ALREADY_COMPLETED = false;
         return approverType;
@@ -204,7 +205,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
 
     public String startApprovalFlow(String approvalType, boolean tierApproval, String location, HashMap<String, String> hmap) {
         String approverType = getApproverType(approvalType, tierApproval);
-        while (approverType != null && !approverType.equals("TierApprovalNotRequired")) {
+        while (approverType != "" && !approverType.equals("TierApprovalNotRequired")) {
             if (switchLogin(approverType)) {
                 if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.prompt))) {
                     click("Banner messages", elements.okbutton);
