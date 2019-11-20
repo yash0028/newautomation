@@ -19,14 +19,12 @@ public class PES_Response extends GenericInputPage {
     }
 
     public void selectCounterParty(HashMap<String, String> hmap) {
-            if(setCheckBox("CouterParty Name checkbox", counterPartyName(hmap.get("CounterPartyName")), true)){
-                assert clickNext();
-                assert waitForPageLoad();
-            }else {
-                if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.noresult))){
-                    Assert.fail("No Results found. Please check MPIN AND TIN");
-                }
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.noresult))){
+                Assert.fail("No Results found. Please check MPIN AND TIN");
             }
+            assert setCheckBox("CouterParty Name checkbox", counterPartyName(hmap.get("CounterPartyName")), true);
+            assert clickNext();
+            assert waitForPageLoad();
     }
 
     public void specifyApproachForCounter(HashMap<String, String> hmap) {
