@@ -3,8 +3,6 @@
 @releaseUnknown
 @iterationUnknown
 Feature: MGA Business Testcases_IN
-
-<<<<<<< HEAD:src/test/resources/features/rcbridge/Test_Features/Central/MGA/TC_CEN_MGA_IN_16.feature
   @TC_CEN_MGA_IN_16
   @Manual
   @User_Interface
@@ -12,14 +10,6 @@ Feature: MGA Business Testcases_IN
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
-=======
-  @TC_CEN_MGA_IN_62
-  @Manual
-  @User_Interface
-  Scenario Outline: TC_CEN_MGA_IN_62 - [RL0] Author <paperType> contract in <site>
-
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
->>>>>>> 454c4eca57834b2552978abce3e7b0394ef30098:src/test/resources/features/rcbridge/Test_Features/Central/MGA/TC_CEN_MGA_IN_62.feature
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
