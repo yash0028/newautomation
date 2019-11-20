@@ -248,20 +248,15 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I Start Process for Initial Transaction$")
     public void initialTransaction() {
         basePage.getInitialTransaction().initialTransaction(hmap);
-        if (!hmap.get("Tier").equals("")) {
-            if (hmap.get("Tier").equals("1")) {
-                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""), true, "Draft", hmap);
-                initializeObj();
-            } else {
-                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier23E_approval_type").orElse(""), true, "Draft", hmap);
-                initializeObj();
-            }
-        }
     }
 
     @And("^I Start Process for Initial Transaction in Amendment$")
     public void initialTransactionAmendment() {
         basePage.getInitialTransaction().initialTransaction(hmap);
+    }
+
+    @And("^I Set Status as Final Pending QA in Amendment$")
+    public void finalPendingQAAmendment() {
         if (!hmap.get("Tier").equals("")) {
             if (hmap.get("Tier").equals("1")) {
                 basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""), true, "Amendment", hmap);
@@ -271,10 +266,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
                 initializeObj();
             }
         }
-    }
-
-    @And("^I Set Status as Final Pending QA in Amendment$")
-    public void finalPendingQAAmendment() {
         basePage.getContractDetailsDashboard().editStatus("Final Pending QA", "Amendment", hmap);
     }
 
@@ -304,6 +295,15 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I Set Status as Final Pending QA$")
     public void finalPendingQA() {
+        if (!hmap.get("Tier").equals("")) {
+            if (hmap.get("Tier").equals("1")) {
+                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""), true, "Draft", hmap);
+                initializeObj();
+            } else {
+                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier23E_approval_type").orElse(""), true, "Draft", hmap);
+                initializeObj();
+            }
+        }
         basePage.getContractDetailsDashboard().editStatus("Final Pending QA", "Draft", hmap);
 
     }
