@@ -211,6 +211,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getAmendements().authorAmendments(hmap);
     }
 
+    @And("I select Amendment in Document Selection")
+    public void selectAmendmentDocumentSelection() {
+        basePage.getDocumentSelection().selectVACCNAmendmentType(hmap);
+    }
+
     @And("^I enter Group Summary$")
     public void GroupSummary() {
         basePage.getGroupSummary().readInterviewSummary();
@@ -378,6 +383,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter Market Exception Grid in Make Correction$")
     public void MEGMakeCorrection() {
+        basePage.getMarketExceptionGrid().checkForDuplicate();
         basePage.getMarketExceptionGrid().chooseTask(hmap, "MC_Task");
 
     }
@@ -695,5 +701,16 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("I enter Appendix 2 in Amendments FinalCapture")
     public void iEnterAppendixInAmendmentsFC() {
         basePage.getAppendix2().enterAppendix2FC();
+    }
+
+    @And("^I enter Clause Language$")
+    public void clauseLanguage() {
+        basePage.getClauseLanguage().clauseLanguage(hmap);
+    }
+
+    @And("I select Payment Appendix for SMGA contracts")
+    public void iSelectPaymentAppendixForSMGAContracts() {
+        basePage.getPaymentAppendix().selectPaymentAppendixSMGA(hmap);
+        basePage.getPaymentAppendixAmendment().selectPaymentAppendixAmendmentSMGA(hmap);
     }
 }

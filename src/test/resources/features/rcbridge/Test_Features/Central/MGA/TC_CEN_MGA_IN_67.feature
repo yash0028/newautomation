@@ -10,6 +10,7 @@ Feature: MGA Business Testcases_IN
   Scenario Outline: TC_CEN_MGA_IN_67- [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
@@ -33,8 +34,6 @@ Feature: MGA Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-
-
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -54,15 +53,11 @@ Feature: MGA Business Testcases_IN
 
     #Activate
     And I Set Status as Active
-
-
-     #CMD Check
-   #When I have entered the CMD dashboard URL
+    #CMD Check
+    #When I have entered the CMD dashboard URL
     #When I search for Contract
     #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
-
     #NDB Check
-
     #Make a correction - Add a new TIN to the existing provider in the Roster.
     #When I am logged into Exari Dev
     #And I search Contract using Contract Number
@@ -78,7 +73,6 @@ Feature: MGA Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-    #Final capture
     Examples:
       | site          | paperType     | TCName           |
       | central uhn   | MGA           | TC_CEN_MGA_IN_67 |

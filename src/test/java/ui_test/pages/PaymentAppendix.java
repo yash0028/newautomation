@@ -123,6 +123,12 @@ public class PaymentAppendix extends GenericInputPage {
         assert waitForPageLoad();
     }
 
+    public void selectPaymentAppendixSMGA(HashMap<String, String> hmap) {
+        assert click("Higher than fee schedule Id",paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
     public WebElement getFeeScheduleElement(String allpayerType) {
         return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'AllPayer_Fee_Schedule_Name')]"});
     }
@@ -130,6 +136,8 @@ public class PaymentAppendix extends GenericInputPage {
     public String getFeeSchedule(String allpayerType) {
         return "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'AllPayer_Fee_Schedule_Name')]";
     }
+
+
 
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name']")
