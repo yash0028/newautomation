@@ -31,6 +31,7 @@ Feature: SMGA Business Testcases_IN
     And I enter Regulatory Appendices
     And I select Provider Roster as None
     And I enter Amendments
+    And I select Amendment in Document Selection
     And I enter Group Summary
     Then I Complete Wizard
     
