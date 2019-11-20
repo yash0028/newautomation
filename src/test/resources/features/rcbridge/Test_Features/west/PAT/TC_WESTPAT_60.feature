@@ -23,15 +23,17 @@ Feature: PAT Business Testcases_OR
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
+    And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
-    #And I enter Payment Appendix
-    #And I enter Additional Locations
-    #And I enter Regulatory Appendices
-    #And I select Provider Roster as None
+    And I enter Payment Appendix
+    And I enter Additional Locations
+    And I enter Regulatory Appendices
+    And I select Provider Roster as None
     #And I enter Amendments
-    #And I enter Group Summary
-    #Then I Complete Wizard
+    And I enter Group Summary
+    Then I Complete Wizard
 
     #Workflow Approval at Local contract level
 
@@ -41,6 +43,9 @@ Feature: PAT Business Testcases_OR
 
     #And I Start Workflow
     #And I Start Process for Initial Transaction
+#              #Approval
+#    And I Approve Payment Appendix
+
     #And I Set Status as Final Pending QA
     #And I Start Final Capture
     #And I enter Contract Details in Final Capture

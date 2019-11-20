@@ -39,7 +39,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     public void getActivityManager(boolean refresh, boolean tierApproval) {
         int count = 1;
         waitTillVisible(elements.inTaskApp);
-        while (count <= 3) {
+        while (count <= 5) {
             pause(3);
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.spinner)));
             waitForElementsToPresent(getDriver(), By.xpath(elements.dataTable));
@@ -59,7 +59,11 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             getActivityManager(false, tierApproval);
         }
     }
-
+    public void openActiveWorkFlow(){
+                if(this.elements.openActiveWorkFlow.getAttribute("class").contains("alfresco-twister-closed")){
+                    click("Active Workflows",this.elements.openActiveWorkFlow);
+                }
+    }
     public boolean getActiveWorkFlow(boolean tierApproval, String location, HashMap<String, String> hmap) {
         int count = 1;
         boolean foundActiveWorkFlow = false;
@@ -69,6 +73,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                 dontSkip = false;
                 break;
             }
+            openActiveWorkFlow();
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.activeWorkFlow))) {
                 if (click("Active Work Flow Link", elements.activeWorkFlowLink)) {
                     foundActiveWorkFlow = true;
@@ -97,12 +102,38 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         }
         return foundActiveWorkFlow;
     }
-
+    public String updateApprovalType(String approvalType, boolean tierApproval , int count){
+                if(CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType)))){
+                    return approvalType;
+                }else{
+                        if(approvalType.contains("Tier 1")){
+                            return approvalType.replaceFirst("Tier 1","Tier 1 ");
+                        }else if(approvalType.contains("Tier 23E")){
+                            return approvalType.replaceFirst("Tier 23E","Tier 23E ");
+                        }
+                }
+                return "";
+    }
+    public String updateApprovalType(String approvalType, boolean tierApproval , String approverType){
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getMenuXpath(approvalType,approverType)))){
+            return approvalType;
+        }else{
+            if(approvalType.contains("Tier 1")){
+                return approvalType.replaceFirst("Tier 1","Tier 1 ");
+            }else if(approvalType.contains("Tier 23E")){
+                return approvalType.replaceFirst("Tier 23E","Tier 23E ");
+            }
+        }
+        return "";
+    }
     public String getApproverType(String approvalType, boolean tierApproval) {
         boolean foundApprovalType = false;
         boolean completedApprovalType = false;
         String approverType = "";
         for (int count = 1; count <= taskrows(); count++) {
+            if(tierApproval){
+                approvalType = updateApprovalType(approvalType, tierApproval , count);
+            }
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType)))) {
                 String[] title = getTilte(count, approvalType).getAttribute("title").split("-");
                 if (getStatus(count, approvalType).getAttribute("title").equals("Completed")) {
@@ -126,6 +157,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             Assert.assertTrue(approvalType + " is already Completed", foundApprovalType);
         } else if (completedApprovalType) {
             IWebInteract.log.info("[COMPLETED] {} Approval", approvalType);
+            approverType="";
         }
         CHECK_APPROVAL_ALREADY_COMPLETED = false;
         return approverType;
@@ -152,7 +184,10 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
 
     }
 
-    public void doCaim(String approvalType, String approverType) {
+    public void doCaim(String approvalType, String approverType, boolean tierApproval) {
+        if(tierApproval){
+            approvalType = updateApprovalType(approvalType, tierApproval , approverType);
+        }
         assert click("Open Task", getMenu(approvalType, approverType));
         assert click("View Task", elements.viewtask);
         waitTillClickable(elements.claimtask);
@@ -170,14 +205,14 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
 
     public String startApprovalFlow(String approvalType, boolean tierApproval, String location, HashMap<String, String> hmap) {
         String approverType = getApproverType(approvalType, tierApproval);
-        while (approverType != null && !approverType.equals("TierApprovalNotRequired")) {
+        while (approverType != "" && !approverType.equals("TierApprovalNotRequired")) {
             if (switchLogin(approverType)) {
                 if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.prompt))) {
                     click("Banner messages", elements.okbutton);
                 }
                 getActiveWorkFlow(tierApproval, location, hmap);
             }
-            doCaim(approvalType, approverType);
+            doCaim(approvalType, approverType, tierApproval);
             assert click("Back", this.elements.backbutton);
             assert waitForPageLoad();
             getActivityManager(false, tierApproval);
@@ -187,21 +222,28 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public void handleApprovals(String approvalType, boolean tierApproval, String location, HashMap<String, String> hmap) {
-        DASHBOARD_URL = getDriver().getCurrentUrl();
-        if (getActiveWorkFlow(tierApproval, location, hmap)) {
-            if (startApprovalFlow(approvalType, tierApproval, location, hmap).equals("")) {
-                switchLogin(configGetOptionalString("exari.username").orElse(""));
-            } else {
-                IWebInteract.log.info("[SKIPPED] {}", approvalType);
-                assert click("Back", this.elements.backbutton);
-                assert waitForPageLoad();
+        waitTillVisible(elements.headerTabHome);
+        if (isVisible(elements.headerTabHome)) {
+            highlight(elements.headerTabHome);
+            DASHBOARD_URL = getDriver().getCurrentUrl();
+            if (getActiveWorkFlow(tierApproval, location, hmap)) {
+                if (startApprovalFlow(approvalType, tierApproval, location, hmap).equals("")) {
+                    switchLogin(configGetOptionalString("exari.username").orElse(""));
+                } else {
+                    IWebInteract.log.info("[SKIPPED] {}", approvalType);
+                    assert click("Back", this.elements.backbutton);
+                    assert waitForPageLoad();
+                }
+                CHECK_APPROVAL_ALREADY_COMPLETED = true;
             }
-            CHECK_APPROVAL_ALREADY_COMPLETED = true;
+        } else {
+            IWebInteract.log.error("Failed to get Dashboard");
         }
     }
 
     public void editStatus(String option, String Location, HashMap<String, String> hmap) {
         int count = 1;
+        boolean activated = false;
         boolean foundEditStatus = false;
         while (count <= 20) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.editStatusButton))) {
@@ -233,6 +275,20 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         //dont give assert for close.
         click("Close", this.elements.close);
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        if(option.equals("Active")){
+            for( count = 0; count<10 ; count++){
+                if (CommonMethods.isElementPresent(getDriver(), By.xpath(getStatus("Active")))) {
+                    activated = true;
+                    break;
+                }else{
+                    refreshPage();
+                    pause(3);
+                }
+            }
+            if(!activated){
+                Assert.fail("Contract is activation failed.");
+            }
+        }
     }
 
     public void finalCapture() {
@@ -319,19 +375,23 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public WebElement getTilte(int count, String approvalType) {
-        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-row')][" + count + "]//span[contains(@title,'" + approvalType + "')]"});
+        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')][" + count + "]//span[contains(@title,'" + approvalType + "')]"});
     }
 
     public String getTilteXpath(int count, String approvalType) {
-        return "//div[contains(@class,'adf-datatable-row')][" + count + "]//span[contains(@title,'" + approvalType + "')]";
+        return "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')][" + count + "]//span[contains(@title,'" + approvalType + "')]";
     }
 
     public WebElement getStatus(int count, String approvalType) {
-        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-row')][" + count + "]//div[contains(@filename,'" + approvalType + "')][4]/div/div"});
+        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')][" + count + "]//div[contains(@filename,'" + approvalType + "')][4]/div/div"});
     }
 
     public WebElement getMenu(String approvalType, String approver) {
-        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-row')]//div[contains(@filename,'" + approvalType + " - " + approver + "')][6]/div/button"});
+        return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')]//div[contains(@filename,'" + approvalType + " - " + approver + "')][6]/div/button"});
+
+    }
+    public String getMenuXpath(String approvalType, String approver) {
+        return "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')]//div[contains(@filename,'" + approvalType + " - " + approver + "')][6]/div/button";
 
     }
 
@@ -398,6 +458,10 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private WebElement supportingDocumentType;
         @FindBy(xpath = "//div/span[contains(.,' in Task App')]")
         private WebElement inTaskApp;
+        @FindBy(xpath = "//div[@title='Home']")
+        public WebElement headerTabHome;
+        @FindBy(xpath = "//h2[contains(.,'Active Workflows')]")
+        public WebElement openActiveWorkFlow;
 
         private String error = "//div[contains(@class,'alf-error-header')]";
         private String spinner = "//mat-progress-spinner";

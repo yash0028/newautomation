@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -18,14 +19,14 @@ public class PES_Response extends GenericInputPage {
     }
 
     public void selectCounterParty(HashMap<String, String> hmap) {
-
-        try {
-            assert setCheckBox("CouterParty Name checkbox", counterPartyName(hmap.get("CounterPartyName")), true);
-            assert clickNext();
-            assert waitForPageLoad();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            if(setCheckBox("CouterParty Name checkbox", counterPartyName(hmap.get("CounterPartyName")), true)){
+                assert clickNext();
+                assert waitForPageLoad();
+            }else {
+                if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.noresult))){
+                    Assert.fail("No Results found. Please check MPIN AND TIN");
+                }
+            }
     }
 
     public void specifyApproachForCounter(HashMap<String, String> hmap) {
@@ -57,6 +58,7 @@ public class PES_Response extends GenericInputPage {
 
     private static class PageElements extends AbstractPageElements {
 
+        private String noresult = "//input[contains(@value, 'No Results found')]";
         private String message = "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {

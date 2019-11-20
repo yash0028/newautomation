@@ -218,7 +218,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @Then("^I Complete Wizard$")
     public void WizardComplete() {
-        basePage.getWizardComplete().completeWizard(hmap);
+        basePage.getWizardComplete().completeWizard();
     }
 
     @When("^I author a contract using the following contract information$")
@@ -465,9 +465,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("I review supporting document")
-    public void rreviewSupportingDocuments() {
+    public void reviewSupportingDocuments() {
         basePage.getSupportingDocumentSummary().reviewSupportingDocument();
-        basePage.getWizardComplete().completeWizard(hmap);
+        basePage.getWizardComplete().completeWizard();
     }
 
 
@@ -596,6 +596,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     }
 
+    @And("I enter Payment Appendix in Amendments for SPA contracts")
+    public void enterPaymentAppendixforSPAContracts() {
+        basePage.getPaymentAppendix().enterDataInPaymentAppendixForSPA(hmap);
+    }
+
     @And("I enter Payment Appendix in Amendments for SMGA contracts")
     public void enterPaymentAppendixforSMGAContracts() {
         basePage.getPaymentAppendix().enterDataInPaymentAppendixForSMGA(hmap);
@@ -604,6 +609,18 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("I select Payment Appendix to include in Amendments for SMGA contracts")
     public void includePaymentAppendixforSMGAContracts() {
+        basePage.getPaymentAppendix().paymentAppendixToInclude(hmap);
+
+    }
+
+    @And("I enter Payment Appendix in Amendments for PAT contracts")
+    public void enterPaymentAppendixforPATContracts() {
+        basePage.getPaymentAppendix().enterDataInPaymentAppendixForPAT(hmap);
+
+    }
+
+    @And("I select Payment Appendix to include in Amendments for PAT contracts")
+    public void includePaymentAppendixforPATContracts() {
         basePage.getPaymentAppendix().paymentAppendixToInclude(hmap);
 
     }

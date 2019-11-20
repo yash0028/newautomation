@@ -41,6 +41,9 @@ Feature: PAT Business Testcases_AR
 
     #And I Start Workflow
     #And I Start Process for Initial Transaction
+          ##Approval
+    #And I Approve Payment Appendix
+
     #And I Set Status as Final Pending QA
     #And I Start Final Capture
     #And I enter Contract Details in Final Capture

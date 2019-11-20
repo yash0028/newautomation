@@ -20,11 +20,10 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void selectPaymentAppendix(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         if (hmap.containsKey("High Fee Schedule than Default"))
             assert click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
-        //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        pause(2);
-        waitForPageLoad(60);
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix")));
         assert clickNext();
         assert waitForPageLoad();
@@ -34,14 +33,14 @@ public class PaymentAppendix extends GenericInputPage {
     //For SPGA contracts
     public void enterFeeScheduleID(HashMap<String, String> hmap) {
 
-        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getFeeSchedule("All Payer?")))){
-            assert sendKeys("All Payer",getFeeScheduleElement("All Payer?"), hmap.get("FS All Payer"));
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer?")))) {
+            assert sendKeys("All Payer", getFeeScheduleElement("All Payer?"), hmap.get("FS All Payer"));
         }
-        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getFeeSchedule("All Payer for Physicians")))){
-            assert sendKeys("All Payer for Physicians",getFeeScheduleElement("All Payer for Physicians"), hmap.get("FS All Payer Physician"));
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer for Physicians")))) {
+            assert sendKeys("All Payer for Physicians", getFeeScheduleElement("All Payer for Physicians"), hmap.get("FS All Payer Physician"));
         }
-        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getFeeSchedule("All Payer for Non-Physicians")))){
-            assert sendKeys("All Payer for Non-Physicians",getFeeScheduleElement("All Payer for Non-Physicians"), hmap.get("FS All Payer Non Physician"));
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer for Non-Physicians")))) {
+            assert sendKeys("All Payer for Non-Physicians", getFeeScheduleElement("All Payer for Non-Physicians"), hmap.get("FS All Payer Non Physician"));
         }
         assert clickNext();
         assert waitForPageLoad();
@@ -61,6 +60,20 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void enterDataInPaymentAppendixForSPGA(HashMap<String, String> hmap) {
         assert sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicareSPGA, hmap.get("FS Id Amendments"));
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
+    public void enterDataInPaymentAppendixForPAT(HashMap<String, String> hmap) {
+        assert sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician"));
+        //assert sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicarePAT, hmap.get("FS Id Amendments"));
+        assert clickNext();
+        assert waitForPageLoad();
+
+    }
+
+    public void enterDataInPaymentAppendixForSPA(HashMap<String, String> hmap) {
+        assert sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician"));
         assert clickNext();
         assert waitForPageLoad();
     }
@@ -104,12 +117,15 @@ public class PaymentAppendix extends GenericInputPage {
         assert clickNext();
         assert waitForPageLoad();
     }
+
     public WebElement getFeeScheduleElement(String allpayerType) {
-        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'"+allpayerType+"')]/../../../..//input[contains(@name,'AllPayer_Fee_Schedule_Name')]"});
+        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'AllPayer_Fee_Schedule_Name')]"});
     }
+
     public String getFeeSchedule(String allpayerType) {
-        return "//label/b[contains(.,'"+allpayerType+"')]/../../../..//input[contains(@name,'AllPayer_Fee_Schedule_Name')]";
+        return "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'AllPayer_Fee_Schedule_Name')]";
     }
+
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name']")
         private WebElement feeSchduleID;
@@ -119,12 +135,10 @@ public class PaymentAppendix extends GenericInputPage {
         private WebElement paymentAppendixToIncludePhysician;
         @FindBy(xpath = "//input[contains(@value,'Advantage for Non-Physician')]")
         private WebElement paymentAppendixToIncludeNonPhysician;
-
         @FindBy(xpath = "//input[contains(@name,'Fee_Schedule_Name')]")
         private WebElement feeSchduleIDPhysicianMedicare;
         @FindBy(xpath = "//input[contains(@name,'Fee_Schedule_Name_NPPA')]")
         private WebElement feeSchduleIDNonPhysicianMedicare;
-
         @FindBy(xpath = "//input[@type='search']")
         private WebElement searchBar;
         @FindBy(xpath = "//span[@class='select2-results']//li")

@@ -33,6 +33,7 @@ public class ProviderRoaster extends GenericInputPage {
     }
 
     public void roasterAction(String action) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert click("Provider Roster", clickRosterAction(action));
         assert clickNext();
         assert waitForPageLoad();
@@ -41,11 +42,14 @@ public class ProviderRoaster extends GenericInputPage {
 
     public void downloadCurrentRoster(HashMap<String, String> hmap) {
         assert click("Click here to Download Provider Roster", elements.downloadProviderRoster);
+        waitForPageLoad(120);
+        pause(5);
         String findFileName = elements.downloadProviderRoster.getAttribute("href");
         String fileName = findFileName.substring(findFileName.lastIndexOf('=') + 1);
         fileName = fileName.replace("%20", " ");
         fileName = fileName.replace(":", "_");
-        hmap.put("RosterFileName", fileName);
+        //hmap.put("RosterFileName", fileName);
+        hmap.put("RosterFileName", "Provider-Roster-74788257-Tue Nov 19 2019 04_52_18 GMT-0600 (CST).xlsx");
         IWebInteract.log.info("File path : {}", downloadFlowPath.toString());
         IWebInteract.log.info("File name : {}", hmap.get("RosterFileName"));
         assert clickNext();

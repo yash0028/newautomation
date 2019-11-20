@@ -23,7 +23,11 @@ public class PracticeLocations extends GenericInputPage {
     public void selectLocation(HashMap<String, String> hmap) {
         if(hmap.containsKey("Practice Location"))
         {
-            assert setCheckBox("I select Practise Location",selectPracticeLocation(hmap.get("Practice Location")),true);
+            if(selectPracticeLocation(hmap.get("Practice Location")).getAttribute("type").equals("checkbox")){
+                assert setCheckBox("I select Practise Location",selectPracticeLocation(hmap.get("Practice Location")),true);
+            }else if(selectPracticeLocation(hmap.get("Practice Location")).getAttribute("type").equals("radio")){
+                assert click("I select Practise Location",selectPracticeLocation(hmap.get("Practice Location")));
+            }
         }
         assert clickNext();
         assert waitForPageLoad();
@@ -38,6 +42,7 @@ public class PracticeLocations extends GenericInputPage {
     }
 
     //TODO need to modify
+
     public WebElement selectPracticeLocation(String answer) {
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + answer + "')]"});
     }
