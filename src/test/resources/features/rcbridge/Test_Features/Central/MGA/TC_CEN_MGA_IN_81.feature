@@ -33,7 +33,6 @@ Feature: MGA Business Testcases_IN
     And I select Provider Roster as None
     And I enter Group Summary
     Then I Complete Wizard
-
    
     Examples:
       | site          | paperType     | TCName           |

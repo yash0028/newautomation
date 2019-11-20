@@ -53,9 +53,9 @@ Feature: SPGA Business Testcases_IN
    Then I Complete Wizard
 #    #Activate
    And I Set Status as Active
-##                 #NDB Checking
-#
-#
+#                 #NDB Checking
+
+
 #    #Draft Amandament
     And I select the contract
     And I click on Create Amendment

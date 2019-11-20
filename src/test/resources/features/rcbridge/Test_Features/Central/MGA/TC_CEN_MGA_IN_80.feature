@@ -34,7 +34,6 @@ Feature: MGA Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-
     Examples:
       | site          | paperType     | TCName           |
       | central uhn   | MGA           | TC_CEN_MGA_IN_80 |
