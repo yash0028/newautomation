@@ -7,7 +7,7 @@ Feature: SMGA Business Testcases_AR
   @TC_SE_SMGA_AR_21
   @Manual
   @User_Interface 
-  Scenario Outline: TC_SE_SMGA_AR_08 - [RL0] Author SMGA contract in <site>  
+  Scenario Outline: TC_SE_SMGA_AR_21- [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
