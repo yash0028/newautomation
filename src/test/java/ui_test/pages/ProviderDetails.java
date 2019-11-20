@@ -13,17 +13,17 @@ import java.util.HashMap;
 public class ProviderDetails extends GenericInputPage {
 
     private PageElements elements;
-    public ProviderDetails(WebDriver driver){
+
+    public ProviderDetails(WebDriver driver) {
         this.elements = new PageElements(driver);
     }
 
 
-    public void selectEntry(HashMap<String,String> data)
-    {
-     text_dropdown(data.get("Market Number"));
+    public void selectEntry(HashMap<String, String> data) {
+        text_dropdown(data.get("Market Number"));
     }
 
-    public void text_dropdown(String answer)  {
+    public void text_dropdown(String answer) {
         //Open dropdown search
         click("dropdown open", this.elements.dropdown_open);
         pause(1);
@@ -36,46 +36,45 @@ public class ProviderDetails extends GenericInputPage {
         selectOption(answer);
     }
 
-    private void selectOption(String answer)  {
-        click("MarketNumber",selectOptionForMarketNumber(answer));
+    private void selectOption(String answer) {
+        click("MarketNumber", selectOptionForMarketNumber(answer));
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
 
     }
-    public void previewProfile(HashMap<String,String>hmap) {
+
+    public void previewProfile(HashMap<String, String> hmap) {
         waitForPageLoad(60);
-        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.tierIndicator))){
-            hmap.put("Tier",elements.tier.getAttribute("value"));
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.tierIndicator))) {
+            hmap.put("Tier", elements.tier.getAttribute("value"));
         }
         assert clickNext();
         assert waitForPageLoad();
 
-        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.duplicateTIN)))
-        {
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.duplicateTIN))) {
             assert clickNext();
             assert waitForPageLoad();
         }
 
     }
 
-    public void amendmentType(HashMap<String, String> hmap)
-    {
-        assert click("Amendmentment Type in Provider Details",selectProviderDetails(hmap.get("Amendment Type")));
+    public void amendmentType(HashMap<String, String> hmap) {
+        assert click("Amendmentment Type in Provider Details", selectProviderDetails(hmap.get("Amendment Type")));
         assert clickNext();
         assert waitForPageLoad();
     }
 
-    private WebElement selectProviderDetails(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    private WebElement selectProviderDetails(String Name) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
     }
 
 
-    public WebElement selectOptionForMarketNumber(String answer){
-        return findElement(getDriver(), new String[]{"xpath","//li[contains(text(),'"+answer+"'" + ")]"});
+    public WebElement selectOptionForMarketNumber(String answer) {
+        return findElement(getDriver(), new String[]{"xpath", "//li[contains(text(),'" + answer + "'" + ")]"});
     }
-    private static class PageElements  extends AbstractPageElements
-    {
+
+    private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//span[@class='select2-selection__arrow']")
         private WebElement dropdown_open;
         @FindBy(xpath = "//input[@class='select2-search__field']")
@@ -86,7 +85,7 @@ public class ProviderDetails extends GenericInputPage {
 
         private String tierIndicator = "//input[contains(@name,'TierIndicator')]";
         private String duplicateTIN = "//label[contains(.,'Counterparty TIN duplicate check failed')]/b";
-        private String message= "//div[contains(@class,'DialogBox')]";
+        private String message = "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {
             super(context);

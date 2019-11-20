@@ -11,14 +11,16 @@ import java.util.HashMap;
 
 public class OurSignatory extends GenericInputPage {
     private PageElements elements;
+
     public OurSignatory(WebDriver driver) {
         this.elements = new PageElements(driver);
     }
-    public void ourSignatoryDate(HashMap<String,String> hmap){
+
+    public void ourSignatoryDate(HashMap<String, String> hmap) {
         String date;
-        if(hmap.get("Our Signatory Date").equals("today")){
+        if (hmap.get("Our Signatory Date").equals("today")) {
             date = CommonMethods.todaysDate();
-        }else{
+        } else {
             date = CommonMethods.formatDate(hmap.get("Our Signatory Date"));
         }
         assert sendKeys("Provider Signatory Date", this.elements.signatoryDate, date);
@@ -27,11 +29,11 @@ public class OurSignatory extends GenericInputPage {
     }
 
 
-    public void ourSignatorytitle(HashMap<String,String> hmap){
+    public void ourSignatorytitle(HashMap<String, String> hmap) {
         String date;
-        if(hmap.get("Our Signatory Date").equals("today")){
+        if (hmap.get("Our Signatory Date").equals("today")) {
             date = CommonMethods.todaysDate();
-        }else{
+        } else {
             date = CommonMethods.formatDate(hmap.get("Our Signatory Date"));
         }
         assert sendKeys("our Signatory title", this.elements.oursignatoryname, hmap.get("Provider our Signatory title"));
@@ -40,11 +42,7 @@ public class OurSignatory extends GenericInputPage {
         assert waitForPageLoad();
 
 
-
     }
-
-
-
 
 
     private static class PageElements extends AbstractPageElements {

@@ -10,6 +10,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.FileDetector;
+import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariOptions;
 import org.slf4j.Logger;
@@ -19,7 +21,10 @@ import util.configuration.IConfigurable;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -47,6 +52,15 @@ public class SauceLabs {
             this.driver = new RemoteWebDriver(new URL(url), capabilities);
             this.driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
             this.driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
+            
+            
+            Map<String, Object> prefs = new HashMap<String, Object>();
+            String home = System.getProperty("user.dir");
+            Path downloadFlowPath = Paths.get(home, "src", "test", "resources", "features", "rcbridge", "ProviderRoster");
+            prefs.put("download.default_directory", downloadFlowPath.toString());
+            System.out.println("Downloaded Files Path " + downloadFlowPath.toString());            
+            this.driver.setFileDetector(new LocalFileDetector());
+            
         } catch (MalformedURLException e) {
             log.error("Invalid SauceLabs URL <{}>", url);
             return;

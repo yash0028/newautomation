@@ -1,13 +1,12 @@
 # Last updated on 
-@SPGABusinessTestcases_IN
+@SPGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_IN
+Feature: SPGA Business Testcases_AR
   
   @TC_SE_SPGA_AR_10
   @Manual
   @User_Interface 
-  @UAT_Automation_Batch1
   Scenario Outline: TC_CEN_SPGA_AR_10 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -32,7 +31,7 @@ Feature: SPGA Business Testcases_IN
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    #And I enter Amendments
+    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
     

@@ -9,31 +9,33 @@ import ui_test.util.AbstractPageElements;
 
 import java.util.HashMap;
 
-public class MarketExceptionGrid extends GenericInputPage
-{
+public class MarketExceptionGrid extends GenericInputPage {
     private PageElements elements;
-    public MarketExceptionGrid(WebDriver driver)
-    {
-        elements=new PageElements(driver);
+
+    public MarketExceptionGrid(WebDriver driver) {
+        elements = new PageElements(driver);
     }
 
-    public void previewMarketDetails(){
+    public void previewMarketDetails() {
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
     }
-    public void chooseTask(HashMap<String,String> hmap,String Task){
+
+    public void chooseTask(HashMap<String, String> hmap, String Task) {
         assert click("Select Task", clickTask(hmap.get(Task)));
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert clickNext();
         assert waitForPageLoad();
     }
-    public WebElement clickTask(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value,'"+Name+"')]"});
-    }
-    private static class PageElements  extends AbstractPageElements {
 
-        private String message= "//div[contains(@class,'DialogBox')]";
+    public WebElement clickTask(String Name) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + Name + "')]"});
+    }
+
+    private static class PageElements extends AbstractPageElements {
+
+        private String message = "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {
             super(context);

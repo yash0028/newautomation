@@ -1,8 +1,8 @@
 # Last updated on
-@SPGABusinessTestcases_IN
+@SMGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_IN
+Feature: SMGA Business Testcases_IN
   
   @TC_CEN_SMGA_IN_03
   @Manual
@@ -35,27 +35,27 @@ Feature: SPGA Business Testcases_IN
     Then I Complete Wizard
     
     #Final capture
-    And I Start Workflow
-    And I Start Process for Initial Transaction
-    And I Set Status as Final Pending QA
-    And I Start Final Capture
-    And I enter Contract Details in Final Capture
-    And I enter Provider Signatory
-    And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
-    And I verify Providers
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
+    #And I Start Workflow
+    #And I Start Process for Initial Transaction
+    #And I Set Status as Final Pending QA
+    #And I Start Final Capture
+    #And I enter Contract Details in Final Capture
+    #And I enter Provider Signatory
+    #And I enter Our Signatory
+    #And I enter Market Exception Grid in Final Capture
+    #And I enter Market Exception Grid
+    #And I add provider using TIN
+    #And I select Providers
+    #And I verify Providers
+    #And I acknowledge the warning
+    #And I enter Group Summary
+    #Then I Complete Wizard
     #Activate
-    And I Set Status as Active
-    
+    #And I Set Status as Active
+    #
     #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
+    #When I have entered the CMD dashboard URL
+    #When I search for Contract
     #Then Validate Contract "71926900" status and request type "InstallContract"
     
     #NDB Checking 
@@ -71,6 +71,6 @@ Feature: SPGA Business Testcases_IN
     
     Examples:    
        | site          | paperType     | TCName|  				 
-       | central uhn   | SPGA          | TC_CEN_SMGA_IN_03|
+       | central uhn   | SMGA          | TC_CEN_SMGA_IN_03|
 
     

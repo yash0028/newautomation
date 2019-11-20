@@ -10,37 +10,32 @@ import ui_test.util.AbstractPageElements;
 
 import java.util.HashMap;
 
-public class AdditionalLocations extends GenericInputPage
-{
+public class AdditionalLocations extends GenericInputPage {
     private PageElements elements;
+
     public AdditionalLocations(WebDriver driver) {
-        elements=new PageElements(driver);
+        elements = new PageElements(driver);
     }
 
-    private void selectAddressFromNDB()
-    {
-        assert  click("Select Address from NDB",elements.addressFromNDB);
+    private void selectAddressFromNDB() {
+        assert click("Select Address from NDB", elements.addressFromNDB);
 
     }
 
-    public void selectAdditionalLocations(HashMap<String,String> hmap){
+    public void selectAdditionalLocations(HashMap<String, String> hmap) {
         pause(1);
         waitForPageLoad(60);
         assert click("Additional Location", additionalLocationsElement(hmap.get("Additional Location")));
 //TODO recheck
-        switch(hmap.get("Additional Location"))
-        {
-            case "Yes":
-            {
+        switch (hmap.get("Additional Location")) {
+            case "Yes": {
                 break;
             }
-            case "No":
-            {
+            case "No": {
                 selectAddressFromNDB();
                 break;
             }
-            case "None":
-            {
+            case "None": {
                 break;
             }
         }
@@ -50,14 +45,15 @@ public class AdditionalLocations extends GenericInputPage
 
     }
 
-    public WebElement additionalLocationsElement(String addLoc){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+addLoc+"')]"});
+    public WebElement additionalLocationsElement(String addLoc) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + addLoc + "')]"});
     }
-    private static class PageElements  extends AbstractPageElements {
+
+    private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[@type='checkbox']")
         private WebElement addressFromNDB;
 
-        private String message= "//div[contains(@class,'DialogBox')]";
+        private String message = "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {
             super(context);

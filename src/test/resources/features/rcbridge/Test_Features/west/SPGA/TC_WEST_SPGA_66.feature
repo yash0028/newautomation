@@ -1,8 +1,8 @@
 # Last updated on 
-@SPGABusinessTestcases_IN
+@SPGABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_IN
+Feature: SPGA Business Testcases_OR
   
   @TC_WEST_SPGA_OR_66
   @Manual
@@ -14,7 +14,6 @@ Feature: SPGA Business Testcases_IN
     #Draft
     And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response

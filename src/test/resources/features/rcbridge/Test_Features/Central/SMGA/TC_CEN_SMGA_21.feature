@@ -1,5 +1,5 @@
 # Last updated on 
-@SPGABusinessTestcases_IN
+@SMGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
 Feature: SMGA Business Testcases_IN
@@ -8,7 +8,7 @@ Feature: SMGA Business Testcases_IN
   @Manual
   @User_Interface 
   @UAT_Automation_Batch1 
-  Scenario Outline: TC_CEN_SMGA_IN_08 - [RL0] Author SMGA contract in <site>  
+  Scenario Outline: TC_CEN_SMGA_IN_21 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft

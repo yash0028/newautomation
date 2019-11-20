@@ -1,13 +1,12 @@
 # Last updated on 
-@SPGABusinessTestcases_IN
+@SMGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_IN
+Feature: SMGA Business Testcases_AR
   
   @TC_SE_SMGA_AR_63
   @Manual
   @User_Interface
-  @UAT_Automation
   Scenario Outline: TC_SE_SMGA_AR_63 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -46,6 +45,9 @@ Feature: SMGA Business Testcases_IN
     #Final capture    
     And I Start Workflow
     And I Start Process for Initial Transaction
+          #Approval
+    And I Approve Payment Appendix
+
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture

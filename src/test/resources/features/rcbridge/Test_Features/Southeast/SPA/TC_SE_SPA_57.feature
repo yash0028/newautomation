@@ -1,9 +1,9 @@
 # Last updated on
-@SPABusinessTestcases_IN
+@SPABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_IN
-  @TC_CEN_SPA_IN_57
+Feature: SPA Business Testcases_AR
+  @TC_CEN_SPA_AR_57
   @Manual
   @User_Interface
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
@@ -77,4 +77,4 @@ Feature: SPA Business Testcases_IN
 
     Examples:
       | site          | paperType     | TCName           | |contract| |Contractstatus|
-      | southeast uhn   | SPA           | TC_CEN_SPA_IN_57 |  |11122328| |InstallContract|
+      | southeast uhn   | SPA           | TC_CEN_SPA_AR_57 |  |11122328| |InstallContract|

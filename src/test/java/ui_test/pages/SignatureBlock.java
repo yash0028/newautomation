@@ -11,19 +11,19 @@ import java.util.HashMap;
 
 public class SignatureBlock extends GenericInputPage {
     private PageElements elements;
+
     public SignatureBlock(WebDriver driver) {
         this.elements = new PageElements(driver);
     }
 
-    public void handleSignatureBlock(HashMap<String,String> hmap){
+    public void handleSignatureBlock(HashMap<String, String> hmap) {
         assert clickNext();
         assert waitForPageLoad();
     }
 
 
-
-//TODO recheck
-    private static class PageElements extends AbstractPageElements{
+    //TODO recheck
+    private static class PageElements extends AbstractPageElements {
 
         @FindBy(xpath = "//input[contains(@name,'Notice_Address_Street')]")
         private WebElement streetAddress;
@@ -43,7 +43,9 @@ public class SignatureBlock extends GenericInputPage {
         @FindBy(xpath = "//input[contains(@name,'Notice_Address_Email')]")
         private WebElement email;
 
-        PageElements(SearchContext context) { super(context); }
+        PageElements(SearchContext context) {
+            super(context);
+        }
     }
 
 }

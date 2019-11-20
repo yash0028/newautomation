@@ -1,13 +1,12 @@
 # Last updated on 
-@SPGABusinessTestcases_IN
+@SPGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_IN
+Feature: SPGA Business Testcases_AR
   
   @TC_SE_SPGA_AR_15
   @Manual
   @User_Interface
-  @UAT_Automation_Batch1
   Scenario Outline: TC_SE_SPGA_AR_15 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   

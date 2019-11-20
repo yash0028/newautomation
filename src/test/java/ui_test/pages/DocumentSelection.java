@@ -10,51 +10,45 @@ import ui_test.util.AbstractPageElements;
 
 import java.util.HashMap;
 
-public class DocumentSelection extends GenericInputPage
-{
+public class DocumentSelection extends GenericInputPage {
     private PageElements elements;
-    public DocumentSelection(WebDriver driver)
-    {
+
+    public DocumentSelection(WebDriver driver) {
         this.elements = new PageElements(driver);
     }
-    public void selectAgreementType(String name)
-    {
-        assert  click("Agreement Type",selectTypeOfAgreement(name));
+
+    public void selectAgreementType(String name) {
+        assert click("Agreement Type", selectTypeOfAgreement(name));
         assert clickNext();
         assert waitForPageLoad();
     }
-    public void selectDocumentType(HashMap<String,String> hmap)
-    {
-        assert  click("Paper Type",selectPaperType(hmap.get("Paper Type")));
-        //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        switch(hmap.get("Paper Type")) {
 
-            case "SPGA":
-            {
+    public void selectDocumentType(HashMap<String, String> hmap) {
+        assert click("Paper Type", selectPaperType(hmap.get("Paper Type")));
+        //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        switch (hmap.get("Paper Type")) {
+
+            case "SPGA": {
                 assert clickNext();
                 assert waitForPageLoad();
                 break;
             }
-            case "MGA":
-            {
+            case "MGA": {
                 selectAgreementType(hmap.get("Agreement Type"));
                 break;
 
             }
-            case "SMGA":
-            {
+            case "SMGA": {
                 assert clickNext();
                 assert waitForPageLoad();
                 break;
             }
-            case "SPA":
-            {
+            case "SPA": {
                 assert clickNext();
                 assert waitForPageLoad();
                 break;
             }
-            case "PAT":
-            {
+            case "PAT": {
                 assert clickNext();
                 assert waitForPageLoad();
                 break;
@@ -62,16 +56,18 @@ public class DocumentSelection extends GenericInputPage
         }
 
     }
-    public WebElement selectPaperType(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+
+    public WebElement selectPaperType(String Name) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
     }
 
-    public WebElement selectTypeOfAgreement(String Name){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+Name+"')]"});
+    public WebElement selectTypeOfAgreement(String Name) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
     }
+
     private static class PageElements extends AbstractPageElements {
 
-        private String message= "//div[contains(@class,'DialogBox')]";
+        private String message = "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {
             super(context);

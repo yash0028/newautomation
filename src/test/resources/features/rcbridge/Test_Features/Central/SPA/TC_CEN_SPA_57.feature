@@ -1,5 +1,5 @@
 # Last updated on
-@ SPA Business Testcases_IN
+@SPABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
 Feature: SPA Business Testcases_IN
@@ -35,7 +35,8 @@ Feature: SPA Business Testcases_IN
 
     #Non Std approval process
      #Final capture
-
+    And I Start Workflow
+    And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -55,9 +56,10 @@ Feature: SPA Business Testcases_IN
 
 
      #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
-    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+    #When I have entered the CMD dashboard URL
+    #And The dashboard page loads
+    #Then I search for Contract
+    #Then Validate Contract status and request type
 
     #NDB Check
 
@@ -76,5 +78,5 @@ Feature: SPA Business Testcases_IN
 
 
     Examples:
-      | site          | paperType     | TCName           | |contract| |Contractstatus|
-      | central uhn   | SPA           | TC_CEN_SPA_IN_57 |  |11122328| |InstallContract|
+      | site          | paperType     | TCName           |
+      | central uhn   | SPA           | TC_CEN_SPA_IN_57 |

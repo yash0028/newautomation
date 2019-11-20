@@ -1,8 +1,8 @@
 # Last updated on
-@SPABusinessTestcases_IN
+@SPABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_IN
+Feature: SPA Business Testcases_OR
   @TC_WEST_SPA_OR_57
   @Manual
   @User_Interface
@@ -10,31 +10,36 @@ Feature: SPA Business Testcases_IN
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-    And I enter PES Responses
+    And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SPA Contract
+    And I enter Practice Locations for PAT Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
+    And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
+    #And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 
 
-    #Non Std approval process
      #Final capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+      #Approval
+    And I Approve Payment Appendix
 
     And I Set Status as Final Pending QA
     And I Start Final Capture

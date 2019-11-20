@@ -1,8 +1,8 @@
 # Last updated on
-@PATBusinessTestcases_IN
+@PATBusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_IN
+Feature: PAT Business Testcases_AR
 
   @TC_SE_PAT_AR_60
   @Manual
@@ -41,6 +41,9 @@ Feature: PAT Business Testcases_IN
 
     #And I Start Workflow
     #And I Start Process for Initial Transaction
+          ##Approval
+    #And I Approve Payment Appendix
+
     #And I Set Status as Final Pending QA
     #And I Start Final Capture
     #And I enter Contract Details in Final Capture

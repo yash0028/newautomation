@@ -1,13 +1,12 @@
 # Last updated on 
-@SPGABusinessTestcases_IN
+@SPGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_IN
+Feature: SPGA Business Testcases_AR
   
   @TC_SE_SPGA_AR_23
   @Manual
   @User_Interface  
-  @UAT_Automation_Batch1
   Scenario Outline: TC_SE_SPGA_AR_23 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -25,6 +24,7 @@ Feature: SPGA Business Testcases_IN
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
