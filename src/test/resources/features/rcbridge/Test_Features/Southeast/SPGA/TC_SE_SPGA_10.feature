@@ -31,7 +31,7 @@ Feature: SPGA Business Testcases_AR
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    #And I enter Amendments
+    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
     
