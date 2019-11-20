@@ -21,17 +21,20 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
         this.elements = new PageElements(driver);
     }
 
-    public void contractEffectiveDate(HashMap<String,String> hmap){
+    public void contractEffectiveDate(HashMap<String,String> hmap) {
         String date;
-        if(hmap.get("Contract Effective Date").equals("today")){
-            date = CommonMethods.todaysDate();
-        }else{
-            date = CommonMethods.formatDate(hmap.get("Contract Effective Date"));
-        }
-        waitForPageLoad(60);
-        assert sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date);
-        assert clickNext();
-        assert waitForPageLoad();
+            if (hmap.get("Contract Effective Date").equals("today")) {
+                date = CommonMethods.todaysDate();
+            } else {
+                date = CommonMethods.formatDate(hmap.get("Contract Effective Date"));
+            }
+
+            waitForPageLoad(60);
+
+            assert sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date);
+            assert clickNext();
+            assert waitForPageLoad();
+
     }
 
 

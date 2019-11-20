@@ -7,6 +7,7 @@ public class CounterpartyDetails extends GenericInputPage
 {
     public CounterpartyDetails(WebDriver driver)
     {
+
     }
 
     public void counterpartyTINDuplicateCheck()
