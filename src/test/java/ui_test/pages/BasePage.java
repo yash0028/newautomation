@@ -21,6 +21,7 @@ public class BasePage extends GenericInputPage {
     private PracticeLocations practiceLocations;
     private ProviderDetails providerDetails;
     private ProviderRoaster providerRoaster;
+    private PaymentAppendixAmendment paymentAppendixAmendment;
     private RegulatoryAppendices regulatoryAppendices;
     private RequestForParticipationResponse requestForParticipationResponse;
     private SignatureBlock signatureBlock;
@@ -36,7 +37,12 @@ public class BasePage extends GenericInputPage {
     private AdditionalManuals additionalManuals;
     private Steerage steerage;
     private SuppotingDocumentSummary supportingDocumentSummary;
+    private ClauseLanguage clauseLanguage;
     private CounterpartyDetails counterpartyDetails;
+
+    public ClauseLanguage getClauseLanguage() {
+        return (clauseLanguage == null) ? new ClauseLanguage(getDriver()) : clauseLanguage;
+    }
 
     public Validation getValidation() {
         return (validation == null) ? new Validation(getDriver()) : validation;
@@ -124,6 +130,10 @@ public class BasePage extends GenericInputPage {
 
     public PaymentAppendix getPaymentAppendix() {
         return (paymentAppendix == null) ? new PaymentAppendix(getDriver()) : paymentAppendix;
+    }
+
+    public PaymentAppendixAmendment getPaymentAppendixAmendment() {
+        return (paymentAppendixAmendment == null) ? new PaymentAppendixAmendment(getDriver()) : paymentAppendixAmendment;
     }
 
     public PES_Response getPes_response() {
