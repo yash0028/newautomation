@@ -1,9 +1,9 @@
-# Last updated on 
+# Last updated on
 @SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
 Feature: MGA Business Testcases_IN
-  
+
   @TC_CEN_MGA_IN_11
   @Manual
   @User_Interface
@@ -33,8 +33,7 @@ Feature: MGA Business Testcases_IN
     And I enter Provider Roster
     And I enter Group Summary
     Then I Complete Wizard
-    
+
     Examples:
       | site          | paperType     | TCName           |
       | central uhn   | MGA           | TC_CEN_MGA_IN_11 |
- 
