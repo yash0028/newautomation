@@ -21,6 +21,7 @@ public class BasePage extends GenericInputPage {
     private PracticeLocations practiceLocations;
     private ProviderDetails providerDetails;
     private ProviderRoaster providerRoaster;
+    private PaymentAppendixAmendment paymentAppendixAmendment;
     private RegulatoryAppendices regulatoryAppendices;
     private RequestForParticipationResponse requestForParticipationResponse;
     private SignatureBlock signatureBlock;
@@ -123,6 +124,10 @@ public class BasePage extends GenericInputPage {
 
     public PaymentAppendix getPaymentAppendix() {
         return (paymentAppendix == null) ? new PaymentAppendix(getDriver()) : paymentAppendix;
+    }
+
+    public PaymentAppendixAmendment getPaymentAppendixAmendment() {
+        return (paymentAppendixAmendment == null) ? new PaymentAppendixAmendment(getDriver()) : paymentAppendixAmendment;
     }
 
     public PES_Response getPes_response() {
