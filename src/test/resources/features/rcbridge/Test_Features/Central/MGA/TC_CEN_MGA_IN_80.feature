@@ -37,4 +37,4 @@ Feature: MGA Business Testcases_IN
 
     Examples:
       | site          | paperType     | TCName           |
-      | central uhn   | MGA           | TC_CEN_MGA_IN_80|
+      | central uhn   | MGA           | TC_CEN_MGA_IN_80 |

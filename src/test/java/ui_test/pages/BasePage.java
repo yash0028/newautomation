@@ -21,6 +21,7 @@ public class BasePage extends GenericInputPage {
     private PracticeLocations practiceLocations;
     private ProviderDetails providerDetails;
     private ProviderRoaster providerRoaster;
+    private PaymentAppendixAmendment paymentAppendixAmendment;
     private RegulatoryAppendices regulatoryAppendices;
     private RequestForParticipationResponse requestForParticipationResponse;
     private SignatureBlock signatureBlock;
@@ -37,6 +38,7 @@ public class BasePage extends GenericInputPage {
     private Steerage steerage;
     private SuppotingDocumentSummary supportingDocumentSummary;
     private ClauseLanguage clauseLanguage;
+    private CounterpartyDetails counterpartyDetails;
 
     public ClauseLanguage getClauseLanguage() {
         return (clauseLanguage == null) ? new ClauseLanguage(getDriver()) : clauseLanguage;
@@ -130,6 +132,10 @@ public class BasePage extends GenericInputPage {
         return (paymentAppendix == null) ? new PaymentAppendix(getDriver()) : paymentAppendix;
     }
 
+    public PaymentAppendixAmendment getPaymentAppendixAmendment() {
+        return (paymentAppendixAmendment == null) ? new PaymentAppendixAmendment(getDriver()) : paymentAppendixAmendment;
+    }
+
     public PES_Response getPes_response() {
         return (pes_response == null) ? new PES_Response(getDriver()) : pes_response;
     }
@@ -160,6 +166,11 @@ public class BasePage extends GenericInputPage {
 
     public SignatureBlock getSignatureBlock() {
         return (signatureBlock == null) ? new SignatureBlock(getDriver()) : signatureBlock;
+    }
+
+    public CounterpartyDetails getCounterpartyDetails(){
+        return (counterpartyDetails==null) ? new CounterpartyDetails(getDriver()): counterpartyDetails;
+
     }
 
     public WizardComplete getWizardComplete() {
