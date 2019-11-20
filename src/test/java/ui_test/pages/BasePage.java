@@ -160,6 +160,7 @@ public class BasePage extends GenericInputPage {
 
     public CounterpartyDetails getCounterpartyDetails(){
         return (counterpartyDetails==null) ? new CounterpartyDetails(getDriver()): counterpartyDetails;
+
     }
 
     public WizardComplete getWizardComplete() {

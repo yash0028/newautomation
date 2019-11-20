@@ -4,9 +4,8 @@ import org.openqa.selenium.WebDriver;
 import ui_test.page.exari.contract.GenericInputPage;
 
 public class CounterpartyDetails extends GenericInputPage {
-    public CounterpartyDetails(WebDriver driver)
-    {
 
+    public CounterpartyDetails(WebDriver driver) {
     }
 
     public void counterpartyTINDuplicateCheck() {

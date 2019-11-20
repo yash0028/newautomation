@@ -97,5 +97,5 @@ Feature: SPGA Business Testcases_IN
 		
     
     Examples:    
-       | site          | paperType     | TCName|  				 
+       | site          | paperType     | TCName|
        | central uhn   | SPGA          | TC_CEN_SPGA_IN_05|
