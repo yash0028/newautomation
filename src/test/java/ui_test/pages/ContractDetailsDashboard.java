@@ -194,6 +194,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         assert click("Claim Task", elements.claimtask);
         waitTillVisible(elements.comments);
         if (elements.comments.getAttribute("value").equals("")) {
+            waitTillClickable(elements.comments);
             assert sendKeys("Comments", elements.comments, "Approved");
         }
         assert click("Approve", elements.approve);
