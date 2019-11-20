@@ -255,11 +255,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getInitialTransaction().initialTransaction(hmap);
     }
 
-    @And("^I Start Process for Initial Transaction in Amendment$")
-    public void initialTransactionAmendment() {
-        basePage.getInitialTransaction().initialTransaction(hmap);
-    }
-
     @And("^I Set Status as Final Pending QA in Amendment$")
     public void finalPendingQAAmendment() {
         if (!hmap.get("Tier").equals("")) {

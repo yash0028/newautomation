@@ -85,7 +85,7 @@ Feature: SPGA Business Testcases_IN
 
     #Amandment final capture
     And I Start Workflow
-    And I Start Process for Initial Transaction in Amendment
+    And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
     And I enter Provider Signatory in Amendment
