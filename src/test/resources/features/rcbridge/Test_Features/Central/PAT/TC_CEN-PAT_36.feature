@@ -21,7 +21,6 @@ Feature: PAT Business Testcases_IN
     And I preview Provider Details
     And I enter Practice Locations for PAT Contract
     And I preview Provider Details
-    And I enter Counterparty Details MPIN TIN dulplicate check
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details

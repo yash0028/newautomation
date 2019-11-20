@@ -39,118 +39,123 @@ public class BasePage extends GenericInputPage {
     private CounterpartyDetails counterpartyDetails;
 
     public Validation getValidation() {
-        return (validation ==null) ? new Validation(getDriver()) :validation;
+        return (validation == null) ? new Validation(getDriver()) : validation;
     }
+
     public Warning getWarning() {
-        return (warning==null) ? new Warning(getDriver()) :warning;
+        return (warning == null) ? new Warning(getDriver()) : warning;
     }
+
     public ProviderSignatory getProviderSignatory() {
-        return (providerSignatory==null) ? new ProviderSignatory(getDriver()) :providerSignatory;
+        return (providerSignatory == null) ? new ProviderSignatory(getDriver()) : providerSignatory;
     }
+
     public OurSignatory getOurSignatory() {
-        return (ourSignatory==null) ? new OurSignatory(getDriver()) :ourSignatory;
+        return (ourSignatory == null) ? new OurSignatory(getDriver()) : ourSignatory;
     }
+
     public InitialTransaction getInitialTransaction() {
-        return (initialTransaction==null) ? new InitialTransaction(getDriver()) :initialTransaction;
+        return (initialTransaction == null) ? new InitialTransaction(getDriver()) : initialTransaction;
     }
 
     public Steerage getSteerage() {
-        return (steerage==null) ? new Steerage(getDriver()) :steerage;
+        return (steerage == null) ? new Steerage(getDriver()) : steerage;
     }
 
     public AdditionalManuals getAdditionalManuals() {
-        return (additionalManuals==null) ? new AdditionalManuals(getDriver()) :additionalManuals;
+        return (additionalManuals == null) ? new AdditionalManuals(getDriver()) : additionalManuals;
     }
 
 
     public AmendmentSelection getAmendmentSelection() {
-        return (amendmentSelection ==null) ? new AmendmentSelection(getDriver()) :amendmentSelection;
+        return (amendmentSelection == null) ? new AmendmentSelection(getDriver()) : amendmentSelection;
     }
 
     public ContractDetailsDashboard getContractDetailsDashboard() {
-        return (contractDetailsDashboard==null) ? new ContractDetailsDashboard(getDriver()) :contractDetailsDashboard;
+        return (contractDetailsDashboard == null) ? new ContractDetailsDashboard(getDriver()) : contractDetailsDashboard;
     }
 
     public Amendements getAmendements() {
-        return (amendements==null) ? new Amendements(getDriver()) :amendements;
+        return (amendements == null) ? new Amendements(getDriver()) : amendements;
     }
+
     public AdditionalLocations getAdditionalLocations() {
-        return (additionalLocations==null) ? new AdditionalLocations(getDriver()) :additionalLocations;
+        return (additionalLocations == null) ? new AdditionalLocations(getDriver()) : additionalLocations;
     }
 
     public Dashboard getDashboard() {
-        return (dashboard==null) ? new Dashboard(getDriver()) :dashboard;
+        return (dashboard == null) ? new Dashboard(getDriver()) : dashboard;
     }
 
 
     public Appendix2 getAppendix2() {
-        return (appendix2==null) ? new Appendix2(getDriver()) :appendix2;
+        return (appendix2 == null) ? new Appendix2(getDriver()) : appendix2;
     }
 
 
     public Article getArticle() {
-        return (article==null) ? new Article(getDriver()) :article;
+        return (article == null) ? new Article(getDriver()) : article;
     }
 
 
     public ContractDetails getContractDetails() {
-        return (contractDetails==null) ? new ContractDetails(getDriver()) :contractDetails;
+        return (contractDetails == null) ? new ContractDetails(getDriver()) : contractDetails;
     }
 
     public DocumentSelection getDocumentSelection() {
-        return (documentSelection==null) ? new DocumentSelection(getDriver()) :documentSelection;
+        return (documentSelection == null) ? new DocumentSelection(getDriver()) : documentSelection;
     }
 
     public GroupSummary getGroupSummary() {
-        return (groupSummary==null) ? new GroupSummary(getDriver()) :groupSummary;
+        return (groupSummary == null) ? new GroupSummary(getDriver()) : groupSummary;
     }
 
     public HBPsRedDoor getHbPsRedDoor() {
-        return (hbPsRedDoor==null) ? new HBPsRedDoor(getDriver()) :hbPsRedDoor;
+        return (hbPsRedDoor == null) ? new HBPsRedDoor(getDriver()) : hbPsRedDoor;
     }
 
     public MarketExceptionGrid getMarketExceptionGrid() {
-        return (marketExceptionGrid==null) ? new MarketExceptionGrid(getDriver()) :marketExceptionGrid;
+        return (marketExceptionGrid == null) ? new MarketExceptionGrid(getDriver()) : marketExceptionGrid;
     }
 
     public MarketStrategyGrid getMarketStrategyGrid() {
-        return (marketStrategyGrid==null) ? new MarketStrategyGrid(getDriver()) :marketStrategyGrid;
+        return (marketStrategyGrid == null) ? new MarketStrategyGrid(getDriver()) : marketStrategyGrid;
     }
 
     public PaymentAppendix getPaymentAppendix() {
-        return (paymentAppendix==null) ? new PaymentAppendix(getDriver()) :paymentAppendix;
+        return (paymentAppendix == null) ? new PaymentAppendix(getDriver()) : paymentAppendix;
     }
 
     public PES_Response getPes_response() {
-        return (pes_response==null) ? new PES_Response(getDriver()) :pes_response;
+        return (pes_response == null) ? new PES_Response(getDriver()) : pes_response;
     }
 
     public PESInputActions getPesInputActions() {
-        return (pesInputActions==null) ? new PESInputActions(getDriver()) :pesInputActions;
+        return (pesInputActions == null) ? new PESInputActions(getDriver()) : pesInputActions;
     }
 
     public PracticeLocations getPracticeLocations() {
-        return (practiceLocations==null) ? new PracticeLocations(getDriver()) :practiceLocations;
+        return (practiceLocations == null) ? new PracticeLocations(getDriver()) : practiceLocations;
     }
 
     public ProviderDetails getProviderDetails() {
-        return (providerDetails==null) ? new ProviderDetails(getDriver()) :providerDetails;
+        return (providerDetails == null) ? new ProviderDetails(getDriver()) : providerDetails;
     }
 
     public ProviderRoaster getProviderRoaster() {
-        return (providerRoaster==null) ? new ProviderRoaster(getDriver()) :providerRoaster;
+        return (providerRoaster == null) ? new ProviderRoaster(getDriver()) : providerRoaster;
     }
 
     public RegulatoryAppendices getRegulatoryAppendices() {
-        return (regulatoryAppendices==null) ? new RegulatoryAppendices(getDriver()) :regulatoryAppendices;
+        return (regulatoryAppendices == null) ? new RegulatoryAppendices(getDriver()) : regulatoryAppendices;
     }
 
     public RequestForParticipationResponse getRequestForParticipationResponse() {
-        return (requestForParticipationResponse==null) ? new RequestForParticipationResponse(getDriver()) :requestForParticipationResponse;
+        return (requestForParticipationResponse == null) ? new RequestForParticipationResponse(getDriver()) : requestForParticipationResponse;
     }
 
-    public SignatureBlock getSignatureBlock(){
-        return (signatureBlock==null) ? new SignatureBlock(getDriver()): signatureBlock;
+    public SignatureBlock getSignatureBlock() {
+        return (signatureBlock == null) ? new SignatureBlock(getDriver()) : signatureBlock;
     }
 
     public CounterpartyDetails getCounterpartyDetails(){
@@ -158,13 +163,12 @@ public class BasePage extends GenericInputPage {
     }
 
     public WizardComplete getWizardComplete() {
-        return (wizardComplete==null) ? new WizardComplete(getDriver()) :wizardComplete;
+        return (wizardComplete == null) ? new WizardComplete(getDriver()) : wizardComplete;
     }
+
     public SuppotingDocumentSummary getSupportingDocumentSummary() {
-        return (supportingDocumentSummary==null) ? new SuppotingDocumentSummary(getDriver()) :supportingDocumentSummary;
+        return (supportingDocumentSummary == null) ? new SuppotingDocumentSummary(getDriver()) : supportingDocumentSummary;
     }
-
-
 
 
 }

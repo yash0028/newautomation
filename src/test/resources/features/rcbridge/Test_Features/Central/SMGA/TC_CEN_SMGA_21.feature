@@ -8,9 +8,9 @@ Feature: SMGA Business Testcases_IN
   @Manual
   @User_Interface 
   @UAT_Automation_Batch1 
-  Scenario Outline: TC_CEN_SMGA_IN_21 - [RL0] Author SMGA contract in <site>  
-	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-  
+  Scenario Outline: TC_CEN_SMGA_IN_21 - [RL0] Author SMGA contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+
     #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
@@ -65,17 +65,16 @@ Feature: SMGA Business Testcases_IN
     #NDB Check
     
     #Add provider with Make a correction.   
-    
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
     And I enter Provider Start Date
-   	And I enter retro code in Provider Roster
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
-    Then I Complete Wizard   
+    Then I Complete Wizard
     
   
 		
