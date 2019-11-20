@@ -70,6 +70,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         boolean dontSkip = true;
         while (count <= 20) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getStatus("Approval Complete")))) {
+                if(!tierApproval){
+                    Assert.fail("Approval Type Error , Please check data in csv file.");
+                }
                 dontSkip = false;
                 break;
             }

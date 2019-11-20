@@ -36,6 +36,11 @@ public class BasePage extends GenericInputPage {
     private AdditionalManuals additionalManuals;
     private Steerage steerage;
     private SuppotingDocumentSummary supportingDocumentSummary;
+    private ClauseLanguage clauseLanguage;
+
+    public ClauseLanguage getClauseLanguage() {
+        return (clauseLanguage == null) ? new ClauseLanguage(getDriver()) : clauseLanguage;
+    }
 
     public Validation getValidation() {
         return (validation == null) ? new Validation(getDriver()) : validation;
