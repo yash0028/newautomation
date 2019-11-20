@@ -38,7 +38,6 @@ public class BasePage extends GenericInputPage {
     private Steerage steerage;
     private SuppotingDocumentSummary supportingDocumentSummary;
     private ClauseLanguage clauseLanguage;
-    private CounterpartyDetails counterpartyDetails;
 
     public ClauseLanguage getClauseLanguage() {
         return (clauseLanguage == null) ? new ClauseLanguage(getDriver()) : clauseLanguage;
@@ -166,11 +165,6 @@ public class BasePage extends GenericInputPage {
 
     public SignatureBlock getSignatureBlock() {
         return (signatureBlock == null) ? new SignatureBlock(getDriver()) : signatureBlock;
-    }
-
-    public CounterpartyDetails getCounterpartyDetails(){
-        return (counterpartyDetails==null) ? new CounterpartyDetails(getDriver()): counterpartyDetails;
-
     }
 
     public WizardComplete getWizardComplete() {

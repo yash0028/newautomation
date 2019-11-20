@@ -689,10 +689,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPaymentAppendix().enterPaymentAppendixinAmendmentsFC(hmap);
     }
 
-    @And("I enter Counterparty Details MPIN TIN dulplicate check")
-    public void iEnterCounterpartyDetailsMPINTINDulplicateCheck() {
-        basePage.getCounterpartyDetails().counterpartyTINDuplicateCheck();
-    }
     @And("I enter Appendix 2 in Amendments FinalCapture")
     public void iEnterAppendixInAmendmentsFC() {
         basePage.getAppendix2().enterAppendix2FC();
