@@ -1,8 +1,4 @@
-/*
-plugins {
-  id "org.sonarqube" version "2.6.2"
-}
-*/
+
 apply plugin: 'java'
 apply plugin: 'maven'
 
@@ -14,17 +10,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 
-
-//sonarqube {
-//    properties {
-//        property 'sonar.host.url', 'http://sonar.optum.com'
-//        property 'sonar.login', '826de5590c75919a8317fdfb2148206eebe7ebbc'
-//    }
-//}
-
 repositories {
     maven { url 'http://repo1.uhc.com/artifactory/repo' }
-    //mavenLocal()
 }
 
 dependencies {
@@ -32,24 +19,42 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
     compile group: 'com.univocity', name: 'univocity-parsers', version: '2.8.2'
-
-    // https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api
     compile group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
 
-    // https://mvnrepository.com/artifact/com.saucelabs/saucerest
     compile group: 'com.saucelabs', name: 'saucerest', version: '1.0.42'
-
-    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
 
-    // https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
-    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.0.0'
-    
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile group: 'io.rest-assured', name: 'rest-assured', version: '3.0.7'
+
+	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.0.0'
+
+    // Note: the cucumber dependencies are included in the below dependency
+    testCompile group: 'io.github.prashant-ramcharan', name: 'courgette-jvm', version: '3.3.0'
+
+    testCompile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.12'
+    
     testCompile 'io.cucumber:cucumber-java:3.0.2'
     testCompile 'io.cucumber:cucumber-junit:3.0.2'
     testCompile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.12'
+    
+}
+task(hive, dependsOn: 'classes', type: JavaExec) {
+    main = 'exari_test.hive.Hive'
+    classpath = sourceSets.test.runtimeClasspath
+    //Enables Assertion statements
+    jvmArgs "-ea"
+}
+
+tasks.withType(Test) {
+    systemProperties = System.getProperties()
+    systemProperties.remove("java.endorsed.dirs") // needs to be removed from Java 9
+}
+
+task parallelTest(type: Test) {
+    include '**/ParallelRunner.class'
+    outputs.upToDateWhen { false }
+    testLogging.showStandardStreams = true
 }
 
 test {
@@ -57,18 +62,10 @@ test {
     options {
         // add certain cucumber options and tags from the command line. Tags are supplied by the -PcucumberTags="@tag" option
         jvmArgs cucumberOptions()
-
     }
 
     // show standard out and standard error of the test JVM(s) on the console
     testLogging.showStandardStreams = true
-}
-
-task(hive, dependsOn: 'classes', type: JavaExec) {
-    main = 'exari_test.hive.Hive'
-    classpath = sourceSets.test.runtimeClasspath
-    //Enables Assertion statements
-    jvmArgs "-ea"
 }
 
 def String cucumberOptions() {
@@ -78,5 +75,4 @@ def String cucumberOptions() {
             ' --plugin junit:build/xml-reports/xml-report.xml' +
             ' --no-dry-run'
                     .concat(hasProperty("cucumberTags") ? " --tags '" + getProperty("cucumberTags").toString() + "'" : '')
-
 }
