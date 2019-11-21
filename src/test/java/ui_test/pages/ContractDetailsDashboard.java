@@ -189,6 +189,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             approvalType = updateApprovalType(approvalType, tierApproval , approverType);
         }
         assert click("Open Task", getMenu(approvalType, approverType));
+        waitTillClickable(elements.viewtask);
         assert click("View Task", elements.viewtask);
         waitTillClickable(elements.claimtask);
         assert click("Claim Task", elements.claimtask);
@@ -196,6 +197,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         if (elements.comments.getAttribute("value").equals("")) {
             assert sendKeys("Comments", elements.comments, "Approved");
         }
+        waitTillClickable(elements.approve);
         assert click("Approve", elements.approve);
         waitTillVisible(elements.detectapproval);
         assert waitTillVisible(elements.confirmApproval);

@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,6 +18,7 @@ public class ClauseLanguage extends GenericInputPage {
     }
 
     public void clauseLanguage(HashMap<String, String> hmap){
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert click("Clause Language", getClauseLanguage(hmap.get("Clause Language")));
         assert clickNext();
         assert waitForPageLoad();
@@ -26,8 +28,8 @@ public class ClauseLanguage extends GenericInputPage {
     }
 
     private static class PageElements extends AbstractPageElements {
-        @FindBy(xpath = "xxx")
-        private WebElement xxx;
+        private String message = "//div[contains(@class,'DialogBox')]";
+
 
         public PageElements(SearchContext context) {
             super(context);

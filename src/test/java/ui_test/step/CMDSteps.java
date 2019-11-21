@@ -38,12 +38,16 @@ public class CMDSteps implements IRestStep, IUiStep {
     public void navigateToCMDdashboardUrl() {
         String url = configGetOptionalString("CMD.DASHBOARD_URL").orElse("");
         getDriver().get(url);
+        getDriver().navigate().to(url);
+        getDriver().navigate().to(url);
         cmdPage = new CMDPage(getDriver());
 
 
         Assert.assertNotNull("CMD page not displayed", cmdPage);
         CMDLoginSSOPage obj = new CMDLoginSSOPage(getDriver());
+
         obj.checklogin();
+
 
     }
 
@@ -75,6 +79,7 @@ public class CMDSteps implements IRestStep, IUiStep {
 
     @When("^The dashboard page loads$")
     public void isDashboardPageDisplayed() {
+
         Assert.assertEquals("Dashboard page not displayed", true, cmdPage.getActionItems().size() == 4);
     }
 
@@ -211,7 +216,7 @@ public class CMDSteps implements IRestStep, IUiStep {
         cmdPage.validateContractDetails(contractParam);
     }
     @Then("^Validate Contract status and request type$")
-    public void validateContracttype( String reqtype) throws Throwable {
+    public void validateContracttype() throws Throwable {
 
         cmdPage.ValidateConract();
 

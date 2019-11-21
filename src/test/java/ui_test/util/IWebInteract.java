@@ -120,13 +120,12 @@ public interface IWebInteract {
      * @param element webelement to see if clickable
      * @return if the element is clickable
      */
-    default boolean waitTillClickable(WebElement element) {
-        return waitTillClickable(element, TIMEOUT);
+    default boolean waitTillClickable(WebElement element) { return waitTillClickable(element, TIMEOUT);
     }
 
     /**
      * Clicks a given web element and logs the element name
-     *
+
      * @param elementName descriptive name of the web element
      * @param element     Web element to be clicked
      * @return true if clicked or false otherwise
@@ -140,6 +139,18 @@ public interface IWebInteract {
             log.error("click failed for {}", elementName);
             return false;
         }
+        return true;
+    }
+    default boolean jseclick(String elementName, WebElement element)
+    {
+try{
+        JavascriptExecutor executor = (JavascriptExecutor)getDriver();
+        executor.executeScript("arguments[0].click();", element);
+        log.trace("clicked on {}", elementName);
+    } catch (Exception e) {
+        log.error("click failed for {}", elementName);
+        return false;
+    }
         return true;
     }
 

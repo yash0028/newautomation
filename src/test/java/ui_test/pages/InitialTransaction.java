@@ -17,6 +17,7 @@ public class InitialTransaction extends GenericInputPage {
     }
 
     public void initialTransaction(HashMap<String, String> hmap) {
+        waitTillClickable(this.elements.startProcess);
         assert click("Start Process", this.elements.startProcess);
         pause(1);
         waitForPageLoad(60);
