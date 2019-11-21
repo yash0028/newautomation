@@ -378,7 +378,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter Market Exception Grid in Make Correction$")
     public void MEGMakeCorrection() {
-        basePage.getMarketExceptionGrid().checkForDuplicate();
+        //basePage.getMarketExceptionGrid().checkForDuplicate();
         basePage.getMarketExceptionGrid().chooseTask(hmap, "MC_Task");
 
     }
