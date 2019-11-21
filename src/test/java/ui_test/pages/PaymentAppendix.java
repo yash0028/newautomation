@@ -7,9 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.HashMap;
 import java.util.List;
+
 
 public class PaymentAppendix extends GenericInputPage {
 
@@ -27,6 +29,27 @@ public class PaymentAppendix extends GenericInputPage {
         assert click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix")));
         assert clickNext();
         assert waitForPageLoad();
+
+
+        // public void selectPaymentAppendixx(HashMap<String, String> hmap) throws InterruptedException {
+
+        //   WebElement elem=getDriver().findElement(By.xpath("//input[contains(@value,'No')]"));
+
+        // JavascriptExecutor jse = (JavascriptExecutor)getDriver();
+
+        //jse.executeScript("arguments[0].scrollIntoView()",elem);
+
+
+        //WebElement elem2=getDriver().findElement(By.xpath("//input[contains(@value,'All Payer')]"));
+
+        //JavascriptExecutor jse2 = (JavascriptExecutor)getDriver();
+
+        //jse2.executeScript("arguments[0].scrollIntoView()",elem2);
+
+        //getDriver().findElement(By.xpath("//input[contains(@value,'No')]")).click();
+
+        // getDriver().findElement(By.xpath("//input[contains(@value,'All Payer')]")).click();
+
 
     }
 
@@ -125,7 +148,7 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void selectPaymentAppendixSMGA(HashMap<String, String> hmap) {
-        assert click("Higher than fee schedule Id",paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
+        assert click("Higher than fee schedule Id", paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
         assert clickNext();
         assert waitForPageLoad();
     }
@@ -137,7 +160,6 @@ public class PaymentAppendix extends GenericInputPage {
     public String getFeeSchedule(String allpayerType) {
         return "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'AllPayer_Fee_Schedule_Name')]";
     }
-
 
 
     private static class PageElements extends AbstractPageElements {
@@ -157,14 +179,18 @@ public class PaymentAppendix extends GenericInputPage {
         private WebElement searchBar;
         @FindBy(xpath = "//span[@class='select2-results']//li")
         private List<WebElement> selectCode;
-
-
         private String message = "//div[contains(@class,'DialogBox')]";
+
+
+        // @FindBy(xpath = "//div[contains(text(),'You must select at least one answer']")
+        // private WebElement errormessage;
+        // @FindBy(xpath = "//a[@title='go back one interview round']")
+        //private WebElement backbutton;
 
         public PageElements(SearchContext context) {
             super(context);
         }
     }
-
-
 }
+
+

@@ -56,16 +56,18 @@ Feature: SPA Business Testcases_IN
 
 
      #CMD Check
-   # When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
+   When I have entered the CMD dashboard URL
+    And The dashboard page loads
+    Then I search for Contract
+    Then Validate Contract status and request type
 
 
 
 
      #NDB Check
     #Draft Amendment
+   When I am logged into Exari Dev
+    And I search Contract using Contract Number
     And I select the contract
     And I click on Create Amendment
     And I enter title
