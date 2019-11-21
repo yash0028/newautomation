@@ -30,10 +30,16 @@ public class PES_Response extends GenericInputPage {
     public void specifyApproachForCounter(HashMap<String, String> hmap) {
 
         try {
-            assert setCheckBox("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach")), true);
-            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-            assert setCheckBox("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")), true);
-            //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            if(counterPartyApproach(hmap.get("CounterPartyApproach")).getAttribute("type").equals("checkbox")) {
+                assert setCheckBox("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach")), true);
+                waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+                assert setCheckBox("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")), true);
+                //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            }else if(counterPartyApproach(hmap.get("CounterPartyApproach")).getAttribute("type").equals("radio")){
+                assert click("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach")));
+                waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+                assert click("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")));
+            }
             assert clickNext();
             assert waitForPageLoad();
         } catch (Exception e) {
