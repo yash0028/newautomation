@@ -192,6 +192,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             approvalType = updateApprovalType(approvalType, tierApproval , approverType);
         }
         assert click("Open Task", getMenu(approvalType, approverType));
+        waitTillClickable(elements.viewtask);
         assert click("View Task", elements.viewtask);
         waitTillClickable(elements.claimtask);
         assert click("Claim Task", elements.claimtask);
