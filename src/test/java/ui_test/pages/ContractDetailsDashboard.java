@@ -200,6 +200,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             waitTillClickable(elements.comments);
             assert sendKeys("Comments", elements.comments, "Approved");
         }
+        waitTillClickable(elements.approve);
         assert click("Approve", elements.approve);
         waitTillVisible(elements.detectapproval);
         assert waitTillVisible(elements.confirmApproval);
