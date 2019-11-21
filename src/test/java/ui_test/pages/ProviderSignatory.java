@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -40,7 +41,8 @@ public class ProviderSignatory extends GenericInputPage {
             date = CommonMethods.formatDate(hmap.get("Provider Signatory Date"));
         }
         assert sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date);
-        assert sendKeys("Provider Signatory title", this.elements.name, hmap.get("Provider our Signatory title"));
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(elements.xpathCheck)))
+            assert sendKeys("Provider Signatory title", this.elements.name, hmap.get("Provider our Signatory title"));
         assert clickNext();
         assert waitForPageLoad();
     }
@@ -52,6 +54,7 @@ public class ProviderSignatory extends GenericInputPage {
         private WebElement email;
         @FindBy(xpath = "//input[contains(@name,'Name')]")
         private WebElement name;
+        private String xpathCheck="//input[contains(@name,'Name')]";
 
 
         public PageElements(SearchContext context) {
