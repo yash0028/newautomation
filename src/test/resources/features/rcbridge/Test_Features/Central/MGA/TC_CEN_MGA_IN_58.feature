@@ -33,6 +33,42 @@ Feature: MGA Business Testcases_IN
     And I select Provider Roster as None
     And I enter Group Summary
     Then I Complete Wizard
+    #Final Capture - Provider Roster (Add one or more providers to the roster)
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+      #Approval
+    And I Approve Payment Appendix
+      #Final Capture Cont.
+    And I Set Status as Final Pending QA
+    And I Start Final Capture
+    And I enter Contract Details in Final Capture
+    And I enter Provider Signatory
+    And I enter Our Signatory
+    And I enter Market Exception Grid in Final Capture
+    And I enter Market Exception Grid
+    And I enter Clause Language
+    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
+    And I add provider using TIN
+    And I select Providers
+    And I verify Providers
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    And I Set Status as Active
+    #CMD Checking
+    #NDB Checking
+    #Make Correction - Provider Roster (Add one or more providers to the roster)
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
+    And I add provider using TIN
+    And I select Providers
+    And I enter Provider Start Date
+    And I enter retro code in Provider Roster
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
 
     Examples:
       | site          | paperType     | TCName           |

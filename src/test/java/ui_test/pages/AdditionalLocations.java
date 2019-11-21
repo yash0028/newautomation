@@ -18,6 +18,7 @@ public class AdditionalLocations extends GenericInputPage {
     }
 
     private void selectAddressFromNDB() {
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert click("Select Address from NDB", elements.addressFromNDB);
 
     }
