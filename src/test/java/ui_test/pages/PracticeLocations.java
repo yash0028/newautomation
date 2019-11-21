@@ -34,7 +34,7 @@ public class PracticeLocations extends GenericInputPage {
 
     }
 
-    //Select Practice Location when Paper Type is MPA
+    //Select Practice Location when Paper Type is MGA
     public void selectPracticeLocation() {
         click(elements.radioBtnSelection);
         assert clickNext();

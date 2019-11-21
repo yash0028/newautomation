@@ -34,7 +34,7 @@ Feature: SPGA Business Testcases_IN
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-
+#
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -54,7 +54,7 @@ Feature: SPGA Business Testcases_IN
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-
+#
 
 
     #NDB Checking
@@ -66,23 +66,26 @@ Feature: SPGA Business Testcases_IN
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
+    And I preview Provider Details
     And I select Types of Amendments
     And I select Contract Applied in Amendments
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments for SPGA contracts
     And I check Payment Appendix
     And I enter Additional Manuals
     And I enter Steerage
+    And I enter Payment Appendix in Amendments for SPGA contracts
+    And I check Payment Appendix
+
     And I enter Group Summary
     And I Complete Wizard
 
 
     #Amandment final capture
     And I Start Workflow
-    And I Start Process for Initial Transaction in Amendment
+    And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
     And I enter Provider Signatory in Amendment
@@ -92,6 +95,9 @@ Feature: SPGA Business Testcases_IN
     And I enter Group Summary
     And I Complete Wizard
 		
+    #Activating Amendments
+    And I Set Status as Active
+
     #Amendment CMD Checking
 		
 		

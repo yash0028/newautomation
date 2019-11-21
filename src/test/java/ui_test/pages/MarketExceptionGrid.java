@@ -21,7 +21,12 @@ public class MarketExceptionGrid extends GenericInputPage {
         assert clickNext();
         assert waitForPageLoad();
     }
-
+    public void checkForDuplicate(){
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.duplicateTIN))) {
+            assert clickNext();
+            assert waitForPageLoad();
+        }
+    }
     public void chooseTask(HashMap<String, String> hmap, String Task) {
         assert click("Select Task", clickTask(hmap.get(Task)));
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
@@ -36,6 +41,7 @@ public class MarketExceptionGrid extends GenericInputPage {
     private static class PageElements extends AbstractPageElements {
 
         private String message = "//div[contains(@class,'DialogBox')]";
+        private String duplicateTIN = "//label[contains(.,'duplicate check failed')]/b";
 
         public PageElements(SearchContext context) {
             super(context);

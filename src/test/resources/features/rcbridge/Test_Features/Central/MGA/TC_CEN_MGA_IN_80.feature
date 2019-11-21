@@ -10,6 +10,7 @@ Feature: MGA Business Testcases_IN
   Scenario Outline: TC_CEN_MGA_IN_80 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
@@ -33,10 +34,6 @@ Feature: MGA Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-
-
-    #Final capture
-
     Examples:
       | site          | paperType     | TCName           |
-      | central uhn   | MGA           | TC_CEN_MGA_IN_80|
+      | central uhn   | MGA           | TC_CEN_MGA_IN_80 |

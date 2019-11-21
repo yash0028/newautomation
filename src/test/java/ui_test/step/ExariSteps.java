@@ -253,20 +253,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I Start Process for Initial Transaction$")
     public void initialTransaction() {
         basePage.getInitialTransaction().initialTransaction(hmap);
-        if (!hmap.get("Tier").equals("")) {
-            if (hmap.get("Tier").equals("1")) {
-                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""), true, "Draft", hmap);
-                initializeObj();
-            } else {
-                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier23E_approval_type").orElse(""), true, "Draft", hmap);
-                initializeObj();
-            }
-        }
     }
 
-    @And("^I Start Process for Initial Transaction in Amendment$")
-    public void initialTransactionAmendment() {
-        basePage.getInitialTransaction().initialTransaction(hmap);
+    @And("^I Set Status as Final Pending QA in Amendment$")
+    public void finalPendingQAAmendment() {
         if (!hmap.get("Tier").equals("")) {
             if (hmap.get("Tier").equals("1")) {
                 basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""), true, "Amendment", hmap);
@@ -276,10 +266,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
                 initializeObj();
             }
         }
-    }
-
-    @And("^I Set Status as Final Pending QA in Amendment$")
-    public void finalPendingQAAmendment() {
         basePage.getContractDetailsDashboard().editStatus("Final Pending QA", "Amendment", hmap);
     }
 
@@ -309,6 +295,15 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I Set Status as Final Pending QA$")
     public void finalPendingQA() {
+        if (!hmap.get("Tier").equals("")) {
+            if (hmap.get("Tier").equals("1")) {
+                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""), true, "Draft", hmap);
+                initializeObj();
+            } else {
+                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier23E_approval_type").orElse(""), true, "Draft", hmap);
+                initializeObj();
+            }
+        }
         basePage.getContractDetailsDashboard().editStatus("Final Pending QA", "Draft", hmap);
 
     }
@@ -383,6 +378,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter Market Exception Grid in Make Correction$")
     public void MEGMakeCorrection() {
+        basePage.getMarketExceptionGrid().checkForDuplicate();
         basePage.getMarketExceptionGrid().chooseTask(hmap, "MC_Task");
 
     }
@@ -693,15 +689,15 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPaymentAppendix().enterPaymentAppendixinAmendmentsFC(hmap);
     }
 
-    @And("I enter Counterparty Details MPIN TIN dulplicate check")
-    public void iEnterCounterpartyDetailsMPINTINDulplicateCheck() {
-        basePage.getCounterpartyDetails().counterpartyTINDuplicateCheck();
-    }
     @And("I enter Appendix 2 in Amendments FinalCapture")
     public void iEnterAppendixInAmendmentsFC() {
         basePage.getAppendix2().enterAppendix2FC();
     }
 
+    @And("^I enter Clause Language$")
+    public void clauseLanguage() {
+        basePage.getClauseLanguage().clauseLanguage(hmap);
+    }
 
     @And("I select Payment Appendix for SMGA contracts")
     public void iSelectPaymentAppendixForSMGAContracts() {
