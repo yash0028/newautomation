@@ -11,8 +11,9 @@ Feature: PAT Business Testcases_IN
   Scenario Outline: TC_CEN_PAT_IN_55 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
-    #Draft
+     #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -34,9 +35,15 @@ Feature: PAT Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-    #Final capture
+    #Workflow Approval at Local contract level
+
+    #Workflow Approval at Pricing level
+
+    #Final Capture process
+
     And I Start Workflow
     And I Start Process for Initial Transaction
+    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -55,40 +62,48 @@ Feature: PAT Business Testcases_IN
     And I Set Status as Active
 
     #CMD Check
-    #And I have entered the CMD dashboard URL
-    #And I am on the CMD dashboard
-    #And I search for Contract
-    #Then Validate Contract details
+	#NDB Check
 
-    #NDB Check
 
-   #Draft Amandament
+
+    # Draft Amandments
     And I select the contract
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I check Provider Details
+    And I preview Provider Details
     And I select Types of Amendments
     And I select Contract Applied in Amendments
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments
     And I check Payment Appendix
     And I enter Additional Manuals
     And I enter Steerage
-    And I enter Regulatory Appendices
+    And I enter Payment Appendix in Amendments for PAT contracts
+    And I check Payment Appendix
+
     And I enter Group Summary
     And I Complete Wizard
 
+     #Amandment final capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA in Amendment
+    And I Start Final Capture
+    And I enter Provider Signatory in Amendment
+    And I enter Our Signatory in Amendment
+    And I enter Appendix 2 in Amendments FinalCapture
+    And I enter Payment Appendix in Amendments FinalCapture
+    And I select Provider Roster as None
+    And I enter Group Summary
+    And I Complete Wizard
 
-
-    #Amandment final capture
-
-    #Amendment CMD Checking
+    #Activating Amendments
+    And I Set Status as Active
 
     #Amendment CMD Checking
 
