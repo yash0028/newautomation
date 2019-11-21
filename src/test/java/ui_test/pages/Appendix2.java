@@ -14,10 +14,23 @@ public class Appendix2 extends GenericInputPage {
 
     public void selectAppendix(HashMap<String, String> hmap) {
 
-        if (hmap.containsKey("Include Product"))
-            click("Include Product in Appendix 2", getXPath(hmap.get("Include Product")));
-        if (hmap.containsKey("Exclude Product"))
-            click("Exclude Product in Appendix 2", getXPath(hmap.get("Exclude Product")));
+        //Split Products using // in case need to include/ exclude multiple products
+        if (hmap.containsKey("Include Product")) {
+
+            String[] IncludeProducts = hmap.get("Include Product").split("//");
+            for (String product : IncludeProducts) {
+                assert click("Include Product in Appendix 2", getXPath(product));
+                assert waitForPageLoad(60);
+            }
+
+        }
+        if (hmap.containsKey("Exclude Product")) {
+            String[] ExcludeProducts = hmap.get("Exclude Product").split("//");
+            for (String product : ExcludeProducts) {
+                assert click("Exclude Product in Appendix 2", getXPath(product));
+                assert waitForPageLoad(60);
+            }
+        }
 
         assert clickNext();
         assert waitForPageLoad();
@@ -47,8 +60,8 @@ public class Appendix2 extends GenericInputPage {
         assert waitForPageLoad();
     }
 
-    public WebElement getXPath(String answer){
-        return findElement(getDriver(), new String[]{"xpath","//input[contains(@value, '"+answer+"')]"});
+    public WebElement getXPath(String answer) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + answer + "')]"});
     }
 
 }
