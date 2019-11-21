@@ -71,16 +71,16 @@ Feature: SMGA Business Testcases_IN
     #NDB Check
     
     #Add provider with Make a correction
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
-    And I enter Provider Start Date
-   	And I enter retro code in Provider Roster
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard 
+#    And I click Make Correction
+#    And I enter Market Exception Grid in Make Correction
+#    And I enter Market Exception Grid
+#    And I add provider using TIN
+#    And I select Providers
+#    And I enter Provider Start Date
+#   	And I enter retro code in Provider Roster
+#    And I acknowledge the warning
+#    And I enter Group Summary
+#    Then I Complete Wizard
     
     #Terminating TIN
      
