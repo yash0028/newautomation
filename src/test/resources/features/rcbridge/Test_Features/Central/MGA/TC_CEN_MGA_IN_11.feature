@@ -58,6 +58,7 @@ Feature: MGA Business Testcases_IN
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
+    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
     And I add provider using TIN
     And I select Providers
     And I enter Provider Start Date
