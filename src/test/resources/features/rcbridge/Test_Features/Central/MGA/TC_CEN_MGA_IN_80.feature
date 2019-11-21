@@ -33,7 +33,38 @@ Feature: MGA Business Testcases_IN
     And I select Provider Roster as None
     And I enter Group Summary
     Then I Complete Wizard
-
+    #Final Capture - Provider Roster (Add one or more providers to the roster)
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA
+    And I Start Final Capture
+    And I enter Contract Details in Final Capture
+    And I enter Provider Signatory
+    And I enter Our Signatory
+    And I enter Market Exception Grid in Final Capture
+    And I enter Market Exception Grid
+    And I enter Clause Language
+    And I add provider using TIN
+    And I select Providers
+    And I verify Providers
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    And I Set Status as Active
+    #CMD Checking
+    #NDB Checking
+    #Make Correction - Provider Roster (Cancel one or more providers from the roster)
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Cancel
+    And I select provider and cancel date
+    And I enter cancel reason
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    #Check CMD
+    #Check NDB
     Examples:
       | site          | paperType     | TCName           |
       | central uhn   | MGA           | TC_CEN_MGA_IN_80 |

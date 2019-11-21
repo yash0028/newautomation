@@ -56,7 +56,9 @@ public class CMDLoginSSOPage implements IWebInteract, IFactoryPage, IConfigurabl
          if (isVisible(elements.textBoxUsername)) {
             sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
             sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
-            clickWithForce("sign in", elements.buttonSignIn);
+           // System.out.println(getDriver().getPageSource());
+             assert click("sign in", elements.buttonlogIn);
+           // clickWithForce("sign in", elements.buttonSignIn);
         }
     /*
     PAGE METHODS
@@ -80,7 +82,8 @@ public class CMDLoginSSOPage implements IWebInteract, IFactoryPage, IConfigurabl
 
         @FindBy(xpath = "//button[contains(text(),'Submit')]")
         public WebElement buttonSignIn;
-
+        @FindBy(xpath = "//a[contains(text(),'Login')]")
+        public WebElement buttonlogIn;
 
         PageElements(SearchContext context) {
             super(context);
