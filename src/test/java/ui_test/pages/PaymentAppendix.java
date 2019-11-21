@@ -102,9 +102,10 @@ public class PaymentAppendix extends GenericInputPage {
     public void replacePaymentAppendixInAmendments(HashMap<String, String> hmap) {
         if (hmap.containsKey("Payment Appendix to Replace")) {
             assert sendKeys("Replace Payment Appendix", elements.searchBar, hmap.get("Payment Appendix to Replace"));
+            assert click("Select Payment Appendix to Replace", elements.selectCode.get(0));
             assert clickNext();
             assert waitForPageLoad();
-            assert click("Select Payment Appendix to Replace", elements.selectCode.get(0));
+
             assert click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix to Include")));
             assert clickNext();
             assert waitForPageLoad();
