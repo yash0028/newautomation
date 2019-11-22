@@ -4,6 +4,7 @@
 @iterationUnknown
 Feature: MGA Business Testcases_IN
 
+  @leo
   @TC_CEN_MGA_IN_71
   @Manual
   @User_Interface
