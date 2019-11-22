@@ -72,8 +72,9 @@ Feature: SPGA Business Testcases_IN
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments for SPGA contracts
+#    And I enter Payment Appendix in Amendments for SPGA contracts
     And I check Payment Appendix
+    And I enter Payment Appendix Amendments in Spga Contracts
     And I enter Additional Manuals
     And I enter Steerage
     And I enter Group Summary

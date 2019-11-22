@@ -28,6 +28,12 @@ public class PaymentAppendixAmendment extends GenericInputPage {
         assert waitForPageLoad();
     }
 
+    public void paymentApppendixforSPGA()
+    {
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[contains(@value,'Physicians')]")
         private WebElement physician;

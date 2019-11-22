@@ -730,5 +730,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
 
-
+    @And("I enter Payment Appendix Amendments in Spga Contracts")
+    public void iEnterPaymentAppendixAmendmentsInSpgaContracts() {
+        basePage.getPaymentAppendixAmendment().paymentApppendixforSPGA();
+    }
 }
