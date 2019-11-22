@@ -16,7 +16,19 @@ public class AdditionalManuals extends GenericInputPage {
     }
 
     public void applyToBenefitPlans(HashMap<String, String> hmap) {
-        assert click("Additional Manuals Benefit Plans", selectAdditionalManuals(hmap.get("Benefit Plan")));
+        if (hmap.containsKey("Benefit Plan")) {
+            String[] plans = hmap.get("Benefit Plan").split("//");
+            for (String plan : plans) {
+                assert click("Additional Manuals Benefit Plans", selectAdditionalManuals(plan));
+                pause(1);
+            }
+        }
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
+    public void additionalManualsMGA(HashMap<String, String> hmap) {
+        assert click("Additional Manuals in MGA", selectAdditionalManuals(hmap.get("Additional Manuals in MGA")));
         assert clickNext();
         assert waitForPageLoad();
     }

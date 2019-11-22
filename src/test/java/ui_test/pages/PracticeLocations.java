@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,7 +37,11 @@ public class PracticeLocations extends GenericInputPage {
 
     //Select Practice Location when Paper Type is MGA
     public void selectPracticeLocation() {
-        click(elements.radioBtnSelection);
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(elements.radio))){
+            click("Practice Location",elements.radioBtnSelection);
+        }else if(CommonMethods.isElementPresent(getDriver(), By.xpath(elements.checkbox))){
+            setCheckBox("Practice Location",elements.checkboxBtnSelection,true);
+        }
         assert clickNext();
         assert waitForPageLoad();
     }
@@ -51,7 +56,11 @@ public class PracticeLocations extends GenericInputPage {
 
         @FindBy(xpath = "//input[@type='radio']")
         private WebElement radioBtnSelection;
+        @FindBy(xpath = "//input[@type='checkbox']")
+        private WebElement checkboxBtnSelection;
 
+        private String radio = "//input[@type='radio']";
+        private String checkbox = "//input[@type='checkbox']";
         public PageElements(SearchContext context) {
             super(context);
         }

@@ -54,6 +54,31 @@ Feature: MGA Business Testcases_IN
     #CMD Checking
     #NDB Checking
     #Amendment-Fee Schedule
+      #Draft
+    And I select the contract
+    And I click on Create Amendment
+    And I enter title
+    And I enter Amendment Selection
+    And I select Amendments needed in Amendment Selection
+    And I select Amendment Type in Provider Details
+    And I enter Our Signatory in Amendment
+    And I select Types of Amendments
+    And I enter Contract Details in Amendments
+    And I enter Effective date in Contract Details
+    And I enter Group Summary
+    And I Complete Wizard
+
+    #Amandment final capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA in Amendment
+    And I Start Final Capture
+    And I select Provider Roster as None
+    And I enter Group Summary
+    And I Complete Wizard
+
+    #Activating Amendment
+    And I Set Status as Active in Amendment
 
     #CMD Checking
     #NDB Checking

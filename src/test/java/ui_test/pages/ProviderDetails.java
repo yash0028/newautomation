@@ -46,11 +46,14 @@ public class ProviderDetails extends GenericInputPage {
 
     public void previewProfile(HashMap<String, String> hmap) {
         waitForPageLoad(60);
-        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.tierIndicator))) {
-            hmap.put("Tier", elements.tier.getAttribute("value"));
+        pause(3);
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.tierIndicator))) {
+                hmap.put("Tier", elements.tier.getAttribute("value"));
+            }
+            assert clickNext();
+            assert waitForPageLoad();
         }
-        assert clickNext();
-        assert waitForPageLoad();
 
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.duplicateTIN))) {
             assert clickNext();
@@ -86,6 +89,8 @@ public class ProviderDetails extends GenericInputPage {
         private String tierIndicator = "//input[contains(@name,'TierIndicator')]";
         private String duplicateTIN = "//label[contains(.,'duplicate check failed')]/b";
         private String message = "//div[contains(@class,'DialogBox')]";
+        private String topic = "//div[contains(@class,'topicArea')]/p[contains(.,'Provider Details')]";
+
 
         public PageElements(SearchContext context) {
             super(context);

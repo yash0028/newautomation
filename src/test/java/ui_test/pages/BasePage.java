@@ -38,6 +38,11 @@ public class BasePage extends GenericInputPage {
     private Steerage steerage;
     private SuppotingDocumentSummary supportingDocumentSummary;
     private ClauseLanguage clauseLanguage;
+    private BenefitPlanDescriptionsProvision benefitPlanDescriptionsProvision;
+
+    public BenefitPlanDescriptionsProvision getBenefitPlanDescriptionsProvision() {
+        return (benefitPlanDescriptionsProvision == null) ? new BenefitPlanDescriptionsProvision(getDriver()) : benefitPlanDescriptionsProvision;
+    }
 
     public ClauseLanguage getClauseLanguage() {
         return (clauseLanguage == null) ? new ClauseLanguage(getDriver()) : clauseLanguage;

@@ -4,7 +4,7 @@
 @iterationUnknown
 Feature: US1407217
 
-  @TC_CEN_MGA_IN_53
+  @TC_CEN_IN_53
   @Manual
   @User_Interface
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
