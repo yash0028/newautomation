@@ -41,9 +41,11 @@ public class ProviderSignatory extends GenericInputPage {
             date = CommonMethods.formatDate(hmap.get("Provider Signatory Date"));
         }
         assert sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date);
-        if(CommonMethods.isElementPresent(getDriver(), By.xpath(elements.xpathCheck)))
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(elements.xpathCheck))) {
+            System.out.println("--------------------ELement is Present---------------------");
             assert sendKeys("Provider Signatory title", this.elements.name, hmap.get("Provider our Signatory title"));
-        assert clickNext();
+        }
+            assert clickNext();
         assert waitForPageLoad();
     }
 
