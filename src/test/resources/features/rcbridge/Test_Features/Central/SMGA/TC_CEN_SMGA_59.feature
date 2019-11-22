@@ -66,6 +66,7 @@ Feature: SMGA Business Testcases_IN
     
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
     
     #CMD Check
 #    When I have entered the CMD dashboard URL
