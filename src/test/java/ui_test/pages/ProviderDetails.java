@@ -87,7 +87,7 @@ public class ProviderDetails extends GenericInputPage {
 
 
         private String tierIndicator = "//input[contains(@name,'TierIndicator')]";
-        private String duplicateTIN = "//label[contains(.,'duplicate check failed')]/b";
+        private String duplicateTIN = "//label[contains(.,'Counterparty TIN duplicate check failed')]/b";
         private String message = "//div[contains(@class,'DialogBox')]";
         private String topic = "//div[contains(@class,'topicArea')]/p[contains(.,'Provider Details')]";
 

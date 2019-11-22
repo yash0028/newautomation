@@ -53,9 +53,9 @@ Feature: SPGA Business Testcases_IN
    Then I Complete Wizard
 #    #Activate
    And I Set Status as Active
-#                 #NDB Checking
-
-
+##                 #NDB Checking
+#
+#
 #    #Draft Amandament
     And I select the contract
     And I click on Create Amendment
@@ -68,7 +68,7 @@ Feature: SPGA Business Testcases_IN
     And I enter Effective date in Contract Details
 	And I enter Payment Appendix in Amendments to replace Payment Appendix
 	And I select fee schedule id in Amendments
-    And I select Provider Roster as None
+#    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
@@ -80,7 +80,7 @@ Feature: SPGA Business Testcases_IN
    And I enter Provider Signatory in Amendment
    And I enter Our Signatory in Amendment
    And I enter Payment Appendix in Amendments FinalCapture
-
+   And I select Provider Roster as None
    And I enter Group Summary
    And I Complete Wizard
 
