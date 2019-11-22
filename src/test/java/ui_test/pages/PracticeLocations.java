@@ -35,7 +35,7 @@ public class PracticeLocations extends GenericInputPage {
 
     }
 
-    //Select Practice Location when Paper Type is MPA
+    //Select Practice Location when Paper Type is MGA
     public void selectPracticeLocation() {
         if(CommonMethods.isElementPresent(getDriver(), By.xpath(elements.radio))){
             click("Practice Location",elements.radioBtnSelection);

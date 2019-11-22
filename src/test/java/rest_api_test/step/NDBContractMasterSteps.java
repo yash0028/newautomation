@@ -173,7 +173,7 @@ public class NDBContractMasterSteps implements IRestStep {
 
     // US1830795 - Enhance NDB API contract master search for Y-format contract masters that process on UNET
 
-    @And("the contract master lookup search (?:also )?contains the following data:$")
+    @And("the contract master lookup search (?:also )?contains the following data:")
     public void theContractMasterLookupSearchContainsTheFollowingData(DataTable requestDT) {
         Map<String, String> requestMap = requestDT.asMap(String.class, String.class);
         Set<String> fields = requestMap.keySet();

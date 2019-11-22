@@ -46,7 +46,6 @@ Feature: SMGA Business Testcases_IN
     #Final capture    
     And I Start Workflow
     And I Start Process for Initial Transaction
-    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
