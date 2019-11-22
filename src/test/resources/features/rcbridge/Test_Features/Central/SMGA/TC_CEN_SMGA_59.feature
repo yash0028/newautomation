@@ -68,9 +68,9 @@ Feature: SMGA Business Testcases_IN
     And I Set Status as Active
     
     #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
-    Then Validate Contract "11122328" status and request type "InstallContract"
+#    When I have entered the CMD dashboard URL
+#    When I search for Contract
+#    Then Validate Contract "11122328" status and request type "InstallContract"
 
     #NDB Check
     

@@ -33,12 +33,19 @@ public class PES_Response extends GenericInputPage {
             if(counterPartyApproach(hmap.get("CounterPartyApproach")).getAttribute("type").equals("checkbox")) {
                 assert setCheckBox("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach")), true);
                 waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-                assert setCheckBox("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")), true);
+//                assert setCheckBox("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")), true);
                 //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             }else if(counterPartyApproach(hmap.get("CounterPartyApproach")).getAttribute("type").equals("radio")){
                 assert click("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach")));
                 waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+//                assert click("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")));
+            }
+            if(counterPartyApproach(hmap.get("CounterPartyAddress")).getAttribute("type").equals("checkbox")) {
+                assert setCheckBox("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")), true);
+                waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            }else if(counterPartyApproach(hmap.get("CounterPartyAddress")).getAttribute("type").equals("radio")){
                 assert click("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")));
+                waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             }
             assert clickNext();
             assert waitForPageLoad();
