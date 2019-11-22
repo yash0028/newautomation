@@ -34,9 +34,9 @@ Feature: SMGA Business Testcases_IN
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-    
+
     #Final capture
-    
+
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Approve Payment Appendix
@@ -53,10 +53,10 @@ Feature: SMGA Business Testcases_IN
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    
+
     #Activate
     And I Set Status as Active
-    
+
     #CMD Check
 #    When I have entered the CMD dashboard URL
 #    When I search for Contract
@@ -94,6 +94,7 @@ Feature: SMGA Business Testcases_IN
 	#Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
+    And I Approve Payment Appendix
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
     And I enter Provider Signatory in Amendment
