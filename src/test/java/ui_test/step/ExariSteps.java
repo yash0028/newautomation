@@ -701,7 +701,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("I select Payment Appendix for SMGA contracts")
     public void iSelectPaymentAppendixForSMGAContracts() {
-        basePage.getPaymentAppendix().selectPaymentAppendixSMGA(hmap);
+//        basePage.getPaymentAppendix().selectPaymentAppendixSMGA(hmap);
         basePage.getPaymentAppendixAmendment().selectPaymentAppendixAmendmentSMGA(hmap);
     }
 
