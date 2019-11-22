@@ -28,6 +28,7 @@ public class Amendements extends GenericInputPage {
     }
 
     public void typeOfAmendmentsNeeded(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert click("Type of Amendment needed in Amendments Page", selectAmendments(hmap.get("Amendment Type Needed")));
         assert clickNext();
         assert waitForPageLoad();

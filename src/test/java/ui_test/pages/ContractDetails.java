@@ -43,6 +43,7 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
     }
 
     public void setSpecificEffectiveDate(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert click("Set Specific Effective Date", selectContractDetails(hmap.get("Set Specific Effective Date")));
         assert clickNext();
         assert waitForPageLoad();
@@ -58,6 +59,7 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
         @FindBy(xpath = "//input[contains(@id,'Effective')]")
         private WebElement contractEffectiveDate;
 
+        private String message = "//div[contains(@class,'DialogBox')]";
         public PageElements(SearchContext context) {
             super(context);
         }

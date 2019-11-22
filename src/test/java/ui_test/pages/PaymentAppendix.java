@@ -110,6 +110,18 @@ public class PaymentAppendix extends GenericInputPage {
         assert waitForPageLoad();
 
     }
+    public void paymentAppendixToIncludeMGA(HashMap<String, String> hmap) {
+        if (hmap.containsKey("Payment Appendix to Include")) {
+            String[] appendixes = hmap.get("Payment Appendix to Include").split("//");
+            for (String appendix : appendixes) {
+                assert click("Payment Appendix to Include", paymentAppendixElement(appendix));
+                pause(1);
+            }
+        }
+        assert clickNext();
+        assert waitForPageLoad();
+
+    }
 
     public void enterDataInPaymentAppendixForSMGA(HashMap<String, String> hmap) {
         assert sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician"));
@@ -134,6 +146,20 @@ public class PaymentAppendix extends GenericInputPage {
             assert waitForPageLoad();
         }
     }
+    public void medicareAdvantagePaymentAppendixMGA(HashMap<String, String> hmap){
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Advantage for Physicians")))) {
+            assert sendKeys("Advantage for Physicians", getFeeScheduleElement("Advantage for Physicians"), hmap.get("FS Id Amendments Physician"));
+        }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Advantage for Non-Physicians")))) {
+            assert sendKeys("Advantage for Non-Physicians", getFeeScheduleElement("Advantage for Non-Physicians"), hmap.get("FS Id Amendments Non-Physician"));
+        }
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+    public void verifyMedicareAdvantage() {
+        assert clickNext();
+        assert waitForPageLoad();
+    }
 
     public void enterPaymentAppenidix(HashMap<String, String> hmap) {
         elements.feeSchduleID.clear();
@@ -154,11 +180,11 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public WebElement getFeeScheduleElement(String allpayerType) {
-        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'AllPayer_Fee_Schedule_Name')]"});
+        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'Fee_Schedule_Name')]"});
     }
 
     public String getFeeSchedule(String allpayerType) {
-        return "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'AllPayer_Fee_Schedule_Name')]";
+        return "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'Fee_Schedule_Name')]";
     }
 
 

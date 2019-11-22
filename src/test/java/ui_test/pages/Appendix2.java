@@ -38,7 +38,9 @@ public class Appendix2 extends GenericInputPage {
 
 
     public void productsExcludedFromAgreement(HashMap<String, String> hmap) {
-        assert click("Exclude Product in Appendix 2", getXPath(hmap.get("Exclude Product in Amendment")));
+        if (hmap.containsKey("Exclude Product in Amendment")) {
+            assert click("Exclude Product in Appendix 2", getXPath(hmap.get("Exclude Product in Amendment")));
+        }
         assert clickNext();
         assert waitForPageLoad();
     }

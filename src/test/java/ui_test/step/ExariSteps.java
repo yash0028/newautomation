@@ -704,4 +704,31 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPaymentAppendix().selectPaymentAppendixSMGA(hmap);
         basePage.getPaymentAppendixAmendment().selectPaymentAppendixAmendmentSMGA(hmap);
     }
+
+    @And("I enter Benefit Plan Descriptions Provision")
+    public void benefitPlanDescriptionsProvision() {
+        basePage.getBenefitPlanDescriptionsProvision().nameOfState(hmap);
+    }
+
+    @And("I select Payment Appendix to include in Amendments for MGA contracts")
+    public void includePaymentAppendixforMGAContracts() {
+        basePage.getPaymentAppendix().paymentAppendixToIncludeMGA(hmap);
+    }
+
+    @And("I enter Additional Manuals in MGA")
+    public void additionalManualsMGA() {
+        basePage.getAdditionalManuals().additionalManualsMGA(hmap);
+    }
+
+    @And("I enter Medicare Advantage Payment Appendix in MGA")
+    public void medicareAdvantagePaymentAppendixMGA() {
+        basePage.getPaymentAppendix().medicareAdvantagePaymentAppendixMGA(hmap);
+    }
+    @And("I verify Medicare Advantage")
+    public void verifyMedicareAdvantage() {
+        basePage.getPaymentAppendix().verifyMedicareAdvantage();
+    }
+
+
+
 }

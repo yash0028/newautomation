@@ -314,6 +314,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public void makeCorrection() {
+        waitTillClickable(this.elements.initialTransaction);
+        assert click("Initial Transaction", this.elements.initialTransaction);
+        waitTillClickable(this.elements.makeCorrection);
         assert click("Make Correction", this.elements.makeCorrection);
         assert waitForPageLoad();
     }

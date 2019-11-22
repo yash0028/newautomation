@@ -4,6 +4,7 @@
 @iterationUnknown
 Feature: MGA Business Testcases_IN
 
+  @leo
   @TC_CEN_MGA_IN_71
   @Manual
   @User_Interface
@@ -36,9 +37,6 @@ Feature: MGA Business Testcases_IN
     #Final Capture - Provider Roster (Add one or more providers to the roster)
     And I Start Workflow
     And I Start Process for Initial Transaction
-      #Approval
-    And I Approve Payment Appendix
-      #Final Capture Cont.
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -58,22 +56,58 @@ Feature: MGA Business Testcases_IN
     #CMD Checking
     #NDB Checking
     #Amendment-Fee Schedule
+      #Draft
+    And I select the contract
+    And I click on Create Amendment
+    And I enter title
+    And I enter Amendment Selection
+    And I select Amendments needed in Amendment Selection
+    And I select Amendment Type in Provider Details
+    And I preview Provider Details
+    And I select Types of Amendments
+    And I enter Contract Details in Amendments
+    And I enter Effective date in Contract Details
+    And I enter Additional Manuals
+    And I enter Benefit Plan Descriptions Provision
+    And I select applied Payment Appendix
+    And I select Payment Appendix to include in Amendments for MGA contracts
+    And I enter Additional Manuals in MGA
+    And I enter Steerage
+    And I enter Medicare Advantage Payment Appendix in MGA
+    And I verify Medicare Advantage
+    And I enter Regulatory Appendices
+    And I enter Group Summary
+    And I Complete Wizard
+    #Amandment final capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA in Amendment
+    And I Start Final Capture
+    And I enter Provider Signatory in Amendment
+    And I enter Our Signatory in Amendment
+    And I enter Appendix 2 in Amendments
+    And I enter Payment Appendix in Amendments FinalCapture
+    And I select Provider Roster as None
+    And I enter Group Summary
+    And I Complete Wizard
 
+    #Activating Amendment
+    And I Set Status as Active in Amendment
     #CMD Checking
     #Check Cosmos
     #NDB Checking
     #Make Correction - Provider Roster (Add one or more providers to the roster)
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I set Roster Action as Upload
-    And I Download Current Roster
-    And I Upload Completed Roster
-    And I enter warning in Make Correction
-    And I enter validation
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
+#    And I click Make Correction
+#    And I enter Market Exception Grid in Make Correction
+#    And I enter Market Exception Grid
+#    And I set Roster Action as Upload
+#    And I Download Current Roster
+#    And I Upload Completed Roster
+#    And I enter warning in Make Correction
+#    And I enter validation
+#    And I acknowledge the warning
+#    And I enter Group Summary
+#    Then I Complete Wizard
     #CMD Checking
     #NDB Checking
     Examples:
