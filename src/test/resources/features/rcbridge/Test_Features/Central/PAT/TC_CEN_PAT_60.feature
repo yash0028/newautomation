@@ -12,6 +12,7 @@ Feature: PAT Business Testcases_IN
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+
     And I enter PES Inputs
     And I enter PES Responses
     And I select Market Number
@@ -49,7 +50,7 @@ Feature: PAT Business Testcases_IN
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I verify Providers
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -64,6 +65,7 @@ Feature: PAT Business Testcases_IN
     #And The dashboard page loads
     #When I search for Contract
     #Then Validate Contract status and request type
+
 
     #CMD Check
     #NDB Check
