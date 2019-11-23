@@ -1,10 +1,7 @@
 package ui_test.pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -195,6 +192,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         waitTillClickable(elements.viewtask);
         assert click("View Task", elements.viewtask);
         waitTillClickable(elements.claimtask);
+        ((JavascriptExecutor)getDriver()).executeScript("document.getElementById('claim-task').scrollIntoView();");
         assert click("Claim Task", elements.claimtask);
         waitTillVisible(elements.comments);
         if (elements.comments.getAttribute("value").equals("")) {
