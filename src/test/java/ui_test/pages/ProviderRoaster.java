@@ -272,6 +272,8 @@ public class ProviderRoaster extends GenericInputPage {
 
         }
         removeExcessRow(elements.dropdown_open_count.size(), CANCEL_MULTIPLE_PROVIDERS);
+        //Dont give assert to the following click method.
+        click("Get Cancel Dates",elements.nextLink);
         if (CANCEL_MULTIPLE_PROVIDERS > 0) {
             String[] dates = hmap.get("Cancel Date").split("//");
             for (count = 1; count <= CANCEL_MULTIPLE_PROVIDERS; count++) {
@@ -372,6 +374,8 @@ public class ProviderRoaster extends GenericInputPage {
         private List<WebElement> selectCancelReason;
         @FindBy(xpath = "//a[contains(@href,\"Roster\")]")
         private WebElement downloadProviderRoster;
+        @FindBy(xpath = "//a[contains(.,'Next')]")
+        private WebElement nextLink;
 
 
         private String message = "//div[contains(@class,'DialogBox')]";

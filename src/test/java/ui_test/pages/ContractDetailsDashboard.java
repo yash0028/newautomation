@@ -56,18 +56,20 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             getActivityManager(false, tierApproval);
         }
     }
-    public void openActiveWorkFlow(){
-                if(this.elements.openActiveWorkFlow.getAttribute("class").contains("alfresco-twister-closed")){
-                    click("Active Workflows",this.elements.openActiveWorkFlow);
-                }
+
+    public void openActiveWorkFlow() {
+        if (this.elements.openActiveWorkFlow.getAttribute("class").contains("alfresco-twister-closed")) {
+            click("Active Workflows", this.elements.openActiveWorkFlow);
+        }
     }
+
     public boolean getActiveWorkFlow(boolean tierApproval, String location, HashMap<String, String> hmap) {
         int count = 1;
         boolean foundActiveWorkFlow = false;
         boolean dontSkip = true;
         while (count <= 20) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getStatus("Approval Complete")))) {
-                if(!tierApproval){
+                if (!tierApproval) {
                     Assert.fail("Approval Type Error , Please check data in csv file.");
                 }
                 dontSkip = false;
@@ -102,37 +104,40 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         }
         return foundActiveWorkFlow;
     }
-    public String updateApprovalType(String approvalType, boolean tierApproval , int count){
-                if(CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType)))){
-                    return approvalType;
-                }else{
-                        if(approvalType.contains("Tier 1")){
-                            return approvalType.replaceFirst("Tier 1","Tier 1 ");
-                        }else if(approvalType.contains("Tier 23E")){
-                            return approvalType.replaceFirst("Tier 23E","Tier 23E ");
-                        }
-                }
-                return "";
-    }
-    public String updateApprovalType(String approvalType, boolean tierApproval , String approverType){
-        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getMenuXpath(approvalType,approverType)))){
+
+    public String updateApprovalType(String approvalType, boolean tierApproval, int count) {
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType)))) {
             return approvalType;
-        }else{
-            if(approvalType.contains("Tier 1")){
-                return approvalType.replaceFirst("Tier 1","Tier 1 ");
-            }else if(approvalType.contains("Tier 23E")){
-                return approvalType.replaceFirst("Tier 23E","Tier 23E ");
+        } else {
+            if (approvalType.contains("Tier 1")) {
+                return approvalType.replaceFirst("Tier 1", "Tier 1 ");
+            } else if (approvalType.contains("Tier 23E")) {
+                return approvalType.replaceFirst("Tier 23E", "Tier 23E ");
             }
         }
         return "";
     }
+
+    public String updateApprovalType(String approvalType, boolean tierApproval, String approverType) {
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getMenuXpath(approvalType, approverType)))) {
+            return approvalType;
+        } else {
+            if (approvalType.contains("Tier 1")) {
+                return approvalType.replaceFirst("Tier 1", "Tier 1 ");
+            } else if (approvalType.contains("Tier 23E")) {
+                return approvalType.replaceFirst("Tier 23E", "Tier 23E ");
+            }
+        }
+        return "";
+    }
+
     public String getApproverType(String approvalType, boolean tierApproval) {
         boolean foundApprovalType = false;
         boolean completedApprovalType = false;
         String approverType = "";
         for (int count = 1; count <= taskrows(); count++) {
-            if(tierApproval){
-                approvalType = updateApprovalType(approvalType, tierApproval , count);
+            if (tierApproval) {
+                approvalType = updateApprovalType(approvalType, tierApproval, count);
             }
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getTilteXpath(count, approvalType)))) {
                 String[] title = getTilte(count, approvalType).getAttribute("title").split("-");
@@ -150,14 +155,14 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         }
         if (!tierApproval) {
             Assert.assertTrue("Failed to Find " + approvalType + " in Activity Manager", foundApprovalType || completedApprovalType);
-        } else if (!(foundApprovalType ||completedApprovalType)) {
+        } else if (!(foundApprovalType || completedApprovalType)) {
             approverType = "TierApprovalNotRequired";
         }
         if (completedApprovalType && CHECK_APPROVAL_ALREADY_COMPLETED) {
             Assert.assertTrue(approvalType + " is already Completed", foundApprovalType);
         } else if (completedApprovalType) {
             IWebInteract.log.info("[COMPLETED] {} Approval", approvalType);
-            approverType="";
+            approverType = "";
         }
         CHECK_APPROVAL_ALREADY_COMPLETED = false;
         return approverType;
@@ -172,9 +177,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             LoginSSOPage loginPage = new LoginSSOPage(getDriver());
             assert loginPage.confirmCurrentPage();
             if (approverType.equals(configGetOptionalString("exari.username").orElse(""))) {
-                assert loginPage.login();
+                loginPage.login();
             } else {
-                assert loginPage.login(approverType.toLowerCase());
+                loginPage.login(approverType.toLowerCase());
             }
             this.elements = new PageElements(getDriver());
             return true;
@@ -185,21 +190,23 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public void doCaim(String approvalType, String approverType, boolean tierApproval) {
-        if(tierApproval){
-            approvalType = updateApprovalType(approvalType, tierApproval , approverType);
+        if (tierApproval) {
+            approvalType = updateApprovalType(approvalType, tierApproval, approverType);
         }
         assert click("Open Task", getMenu(approvalType, approverType));
         waitTillClickable(elements.viewtask);
         assert click("View Task", elements.viewtask);
         waitTillClickable(elements.claimtask);
-        ((JavascriptExecutor)getDriver()).executeScript("document.getElementById('claim-task').scrollIntoView();");
+        scrollIntoView("claim-task");
         assert click("Claim Task", elements.claimtask);
         waitTillVisible(elements.comments);
+        scrollIntoView("comments");
         if (elements.comments.getAttribute("value").equals("")) {
             waitTillClickable(elements.comments);
             assert sendKeys("Comments", elements.comments, "Approved");
         }
         waitTillClickable(elements.approve);
+        scrollIntoView("adf-form-approve");
         assert click("Approve", elements.approve);
         waitTillVisible(elements.detectapproval);
         assert waitTillVisible(elements.confirmApproval);
@@ -279,17 +286,17 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         //dont give assert for close.
         click("Close", this.elements.close);
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        if(option.equals("Active")){
-            for( count = 0; count<10 ; count++){
+        if (option.equals("Active")) {
+            for (count = 0; count < 10; count++) {
                 if (CommonMethods.isElementPresent(getDriver(), By.xpath(getStatus("Active")))) {
                     activated = true;
                     break;
-                }else{
+                } else {
                     refreshPage();
                     pause(3);
                 }
             }
-            if(!activated){
+            if (!activated) {
                 Assert.fail("Contract is activation failed.");
             }
         }
@@ -336,14 +343,23 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public void enterAmendmentTitle(HashMap<String, String> hmap) {
-        Actions actions=new Actions(getDriver());
+        Actions actions = new Actions(getDriver());
         actions.clickAndHold(elements.amendmentsWindow).pause(1).moveToElement(elements.fullWindow).release().build().perform();
         elements.amendentTitleBar.clear();
-        assert sendKeys("Entering amendment Title",elements.amendentTitleBar,hmap.get("Amendment Title"));
-        assert click("Create Amendment Button",elements.getCreateAmendmentButton);
+        assert sendKeys("Entering amendment Title", elements.amendentTitleBar, hmap.get("Amendment Title"));
+        assert click("Create Amendment Button", elements.getCreateAmendmentButton);
         assert waitForPageLoad();
     }
 
+    public boolean scrollIntoView(String elementID) {
+        try {
+            ((JavascriptExecutor) getDriver()).executeScript("document.getElementById('" + elementID + "').scrollIntoView();");
+            return true;
+        } catch (Exception e) {
+            IWebInteract.log.info("Scroll into view failed for : {}", elementID);
+        }
+        return false;
+    }
 
     public String taskrow(String answer) {
         return "//span[contains(@title,'" + answer + "')]";
@@ -397,6 +413,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         return findElement(getDriver(), new String[]{"xpath", "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')]//div[contains(@filename,'" + approvalType + " - " + approver + "')][6]/div/button"});
 
     }
+
     public String getMenuXpath(String approvalType, String approver) {
         return "//div[contains(@class,'adf-datatable-body')]/div[contains(@class,'adf-datatable-row')]//div[contains(@filename,'" + approvalType + " - " + approver + "')][6]/div/button";
 

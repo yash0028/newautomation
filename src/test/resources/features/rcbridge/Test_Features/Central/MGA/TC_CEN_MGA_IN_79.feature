@@ -3,7 +3,8 @@
 @releaseUnknown
 @iterationUnknown
 Feature: MGA Business Testcases_IN
-
+  @rerun
+  @cancel
   @leo
   @TC_CEN_MGA_IN_79
   @Manual
