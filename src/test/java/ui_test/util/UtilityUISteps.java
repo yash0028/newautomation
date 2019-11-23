@@ -13,6 +13,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriverException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.Assert;
+
 import util.configuration.IConfigurable;
 
 import java.util.Map;
@@ -93,7 +95,7 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
     public void prepareParametricBrowser(DataTable table) {
         //Check if parametric
         if (parameterScenaio == null) {
-            assert false;
+             assert false;
             return;
         }
 

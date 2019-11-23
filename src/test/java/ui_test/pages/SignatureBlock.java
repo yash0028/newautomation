@@ -17,8 +17,8 @@ public class SignatureBlock extends GenericInputPage {
     }
 
     public void handleSignatureBlock(HashMap<String, String> hmap) {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
 

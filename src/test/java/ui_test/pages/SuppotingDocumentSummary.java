@@ -8,7 +8,7 @@ public class SuppotingDocumentSummary extends GenericInputPage {
     }
 
     public void reviewSupportingDocument() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 }

@@ -23,25 +23,25 @@ public class Amendements extends GenericInputPage {
     public void authorAmendments(HashMap<String, String> hmap) {
         click("Amendments", selectAmendments(hmap.get("Amendments")));
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
     public void typeOfAmendmentsNeeded(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert click("Type of Amendment needed in Amendments Page", selectAmendments(hmap.get("Amendment Type Needed")));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Type of Amendment needed in Amendments Page", selectAmendments(hmap.get("Amendment Type Needed")));
+         clickNext();
+         waitForPageLoad();
 
     }
 
     public void typeOfContractApplied(HashMap<String, String> hmap) {
-        assert click("Open Dropdown", elements.clickOnSearch);
-        assert sendKeys("Select Type of Contract", elements.clickOnBar, hmap.get("Contract Type in Amendments"));
+         click("Open Dropdown", elements.clickOnSearch);
+         sendKeys("Select Type of Contract", elements.clickOnBar, hmap.get("Contract Type in Amendments"));
         pause(1);
-        assert click("Click Type of Amendments", elements.dropdown_selection.get(0));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Click Type of Amendments", elements.dropdown_selection.get(0));
+         clickNext();
+         waitForPageLoad();
     }
 
     public WebElement selectAmendments(String Name) {
@@ -49,27 +49,27 @@ public class Amendements extends GenericInputPage {
     }
 
     public void amendPaymentAppendix(HashMap<String, String> hmap) {
-        assert click("Amend Payment Appendix", selectAmendments(hmap.get("Amend Payment Appendix")));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Amend Payment Appendix", selectAmendments(hmap.get("Amend Payment Appendix")));
+         clickNext();
+         waitForPageLoad();
     }
 
     public void selectUnilateralContract(HashMap<String, String> hmap) {
-        assert click("Select Unilateral Contract", selectAmendments(hmap.get("Unilateral Contract")));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Select Unilateral Contract", selectAmendments(hmap.get("Unilateral Contract")));
+         clickNext();
+         waitForPageLoad();
     }
 
     public void selectproviderTypeInAmendments(HashMap<String, String> hmap) {
-        assert click("Select Provider Type in Amendments", selectAmendments(hmap.get("Contract Type in Amendments")));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Select Provider Type in Amendments", selectAmendments(hmap.get("Contract Type in Amendments")));
+         clickNext();
+         waitForPageLoad();
     }
 
     public void enterOptOut(HashMap<String, String> hmap) {
-        assert click("Select OptOut option in Amendments", selectAmendments(hmap.get("OptOut")));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Select OptOut option in Amendments", selectAmendments(hmap.get("OptOut")));
+         clickNext();
+         waitForPageLoad();
     }
 
     private static class PageElements extends AbstractPageElements {

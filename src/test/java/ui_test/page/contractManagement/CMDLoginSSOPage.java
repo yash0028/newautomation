@@ -46,9 +46,9 @@ public class CMDLoginSSOPage implements IWebInteract, IFactoryPage, IConfigurabl
 
 
     public boolean login() {
-        assert sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
-        assert sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
-        assert click("sign in", elements.buttonSignIn);
+         sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
+         sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
+         click("sign in", elements.buttonSignIn);
 
         return true;
     }
@@ -57,7 +57,7 @@ public class CMDLoginSSOPage implements IWebInteract, IFactoryPage, IConfigurabl
             sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
             sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
            // System.out.println(getDriver().getPageSource());
-             assert click("sign in", elements.buttonlogIn);
+              click("sign in", elements.buttonlogIn);
            // clickWithForce("sign in", elements.buttonSignIn);
         }
     /*

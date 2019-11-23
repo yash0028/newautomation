@@ -202,7 +202,7 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
 
     public void searchContract() {
         enterContractNumber();
-        assert clickSearchButton();
+         clickSearchButton();
     }
 
     public void ValidateConract()

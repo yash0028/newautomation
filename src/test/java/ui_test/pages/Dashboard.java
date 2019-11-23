@@ -21,12 +21,12 @@ public class Dashboard extends GenericInputPage {
     public void searchContaractByContractNumber(HashMap<String, String> hmap) {
         elements.searchBar.sendKeys(hmap.get("Contract Number"));
         elements.searchBar.sendKeys(Keys.ENTER);
-        assert waitForPageLoad();
+         waitForPageLoad();
     }
 
     public void openContractDetails() {
         click("Open Searched Contract", elements.searchResult);
-        assert waitForPageLoad();
+         waitForPageLoad();
     }
 
 

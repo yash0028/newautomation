@@ -26,20 +26,20 @@ public class PESInputActions extends GenericInputPage {
     public void enterPESInput(HashMap<String, String> readFile) {
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
         try {
-            assert waitForPageLoad();
+             waitForPageLoad();
             for (Map.Entry<String, String> entry : readFile.entrySet()) {
                 switch (entry.getKey().toUpperCase()) {
                     case "MPIN":
-                        assert sendKeys("MPIN textbox", this.elements.mpin, entry.getValue());
+                         sendKeys("MPIN textbox", this.elements.mpin, entry.getValue());
                         break;
                     case "TIN":
-                        assert sendKeys("TIN textbox", this.elements.tin, entry.getValue());
+                         sendKeys("TIN textbox", this.elements.tin, entry.getValue());
                         break;
                     case "NPI":
-                        assert sendKeys("NPI textbox", this.elements.npi, entry.getValue());
+                         sendKeys("NPI textbox", this.elements.npi, entry.getValue());
                         break;
                     case "ZIP":
-                        assert sendKeys("ZIP textbox", this.elements.zip, entry.getValue());
+                         sendKeys("ZIP textbox", this.elements.zip, entry.getValue());
                         break;
                     case "CITY":
                         sendKeys("CITY textbox", this.elements.city, entry.getValue());
@@ -56,8 +56,8 @@ public class PESInputActions extends GenericInputPage {
 
                 }
             }
-            assert clickNext();
-            assert waitForPageLoad();
+             clickNext();
+             waitForPageLoad();
         } catch (Exception e) {
             e.printStackTrace();
         }

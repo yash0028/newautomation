@@ -25,14 +25,14 @@ public class RegulatoryAppendices extends GenericInputPage {
         pause(3);
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
             if (!CommonMethods.isElementPresent(getDriver(), By.xpath(defaultValue(hmap.get("Regulatory Appendix"))))) {
-                assert sendKeys("Send Data to regulatory Appendix", elements.clickOnBar, hmap.get("Regulatory Appendix"));
+                 sendKeys("Send Data to regulatory Appendix", elements.clickOnBar, hmap.get("Regulatory Appendix"));
                 pause(1);
                 waitForPageLoad(60);
-                assert click("Click Regulatory Appendix", elements.dropdown_selection.get(0));
+                 click("Click Regulatory Appendix", elements.dropdown_selection.get(0));
                 waitForPageLoad(60);
             }
-            assert clickNext();
-            assert waitForPageLoad();
+             clickNext();
+             waitForPageLoad();
         }
     }
 

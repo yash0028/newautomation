@@ -20,16 +20,16 @@ public class BenefitPlanDescriptionsProvision extends GenericInputPage {
 
     public void nameOfState( HashMap<String, String> hmap){
         waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert click("Open State Name Dropdown", this.elements.dropdown_open);
+         click("Open State Name Dropdown", this.elements.dropdown_open);
         pause(1);
         waitForPageLoad(60);
-        assert sendKeys("Send Data to State Name", elements.searchBar, hmap.get("Benefit Plan Descriptions Provision"));
+         sendKeys("Send Data to State Name", elements.searchBar, hmap.get("Benefit Plan Descriptions Provision"));
         pause(1);
         waitForPageLoad(60);
-        assert click("Click State Name", elements.selectState.get(0));
+         click("Click State Name", elements.selectState.get(0));
         waitForPageLoad(60);
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
     private static class PageElements extends AbstractPageElements {

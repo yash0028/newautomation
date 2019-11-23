@@ -19,9 +19,9 @@ public class ClauseLanguage extends GenericInputPage {
 
     public void clauseLanguage(HashMap<String, String> hmap){
         waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert click("Clause Language", getClauseLanguage(hmap.get("Clause Language")));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Clause Language", getClauseLanguage(hmap.get("Clause Language")));
+         clickNext();
+         waitForPageLoad();
     }
     private WebElement getClauseLanguage(String Name) {
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'"+Name+"')]"});

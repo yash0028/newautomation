@@ -21,17 +21,17 @@ public class PaymentAppendixAmendment extends GenericInputPage {
     public void selectPaymentAppendixAmendmentSMGA(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
 
-        assert setCheckBox("Checked Physician",elements.physician,true);
-        assert setCheckBox("Checked Non Physician",elements.nonPhysician,true);
+         setCheckBox("Checked Physician",elements.physician,true);
+         setCheckBox("Checked Non Physician",elements.nonPhysician,true);
 
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
     public void paymentApppendixforSPGA()
     {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
     private static class PageElements extends AbstractPageElements {

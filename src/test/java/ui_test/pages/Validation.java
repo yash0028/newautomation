@@ -9,8 +9,8 @@ public class Validation extends GenericInputPage {
     }
 
     public void validation() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
 }

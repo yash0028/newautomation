@@ -28,25 +28,25 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
             date = CommonMethods.formatDate(hmap.get("Contract Effective Date"));
         }
         waitForPageLoad(60);
-        assert sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date);
-        assert clickNext();
-        assert waitForPageLoad();
+         sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date);
+         clickNext();
+         waitForPageLoad();
     }
 
 
     public void enterPhyConNumber(HashMap<String, String> hmap) {
         if (hmap.containsKey("Phycon")) {
-            assert sendKeys("PhyConNumber", this.elements.phyConNumber, hmap.get("Phycon"));
+             sendKeys("PhyConNumber", this.elements.phyConNumber, hmap.get("Phycon"));
         }
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
     public void setSpecificEffectiveDate(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert click("Set Specific Effective Date", selectContractDetails(hmap.get("Set Specific Effective Date")));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Set Specific Effective Date", selectContractDetails(hmap.get("Set Specific Effective Date")));
+         clickNext();
+         waitForPageLoad();
     }
 
     private WebElement selectContractDetails(String Name) {

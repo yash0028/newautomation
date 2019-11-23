@@ -34,14 +34,14 @@ public class ProviderRoaster extends GenericInputPage {
 
     public void roasterAction(String action) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert click("Provider Roster", clickRosterAction(action));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Provider Roster", clickRosterAction(action));
+         clickNext();
+         waitForPageLoad();
 
     }
 
     public void downloadCurrentRoster(HashMap<String, String> hmap) {
-        assert click("Click here to Download Provider Roster", elements.downloadProviderRoster);
+         click("Click here to Download Provider Roster", elements.downloadProviderRoster);
         waitForPageLoad(120);
         pause(5);
         String findFileName = elements.downloadProviderRoster.getAttribute("href");
@@ -52,21 +52,21 @@ public class ProviderRoaster extends GenericInputPage {
         hmap.put("RosterFileName", "Provider-Roster-74788257-Tue Nov 19 2019 04_52_18 GMT-0600 (CST).xlsx");
         IWebInteract.log.info("File path : {}", downloadFlowPath.toString());
         IWebInteract.log.info("File name : {}", hmap.get("RosterFileName"));
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
         pause(5);
     }
 
     public void uploadCompletedRoster(HashMap<String, String> hmap) throws IOException {
         callingExcelReaderWriter(hmap);
-        assert click("Upload", elements.uploadButton);
+         click("Upload", elements.uploadButton);
         pause(3);
         Path RosterFilePath = Paths.get(home, "src", "test", "resources", "features", "rcbridge", "ProviderRoster", hmap.get("RosterFileName"));
         IWebInteract.log.info("Upload file path : {}", RosterFilePath.toString());
-        assert sendKeys("Uploading File", elements.chooseFile, RosterFilePath.toString());
+         sendKeys("Uploading File", elements.chooseFile, RosterFilePath.toString());
         pause(3);
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
     public void callingExcelReaderWriter(HashMap<String, String> hmap) throws IOException {
@@ -87,13 +87,13 @@ public class ProviderRoaster extends GenericInputPage {
                 pause(1);
                 waitForPageLoad(60);
                 if (count <= retroCode.length) {
-                    assert sendKeys("Search retro code", elements.retroCode, retroCode[count - 1]);
+                     sendKeys("Search retro code", elements.retroCode, retroCode[count - 1]);
                 } else {
-                    assert sendKeys("Search retro code", elements.retroCode, retroCode[retroCode.length - 1]);
+                     sendKeys("Search retro code", elements.retroCode, retroCode[retroCode.length - 1]);
                 }
                 waitForPageLoad(60);
                 pause(1);
-                assert click("Select retro code", elements.selectRetroCode.get(0));
+                 click("Select retro code", elements.selectRetroCode.get(0));
                 pause(3);
                 waitForPageLoad(60);
             }
@@ -102,28 +102,28 @@ public class ProviderRoaster extends GenericInputPage {
             click("Retro code dropdown open", elements.dropdown_open);
             pause(1);
             waitForPageLoad(60);
-            assert sendKeys("Search retro code", elements.retroCode, hmap.get("Retro code"));
+             sendKeys("Search retro code", elements.retroCode, hmap.get("Retro code"));
             pause(1);
             waitForPageLoad(60);
-            assert click("Select retro code", elements.selectRetroCode.get(0));
+             click("Select retro code", elements.selectRetroCode.get(0));
         }
 
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
     public void selectretrocode(HashMap<String, String> hmap, boolean clickNext) {
         click("Retro code dropdown open", elements.dropdown_open);
         pause(1);
         waitForPageLoad(60);
-        assert sendKeys("Search retro code", elements.retroCode, hmap.get("Retro code"));
+         sendKeys("Search retro code", elements.retroCode, hmap.get("Retro code"));
         pause(1);
         waitForPageLoad(60);
-        assert click("Select retro code", elements.selectRetroCode.get(0));
+         click("Select retro code", elements.selectRetroCode.get(0));
         if (clickNext) {
-            assert clickNext();
-            assert waitForPageLoad(60);
+             clickNext();
+             waitForPageLoad(60);
         }
     }
 
@@ -132,16 +132,16 @@ public class ProviderRoaster extends GenericInputPage {
             selectretrocode(hmap, false);
         }
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert click("Select Approach For Provider", clickapproachForProvider(approach));
+         click("Select Approach For Provider", clickapproachForProvider(approach));
         if (clickNext) {
-            assert clickNext();
-            assert waitForPageLoad();
+             clickNext();
+             waitForPageLoad();
         }
     }
 
     public void verifyProviders() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
     public void selectProviders(HashMap<String, String> hmap) {
@@ -149,22 +149,22 @@ public class ProviderRoaster extends GenericInputPage {
         String[] providers = hmap.get("Select Providers").split("//");
         waitForPageLoad(60);
         for (String provider : providers) {
-            assert sendKeys("Search provider", elements.selectProvider, provider.trim());
+             sendKeys("Search provider", elements.selectProvider, provider.trim());
             waitForPageLoad(60);
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.selectProviderWithNamenotFound))) {
                 elements.selectProvider.clear();
                 IWebInteract.log.info("Provider Name [{}] NOT FOUND", provider.trim());
                 continue;
             } else {
-                assert click("Select provider", elements.selectProviderWithName.get(0));
+                 click("Select provider", elements.selectProviderWithName.get(0));
                 waitForPageLoad(60);
                 MULTIPLE_PROVIDERS++;
             }
             pause(1);
         }
         Assert.assertTrue("[ERROR] Didn't Found Any Valid Provider", MULTIPLE_PROVIDERS > 0);
-        assert clickNext();
-        assert waitForPageLoad(60);
+         clickNext();
+         waitForPageLoad(60);
     }
 
     public void providerStartDate(HashMap<String, String> hmap) {
@@ -201,21 +201,21 @@ public class ProviderRoaster extends GenericInputPage {
             }
 
         }
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
 
     }
 
     public void enterTIN(HashMap<String, String> hmap) {
-        assert sendKeys("TIN", elements.enterTIN, hmap.get("TIN"));
-        assert clickNext();
-        assert waitForPageLoad();
+         sendKeys("TIN", elements.enterTIN, hmap.get("TIN"));
+         clickNext();
+         waitForPageLoad();
     }
 
     public void enterMPIN(HashMap<String, String> hmap) {
-        assert sendKeys("MPIN", elements.enterTIN, hmap.get("MPIN"));
-        assert clickNext();
-        assert waitForPageLoad();
+         sendKeys("MPIN", elements.enterTIN, hmap.get("MPIN"));
+         clickNext();
+         waitForPageLoad();
     }
 
     public void removeExcessRow(int dropdown_count, int providersCount) {
@@ -240,18 +240,18 @@ public class ProviderRoaster extends GenericInputPage {
             if (count > 0 && createNewRow) {
                 pause(1);
                 waitForPageLoad(60);
-                assert click("Add Provider Row", elements.addnewProvider);
+                 click("Add Provider Row", elements.addnewProvider);
                 pause(1);
                 waitForPageLoad(60);
             }
             if (nextInput) {
                 pause(1);
-                assert click("Open Cancel Provider Dropdown", openCancelProviderDropdown(count));
+                 click("Open Cancel Provider Dropdown", openCancelProviderDropdown(count));
                 waitForPageLoad(60);
             }
             pause(1);
             waitForPageLoad(60);
-            assert sendKeys("Search provider", elements.selectProvider, provider.trim());
+             sendKeys("Search provider", elements.selectProvider, provider.trim());
             waitForPageLoad(60);
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.selectProviderWithNamenotFound))) {
                 elements.selectProvider.clear();
@@ -260,7 +260,7 @@ public class ProviderRoaster extends GenericInputPage {
                 createNewRow = false;
                 continue;
             } else {
-                assert click("Select provider", elements.selectProviderWithName.get(0));
+                 click("Select provider", elements.selectProviderWithName.get(0));
                 CANCEL_MULTIPLE_PROVIDERS++;
                 nextInput = true;
                 createNewRow = CANCEL_MULTIPLE_PROVIDERS >= elements.dropdown_open_count.size() ? true : false;
@@ -281,36 +281,36 @@ public class ProviderRoaster extends GenericInputPage {
                     } else {
                         date = CommonMethods.formatDate(dates[count - 1]);
                     }
-                    assert sendKeys("Provider Cancel Date", providerCancelDate(count - 1), date);
+                     sendKeys("Provider Cancel Date", providerCancelDate(count - 1), date);
                 } else {
-                    assert sendKeys("Provider Cancel Date", providerCancelDate(count - 1), CommonMethods.todaysDate());
+                     sendKeys("Provider Cancel Date", providerCancelDate(count - 1), CommonMethods.todaysDate());
                 }
             }
 
         }
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
     public void cancelreason(HashMap<String, String> hmap) {
         String[] errorCodes = hmap.get("Cancel Reason Code").split("//");
         for (int count = 1; count <= CANCEL_MULTIPLE_PROVIDERS; count++) {
-            assert click("Open Cancel Reason Dropdown", openCancelReasonDropdown(count - 1));
+             click("Open Cancel Reason Dropdown", openCancelReasonDropdown(count - 1));
             pause(1);
             waitForPageLoad(60);
             if (count <= errorCodes.length) {
-                assert sendKeys("Search provider", elements.selectProvider, errorCodes[count - 1]);
+                 sendKeys("Search provider", elements.selectProvider, errorCodes[count - 1]);
             } else {
-                assert sendKeys("Search provider", elements.selectProvider, errorCodes[errorCodes.length - 1]);
+                 sendKeys("Search provider", elements.selectProvider, errorCodes[errorCodes.length - 1]);
             }
             pause(1);
             waitForPageLoad(60);
-            assert click("Select provider", elements.selectCancelReason.get(0));
+             click("Select provider", elements.selectCancelReason.get(0));
             pause(1);
             waitForPageLoad(60);
         }
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
 
     }
 

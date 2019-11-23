@@ -43,8 +43,8 @@ class ArticleI extends Article {
 
 
     public void handleArticleI() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
 }
@@ -56,8 +56,8 @@ class ArticleII extends Article {
 
 
     public void handleArticleII() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 }
 
@@ -68,8 +68,8 @@ class ArticleIII extends Article {
 
 
     public void handleArticleIII() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 }
 
@@ -79,8 +79,8 @@ class ArticleIV extends Article {
     }
 
     public void handleArticleIV() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 }
 
@@ -90,8 +90,8 @@ class ArticleV extends Article {
     }
 
     public void handleArticleV() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 }
 
@@ -101,8 +101,8 @@ class ArticleVI extends Article {
     }
 
     public void handleArticleVI() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 }
 
@@ -112,10 +112,10 @@ class ArticleVII extends Article {
     }
 
     public void handleArticleVII() {
-        assert clickNext();
-        assert waitForPageLoad();
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 }
 
@@ -129,9 +129,9 @@ class ArticleVIII extends Article {
     }
 
     public void handleArticleVIII(HashMap<String, String> hmap) {
-        assert setCheckBox("Select Article 8", selectArticle(hmap.get("Article 8")), true);
-        assert clickNext();
-        assert waitForPageLoad();
+         setCheckBox("Select Article 8", selectArticle(hmap.get("Article 8")), true);
+         clickNext();
+         waitForPageLoad();
     }
 }
 
@@ -141,8 +141,8 @@ class ArticleIX extends Article {
     }
 
     public void handleArticlIX() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 }
 
@@ -152,7 +152,7 @@ class ArticleX extends Article {
     }
 
     public void handleArticleX() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 }

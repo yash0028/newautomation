@@ -24,14 +24,14 @@ public class ProviderSignatory extends GenericInputPage {
         } else {
             date = CommonMethods.formatDate(hmap.get("Provider Signatory Date"));
         }
-        assert sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date);
+         sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date);
 
         if(isVisible(this.elements.email)){
             elements.email.clear();
-            assert sendKeys("Provider Signatory Email", this.elements.email, hmap.get("Provider Signatory Email"));
+             sendKeys("Provider Signatory Email", this.elements.email, hmap.get("Provider Signatory Email"));
         }
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
 
     }
 
@@ -42,13 +42,13 @@ public class ProviderSignatory extends GenericInputPage {
         } else {
             date = CommonMethods.formatDate(hmap.get("Provider Signatory Date"));
         }
-        assert sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date);
+         sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date);
         if(CommonMethods.isElementPresent(getDriver(), By.xpath(elements.xpathCheck))) {
             System.out.println("--------------------ELement is Present---------------------");
-            assert sendKeys("Provider Signatory title", this.elements.name, hmap.get("Provider our Signatory title"));
+             sendKeys("Provider Signatory title", this.elements.name, hmap.get("Provider our Signatory title"));
         }
-            assert clickNext();
-        assert waitForPageLoad();
+             clickNext();
+         waitForPageLoad();
     }
 
     private static class PageElements extends AbstractPageElements {

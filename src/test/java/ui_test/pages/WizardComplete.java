@@ -24,7 +24,7 @@ public class WizardComplete extends GenericInputPage {
         try {
             this.elements.completeWizardElement.click();
             IWebInteract.log.trace("clicked on {}", "Complete Wizard");
-            assert waitForPageLoad();
+             waitForPageLoad();
             confirmDashboard();
         } catch (Exception e) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.wizardCompleteXpath))) {

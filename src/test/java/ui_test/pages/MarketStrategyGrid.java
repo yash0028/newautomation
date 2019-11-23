@@ -8,10 +8,10 @@ public class MarketStrategyGrid extends GenericInputPage {
     }
 
     public void marketStrategyGridCheck() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
         pause(2);
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 }

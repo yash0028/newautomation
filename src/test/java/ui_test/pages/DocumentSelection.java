@@ -18,19 +18,19 @@ public class DocumentSelection extends GenericInputPage {
     }
 
     public void selectAgreementType(String name) {
-        assert click("Agreement Type", selectTypeOfAgreement(name));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Agreement Type", selectTypeOfAgreement(name));
+         clickNext();
+         waitForPageLoad();
     }
 
     public void selectDocumentType(HashMap<String, String> hmap) {
-        assert click("Paper Type", selectPaperType(hmap.get("Paper Type")));
+         click("Paper Type", selectPaperType(hmap.get("Paper Type")));
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         switch (hmap.get("Paper Type")) {
 
             case "SPGA": {
-                assert clickNext();
-                assert waitForPageLoad();
+                 clickNext();
+                 waitForPageLoad();
                 break;
             }
             case "MGA": {
@@ -39,18 +39,18 @@ public class DocumentSelection extends GenericInputPage {
 
             }
             case "SMGA": {
-                assert clickNext();
-                assert waitForPageLoad();
+                 clickNext();
+                 waitForPageLoad();
                 break;
             }
             case "SPA": {
-                assert clickNext();
-                assert waitForPageLoad();
+                 clickNext();
+                 waitForPageLoad();
                 break;
             }
             case "PAT": {
-                assert clickNext();
-                assert waitForPageLoad();
+                 clickNext();
+                 waitForPageLoad();
                 break;
             }
         }
@@ -58,9 +58,9 @@ public class DocumentSelection extends GenericInputPage {
     }
 
     public void selectVACCNAmendmentType(HashMap<String, String> hmap) {
-        assert click("Select VACCN Amendment Type",selectTypeOfAgreement(hmap.get("VACCN Amendments")));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Select VACCN Amendment Type",selectTypeOfAgreement(hmap.get("VACCN Amendments")));
+         clickNext();
+         waitForPageLoad();
     }
 
     public WebElement selectPaperType(String Name) {

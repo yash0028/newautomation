@@ -19,22 +19,22 @@ public class MarketExceptionGrid extends GenericInputPage {
 
     public void previewMarketDetails() {
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
     public void checkForDuplicate(){
         waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.duplicateTIN))) {
             IWebInteract.log.info("Counterparty MPIN-TIN duplicate check failed");
-            assert clickNext();
-            assert waitForPageLoad();
+             clickNext();
+             waitForPageLoad();
         }
     }
     public void chooseTask(HashMap<String, String> hmap, String Task) {
-        assert click("Select Task", clickTask(hmap.get(Task)));
+         click("Select Task", clickTask(hmap.get(Task)));
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
     public WebElement clickTask(String Name) {

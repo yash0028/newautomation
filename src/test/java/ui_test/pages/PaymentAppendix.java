@@ -24,11 +24,11 @@ public class PaymentAppendix extends GenericInputPage {
     public void selectPaymentAppendix(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         if (hmap.containsKey("High Fee Schedule than Default"))
-            assert click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
+             click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix")));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix")));
+         clickNext();
+         waitForPageLoad();
 
 
         // public void selectPaymentAppendixx(HashMap<String, String> hmap) throws InterruptedException {
@@ -57,77 +57,77 @@ public class PaymentAppendix extends GenericInputPage {
     public void enterFeeScheduleID(HashMap<String, String> hmap) {
 
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer?")))) {
-            assert sendKeys("All Payer", getFeeScheduleElement("All Payer?"), hmap.get("FS All Payer"));
+             sendKeys("All Payer", getFeeScheduleElement("All Payer?"), hmap.get("FS All Payer"));
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer  ?")))) {
-            assert sendKeys("All Payer", getFeeScheduleElement("All Payer  ?"), hmap.get("FS All Payer"));
+             sendKeys("All Payer", getFeeScheduleElement("All Payer  ?"), hmap.get("FS All Payer"));
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer for Physicians")))) {
-            assert sendKeys("All Payer for Physicians", getFeeScheduleElement("All Payer for Physicians"), hmap.get("FS All Payer Physician"));
+             sendKeys("All Payer for Physicians", getFeeScheduleElement("All Payer for Physicians"), hmap.get("FS All Payer Physician"));
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer for Non-Physicians")))) {
-            assert sendKeys("All Payer for Non-Physicians", getFeeScheduleElement("All Payer for Non-Physicians"), hmap.get("FS All Payer Non Physician"));
+             sendKeys("All Payer for Non-Physicians", getFeeScheduleElement("All Payer for Non-Physicians"), hmap.get("FS All Payer Non Physician"));
         }
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
 
     }
 
     public void verifyFeeScheduleID() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
     public void appliedPaymentAppendix(HashMap<String, String> hmap) {
-        assert click("Apply Payment Appendix in Amendments", paymentAppendixElement(hmap.get("Apply Payment Appendix in Amendments")));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Apply Payment Appendix in Amendments", paymentAppendixElement(hmap.get("Apply Payment Appendix in Amendments")));
+         clickNext();
+         waitForPageLoad();
     }
 
     public void enterDataInPaymentAppendixForSPGA(HashMap<String, String> hmap) {
-        assert sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicareSPGA, hmap.get("FS Id Amendments"));
-        assert clickNext();
-        assert waitForPageLoad();
+         sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicareSPGA, hmap.get("FS Id Amendments"));
+         clickNext();
+         waitForPageLoad();
     }
 
     public void enterDataInPaymentAppendixForPAT(HashMap<String, String> hmap) {
-        assert sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician"));
-        //assert sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicarePAT, hmap.get("FS Id Amendments"));
-        assert clickNext();
-        assert waitForPageLoad();
+         sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician"));
+        // sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicarePAT, hmap.get("FS Id Amendments"));
+         clickNext();
+         waitForPageLoad();
 
     }
 
     public void enterDataInPaymentAppendixForSPA(HashMap<String, String> hmap) {
-        assert sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician"));
-        assert clickNext();
-        assert waitForPageLoad();
+         sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician"));
+         clickNext();
+         waitForPageLoad();
     }
 
     public void paymentAppendixToInclude(HashMap<String, String> hmap) {
-        assert click("Payment Appendix to include", elements.paymentAppendixToIncludePhysician);
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Payment Appendix to include", elements.paymentAppendixToIncludePhysician);
+         clickNext();
+         waitForPageLoad();
 
     }
     public void paymentAppendixToIncludeMGA(HashMap<String, String> hmap) {
         if (hmap.containsKey("Payment Appendix to Include")) {
             String[] appendixes = hmap.get("Payment Appendix to Include").split("//");
             for (String appendix : appendixes) {
-                assert click("Payment Appendix to Include", paymentAppendixElement(appendix));
+                 click("Payment Appendix to Include", paymentAppendixElement(appendix));
                 pause(1);
             }
         }
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
 
     }
 
     public void enterDataInPaymentAppendixForSMGA(HashMap<String, String> hmap) {
-        assert sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician"));
-        assert sendKeys("FeeSchedule ID Medicare Non Physician", this.elements.feeSchduleIDNonPhysicianMedicare, hmap.get("FS Id Amendments Non-Physician"));
-        assert clickNext();
-        assert waitForPageLoad();
+         sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician"));
+         sendKeys("FeeSchedule ID Medicare Non Physician", this.elements.feeSchduleIDNonPhysicianMedicare, hmap.get("FS Id Amendments Non-Physician"));
+         clickNext();
+         waitForPageLoad();
     }
 
     public WebElement paymentAppendixElement(String paymentAppendix) {
@@ -136,47 +136,47 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void replacePaymentAppendixInAmendments(HashMap<String, String> hmap) {
         if (hmap.containsKey("Payment Appendix to Replace")) {
-            assert sendKeys("Replace Payment Appendix", elements.searchBar, hmap.get("Payment Appendix to Replace"));
-            assert click("Select Payment Appendix to Replace", elements.selectCode.get(0));
-            assert clickNext();
-            assert waitForPageLoad();
+             sendKeys("Replace Payment Appendix", elements.searchBar, hmap.get("Payment Appendix to Replace"));
+             click("Select Payment Appendix to Replace", elements.selectCode.get(0));
+             clickNext();
+             waitForPageLoad();
 
-            assert click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix to Include")));
-            assert clickNext();
-            assert waitForPageLoad();
+             click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix to Include")));
+             clickNext();
+             waitForPageLoad();
         }
     }
     public void medicareAdvantagePaymentAppendixMGA(HashMap<String, String> hmap){
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Advantage for Physicians")))) {
-            assert sendKeys("Advantage for Physicians", getFeeScheduleElement("Advantage for Physicians"), hmap.get("FS Id Amendments Physician"));
+             sendKeys("Advantage for Physicians", getFeeScheduleElement("Advantage for Physicians"), hmap.get("FS Id Amendments Physician"));
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Advantage for Non-Physicians")))) {
-            assert sendKeys("Advantage for Non-Physicians", getFeeScheduleElement("Advantage for Non-Physicians"), hmap.get("FS Id Amendments Non-Physician"));
+             sendKeys("Advantage for Non-Physicians", getFeeScheduleElement("Advantage for Non-Physicians"), hmap.get("FS Id Amendments Non-Physician"));
         }
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
     public void verifyMedicareAdvantage() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
     public void enterPaymentAppenidix(HashMap<String, String> hmap) {
         elements.feeSchduleID.clear();
-        assert sendKeys("FeeSchdeuleID in Amendments", this.elements.feeSchduleID, hmap.get("FS All Payer Amendments"));
-        assert clickNext();
-        assert waitForPageLoad();
+         sendKeys("FeeSchdeuleID in Amendments", this.elements.feeSchduleID, hmap.get("FS All Payer Amendments"));
+         clickNext();
+         waitForPageLoad();
     }
 
     public void enterPaymentAppendixinAmendmentsFC(HashMap<String, String> hmap) {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
     public void selectPaymentAppendixSMGA(HashMap<String, String> hmap) {
-        assert click("Higher than fee schedule Id", paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Higher than fee schedule Id", paymentAppendixElement(hmap.get("High Fee Schedule than Default")));
+         clickNext();
+         waitForPageLoad();
     }
 
     public WebElement getFeeScheduleElement(String allpayerType) {

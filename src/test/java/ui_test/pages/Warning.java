@@ -15,14 +15,14 @@ public class Warning extends GenericInputPage {
     }
 
     public void acknowledgment() {
-        assert setCheckBox("Check acknowledgment", this.elements.acknowledge, true);
-        assert clickNext();
-        assert waitForPageLoad();
+         setCheckBox("Check acknowledgment", this.elements.acknowledge, true);
+         clickNext();
+         waitForPageLoad();
     }
 
     public void warningMakeCorrection() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 
     private static class PageElements extends AbstractPageElements {

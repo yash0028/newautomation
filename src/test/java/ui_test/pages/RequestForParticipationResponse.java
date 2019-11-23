@@ -8,7 +8,7 @@ public class RequestForParticipationResponse extends GenericInputPage {
     }
 
     public void performAction() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
     }
 }

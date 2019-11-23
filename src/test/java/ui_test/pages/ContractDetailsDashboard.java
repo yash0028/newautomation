@@ -31,9 +31,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
 
     public void startWorkFlow() {
         refreshPage();
-        assert waitTillClickable(elements.startWorkFlow, 20);
-        assert click("Start WorkFlow", elements.startWorkFlow);
-        assert waitForPageLoad();
+         waitTillClickable(elements.startWorkFlow, 20);
+         click("Start WorkFlow", elements.startWorkFlow);
+         waitForPageLoad();
     }
 
     public void getActivityManager(boolean refresh, boolean tierApproval) {
@@ -85,10 +85,10 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             }
             if (location.equals("Draft")) {
                 waitTillClickable(this.elements.initialTransaction);
-                assert click("Initial Transaction", this.elements.initialTransaction);
+                 click("Initial Transaction", this.elements.initialTransaction);
             } else if (location.equals("Amendment")) {
                 waitTillClickable(getAmendmentLink(hmap.get("Amendment Title")));
-                assert click("Amendment", getAmendmentLink(hmap.get("Amendment Title")));
+                 click("Amendment", getAmendmentLink(hmap.get("Amendment Title")));
             }
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             IWebInteract.log.info("Retrying for Active Work Flow, Retry: {}", count);
@@ -170,11 +170,11 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             relaunchDriver(approverType);
             getDriver().get(DASHBOARD_URL);
             LoginSSOPage loginPage = new LoginSSOPage(getDriver());
-            assert loginPage.confirmCurrentPage();
+             loginPage.confirmCurrentPage();
             if (approverType.equals(configGetOptionalString("exari.username").orElse(""))) {
-                assert loginPage.login();
+                 loginPage.login();
             } else {
-                assert loginPage.login(approverType.toLowerCase());
+                 loginPage.login(approverType.toLowerCase());
             }
             this.elements = new PageElements(getDriver());
             return true;
@@ -188,21 +188,21 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         if(tierApproval){
             approvalType = updateApprovalType(approvalType, tierApproval , approverType);
         }
-        assert click("Open Task", getMenu(approvalType, approverType));
+         click("Open Task", getMenu(approvalType, approverType));
         waitTillClickable(elements.viewtask);
-        assert click("View Task", elements.viewtask);
+         click("View Task", elements.viewtask);
         waitTillClickable(elements.claimtask);
-        assert click("Claim Task", elements.claimtask);
+         click("Claim Task", elements.claimtask);
         waitTillVisible(elements.comments);
         if (elements.comments.getAttribute("value").equals("")) {
-            assert sendKeys("Comments", elements.comments, "Approved");
+             sendKeys("Comments", elements.comments, "Approved");
         }
         waitTillClickable(elements.approve);
-        assert click("Approve", elements.approve);
+         click("Approve", elements.approve);
         waitTillVisible(elements.detectapproval);
-        assert waitTillVisible(elements.confirmApproval);
+         waitTillVisible(elements.confirmApproval);
         IWebInteract.log.info("[APPROVED]  {}", approvalType + " - " + approverType);
-        assert waitForPageLoad();
+         waitForPageLoad();
     }
 
     public String startApprovalFlow(String approvalType, boolean tierApproval, String location, HashMap<String, String> hmap) {
@@ -215,8 +215,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                 getActiveWorkFlow(tierApproval, location, hmap);
             }
             doCaim(approvalType, approverType, tierApproval);
-            assert click("Back", this.elements.backbutton);
-            assert waitForPageLoad();
+             click("Back", this.elements.backbutton);
+             waitForPageLoad();
             getActivityManager(false, tierApproval);
             approverType = getApproverType(approvalType, tierApproval);
         }
@@ -233,8 +233,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                     switchLogin(configGetOptionalString("exari.username").orElse(""));
                 } else {
                     IWebInteract.log.info("[SKIPPED] {}", approvalType);
-                    assert click("Back", this.elements.backbutton);
-                    assert waitForPageLoad();
+                     click("Back", this.elements.backbutton);
+                     waitForPageLoad();
                 }
                 CHECK_APPROVAL_ALREADY_COMPLETED = true;
             }
@@ -249,16 +249,16 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         boolean foundEditStatus = false;
         while (count <= 20) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.editStatusButton))) {
-                assert click("Edit Status", this.elements.editStatus);
+                 click("Edit Status", this.elements.editStatus);
                 foundEditStatus = true;
                 break;
             }
             if (Location.equals("Draft")) {
                 waitTillClickable(this.elements.initialTransaction);
-                assert click("Initial Transaction", this.elements.initialTransaction);
+                 click("Initial Transaction", this.elements.initialTransaction);
             } else if (Location.equals("Amendment")) {
                 waitTillClickable(getAmendmentLink(hmap.get("Amendment Title")));
-                assert click("Amendment", getAmendmentLink(hmap.get("Amendment Title")));
+                 click("Amendment", getAmendmentLink(hmap.get("Amendment Title")));
             }
 
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
@@ -273,8 +273,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         status.selectByVisibleText(option);
         pause(1);
         waitForPageLoad(60);
-        assert click("Save", this.elements.save);
-        //dont give assert for close.
+         click("Save", this.elements.save);
+        //dont give  for close.
         click("Close", this.elements.close);
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         if(option.equals("Active")){
@@ -295,7 +295,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
 
     public void finalCapture() {
         click("Final Capture", this.elements.finalCapture);
-        assert waitForPageLoad(60);
+         waitForPageLoad(60);
     }
 
     public void captureContractNumber(HashMap<String, String> hmap, String filepath) {
@@ -308,27 +308,27 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public void clickForContractSummary() {
-        assert click("Open Contract Summary Page", elements.clickToContractSummary);
-        assert click("Initial Transaction", elements.initialTransaction);
+         click("Open Contract Summary Page", elements.clickToContractSummary);
+         click("Initial Transaction", elements.initialTransaction);
 
     }
 
     public void makeCorrection() {
         waitTillClickable(this.elements.initialTransaction);
-        assert click("Initial Transaction", this.elements.initialTransaction);
+         click("Initial Transaction", this.elements.initialTransaction);
         waitTillClickable(this.elements.makeCorrection);
-        assert click("Make Correction", this.elements.makeCorrection);
-        assert waitForPageLoad();
+         click("Make Correction", this.elements.makeCorrection);
+         waitForPageLoad();
     }
 
     public void goToContractSummaryPage() {
-        assert click("Contract Summary Page", elements.contractSummaryButton);
-        assert waitForPageLoad();
+         click("Contract Summary Page", elements.contractSummaryButton);
+         waitForPageLoad();
     }
 
     public void startAmendmentProcess(HashMap<String, String> hmap) {
-        assert click("Start Amendment Process", elements.createAmendmentButton);
-        assert waitForPageLoad();
+         click("Start Amendment Process", elements.createAmendmentButton);
+         waitForPageLoad();
         pause(5);
 
     }
@@ -337,9 +337,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         Actions actions=new Actions(getDriver());
         actions.clickAndHold(elements.amendmentsWindow).pause(1).moveToElement(elements.fullWindow).release().build().perform();
         elements.amendentTitleBar.clear();
-        assert sendKeys("Entering amendment Title",elements.amendentTitleBar,hmap.get("Amendment Title"));
-        assert click("Create Amendment Button",elements.getCreateAmendmentButton);
-        assert waitForPageLoad();
+         sendKeys("Entering amendment Title",elements.amendentTitleBar,hmap.get("Amendment Title"));
+         click("Create Amendment Button",elements.getCreateAmendmentButton);
+         waitForPageLoad();
     }
 
 
@@ -357,13 +357,13 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public void cickToCreateSupportingDocument(HashMap<String, String> hmap) {
-        assert click("Create Supporting Document", this.elements.createSupportingDocument);
-        assert waitForPageLoad();
+         click("Create Supporting Document", this.elements.createSupportingDocument);
+         waitForPageLoad();
         selectSupportingDocumentType(hmap);
     }
 
     private void selectSupportingDocumentType(HashMap<String, String> hmap) {
-        assert click("Select Supporting Document Type", this.elements.supportingDocumentType);
+         click("Select Supporting Document Type", this.elements.supportingDocumentType);
 
     }
 

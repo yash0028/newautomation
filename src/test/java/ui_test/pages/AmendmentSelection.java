@@ -16,15 +16,15 @@ public class AmendmentSelection extends GenericInputPage {
     }
 
     public void selectAmendmentTobeUsed(HashMap<String, String> hmap) {
-        assert click("Select Amendments 1", selectAmendments(hmap.get("Amendment Selection")));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Select Amendments 1", selectAmendments(hmap.get("Amendment Selection")));
+         clickNext();
+         waitForPageLoad();
     }
 
     public void amendmentNeeded(HashMap<String, String> hmap) {
-        assert click("Select Amendments Needed", selectAmendments(hmap.get("Amendment Needed")));
-        assert clickNext();
-        assert waitForPageLoad();
+         click("Select Amendments Needed", selectAmendments(hmap.get("Amendment Needed")));
+         clickNext();
+         waitForPageLoad();
     }
 
     private WebElement selectAmendments(String Name) {

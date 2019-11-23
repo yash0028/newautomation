@@ -599,7 +599,7 @@ try{
      */
     default boolean waitForPageLoad(int timeout) {
         ExpectedCondition<Boolean> expectJSReadyState = driver -> {
-            assert driver != null;
+             Assert.assertTrue(driver != null);
             return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
         };
 

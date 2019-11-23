@@ -20,16 +20,16 @@ public class HBPsRedDoor extends GenericInputPage {
     public void selectRedDoor(HashMap<String, String> hmap) {
         switch (hmap.get("HBP")) {
             case "No": {
-                assert click("HBP Red Door", getHBPResponse(hmap.get("HBP")));
-                assert clickNext();
-                assert waitForPageLoad();
+                 click("HBP Red Door", getHBPResponse(hmap.get("HBP")));
+                 clickNext();
+                 waitForPageLoad();
                 break;
             }
             case "Yes": {
                 click("HBP Red Door", getHBPResponse(hmap.get("HBP")));
                 waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-                assert clickNext();
-                assert waitForPageLoad();
+                 clickNext();
+                 waitForPageLoad();
                 handleTermsAndCondition();
                 break;
             }
@@ -37,8 +37,8 @@ public class HBPsRedDoor extends GenericInputPage {
     }
 
     private void handleTermsAndCondition() {
-        assert clickNext();
-        assert waitForPageLoad();
+         clickNext();
+         waitForPageLoad();
 
     }
 
