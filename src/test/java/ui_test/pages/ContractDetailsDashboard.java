@@ -175,6 +175,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             relaunchDriver(approverType);
             getDriver().get(DASHBOARD_URL);
             LoginSSOPage loginPage = new LoginSSOPage(getDriver());
+            waitTillClickable(elements.textBoxUsername);
             assert loginPage.confirmCurrentPage();
             if (approverType.equals(configGetOptionalString("exari.username").orElse(""))) {
                 loginPage.login();
@@ -348,6 +349,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         elements.amendentTitleBar.clear();
         assert sendKeys("Entering amendment Title", elements.amendentTitleBar, hmap.get("Amendment Title"));
         assert click("Create Amendment Button", elements.getCreateAmendmentButton);
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         assert waitForPageLoad();
     }
 
@@ -486,6 +488,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         public WebElement headerTabHome;
         @FindBy(xpath = "//h2[contains(.,'Active Workflows')]")
         public WebElement openActiveWorkFlow;
+        @FindBy(xpath = "//input[@name='USER']")
+        public WebElement textBoxUsername;
 
         private String error = "//div[contains(@class,'alf-error-header')]";
         private String spinner = "//mat-progress-spinner";
