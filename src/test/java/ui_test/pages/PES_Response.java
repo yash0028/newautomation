@@ -22,27 +22,27 @@ public class PES_Response extends GenericInputPage {
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.noresult))) {
             Assert.fail("No Results found. Please check MPIN AND TIN");
         }
-        assert setCheckBox("CouterParty Name checkbox", counterPartyName(hmap.get("CounterPartyName")), true);
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue( setCheckBox("CouterParty Name checkbox", counterPartyName(hmap.get("CounterPartyName")), true));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     public void specifyApproachForCounter(HashMap<String, String> hmap) {
 
         try {
             if (counterPartyApproach(hmap.get("CounterPartyApproach")).getAttribute("type").equals("checkbox")) {
-                assert setCheckBox("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach")), true);
+                Assert.assertTrue( setCheckBox("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach")), true));
             } else if (counterPartyApproach(hmap.get("CounterPartyApproach")).getAttribute("type").equals("radio")) {
-                assert click("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach")));
+                Assert.assertTrue( click("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach"))));
             }
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             if (counterPartyAddress(hmap.get("CounterPartyAddress")).getAttribute("type").equals("checkbox")) {
-                assert setCheckBox("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")), true);
+                Assert.assertTrue( setCheckBox("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")), true));
             } else if (counterPartyAddress(hmap.get("CounterPartyAddress")).getAttribute("type").equals("radio")) {
-                assert click("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")));
+                Assert.assertTrue( click("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress"))));
             }
-            assert clickNext();
-            assert waitForPageLoad();
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -3,6 +3,7 @@ package exari_test.eif.interview;
 import exari_test.eif.flow.ActionFlow;
 import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.flow.TopicFlow;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -80,8 +81,8 @@ public class InterviewFlowContract {
                     //TODO create post action handle
                 }
 
-                assert page.clickNext();
-                assert page.waitForPageLoad();
+                Assert.assertTrue( page.clickNext());
+                Assert.assertTrue( page.waitForPageLoad());
             } else {
                 log.error("missing topicFlow for topic \"{}\"", page.getTopicText());
                 return false;
@@ -98,12 +99,12 @@ public class InterviewFlowContract {
         InterviewTopicPage page = new InterviewTopicPage(driver);
 
         ContractPreviewPage previewPage = new ContractPreviewPage(driver);
-        assert previewPage.confirmCurrentPage();
-        assert previewPage.clickNext();
-        assert page.waitForPageLoad();
+        Assert.assertTrue( previewPage.confirmCurrentPage());
+        Assert.assertTrue( previewPage.clickNext());
+        Assert.assertTrue( page.waitForPageLoad());
 
         WizardCompletePage completePage = new WizardCompletePage(driver);
-        assert completePage.confirmCurrentPage();
+        Assert.assertTrue( completePage.confirmCurrentPage());
         return completePage.clickWizardNext();
     }
 

@@ -62,7 +62,7 @@ public class MSGSteps implements IRestStep {
         log.info("MSG Response: {}", response.asString());
 
         assertEquals(200, response.getStatusCode());
-        assert result.isJsonObject();
+        Assert.assertTrue( result.isJsonObject());
         assertTrue(!result.getAsJsonObject().get("content").toString().equals("[]"));
     }
 
@@ -75,7 +75,7 @@ public class MSGSteps implements IRestStep {
         log.info("MSG Response: {}", response.asString());
 
         assertEquals(200, response.getStatusCode());
-        assert result.isJsonObject();
+        Assert.assertTrue( result.isJsonObject());
         assertEquals("[]", result.getAsJsonObject().get("content").toString());
     }
     

@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,13 +24,13 @@ public class ProviderSignatory extends GenericInputPage {
         } else {
             date = CommonMethods.formatDate(hmap.get("Provider Signatory Date"));
         }
-        assert sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date);
+        Assert.assertTrue( sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date));
 
         if(isVisible(this.elements.email)){
-            assert sendKeys("Provider Signatory Email", this.elements.email, hmap.get("Provider Signatory Email"));
+            Assert.assertTrue( sendKeys("Provider Signatory Email", this.elements.email, hmap.get("Provider Signatory Email")));
         }
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     public void ProviderTitle(HashMap<String, String> hmap) {
@@ -39,10 +40,10 @@ public class ProviderSignatory extends GenericInputPage {
         } else {
             date = CommonMethods.formatDate(hmap.get("Provider Signatory Date"));
         }
-        assert sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date);
-        assert sendKeys("Provider Signatory title", this.elements.name, hmap.get("Provider our Signatory title"));
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue( sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date));
+        Assert.assertTrue( sendKeys("Provider Signatory title", this.elements.name, hmap.get("Provider our Signatory title")));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     private static class PageElements extends AbstractPageElements {

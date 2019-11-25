@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -14,8 +15,8 @@ public class GroupSummary extends GenericInputPage {
     }
 
     public void readInterviewSummary() {
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
 }

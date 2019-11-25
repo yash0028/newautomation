@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -18,19 +19,19 @@ public class DocumentSelection extends GenericInputPage {
     }
 
     public void selectAgreementType(String name) {
-        assert click("Agreement Type", selectTypeOfAgreement(name));
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue( click("Agreement Type", selectTypeOfAgreement(name)));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     public void selectDocumentType(HashMap<String, String> hmap) {
-        assert click("Paper Type", selectPaperType(hmap.get("Paper Type")));
+        Assert.assertTrue( click("Paper Type", selectPaperType(hmap.get("Paper Type"))));
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         switch (hmap.get("Paper Type")) {
 
             case "SPGA": {
-                assert clickNext();
-                assert waitForPageLoad();
+                Assert.assertTrue(clickNext());
+                Assert.assertTrue(waitForPageLoad());
                 break;
             }
             case "MGA": {
@@ -39,18 +40,18 @@ public class DocumentSelection extends GenericInputPage {
 
             }
             case "SMGA": {
-                assert clickNext();
-                assert waitForPageLoad();
+                Assert.assertTrue(clickNext());
+                Assert.assertTrue(waitForPageLoad());
                 break;
             }
             case "SPA": {
-                assert clickNext();
-                assert waitForPageLoad();
+                Assert.assertTrue(clickNext());
+                Assert.assertTrue(waitForPageLoad());
                 break;
             }
             case "PAT": {
-                assert clickNext();
-                assert waitForPageLoad();
+                Assert.assertTrue(clickNext());
+                Assert.assertTrue(waitForPageLoad());
                 break;
             }
         }
@@ -58,9 +59,9 @@ public class DocumentSelection extends GenericInputPage {
     }
 
     public void selectVACCNAmendmentType(HashMap<String, String> hmap) {
-        assert click("Select VACCN Amendment Type",selectTypeOfAgreement(hmap.get("VACCN Amendments")));
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue( click("Select VACCN Amendment Type",selectTypeOfAgreement(hmap.get("VACCN Amendments"))));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     public WebElement selectPaperType(String Name) {

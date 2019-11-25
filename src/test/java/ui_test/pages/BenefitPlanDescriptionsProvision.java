@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -20,16 +21,16 @@ public class BenefitPlanDescriptionsProvision extends GenericInputPage {
 
     public void nameOfState( HashMap<String, String> hmap){
         waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert click("Open State Name Dropdown", this.elements.dropdown_open);
+        Assert.assertTrue( click("Open State Name Dropdown", this.elements.dropdown_open));
         pause(1);
         waitForPageLoad(60);
-        assert sendKeys("Send Data to State Name", elements.searchBar, hmap.get("Benefit Plan Descriptions Provision"));
+        Assert.assertTrue( sendKeys("Send Data to State Name", elements.searchBar, hmap.get("Benefit Plan Descriptions Provision")));
         pause(1);
         waitForPageLoad(60);
-        assert click("Click State Name", elements.selectState.get(0));
+        Assert.assertTrue( click("Click State Name", elements.selectState.get(0)));
         waitForPageLoad(60);
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     private static class PageElements extends AbstractPageElements {

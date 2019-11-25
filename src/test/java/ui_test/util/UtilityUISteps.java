@@ -8,6 +8,7 @@ import cucumber.api.java.en.Given;
 import general_test.util.BookendOrder;
 import general_test.util.UtilityGeneralSteps;
 import io.cucumber.datatable.DataTable;
+import org.junit.Assert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriverException;
@@ -93,7 +94,7 @@ public class UtilityUISteps implements IUiStep, IConfigurable {
     public void prepareParametricBrowser(DataTable table) {
         //Check if parametric
         if (parameterScenaio == null) {
-            assert false;
+            Assert.assertTrue( false);
             return;
         }
 

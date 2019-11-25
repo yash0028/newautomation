@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,8 +18,8 @@ public class SignatureBlock extends GenericInputPage {
     }
 
     public void handleSignatureBlock(HashMap<String, String> hmap) {
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
 

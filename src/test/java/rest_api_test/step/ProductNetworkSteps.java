@@ -7,6 +7,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
+import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.productnetwork.IProductNetworkInteract;
@@ -39,17 +40,17 @@ public class ProductNetworkSteps implements IRestStep, IProductNetworkInteract, 
 
     @Then("I receive a list of product details")
     public void reviewProductGroups() {
-        assert this.productDetails.getResponse().getStatusCode() == 200;
-        assert this.productDetails.size() > 0;
+        Assert.assertTrue( this.productDetails.getResponse().getStatusCode() == 200);
+        Assert.assertTrue( this.productDetails.size() > 0);
         this.productDetails.forEach(pg -> {
-            assert pg.getContractType() != null;
-            assert pg.getPlatform() != null;
-            assert pg.getProductCode() != null;
-            assert pg.getProductGroupCode() != null;
-            assert pg.getNetworkConditions().size() > 0;
+            Assert.assertTrue( pg.getContractType() != null);
+            Assert.assertTrue( pg.getPlatform() != null);
+            Assert.assertTrue( pg.getProductCode() != null);
+            Assert.assertTrue( pg.getProductGroupCode() != null);
+            Assert.assertTrue( pg.getNetworkConditions().size() > 0);
             pg.getNetworkConditions().forEach(nc -> {
-                assert nc.getNetworkCondition() != null;
-                assert nc.getNetworkId() != null;
+                Assert.assertTrue( nc.getNetworkCondition() != null);
+                Assert.assertTrue( nc.getNetworkId() != null);
             });
         });
 
@@ -63,24 +64,24 @@ public class ProductNetworkSteps implements IRestStep, IProductNetworkInteract, 
 
     @Then("I receive an OCM with the product groups details")
     public void reviewOCMForProductGroups() {
-        assert this.response.statusCode() == 200;
+        Assert.assertTrue( this.response.statusCode() == 200);
         JsonElement result = parseJsonElementResponse(this.response);
-        assert result.isJsonObject();
-        assert result.getAsJsonObject().has("productDetails");
-        assert result.getAsJsonObject().get("productDetails").isJsonArray();
+        Assert.assertTrue( result.isJsonObject());
+        Assert.assertTrue( result.getAsJsonObject().has("productDetails"));
+        Assert.assertTrue( result.getAsJsonObject().get("productDetails").isJsonArray());
         JsonArray array = result.getAsJsonObject().get("productDetails").getAsJsonArray();
-        assert array.size() > 0;
+        Assert.assertTrue( array.size() > 0);
         Gson gson = new Gson();
         this.productDetails = gson.fromJson(array, ProductDetails.class);
         this.productDetails.forEach(pg -> {
-            assert pg.getContractType() != null;
-            assert pg.getPlatform() != null;
-            assert pg.getProductCode() != null;
-            assert pg.getProductGroupCode() != null;
-            assert pg.getNetworkConditions().size() > 0;
+            Assert.assertTrue( pg.getContractType() != null);
+            Assert.assertTrue( pg.getPlatform() != null);
+            Assert.assertTrue( pg.getProductCode() != null);
+            Assert.assertTrue( pg.getProductGroupCode() != null);
+            Assert.assertTrue( pg.getNetworkConditions().size() > 0);
             pg.getNetworkConditions().forEach(nc -> {
-                assert nc.getNetworkCondition() != null;
-                assert nc.getNetworkId() != null;
+                Assert.assertTrue( nc.getNetworkCondition() != null);
+                Assert.assertTrue( nc.getNetworkId() != null);
             });
         });
     }

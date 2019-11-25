@@ -9,6 +9,7 @@ import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.flow.IContractFlowLoader;
 import general_test.util.ISharedValuePoster;
 import io.cucumber.datatable.DataTable;
+import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
@@ -77,7 +78,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter PES Inputs$")
     public void PESInputs() {
-        assert this.protoStep.sitePage.startContractAuthor();
+        Assert.assertTrue( this.protoStep.sitePage.startContractAuthor());
         basePage.getPesInputActions().enterPESInput(hmap);
     }
 
@@ -236,13 +237,13 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @When("^I create a Contract$")
     public void createContract() {
         //setupProtoStep();
-        assert this.protoStep.sitePage.startContractAuthor();
+        Assert.assertTrue( this.protoStep.sitePage.startContractAuthor());
     }
 
     @Then("^I have an active contract in Exari$")
     public void checkActiveContact() {
         log.info("checking for active status");
-        assert this.protoStep.checkActiveContractStatus();
+        Assert.assertTrue( this.protoStep.checkActiveContractStatus());
     }
 
     @And("^I Start Workflow$")

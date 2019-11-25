@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -39,8 +40,8 @@ public class ProviderDetails extends GenericInputPage {
     private void selectOption(String answer) {
         click("MarketNumber", selectOptionForMarketNumber(answer));
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
 
     }
 
@@ -51,21 +52,21 @@ public class ProviderDetails extends GenericInputPage {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.tierIndicator))) {
                 hmap.put("Tier", elements.tier.getAttribute("value"));
             }
-            assert clickNext();
-            assert waitForPageLoad();
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
         }
 
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.duplicateTIN))) {
-            assert clickNext();
-            assert waitForPageLoad();
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
         }
 
     }
 
     public void amendmentType(HashMap<String, String> hmap) {
-        assert click("Amendmentment Type in Provider Details", selectProviderDetails(hmap.get("Amendment Type")));
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue( click("Amendmentment Type in Provider Details", selectProviderDetails(hmap.get("Amendment Type"))));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     private WebElement selectProviderDetails(String Name) {

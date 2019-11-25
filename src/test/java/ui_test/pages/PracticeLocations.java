@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -25,13 +26,13 @@ public class PracticeLocations extends GenericInputPage {
         if(hmap.containsKey("Practice Location"))
         {
             if(selectPracticeLocation(hmap.get("Practice Location")).getAttribute("type").equals("checkbox")){
-                assert setCheckBox("I select Practise Location",selectPracticeLocation(hmap.get("Practice Location")),true);
+                Assert.assertTrue( setCheckBox("I select Practise Location",selectPracticeLocation(hmap.get("Practice Location")),true));
             }else if(selectPracticeLocation(hmap.get("Practice Location")).getAttribute("type").equals("radio")){
-                assert click("I select Practise Location",selectPracticeLocation(hmap.get("Practice Location")));
+                Assert.assertTrue( click("I select Practise Location",selectPracticeLocation(hmap.get("Practice Location"))));
             }
         }
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
 
     }
 
@@ -42,8 +43,8 @@ public class PracticeLocations extends GenericInputPage {
         }else if(CommonMethods.isElementPresent(getDriver(), By.xpath(elements.checkbox))){
             setCheckBox("Practice Location",elements.checkboxBtnSelection,true);
         }
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     //TODO need to modify

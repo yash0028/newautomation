@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -28,25 +29,25 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
             date = CommonMethods.formatDate(hmap.get("Contract Effective Date"));
         }
         waitForPageLoad(60);
-        assert sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date);
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue( sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
 
     public void enterPhyConNumber(HashMap<String, String> hmap) {
         if (hmap.containsKey("Phycon")) {
-            assert sendKeys("PhyConNumber", this.elements.phyConNumber, hmap.get("Phycon"));
+            Assert.assertTrue( sendKeys("PhyConNumber", this.elements.phyConNumber, hmap.get("Phycon")));
         }
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     public void setSpecificEffectiveDate(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert click("Set Specific Effective Date", selectContractDetails(hmap.get("Set Specific Effective Date")));
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue( click("Set Specific Effective Date", selectContractDetails(hmap.get("Set Specific Effective Date"))));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     private WebElement selectContractDetails(String Name) {
