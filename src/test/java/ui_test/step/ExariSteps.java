@@ -78,11 +78,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter PES Inputs$")
     public void PESInputs() {
-<<<<<<< HEAD
         Assert.assertTrue( this.protoStep.sitePage.startContractAuthor());
-=======
-         this.protoStep.sitePage.startContractAuthor();
->>>>>>> 3bd2e90046ef4ae9b32a7b741384cbc5c27371b0
         basePage.getPesInputActions().enterPESInput(hmap);
     }
 
@@ -241,21 +237,13 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @When("^I create a Contract$")
     public void createContract() {
         //setupProtoStep();
-<<<<<<< HEAD
         Assert.assertTrue( this.protoStep.sitePage.startContractAuthor());
-=======
-         this.protoStep.sitePage.startContractAuthor();
->>>>>>> 3bd2e90046ef4ae9b32a7b741384cbc5c27371b0
     }
 
     @Then("^I have an active contract in Exari$")
     public void checkActiveContact() {
         log.info("checking for active status");
-<<<<<<< HEAD
         Assert.assertTrue( this.protoStep.checkActiveContractStatus());
-=======
-         this.protoStep.checkActiveContractStatus();
->>>>>>> 3bd2e90046ef4ae9b32a7b741384cbc5c27371b0
     }
 
     @And("^I Start Workflow$")
