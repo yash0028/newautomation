@@ -8,6 +8,7 @@ Feature: SMGA Business Testcases_IN
   @Manual
   @User_Interface
   @UAT_Automation
+  @UAT_AUTO
   Scenario Outline: TC_CEN_SMGA_IN_68 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -62,6 +63,7 @@ Feature: SMGA Business Testcases_IN
     
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
     
     #CMD Check
 #    When I have entered the CMD dashboard URL
@@ -96,6 +98,7 @@ Feature: SMGA Business Testcases_IN
 	#Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
+    And I Approve Payment Appendix in Amendment
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
     And I enter Provider Signatory in Amendment

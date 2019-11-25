@@ -24,7 +24,7 @@ public class OurSignatory extends GenericInputPage {
         } else {
             date = CommonMethods.formatDate(hmap.get("Our Signatory Date"));
         }
-        Assert.assertTrue( sendKeys("Provider Signatory Date", this.elements.signatoryDate, date));
+        Assert.assertTrue(sendKeys("Provider Signatory Date", this.elements.signatoryDate, date));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -37,8 +37,8 @@ public class OurSignatory extends GenericInputPage {
         } else {
             date = CommonMethods.formatDate(hmap.get("Our Signatory Date"));
         }
-        Assert.assertTrue( sendKeys("our Signatory title", this.elements.oursignatoryname, hmap.get("Provider our Signatory title")));
-        Assert.assertTrue( sendKeys("Provider Signatory Date", this.elements.signatoryDate, date));
+        Assert.assertTrue(sendKeys("our Signatory title", this.elements.oursignatoryname, hmap.get("Provider our Signatory title")));
+        Assert.assertTrue(sendKeys("Provider Signatory Date", this.elements.signatoryDate, date));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
 

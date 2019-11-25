@@ -130,7 +130,7 @@ class ArticleVIII extends Article {
     }
 
     public void handleArticleVIII(HashMap<String, String> hmap) {
-        Assert.assertTrue( setCheckBox("Select Article 8", selectArticle(hmap.get("Article 8")), true));
+        Assert.assertTrue(setCheckBox("Select Article 8", selectArticle(hmap.get("Article 8")), true));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }

@@ -25,9 +25,9 @@ public class PaymentAppendix extends GenericInputPage {
     public void selectPaymentAppendix(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         if (hmap.containsKey("High Fee Schedule than Default"))
-            Assert.assertTrue( click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default"))));
+            Assert.assertTrue(click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default"))));
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        Assert.assertTrue( click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix"))));
+        Assert.assertTrue(click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix"))));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
 
@@ -61,13 +61,13 @@ public class PaymentAppendix extends GenericInputPage {
             Assert.assertTrue(sendKeys("All Payer", getFeeScheduleElement("All Payer?"), hmap.get("FS All Payer")));
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer  ?")))) {
-            Assert.assertTrue( sendKeys("All Payer", getFeeScheduleElement("All Payer  ?"), hmap.get("FS All Payer")));
+            Assert.assertTrue(sendKeys("All Payer", getFeeScheduleElement("All Payer  ?"), hmap.get("FS All Payer")));
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer for Physicians")))) {
-            Assert.assertTrue( sendKeys("All Payer for Physicians", getFeeScheduleElement("All Payer for Physicians"), hmap.get("FS All Payer Physician")));
+            Assert.assertTrue(sendKeys("All Payer for Physicians", getFeeScheduleElement("All Payer for Physicians"), hmap.get("FS All Payer Physician")));
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer for Non-Physicians")))) {
-            Assert.assertTrue( sendKeys("All Payer for Non-Physicians", getFeeScheduleElement("All Payer for Non-Physicians"), hmap.get("FS All Payer Non Physician")));
+            Assert.assertTrue(sendKeys("All Payer for Non-Physicians", getFeeScheduleElement("All Payer for Non-Physicians"), hmap.get("FS All Payer Non Physician")));
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
@@ -80,19 +80,19 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void appliedPaymentAppendix(HashMap<String, String> hmap) {
-        Assert.assertTrue( click("Apply Payment Appendix in Amendments", paymentAppendixElement(hmap.get("Apply Payment Appendix in Amendments"))));
+        Assert.assertTrue(click("Apply Payment Appendix in Amendments", paymentAppendixElement(hmap.get("Apply Payment Appendix in Amendments"))));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
 
     public void enterDataInPaymentAppendixForSPGA(HashMap<String, String> hmap) {
-        Assert.assertTrue( sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicareSPGA, hmap.get("FS Id Amendments")));
+        Assert.assertTrue(sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicareSPGA, hmap.get("FS Id Amendments")));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
 
     public void enterDataInPaymentAppendixForPAT(HashMap<String, String> hmap) {
-        Assert.assertTrue( sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician")));
+        Assert.assertTrue(sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician")));
         //Assert.assertTrue( sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicarePAT, hmap.get("FS Id Amendments")));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
@@ -100,22 +100,23 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void enterDataInPaymentAppendixForSPA(HashMap<String, String> hmap) {
-        Assert.assertTrue( sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician")));
+        Assert.assertTrue(sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician")));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
 
     public void paymentAppendixToInclude(HashMap<String, String> hmap) {
-        Assert.assertTrue( click("Payment Appendix to include", elements.paymentAppendixToIncludePhysician));
+        Assert.assertTrue(click("Payment Appendix to include", elements.paymentAppendixToIncludePhysician));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
 
     }
+
     public void paymentAppendixToIncludeMGA(HashMap<String, String> hmap) {
         if (hmap.containsKey("Payment Appendix to Include")) {
             String[] appendixes = hmap.get("Payment Appendix to Include").split("//");
             for (String appendix : appendixes) {
-                Assert.assertTrue( click("Payment Appendix to Include", paymentAppendixElement(appendix)));
+                Assert.assertTrue(click("Payment Appendix to Include", paymentAppendixElement(appendix)));
                 pause(1);
             }
         }
@@ -125,8 +126,8 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void enterDataInPaymentAppendixForSMGA(HashMap<String, String> hmap) {
-        Assert.assertTrue( sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician")));
-        Assert.assertTrue( sendKeys("FeeSchedule ID Medicare Non Physician", this.elements.feeSchduleIDNonPhysicianMedicare, hmap.get("FS Id Amendments Non-Physician")));
+        Assert.assertTrue(sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician")));
+        Assert.assertTrue(sendKeys("FeeSchedule ID Medicare Non Physician", this.elements.feeSchduleIDNonPhysicianMedicare, hmap.get("FS Id Amendments Non-Physician")));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -137,26 +138,28 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void replacePaymentAppendixInAmendments(HashMap<String, String> hmap) {
         if (hmap.containsKey("Payment Appendix to Replace")) {
-            Assert.assertTrue( sendKeys("Replace Payment Appendix", elements.searchBar, hmap.get("Payment Appendix to Replace")));
-            Assert.assertTrue( click("Select Payment Appendix to Replace", elements.selectCode.get(0)));
+            Assert.assertTrue(sendKeys("Replace Payment Appendix", elements.searchBar, hmap.get("Payment Appendix to Replace")));
+            Assert.assertTrue(click("Select Payment Appendix to Replace", elements.selectCode.get(0)));
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
 
-            Assert.assertTrue( click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix to Include"))));
+            Assert.assertTrue(click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix to Include"))));
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
     }
-    public void medicareAdvantagePaymentAppendixMGA(HashMap<String, String> hmap){
+
+    public void medicareAdvantagePaymentAppendixMGA(HashMap<String, String> hmap) {
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Advantage for Physicians")))) {
-            Assert.assertTrue( sendKeys("Advantage for Physicians", getFeeScheduleElement("Advantage for Physicians"), hmap.get("FS Id Amendments Physician")));
+            Assert.assertTrue(sendKeys("Advantage for Physicians", getFeeScheduleElement("Advantage for Physicians"), hmap.get("FS Id Amendments Physician")));
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Advantage for Non-Physicians")))) {
-            Assert.assertTrue( sendKeys("Advantage for Non-Physicians", getFeeScheduleElement("Advantage for Non-Physicians"), hmap.get("FS Id Amendments Non-Physician")));
+            Assert.assertTrue(sendKeys("Advantage for Non-Physicians", getFeeScheduleElement("Advantage for Non-Physicians"), hmap.get("FS Id Amendments Non-Physician")));
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
+
     public void verifyMedicareAdvantage() {
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
@@ -164,7 +167,7 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void enterPaymentAppenidix(HashMap<String, String> hmap) {
         elements.feeSchduleID.clear();
-        Assert.assertTrue( sendKeys("FeeSchdeuleID in Amendments", this.elements.feeSchduleID, hmap.get("FS All Payer Amendments")));
+        Assert.assertTrue(sendKeys("FeeSchdeuleID in Amendments", this.elements.feeSchduleID, hmap.get("FS All Payer Amendments")));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -175,7 +178,7 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void selectPaymentAppendixSMGA(HashMap<String, String> hmap) {
-        Assert.assertTrue( click("Higher than fee schedule Id", paymentAppendixElement(hmap.get("High Fee Schedule than Default"))));
+        Assert.assertTrue(click("Higher than fee schedule Id", paymentAppendixElement(hmap.get("High Fee Schedule than Default"))));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }

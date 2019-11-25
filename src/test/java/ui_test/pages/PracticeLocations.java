@@ -23,12 +23,11 @@ public class PracticeLocations extends GenericInputPage {
 
     //Select Practice Location when Paper Type is SPGA
     public void selectLocation(HashMap<String, String> hmap) {
-        if(hmap.containsKey("Practice Location"))
-        {
-            if(selectPracticeLocation(hmap.get("Practice Location")).getAttribute("type").equals("checkbox")){
-                Assert.assertTrue( setCheckBox("I select Practise Location",selectPracticeLocation(hmap.get("Practice Location")),true));
-            }else if(selectPracticeLocation(hmap.get("Practice Location")).getAttribute("type").equals("radio")){
-                Assert.assertTrue( click("I select Practise Location",selectPracticeLocation(hmap.get("Practice Location"))));
+        if (hmap.containsKey("Practice Location")) {
+            if (selectPracticeLocation(hmap.get("Practice Location")).getAttribute("type").equals("checkbox")) {
+                Assert.assertTrue(setCheckBox("I select Practise Location", selectPracticeLocation(hmap.get("Practice Location")), true));
+            } else if (selectPracticeLocation(hmap.get("Practice Location")).getAttribute("type").equals("radio")) {
+                Assert.assertTrue(click("I select Practise Location", selectPracticeLocation(hmap.get("Practice Location"))));
             }
         }
         Assert.assertTrue(clickNext());
@@ -38,10 +37,10 @@ public class PracticeLocations extends GenericInputPage {
 
     //Select Practice Location when Paper Type is MGA
     public void selectPracticeLocation() {
-        if(CommonMethods.isElementPresent(getDriver(), By.xpath(elements.radio))){
-            click("Practice Location",elements.radioBtnSelection);
-        }else if(CommonMethods.isElementPresent(getDriver(), By.xpath(elements.checkbox))){
-            setCheckBox("Practice Location",elements.checkboxBtnSelection,true);
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.radio))) {
+            click("Practice Location", elements.radioBtnSelection);
+        } else if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.checkbox))) {
+            setCheckBox("Practice Location", elements.checkboxBtnSelection, true);
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
@@ -62,6 +61,7 @@ public class PracticeLocations extends GenericInputPage {
 
         private String radio = "//input[@type='radio']";
         private String checkbox = "//input[@type='checkbox']";
+
         public PageElements(SearchContext context) {
             super(context);
         }

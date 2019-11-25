@@ -64,7 +64,7 @@ public class ProviderDetails extends GenericInputPage {
     }
 
     public void amendmentType(HashMap<String, String> hmap) {
-        Assert.assertTrue( click("Amendmentment Type in Provider Details", selectProviderDetails(hmap.get("Amendment Type"))));
+        Assert.assertTrue(click("Amendmentment Type in Provider Details", selectProviderDetails(hmap.get("Amendment Type"))));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }

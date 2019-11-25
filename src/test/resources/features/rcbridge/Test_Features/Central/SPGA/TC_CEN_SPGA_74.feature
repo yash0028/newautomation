@@ -1,14 +1,17 @@
-# Last updated on 
+# Last updated on
 @SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
 Feature: SPGA Business Testcases_IN
-  
+
   @TC_CEN_SPGA_IN_74
   @Manual
-  @UAT_Automation  
-  Scenario Outline: TC_CEN_SPGA_IN_74 - [RL0] Author SPGA contract in <site>  
-	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+  @User_Interface
+  @UAT_Automation_Batch1
+  @UAT_AUTO
+  Scenario Outline: TC_CEN_SPGA_IN_74 - [RL0] Author SPGA contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+
   
     #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
@@ -67,12 +70,13 @@ Feature: SPGA Business Testcases_IN
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    And I set Roster Action as Upload
-    And I Download Current Roster
-    And I Upload Completed Roster
-    And I enter warning in Make Correction
-    And I enter validation
+    And I set Roster Action as Cancel
+    And I select provider and cancel date
+    And I enter cancel reason
     And I acknowledge the warning
+#    And I enter warning in Make Correction
+#    And I enter validation
+#    And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
     
@@ -82,7 +86,7 @@ Feature: SPGA Business Testcases_IN
     
     
     Examples:    
-       | site          | paperType     | TCName|  				 
-       | central uhn   | SPGA          | TC_CEN_SPGA_IN_74|
+       | site          | paperType     |TCName|
+       | central uhn   | SPGA          |TC_CEN_SPGA_IN_74|
        
     

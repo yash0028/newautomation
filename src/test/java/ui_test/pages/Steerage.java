@@ -17,7 +17,7 @@ public class Steerage extends GenericInputPage {
     }
 
     public void addLanguage(HashMap<String, String> hmap) {
-        Assert.assertTrue( click("Add Language in Steerage Page", selectSteerage(hmap.get("Add Language"))));
+        Assert.assertTrue(click("Add Language in Steerage Page", selectSteerage(hmap.get("Add Language"))));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
 

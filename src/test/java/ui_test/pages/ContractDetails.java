@@ -29,7 +29,7 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
             date = CommonMethods.formatDate(hmap.get("Contract Effective Date"));
         }
         waitForPageLoad(60);
-        Assert.assertTrue( sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date));
+        Assert.assertTrue(sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -37,15 +37,15 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
 
     public void enterPhyConNumber(HashMap<String, String> hmap) {
         if (hmap.containsKey("Phycon")) {
-            Assert.assertTrue( sendKeys("PhyConNumber", this.elements.phyConNumber, hmap.get("Phycon")));
+            Assert.assertTrue(sendKeys("PhyConNumber", this.elements.phyConNumber, hmap.get("Phycon")));
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
 
     public void setSpecificEffectiveDate(HashMap<String, String> hmap) {
-        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        Assert.assertTrue( click("Set Specific Effective Date", selectContractDetails(hmap.get("Set Specific Effective Date"))));
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        Assert.assertTrue(click("Set Specific Effective Date", selectContractDetails(hmap.get("Set Specific Effective Date"))));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -61,6 +61,7 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
         private WebElement contractEffectiveDate;
 
         private String message = "//div[contains(@class,'DialogBox')]";
+
         public PageElements(SearchContext context) {
             super(context);
         }

@@ -16,7 +16,7 @@ public class Warning extends GenericInputPage {
     }
 
     public void acknowledgment() {
-        Assert.assertTrue( setCheckBox("Check acknowledgment", this.elements.acknowledge, true));
+        Assert.assertTrue(setCheckBox("Check acknowledgment", this.elements.acknowledge, true));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }

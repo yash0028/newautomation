@@ -19,15 +19,15 @@ public class AdditionalLocations extends GenericInputPage {
     }
 
     private void selectAddressFromNDB() {
-        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        Assert.assertTrue( click("Select Address from NDB", elements.addressFromNDB));
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        click("Select Address from NDB", elements.addressFromNDB);
 
     }
 
     public void selectAdditionalLocations(HashMap<String, String> hmap) {
         pause(1);
         waitForPageLoad(60);
-        Assert.assertTrue( click("Additional Location", additionalLocationsElement(hmap.get("Additional Location"))));
+        Assert.assertTrue(click("Additional Location", additionalLocationsElement(hmap.get("Additional Location"))));
 //TODO recheck
         switch (hmap.get("Additional Location")) {
             case "Yes": {

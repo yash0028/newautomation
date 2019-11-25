@@ -8,6 +8,7 @@ Feature: PAT Business Testcases_IN
   @TC_CEN_PAT_IN_04
   @Manual
   @User_Interface
+  @UAT_AUTO
   Scenario Outline: TC_CEN_PAT_IN_04 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -46,7 +47,7 @@ Feature: PAT Business Testcases_IN
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I verify Providers
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -95,14 +96,12 @@ Feature: PAT Business Testcases_IN
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
+    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
      #Activating Amendment
     And I Set Status as Active in Amendment
-
-
-
     #Amendment CMD Checking
 
 

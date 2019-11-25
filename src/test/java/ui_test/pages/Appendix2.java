@@ -20,16 +20,16 @@ public class Appendix2 extends GenericInputPage {
 
             String[] IncludeProducts = hmap.get("Include Product").split("//");
             for (String product : IncludeProducts) {
-                Assert.assertTrue( click("Include Product in Appendix 2", getXPath(product)));
-                Assert.assertTrue( waitForPageLoad(60));
+                Assert.assertTrue(click("Include Product in Appendix 2", getXPath(product)));
+                Assert.assertTrue(waitForPageLoad(60));
             }
 
         }
         if (hmap.containsKey("Exclude Product")) {
             String[] ExcludeProducts = hmap.get("Exclude Product").split("//");
             for (String product : ExcludeProducts) {
-                Assert.assertTrue( click("Exclude Product in Appendix 2", getXPath(product)));
-                Assert.assertTrue( waitForPageLoad(60));
+                Assert.assertTrue(click("Exclude Product in Appendix 2", getXPath(product)));
+                Assert.assertTrue(waitForPageLoad(60));
             }
         }
 
@@ -40,7 +40,7 @@ public class Appendix2 extends GenericInputPage {
 
     public void productsExcludedFromAgreement(HashMap<String, String> hmap) {
         if (hmap.containsKey("Exclude Product in Amendment")) {
-            Assert.assertTrue( click("Exclude Product in Appendix 2", getXPath(hmap.get("Exclude Product in Amendment"))));
+            Assert.assertTrue(click("Exclude Product in Appendix 2", getXPath(hmap.get("Exclude Product in Amendment"))));
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());

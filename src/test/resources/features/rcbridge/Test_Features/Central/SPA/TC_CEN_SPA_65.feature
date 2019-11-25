@@ -6,13 +6,14 @@ Feature: SPA Business Testcases_IN
   @TC_CEN_SPA_IN_65
   @Manual
   @User_Interface
+  @UAT_AUTO
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-    And I enter PES Responses
+    And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
@@ -64,5 +65,5 @@ Feature: SPA Business Testcases_IN
 
 
     Examples:
-      | site          | paperType     | TCName           | |contract| |Contractstatus|
-      | central uhn   | SPA           | TC_CEN_SPA_IN_65 |  |11122328| |InstallContract|
+      | site          | paperType     | TCName           |
+      | central uhn   | SPA           | TC_CEN_SPA_IN_65 |

@@ -1,6 +1,7 @@
 package ui_test.pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,10 +25,11 @@ public class ProviderSignatory extends GenericInputPage {
         } else {
             date = CommonMethods.formatDate(hmap.get("Provider Signatory Date"));
         }
-        Assert.assertTrue( sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date));
+        Assert.assertTrue(sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date));
 
-        if(isVisible(this.elements.email)){
-            Assert.assertTrue( sendKeys("Provider Signatory Email", this.elements.email, hmap.get("Provider Signatory Email")));
+        if (isVisible(this.elements.email)) {
+            elements.email.clear();
+            Assert.assertTrue(sendKeys("Provider Signatory Email", this.elements.email, hmap.get("Provider Signatory Email")));
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
@@ -40,8 +42,9 @@ public class ProviderSignatory extends GenericInputPage {
         } else {
             date = CommonMethods.formatDate(hmap.get("Provider Signatory Date"));
         }
-        Assert.assertTrue( sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date));
-        Assert.assertTrue( sendKeys("Provider Signatory title", this.elements.name, hmap.get("Provider our Signatory title")));
+        Assert.assertTrue(sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date));
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.titleName)))
+            Assert.assertTrue(sendKeys("Provider Signatory title", this.elements.name, hmap.get("Provider our Signatory title")));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -53,6 +56,8 @@ public class ProviderSignatory extends GenericInputPage {
         private WebElement email;
         @FindBy(xpath = "//input[contains(@name,'Name')]")
         private WebElement name;
+
+        private String titleName = "//input[contains(@name,'Name')]";
 
 
         public PageElements(SearchContext context) {

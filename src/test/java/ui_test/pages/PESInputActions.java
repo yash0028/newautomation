@@ -31,16 +31,16 @@ public class PESInputActions extends GenericInputPage {
             for (Map.Entry<String, String> entry : readFile.entrySet()) {
                 switch (entry.getKey().toUpperCase()) {
                     case "MPIN":
-                        Assert.assertTrue( sendKeys("MPIN textbox", this.elements.mpin, entry.getValue()));
+                        Assert.assertTrue(sendKeys("MPIN textbox", this.elements.mpin, entry.getValue()));
                         break;
                     case "TIN":
-                        Assert.assertTrue( sendKeys("TIN textbox", this.elements.tin, entry.getValue()));
+                        Assert.assertTrue(sendKeys("TIN textbox", this.elements.tin, entry.getValue()));
                         break;
                     case "NPI":
-                        Assert.assertTrue( sendKeys("NPI textbox", this.elements.npi, entry.getValue()));
+                        Assert.assertTrue(sendKeys("NPI textbox", this.elements.npi, entry.getValue()));
                         break;
                     case "ZIP":
-                        Assert.assertTrue( sendKeys("ZIP textbox", this.elements.zip, entry.getValue()));
+                        Assert.assertTrue(sendKeys("ZIP textbox", this.elements.zip, entry.getValue()));
                         break;
                     case "CITY":
                         sendKeys("CITY textbox", this.elements.city, entry.getValue());

@@ -8,6 +8,7 @@ Feature: SPGA Business Testcases_IN
   @Manual
   @User_Interface
   @UAT_Automation_Batch1
+  @UAT_AUTO
   Scenario Outline: TC_CEN_SPGA_IN_05 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -73,7 +74,9 @@ Feature: SPGA Business Testcases_IN
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
+#    And I enter Payment Appendix in Amendments for SPGA contracts
     And I check Payment Appendix
+    And I enter Payment Appendix Amendments in Spga Contracts
     And I enter Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for SPGA contracts

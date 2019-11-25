@@ -50,9 +50,9 @@ public class ProtoStep implements IConfigurable {
             driver.get(url);
             log.info(driver.getTitle());
             LoginSSOPage loginPage = new LoginSSOPage(driver);
-            Assert.assertTrue( loginPage.confirmCurrentPage());
+            Assert.assertTrue(loginPage.confirmCurrentPage());
 
-            Assert.assertTrue( loginPage.login());
+            Assert.assertTrue(loginPage.login());
 
             dashboardPage = loginPage.getHomePage();
             //Assert.assertTrue( dashboardPage.confirmCurrentPage());
@@ -106,7 +106,7 @@ public class ProtoStep implements IConfigurable {
             Assert.assertTrue(dashboardPage.confirmCurrentPage());
             sitePage = dashboardPage.getNavigationPanel().setSiteEnvironment(siteOption);
 
-            Assert.assertTrue( sitePage.confirmCurrentPage());
+            Assert.assertTrue(sitePage.confirmCurrentPage());
             log.info("moved to {} site", siteOption);
 
 //            if (flow.getReport() != null) {
@@ -134,20 +134,20 @@ public class ProtoStep implements IConfigurable {
 
         try {
             //Start contract author
-            Assert.assertTrue( sitePage.startContractAuthor());
+            Assert.assertTrue(sitePage.startContractAuthor());
 
             //Start interview phase
             InterviewFlowContract manager = new InterviewFlowContract(driver, flow);
-            Assert.assertTrue( manager.startFlow());
+            Assert.assertTrue(manager.startFlow());
             log.info("flow complete");
-            Assert.assertTrue( manager.finishContract());
+            Assert.assertTrue(manager.finishContract());
 
             //Back to contract page
             contractPage = sitePage.getContractPage();
-            Assert.assertTrue( contractPage.confirmCurrentPage());
+            Assert.assertTrue(contractPage.confirmCurrentPage());
 
             //set Edit Status
-            Assert.assertTrue( contractPage.setEditStatus("Final Pending QA"));
+            Assert.assertTrue(contractPage.setEditStatus("Final Pending QA"));
 //
 //            if (flow.getReport() != null) {
 //                flow.getReport().markAuthor(new Result(TimeKeeper.getInstance().getDuration(startTime), Result.Status.PASSED));
@@ -173,18 +173,18 @@ public class ProtoStep implements IConfigurable {
             InterviewFlowContract manager = new InterviewFlowContract(driver, flow);
 
             //click Final Capture
-            Assert.assertTrue( contractPage.clickFinalCapture());
+            Assert.assertTrue(contractPage.clickFinalCapture());
 
             //Start flow for final capture
-            Assert.assertTrue( manager.startFlow());
-            Assert.assertTrue( manager.finishContract());
+            Assert.assertTrue(manager.startFlow());
+            Assert.assertTrue(manager.finishContract());
 
             //Back to Contract Page
             contractPage = sitePage.getContractPage();
-            Assert.assertTrue( contractPage.confirmCurrentPage());
+            Assert.assertTrue(contractPage.confirmCurrentPage());
 
             //set Edit Status
-            Assert.assertTrue( contractPage.setEditStatus("Active"));
+            Assert.assertTrue(contractPage.setEditStatus("Active"));
 
 //            if (flow.getReport() != null) {
 //                flow.getReport().addNote("contractId", contractPage.getContractNumber());

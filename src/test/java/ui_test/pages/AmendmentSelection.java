@@ -23,7 +23,7 @@ public class AmendmentSelection extends GenericInputPage {
     }
 
     public void amendmentNeeded(HashMap<String, String> hmap) {
-        Assert.assertTrue( click("Select Amendments Needed", selectAmendments(hmap.get("Amendment Needed"))));
+        Assert.assertTrue(click("Select Amendments Needed", selectAmendments(hmap.get("Amendment Needed"))));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }

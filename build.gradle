@@ -44,24 +44,15 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
     compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.0.0'
+
+	 // Note: the cucumber dependencies are included in the below dependency
+    testCompile group: 'io.github.prashant-ramcharan', name: 'courgette-jvm', version: '3.3.0'
     
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile group: 'io.rest-assured', name: 'rest-assured', version: '3.0.7'
-    testCompile 'io.cucumber:cucumber-java:3.0.2'
-    testCompile 'io.cucumber:cucumber-junit:3.0.2'
+    //testCompile 'io.cucumber:cucumber-java:3.0.2'
+    //testCompile 'io.cucumber:cucumber-junit:3.0.2'
     testCompile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.12'
-}
-
-test {
-    println("CUCUMBER OPTIONS: " + cucumberOptions())
-    options {
-        // add certain cucumber options and tags from the command line. Tags are supplied by the -PcucumberTags="@tag" option
-        jvmArgs cucumberOptions()
-
-    }
-
-    // show standard out and standard error of the test JVM(s) on the console
-    testLogging.showStandardStreams = true
 }
 
 task(hive, dependsOn: 'classes', type: JavaExec) {
@@ -71,6 +62,28 @@ task(hive, dependsOn: 'classes', type: JavaExec) {
     jvmArgs "-ea"
 }
 
+tasks.withType(Test) {
+    systemProperties = System.getProperties()
+    systemProperties.remove("java.endorsed.dirs") // needs to be removed from Java 9
+}
+
+task parallelTest(type: Test) {
+    include '**/ParallelRunner.class'
+    outputs.upToDateWhen { false }
+    testLogging.showStandardStreams = true
+}
+
+test {
+    println("CUCUMBER OPTIONS: " + cucumberOptions())
+    options {
+        // add certain cucumber options and tags from the command line. Tags are supplied by the -PcucumberTags="@tag" option
+        jvmArgs cucumberOptions()
+    }
+
+    // show standard out and standard error of the test JVM(s) on the console
+    testLogging.showStandardStreams = true
+}
+
 def String cucumberOptions() {
     return '-Dcucumber.options=' +
             '--plugin pretty' +
@@ -78,5 +91,4 @@ def String cucumberOptions() {
             ' --plugin junit:build/xml-reports/xml-report.xml' +
             ' --no-dry-run'
                     .concat(hasProperty("cucumberTags") ? " --tags '" + getProperty("cucumberTags").toString() + "'" : '')
-
 }

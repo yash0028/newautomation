@@ -19,13 +19,13 @@ public class DocumentSelection extends GenericInputPage {
     }
 
     public void selectAgreementType(String name) {
-        Assert.assertTrue( click("Agreement Type", selectTypeOfAgreement(name)));
+        Assert.assertTrue(click("Agreement Type", selectTypeOfAgreement(name)));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
 
     public void selectDocumentType(HashMap<String, String> hmap) {
-        Assert.assertTrue( click("Paper Type", selectPaperType(hmap.get("Paper Type"))));
+        Assert.assertTrue(click("Paper Type", selectPaperType(hmap.get("Paper Type"))));
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         switch (hmap.get("Paper Type")) {
 
@@ -59,7 +59,7 @@ public class DocumentSelection extends GenericInputPage {
     }
 
     public void selectVACCNAmendmentType(HashMap<String, String> hmap) {
-        Assert.assertTrue( click("Select VACCN Amendment Type",selectTypeOfAgreement(hmap.get("VACCN Amendments"))));
+        Assert.assertTrue(click("Select VACCN Amendment Type", selectTypeOfAgreement(hmap.get("VACCN Amendments"))));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }

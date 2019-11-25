@@ -21,7 +21,7 @@ public class HBPsRedDoor extends GenericInputPage {
     public void selectRedDoor(HashMap<String, String> hmap) {
         switch (hmap.get("HBP")) {
             case "No": {
-                Assert.assertTrue( click("HBP Red Door", getHBPResponse(hmap.get("HBP"))));
+                Assert.assertTrue(click("HBP Red Door", getHBPResponse(hmap.get("HBP"))));
                 Assert.assertTrue(clickNext());
                 Assert.assertTrue(waitForPageLoad());
                 break;

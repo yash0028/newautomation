@@ -20,11 +20,16 @@ public class PaymentAppendixAmendment extends GenericInputPage {
     }
 
     public void selectPaymentAppendixAmendmentSMGA(HashMap<String, String> hmap) {
-//        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
 
-//        Assert.assertTrue( click("Checked Physician",elements.physician));
-//        Assert.assertTrue( click("Checked Non Physician",elements.nonPhysician));
+        setCheckBox("Checked Physician", elements.physician, true);
+        setCheckBox("Checked Non Physician", elements.nonPhysician, true);
 
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
+    }
+
+    public void paymentApppendixforSPGA() {
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }

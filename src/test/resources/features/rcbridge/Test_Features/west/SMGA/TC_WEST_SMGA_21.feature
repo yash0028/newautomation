@@ -8,6 +8,7 @@ Feature: SMGA Business Testcases_OR
   @Manual
   @User_Interface
   @UAT_Automation_Batch1_West
+  @UAT_AUTO
   Scenario Outline: TC_WEST_SMGA_OR_21 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   

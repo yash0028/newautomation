@@ -6,7 +6,8 @@ Feature: SMGA Business Testcases_IN
   
   @TC_CEN_SMGA_IN_03
   @Manual
-  @User_Interface  
+  @User_Interface
+  @UAT_AUTO
   Scenario Outline: TC_CEN_SMGA_IN_03 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -53,6 +54,7 @@ Feature: SMGA Business Testcases_IN
 
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
     #
     #CMD Check
     #When I have entered the CMD dashboard URL

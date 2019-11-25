@@ -19,12 +19,12 @@ public class InitialTransaction extends GenericInputPage {
 
     public void initialTransaction(HashMap<String, String> hmap) {
         waitTillClickable(this.elements.startProcess);
-        Assert.assertTrue( click("Start Process", this.elements.startProcess));
+        Assert.assertTrue(click("Start Process", this.elements.startProcess));
         pause(1);
         waitForPageLoad(60);
-        Assert.assertTrue( click("Select Initial Transaction Type", clickInitialTransactionType(hmap.get("Initial Transaction"))));
+        Assert.assertTrue(click("Select Initial Transaction Type", clickInitialTransactionType(hmap.get("Initial Transaction"))));
         waitForPageLoad(60);
-        Assert.assertTrue( click("Start Process Button", this.elements.startProcessButton));
+        Assert.assertTrue(click("Start Process Button", this.elements.startProcessButton));
         Assert.assertTrue(waitForPageLoad());
 
     }
