@@ -31,6 +31,14 @@ public class Appendix2 extends GenericInputPage {
                 assert waitForPageLoad(60);
             }
         }
+        if (hmap.containsKey("Include Medicare Product")) {
+
+            String[] IncludeProducts = hmap.get("Include Medicare Product").split("//");
+            for (String product : IncludeProducts) {
+                assert click("Include Medicare Product", getXPath(product));
+                assert waitForPageLoad(60);
+            }
+        }
 
         assert clickNext();
         assert waitForPageLoad();
@@ -48,7 +56,7 @@ public class Appendix2 extends GenericInputPage {
 
     public void SelectAppedix1(String option) {
         waitForPageLoad();
-        if (getDriver().findElement(By.xpath("//b[.='Will additional manuals apply?']")).isDisplayed()) {
+        if (getDriver().findElement(By.xpath("//b[.='Will Additional Manuals apply?']")).isDisplayed()) {
             click("Will additional manuals apply?", getXPath(option));
             assert clickNext();
             waitForPageLoad();
