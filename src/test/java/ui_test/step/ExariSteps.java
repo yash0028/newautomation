@@ -411,7 +411,13 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void selectProviders() {
         basePage.getProviderRoaster().selectProviders(hmap);
     }
-
+    
+    @And("I enter Date in Provider Roster Page")
+    public void iEnterDateInProviderRosterPage()
+    {
+        basePage.getProviderRoaster().enterStartDate(hmap);
+    }
+    
     @And("^I verify Providers$")
     public void verifyProviders() {
         basePage.getProviderRoaster().verifyProviders();
