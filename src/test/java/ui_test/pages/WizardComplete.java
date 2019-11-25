@@ -22,30 +22,25 @@ public class WizardComplete extends GenericInputPage {
     public void completeWizard() {
         waitTillClickable(elements.completeWizardElement, 10);
         try {
-
-            this.elements.completeWizardElement.click();
-        } catch (Exception e)
-        {
-        	 System.out.println("Taking long time");       	
-        }
-        try {
-            IWebInteract.log.trace("clicked on {}", "Complete Wizard");
-            Assert.assertTrue(waitForPageLoad(90));
-            confirmDashboard();
-        } catch (Exception e) {
-            if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.wizardCompleteXpath))) {
-                WebElement wc = getDriver().findElement(By.xpath(elements.wizardCompleteXpath));
-                waitForElementToDissapear(getDriver(), wc);
-                if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.wizardCompleteXpath))) {
-                    Assert.fail("Complete Wizard process is taking long time than expected.");
-                }
-
-
-            } else {
+                this.elements.completeWizardElement.click();
+                waitForPageLoad(30);
                 confirmDashboard();
             }
-
+            catch (Exception e)
+            {
+        	 System.out.println("Taking long time");
+             WebElement wc = getDriver().findElement(By.xpath(elements.wizardCompleteXpath));
+        	 while (wc.isDisplayed())
+             {
+                 pause(1);
+                    if(!CommonMethods.isElementPresent(getDriver(),By.xpath(elements.wizardCompleteXpath))){
+                        break;
+                    }
+             }
+        	 waitForPageLoad(30);
+             confirmDashboard();
         }
+
         IWebInteract.log.info("Contract Link : {}", getDriver().getCurrentUrl());
     }
 
