@@ -6,8 +6,8 @@ Feature: SPGA Business Testcases_IN
   
   @TC_CEN_SPGA_IN_66
   @Manual
-  @User_Interface 
-  @UAT_AUTO
+  @User_Interface
+  @UAT_AUTO_CENTRAL  
   Scenario Outline: TC_CEN_SPGA_IN_66 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -70,8 +70,10 @@ Feature: SPGA Business Testcases_IN
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter warning in Make Correction
-    And I enter validation
+    And I enter Date in Provider Roster Page
+    And I enter retro code in Provider Roster
+#    And I enter warning in Make Correction
+#    And I enter validation
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -84,5 +86,3 @@ Feature: SPGA Business Testcases_IN
     Examples:    
        | site          | paperType     | TCName|  				 
        | central uhn   | SPGA          | TC_CEN_SPGA_IN_66|
-       
-    

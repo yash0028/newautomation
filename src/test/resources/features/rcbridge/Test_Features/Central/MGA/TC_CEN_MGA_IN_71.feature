@@ -8,7 +8,7 @@ Feature: MGA Business Testcases_IN
   @TC_CEN_MGA_IN_71
   @Manual
   @User_Interface
-  @UAT_AUTO
+  @UAT_AUTO_CENTRAL
   Scenario Outline: TC_CEN_MGA_IN_71 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -97,18 +97,18 @@ Feature: MGA Business Testcases_IN
     #CMD Checking
     #Check Cosmos
     #NDB Checking
-    #Make Correction - Provider Roster (Add one or more providers to the roster)
-#    And I click Make Correction
-#    And I enter Market Exception Grid in Make Correction
-#    And I enter Market Exception Grid
-#    And I set Roster Action as Upload
-#    And I Download Current Roster
-#    And I Upload Completed Roster
-#    And I enter warning in Make Correction
-#    And I enter validation
-#    And I acknowledge the warning
-#    And I enter Group Summary
-#    Then I Complete Wizard
+    ##Make Correction - Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
     #CMD Checking
     #NDB Checking
     Examples:
