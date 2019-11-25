@@ -27,10 +27,12 @@ public class ProviderSignatory extends GenericInputPage {
         assert sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date);
 
         if(isVisible(this.elements.email)){
+            elements.email.clear();
             assert sendKeys("Provider Signatory Email", this.elements.email, hmap.get("Provider Signatory Email"));
         }
         assert clickNext();
         assert waitForPageLoad();
+
     }
 
     public void ProviderTitle(HashMap<String, String> hmap) {
