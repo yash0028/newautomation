@@ -7,6 +7,7 @@ Feature: US1407217
   @TC_CEN_IN_53
   @Manual
   @User_Interface
+  @UAT_AUTO
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
