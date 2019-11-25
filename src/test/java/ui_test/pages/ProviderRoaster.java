@@ -342,10 +342,26 @@ public class ProviderRoaster extends GenericInputPage {
         return findElement(getDriver(), new String[]{"xpath", "//select[contains(@name,'ReasonCode__SL_Repeat_Cancel.rpti_" + count + "')]/following::button[3]"});
     }
 
+    public void enterStartDate(HashMap<String, String> hmap)
+    {
+        String date;
+        if (hmap.get("Contract Effective Date").equals("today")) {
+            date = CommonMethods.todaysDate();
+        } else {
+            date = CommonMethods.formatDate(hmap.get("Contract Effective Date"));
+        }
+        waitForPageLoad(60);
+        assert sendKeys("Contract Effective Date", this.elements.start_date, date);
+        assert clickNext();
+        assert waitForPageLoad();
+    }
+
 
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//span[contains(@class,'select2-selection__rendered')]")
         private WebElement dropdown_open;
+        @FindBy(xpath = "//input[contains(@id,\"Date\")]")
+        private WebElement start_date;
         @FindBy(xpath = "//span[contains(@class,'select2-selection__rendered')]")
         private List<WebElement> dropdown_open_list;
         @FindBy(xpath = "//select[contains(@name,'DMCQ__SL_Repeat_Cancel.rpti')]/following::span[4]")
