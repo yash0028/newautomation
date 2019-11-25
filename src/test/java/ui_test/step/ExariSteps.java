@@ -78,7 +78,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter PES Inputs$")
     public void PESInputs() {
-        Assert.assertTrue( this.protoStep.sitePage.startContractAuthor());
+        Assert.assertTrue(this.protoStep.sitePage.startContractAuthor());
         basePage.getPesInputActions().enterPESInput(hmap);
     }
 
@@ -237,13 +237,13 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @When("^I create a Contract$")
     public void createContract() {
         //setupProtoStep();
-        Assert.assertTrue( this.protoStep.sitePage.startContractAuthor());
+        Assert.assertTrue(this.protoStep.sitePage.startContractAuthor());
     }
 
     @Then("^I have an active contract in Exari$")
     public void checkActiveContact() {
         log.info("checking for active status");
-        Assert.assertTrue( this.protoStep.checkActiveContractStatus());
+        Assert.assertTrue(this.protoStep.checkActiveContractStatus());
     }
 
     @And("^I Start Workflow$")
@@ -411,13 +411,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void selectProviders() {
         basePage.getProviderRoaster().selectProviders(hmap);
     }
-    
-    @And("I enter Date in Provider Roster Page")
-    public void iEnterDateInProviderRosterPage()
-    {
-        basePage.getProviderRoaster().enterStartDate(hmap);
-    }
-    
+
     @And("^I verify Providers$")
     public void verifyProviders() {
         basePage.getProviderRoaster().verifyProviders();
@@ -731,6 +725,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void medicareAdvantagePaymentAppendixMGA() {
         basePage.getPaymentAppendix().medicareAdvantagePaymentAppendixMGA(hmap);
     }
+
     @And("I verify Medicare Advantage")
     public void verifyMedicareAdvantage() {
         basePage.getPaymentAppendix().verifyMedicareAdvantage();
@@ -743,8 +738,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("I enter Date in Provider Roster Page")
-    public void iEnterDateInProviderRosterPage()
-    {
+    public void iEnterDateInProviderRosterPage() {
         basePage.getProviderRoaster().enterStartDate(hmap);
     }
 }
