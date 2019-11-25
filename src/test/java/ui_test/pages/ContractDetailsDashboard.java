@@ -324,10 +324,16 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public void makeCorrection() {
-        waitTillClickable(this.elements.initialTransaction);
-        assert click("Initial Transaction", this.elements.initialTransaction);
-        waitTillClickable(this.elements.makeCorrection);
-        assert click("Make Correction", this.elements.makeCorrection);
+        for(int count = 0; count<=10 ; count++){
+            waitTillClickable(this.elements.initialTransaction);
+            assert click("Initial Transaction", this.elements.initialTransaction);
+            waitTillClickable(this.elements.makeCorrection);
+            if(click("Make Correction", this.elements.makeCorrection)){
+                break;
+            }
+            IWebInteract.log.info("Retrying for Make a Correction button. Retry : {}",count+1);
+           refreshPage();
+        }
         assert waitForPageLoad();
     }
 
