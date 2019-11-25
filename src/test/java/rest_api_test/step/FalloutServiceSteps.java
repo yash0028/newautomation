@@ -93,7 +93,7 @@ public class FalloutServiceSteps implements IRestStep, IFalloutInteract {
         Thread.sleep(1000);
 
         WorkObjectItem item = falloutQueryWorkObjectItem(getPayload().getString("id")); //queryWorkObjectItem(getPayload().get("id"));
-        assert !item.getContractMasters().isEmpty();
+        Assert.assertTrue( !item.getContractMasters().isEmpty());
 
 
 //        List<JsonObject> checkList = new ArrayList<>();
@@ -101,14 +101,14 @@ public class FalloutServiceSteps implements IRestStep, IFalloutInteract {
 //            Assert.assertTrue(element.isJsonObject());
 //            checkList.add(element.getAsJsonObject());
 //        }
-//        assert checkList.size() > 0;
+//        Assert.assertTrue( checkList.size() > 0);
 
         final String pSelectId = getPayload().getString("selectedContractMaster");
         final String pUsage = getPayload().getString("usage");
 
-        assert item.getContractMasters().stream()
+        Assert.assertTrue( item.getContractMasters().stream()
                 .filter(cm -> pSelectId.equalsIgnoreCase(String.valueOf(cm.getId())) || pSelectId.equalsIgnoreCase(cm.getContractMasterNumber()))
-                .anyMatch(cm -> pUsage.equalsIgnoreCase(cm.getStatus()));
+                .anyMatch(cm -> pUsage.equalsIgnoreCase(cm.getStatus())));
     }
 
     //TEST CASE :: query product group list by transaction id
@@ -221,6 +221,6 @@ public class FalloutServiceSteps implements IRestStep, IFalloutInteract {
         List<ProductDetail> productDetails = myContract.getProductDetails().stream()
                 .filter(n -> !n.getNetworkAccessCode().isEmpty())
                 .collect(Collectors.toList());
-        assert !productDetails.isEmpty();
+        Assert.assertTrue( !productDetails.isEmpty());
     }
 }

@@ -1,5 +1,6 @@
 package ui_test.page.contractManagement;
 
+import org.junit.Assert;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -46,26 +47,26 @@ public class CMDLoginSSOPage implements IWebInteract, IFactoryPage, IConfigurabl
 
 
     public boolean login() {
-        assert sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
-        assert sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
-        assert click("sign in", elements.buttonSignIn);
-
+        sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
+        sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
+        click("sign in", elements.buttonSignIn);
         return true;
     }
+
     public void checklogin() {
-         if (isVisible(elements.textBoxUsername)) {
+        if (isVisible(elements.textBoxUsername)) {
             sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
             sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
-           // System.out.println(getDriver().getPageSource());
-             assert click("sign in", elements.buttonlogIn);
-           // clickWithForce("sign in", elements.buttonSignIn);
+            // System.out.println(getDriver().getPageSource());
+            click("sign in", elements.buttonlogIn);
+            // clickWithForce("sign in", elements.buttonSignIn);
         }
     /*
     PAGE METHODS
      */
 
 
-   // ELEMENT CLASS
+        // ELEMENT CLASS
     }
 
 

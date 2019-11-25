@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,9 +24,9 @@ public class OurSignatory extends GenericInputPage {
         } else {
             date = CommonMethods.formatDate(hmap.get("Our Signatory Date"));
         }
-        assert sendKeys("Provider Signatory Date", this.elements.signatoryDate, date);
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(sendKeys("Provider Signatory Date", this.elements.signatoryDate, date));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
 
@@ -36,10 +37,10 @@ public class OurSignatory extends GenericInputPage {
         } else {
             date = CommonMethods.formatDate(hmap.get("Our Signatory Date"));
         }
-        assert sendKeys("our Signatory title", this.elements.oursignatoryname, hmap.get("Provider our Signatory title"));
-        assert sendKeys("Provider Signatory Date", this.elements.signatoryDate, date);
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(sendKeys("our Signatory title", this.elements.oursignatoryname, hmap.get("Provider our Signatory title")));
+        Assert.assertTrue(sendKeys("Provider Signatory Date", this.elements.signatoryDate, date));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
 
 
     }

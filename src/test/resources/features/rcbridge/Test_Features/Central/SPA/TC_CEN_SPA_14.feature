@@ -6,6 +6,7 @@ Feature: SPA Business Testcases_IN
   @TC_CEN_SPA_IN_14
   @Manual
   @User_Interface
+  @UAT_AUTO_CENTRAL
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -23,6 +24,7 @@ Feature: SPA Business Testcases_IN
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter Market Strategy Grid
+    And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
     And I enter Additional Locations
@@ -31,7 +33,6 @@ Feature: SPA Business Testcases_IN
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-
 
      #Final capture
     And I Start Workflow
@@ -55,10 +56,10 @@ Feature: SPA Business Testcases_IN
 
 
      #CMD Check
-   # When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
+    When I have entered the CMD dashboard URL
+    And The dashboard page loads
+    Then I search for Contract
+    Then Validate Contract status and request type
 
 
 

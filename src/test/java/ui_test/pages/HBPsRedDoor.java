@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -20,16 +21,16 @@ public class HBPsRedDoor extends GenericInputPage {
     public void selectRedDoor(HashMap<String, String> hmap) {
         switch (hmap.get("HBP")) {
             case "No": {
-                assert click("HBP Red Door", getHBPResponse(hmap.get("HBP")));
-                assert clickNext();
-                assert waitForPageLoad();
+                Assert.assertTrue(click("HBP Red Door", getHBPResponse(hmap.get("HBP"))));
+                Assert.assertTrue(clickNext());
+                Assert.assertTrue(waitForPageLoad());
                 break;
             }
             case "Yes": {
                 click("HBP Red Door", getHBPResponse(hmap.get("HBP")));
                 waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-                assert clickNext();
-                assert waitForPageLoad();
+                Assert.assertTrue(clickNext());
+                Assert.assertTrue(waitForPageLoad());
                 handleTermsAndCondition();
                 break;
             }
@@ -37,8 +38,8 @@ public class HBPsRedDoor extends GenericInputPage {
     }
 
     private void handleTermsAndCondition() {
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
 
     }
 

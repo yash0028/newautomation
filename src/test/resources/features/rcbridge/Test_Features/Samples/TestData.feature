@@ -3,7 +3,6 @@
 @iterationUnknown
 Feature: SPGA Business Testcases_IN
   
-  @TC_CEN_SPGA_IN_03
   @Manual
   @User_Interface  
   Scenario Outline: TC_CEN_SPGA_IN_05 - [RL0] Author SPGA contract in <site>  

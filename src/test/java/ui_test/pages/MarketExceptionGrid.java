@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -19,26 +20,28 @@ public class MarketExceptionGrid extends GenericInputPage {
 
     public void previewMarketDetails() {
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
-    public void checkForDuplicate(){
-        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+
+    public void checkForDuplicate() {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.duplicateTIN))) {
             IWebInteract.log.info("Counterparty MPIN-TIN duplicate check failed");
-            assert clickNext();
-            assert waitForPageLoad();
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
         }
     }
+
     public void chooseTask(HashMap<String, String> hmap, String Task) {
-        assert click("Select Task", clickTask(hmap.get(Task)));
+        Assert.assertTrue(click("Select Task", clickTask(hmap.get(Task))));
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     public WebElement clickTask(String Name) {
-        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + Name + "')]"});
     }
 

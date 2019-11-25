@@ -4,6 +4,7 @@ import exari_test.eif.data.EifTestData;
 import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.flow.IContractFlowLoader;
 import exari_test.eif.report.*;
+import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
@@ -92,8 +93,8 @@ public class ContractThread extends Thread implements IConfigurable, IContractFl
                 protoStep.loginHome().setSite();
             }
 
-            assert protoStep.checkActiveContractStatus();
-            assert contractId != null;
+            Assert.assertTrue( protoStep.checkActiveContractStatus());
+            Assert.assertTrue( contractId != null);
 
             sauceLabs.testPassed();
         } catch (AssertionError e) {

@@ -3,12 +3,13 @@
 @releaseUnknown
 @iterationUnknown
 Feature: MGA Business Testcases_IN
-
+  @rerun
   @leo
-  @TC_CEN_MGA_IN_53
+  @TC_CEN_MGA_IN_16
   @Manual
   @User_Interface
-  Scenario Outline: TC_CEN_MGA_IN_53 - [RL0] Author <paperType> contract in <site>
+ @UAT_AUTO_CENTRAL
+  Scenario Outline: TC_CEN_MGA_IN_16 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
@@ -63,30 +64,18 @@ Feature: MGA Business Testcases_IN
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I preview Provider Details
+    And I enter Our Signatory in Amendment
     And I select Types of Amendments
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
-    And I enter Additional Manuals
-    And I enter Benefit Plan Descriptions Provision
-    And I select applied Payment Appendix
-    And I select Payment Appendix to include in Amendments for MGA contracts
-    And I enter Additional Manuals in MGA
-    And I enter Steerage
-    And I enter Medicare Advantage Payment Appendix in MGA
-    And I verify Medicare Advantage
-    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
+
     #Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-    And I enter Provider Signatory in Amendment
-    And I enter Our Signatory in Amendment
-    And I enter Appendix 2 in Amendments
-    And I enter Payment Appendix in Amendments FinalCapture
     And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
@@ -95,9 +84,8 @@ Feature: MGA Business Testcases_IN
     And I Set Status as Active in Amendment
 
     #CMD Checking
-    #Check Cosmos
     #NDB Checking
 
     Examples:
       | site          | paperType     | TCName           |
-      | central uhn   | MGA           | TC_CEN_MGA_IN_53 |
+      | central uhn   | MGA           | TC_CEN_MGA_IN_16 |

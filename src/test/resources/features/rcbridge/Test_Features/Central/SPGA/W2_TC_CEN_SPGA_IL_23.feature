@@ -1,28 +1,31 @@
 # Last updated on
-@SPABusinessTestcases_AR
+@SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_AR
-  @TC_SE_SPA_AR_52
+Feature: SPGA Business Testcases_IN
+
+  @W2_TC_CEN_SPGA_IL_23
   @Manual
   @User_Interface
-  @UAT_AUTO
-  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+  @UAT_Automation_Batch1
+  Scenario Outline: W2_TC_CEN_SPGA_IL_23 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-    And I enter PES Responses
+    And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SPA Contract
+    And I enter Practice Locations for SPGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
+    And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -33,10 +36,8 @@ Feature: SPA Business Testcases_AR
     And I enter Group Summary
     Then I Complete Wizard
 
+    #Final capture
 
-    #Non Std approval process
-
-     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -48,7 +49,7 @@ Feature: SPA Business Testcases_AR
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -56,21 +57,32 @@ Feature: SPA Business Testcases_AR
     #Activate
     And I Set Status as Active
 
-
-     #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
-    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+    #CMD Check
 
     #NDB Check
-   #Draft Amendment
-   #Amendment Final Capture
-   #Amendment CMD Checking
-  #COSMOS Check
 
+    #Make a correction - Add a new TIN to the existing provider in the Roster.
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
 
+    #create supporting document
+
+    #CMD Check
+    #NDB Check
+
+    #Cancel MPIN and TIN ,which has been added thru make a correction
 
 
     Examples:
-      | site          | paperType     | TCName           | |contract| |Contractstatus|
-      | southeast uhn   | SPA           | TC_CEN_SPA_AR_52 |  |11122328| |InstallContract|
+      | site          | paperType     | TCName|
+      | central uhn   | SPGA          | W2_TC_CEN_SPGA_IL_23|
+

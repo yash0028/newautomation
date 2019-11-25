@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import ui_test.page.exari.contract.GenericInputPage;
 
@@ -8,7 +9,7 @@ public class RequestForParticipationResponse extends GenericInputPage {
     }
 
     public void performAction() {
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 }

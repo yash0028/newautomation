@@ -9,6 +9,7 @@ import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.flow.IContractFlowLoader;
 import general_test.util.ISharedValuePoster;
 import io.cucumber.datatable.DataTable;
+import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
@@ -77,7 +78,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter PES Inputs$")
     public void PESInputs() {
-        assert this.protoStep.sitePage.startContractAuthor();
+        Assert.assertTrue(this.protoStep.sitePage.startContractAuthor());
         basePage.getPesInputActions().enterPESInput(hmap);
     }
 
@@ -91,7 +92,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void PESResponses() {
         basePage.getPes_response().selectCounterParty(hmap);
         basePage.getPes_response().specifyApproachForCounter(hmap);
-        //        basePage.getPes_response().selectCounterPartyAddress(hmap);
+//        basePage.getPes_response().selectCounterPartyAddress(hmap);
 
     }
 
@@ -236,13 +237,13 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @When("^I create a Contract$")
     public void createContract() {
         //setupProtoStep();
-        assert this.protoStep.sitePage.startContractAuthor();
+        Assert.assertTrue(this.protoStep.sitePage.startContractAuthor());
     }
 
     @Then("^I have an active contract in Exari$")
     public void checkActiveContact() {
         log.info("checking for active status");
-        assert this.protoStep.checkActiveContractStatus();
+        Assert.assertTrue(this.protoStep.checkActiveContractStatus());
     }
 
     @And("^I Start Workflow$")
@@ -378,7 +379,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter Market Exception Grid in Make Correction$")
     public void MEGMakeCorrection() {
-        //basePage.getMarketExceptionGrid().checkForDuplicate();
+        basePage.getMarketExceptionGrid().checkForDuplicate();
         basePage.getMarketExceptionGrid().chooseTask(hmap, "MC_Task");
 
     }
@@ -724,6 +725,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void medicareAdvantagePaymentAppendixMGA() {
         basePage.getPaymentAppendix().medicareAdvantagePaymentAppendixMGA(hmap);
     }
+
     @And("I verify Medicare Advantage")
     public void verifyMedicareAdvantage() {
         basePage.getPaymentAppendix().verifyMedicareAdvantage();
@@ -736,8 +738,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("I enter Date in Provider Roster Page")
-    public void iEnterDateInProviderRosterPage()
-    {
+    public void iEnterDateInProviderRosterPage() {
         basePage.getProviderRoaster().enterStartDate(hmap);
     }
 }

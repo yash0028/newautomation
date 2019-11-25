@@ -120,12 +120,13 @@ public interface IWebInteract {
      * @param element webelement to see if clickable
      * @return if the element is clickable
      */
-    default boolean waitTillClickable(WebElement element) { return waitTillClickable(element, TIMEOUT);
+    default boolean waitTillClickable(WebElement element) {
+        return waitTillClickable(element, TIMEOUT);
     }
 
     /**
      * Clicks a given web element and logs the element name
-
+     *
      * @param elementName descriptive name of the web element
      * @param element     Web element to be clicked
      * @return true if clicked or false otherwise
@@ -141,16 +142,16 @@ public interface IWebInteract {
         }
         return true;
     }
-    default boolean jseclick(String elementName, WebElement element)
-    {
-try{
-        JavascriptExecutor executor = (JavascriptExecutor)getDriver();
-        executor.executeScript("arguments[0].click();", element);
-        log.trace("clicked on {}", elementName);
-    } catch (Exception e) {
-        log.error("click failed for {}", elementName);
-        return false;
-    }
+
+    default boolean jseclick(String elementName, WebElement element) {
+        try {
+            JavascriptExecutor executor = (JavascriptExecutor) getDriver();
+            executor.executeScript("arguments[0].click();", element);
+            log.trace("clicked on {}", elementName);
+        } catch (Exception e) {
+            log.error("click failed for {}", elementName);
+            return false;
+        }
         return true;
     }
 
@@ -599,7 +600,7 @@ try{
      */
     default boolean waitForPageLoad(int timeout) {
         ExpectedCondition<Boolean> expectJSReadyState = driver -> {
-            assert driver != null;
+            Assert.assertTrue(driver != null);
             return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
         };
 
@@ -627,10 +628,8 @@ try{
     }
 
 
-    default WebElement findElement(WebDriver driver,String[] elementProperties)
-    {
-        try
-        {
+    default WebElement findElement(WebDriver driver, String[] elementProperties) {
+        try {
             switch (ElementLocator.valueOf(elementProperties[0].toUpperCase())) {
                 case ID:
                     return waitForElementToPresent(driver, By.id(elementProperties[1]));
@@ -649,75 +648,58 @@ try{
                 case TAGNAME:
                     return waitForElementToPresent(driver, By.tagName(elementProperties[1]));
             }
-        }
-        catch(Exception e)
-        {
-            Assert.fail("Element with locator "+ ElementLocator.valueOf(elementProperties[0].toUpperCase()) + " is not found");
+        } catch (Exception e) {
+            Assert.fail("Element with locator " + ElementLocator.valueOf(elementProperties[0].toUpperCase()) + " is not found");
         }
         return null;
     }
 
     /**
      * This method is similar to explicit wait but without a condition
+     *
      * @param by - the element locator with By class
      * @return WebElement if element found within the timeout
      */
-    default WebElement waitForElementToPresent(WebDriver driver,final By by)
-    {
-        try
-        {
+    default WebElement waitForElementToPresent(WebDriver driver, final By by) {
+        try {
             //threadSleep(5000);
             WebElement element = (new WebDriverWait(driver, 15))
                     .until(ExpectedConditions.presenceOfElementLocated(by));
             return element;
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             Assert.fail("Element with locator " + by + " is not present.");
         }
         return null;
     }
-    default WebElement waitForElementToAppear(WebDriver driver,final By by)
-    {
-        try
-        {
+
+    default WebElement waitForElementToAppear(WebDriver driver, final By by) {
+        try {
             //threadSleep(5000);
             log.info("Waiting for loader to Appear.");
             WebElement element = (new WebDriverWait(driver, 5))
                     .until(ExpectedConditions.presenceOfElementLocated(by));
             return element;
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             log.info("Waiting for loader to Appear : Failed");
             return null;
         }
 
     }
-    default boolean waitForElementToDissapear(WebDriver driver,WebElement element)
-    {
-        try
-        {
+
+    default boolean waitForElementToDissapear(WebDriver driver, WebElement element) {
+        try {
             log.info("Waiting for loader to Disappear.");
             (new WebDriverWait(driver, 10)).until(ExpectedConditions.invisibilityOf(element));
             return true;
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             log.info("Waiting for loader to Disappear : Failed");
             return false;
         }
     }
 
 
-
-
-
-
-    default List<WebElement> findElements(WebDriver driver,String[] elementProperties)
-    {
-        try
-        {
+    default List<WebElement> findElements(WebDriver driver, String[] elementProperties) {
+        try {
             switch (ElementLocator.valueOf(elementProperties[0].toUpperCase())) {
                 case ID:
                     return waitForElementsToPresent(driver, By.id(elementProperties[1]));
@@ -736,9 +718,7 @@ try{
                 case TAGNAME:
                     return waitForElementsToPresent(driver, By.tagName(elementProperties[1]));
             }
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             Assert.fail("List of Elements with expected locator are not present.");
         }
 
@@ -747,29 +727,25 @@ try{
 
     /**
      * This method is similar to explicit wait but without a condition
+     *
      * @param by - the element locator with By class
      * @return WebElement if element found within the timeout
      */
-    default List<WebElement> waitForElementsToPresent(WebDriver driver,final By by)
-    {
-        try
-        {
+    default List<WebElement> waitForElementsToPresent(WebDriver driver, final By by) {
+        try {
             //threadSleep(5000);
             List<WebElement> elements = (new WebDriverWait(driver, 15))
                     .until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
             return elements;
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             Assert.fail("List of Elements with locator " + by + " are not present.");
         }
         return null;
     }
 
 
-    enum ExplicitConditions
-    {
-        CLICK, VISIBLE, staleness,title, textPresent, INVISIBLE, PRESENCE
+    enum ExplicitConditions {
+        CLICK, VISIBLE, staleness, title, textPresent, INVISIBLE, PRESENCE
     }
 
 
@@ -784,8 +760,6 @@ try{
         TAGNAME,
         NAME
     }
-
-
 
 
 }

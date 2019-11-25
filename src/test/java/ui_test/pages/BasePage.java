@@ -172,11 +172,6 @@ public class BasePage extends GenericInputPage {
         return (signatureBlock == null) ? new SignatureBlock(getDriver()) : signatureBlock;
     }
 
-//    public CounterpartyDetails getCounterpartyDetails(){
-//        return (counterpartyDetails==null) ? new CounterpartyDetails(getDriver()): counterpartyDetails;
-//
-//    }
-
     public WizardComplete getWizardComplete() {
         return (wizardComplete == null) ? new WizardComplete(getDriver()) : wizardComplete;
     }

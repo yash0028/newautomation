@@ -5,6 +5,7 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.api.datadog.models.hosts.HostSearchResponse;
@@ -84,7 +85,7 @@ public class DataDogHelper implements IDataDogInteract {
 
         request.body(requestBody.toString());
         Response response = request.post("api/v1/logs-queries/list");
-        assert(response.getStatusCode() == 200);
+        Assert.assertTrue(response.getStatusCode() == 200);
         LogsListResponse logsListResponse = response.as(LogsListResponse.class);
 
         return logsListResponse;
@@ -129,7 +130,7 @@ public class DataDogHelper implements IDataDogInteract {
         }
 
         Response response = request.get("api/v1/hosts");
-        assert(response.getStatusCode() == 200);
+        Assert.assertTrue(response.getStatusCode() == 200);
         HostSearchResponse hostSearchResponse = response.as(HostSearchResponse.class);
 
         return hostSearchResponse;

@@ -9,6 +9,7 @@ import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
@@ -96,7 +97,7 @@ public class TransactionSteps implements IRestStep {
 //        System.out.println(response.getBody().asString());
 
         result = parseJsonElementResponse(response);
-        assert result.isJsonObject();
+        Assert.assertTrue( result.isJsonObject());
         log.trace(result.getAsJsonObject().get("transactionId").getAsString());
 
     }
@@ -158,11 +159,11 @@ public class TransactionSteps implements IRestStep {
 
     @And("^Returns a \"([^\"]*)\" status and the Transaction Id to the Optum APS workflow synchronously$")
     public void returnsAStatusAndTheTransactionIdToTheOptumAPSWorkflowSynchronously(String arg0) throws Throwable {
-        assert response.statusCode() == 200;
+        Assert.assertTrue( response.statusCode() == 200);
         JsonElement jsonElement = parseJsonElementResponse(response);
 
-        assert jsonElement.isJsonObject();
+        Assert.assertTrue( jsonElement.isJsonObject());
         JsonObject jsonObject = jsonElement.getAsJsonObject();
-        assert jsonObject.has("transactionId");
+        Assert.assertTrue( jsonObject.has("transactionId"));
     }
 }
