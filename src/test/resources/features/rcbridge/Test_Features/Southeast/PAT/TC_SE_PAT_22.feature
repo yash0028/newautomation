@@ -8,7 +8,6 @@ Feature: PAT Business Testcases_AR
   @TC_SE_PAT_AR_22
   @Manual
   @User_Interface
-  @UAT_AUTO
   Scenario Outline: TC_SE_PAT_AR_22 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

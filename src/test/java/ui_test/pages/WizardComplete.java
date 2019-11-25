@@ -23,6 +23,11 @@ public class WizardComplete extends GenericInputPage {
         waitTillClickable(elements.completeWizardElement, 10);
         try {
             this.elements.completeWizardElement.click();
+        } catch (Exception e)
+        {
+        	 System.out.println("Taking long time");       	
+        }
+        try {
             IWebInteract.log.trace("clicked on {}", "Complete Wizard");
             Assert.assertTrue(waitForPageLoad(90));
             confirmDashboard();
