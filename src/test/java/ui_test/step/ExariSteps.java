@@ -734,4 +734,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void iEnterPaymentAppendixAmendmentsInSpgaContracts() {
         basePage.getPaymentAppendixAmendment().paymentApppendixforSPGA();
     }
+
+    @And("I enter Date in Provider Roster Page")
+    public void iEnterDateInProviderRosterPage()
+    {
+        basePage.getProviderRoaster().enterStartDate(hmap);
+    }
 }
