@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -21,12 +22,12 @@ public class Dashboard extends GenericInputPage {
     public void searchContaractByContractNumber(HashMap<String, String> hmap) {
         elements.searchBar.sendKeys(hmap.get("Contract Number"));
         elements.searchBar.sendKeys(Keys.ENTER);
-        assert waitForPageLoad();
+        Assert.assertTrue(waitForPageLoad());
     }
 
     public void openContractDetails() {
         click("Open Searched Contract", elements.searchResult);
-        assert waitForPageLoad();
+        Assert.assertTrue(waitForPageLoad());
     }
 
 

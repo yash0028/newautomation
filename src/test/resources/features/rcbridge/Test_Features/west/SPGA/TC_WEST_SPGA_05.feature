@@ -6,7 +6,8 @@ Feature: SPGA Business Testcases_OR
   
   @TC_WEST_SPA_OR_05
   @Manual
-  @User_Interface  
+  @User_Interface 
+  @UAT_AUTO 
   Scenario Outline: TC_CEN_SPGA_IN_05 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   

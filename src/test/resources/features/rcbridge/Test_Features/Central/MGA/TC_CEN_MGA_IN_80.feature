@@ -3,11 +3,13 @@
 @releaseUnknown
 @iterationUnknown
 Feature: MGA Business Testcases_IN
-
+  @rerun
+  @cancel
   @leo
   @TC_CEN_MGA_IN_80
   @Manual
   @User_Interface
+  @UAT_AUTO_CENTRAL
   Scenario Outline: TC_CEN_MGA_IN_80 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site

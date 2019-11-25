@@ -24,12 +24,23 @@ public class WizardComplete extends GenericInputPage {
         try {
 
             this.elements.completeWizardElement.click();
+        } catch (Exception e)
+        {
+        	 System.out.println("Taking long time");       	
+        }
+        try {
             IWebInteract.log.trace("clicked on {}", "Complete Wizard");
-            assert waitForPageLoad();
+            Assert.assertTrue(waitForPageLoad(90));
             confirmDashboard();
         } catch (Exception e) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.wizardCompleteXpath))) {
-                Assert.fail("Complete Wizard process is taking long time than expected.");
+                WebElement wc = getDriver().findElement(By.xpath(elements.wizardCompleteXpath));
+                waitForElementToDissapear(getDriver(), wc);
+                if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.wizardCompleteXpath))) {
+                    Assert.fail("Complete Wizard process is taking long time than expected.");
+                }
+
+
             } else {
                 confirmDashboard();
             }

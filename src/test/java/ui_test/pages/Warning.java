@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,14 +16,14 @@ public class Warning extends GenericInputPage {
     }
 
     public void acknowledgment() {
-        assert setCheckBox("Check acknowledgment", this.elements.acknowledge, true);
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(setCheckBox("Check acknowledgment", this.elements.acknowledge, true));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     public void warningMakeCorrection() {
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     private static class PageElements extends AbstractPageElements {

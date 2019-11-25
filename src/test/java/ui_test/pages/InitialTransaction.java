@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,13 +19,13 @@ public class InitialTransaction extends GenericInputPage {
 
     public void initialTransaction(HashMap<String, String> hmap) {
         waitTillClickable(this.elements.startProcess);
-        assert click("Start Process", this.elements.startProcess);
+        Assert.assertTrue(click("Start Process", this.elements.startProcess));
         pause(1);
         waitForPageLoad(60);
-        assert click("Select Initial Transaction Type", clickInitialTransactionType(hmap.get("Initial Transaction")));
+        Assert.assertTrue(click("Select Initial Transaction Type", clickInitialTransactionType(hmap.get("Initial Transaction"))));
         waitForPageLoad(60);
-        assert click("Start Process Button", this.elements.startProcessButton);
-        assert waitForPageLoad();
+        Assert.assertTrue(click("Start Process Button", this.elements.startProcessButton));
+        Assert.assertTrue(waitForPageLoad());
 
     }
 

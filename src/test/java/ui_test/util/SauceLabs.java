@@ -51,7 +51,7 @@ public class SauceLabs {
         try {
             this.driver = new RemoteWebDriver(new URL(url), capabilities);
             this.driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-            this.driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
+            this.driver.manage().timeouts().pageLoadTimeout(300, TimeUnit.SECONDS);
             
             
             Map<String, Object> prefs = new HashMap<String, Object>();

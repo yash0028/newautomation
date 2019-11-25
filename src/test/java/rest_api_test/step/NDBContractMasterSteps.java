@@ -91,7 +91,7 @@ public class NDBContractMasterSteps implements IRestStep {
     public void returnedNoResults() throws Throwable {
         JsonElement result = parseJsonElementResponse(this.response);
 
-        assert result.isJsonObject();
+        Assert.assertTrue( result.isJsonObject());
         Assert.assertTrue(result.getAsJsonObject().get("data").isJsonArray());
         for (JsonElement jsonElement : result.getAsJsonObject().get("data").getAsJsonArray()) {
             Assert.assertTrue(jsonElement.isJsonObject());
@@ -106,7 +106,7 @@ public class NDBContractMasterSteps implements IRestStep {
         JsonElement result = parseJsonElementResponse(this.response);
         boolean foundOne = false;
 
-        assert result.isJsonObject();
+        Assert.assertTrue( result.isJsonObject());
         Assert.assertTrue(result.getAsJsonObject().get("data").isJsonArray());
         for (JsonElement jsonElement : result.getAsJsonObject().get("data").getAsJsonArray()) {
             Assert.assertTrue(jsonElement.isJsonObject());
@@ -122,7 +122,7 @@ public class NDBContractMasterSteps implements IRestStep {
         boolean foundA = false;
         boolean foundB = false;
 
-        assert result.isJsonObject();
+        Assert.assertTrue( result.isJsonObject());
         Assert.assertTrue(result.getAsJsonObject().get("data").isJsonArray());
         for (JsonElement jsonElement : result.getAsJsonObject().get("data").getAsJsonArray()) {
             Assert.assertTrue(jsonElement.isJsonObject());
@@ -142,7 +142,7 @@ public class NDBContractMasterSteps implements IRestStep {
     public void MultipleContractMaster() throws Throwable {
         JsonElement result = parseJsonElementResponse(this.response);
 
-        assert result.isJsonObject();
+        Assert.assertTrue( result.isJsonObject());
         Assert.assertTrue(result.getAsJsonObject().get("data").isJsonArray());
         for (JsonElement jsonElement : result.getAsJsonObject().get("data").getAsJsonArray()) {
             Assert.assertTrue("Element is not a JSON Object", jsonElement.isJsonObject());

@@ -195,26 +195,25 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
      * @return True if the the data is entered in the input field or false otherwise.
      */
     public boolean enterContractNumber() {
-      //  return sendKeys(searchTransactionsTextBox, getSharedString("contractNumber").orElse(""));
-          System.out.println(ExariSteps.hmap.get("Contract Number"));
+        //  return sendKeys(searchTransactionsTextBox, getSharedString("contractNumber").orElse(""));
+        System.out.println(ExariSteps.hmap.get("Contract Number"));
         return sendKeys(searchTransactionsTextBox, ExariSteps.hmap.get("Contract Number"));
     }
 
     public void searchContract() {
         enterContractNumber();
-        assert clickSearchButton();
+        Assert.assertTrue(clickSearchButton());
     }
 
-    public void ValidateConract()
-    {
-        String contract= ExariSteps.hmap.get("Contract Number");
-        String reqtype="InstallContract";
-       String status= driver.findElement(By.xpath("//td[contains(text(),'"+contract+"')]/../td[contains(text(),'"+reqtype+"')]/../td[7]/span")).getText();
-    System.out.println(status);
-       String requesttype= driver.findElement(By.xpath("//td[contains(text(),'"+contract+"')]/../td[contains(text(),'"+reqtype+"')]")).getText();
+    public void ValidateConract() {
+        String contract = ExariSteps.hmap.get("Contract Number");
+        String reqtype = "InstallContract";
+        String status = driver.findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'" + reqtype + "')]/../td[7]/span")).getText();
+        System.out.println(status);
+        String requesttype = driver.findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'" + reqtype + "')]")).getText();
         System.out.println(requesttype);
-       Assert.assertEquals(status,"SUCCESS");
-       Assert.assertEquals(requesttype,"InstallContract");
+        Assert.assertEquals(status, "SUCCESS");
+        Assert.assertEquals(requesttype, "InstallContract");
 
 
     }

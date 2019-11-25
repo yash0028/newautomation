@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -21,17 +22,16 @@ public class PaymentAppendixAmendment extends GenericInputPage {
     public void selectPaymentAppendixAmendmentSMGA(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
 
-        assert setCheckBox("Checked Physician",elements.physician,true);
-        assert setCheckBox("Checked Non Physician",elements.nonPhysician,true);
+        setCheckBox("Checked Physician", elements.physician, true);
+        setCheckBox("Checked Non Physician", elements.nonPhysician, true);
 
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
-    public void paymentApppendixforSPGA()
-    {
-        assert clickNext();
-        assert waitForPageLoad();
+    public void paymentApppendixforSPGA() {
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     private static class PageElements extends AbstractPageElements {

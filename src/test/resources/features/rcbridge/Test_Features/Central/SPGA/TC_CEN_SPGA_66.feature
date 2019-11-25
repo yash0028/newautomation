@@ -6,7 +6,8 @@ Feature: SPGA Business Testcases_IN
   
   @TC_CEN_SPGA_IN_66
   @Manual
-  @User_Interface 
+  @User_Interface
+  @UAT_AUTO_CENTRAL  
   Scenario Outline: TC_CEN_SPGA_IN_66 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -85,5 +86,3 @@ Feature: SPGA Business Testcases_IN
     Examples:    
        | site          | paperType     | TCName|  				 
        | central uhn   | SPGA          | TC_CEN_SPGA_IN_66|
-       
-    

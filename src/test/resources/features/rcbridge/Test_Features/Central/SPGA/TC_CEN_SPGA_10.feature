@@ -8,6 +8,7 @@ Feature: SPGA Business Testcases_IN
   @Manual
   @User_Interface 
   @UAT_Automation_Batch1
+  @UAT_AUTO_CENTRAL
   Scenario Outline: TC_CEN_SPGA_IN_10 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   

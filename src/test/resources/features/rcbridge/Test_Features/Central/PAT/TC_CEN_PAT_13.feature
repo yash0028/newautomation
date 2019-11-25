@@ -7,6 +7,7 @@ Feature: PAT Business Testcases_IN
   @TC_CEN_PAT_IN_13
   @Manual
   @User_Interface
+  @UAT_AUTO_CENTRAL
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

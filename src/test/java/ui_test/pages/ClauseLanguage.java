@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -17,14 +18,15 @@ public class ClauseLanguage extends GenericInputPage {
         this.elements = new PageElements(driver);
     }
 
-    public void clauseLanguage(HashMap<String, String> hmap){
-        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        assert click("Clause Language", getClauseLanguage(hmap.get("Clause Language")));
-        assert clickNext();
-        assert waitForPageLoad();
+    public void clauseLanguage(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        Assert.assertTrue(click("Clause Language", getClauseLanguage(hmap.get("Clause Language"))));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
+
     private WebElement getClauseLanguage(String Name) {
-        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'"+Name+"')]"});
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + Name + "')]"});
     }
 
     private static class PageElements extends AbstractPageElements {

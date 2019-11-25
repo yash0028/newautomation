@@ -9,6 +9,7 @@ import cucumber.api.java.en.When;
 import general_test.util.UtilityGeneralSteps;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
@@ -115,7 +116,7 @@ public class NDBSteps implements IRestStep {
 
 //        assertTrue(result.toString().contains("THERE IS AN EXISTING CONTRACT WITHIN THIS DATE RANGE")
 //                || result.get("result").getAsString().equalsIgnoreCase("successful"));
-        assert result.isJsonObject();
+        Assert.assertTrue( result.isJsonObject());
         String statusCode = result.getAsJsonObject().get("messages").getAsJsonArray().get(0).getAsJsonObject().get("code").getAsString();
         assertTrue(statusCode.contains("100") || statusCode.contains("200"));
     }

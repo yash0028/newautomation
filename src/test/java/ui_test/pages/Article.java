@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ui_test.page.exari.contract.GenericInputPage;
@@ -43,8 +44,8 @@ class ArticleI extends Article {
 
 
     public void handleArticleI() {
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
 }
@@ -56,8 +57,8 @@ class ArticleII extends Article {
 
 
     public void handleArticleII() {
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 }
 
@@ -68,8 +69,8 @@ class ArticleIII extends Article {
 
 
     public void handleArticleIII() {
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 }
 
@@ -79,8 +80,8 @@ class ArticleIV extends Article {
     }
 
     public void handleArticleIV() {
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 }
 
@@ -90,8 +91,8 @@ class ArticleV extends Article {
     }
 
     public void handleArticleV() {
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 }
 
@@ -101,8 +102,8 @@ class ArticleVI extends Article {
     }
 
     public void handleArticleVI() {
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 }
 
@@ -112,10 +113,10 @@ class ArticleVII extends Article {
     }
 
     public void handleArticleVII() {
-        assert clickNext();
-        assert waitForPageLoad();
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 }
 
@@ -129,9 +130,9 @@ class ArticleVIII extends Article {
     }
 
     public void handleArticleVIII(HashMap<String, String> hmap) {
-        assert setCheckBox("Select Article 8", selectArticle(hmap.get("Article 8")), true);
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(setCheckBox("Select Article 8", selectArticle(hmap.get("Article 8")), true));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 }
 
@@ -141,8 +142,8 @@ class ArticleIX extends Article {
     }
 
     public void handleArticlIX() {
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 }
 
@@ -152,7 +153,7 @@ class ArticleX extends Article {
     }
 
     public void handleArticleX() {
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 }
