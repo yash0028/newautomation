@@ -8,6 +8,7 @@ Feature: SPGA Business Testcases_IN
   @Manual
   @User_Interface
   @UAT_Automation_Batch1
+  @UAT_AUTO_CENTRAL
   Scenario Outline: TC_CEN_SPGA_IN_05 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -34,7 +35,7 @@ Feature: SPGA Business Testcases_IN
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-
+#
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -54,7 +55,7 @@ Feature: SPGA Business Testcases_IN
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-
+#
 
 
     #NDB Checking
@@ -66,6 +67,7 @@ Feature: SPGA Business Testcases_IN
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
+    And I preview Provider Details
     And I select Types of Amendments
     And I select Contract Applied in Amendments
     And I enter Contract Details in Amendments
@@ -77,6 +79,9 @@ Feature: SPGA Business Testcases_IN
     And I enter Payment Appendix Amendments in Spga Contracts
     And I enter Additional Manuals
     And I enter Steerage
+    And I enter Payment Appendix in Amendments for SPGA contracts
+    And I check Payment Appendix
+
     And I enter Group Summary
     And I Complete Wizard
 
@@ -94,6 +99,9 @@ Feature: SPGA Business Testcases_IN
     And I enter Group Summary
     And I Complete Wizard
 		
+    #Activating Amendments
+    And I Set Status as Active
+
     #Amendment CMD Checking
 		
 		

@@ -1,5 +1,6 @@
 package ui_test.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,18 +20,18 @@ public class AdditionalManuals extends GenericInputPage {
         if (hmap.containsKey("Benefit Plan")) {
             String[] plans = hmap.get("Benefit Plan").split("//");
             for (String plan : plans) {
-                assert click("Additional Manuals Benefit Plans", selectAdditionalManuals(plan));
+                Assert.assertTrue(click("Additional Manuals Benefit Plans", selectAdditionalManuals(plan)));
                 pause(1);
             }
         }
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     public void additionalManualsMGA(HashMap<String, String> hmap) {
-        assert click("Additional Manuals in MGA", selectAdditionalManuals(hmap.get("Additional Manuals in MGA")));
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(click("Additional Manuals in MGA", selectAdditionalManuals(hmap.get("Additional Manuals in MGA"))));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     public WebElement selectAdditionalManuals(String Name) {

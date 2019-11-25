@@ -19,36 +19,30 @@ public class PES_Response extends GenericInputPage {
     }
 
     public void selectCounterParty(HashMap<String, String> hmap) {
-            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.noresult))){
-                Assert.fail("No Results found. Please check MPIN AND TIN");
-            }
-            assert setCheckBox("CouterParty Name checkbox", counterPartyName(hmap.get("CounterPartyName")), true);
-            assert clickNext();
-            assert waitForPageLoad();
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.noresult))) {
+            Assert.fail("No Results found. Please check MPIN AND TIN");
+        }
+        Assert.assertTrue(setCheckBox("CouterParty Name checkbox", counterPartyName(hmap.get("CounterPartyName")), true));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     public void specifyApproachForCounter(HashMap<String, String> hmap) {
 
         try {
-            if(counterPartyApproach(hmap.get("CounterPartyApproach")).getAttribute("type").equals("checkbox")) {
-                assert setCheckBox("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach")), true);
-                waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-//                assert setCheckBox("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")), true);
-                //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-            }else if(counterPartyApproach(hmap.get("CounterPartyApproach")).getAttribute("type").equals("radio")){
-                assert click("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach")));
-                waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-//                assert click("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")));
+            if (counterPartyApproach(hmap.get("CounterPartyApproach")).getAttribute("type").equals("checkbox")) {
+                Assert.assertTrue(setCheckBox("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach")), true));
+            } else if (counterPartyApproach(hmap.get("CounterPartyApproach")).getAttribute("type").equals("radio")) {
+                Assert.assertTrue(click("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach"))));
             }
-            if(counterPartyApproach(hmap.get("CounterPartyAddress")).getAttribute("type").equals("checkbox")) {
-                assert setCheckBox("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")), true);
-                waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-            }else if(counterPartyApproach(hmap.get("CounterPartyAddress")).getAttribute("type").equals("radio")){
-                assert click("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")));
-                waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            if (counterPartyAddress(hmap.get("CounterPartyAddress")).getAttribute("type").equals("checkbox")) {
+                Assert.assertTrue(setCheckBox("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")), true));
+            } else if (counterPartyAddress(hmap.get("CounterPartyAddress")).getAttribute("type").equals("radio")) {
+                Assert.assertTrue(click("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress"))));
             }
-            assert clickNext();
-            assert waitForPageLoad();
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
         } catch (Exception e) {
             e.printStackTrace();
         }

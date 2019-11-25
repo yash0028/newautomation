@@ -8,6 +8,7 @@ Feature: SMGA Business Testcases_IN
   @Manual
   @User_Interface
   @UAT_Automation
+  @UAT_AUTO_CENTRAL
   Scenario Outline: TC_CEN_SMGA_IN_68 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -46,7 +47,6 @@ Feature: SMGA Business Testcases_IN
     #Final capture    
     And I Start Workflow
     And I Start Process for Initial Transaction
-    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
