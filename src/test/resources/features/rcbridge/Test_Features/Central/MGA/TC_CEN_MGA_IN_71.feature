@@ -97,18 +97,18 @@ Feature: MGA Business Testcases_IN
     #CMD Checking
     #Check Cosmos
     #NDB Checking
-    #Make Correction - Provider Roster (Add one or more providers to the roster)
-#    And I click Make Correction
-#    And I enter Market Exception Grid in Make Correction
-#    And I enter Market Exception Grid
-#    And I set Roster Action as Upload
-#    And I Download Current Roster
-#    And I Upload Completed Roster
-#    And I enter warning in Make Correction
-#    And I enter validation
-#    And I acknowledge the warning
-#    And I enter Group Summary
-#    Then I Complete Wizard
+    ##Make Correction - Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
     #CMD Checking
     #NDB Checking
     Examples:
