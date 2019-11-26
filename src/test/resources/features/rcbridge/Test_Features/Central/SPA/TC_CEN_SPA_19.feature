@@ -66,23 +66,59 @@ Feature: SPA Business Testcases_IN
 
 
     #Draft Amendment
-      #Amendment Final Capture
-     #Activating Amendment
+   #When I am logged into Exari Dev
+    #And I search Contract using Contract Number
+    And I select the contract
+    And I click on Create Amendment
+    And I enter title
+    And I enter Amendment Selection
+    And I select Amendments needed in Amendment Selection
+    And I select Amendment Type in Provider Details
+    And I select Types of Amendments
+    And I select Contract Applied in Amendments
+    And I enter Contract Details in Amendments
+    And I enter Effective date in Contract Details
+    And I enter Appendix 2 in Amendments
+    And I select applied Payment Appendix
+    And I enter Payment Appendix in Amendments for SPA contracts
+    And I check Payment Appendix
+    And I enter Additional Manuals
+    And I enter Steerage
+    And I enter Group Summary
+    And I Complete Wizard
+
+
+
+    #Amendment Final Capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA in Amendment
+    And I Start Final Capture
+    And I enter Provider Signatory in Amendment
+    And I enter Our Signatory in Amendment
+    And I enter Appendix 2 in Amendments FinalCapture
+    And I enter Payment Appendix in Amendments FinalCapture
+    And I enter Group Summary
+    And I Complete Wizard
+
+
+
+
+    #Activating Amendment
+    #And I Set Status as Active in Amendment
     #Amendment CMD Check
     #Cosmos Check
 
-    #Make a correction - Add a new TIN to the existing provider in the Roster.
-    #And I click Make Correction
-    #And I enter Market Exception Grid in Make Correction
-    #And I enter Market Exception Grid
-    #And I set Roster Action as Upload
-    #And I Download Current Roster
-    #And I Upload Completed Roster
-    #And I enter warning in Make Correction
-    #And I enter validation
-    #And I acknowledge the warning
-    #And I enter Group Summary
-    #Then I Complete Wizard
+    #Make a correction - Terminating TIN
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Cancel
+    And I select provider and cancel date
+    And I enter cancel reason
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
 
 
 

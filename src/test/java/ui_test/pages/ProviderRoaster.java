@@ -362,6 +362,8 @@ public class ProviderRoaster extends GenericInputPage {
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//span[contains(@class,'select2-selection__rendered')]")
         private WebElement dropdown_open;
+        @FindBy(xpath = "//input[contains(@id,\"Date\")]")
+        private WebElement start_date;
         @FindBy(xpath = "//span[contains(@class,'select2-selection__rendered')]")
         private List<WebElement> dropdown_open_list;
         @FindBy(xpath = "//select[contains(@name,'DMCQ__SL_Repeat_Cancel.rpti')]/following::span[4]")
@@ -390,8 +392,6 @@ public class ProviderRoaster extends GenericInputPage {
         private WebElement downloadProviderRoster;
         @FindBy(xpath = "//a[contains(.,'Next')]")
         private WebElement nextLink;
-        @FindBy(xpath = "//input[contains(@id,\"Date\")]")
-        private WebElement start_date;
 
         private String message = "//div[contains(@class,'DialogBox')]";
         private String retroDropdown = "//span[contains(@class,'select2-selection__rendered')]";

@@ -23,28 +23,22 @@ public class WizardComplete extends GenericInputPage {
         waitTillClickable(elements.completeWizardElement, 10);
         try {
             this.elements.completeWizardElement.click();
-        } catch (Exception e)
-        {
-        	 System.out.println("Taking long time");       	
-        }
-        try {
-            IWebInteract.log.trace("clicked on {}", "Complete Wizard");
-            Assert.assertTrue(waitForPageLoad(90));
-            confirmDashboard();
         } catch (Exception e) {
-            if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.wizardCompleteXpath))) {
-                WebElement wc = getDriver().findElement(By.xpath(elements.wizardCompleteXpath));
-                waitForElementToDissapear(getDriver(), wc);
-                if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.wizardCompleteXpath))) {
-                    Assert.fail("Complete Wizard process is taking long time than expected.");
+            int count = 1;
+            boolean wizardComplete = true;
+            IWebInteract.log.info("Complete Wizard process is taking long time than expected.");
+            while (this.elements.wizardCompleteElem.isDisplayed()) {
+                if (count > 1000) {
+                    wizardComplete = false;
+                    break;
                 }
-
-
-            } else {
-                confirmDashboard();
+                IWebInteract.log.info("Waiting for process to finish. Waited for : {} Second", count++);
+                pause(1);
             }
-
+            Assert.assertTrue("Unable to complete wizard processing.", wizardComplete);
         }
+        waitForPageLoad(30);
+        confirmDashboard();
         IWebInteract.log.info("Contract Link : {}", getDriver().getCurrentUrl());
     }
 
@@ -52,21 +46,19 @@ public class WizardComplete extends GenericInputPage {
         boolean dasboard = false;
         for (int count = 0; count <= 2; count++) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.getheaderTabHome))) {
+                waitTillVisible(elements.headerTabHome);
+                if (isVisible(elements.headerTabHome)) {
+                    highlight(elements.headerTabHome);
+                }
                 dasboard = true;
                 break;
             } else {
+                IWebInteract.log.info("Retrying for Dashboard. Retry : {}", count + 1);
                 refreshPage();
                 pause(3);
             }
         }
-        if (dasboard) {
-            waitTillVisible(elements.headerTabHome);
-            if (isVisible(elements.headerTabHome)) {
-                highlight(elements.headerTabHome);
-            }
-        } else {
-            Assert.fail("Unable to load Dashboard.");
-        }
+        Assert.assertTrue("Unable to load Dashboard.", dasboard);
     }
 
     private static class PageElements extends AbstractPageElements {
@@ -74,6 +66,8 @@ public class WizardComplete extends GenericInputPage {
         private WebElement completeWizardElement;
         @FindBy(xpath = "//div[@title='Home']")
         public WebElement headerTabHome;
+        @FindBy(xpath = "//h2[contains(.,'Wizard Complete')]")
+        public WebElement wizardCompleteElem;
 
         private String wizardCompleteXpath = "//h2[contains(.,'Wizard Complete')]";
         private String getheaderTabHome = "//div[@title='Home']";
