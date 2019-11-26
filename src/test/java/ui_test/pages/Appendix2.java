@@ -66,7 +66,7 @@ public class Appendix2 extends GenericInputPage {
 
     public void SelectAppedix1(String option) {
         waitForPageLoad();
-        if (getDriver().findElement(By.xpath("//b[.='Will Additional Manuals apply?']")).isDisplayed()) {
+        if (getDriver().findElement(By.xpath("//label[@class='QuestionText']/b")).isDisplayed()) {
             click("Will additional manuals apply?", getXPath(option));
             Assert.assertTrue(clickNext());
             waitForPageLoad();

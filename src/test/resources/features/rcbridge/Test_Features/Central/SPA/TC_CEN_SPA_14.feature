@@ -24,7 +24,6 @@ Feature: SPA Business Testcases_IN
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter Market Strategy Grid
-    And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
     And I enter Additional Locations
@@ -50,16 +49,16 @@ Feature: SPA Business Testcases_IN
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
+   #And I capture Contract Number
     #Activate
     And I Set Status as Active
 
 
      #CMD Check
-    When I have entered the CMD dashboard URL
-    And The dashboard page loads
-    Then I search for Contract
-    Then Validate Contract status and request type
+   # When I have entered the CMD dashboard URL
+    #And The dashboard page loads
+    #Then I search for Contract
+    #Then Validate Contract status and request type
 
 
 
@@ -75,11 +74,10 @@ Feature: SPA Business Testcases_IN
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
     And I enter Amendments Page to amend Payment Appendix
-    And I select Types of Amendments
     And I enter Contract Details in Amendments
+    And I enter Effective date in Contract Details
     And I enter Payment Appendix in Amendments to replace Payment Appendix
     And I select fee schedule id in Amendments
-    And I check Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
 
@@ -94,7 +92,6 @@ Feature: SPA Business Testcases_IN
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 

@@ -69,8 +69,47 @@ Feature: SPA Business Testcases_IN
      #Medcare product check
      #COSMOS Check
      #Medicare NDB check
+
    #Draft Amendment(Remove Navigate,add ANB)
+
+    #When I am logged into Exari Dev
+    #And I search Contract using Contract Number
+    And I select the contract
+    And I click on Create Amendment
+    And I enter title
+    And I enter Amendment Selection
+    And I select Amendments needed in Amendment Selection
+    And I select Amendment Type in Provider Details
+    And I select Types of Amendments
+    And I select Contract Applied in Amendments
+
+
+    And I enter Contract Details in Amendments
+    And I enter Effective date in Contract Details
+    And I enter Appendix 2 in Amendments
+    And I select applied Payment Appendix
+    And I enter Payment Appendix in Amendments for SPA contracts
+    And I check Payment Appendix
+    And I enter Additional Manuals
+    And I enter Steerage
+    And I enter Group Summary
+    And I Complete Wizard
+
+
+
     #Amendment Final Capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA in Amendment
+    And I Start Final Capture
+    And I enter Provider Signatory in Amendment
+    And I enter Our Signatory in Amendment
+    And I enter Appendix 2 in Amendments FinalCapture
+    And I enter Payment Appendix in Amendments FinalCapture
+    And I enter Group Summary
+    And I Complete Wizard
+
+
    #Amendment CMD Checking
 
 
