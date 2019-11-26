@@ -28,8 +28,7 @@ public class Appendix2 extends GenericInputPage {
         if (hmap.containsKey("Include Medicare Product")) {
 
             String[] IncludeProducts = hmap.get("Include Medicare Product").split("//");
-            for (String product : IncludeProducts)
-            {
+            for (String product : IncludeProducts) {
                 Assert.assertTrue(click("Include Medicare Product", getXPath(product)));
                 Assert.assertTrue(waitForPageLoad(60));
             }
