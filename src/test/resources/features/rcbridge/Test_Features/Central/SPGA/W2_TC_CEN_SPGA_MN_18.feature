@@ -7,9 +7,9 @@ Feature: SPGA Business Testcases_IN
   @W2_TC_CEN_SPGA_MN_18
   @Manual
   @User_Interface
-  @UAT_Automation_Batch1
   @UAT_AUTO_CENTRAL
-  Scenario Outline: W2_TC_CEN_SPGA_MN_18 - [RL0] Author SPGA contract in <site>
+  Scenario Outline: W2_TC_CEN_SPGA_MN_18 [RL0] Author SPGA contract in <site>
+
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
@@ -52,37 +52,50 @@ Feature: SPGA Business Testcases_IN
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
-    #Activate
+#    #Activate
     And I Set Status as Active
-
-    #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract
+#                 #NDB Checking
 
 
-    #NDB Check
-
-    #Make a correction - Add a new TIN to the existing provider in the Roster.
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I set Roster Action as Upload
-    And I Download Current Roster
-    And I Upload Completed Roster
-    And I enter warning in Make Correction
-    And I enter validation
-    And I acknowledge the warning
+#    #Draft Amandament
+    And I select the contract
+    And I click on Create Amendment
+    And I enter title
+    And I enter Amendment Selection
+    And I select Amendments needed in Amendment Selection
+    And I select Amendment Type in Provider Details
+    And I enter Amendments Page to amend Payment Appendix
+    And I enter Contract Details in Amendments
+    And I enter Effective date in Contract Details
+    And I enter Payment Appendix in Amendments to replace Payment Appendix
+    And I select fee schedule id in Amendments
+#    And I select Provider Roster as None
     And I enter Group Summary
-    Then I Complete Wizard
+    And I Complete Wizard
 
-    #Create supporting document
+   #Amandment final capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA in Amendment
+    And I Start Final Capture
+    And I enter Provider Signatory in Amendment
+    And I enter Our Signatory in Amendment
+    And I enter Payment Appendix in Amendments FinalCapture
 
-    #CMD Check
-    #NDB Check
+    And I enter Group Summary
+    And I Complete Wizard
+
+
+    #Activating Amendment
+    And I Set Status as Active in Amendment
+
+		#Activate Amandament
+
+		#Amendment CMD Checking
+
 
 
     Examples:
       | site          | paperType     | TCName|
       | central uhn   | SPGA          | W2_TC_CEN_SPGA_MN_18|
+
