@@ -61,9 +61,10 @@ Feature: SPA Business Testcases_OR
 
 
      #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
-    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+   #When I have entered the CMD dashboard URL
+    #And The dashboard page loads
+    #Then I search for Contract
+    #Then Validate Contract status and request type
 
     #NDB Check
 
@@ -82,5 +83,5 @@ Feature: SPA Business Testcases_OR
 
 
     Examples:
-      | site          | paperType     | TCName           | |contract| |Contractstatus|
-      | west uhn   | SPA           | TC_WEST_SPA_OR_57 |  |11122328| |InstallContract|
+      | site          | paperType     | TCName           |
+      | west uhn   | SPA           | TC_WEST_SPA_OR_57 |

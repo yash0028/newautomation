@@ -1,12 +1,14 @@
 # Last updated on
+@SMGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_IN
+Feature: SMGA Business Testcases_IN
 
-  @Test3
+  @W2_TC_CEN_SMGA_IN_21
   @Manual
   @User_Interface
-  Scenario Outline: Test3 - [RL0] Author SPGA contract in <site>
+  @UAT_Automation_Batch1
+  Scenario Outline: TC_CEN_SMGA_IN_21 - [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
@@ -23,6 +25,7 @@ Feature: SPGA Business Testcases_IN
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -34,6 +37,7 @@ Feature: SPGA Business Testcases_IN
     Then I Complete Wizard
 
     #Final capture
+
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -45,50 +49,38 @@ Feature: SPGA Business Testcases_IN
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I verify Providers
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
 
     #CMD Check
 #    When I have entered the CMD dashboard URL
 #    When I search for Contract
-#    #Then Validate Contract "71926900" status and request type "InstallContract"
+#    Then Validate Contract "11122328" status and request type "InstallContract"
 
-    #NDB Checking
 
-	#Draft Amandament
-    And I select the contract
-    And I click on Create Amendment
-    And I enter title
-    And I enter Amendment Selection
-    And I select Amendments needed in Amendment Selection
-    And I select Amendment Type in Provider Details
-#    And I check Provider Details
-    And I select Types of Amendments
-    And I select Contract Applied in Amendments
-    And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
-    And I enter Appendix 2 in Amendments
-    And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments
-    And I check Payment Appendix
-    And I enter Additional Manuals
-    And I enter Steerage
-#    And I enter Regulatory Appendices
+    #NDB Check
+
+    #Add provider with Make a correction.
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I add provider using TIN
+    And I select Providers
+    And I enter Provider Start Date
+    And I enter retro code in Provider Roster
+    And I acknowledge the warning
     And I enter Group Summary
-    And I Complete Wizard
+    Then I Complete Wizard
 
-	#Amandment final capture
-
-
-	#Amendment CMD Checking
 
 
 
     Examples:
       | site          | paperType     | TCName|
-      | central uhn   | SMGA          | TC_CEN_SMGA_IN_03|
-
+      | central uhn   | SMGA          | W2_TC_CEN_SMGA_IN_21|
