@@ -27,7 +27,7 @@ public class WizardComplete extends GenericInputPage {
             int count = 1;
             boolean wizardComplete = true;
             IWebInteract.log.info("Complete Wizard process is taking long time than expected.");
-            while (this.elements.wizardCompleteElem.isDisplayed()) {
+            while (CommonMethods.isElementPresent(getDriver(),By.xpath(this.elements.wizardCompleteXpath))) {
                 if (count > 1000) {
                     wizardComplete = false;
                     break;
