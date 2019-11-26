@@ -8,6 +8,7 @@ Feature: SMGA Business Testcases_IN
   @Manual
   @User_Interface
   @UAT_AUTO_CENTRAL
+  @W2_CEN_SMGA
   Scenario Outline: W2_TC_CEN_SMGA_IN_17 - [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -25,6 +26,7 @@ Feature: SMGA Business Testcases_IN
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
