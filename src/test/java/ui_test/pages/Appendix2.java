@@ -28,8 +28,9 @@ public class Appendix2 extends GenericInputPage {
         if (hmap.containsKey("Include Medicare Product")) {
 
             String[] IncludeProducts = hmap.get("Include Medicare Product").split("//");
-            for (String product : IncludeProducts) {
-               Assert.assertTrue(click("Include Medicare Product", getXPath(product)));
+            for (String product : IncludeProducts)
+            {
+                Assert.assertTrue(click("Include Medicare Product", getXPath(product)));
                 Assert.assertTrue(waitForPageLoad(60));
             }
 
@@ -39,14 +40,6 @@ public class Appendix2 extends GenericInputPage {
             for (String product : ExcludeProducts) {
                 Assert.assertTrue(click("Exclude Product in Appendix 2", getXPath(product)));
                 Assert.assertTrue(waitForPageLoad(60));
-            }
-        }
-        if (hmap.containsKey("Include Medicare Product")) {
-
-            String[] IncludeProducts = hmap.get("Include Medicare Product").split("//");
-            for (String product : IncludeProducts) {
-                assert click("Include Medicare Product", getXPath(product));
-                assert waitForPageLoad(60);
             }
         }
 
