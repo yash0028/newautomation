@@ -1,14 +1,15 @@
 # Last updated on
-@MGABusinessTestcases_IN
+@MGABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: MGA Business Testcases_IN
+Feature: MGA Business Testcases_OR
 
   @leo
   @TC_WEST_MGA_OR_58
   @Manual
   @User_Interface
   @UAT_AUTO_WEST
+  @UAT_AUTO
   Scenario Outline: TC_WEST_MGA_OR_58 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -70,5 +71,5 @@ Feature: MGA Business Testcases_IN
     Then I Complete Wizard
 
     Examples:
-      | site          | paperType     | TCName           |
-      | central uhn   | MGA           | TC_WEST_MGA_OR_58 |
+      | site          | paperType     | TCName            |
+      | west uhn      | MGA           | TC_WEST_MGA_OR_58 |
