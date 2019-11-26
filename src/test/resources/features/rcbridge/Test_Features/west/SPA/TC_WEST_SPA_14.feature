@@ -3,7 +3,7 @@
 @releaseUnknown
 @iterationUnknown
 Feature: SPA Business Testcases_OR
-  @TC_CEN_SPA_OR_14
+  @TC_WEST_SPA_OR_14
   @Manual
   @User_Interface
   @UAT_AUTO
@@ -23,7 +23,6 @@ Feature: SPA Business Testcases_OR
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
-    And I enter HBPs Red Door
     And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
@@ -31,7 +30,6 @@ Feature: SPA Business Testcases_OR
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    #And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
     
@@ -57,9 +55,10 @@ Feature: SPA Business Testcases_OR
 
 
      #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
-    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+    #When I have entered the CMD dashboard URL
+    #And The dashboard page loads
+    #Then I search for Contract
+    #Then Validate Contract status and request type
 
 
 
@@ -71,5 +70,5 @@ Feature: SPA Business Testcases_OR
 
 
     Examples:
-      | site          | paperType     | TCName           | |contract| |Contractstatus|
-      | west uhn   | SPA           | TC_WEST_SPA_OR_14 |  |11122328| |InstallContract|
+      | site          | paperType     | TCName    |
+      | west uhn   | SPA           | TC_WEST_SPA_OR_14 |
