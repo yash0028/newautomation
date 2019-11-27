@@ -19,15 +19,10 @@ public class Warning extends GenericInputPage {
     }
 
     public void acknowledgment() {
-    	
-//        Assert.assertTrue(setCheckBox("Check acknowledgment", this.elements.acknowledge, true));
-//        Assert.assertTrue(clickNext());
-//        Assert.assertTrue(waitForPageLoad());       
-        
-        List<WebElement> check = getDriver().findElements(By.xpath("//input[contains(@value,'acknowledged')]"));
-        for (WebElement webElement : check) {
-        	Assert.assertTrue(setCheckBox("Check acknowledgment", webElement, true));
-		}
+        for(WebElement ack :elements.acknowledge){
+            Assert.assertTrue(setCheckBox("Check acknowledgment", ack, true));
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -39,7 +34,9 @@ public class Warning extends GenericInputPage {
 
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[contains(@value,'acknowledged')]")
-        private WebElement acknowledge;
+        private List<WebElement> acknowledge;
+
+        private String message = "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {
             super(context);
