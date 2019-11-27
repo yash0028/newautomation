@@ -117,7 +117,7 @@ Feature: SPA Business Testcases_IN
     #Cosmos Check
 
     #Make a correction - Terminating TIN
-    And I click on Initial Transaction
+    #And I click on Initial Transaction
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid

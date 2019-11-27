@@ -55,27 +55,28 @@ Feature: SPA Business Testcases_AR
 
 
      #CMD Check
-     #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+   #When I have entered the CMD dashboard URL
+    #And The dashboard page loads
+    #Then I search for Contract
+    #Then Validate Contract status and request type
 
     #NDB Check
 
     #Make a correction - Add a new TIN to the existing provider in the Roster.
     #When I am logged into Exari Dev
     #And I search Contract using Contract Number
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I set Roster Action as Upload
-    And I Download Current Roster
-    And I Upload Completed Roster
-    And I enter warning in Make Correction
-    And I enter validation
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
+   # And I click Make Correction
+   # And I enter Market Exception Grid in Make Correction
+   # And I enter Market Exception Grid
+   # And I set Roster Action as Upload
+   # And I Download Current Roster
+   # And I Upload Completed Roster
+   # And I enter warning in Make Correction
+   # And I enter validation
+   # And I acknowledge the warning
+   # And I enter Group Summary
+   # Then I Complete Wizard
 
     Examples:
-      | site          | paperType     | TCName           | |contract| |Contractstatus|
-      | southeast uhn   | SPA           | TC_SE_SPA_AR_06 |  |11122328| |InstallContract|
+      | site          | paperType     | TCName           |
+      | southeast uhn   | SPA           | TC_SE_SPA_AR_06 |
