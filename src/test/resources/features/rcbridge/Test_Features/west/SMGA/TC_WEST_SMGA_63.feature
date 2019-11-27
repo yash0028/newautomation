@@ -43,6 +43,7 @@ Feature: SMGA Business Testcases_OR
     
     #Approval
     And I Approve Payment Appendix
+   
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -52,7 +53,7 @@ Feature: SMGA Business Testcases_OR
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard

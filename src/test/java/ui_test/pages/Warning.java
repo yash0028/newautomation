@@ -1,6 +1,9 @@
 package ui_test.pages;
 
+import java.util.List;
+
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +19,15 @@ public class Warning extends GenericInputPage {
     }
 
     public void acknowledgment() {
-        Assert.assertTrue(setCheckBox("Check acknowledgment", this.elements.acknowledge, true));
+    	
+//        Assert.assertTrue(setCheckBox("Check acknowledgment", this.elements.acknowledge, true));
+//        Assert.assertTrue(clickNext());
+//        Assert.assertTrue(waitForPageLoad());       
+        
+        List<WebElement> check = getDriver().findElements(By.xpath("//input[contains(@value,'acknowledged')]"));
+        for (WebElement webElement : check) {
+        	Assert.assertTrue(setCheckBox("Check acknowledgment", webElement, true));
+		}
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
