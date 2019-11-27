@@ -2,7 +2,7 @@
 @MGABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: MGA Business Testcases_OR
+Feature: TC_WEST_MGA_OR_79
   @rerun
   @cancel
   @leo
