@@ -7,8 +7,8 @@ Feature: SPGA Business Testcases_OR
   @TC_WEST_SPGA_OR_61
   @Manual
   @User_Interface
-  @UAT_Automation 
   @UAT_AUTO
+  @UAT_AUTO_WEST
   Scenario Outline: TC_WEST_SPGA_OR_61 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -40,11 +40,13 @@ Feature: SPGA Business Testcases_OR
     #Workflow Approval at Local contract level
     
     #Workflow Approval at Pricing level
-    
-    #Final Capture process
+   #Final Capture process
 
     And I Start Workflow
     And I Start Process for Initial Transaction
+          #Approval
+    And I Approve Payment Appendix
+
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -56,7 +58,6 @@ Feature: SPGA Business Testcases_OR
     And I select Providers
     And I verify Providers
     And I acknowledge the warning
-    And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
     
@@ -64,9 +65,23 @@ Feature: SPGA Business Testcases_OR
     And I Set Status as Active
     
     #CMD Check
-	#NDB Check
-	#Amandments
+		#NDB Check
+		#Make a Correction - Add a new TIN to the existing provider in the Roster.
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
     
+    #Create supporting document 
+    #CMD Check
+    #NDB check
     
     Examples:    
        | site          | paperType     | TCName|  				 

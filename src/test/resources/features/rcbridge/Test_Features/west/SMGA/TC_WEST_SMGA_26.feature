@@ -7,8 +7,8 @@ Feature: SMGA Business Testcases_OR
   @TC_WEST_SMGA_OR_26
   @Manual
   @User_Interface
-  @UAT_Automation_Batch1_West
   @UAT_AUTO
+  @UAT_AUTO_WEST
   Scenario Outline: TC_WEST_SMGA_OR_26 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -37,7 +37,7 @@ Feature: SMGA Business Testcases_OR
     And I enter Group Summary
     Then I Complete Wizard
     
-    #Final capture
+   #Final capture
     
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -50,14 +50,14 @@ Feature: SMGA Business Testcases_OR
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I verify Providers
-    And I acknowledge the warning
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
     
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
     
     #CMD Check
 #    When I have entered the CMD dashboard URL
@@ -67,8 +67,7 @@ Feature: SMGA Business Testcases_OR
     
     #NDB Check
     
-    #Add provider with Make a correction - USING MPIN and TIN 
-    
+    #Add provider with Make a correction - USING MPIN and TIN     
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
@@ -81,7 +80,6 @@ Feature: SMGA Business Testcases_OR
     And I enter Group Summary
     Then I Complete Wizard   
     
-  
 		
     
     Examples:    
