@@ -1,5 +1,5 @@
 # Last updated on
-@US1407217
+@SPABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
 Feature: US1407217

@@ -77,6 +77,9 @@ Feature: SPA Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
+
+
+
     Examples:
       | site          | paperType     | TCName           |
       | central uhn   | SPA           | TC_CEN_SPA_IN_06 |

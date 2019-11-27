@@ -92,9 +92,9 @@ Feature: SPA Business Testcases_IN
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
     And I enter Payment Appendix in Amendments FinalCapture
+    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
-
 
 
     #Activating Amendment
