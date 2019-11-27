@@ -1,5 +1,5 @@
 # Last updated on
-@SPABusinessTestcases_IN
+@SPABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
 Feature: SPA Business Testcases_OR
@@ -70,5 +70,5 @@ Feature: SPA Business Testcases_OR
 
 
     Examples:
-      | site          | paperType     | TCName           | |contract| |Contractstatus|
-      | west uhn   | SPA           | TC_WEST_SPA_OR_65 |  |11122328| |InstallContract|
+      | site          | paperType     | TCName           |
+      | west uhn   | SPA           | TC_WEST_SPA_OR_65 |

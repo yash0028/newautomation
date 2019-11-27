@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
-import ui_test.util.IWebInteract;
 
 import java.util.HashMap;
 import java.util.List;
@@ -71,16 +70,69 @@ public class Amendements extends GenericInputPage {
         Assert.assertTrue(click("Select OptOut option in Amendments", selectAmendments(hmap.get("OptOut"))));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+
+
+    }
+
+    public void enterOptOutadress(HashMap<String, String> hmap) {
+        sendKeys("textbox", this.elements.optadress, hmap.get("Opt_adress"));
+        pause(1);
+        waitForPageLoad(60);
+
+        sendKeys("textbox", this.elements.optcity, hmap.get("Opt_city"));
+        pause(1);
+        waitForPageLoad(60);
+
+        click("dropdown open", this.elements.optstatedropdown);
+        pause(1);
+        waitForPageLoad(60);
+        //Enter search term
+        sendKeys("dropdown textbox", this.elements.optstatetext, hmap.get("statecode"));
+        pause(1);
+        waitForPageLoad(60);
+        //Click index option
+        WebElement EL = selectOptionForstate(hmap.get("statecode"));
+        EL.click();
+
+        sendKeys("textbox", this.elements.optzipcode, hmap.get("Opt_zipcode"));
+        pause(1);
+        waitForPageLoad(60);
+
+
+    }
+
+    public WebElement selectOptionForstate(String answer) {
+        return findElement(getDriver(), new String[]{"xpath", "//li[contains(text(),'" + answer + ")]"});
+
     }
 
     private static class PageElements extends AbstractPageElements {
 
+
+        @FindBy(xpath = "//b[contains(text(),'Opt-out Address for Notice:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/span/div/input")
+        private WebElement optadress;
+
+        @FindBy(xpath = "//b[contains(text(),'Opt-out Notice City:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/span/div/input")
+        private WebElement optcity;
+
+        @FindBy(xpath = "//b[contains(text(),'Opt-out Notice Zip Code:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/span/div/input")
+        private WebElement optzipcode;
+
+        @FindBy(xpath = "//b[contains(text(),'Opt-out Notice State:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/div//span/span[@class='select2-selection__arrow']")
+        private WebElement optstatedropdown;
+
+        @FindBy(xpath = "//input[@class='select2-search__field']")
+        private WebElement optstatetext;
+
         @FindBy(xpath = "//span[@role='combobox']")
         private WebElement clickOnSearch;
+
         @FindBy(xpath = "//input[@type='search']")
         private WebElement clickOnBar;
+
         @FindBy(xpath = "//span[@class='select2-results']//li")
         public List<WebElement> dropdown_selection;
+
         private String message = "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {

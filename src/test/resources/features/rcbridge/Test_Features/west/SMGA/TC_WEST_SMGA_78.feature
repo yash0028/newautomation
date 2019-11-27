@@ -6,8 +6,8 @@ Feature: SMGA Business Testcases_OR
   @TC_WEST_SMGA_OR_78
   @Manual
   @User_Interface
-  @UAT_Automation
   @UAT_AUTO
+  @UAT_AUTO_WEST
   Scenario Outline: TC_WEST_SMGA_OR_78 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -36,14 +36,6 @@ Feature: SMGA Business Testcases_OR
     And I enter Group Summary
     Then I Complete Wizard
     
-    #Non Std approval process
-    
-    #Workflow Approval Physician Local Contract Approver_13476" role
-    
-    #log in with your (User who creates contract need to have following roles in secure
-    
-    #Workflow Approval Physician Local Pricing Approver_13476" role  and click on sign in
-    
     #Final capture    
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -58,17 +50,17 @@ Feature: SMGA Business Testcases_OR
     And I select Providers
     And I verify Providers
     And I acknowledge the warning
-    And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
     
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
     
     #CMD Check
-#    When I have entered the CMD dashboard URL
-#    When I search for Contract
-#    Then Validate Contract "11122328" status and request type "InstallContract"
+	#When I have entered the CMD dashboard URL
+	#When I search for Contract
+	#Then Validate Contract "11122328" status and request type "InstallContract"
 
     #NDB Check
     
@@ -85,7 +77,6 @@ Feature: SMGA Business Testcases_OR
     Then I Complete Wizard 
     
     #Terminating TIN
-     
 		
     
     Examples:    

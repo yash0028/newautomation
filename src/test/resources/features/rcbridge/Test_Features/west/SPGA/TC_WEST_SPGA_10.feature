@@ -7,10 +7,11 @@ Feature: SPGA Business Testcases_OR
   @TC_WEST_SPGA_OR_10
   @Manual
   @User_Interface
-  @UAT_Automation_Batch1_West
   @UAT_AUTO
+  @UAT_AUTO_WEST
    Scenario Outline: TC_WEST_SPGA_OR_10 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site  
+    
     #Draft
     And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
@@ -36,6 +37,7 @@ Feature: SPGA Business Testcases_OR
     And I enter Group Summary
     Then I Complete Wizard
     
+   
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -50,21 +52,20 @@ Feature: SPGA Business Testcases_OR
     And I select Providers
     And I verify Providers
     And I acknowledge the warning
-    And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-   
+    
     #Activate
     And I Set Status as Active
-    #
+    
     #CMD Check
     #When I have entered the CMD dashboard URL
     #When I search for Contract
-    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+    #Then Validate Contract
 
-    #
+    
     #NDB Check
-    #
+    
     #Make a correction - Add a new TIN to the existing provider in the Roster.
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
@@ -78,12 +79,7 @@ Feature: SPGA Business Testcases_OR
     And I enter Group Summary
     Then I Complete Wizard
     
-    #
     #Create supporting document 
-    #
-    #CMD Check
-    #NDB Check
-	
     
     Examples:    
        | site          | paperType     | TCName|         
