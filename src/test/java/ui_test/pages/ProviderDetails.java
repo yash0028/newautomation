@@ -46,16 +46,22 @@ public class ProviderDetails extends GenericInputPage {
     }
 
     public void previewProfile(HashMap<String, String> hmap) {
+        String Question;
         waitForPageLoad(60);
         pause(3);
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.tierIndicator))) {
                 hmap.put("Tier", elements.tier.getAttribute("value"));
             }
+            //MGA WEST OR
+            Question="Select the State this Market Number applies to";
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(getMarketType(Question)))) {
+                Assert.assertTrue(click(Question, getMarketTypeElem(Question,hmap.get(Question))));
+            }
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
-
+        //Skip Duplicate Tin Page
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.duplicateTIN))) {
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
@@ -78,6 +84,13 @@ public class ProviderDetails extends GenericInputPage {
         return findElement(getDriver(), new String[]{"xpath", "//li[contains(text(),'" + answer + "'" + ")]"});
     }
 
+    public String getMarketType(String question) {
+        return "//label/b[contains(.,'" + question + "')]";
+    }
+
+    public WebElement getMarketTypeElem(String question, String MarketType) {
+        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + question + "')]/../../../..//input[contains(@value,'"+MarketType+"')]"});
+    }
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//span[@class='select2-selection__arrow']")
         private WebElement dropdown_open;
