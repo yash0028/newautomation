@@ -1,20 +1,20 @@
 # Last updated on
-@MGABusinessTestcases_IN
+@MGABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: MGA Business Testcases_IN
+Feature: MGA Business Testcases_OR
 
   @leo
-  @TC_CEN_MGA_IN_53
+  @TC_WEST_MGA_OR_71
   @Manual
   @User_Interface
-  @UAT_AUTO_CENTRAL
+  @UAT_AUTO_WEST
   @UAT_AUTO
-  Scenario Outline: TC_CEN_MGA_IN_53 - [RL0] Author <paperType> contract in <site>
+  Scenario Outline: TC_WEST_MGA_OR_71 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -95,11 +95,23 @@ Feature: MGA Business Testcases_IN
 
     #Activating Amendment
     And I Set Status as Active in Amendment
-
     #CMD Checking
     #Check Cosmos
     #NDB Checking
-
+    ##Make Correction - Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    #CMD Checking
+    #NDB Checking
     Examples:
-      | site          | paperType     | TCName           |
-      | central uhn   | MGA           | TC_CEN_MGA_IN_53 |
+      | site          | paperType     | TCName            |
+      | west uhn      | MGA           | TC_WEST_MGA_OR_71 |

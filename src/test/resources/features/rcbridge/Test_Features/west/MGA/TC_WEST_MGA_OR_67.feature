@@ -1,40 +1,47 @@
 # Last updated on
-@SPABusinessTestcases_IN
+@MGABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_IN
-  @TC_CEN_SPA_IN_37
+Feature: MGA Business Testcases_OR
+  @rerun
+  @leo
+  @TC_WEST_MGA_OR_67
   @Manual
   @User_Interface
-  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+  @UAT_AUTO_WEST
+  @UAT_AUTO
+  Scenario Outline: TC_WEST_MGA_OR_67- [RL0] Author <paperType> contract in <site>
 
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SPA Contract
+    And I enter Practice Locations for MGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
+    And I enter Article Page
+    And I enter Signature Block
+    And I enter Additional Locations
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
-    And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-
-     #Final capture
+    #Final Capture - Provider Roster (Add one or more providers to the roster)
     And I Start Workflow
     And I Start Process for Initial Transaction
+      #Approval
+    And I Approve Payment Appendix
+      #Final Capture Cont.
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -42,74 +49,48 @@ Feature: SPA Business Testcases_IN
     And I enter Our Signatory
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
+    And I enter Clause Language
+    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
-    #Activate
     And I Set Status as Active
-
-
-     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
-
-
-
-
-
-
-    #NDB Check
-     #Medcare product check
-     #COSMOS Check
-     #Medicare NDB check
-
-   #Draft Amendment(Remove Navigate,add ANB)
-
-    #When I am logged into Exari Dev
-    #And I search Contract using Contract Number
+    #CMD Checking
+    #NDB Checking
+    #Amendment-Fee Schedule
+      #Draft
     And I select the contract
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I enter OurSignatory
+    And I enter Our Signatory in Amendment
     And I select Types of Amendments
-    And I select Contract Applied in Amendments
-    And I enter Opt-out in Amendments
-    And I enter Opt-out Address in Amendments
+    And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
-    And I enter Appendix 2 in Amendments
-    And I select applied Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
 
-
-
-    #Amendment Final Capture
+    #Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-    And I enter Provider Signatory in Amendment
-    And I enter Our Signatory in Amendment
-    And I enter Appendix 2 in Amendments FinalCapture
-    And I enter Payment Appendix in Amendments FinalCapture
     And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
+    #Activating Amendment
+    And I Set Status as Active in Amendment
 
-   #Amendment CMD Checking
-
-
+    #CMD Checking
+    #Check Cosmos
+    #NDB Checking
 
     Examples:
-      | site          | paperType     | TCName           |
-      | central uhn   | SPA           | TC_CEN_SPA_IN_37 |
+      | site          | paperType     | TCName            |
+      | west uhn      | MGA           | TC_WEST_MGA_OR_67 |

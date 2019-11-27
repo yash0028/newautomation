@@ -76,10 +76,11 @@ Feature: US1407217
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments for SPA contracts
     And I check Payment Appendix
     And I enter Additional Manuals
     And I enter Steerage
+    And I enter Payment Appendix in Amendments for SPA contracts
+    And I check Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
 
@@ -94,8 +95,10 @@ Feature: US1407217
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
+    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
+
 
     #Activating Amendment
     And I Set Status as Active in Amendment
