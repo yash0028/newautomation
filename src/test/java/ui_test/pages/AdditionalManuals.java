@@ -1,9 +1,11 @@
 package ui_test.pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
 
@@ -29,9 +31,11 @@ public class AdditionalManuals extends GenericInputPage {
     }
 
     public void additionalManualsMGA(HashMap<String, String> hmap) {
-        Assert.assertTrue(click("Additional Manuals in MGA", selectAdditionalManuals(hmap.get("Additional Manuals in MGA"))));
-        Assert.assertTrue(clickNext());
-        Assert.assertTrue(waitForPageLoad());
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(elements.additionalManualsXpath))){
+            Assert.assertTrue(click("Additional Manuals in MGA", selectAdditionalManuals(hmap.get("Additional Manuals in MGA"))));
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
     }
 
     public WebElement selectAdditionalManuals(String Name) {
@@ -40,7 +44,7 @@ public class AdditionalManuals extends GenericInputPage {
 
 
     private static class PageElements extends AbstractPageElements {
-
+        private String additionalManualsXpath = "//p[contains(.,'Additional Manuals')]";
         public PageElements(SearchContext context) {
             super(context);
         }
