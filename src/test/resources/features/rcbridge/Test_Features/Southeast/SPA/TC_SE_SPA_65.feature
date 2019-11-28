@@ -3,7 +3,7 @@
 @releaseUnknown
 @iterationUnknown
 Feature: SPA Business Testcases_AR
-  @TC_CEN_SPA_AR_65
+  @TC_SE_SPA_AR_65
   @Manual
   @User_Interface
   @UAT_AUTO
@@ -65,5 +65,5 @@ Feature: SPA Business Testcases_AR
 
 
     Examples:
-      | site          | paperType     | TCName           | |contract| |Contractstatus|
-      | southeast uhn   | SPA           | TC_CEN_SPA_AR_65 |  |11122328| |InstallContract|
+      | site          | paperType     | TCName           |
+      | southeast uhn   | SPA           | TC_SE_SPA_AR_65 |

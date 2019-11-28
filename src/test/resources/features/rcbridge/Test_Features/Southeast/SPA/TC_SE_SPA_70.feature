@@ -53,10 +53,7 @@ Feature: US1407217
     And I Set Status as Active
 
 
-     #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
-   # Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+
 
     #NDB Check
    #Draft Amendment
