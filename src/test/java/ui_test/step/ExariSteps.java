@@ -745,4 +745,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void iEnterDateInProviderRosterPage() {
         basePage.getProviderRoaster().enterStartDate(hmap);
     }
+
+    @And("I enter Opt-out Address in Amendments in IL")
+    public void iEnterOptOutAddressInAmendmentsInIL()
+    {
+        basePage.getAmendements().enterOptOutadressIL(hmap);
+    }
 }
