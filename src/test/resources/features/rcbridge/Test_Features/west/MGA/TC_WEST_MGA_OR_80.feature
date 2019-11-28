@@ -3,6 +3,7 @@
 @releaseUnknown
 @iterationUnknown
 Feature: TC_WEST_MGA_OR_80
+  @mga_west
   @rerun
   @cancel
   @leo

@@ -27,14 +27,21 @@ public class WizardComplete extends GenericInputPage {
             int count = 1;
             boolean wizardComplete = true;
             IWebInteract.log.info("Complete Wizard process is taking long time than expected.");
-            while (CommonMethods.isElementPresent(getDriver(),By.xpath(this.elements.wizardCompleteXpath))) {
-                if (count > 1000) {
-                    wizardComplete = false;
-                    break;
+            try{
+                while (CommonMethods.isElementPresent(getDriver(),By.xpath(this.elements.wizardCompleteXpath))) {
+                    if (count > 1000) {
+                        wizardComplete = false;
+                        break;
+                    }
+                    pauseSilent(1);
+                    count++;
                 }
-                pause(1);
+            }catch (org.openqa.selenium.UnsupportedCommandException e1){
+                IWebInteract.log.info("Waited for : {} Second", count);
+                IWebInteract.log.error("Session Timeout");
+                Assert.assertTrue("Unable to complete wizard processing.", wizardComplete);
             }
-            IWebInteract.log.info("Waited for : {} Second", count++);
+            IWebInteract.log.info("Waited for : {} Second", count);
             Assert.assertTrue("Unable to complete wizard processing.", wizardComplete);
         }
         waitForPageLoad(30);

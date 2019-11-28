@@ -1,20 +1,20 @@
 # Last updated on
-@MGABusinessTestcases_OR
+@MGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: TC_WEST_MGA_OR_58
-  @mga_west
+Feature: TC_SE_MGA_AR_81
+  @mga_se
   @leo
-  @TC_WEST_MGA_OR_58
+  @TC_SE_MGA_AR_81
   @Manual
   @User_Interface
-  @UAT_AUTO_WEST
+  @UAT_AUTO_SOUTHEAST
   @UAT_AUTO
-  Scenario Outline: TC_WEST_MGA_OR_58 - [RL0] Author <paperType> contract in <site>
+  Scenario Outline: TC_SE_MGA_AR_81 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -48,7 +48,6 @@ Feature: TC_WEST_MGA_OR_58
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
     And I enter Clause Language
-    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
     And I add provider using TIN
     And I select Providers
     And I verify Providers
@@ -58,19 +57,7 @@ Feature: TC_WEST_MGA_OR_58
     And I Set Status as Active
     #CMD Checking
     #NDB Checking
-    #Make Correction - Provider Roster (Add one or more providers to the roster)
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
-    And I add provider using TIN
-    And I select Providers
-    And I enter Provider Start Date
-    And I enter retro code in Provider Roster
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
 
     Examples:
-      | site          | paperType     | TCName            |
-      | west uhn      | MGA           | TC_WEST_MGA_OR_58 |
+      | site          | paperType     | TCName          |
+      | southeast uhn | MGA           | TC_SE_MGA_AR_81 |

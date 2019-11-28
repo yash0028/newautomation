@@ -1,46 +1,50 @@
 # Last updated on
-@SPGABusinessTestcases_IN
+@MGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_IN
-
-  @W2_TC_CEN_SPGA_IL_23
+Feature: TC_SE_MGA_AR_79
+  @mga_se
+  @rerun
+  @cancel
+  @leo
+  @TC_SE_MGA_AR_79
   @Manual
   @User_Interface
-  @UAT_Automation_Batch1
-  @W2_CEN_SPGA
-  Scenario Outline: W2_TC_CEN_SPGA_IL_23 - [RL0] Author SPGA contract in <site>
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+  @UAT_AUTO_SOUTHEAST
+  @UAT_AUTO
+  Scenario Outline: TC_SE_MGA_AR_79 - [RL0] Author <paperType> contract in <site>
 
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SPGA Contract
+    And I enter Practice Locations for MGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
-    And I enter HBPs Red Door
-    And I enter Appendix 1
+    And I enter Article Page
+    And I enter Signature Block
+    And I enter Additional Locations
     And I enter Market Strategy Grid
     And I enter Appendix 2
+    And I enter Additional Manuals in MGA
     And I enter Payment Appendix
-    And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-
-    #Final capture
-
+    #Final Capture - Provider Roster (Add one or more providers to the roster)
     And I Start Workflow
     And I Start Process for Initial Transaction
+          #Approval
+    And I Approve Payment Appendix
+          #Final Capture Cont.
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -48,42 +52,30 @@ Feature: SPGA Business Testcases_IN
     And I enter Our Signatory
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
+    And I enter Clause Language
+    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
     And I add provider using TIN
     And I select Providers
     And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
-    #Activate
     And I Set Status as Active
-
-    #CMD Check
-
-    #NDB Check
-
-    #Make a correction - Add a new TIN to the existing provider in the Roster.
+    #CMD Checking
+    #NDB Checking
+    #Make Correction - Provider Roster (Cancel one or more providers from the roster)
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    And I set Roster Action as Upload
-    And I Download Current Roster
-    And I Upload Completed Roster
-    And I enter warning in Make Correction
-    And I enter validation
+    And I set Roster Action as Cancel
+    And I select provider and cancel date
+    And I enter cancel reason
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
-    #create supporting document
-
-    #CMD Check
-    #NDB Check
-
-    #Cancel MPIN and TIN ,which has been added thru make a correction
-
+    #CMD Checking
+    #NDB Checking
 
     Examples:
-      | site          | paperType     | TCName|
-      | central uhn   | SPGA          | W2_TC_CEN_SPGA_IL_23|
-
+      | site          | paperType     | TCName          |
+      | southeast uhn | MGA           | TC_SE_MGA_AR_79 |

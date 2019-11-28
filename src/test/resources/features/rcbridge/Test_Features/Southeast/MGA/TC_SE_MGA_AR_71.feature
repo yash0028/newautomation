@@ -1,48 +1,45 @@
 # Last updated on
-@SMGABusinessTestcases_IN
+@MGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_IN
-
-  @W2_TC_CEN_SMGA_IN_54
+Feature: TC_SE_MGA_AR_71
+  @mga_se
+  @leo
+  @TC_SE_MGA_AR_71
   @Manual
   @User_Interface
-  @UAT_Automation
-  @UAT_AUTO_CENTRAL
-  @W2_CEN_SMGA
-  Scenario Outline: W2_TC_CEN_SMGA_IN_54 - [RL0] Author SMGA contract in <site>
+  @UAT_AUTO_SOUTHEAST
+  @UAT_AUTO
+  Scenario Outline: TC_SE_MGA_AR_71 - [RL0] Author <paperType> contract in <site>
+
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-  
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SMGA Contract
+    And I enter Practice Locations for MGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
-    And I enter HBPs Red Door
-    And I enter Appendix 1
+    And I enter Article Page
+    And I enter Signature Block
+    And I enter Additional Locations
     And I enter Market Strategy Grid
     And I enter Appendix 2
+    And I enter Additional Manuals in MGA
     And I enter Payment Appendix
-    And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-
-    #Final capture
-
+    #Final Capture - Provider Roster (Add one or more providers to the roster)
     And I Start Workflow
     And I Start Process for Initial Transaction
-    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -50,67 +47,72 @@ Feature: SMGA Business Testcases_IN
     And I enter Our Signatory
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
+    And I enter Clause Language
+    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
-    #Activate
     And I Set Status as Active
-    And I capture Contract Number
-
-    #CMD Check
-#    When I have entered the CMD dashboard URL
-#    When I search for Contract
-#    Then Validate Contract "11122328" status and request type "InstallContract"
-
-    
-    #NDB Check
-    
-    #Add provider with Make a correction - USING MPIN and TIN
-
-    
-   	#Add Medicare Amandment
+    #CMD Checking
+    #NDB Checking
+    #Amendment-Fee Schedule
+      #Draft
     And I select the contract
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
+    And I preview Provider Details
     And I select Types of Amendments
-    And I select Contract Applied in Amendments
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
-    And I enter Appendix 2 in Amendments
-    And I select applied Payment Appendix
-#    And I enter Payment Appendix in Amendments for SMGA contracts
-#    And I check Payment Appendix
-    And I select Payment Appendix for SMGA contracts
     And I enter Additional Manuals
+    And I enter Benefit Plan Descriptions Provision
+    And I select applied Payment Appendix
+    And I select Payment Appendix to include in Amendments for MGA contracts
+    And I enter Additional Manuals in MGA
     And I enter Steerage
-    And I enter Payment Appendix in Amendments for SMGA contracts
-    And I check Payment Appendix
+    And I enter Medicare Advantage Payment Appendix in MGA
+    And I verify Medicare Advantage
+    And I enter Regulatory Appendicesf
     And I enter Group Summary
     And I Complete Wizard
-
-	#Amandment final capture
+    #Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-    And I Approve Payment Appendix in Amendment
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
-    And I enter Appendix 2 in Amendments FinalCapture
+    And I enter Appendix 2 in Amendments
     And I enter Payment Appendix in Amendments FinalCapture
     And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
-
+    #Activating Amendment
+    And I Set Status as Active in Amendment
+    #CMD Checking
+    #Check Cosmos
+    #NDB Checking
+    ##Make Correction - Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    #CMD Checking
+    #NDB Checking
     Examples:
-      | site          | paperType     | TCName|
-      | central uhn   | SMGA          | W2_TC_CEN_SMGA_IN_54|
-    
+      | site          | paperType     | TCName          |
+      | southeast uhn | MGA           | TC_SE_MGA_AR_71 |
