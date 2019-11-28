@@ -1,11 +1,13 @@
 package ui_test.pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ui_test.page.exari.contract.GenericInputPage;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class Article extends GenericInputPage {
 
@@ -27,7 +29,7 @@ public class Article extends GenericInputPage {
         ArticleVI articleVI = new ArticleVI(getDriver());
         articleVI.handleArticleVI();
         ArticleVII articleVII = new ArticleVII(getDriver());
-        articleVII.handleArticleVII();
+        articleVII.handleArticleVII(hmap);
         ArticleVIII articleVIII = new ArticleVIII(getDriver());
         articleVIII.handleArticleVIII(hmap);
         ArticleIX articleIX = new ArticleIX(getDriver());
@@ -112,12 +114,29 @@ class ArticleVII extends Article {
         super(driver);
     }
 
-    public void handleArticleVII() {
+    public void handleArticleVII(HashMap<String, String> hmap) {
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
-        Assert.assertTrue(clickNext());
-        Assert.assertTrue(waitForPageLoad());
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(message)));
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(article7Xpath))){
+            for(WebElement elem: getAllInput(hmap.get("Article 7"))){
+                Assert.assertTrue(click("Article 7",elem));
+                waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(message)));
+            }
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(message)));
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(article7Xpath))) {
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
     }
+    public List<WebElement> getAllInput(String answer){
+        return getDriver().findElements(By.xpath("//input[contains(@value,'"+answer+"')]"));
+    }
+    private String article7Xpath = "//p[contains(.,'Article VII')]";
+    private String message = "//div[contains(@class,'DialogBox')]";
 }
 
 class ArticleVIII extends Article {
