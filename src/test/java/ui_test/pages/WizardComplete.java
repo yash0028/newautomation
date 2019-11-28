@@ -32,9 +32,9 @@ public class WizardComplete extends GenericInputPage {
                     wizardComplete = false;
                     break;
                 }
-                IWebInteract.log.info("Waiting for process to finish. Waited for : {} Second", count++);
                 pause(1);
             }
+            IWebInteract.log.info("Waited for : {} Second", count++);
             Assert.assertTrue("Unable to complete wizard processing.", wizardComplete);
         }
         waitForPageLoad(30);

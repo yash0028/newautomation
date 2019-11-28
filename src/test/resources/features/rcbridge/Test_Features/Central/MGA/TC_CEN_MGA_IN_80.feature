@@ -2,7 +2,7 @@
 @MGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: MGA Business Testcases_IN
+Feature: TC_CEN_MGA_IN_80
   @rerun
   @cancel
   @leo

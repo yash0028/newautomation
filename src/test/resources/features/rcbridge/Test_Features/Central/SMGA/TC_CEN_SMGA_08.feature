@@ -9,6 +9,7 @@ Feature: SMGA Business Testcases_IN
   @User_Interface
   @UAT_Automation_Batch1
   @UAT_AUTO_CENTRAL
+  @UAT_AUTO
   Scenario Outline: TC_CEN_SMGA_IN_08 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site	 
   

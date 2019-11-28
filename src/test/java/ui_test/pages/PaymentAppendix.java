@@ -30,28 +30,6 @@ public class PaymentAppendix extends GenericInputPage {
         Assert.assertTrue(click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix"))));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
-
-
-        // public void selectPaymentAppendixx(HashMap<String, String> hmap) throws InterruptedException {
-
-        //   WebElement elem=getDriver().findElement(By.xpath("//input[contains(@value,'No')]"));
-
-        // JavascriptExecutor jse = (JavascriptExecutor)getDriver();
-
-        //jse.executeScript("arguments[0].scrollIntoView()",elem);
-
-
-        //WebElement elem2=getDriver().findElement(By.xpath("//input[contains(@value,'All Payer')]"));
-
-        //JavascriptExecutor jse2 = (JavascriptExecutor)getDriver();
-
-        //jse2.executeScript("arguments[0].scrollIntoView()",elem2);
-
-        //getDriver().findElement(By.xpath("//input[contains(@value,'No')]")).click();
-
-        // getDriver().findElement(By.xpath("//input[contains(@value,'All Payer')]")).click();
-
-
     }
 
     //For SPGA contracts

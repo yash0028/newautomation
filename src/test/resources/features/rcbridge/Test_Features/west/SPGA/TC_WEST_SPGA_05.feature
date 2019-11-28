@@ -8,6 +8,7 @@ Feature: SPGA Business Testcases_OR
   @Manual
   @User_Interface 
   @UAT_AUTO 
+  @UAT_AUTO_WEST
   Scenario Outline: TC_CEN_SPGA_IN_05 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -39,9 +40,6 @@ Feature: SPGA Business Testcases_OR
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-    #Approval
-    And I Approve HBP Red Door
-
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -57,11 +55,10 @@ Feature: SPGA Business Testcases_OR
     Then I Complete Wizard
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
 
-
-
+    
     #NDB Checking
-
     #Draft Amandament
     And I select the contract
     And I click on Create Amendment
@@ -69,27 +66,42 @@ Feature: SPGA Business Testcases_OR
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I check Provider Details
+    And I preview Provider Details
     And I select Types of Amendments
     And I select Contract Applied in Amendments
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments
+#    And I enter Payment Appendix in Amendments for SPGA contracts
     And I check Payment Appendix
+    And I enter Payment Appendix Amendments in Spga Contracts
     And I enter Additional Manuals
     And I enter Steerage
-    And I enter Regulatory Appendices
+    And I enter Payment Appendix in Amendments for SPGA contracts
+    And I check Payment Appendix
+
     And I enter Group Summary
     And I Complete Wizard
 
 
-
     #Amandment final capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA in Amendment
+    And I Start Final Capture
+    And I enter Provider Signatory in Amendment
+    And I enter Our Signatory in Amendment
+    And I enter Appendix 2 in Amendments FinalCapture
+    And I enter Payment Appendix in Amendments FinalCapture
+    And I select Provider Roster as None
+    And I enter Group Summary
+    And I Complete Wizard
 		
+    #Activating Amendments
+    And I Set Status as Active
+
     #Amendment CMD Checking
-		
 		
     
     Examples:    

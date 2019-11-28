@@ -7,6 +7,7 @@ Feature: SPA Business Testcases_IN
   @Manual
   @User_Interface
   @UAT_AUTO_CENTRAL
+  @UAT_AUTO
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -116,7 +117,7 @@ Feature: SPA Business Testcases_IN
     #Cosmos Check
 
     #Make a correction - Terminating TIN
-    And I click on Initial Transaction
+    #And I click on Initial Transaction
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid

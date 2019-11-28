@@ -1,6 +1,5 @@
 package ui_test.pages;
 
-//import com.oracle.tools.packager.windows.WinExeBundler;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
@@ -9,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
-//import ui_test.util.IWebInteract;
 
 import java.util.HashMap;
 import java.util.List;
@@ -74,7 +72,6 @@ public class Amendements extends GenericInputPage {
         Assert.assertTrue(waitForPageLoad());
 
 
-
     }
 
     public void enterOptOutadress(HashMap<String, String> hmap) {
@@ -94,7 +91,7 @@ public class Amendements extends GenericInputPage {
         pause(1);
         waitForPageLoad(60);
         //Click index option
-        WebElement EL= selectOptionForstate(hmap.get("statecode"));
+        WebElement EL = selectOptionForstate(hmap.get("statecode"));
         EL.click();
 
         sendKeys("textbox", this.elements.optzipcode, hmap.get("Opt_zipcode"));
@@ -104,10 +101,11 @@ public class Amendements extends GenericInputPage {
 
 
     }
-    public WebElement selectOptionForstate(String answer) {
-        return findElement(getDriver(), new String[]{"xpath", "//li[contains(text(),'"+answer+")]"});
 
-}
+    public WebElement selectOptionForstate(String answer) {
+        return findElement(getDriver(), new String[]{"xpath", "//li[contains(text(),'" + answer + ")]"});
+
+    }
 
     public void enterOptOutadressIL(HashMap<String, String> hmap)
     {
@@ -172,14 +170,15 @@ public class Amendements extends GenericInputPage {
         @FindBy(xpath = "//input[@class='select2-search__field']")
         private WebElement optstatetext;
 
-
-
         @FindBy(xpath = "//span[@role='combobox']")
         private WebElement clickOnSearch;
+
         @FindBy(xpath = "//input[@type='search']")
         private WebElement clickOnBar;
+
         @FindBy(xpath = "//span[@class='select2-results']//li")
         public List<WebElement> dropdown_selection;
+
         private String message = "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {

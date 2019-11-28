@@ -7,8 +7,8 @@ Feature: SPGA Business Testcases_OR
   @TC_WEST_SPGA_OR_28
   @Manual
   @User_Interface
-  @UAT_Automation_Batch1_West
   @UAT_AUTO
+  @UAT_AUTO_WEST
   Scenario Outline: TC_WEST_SPGA_OR_28 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -52,7 +52,6 @@ Feature: SPGA Business Testcases_OR
     And I select Providers
     And I verify Providers
     And I acknowledge the warning
-    And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
     
@@ -63,17 +62,17 @@ Feature: SPGA Business Testcases_OR
     #NDB Check    
     #Cosmos check
     
-    #Make a correction - Add provider with Make a correction.   
+    #Make a correction - Add provider with Make a correction.
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
     And I enter Provider Start Date
-   	And I enter retro code in Provider Roster
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
-    Then I Complete Wizard   
+    Then I Complete Wizard
     
     #Create supporting document 
     

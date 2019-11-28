@@ -53,11 +53,11 @@ Feature: SPA Business Testcases_AR
     #Activate
     And I Set Status as Active
 
-
-     #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
-    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+  #CMD Check
+   #When I have entered the CMD dashboard URL
+    #And The dashboard page loads
+    #Then I search for Contract
+    #Then Validate Contract status and request type
 
 
 
@@ -69,5 +69,5 @@ Feature: SPA Business Testcases_AR
 
 
     Examples:
-      | site          | paperType     | TCName           | |contract| |Contractstatus|
-      | southeast uhn   | SPA           | TC_CEN_SPA_IN_14 |  |11122328| |InstallContract|
+      | site          | paperType     | TCName           |
+      | southeast uhn   | SPA           | TC_SE_SPA_IN_14 |
