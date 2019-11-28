@@ -3,6 +3,7 @@
 @releaseUnknown
 @iterationUnknown
 Feature: TC_CEN_MGA_IN_80
+  @mga_cen
   @rerun
   @cancel
   @leo

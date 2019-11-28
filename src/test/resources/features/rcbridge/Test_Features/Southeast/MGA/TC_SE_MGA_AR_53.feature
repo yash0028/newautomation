@@ -3,7 +3,7 @@
 @releaseUnknown
 @iterationUnknown
 Feature: TC_SE_MGA_AR_53
-
+  @mga_se
   @leo
   @TC_SE_MGA_AR_53
   @Manual
@@ -31,6 +31,7 @@ Feature: TC_SE_MGA_AR_53
     And I enter Additional Locations
     And I enter Market Strategy Grid
     And I enter Appendix 2
+    And I enter Additional Manuals in MGA
     And I enter Payment Appendix
     And I enter Regulatory Appendices
     And I select Provider Roster as None

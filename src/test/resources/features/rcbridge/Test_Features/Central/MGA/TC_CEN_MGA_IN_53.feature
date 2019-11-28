@@ -3,7 +3,7 @@
 @releaseUnknown
 @iterationUnknown
 Feature: TC_CEN_MGA_IN_53
-
+  @mga_cen
   @leo
   @TC_CEN_MGA_IN_53
   @Manual
