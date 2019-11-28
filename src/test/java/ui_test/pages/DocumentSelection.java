@@ -25,8 +25,8 @@ public class DocumentSelection extends GenericInputPage {
     }
 
     public void selectDocumentType(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         Assert.assertTrue(click("Paper Type", selectPaperType(hmap.get("Paper Type"))));
-        //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         switch (hmap.get("Paper Type")) {
 
             case "SPGA": {
