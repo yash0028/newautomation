@@ -66,6 +66,8 @@ Feature: SMGA Business Testcases_IN
     
     #NDB Check
   	#Amandments sestion
+
+
    
     
   
