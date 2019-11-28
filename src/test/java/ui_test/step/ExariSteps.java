@@ -375,10 +375,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void makeCorrection() {
         basePage.getContractDetailsDashboard().makeCorrection();
     }
-        @And("^I click on Initial Transaction$")
-        public void intialtransctionformakeCorrection() {
-            basePage.getContractDetailsDashboard().intialtransctionformakeCorrection();
-    }
 
     @And("^I enter Market Exception Grid in Make Correction$")
     public void MEGMakeCorrection() {
@@ -683,9 +679,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getAmendements().enterOptOut(hmap);
     }
 
-        @And("I enter Opt-out Address in Amendments")
-        public void iEnterOptOutAddressInAmendments() {
-            basePage.getAmendements().enterOptOutadress(hmap);
+    @And("I enter Opt-out Address in Amendments")
+    public void iEnterOptOutAddressInAmendments() {
+        basePage.getAmendements().enterOptOutadress(hmap);
     }
 
     private void initializeObj() {

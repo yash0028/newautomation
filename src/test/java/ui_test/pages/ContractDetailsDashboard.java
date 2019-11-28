@@ -337,16 +337,6 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         Assert.assertTrue(waitForPageLoad());
     }
 
-    public void intialtransctionformakeCorrection() {
-        waitTillClickable(this.elements.initialTransaction);
-            Assert.assertTrue(click("Initial Transaction", this.elements.initialTransaction));
-        Assert.assertTrue(waitForPageLoad());
-
-
-    }
-
-
-
     public void goToContractSummaryPage() {
         Assert.assertTrue(click("Contract Summary Page", elements.contractSummaryButton));
         Assert.assertTrue(waitForPageLoad());
