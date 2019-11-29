@@ -23,6 +23,7 @@ public class WizardComplete extends GenericInputPage {
         waitTillClickable(elements.completeWizardElement, 10);
         try {
             this.elements.completeWizardElement.click();
+            IWebInteract.log.info("clicked on next button");
         } catch (Exception e) {
             int count = 1;
             boolean wizardComplete = true;
