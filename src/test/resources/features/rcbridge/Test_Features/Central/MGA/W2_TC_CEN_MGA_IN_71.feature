@@ -78,7 +78,7 @@ Feature: W2_TC_CEN_MGA_IN_71
     And I enter Steerage
     And I enter Medicare Advantage Payment Appendix in MGA
     And I verify Medicare Advantage
-    And I enter Regulatory Appendicesf
+    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
     #Amandment final capture
