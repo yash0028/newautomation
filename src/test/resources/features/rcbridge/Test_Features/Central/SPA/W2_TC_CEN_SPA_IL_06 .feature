@@ -3,7 +3,7 @@
 @releaseUnknown
 @iterationUnknown
 Feature: SPA Business Testcases_IN
-  @ W2_TC_CEN_SPA_IL_ 06
+  @W2_TC_CEN_SPA_IL_06
   @Manual
   @User_Interface
   @UAT_AUTO_CENTRAL
@@ -83,4 +83,4 @@ Feature: SPA Business Testcases_IN
 
     Examples:
       | site          | paperType     | TCName           |
-      | central uhn   | SPA           |  W2_TC_CEN_SPA_IL_ 06 |
+      | central uhn   | SPA           | W2_TC_CEN_SPA_IL_06|
