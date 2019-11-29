@@ -15,6 +15,7 @@ import java.util.List;
 public class Appendix2 extends GenericInputPage {
     private PageElements elements;
     private String Question;
+
     public Appendix2(WebDriver driver) {
         this.elements = new PageElements(driver);
     }
@@ -22,13 +23,13 @@ public class Appendix2 extends GenericInputPage {
     public void selectAppendix(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         //Is this contract only for Virginia MLTSS?
-        Question="Is this contract only for Virginia MLTSS";
+        Question = "Is this contract only for Virginia MLTSS";
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
-            if(hmap.get("Is this contract only for Virginia MLTSS").equals("No")){
-                Assert.assertTrue(click(Question, getContractTypeElem(Question,hmap.get(Question))));
+            if (hmap.get("Is this contract only for Virginia MLTSS").equals("No")) {
+                Assert.assertTrue(click(Question, getContractTypeElem(Question, hmap.get(Question))));
                 waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-            }else{
-                Assert.fail("[ERROR] [Invalid input/Not implemented] for [Is this contract only for Virginia MLTSS = "+hmap.get("Is this contract only for Virginia MLTSS")+"]");
+            } else {
+                Assert.fail("[ERROR] [Invalid input/Not implemented] for [Is this contract only for Virginia MLTSS = " + hmap.get("Is this contract only for Virginia MLTSS") + "]");
             }
         }
 
@@ -92,12 +93,15 @@ public class Appendix2 extends GenericInputPage {
     public WebElement getXPath(String answer) {
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + answer + "')]"});
     }
+
     public String getContractType(String question) {
         return "//label/b[contains(.,'" + question + "')]";
     }
+
     public WebElement getContractTypeElem(String question, String MarketType) {
-        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + question + "')]/../../../..//input[contains(@value,'"+MarketType+"')]"});
+        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + question + "')]/../../../..//input[contains(@value,'" + MarketType + "')]"});
     }
+
     private static class PageElements extends AbstractPageElements {
 
         private String message = "//div[contains(@class,'DialogBox')]";

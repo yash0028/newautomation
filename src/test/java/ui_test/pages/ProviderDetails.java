@@ -46,7 +46,7 @@ public class ProviderDetails extends GenericInputPage {
     }
 
     public void previewProfile(HashMap<String, String> hmap) {
-        String Question="Select the State this Market Number applies to";
+        String Question = "Select the State this Market Number applies to";
         waitForPageLoad(60);
         pause(3);
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
@@ -54,7 +54,7 @@ public class ProviderDetails extends GenericInputPage {
                 hmap.put("Tier", elements.tier.getAttribute("value"));
             }
             //MGA WEST OR / MGA NORTHEAST VA
-            chooseMarketType(Question,hmap);
+            chooseMarketType(Question, hmap);
 
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
@@ -66,11 +66,13 @@ public class ProviderDetails extends GenericInputPage {
         }
 
     }
-    public void chooseMarketType(String Question,HashMap<String, String> hmap){
+
+    public void chooseMarketType(String Question, HashMap<String, String> hmap) {
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getMarketType(Question)))) {
-            Assert.assertTrue(click(Question, getMarketTypeElem(Question,hmap.get(Question))));
+            Assert.assertTrue(click(Question, getMarketTypeElem(Question, hmap.get(Question))));
         }
     }
+
     public void amendmentType(HashMap<String, String> hmap) {
         Assert.assertTrue(click("Amendmentment Type in Provider Details", selectProviderDetails(hmap.get("Amendment Type"))));
         Assert.assertTrue(clickNext());
@@ -91,8 +93,9 @@ public class ProviderDetails extends GenericInputPage {
     }
 
     public WebElement getMarketTypeElem(String question, String MarketType) {
-        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + question + "')]/../../../..//input[contains(@value,'"+MarketType+"')]"});
+        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + question + "')]/../../../..//input[contains(@value,'" + MarketType + "')]"});
     }
+
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//span[@class='select2-selection__arrow']")
         private WebElement dropdown_open;
