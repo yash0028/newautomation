@@ -21,6 +21,8 @@ public class WizardComplete extends GenericInputPage {
 
     public void completeWizard() {
         waitTillClickable(elements.completeWizardElement, 10);
+        //dont remove this pause
+        pauseSilent(1);
         try {
             this.elements.completeWizardElement.click();
             IWebInteract.log.info("clicked on next button");

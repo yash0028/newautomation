@@ -46,18 +46,16 @@ public class ProviderDetails extends GenericInputPage {
     }
 
     public void previewProfile(HashMap<String, String> hmap) {
-        String Question;
+        String Question="Select the State this Market Number applies to";
         waitForPageLoad(60);
         pause(3);
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.tierIndicator))) {
                 hmap.put("Tier", elements.tier.getAttribute("value"));
             }
-            //MGA WEST OR
-            Question="Select the State this Market Number applies to";
-            if (CommonMethods.isElementPresent(getDriver(), By.xpath(getMarketType(Question)))) {
-                Assert.assertTrue(click(Question, getMarketTypeElem(Question,hmap.get(Question))));
-            }
+            //MGA WEST OR / MGA NORTHEAST VA
+            chooseMarketType(Question,hmap);
+
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
@@ -68,7 +66,11 @@ public class ProviderDetails extends GenericInputPage {
         }
 
     }
-
+    public void chooseMarketType(String Question,HashMap<String, String> hmap){
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getMarketType(Question)))) {
+            Assert.assertTrue(click(Question, getMarketTypeElem(Question,hmap.get(Question))));
+        }
+    }
     public void amendmentType(HashMap<String, String> hmap) {
         Assert.assertTrue(click("Amendmentment Type in Provider Details", selectProviderDetails(hmap.get("Amendment Type"))));
         Assert.assertTrue(clickNext());

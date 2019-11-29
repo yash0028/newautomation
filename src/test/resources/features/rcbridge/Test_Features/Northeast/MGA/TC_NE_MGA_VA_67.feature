@@ -33,9 +33,11 @@ Feature: TC_NE_MGA_VA_67
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Additional Manuals in MGA
+    And I preview Provider Details
     And I enter Payment Appendix
     And I enter Regulatory Appendices
     And I select Provider Roster as None
+    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
     #Final Capture - Provider Roster (Add one or more providers to the roster)
