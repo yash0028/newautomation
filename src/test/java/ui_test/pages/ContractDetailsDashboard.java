@@ -347,12 +347,12 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         Assert.assertTrue(click("Start Amendment Process", elements.createAmendmentButton));
         Assert.assertTrue(waitForPageLoad());
         pause(5);
-
     }
 
     public void enterAmendmentTitle(HashMap<String, String> hmap) {
         Actions actions = new Actions(getDriver());
         actions.clickAndHold(elements.amendmentsWindow).pause(1).moveToElement(elements.fullWindow).release().build().perform();
+        waitTillClickable(elements.amendentTitleBar);
         elements.amendentTitleBar.clear();
         Assert.assertTrue(sendKeys("Entering amendment Title", elements.amendentTitleBar, hmap.get("Amendment Title")));
         Assert.assertTrue(click("Create Amendment Button", elements.getCreateAmendmentButton));

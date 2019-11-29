@@ -1,32 +1,29 @@
 # Last updated on
-# Author commercial with 1 Mid-level Specialist for PAT contract, execute and load contract, verify contract fed_Standard.
-@PATBusinessTestcases_AR
+@SPABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_AR
-
-  @TC_SE_PAT_AR_09
+Feature: SPA Business Testcases_IN
+  @W2_TC_CEN_SPA_IL_06
   @Manual
   @User_Interface
+  @UAT_AUTO_CENTRAL
   @UAT_AUTO
-  Scenario Outline: TC_SE_PAT_AR_09 - [RL0] Author PAT contract in <site>
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SMGA Contract
+    And I enter Practice Locations for SPA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
-    #And I enter HBPs Red Door
-    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -37,7 +34,7 @@ Feature: PAT Business Testcases_AR
     And I enter Group Summary
     Then I Complete Wizard
 
-    #Final capture
+     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -49,24 +46,41 @@ Feature: PAT Business Testcases_AR
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I verify Providers
+    And I enter retro code in Provider Roster
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    # And I capture Contract Number
+    #Activate
+    And I Set Status as Active
+
+
+     #CMD Check
+    #When I have entered the CMD dashboard URL
+    #When I search for Contract
+    #And The dashboard page loads
+    #Then Validate Contract status and request type
+
+    #NDB Check
+
+    #Make a correction - Add a new TIN to the existing provider in the Roster.
+    #When I am logged into Exari Dev
+    #And I search Contract using Contract Number
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
 
-    #Activate
-    And I Set Status as Active
 
-    #CMD Check
-    #And I have entered the CMD dashboard URL
-    #And I am on the CMD dashboard
-    #And The dashboard page loads
-    #And I search for Contract
-    #Then Validate Contract details
-
-    #NDB Check
 
 
     Examples:
-      | site          | paperType   | TCName|
-      | southeast uhn   | PAT         | TC_SE_PAT_AR_09|
+      | site          | paperType     | TCName           |
+      | central uhn   | SPA           | W2_TC_CEN_SPA_IL_06|
