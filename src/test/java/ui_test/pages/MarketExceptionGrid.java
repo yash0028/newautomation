@@ -39,7 +39,7 @@ public class MarketExceptionGrid extends GenericInputPage {
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
-no
+
     public WebElement clickTask(String Name) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + Name + "')]"});
