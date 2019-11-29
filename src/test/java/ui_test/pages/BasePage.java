@@ -39,6 +39,7 @@ public class BasePage extends GenericInputPage {
     private SuppotingDocumentSummary supportingDocumentSummary;
     private ClauseLanguage clauseLanguage;
     private BenefitPlanDescriptionsProvision benefitPlanDescriptionsProvision;
+    private Payment payment;
 
     public BenefitPlanDescriptionsProvision getBenefitPlanDescriptionsProvision() {
         return (benefitPlanDescriptionsProvision == null) ? new BenefitPlanDescriptionsProvision(getDriver()) : benefitPlanDescriptionsProvision;
@@ -180,5 +181,7 @@ public class BasePage extends GenericInputPage {
         return (supportingDocumentSummary == null) ? new SuppotingDocumentSummary(getDriver()) : supportingDocumentSummary;
     }
 
-
+    public Payment getPayment(){
+        return (payment == null) ? new Payment(getDriver()) : payment;
+    }
 }
