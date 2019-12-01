@@ -41,8 +41,8 @@ public class WizardComplete extends GenericInputPage {
                 }
             } catch (org.openqa.selenium.UnsupportedCommandException e1) {
                 IWebInteract.log.info("Waited for : {} Second", count);
-                IWebInteract.log.error("Session Timeout");
-                Assert.assertTrue("Unable to complete wizard processing.", wizardComplete);
+                e1.printStackTrace();
+                Assert.fail("[Session Timeout] Unable to complete wizard processing.");
             }
             IWebInteract.log.info("Waited for : {} Second", count);
             Assert.assertTrue("Unable to complete wizard processing.", wizardComplete);
