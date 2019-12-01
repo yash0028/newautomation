@@ -200,7 +200,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         waitTillClickable(elements.claimtask);
         scrollIntoView("claim-task");
         Assert.assertTrue(click("Claim Task", elements.claimtask));
-        pauseSilent(1);
+        //DONT REMOVE THIS PAUSE
+        pauseSilent(3);
         waitTillVisible(elements.comments);
         scrollIntoView("comments");
         if (elements.comments.getAttribute("value").equals("")) {

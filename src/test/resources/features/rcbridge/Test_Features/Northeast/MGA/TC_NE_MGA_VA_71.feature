@@ -91,6 +91,7 @@ Feature: TC_NE_MGA_VA_71
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments
+    #VERIFY MANUALLY
     And I enter Payment Appendix in Amendments FinalCapture
     And I select Provider Roster as None
     And I enter Group Summary
