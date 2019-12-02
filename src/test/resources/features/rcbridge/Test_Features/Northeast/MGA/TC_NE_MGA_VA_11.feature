@@ -1,21 +1,20 @@
 # Last updated on
-@MGABusinessTestcases_AR
+@MGABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: TC_SE_MGA_AR_11
-
-  @mga_se
+Feature: TC_NE_MGA_VA_11
+  @mga_ne
   @leo
-  @TC_SE_MGA_AR_11
+  @TC_NE_MGA_VA_11
   @Manual
   @User_Interface
-  @UAT_AUTO_SOUTHEAST
+  @UAT_AUTO_NORTHEAST
   @UAT_AUTO
-  Scenario Outline: TC_SE_MGA_AR_11 - [RL0] Author <paperType> contract in <site>
+  Scenario Outline: TC_NE_MGA_VA_11 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -33,6 +32,7 @@ Feature: TC_SE_MGA_AR_11
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Additional Manuals in MGA
+    And I preview Provider Details
     And I enter Payment Appendix
     And I enter Regulatory Appendices
     And I select Provider Roster as None
@@ -76,4 +76,4 @@ Feature: TC_SE_MGA_AR_11
     #Check NDB
     Examples:
       | site          | paperType     | TCName          |
-      | southeast uhn | MGA           | TC_SE_MGA_AR_11 |
+      | northeast uhn | MGA           | TC_NE_MGA_VA_11 |

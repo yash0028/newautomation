@@ -8,6 +8,7 @@ Feature: W2_TC_CEN_MGA_IN_71
   @User_Interface
   @UAT_AUTO_CENTRAL
   @UAT_AUTO
+  @W2_CEN_MGA
   Scenario Outline: W2_TC_CEN_MGA_IN_71 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -29,7 +30,9 @@ Feature: W2_TC_CEN_MGA_IN_71
     And I enter Additional Locations
     And I enter Market Strategy Grid
     And I enter Appendix 2
+    And I enter Additional Manuals in MGA
     And I enter Payment Appendix
+    And I enter Payment
     And I enter Regulatory Appendices
     And I select Provider Roster as None
     And I enter Group Summary
@@ -75,7 +78,7 @@ Feature: W2_TC_CEN_MGA_IN_71
     And I enter Steerage
     And I enter Medicare Advantage Payment Appendix in MGA
     And I verify Medicare Advantage
-    And I enter Regulatory Appendicesf
+    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
     #Amandment final capture

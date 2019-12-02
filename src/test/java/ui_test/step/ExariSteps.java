@@ -751,4 +751,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     {
         basePage.getAmendements().enterOptOutadressIL(hmap);
     }
+
+    @And("I enter Payment")
+    public void iEnterPayment() {
+        basePage.getPayment().negotiateRateEscalator(hmap);
+    }
 }

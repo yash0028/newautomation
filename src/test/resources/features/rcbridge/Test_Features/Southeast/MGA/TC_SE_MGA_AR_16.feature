@@ -36,6 +36,7 @@ Feature: TC_SE_MGA_AR_16
     And I enter Payment Appendix
     And I enter Regulatory Appendices
     And I select Provider Roster as None
+    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
     #Final Capture - Provider Roster (Add one or more providers to the roster)
@@ -79,7 +80,6 @@ Feature: TC_SE_MGA_AR_16
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 

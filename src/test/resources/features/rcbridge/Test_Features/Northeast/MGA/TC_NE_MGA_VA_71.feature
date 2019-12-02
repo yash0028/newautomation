@@ -1,20 +1,20 @@
 # Last updated on
-@MGABusinessTestcases_AR
+@MGABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: TC_SE_MGA_AR_53
-  @mga_se
+Feature: TC_NE_MGA_VA_71
+  @mga_ne
   @leo
-  @TC_SE_MGA_AR_53
+  @TC_NE_MGA_VA_71
   @Manual
   @User_Interface
-  @UAT_AUTO_SOUTHEAST
+  @UAT_AUTO_NORTHEAST
   @UAT_AUTO
-  Scenario Outline: TC_SE_MGA_AR_53 - [RL0] Author <paperType> contract in <site>
+  Scenario Outline: TC_NE_MGA_VA_71 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -32,6 +32,7 @@ Feature: TC_SE_MGA_AR_53
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Additional Manuals in MGA
+    And I preview Provider Details
     And I enter Payment Appendix
     And I enter Regulatory Appendices
     And I select Provider Roster as None
@@ -90,6 +91,7 @@ Feature: TC_SE_MGA_AR_53
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments
+    #VERIFY MANUALLY
     And I enter Payment Appendix in Amendments FinalCapture
     And I select Provider Roster as None
     And I enter Group Summary
@@ -97,11 +99,23 @@ Feature: TC_SE_MGA_AR_53
 
     #Activating Amendment
     And I Set Status as Active in Amendment
-
     #CMD Checking
     #Check Cosmos
     #NDB Checking
-
+    ##Make Correction - Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    #CMD Checking
+    #NDB Checking
     Examples:
       | site          | paperType     | TCName          |
-      | southeast uhn | MGA           | TC_SE_MGA_AR_53 |
+      | northeast uhn | MGA           | TC_NE_MGA_VA_71 |
