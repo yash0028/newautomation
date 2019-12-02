@@ -67,7 +67,6 @@ Feature: PAT Business Testcases_IN
     #NDB Check
 
 
-    #Draft Amandament
     And I select the contract
     And I click on Create Amendment
     And I enter title
@@ -80,10 +79,10 @@ Feature: PAT Business Testcases_IN
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments for PAT contracts
     And I check Payment Appendix
     And I enter Additional Manuals
     And I enter Steerage
+    And I enter Payment Appendix in Amendments for PAT contracts
     And I enter Group Summary
     And I Complete Wizard
 

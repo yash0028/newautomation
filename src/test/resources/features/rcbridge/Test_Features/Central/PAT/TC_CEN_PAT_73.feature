@@ -76,7 +76,6 @@ Feature: PAT Business Testcases_IN
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I preview Provider Details
     And I select Types of Amendments
     And I select Contract Applied in Amendments
     And I enter Contract Details in Amendments
@@ -87,8 +86,6 @@ Feature: PAT Business Testcases_IN
     And I enter Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for PAT contracts
-    And I check Payment Appendix
-
     And I enter Group Summary
     And I Complete Wizard
 
