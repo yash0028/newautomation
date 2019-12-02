@@ -3,8 +3,8 @@
 @releaseUnknown
 @iterationUnknown
 Feature: TC_WEST_MGA_OR_16
-  @mga_west
   @rerun
+  @mga_west
   @leo
   @TC_WEST_MGA_OR_16
   @Manual

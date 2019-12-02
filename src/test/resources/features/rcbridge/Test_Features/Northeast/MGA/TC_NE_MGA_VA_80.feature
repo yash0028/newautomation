@@ -4,7 +4,6 @@
 @iterationUnknown
 Feature: TC_NE_MGA_VA_80
   @mga_ne
-  @rerun
   @cancel
   @leo
   @TC_NE_MGA_VA_80

@@ -4,7 +4,6 @@
 @iterationUnknown
 Feature: TC_SE_MGA_AR_16
   @mga_se
-  @rerun
   @leo
   @TC_SE_MGA_AR_16
   @Manual

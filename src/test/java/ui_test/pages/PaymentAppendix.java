@@ -151,6 +151,13 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void enterPaymentAppendixinAmendmentsFC(HashMap<String, String> hmap) {
+        if (hmap.containsKey("Payment Appendix in Amendments FC")) {
+            String[] appendixes = hmap.get("Payment Appendix in Amendments FC").split("//");
+            for (String appendix : appendixes) {
+                Assert.assertTrue(setCheckBox("Payment Appendix to Include", paymentAppendixElement(appendix),true));
+                pause(1);
+            }
+        }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
