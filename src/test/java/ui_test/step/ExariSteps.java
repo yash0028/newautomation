@@ -696,7 +696,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("I enter Appendix 2 in Amendments FinalCapture")
     public void iEnterAppendixInAmendmentsFC() {
-        basePage.getAppendix2().enterAppendix2FC();
+        basePage.getAppendix2().enterAppendix2FC(hmap);
     }
 
     @And("^I enter Clause Language$")
