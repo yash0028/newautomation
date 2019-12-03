@@ -64,10 +64,20 @@ public class Appendix2 extends GenericInputPage {
         Assert.assertTrue(waitForPageLoad());
     }
 
-
     public void productsExcludedFromAgreement(HashMap<String, String> hmap) {
+        Question = "Which of the following products will be excluded in Appendix";
         if (hmap.containsKey("Exclude Product in Amendment")) {
-            Assert.assertTrue(click("Exclude Product in Appendix 2", getXPath(hmap.get("Exclude Product in Amendment"))));
+            String[] products = hmap.get("Exclude Product in Amendment").split("//");
+            for (String product : products) {
+                if (CommonMethods.isElementPresent(getDriver(), By.xpath(getExcludeProductXpath(Question, product)))) {
+                    if (getExcludeProductElem(Question, product).getAttribute("type").equals("radio")) {
+                        Assert.assertTrue(click("Exclude Product in Appendix 2", getExcludeProductElem(Question, product)));
+                    } else if (getExcludeProductElem(Question, product).getAttribute("type").equals("checkbox")) {
+                        Assert.assertTrue(setCheckBox("Exclude Product in Appendix 2", getExcludeProductElem(Question, product), true));
+                    }
+                    pause(1);
+                }
+            }
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
@@ -106,6 +116,14 @@ public class Appendix2 extends GenericInputPage {
 
     public WebElement getContractTypeElem(String question, String MarketType) {
         return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + question + "')]/../../../..//input[contains(@value,'" + MarketType + "')]"});
+    }
+
+    public String getExcludeProductXpath(String Question, String Value) {
+        return "//label/b[contains(.,'" + Question + "')]/../../../..//input[contains(@value,'" + Value + "')]";
+    }
+
+    public WebElement getExcludeProductElem(String Question, String Value) {
+        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + Question + "')]/../../../..//input[contains(@value,'" + Value + "')]"});
     }
 
     private static class PageElements extends AbstractPageElements {

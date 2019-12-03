@@ -34,9 +34,9 @@ Feature: SMGA Business Testcases_IN
      And I enter Amendments
      And I enter Group Summary
      Then I Complete Wizard
-    
+
      #Final capture
-    
+
      And I Start Workflow
      And I Start Process for Initial Transaction
      And I Set Status as Final Pending QA
@@ -65,9 +65,37 @@ Feature: SMGA Business Testcases_IN
 
      #NDB Check
 
-     #Amandments Add ER Wrap and Remove Navigate
+      #Amandments Add ER Wrap and Remove Navigate
+      And I select the contract
+      And I click on Create Amendment
+      And I enter title
+      And I enter Amendment Selection
+      And I select Amendments needed in Amendment Selection
+      And I select Amendment Type in Provider Details
+      And I enter OurSignatory
+      And I select Unilateral Contract in Amendments
+      And I select Provider Type Radio Button in Amendments
+      And I enter Opt-out in Amendments
+      And I enter Opt-out Address in Amendments in IL
+      And I enter Contract Details in Amendments
+      And I enter Effective date in Contract Details
+      And I enter Appendix 2 in Amendments
+      And I select applied Payment Appendix
+      And I enter Group Summary
+      And I Complete Wizard
 
-
+      #Amandment final capture
+      And I Start Workflow
+      And I Start Process for Initial Transaction
+      And I Set Status as Final Pending QA in Amendment
+      And I Start Final Capture
+      And I enter Appendix 2 in Amendments
+      And I select Provider Roster as None
+      And I check Payment Appendix
+      And I enter Opt-out in Amendments
+      And I enter Opt-out Address in Amendments in IL
+      And I enter Group Summary
+      And I Complete Wizard
 
 
 
