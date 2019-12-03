@@ -103,7 +103,7 @@ public class Amendements extends GenericInputPage {
     }
 
     public WebElement selectOptionForstate(String answer) {
-        return findElement(getDriver(), new String[]{"xpath", "//li[contains(text(),'" + answer + ")]"});
+        return findElement(getDriver(), new String[]{"xpath", "//li[contains(text(),'" + answer + "')]"});
 
     }
 
@@ -138,6 +138,9 @@ public class Amendements extends GenericInputPage {
             sendKeys("Name to be provided Opt Out", this.elements.optNameIL, hmap.get("Name_Opt_Out"));
 
         }
+
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
 
     }
 
