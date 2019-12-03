@@ -65,28 +65,11 @@ public class Appendix2 extends GenericInputPage {
     }
 
     public void productsExcludedFromAgreement(HashMap<String, String> hmap) {
-        Question = "Which of the following products will be excluded in Appendix 2";
         if (hmap.containsKey("Exclude Product in Amendment")) {
-            String[] products = hmap.get("Exclude Product in Amendment").split("//");
-            for (String product : products) {
-                if (CommonMethods.isElementPresent(getDriver(), By.xpath(getExcludeProductXpath(Question, product)))) {
-                    if (getExcludeProductElem(Question, product).getAttribute("type").equals("radio")) {
-                        Assert.assertTrue(click("Exclude Product in Appendix 2", getExcludeProductElem(Question, product)));
-                    } else if (getExcludeProductElem(Question, product).getAttribute("type").equals("checkbox")) {
-                        Assert.assertTrue(setCheckBox("Exclude Product in Appendix 2", getExcludeProductElem(Question, product), true));
-                    }
-                    pause(1);
-                }
-            }
+            Assert.assertTrue(click("Exclude Product in Appendix 2", getXPath(hmap.get("Exclude Product in Amendment"))));
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
-        //if Appendix 2 have second page (MGA VA 53)
-        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
-            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-            Assert.assertTrue(clickNext());
-            Assert.assertTrue(waitForPageLoad());
-        }
     }
 
 
