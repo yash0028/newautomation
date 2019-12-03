@@ -88,7 +88,7 @@ Feature: W2_TC_CEN_MGA_IN_53
     And I Start Final Capture
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
-    And I enter Appendix 2 in Amendments
+    And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
     And I select Provider Roster as None
     And I enter Group Summary
