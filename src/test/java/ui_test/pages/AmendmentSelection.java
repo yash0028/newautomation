@@ -1,6 +1,7 @@
 package ui_test.pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +18,8 @@ public class AmendmentSelection extends GenericInputPage {
     }
 
     public void selectAmendmentTobeUsed(HashMap<String, String> hmap) {
-        Assert.assertTrue(click("Select Amendments 1", selectAmendments(hmap.get("Amendment Selection"))));
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        Assert.assertTrue(click("Amendment Selection", selectAmendments(hmap.get("Amendment Selection"))));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -34,6 +36,7 @@ public class AmendmentSelection extends GenericInputPage {
 
 
     private static class PageElements extends AbstractPageElements {
+        private String message = "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {
             super(context);

@@ -71,6 +71,12 @@ public class Appendix2 extends GenericInputPage {
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+        //if Appendix 2 have second page (MGA VA 53)
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
     }
 
 
@@ -105,6 +111,7 @@ public class Appendix2 extends GenericInputPage {
     private static class PageElements extends AbstractPageElements {
 
         private String message = "//div[contains(@class,'DialogBox')]";
+        private String topic = "//div[contains(@class,'topicArea')]/p[contains(.,'Appendix 2')]";
 
         public PageElements(SearchContext context) {
             super(context);

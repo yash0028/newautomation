@@ -5,6 +5,7 @@
 Feature: TC_CEN_MGA_IN_58
   @mga_cen
   @leo
+  @rerun
   @TC_CEN_MGA_IN_58
   @Manual
   @User_Interface

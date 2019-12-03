@@ -13,8 +13,9 @@ Feature: PAT Business Testcases_AR
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+
     And I enter PES Inputs
-    And I enter PES Responses
+    And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
@@ -24,13 +25,14 @@ Feature: PAT Business Testcases_AR
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
+    #And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 
@@ -51,56 +53,56 @@ Feature: PAT Business Testcases_AR
     And I enter Group Summary
     Then I Complete Wizard
 
+    And I capture Contract Number
     #Activate
     And I Set Status as Active
 
 
      #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
+    #When I have entered the CMD dashboard URL
+    #When I search for Contract
     #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
 
 
 
       #NDB Check
-   
-   #NDB Check
     #Draft Amendment
-    #Draft Amandament
+
     And I select the contract
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-#    And I check Provider Details
     And I select Types of Amendments
     And I select Contract Applied in Amendments
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments
+    And I enter Payment Appendix in Amendments for PAT contracts
     And I check Payment Appendix
     And I enter Additional Manuals
     And I enter Steerage
-#    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
 
-	#Amandment final capture
 
+    #Amandment final capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA in Amendment
+    And I Start Final Capture
+    And I enter Provider Signatory in Amendment
+    And I enter Our Signatory in Amendment
+    And I enter Appendix 2 in Amendments FinalCapture
+    And I enter Payment Appendix in Amendments FinalCapture
+    And I select Provider Roster as None
+    And I enter Group Summary
+    And I Complete Wizard
 
-	#Amendment CMD Checking
-    #Amendment Final Capture
-    #Amendment CMD Check
-    #NDB Check
-
-	#Amandment final capture
-
-
-	#Amendment CMD Checking
-    #Amendment Final Capture
+     #Activating Amendment
+    And I Set Status as Active in Amendment
     #Amendment CMD Check
     #NDB Check
 

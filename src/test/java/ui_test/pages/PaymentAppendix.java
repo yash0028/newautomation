@@ -71,7 +71,6 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void enterDataInPaymentAppendixForPAT(HashMap<String, String> hmap) {
         Assert.assertTrue(sendKeys("FeeSchedule ID Medicare Physician", this.elements.feeSchduleIDPhysicianMedicare, hmap.get("FS Id Amendments Physician")));
-        //Assert.assertTrue( sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicarePAT, hmap.get("FS Id Amendments")));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
 
@@ -151,6 +150,13 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void enterPaymentAppendixinAmendmentsFC(HashMap<String, String> hmap) {
+        if (hmap.containsKey("Payment Appendix in Amendments FC")) {
+            String[] appendixes = hmap.get("Payment Appendix in Amendments FC").split("//");
+            for (String appendix : appendixes) {
+                Assert.assertTrue(setCheckBox("Payment Appendix to Include", paymentAppendixElement(appendix), true));
+                pause(1);
+            }
+        }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }

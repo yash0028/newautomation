@@ -87,11 +87,13 @@ public class Amendements extends GenericInputPage {
         pause(1);
         waitForPageLoad(60);
         //Enter search term
-        sendKeys("dropdown textbox", this.elements.optstatetext, hmap.get("statecode"));
-        pause(1);
-        waitForPageLoad(60);
+       sendKeys("dropdown textbox", this.elements.optstatetext, hmap.get("statecode"));
+       pause(1);
+       //System.out.println(getDriver().getPageSource());
+       waitForPageLoad(60);
+
         //Click index option
-        WebElement EL = selectOptionForstate(hmap.get("statecode"));
+       WebElement EL = selectOptionForstate(hmap.get("statecode"));
         EL.click();
 
         sendKeys("textbox", this.elements.optzipcode, hmap.get("Opt_zipcode"));
@@ -99,11 +101,17 @@ public class Amendements extends GenericInputPage {
         waitForPageLoad(60);
 
 
+        if(hmap.containsKey("Name_Opt_Out")) {
+            sendKeys("Name to be provided Opt Out", this.elements.optNameIL, hmap.get("Name_Opt_Out"));
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
+
 
     }
 
     public WebElement selectOptionForstate(String answer) {
-        return findElement(getDriver(), new String[]{"xpath", "//li[contains(text(),'" + answer + ")]"});
+        return findElement(getDriver(), new String[]{"xpath", "//li[contains(text(),'"+answer+"')]"});
 
     }
 
@@ -155,16 +163,16 @@ public class Amendements extends GenericInputPage {
         @FindBy(xpath = "//b[contains(text(),'Name to whom this notice should be provided:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/span/div/input")
         private WebElement optNameIL;
 
-        @FindBy(xpath = "//b[contains(text(),'Opt-out Address for Notice:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/span/div/input")
+        @FindBy(xpath = "//b[contains(text(),'Address for Notice:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/span/div/input")
         private WebElement optadress;
 
-        @FindBy(xpath = "//b[contains(text(),'Opt-out Notice City:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/span/div/input")
+        @FindBy(xpath = "//b[contains(text(),'Notice City:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/span/div/input")
         private WebElement optcity;
 
-        @FindBy(xpath = "//b[contains(text(),'Opt-out Notice Zip Code:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/span/div/input")
+        @FindBy(xpath = "//b[contains(text(),'Notice Zip Code:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/span/div/input")
         private WebElement optzipcode;
 
-        @FindBy(xpath = "//b[contains(text(),'Opt-out Notice State:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/div//span/span[@class='select2-selection__arrow']")
+        @FindBy(xpath = "//b[contains(text(),'Notice State:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/div//span/span[@class='select2-selection__arrow']")
         private WebElement optstatedropdown;
 
         @FindBy(xpath = "//input[@class='select2-search__field']")

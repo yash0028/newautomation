@@ -4,7 +4,6 @@
 @iterationUnknown
 Feature: TC_CEN_MGA_IN_16
   @mga_cen
-  @rerun
   @leo
   @TC_CEN_MGA_IN_16
   @Manual

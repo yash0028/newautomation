@@ -5,6 +5,7 @@
 Feature: TC_NE_MGA_VA_81
   @mga_ne
   @leo
+  @rerun
   @TC_NE_MGA_VA_81
   @Manual
   @User_Interface
