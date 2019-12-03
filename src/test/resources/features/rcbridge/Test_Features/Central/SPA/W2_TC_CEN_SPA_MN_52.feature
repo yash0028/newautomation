@@ -28,10 +28,10 @@ Feature: SPA Business Testcases_IN
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
-#    And I enter Additional Locations
-#    And I enter Regulatory Appendices
-#    And I select Provider Roster as None
-#    And I enter Amendments
+    And I enter Additional Locations
+    And I enter Regulatory Appendices
+    And I select Provider Roster as None
+    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 
@@ -82,10 +82,12 @@ Feature: SPA Business Testcases_IN
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments for SPA contracts
+
     And I check Payment Appendix
     And I enter Additional Manuals
     And I enter Steerage
+    And I enter Payment Appendix in Amendments for SPA contracts
+    And I check Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
 
