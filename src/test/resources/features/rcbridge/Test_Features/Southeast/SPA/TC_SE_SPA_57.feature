@@ -64,6 +64,8 @@ Feature: SPA Business Testcases_AR
     #NDB Check
 
     #Make a correction - Add a new TIN to the existing provider in the Roster.
+    #When I am logged into Exari Dev
+    #And I search Contract using Contract Number
     #And I click Make Correction
     #And I enter Market Exception Grid in Make Correction
     #And I enter Market Exception Grid
@@ -75,6 +77,7 @@ Feature: SPA Business Testcases_AR
     #And I acknowledge the warning
     #And I enter Group Summary
     #Then I Complete Wizard
+
 
 
     Examples:

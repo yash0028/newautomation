@@ -300,7 +300,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                 }
             }
             if (!activated) {
-                Assert.fail("Contract is activation failed.");
+                Assert.fail("Contract Activation failed.");
             }
         }
     }

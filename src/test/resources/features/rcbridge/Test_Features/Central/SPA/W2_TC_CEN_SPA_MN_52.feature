@@ -1,29 +1,30 @@
 # Last updated on
-# Author commercial with 1 ALD group and 1 Mid-level PAT contract, execute and load contract, verify contract fed_Standard_Fee schedule change
-@PATBusinessTestcases_IN
+@SPABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_IN
-  @TC_CEN_PAT_IN_13
+Feature: SPA Business Testcases_IN
+  @W2_TC_CEN_SPA_MN_52
   @Manual
   @User_Interface
+  @UAT_AUTO_CENTRAL
   @UAT_AUTO
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-    And I enter PES Responses
+    And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for PAT Contract
+    And I enter Practice Locations for SPA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -33,6 +34,9 @@ Feature: PAT Business Testcases_IN
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
+
+
+    #Non Std approval process
 
      #Final capture
     And I Start Workflow
@@ -51,21 +55,21 @@ Feature: PAT Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-    And I capture Contract Number
     #Activate
     And I Set Status as Active
 
 
      #CMD Check
     #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+    #And The dashboard page loads
+    #Then I search for Contract
+    #Then Validate Contract status and request type
 
+    #NDB Check
+   #Draft Amendment
 
-
-      #NDB Check
-    #Draft Amendment
-
+    #When I am logged into Exari Dev
+    #And I search Contract using Contract Number
     And I select the contract
     And I click on Create Amendment
     And I enter title
@@ -78,15 +82,16 @@ Feature: PAT Business Testcases_IN
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
+
     And I check Payment Appendix
     And I enter Additional Manuals
     And I enter Steerage
-    And I enter Payment Appendix in Amendments for PAT contracts
+    And I enter Payment Appendix in Amendments for SPA contracts
+    And I check Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
 
-
-    #Amandment final capture
+   #Amendment Final Capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
@@ -102,10 +107,12 @@ Feature: PAT Business Testcases_IN
      #Activating Amendment
     And I Set Status as Active in Amendment
 
-    #Amendment CMD Check
-    #NDB Check
+   #Amendment CMD Checking
+  #COSMOS Check
+
+
 
 
     Examples:
       | site          | paperType     | TCName           |
-      | central uhn   | PAT           | TC_CEN_PAT_IN_13 |
+      | central uhn   | SPA           | W2_TC_CEN_SPA_MN_52 |
