@@ -53,7 +53,7 @@ Feature: US1407217
 #    And I enter Market Exception Grid in Make Correction
 #    And I enter Market Exception Grid
 #    And I set Roster Action as Cancel
-    And I select provider and cancel date
+#    And I select provider and cancel date
 #    And I enter cancel reason
 #    And I acknowledge the warning
 #    And I enter Group Summary
