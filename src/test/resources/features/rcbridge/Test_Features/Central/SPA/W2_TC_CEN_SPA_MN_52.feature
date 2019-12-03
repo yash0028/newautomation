@@ -3,9 +3,10 @@
 @releaseUnknown
 @iterationUnknown
 Feature: SPA Business Testcases_IN
-  @W2_TC_CEN_SPA_MN_37
+  @W2_TC_CEN_SPA_MN_52
   @Manual
   @User_Interface
+  @UAT_AUTO_CENTRAL
   @UAT_AUTO
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -23,15 +24,19 @@ Feature: SPA Business Testcases_IN
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
-    And I enter Additional Locations
-    And I enter Regulatory Appendices
-    And I select Provider Roster as None
-    And I enter Amendments
+#    And I enter Additional Locations
+#    And I enter Regulatory Appendices
+#    And I select Provider Roster as None
+#    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
+
+
+    #Non Std approval process
 
      #Final capture
     And I Start Workflow
@@ -60,17 +65,8 @@ Feature: SPA Business Testcases_IN
     #Then I search for Contract
     #Then Validate Contract status and request type
 
-
-
-
-
-
     #NDB Check
-     #Medcare product check
-     #COSMOS Check
-     #Medicare NDB check
-
-   #Draft Amendment(Remove Navigate,add ANB)
+   #Draft Amendment
 
     #When I am logged into Exari Dev
     #And I search Contract using Contract Number
@@ -80,43 +76,41 @@ Feature: SPA Business Testcases_IN
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I enter OurSignatory
     And I select Types of Amendments
-    And I select Provider Type Radio Button in Amendments
-  #    And I select Contract Applied in Amendments
-    And I enter Opt-out in Amendments
-    And I enter Opt-out Address in Amendments
+    And I select Contract Applied in Amendments
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
+    And I enter Payment Appendix in Amendments for SPA contracts
+    And I check Payment Appendix
     And I enter Additional Manuals
-    And I enter Regulatory Appendices
+    And I enter Steerage
     And I enter Group Summary
     And I Complete Wizard
 
-
-
-    #Amendment Final Capture
+   #Amendment Final Capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-#    And I enter Provider Signatory in Amendment
-#    And I enter Our Signatory in Amendment
+    And I enter Provider Signatory in Amendment
+    And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
     And I select Provider Roster as None
-    And I verify Providers
-    And I enter Opt-out in Amendments
     And I enter Group Summary
     And I Complete Wizard
+
+     #Activating Amendment
     And I Set Status as Active in Amendment
 
    #Amendment CMD Checking
+  #COSMOS Check
+
 
 
 
     Examples:
       | site          | paperType     | TCName           |
-      | central uhn   | SPA           | W2_TC_CEN_SPA_MN_37|
+      | central uhn   | SPA           | W2_TC_CEN_SPA_MN_52 |

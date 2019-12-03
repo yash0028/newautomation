@@ -3,7 +3,7 @@
 @releaseUnknown
 @iterationUnknown
 Feature: SPA Business Testcases_IN
-  @W2_TC_CEN_SPA_MN_37
+  @W2_TC_CEN_SPA_ND_37
   @Manual
   @User_Interface
   @UAT_AUTO
@@ -86,7 +86,6 @@ Feature: SPA Business Testcases_IN
   #    And I select Contract Applied in Amendments
     And I enter Opt-out in Amendments
     And I enter Opt-out Address in Amendments
-    And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
@@ -119,4 +118,4 @@ Feature: SPA Business Testcases_IN
 
     Examples:
       | site          | paperType     | TCName           |
-      | central uhn   | SPA           | W2_TC_CEN_SPA_MN_37|
+      | central uhn   | SPA           | W2_TC_CEN_SPA_ND_37|
