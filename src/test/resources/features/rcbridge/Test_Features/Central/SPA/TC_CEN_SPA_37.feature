@@ -94,18 +94,20 @@ Feature: SPA Business Testcases_IN
 
 
 
-    #Amendment Final Capture
+
+#Amendment Final Capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-    #And I enter Provider Signatory in Amendment
-    #And I enter Our Signatory in Amendment
+#And I enter Provider Signatory in Amendment
+#And I enter Our Signatory in Amendment
+   # And I enter Appendix 2 in Amendments
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
     And I select Provider Roster as None
-    And I enter Opt-out in Amendments
-    And I enter Opt-out Address in Amendments
+    And I enter Opt-out in Amendments finalcapture
+    And I enter Opt-out Address in Amendments finalCapture
     And I enter Group Summary
     And I Complete Wizard
 

@@ -677,14 +677,24 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("I enter Opt-out in Amendments")
     public void iEnterOptOutInAmendments() {
         basePage.getAmendements().enterOptOut(hmap);
+
+
+    }
+
+    @And("I enter Opt-out in Amendments finalcapture")
+    public void iEnterOptOutInAmendmentsfinalcapture() {
+        basePage.getAmendements().enterOptOut(hmap);
     }
 
     @And("I enter Opt-out Address in Amendments")
     public void iEnterOptOutAddressInAmendments() {
         basePage.getAmendements().enterOptOutadress(hmap);
     }
-
-    private void initializeObj() {
+    @And("I enter Opt-out Address in Amendments finalCapture")
+    public void ienterOptOutFinalcapture() {
+        basePage.getAmendements().enterOptOutFinalcapture();
+    }
+        private void initializeObj() {
         protoStep = new ProtoStep(getDriver());
         basePage = new BasePage();
     }

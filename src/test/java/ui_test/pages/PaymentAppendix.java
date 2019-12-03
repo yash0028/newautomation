@@ -47,6 +47,7 @@ public class PaymentAppendix extends GenericInputPage {
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer for Non-Physicians")))) {
             Assert.assertTrue(sendKeys("All Payer for Non-Physicians", getFeeScheduleElement("All Payer for Non-Physicians"), hmap.get("FS All Payer Non Physician")));
         }
+
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
 
