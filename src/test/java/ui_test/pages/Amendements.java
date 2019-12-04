@@ -71,6 +71,11 @@ public class Amendements extends GenericInputPage {
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
 
+    }
+
+    public void enterOptOutFinalcapture() {
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
 
     }
 

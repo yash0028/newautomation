@@ -104,10 +104,10 @@ Feature: SPA Business Testcases_IN
     And I Start Final Capture
 #    And I enter Provider Signatory in Amendment
 #    And I enter Our Signatory in Amendment
-    And I enter Appendix 2 in Amendments FinalCapture
-    And I enter Payment Appendix in Amendments FinalCapture
     And I select Provider Roster as None
-    And I verify Providers
+#    And I enter Appendix 2 in Amendments FinalCapture
+    And I enter Payment Appendix in Amendments FinalCapture
+#    And I verify Providers
     And I enter Opt-out in Amendments
     And I enter Group Summary
     And I Complete Wizard
