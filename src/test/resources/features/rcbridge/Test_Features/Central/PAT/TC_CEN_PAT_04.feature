@@ -66,7 +66,7 @@ Feature: PAT Business Testcases_IN
 
     #NDB Check
 
-
+    #Draft Amandments
     And I select the contract
     And I click on Create Amendment
     And I enter title
