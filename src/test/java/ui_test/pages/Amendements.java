@@ -152,6 +152,8 @@ public class Amendements extends GenericInputPage {
 
         }
 
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     private static class PageElements extends AbstractPageElements {
