@@ -5,7 +5,6 @@
 Feature: TC_SE_MGA_AR_53
   @mga_se
   @leo
-  @rerun
   @TC_SE_MGA_AR_53
   @Manual
   @User_Interface
