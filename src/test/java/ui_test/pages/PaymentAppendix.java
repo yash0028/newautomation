@@ -96,7 +96,7 @@ public class PaymentAppendix extends GenericInputPage {
         if (hmap.containsKey("Payment Appendix to Include")) {
             String[] appendixes = hmap.get("Payment Appendix to Include").split("//");
             for (String appendix : appendixes) {
-                Assert.assertTrue(click("Payment Appendix to Include", paymentAppendixElement(appendix)));
+                Assert.assertTrue(setCheckBox("Payment Appendix to Include", paymentAppendixElement(appendix),true));
                 pause(1);
             }
         }
