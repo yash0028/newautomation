@@ -354,6 +354,12 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         Actions actions = new Actions(getDriver());
         actions.clickAndHold(elements.amendmentsWindow).pause(1).moveToElement(elements.fullWindow).release().build().perform();
         waitTillClickable(elements.amendentTitleBar);
+        for(int count =0; count<3;count++){
+            if(!elements.amendentTitleBar.getAttribute("value").equals("")){
+                    break;
+            }
+            pauseSilent(1);
+        }
         elements.amendentTitleBar.clear();
         Assert.assertTrue(sendKeys("Entering amendment Title", elements.amendentTitleBar, hmap.get("Amendment Title")));
         Assert.assertTrue(click("Create Amendment Button", elements.getCreateAmendmentButton));
