@@ -198,18 +198,18 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         waitTillClickable(elements.viewtask);
         Assert.assertTrue(click("View Task", elements.viewtask));
         waitTillClickable(elements.claimtask);
-        scrollIntoView("claim-task");
+        scrollIntoView("claim-task",3);
         Assert.assertTrue(click("Claim Task", elements.claimtask));
         //DONT REMOVE THIS PAUSE
         pauseSilent(3);
         waitTillVisible(elements.comments);
-        scrollIntoView("comments");
+        scrollIntoView("comments",3);
         if (elements.comments.getAttribute("value").equals("")) {
             waitTillClickable(elements.comments);
             Assert.assertTrue(sendKeys("Comments", elements.comments, "Approved"));
         }
         waitTillClickable(elements.approve);
-        scrollIntoView("adf-form-approve");
+        scrollIntoView("adf-form-approve",3);
         Assert.assertTrue(click("Approve", elements.approve));
         waitTillVisible(elements.detectapproval);
         Assert.assertTrue(waitTillVisible(elements.confirmApproval));
@@ -367,12 +367,18 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         Assert.assertTrue(waitForPageLoad());
     }
 
-    public boolean scrollIntoView(String elementID) {
+    public boolean scrollIntoView(String elementID,int count) {
         try {
+            if(count<=0){
+                return false;
+            }
             ((JavascriptExecutor) getDriver()).executeScript("document.getElementById('" + elementID + "').scrollIntoView();");
             return true;
         } catch (Exception e) {
             IWebInteract.log.info("Scroll into view failed for : {}", elementID);
+            refreshPage();
+            pauseSilent(1);
+            scrollIntoView(elementID,count-1);
         }
         return false;
     }
