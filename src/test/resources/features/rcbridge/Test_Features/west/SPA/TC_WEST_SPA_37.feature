@@ -114,5 +114,5 @@ Feature: SPA Business Testcases_OR
 
 
     Examples:
-      | site          | paperType     | TCName           |
+      | site       | paperType     | TCName           |
       | west uhn   | SPA           | TC_WEST_SPA_OR_37 |
