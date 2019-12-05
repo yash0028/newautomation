@@ -3,7 +3,6 @@
 @releaseUnknown
 @iterationUnknown
 Feature: TC_WEST_MGA_OR_67
-  @rerun
   @mga_west
   @leo
   @TC_WEST_MGA_OR_67
@@ -82,7 +81,6 @@ Feature: TC_WEST_MGA_OR_67
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 

@@ -198,18 +198,18 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         waitTillClickable(elements.viewtask);
         Assert.assertTrue(click("View Task", elements.viewtask));
         waitTillClickable(elements.claimtask);
-        scrollIntoView("claim-task");
+        scrollIntoView("claim-task",3);
         Assert.assertTrue(click("Claim Task", elements.claimtask));
         //DONT REMOVE THIS PAUSE
         pauseSilent(3);
         waitTillVisible(elements.comments);
-        scrollIntoView("comments");
+        scrollIntoView("comments",3);
         if (elements.comments.getAttribute("value").equals("")) {
             waitTillClickable(elements.comments);
             Assert.assertTrue(sendKeys("Comments", elements.comments, "Approved"));
         }
         waitTillClickable(elements.approve);
-        scrollIntoView("adf-form-approve");
+        scrollIntoView("adf-form-approve",3);
         Assert.assertTrue(click("Approve", elements.approve));
         waitTillVisible(elements.detectapproval);
         Assert.assertTrue(waitTillVisible(elements.confirmApproval));
@@ -354,6 +354,12 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         Actions actions = new Actions(getDriver());
         actions.clickAndHold(elements.amendmentsWindow).pause(1).moveToElement(elements.fullWindow).release().build().perform();
         waitTillClickable(elements.amendentTitleBar);
+        for(int count =0; count<3;count++){
+            if(!elements.amendentTitleBar.getAttribute("value").equals("")){
+                    break;
+            }
+            pauseSilent(1);
+        }
         elements.amendentTitleBar.clear();
         Assert.assertTrue(sendKeys("Entering amendment Title", elements.amendentTitleBar, hmap.get("Amendment Title")));
         Assert.assertTrue(click("Create Amendment Button", elements.getCreateAmendmentButton));
@@ -361,12 +367,18 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         Assert.assertTrue(waitForPageLoad());
     }
 
-    public boolean scrollIntoView(String elementID) {
+    public boolean scrollIntoView(String elementID,int count) {
         try {
+            if(count<=0){
+                return false;
+            }
             ((JavascriptExecutor) getDriver()).executeScript("document.getElementById('" + elementID + "').scrollIntoView();");
             return true;
         } catch (Exception e) {
             IWebInteract.log.info("Scroll into view failed for : {}", elementID);
+            refreshPage();
+            pauseSilent(1);
+            scrollIntoView(elementID,count-1);
         }
         return false;
     }

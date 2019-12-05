@@ -37,10 +37,7 @@ Feature: PAT Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-
-
-    #Final Capture process
-
+    #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -56,6 +53,9 @@ Feature: PAT Business Testcases_IN
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+
+    And I capture Contract Number
+
 
     #Activate
     And I Set Status as Active

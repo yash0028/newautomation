@@ -65,7 +65,27 @@ public class Appendix2 extends GenericInputPage {
     }
 
     public void productsExcludedFromAgreement(HashMap<String, String> hmap) {
-        Question = "Which of the following products will be excluded in Appendix";
+        if (hmap.containsKey("Exclude Product in Amendment")) {
+            Assert.assertTrue(click("Exclude Product in Appendix 2", getXPath(hmap.get("Exclude Product in Amendment"))));
+        }
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
+    }
+
+
+    public void SelectAppedix1(String option) {
+        waitForPageLoad();
+        if (getDriver().findElement(By.xpath("//label[@class='QuestionText']/b")).isDisplayed()) {
+            click("Will additional manuals apply?", getXPath(option));
+            Assert.assertTrue(clickNext());
+            waitForPageLoad();
+        }
+
+
+    }
+
+    public void enterAppendix2FC(HashMap<String, String> hmap) {
+        Question = "Which of the following products will be excluded in Appendix 2";
         if (hmap.containsKey("Exclude Product in Amendment")) {
             String[] products = hmap.get("Exclude Product in Amendment").split("//");
             for (String product : products) {
@@ -87,23 +107,6 @@ public class Appendix2 extends GenericInputPage {
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
-    }
-
-
-    public void SelectAppedix1(String option) {
-        waitForPageLoad();
-        if (getDriver().findElement(By.xpath("//label[@class='QuestionText']/b")).isDisplayed()) {
-            click("Will additional manuals apply?", getXPath(option));
-            Assert.assertTrue(clickNext());
-            waitForPageLoad();
-        }
-
-
-    }
-
-    public void enterAppendix2FC() {
-        Assert.assertTrue(clickNext());
-        Assert.assertTrue(waitForPageLoad());
     }
 
     public WebElement getXPath(String answer) {
