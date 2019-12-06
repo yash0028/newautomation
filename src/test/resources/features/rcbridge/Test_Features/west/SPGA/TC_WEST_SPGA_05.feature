@@ -8,7 +8,7 @@ Feature: SPGA Business Testcases_OR
   @Manual
   @User_Interface 
   @UAT_AUTO 
-  @UAT_AUTO_WEST
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_CEN_SPGA_IN_05 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -59,6 +59,24 @@ Feature: SPGA Business Testcases_OR
 
     
     #NDB Checking
+    
+		
+    
+    Examples:    
+       | site          | paperType     | TCName|  				 
+       | west uhn   | SPGA          | TC_WEST_SPGA_OR_05|
+       
+  
+  @TC_WEST_SPA_OR_05
+  @Manual
+  @User_Interface 
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: TC_CEN_SPGA_IN_05 - [RL0] Author SPGA contract in <site>  
+	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+  
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
+   
     #Draft Amandament
     And I select the contract
     And I click on Create Amendment
@@ -108,4 +126,3 @@ Feature: SPGA Business Testcases_OR
        | site          | paperType     | TCName|  				 
        | west uhn   | SPGA          | TC_WEST_SPGA_OR_05|
        
-    
