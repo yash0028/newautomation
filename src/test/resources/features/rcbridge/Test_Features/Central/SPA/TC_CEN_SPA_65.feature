@@ -6,8 +6,8 @@ Feature: SPA Business Testcases_IN
   @TC_CEN_SPA_IN_65
   @Manual
   @User_Interface
-  @UAT_AUTO_CENTRAL
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -36,7 +36,7 @@ Feature: SPA Business Testcases_IN
 
      #Non Std approval process
 
-     #Final capture
+    #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -55,8 +55,22 @@ Feature: SPA Business Testcases_IN
 
     #Activate
     And I Set Status as Active
+	And I capture Contract Number
+   
+    Examples:
+      | site          | paperType     | TCName           |
+      | central uhn   | SPA           | TC_CEN_SPA_IN_65 |
+      
+  @TC_CEN_SPA_IN_65
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
-     #NDB Check
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    
      #Draft Amendment
     #When I am logged into Exari Dev
     #And I search Contract using Contract Number
@@ -73,10 +87,8 @@ Feature: SPA Business Testcases_IN
     And I select fee schedule id in Amendments
     And I enter Group Summary
     And I Complete Wizard
-
-
-
-    #Amendment Final Capture
+	
+	#Amendment Final Capture
 
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -92,9 +104,6 @@ Feature: SPA Business Testcases_IN
    #Activating Amendment
     And I Set Status as Active in Amendment
    #NDB Checking
-
-
-
 
     Examples:
       | site          | paperType     | TCName           |

@@ -6,10 +6,9 @@ Feature: SPA Business Testcases_IN
   @W2_TC_CEN_SPA_IL_01
   @Manual
   @User_Interface
-  @UAT_AUTO_CENTRAL
   @UAT_AUTO
   @UAT_WAVE2_SPA
-
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -53,24 +52,35 @@ Feature: SPA Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-
-    And I capture Contract Number
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
 
 
      #CMD Check
-   #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
+     #When I have entered the CMD dashboard URL
+     #And The dashboard page loads
+     #Then I search for Contract
+     #Then Validate Contract status and request type
 
 
+    Examples:
+      | site          | paperType     | TCName           |
+      | central uhn   | SPA           | W2_TC_CEN_SPA_IL_01 |
+      
+      
+      
+  @W2_TC_CEN_SPA_IL_01
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
-
-     #NDB Check
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     #Draft Amendment
-   #When I am logged into Exari Dev
+    #When I am logged into Exari Dev
     #And I search Contract using Contract Number
     And I select the contract
     And I click on Create Amendment
@@ -91,11 +101,7 @@ Feature: SPA Business Testcases_IN
     And I check Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
-
-
-
-
-
+    
     #Amendment Final Capture
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -109,22 +115,11 @@ Feature: SPA Business Testcases_IN
     And I enter Group Summary
     And I Complete Wizard
 
-
-
-
     #Activating Amendment
     And I Set Status as Active in Amendment
 
     #Amendment CMD Check
     #Cosmos Check
-
-
-
-
-
-
-
-
 
 
     Examples:

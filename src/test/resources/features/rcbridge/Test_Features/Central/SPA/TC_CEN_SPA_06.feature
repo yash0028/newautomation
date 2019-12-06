@@ -6,8 +6,8 @@ Feature: SPA Business Testcases_IN
   @TC_CEN_SPA_IN_06
   @Manual
   @User_Interface
-  @UAT_AUTO_CENTRAL
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -50,10 +50,10 @@ Feature: SPA Business Testcases_IN
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    # And I capture Contract Number
+   
     #Activate
     And I Set Status as Active
-
+		And I capture Contract Number
 
      #CMD Check
     #When I have entered the CMD dashboard URL

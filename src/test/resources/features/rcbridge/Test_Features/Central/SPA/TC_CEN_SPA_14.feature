@@ -6,8 +6,8 @@ Feature: SPA Business Testcases_IN
   @TC_CEN_SPA_IN_14
   @Manual
   @User_Interface
-  @UAT_AUTO_CENTRAL
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -50,20 +50,35 @@ Feature: SPA Business Testcases_IN
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-   #And I capture Contract Number
+   
     #Activate
     And I Set Status as Active
-
+	And I capture Contract Number
 
      #CMD Check
-   # When I have entered the CMD dashboard URL
+    # When I have entered the CMD dashboard URL
     #And The dashboard page loads
     #Then I search for Contract
     #Then Validate Contract status and request type
+	 #NDB Check
+   
 
 
+    Examples:
+      | site          | paperType     | TCName           |
+      | central uhn   | SPA           | TC_CEN_SPA_IN_14 |
+      
+  
+  @TC_CEN_SPA_IN_14
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
-      #NDB Check
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    
     #Draft Amendment
 
     #When I am logged into Exari Dev
@@ -81,8 +96,6 @@ Feature: SPA Business Testcases_IN
     And I select fee schedule id in Amendments
     And I enter Group Summary
     And I Complete Wizard
-
-
 
     #Amendment Final Capture
 

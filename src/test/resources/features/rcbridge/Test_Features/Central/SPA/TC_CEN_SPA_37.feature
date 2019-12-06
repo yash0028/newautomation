@@ -7,6 +7,7 @@ Feature: SPA Business Testcases_IN
   @Manual
   @User_Interface
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -54,7 +55,7 @@ Feature: SPA Business Testcases_IN
 
     #Activate
     And I Set Status as Active
-
+	And I capture Contract Number
 
      #CMD Check
     #When I have entered the CMD dashboard URL
@@ -63,19 +64,23 @@ Feature: SPA Business Testcases_IN
     #Then Validate Contract status and request type
 
 
+    Examples:
+      | site          | paperType     | TCName           |
+      | central uhn   | SPA           | TC_CEN_SPA_IN_37 |
+      
+      
+  @TC_CEN_SPA_IN_37
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
-
-
-
-    #NDB Check
-     #Medcare product check
-     #COSMOS Check
-     #Medicare NDB check
-
-   #Draft Amendment(Remove Navigate,add ANB)
-
-
-    And I select the contract
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    #Draft Amendment(Remove Navigate,add ANB)
+	
+	And I select the contract
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
@@ -93,7 +98,7 @@ Feature: SPA Business Testcases_IN
     And I enter Group Summary
     And I Complete Wizard
 
-      #Amandment final capture
+    #Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
@@ -107,7 +112,7 @@ Feature: SPA Business Testcases_IN
     And I Complete Wizard
 
 
- #Activating Amendment
+ 	#Activating Amendment
     And I Set Status as Active in Amendment
    #Amendment CMD Checking
 
