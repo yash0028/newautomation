@@ -9,6 +9,7 @@ Feature: PAT Business Testcases_AR
   @Manual
   @User_Interface
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_SE_PAT_AR_04 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -53,10 +54,22 @@ Feature: PAT Business Testcases_AR
     And I enter Group Summary
     Then I Complete Wizard
 
-    And I capture Contract Number
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
+    Examples:
+      | site            | paperType     | TCName         |
+      | southeast uhn   | PAT           | TC_SE_PAT_AR_04|
 
+  @TC_SE_PAT_AR_04
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: TC_SE_PAT_AR_04 - [RL0] Amend PAT contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
 
      #CMD Check
     #When I have entered the CMD dashboard URL
@@ -108,6 +121,6 @@ Feature: PAT Business Testcases_AR
 
 
     Examples:
-      | site          | paperType     | TCName|
-      | southeast uhn   | PAT          | TC_SE_PAT_AR_04|
+      | site            | paperType     | TCName         |
+      | southeast uhn   | PAT           | TC_SE_PAT_AR_04|
 
