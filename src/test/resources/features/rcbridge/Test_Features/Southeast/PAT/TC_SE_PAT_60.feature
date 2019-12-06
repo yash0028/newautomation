@@ -8,6 +8,7 @@ Feature: PAT Business Testcases_AR
   @Manual
   @User_Interface
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_SE_PAT_AR_60 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -65,11 +66,12 @@ Feature: PAT Business Testcases_AR
 
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
 
     #CMD Check
     #NDB check
 
     Examples:
-      | site          | paperType     | TCName|
-      | southeast uhn   | PAT          | TC_SE_PAT_AR_60|
+      | site            | paperType     | TCName         |
+      | southeast uhn   | PAT           | TC_SE_PAT_AR_60|
 
