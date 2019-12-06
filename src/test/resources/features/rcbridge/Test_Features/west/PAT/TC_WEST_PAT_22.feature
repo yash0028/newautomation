@@ -9,6 +9,7 @@
   @Manual
   @User_Interface
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_WEST_PAT_OR_22 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -54,10 +55,10 @@
     And I enter Group Summary
     Then I Complete Wizard
 
-    And I capture Contract Number
+    
     #Activate
     And I Set Status as Active
-
+	And I capture Contract Number
 
      #CMD Check
     #When I have entered the CMD dashboard URL
@@ -67,7 +68,21 @@
 
     #NDB Check
 
+    Examples:
+      | site          | paperType     | TCName|
+      | west uhn   | PAT         | TC_WEST_PAT_OR_22|
 
+  
+  @TC_WEST_PAT_OR_22
+  @Manual
+  @User_Interface
+  @UAT_AUTO
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: TC_WEST_PAT_OR_22 - [RL0] Author PAT contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
     #Draft Amandament
     And I select the contract
     And I click on Create Amendment
@@ -112,4 +127,3 @@
     Examples:
       | site          | paperType     | TCName|
       | west uhn   | PAT         | TC_WEST_PAT_OR_22|
-
