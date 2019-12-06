@@ -7,6 +7,7 @@ Feature: SPA Business Testcases_IN
   @Manual
   @User_Interface
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -52,7 +53,7 @@ Feature: SPA Business Testcases_IN
 
     #Activate
     And I Set Status as Active
-
+	And I capture Contract Number
 
      #CMD Check
     #When I have entered the CMD dashboard URL
@@ -62,14 +63,21 @@ Feature: SPA Business Testcases_IN
 
 
 
+    Examples:
+      | site          | paperType     | TCName           |
+      | central uhn   | SPA           | W2_TC_CEN_SPA_MN_37|
+      
+      
+  @W2_TC_CEN_SPA_MN_37
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
-
-
-    #NDB Check
-     #Medcare product check
-     #COSMOS Check
-     #Medicare NDB check
-
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+   
    #Draft Amendment(Remove Navigate,add ANB)
 
     #When I am logged into Exari Dev

@@ -6,8 +6,8 @@ Feature: US1407217
   @TC_CEN_SPA_IN_70
   @Manual
   @User_Interface
-  @UAT_AUTO_CENTRAL
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
@@ -32,9 +32,9 @@ Feature: US1407217
     And I enter Group Summary
     Then I Complete Wizard
 
-  #Non Std approval process
+    #Non Std approval process
 
-     #Final capture
+    #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -53,7 +53,7 @@ Feature: US1407217
 
      #Activate
     And I Set Status as Active
-
+	And I capture Contract Number
 
      #CMD Check
     #When I have entered the CMD dashboard URL
@@ -61,9 +61,24 @@ Feature: US1407217
     #Then I search for Contract
     #Then Validate Contract status and request type
 
+
+    Examples:
+      | site          | paperType     | TCName           |
+      | central uhn   | SPA           | TC_CEN_SPA_IN_70 |
+      
+      
+  
+  @TC_CEN_SPA_IN_70
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    
     #NDB Check
      #Draft Amendment
-   #When I am logged into Exari Dev
+    #When I am logged into Exari Dev
     #And I search Contract using Contract Number
     And I select the contract
     And I click on Create Amendment
