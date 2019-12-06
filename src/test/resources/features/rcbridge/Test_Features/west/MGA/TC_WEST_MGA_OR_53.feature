@@ -8,6 +8,7 @@ Feature: TC_WEST_MGA_OR_53
   @TC_WEST_MGA_OR_53
   @Manual
   @User_Interface
+  @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_WEST
   @UAT_AUTO
   Scenario Outline: TC_WEST_MGA_OR_53 - [RL0] Author <paperType> contract in <site>
@@ -55,7 +56,23 @@ Feature: TC_WEST_MGA_OR_53
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+    #Activate
     And I Set Status as Active
+    And I capture Contract Number
+    Examples:
+      | site          | paperType     | TCName            |
+      | west uhn      | MGA           | TC_WEST_MGA_OR_53 |
+
+  @TC_WEST_MGA_OR_53
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: TC_WEST_MGA_OR_53 - [RL0] Amend <paperType> contract in <site>
+
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
+
     #CMD Checking
     #NDB Checking
     #Amendment-Fee Schedule

@@ -6,6 +6,7 @@ Feature: W2_TC_CEN_MGA_IN_81
   @W2_TC_CEN_MGA_IN_81
   @Manual
   @User_Interface
+  @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_CENTRAL
   @UAT_AUTO
   @W2_CEN_MGA
@@ -54,7 +55,9 @@ Feature: W2_TC_CEN_MGA_IN_81
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+    #Activate
     And I Set Status as Active
+    And I capture Contract Number
     #CMD Checking
     #NDB Checking
 

@@ -8,14 +8,13 @@ Feature: PAT Business Testcases_IN
   @TC_CEN_PAT_IN_55
   @Manual
   @User_Interface
-  @UAT_AUTO_CENTRAL
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION  
   Scenario Outline: TC_CEN_PAT_IN_55 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
-
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -36,13 +35,8 @@ Feature: PAT Business Testcases_IN
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-
-    #Workflow Approval at Local contract level
-
-    #Workflow Approval at Pricing level
-
-    #Final Capture process
-
+	
+	#Workflow
     And I Start Workflow
     And I Start Process for Initial Transaction
     #Approval
@@ -64,11 +58,29 @@ Feature: PAT Business Testcases_IN
 
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
+    
+	#CMD Check
+    #When I have entered the CMD dashboard URL
+    #And The dashboard page loads
+    #When I search for Contract
+    #Then Validate Contract status and request type
 
-    #CMD Check
 	#NDB Check
 
 
+    Examples:
+      | site          | paperType     | TCName|
+      | central uhn   | PAT          | TC_CEN_PAT_IN_55|
+
+  @TC_CEN_PAT_IN_55
+  @Manual
+  @User_Interface
+  @@UAT_AUTO_AMANDAMENT
+  Scenario Outline: TC_CEN_PAT_IN_55 - [RL0] Author PAT contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"    
     # Draft Amandments
     And I select the contract
     And I click on Create Amendment
@@ -104,7 +116,7 @@ Feature: PAT Business Testcases_IN
 
     #Activating Amendments
     And I Set Status as Active
-
+	
     #Amendment CMD Checking
 
 
@@ -112,4 +124,3 @@ Feature: PAT Business Testcases_IN
     Examples:
       | site          | paperType     | TCName|
       | central uhn   | PAT          | TC_CEN_PAT_IN_55|
-

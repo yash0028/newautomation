@@ -135,6 +135,7 @@ public class Amendements extends GenericInputPage {
         pause(1);
         waitForPageLoad(60);
         //Enter search term
+        elements.optstatetext.clear();
         sendKeys("dropdown textbox", this.elements.optstatetext, hmap.get("statecode"));
         pause(1);
         waitForPageLoad(60);
@@ -142,6 +143,7 @@ public class Amendements extends GenericInputPage {
         WebElement EL= selectOptionForstate(hmap.get("statecode"));
         EL.click();
 
+        elements.optzipcodeIL.clear();
         sendKeys("textbox", this.elements.optzipcodeIL, hmap.get("Opt_zipcode"));
         pause(1);
         waitForPageLoad(60);

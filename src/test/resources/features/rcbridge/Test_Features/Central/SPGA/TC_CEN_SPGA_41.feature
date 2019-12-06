@@ -8,6 +8,7 @@ Feature: SPGA Business Testcases_IN
   @Manual
   @User_Interface
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_CEN_SPGA_IN_41 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -60,7 +61,7 @@ Feature: SPGA Business Testcases_IN
     
     #Activate
     And I Set Status as Active
-    
+    And I capture Contract Number
     #CMD Check
 	#NDB Check
 	#Amandments.

@@ -1,3 +1,5 @@
+import courgette.api.CourgetteAfterAll;
+import courgette.api.CourgetteBeforeAll;
 import courgette.api.CourgetteOptions;
 import courgette.api.CourgetteRunLevel;
 import courgette.api.junit.Courgette;
@@ -33,5 +35,14 @@ import org.junit.runner.RunWith;
                 strict = true
         ))
 public class ParallelRunner {
+    @CourgetteBeforeAll
+    public static void setUp() {
+        System.out.println("I will run before any tests execute");
+    }
+    
+    @CourgetteAfterAll
+    public static void tearDown() {
+        System.out.println("I will run after all of the tests execute");
+    }
 }
 

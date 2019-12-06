@@ -7,9 +7,9 @@ Feature: SMGA Business Testcases_IN
   @W2_TC_CEN_SMGA_IN_03
   @Manual
   @User_Interface
-  @UAT_AUTO_CENTRAL
   @W2_CEN_SMGA
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: W2_TC_CEN_SMGA_IN_03 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -63,8 +63,21 @@ Feature: SMGA Business Testcases_IN
     #When I search for Contract
     #Then Validate Contract "71926900" status and request type "InstallContract"
 
-    #NDB Checking
+    Examples:
+      | site          | paperType     | TCName|
+      | central uhn   | SMGA          | W2_TC_CEN_SMGA_IN_03|
 
+  
+  @W2_TC_CEN_SMGA_IN_03
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: W2_TC_CEN_SMGA_IN_03 - [RL0] Author SPGA contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    
 	#Draft Amandament
     And I select the contract
     And I click on Create Amendment
@@ -109,4 +122,3 @@ Feature: SMGA Business Testcases_IN
     Examples:
       | site          | paperType     | TCName|
       | central uhn   | SMGA          | W2_TC_CEN_SMGA_IN_03|
-

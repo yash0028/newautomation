@@ -78,5 +78,5 @@ Feature: SPA Business Testcases_OR
     Then I Complete Wizard
 
     Examples:
-      | site          | paperType     | TCName           |
+      | site       | paperType     | TCName           |
       | west uhn   | SPA           | TC_WEST_SPA_OR_06 |

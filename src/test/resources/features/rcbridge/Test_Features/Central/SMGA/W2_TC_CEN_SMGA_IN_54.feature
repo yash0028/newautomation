@@ -7,10 +7,9 @@ Feature: SMGA Business Testcases_IN
   @W2_TC_CEN_SMGA_IN_54
   @Manual
   @User_Interface
-  @UAT_Automation
-  @UAT_AUTO_CENTRAL
   @W2_CEN_SMGA
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: W2_TC_CEN_SMGA_IN_54 - [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -67,13 +66,22 @@ Feature: SMGA Business Testcases_IN
 #    When I search for Contract
 #    Then Validate Contract "11122328" status and request type "InstallContract"
 
-    
-    #NDB Check
-    
-    #Add provider with Make a correction - USING MPIN and TIN
-
-    
-   	#Add Medicare Amandment
+    Examples:
+      | site          | paperType     | TCName|
+      | central uhn   | SMGA          | W2_TC_CEN_SMGA_IN_54|
+      
+      
+  @W2_TC_CEN_SMGA_IN_54
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: W2_TC_CEN_SMGA_IN_54 - [RL0] Author SMGA contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+  
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+        
+   	#Add MedicareAmandment
     And I select the contract
     And I click on Create Amendment
     And I enter title
@@ -109,7 +117,6 @@ Feature: SMGA Business Testcases_IN
     And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
-
 
     Examples:
       | site          | paperType     | TCName|
