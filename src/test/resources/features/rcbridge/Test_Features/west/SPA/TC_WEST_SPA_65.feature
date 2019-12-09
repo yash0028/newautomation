@@ -7,6 +7,7 @@ Feature: SPA Business Testcases_OR
   @Manual
   @User_Interface
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -57,6 +58,20 @@ Feature: SPA Business Testcases_OR
 
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
+    Examples:
+      | site       | paperType     | TCName            |
+      | west uhn   | SPA           | TC_WEST_SPA_OR_65 |
+
+  @TC_WEST_SPA_OR_65
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
 
       #NDB Check
      #Draft Amendment
@@ -101,5 +116,5 @@ Feature: SPA Business Testcases_OR
 
 
     Examples:
-      | site       | paperType     | TCName           |
+      | site       | paperType     | TCName            |
       | west uhn   | SPA           | TC_WEST_SPA_OR_65 |
