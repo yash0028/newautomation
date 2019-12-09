@@ -7,6 +7,9 @@ Feature: SPA Business Testcases_IN
   @Manual
   @User_Interface
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
+  @UAT_AUTO_INITIAL_TRANSACTION_SPA
+
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
