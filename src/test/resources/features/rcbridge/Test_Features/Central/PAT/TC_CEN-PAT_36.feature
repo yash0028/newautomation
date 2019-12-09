@@ -58,7 +58,7 @@ Feature: PAT Business Testcases_IN
     #Activate
     And I Set Status as Active
 	And I capture Contract Number
-	
+
     Examples:
       | site          | paperType     | TCName|
       | central uhn   | PAT          | TC_CEN_PAT_IN_36|
@@ -71,7 +71,7 @@ Feature: PAT Business Testcases_IN
   Scenario Outline: TC_CEN_PAT_IN_36 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
-    
+
 	# Draft Amandaments
     And I select the contract
     And I click on Create Amendment
