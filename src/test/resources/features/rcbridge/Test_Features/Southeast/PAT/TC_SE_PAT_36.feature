@@ -11,6 +11,7 @@ Feature: PAT Business Testcases_AR
   @UAT_AUTO_SE
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT
   Scenario Outline: TC_SE_PAT_AR_36 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -35,7 +36,7 @@ Feature: PAT Business Testcases_AR
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    #And I enter Amendments
+    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 

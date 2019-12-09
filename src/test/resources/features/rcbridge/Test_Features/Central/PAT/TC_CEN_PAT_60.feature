@@ -9,6 +9,7 @@ Feature: PAT Business Testcases_IN
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION 
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT
   Scenario Outline: TC_CEN_PAT_IN_60 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

@@ -10,6 +10,7 @@ Feature: PAT Business Testcases_AR
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT
   Scenario Outline: TC_SE_PAT_AR_04 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -27,6 +28,7 @@ Feature: PAT Business Testcases_AR
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
