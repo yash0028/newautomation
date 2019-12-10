@@ -2,7 +2,7 @@
 @SMGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_IN
+Feature: TC_CEN_SMGA_IN_63
   
   @TC_CEN_SMGA_IN_63
   @Manual
@@ -89,6 +89,6 @@ Feature: SMGA Business Testcases_IN
   
     
     Examples:    
-       | site          | paperType     | TCName|
+       | site          | paperType     | TCName           |
        | central uhn   | SMGA          | TC_CEN_SMGA_IN_63|
     

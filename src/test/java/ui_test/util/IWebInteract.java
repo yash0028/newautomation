@@ -674,7 +674,7 @@ public interface IWebInteract {
 
     default WebElement waitForElementToAppear(WebDriver driver, final By by) {
         try {
-            //threadSleep(5000);
+            pauseSilent(1);
             log.info("Waiting for loader to Appear.");
             WebElement element = (new WebDriverWait(driver, 5))
                     .until(ExpectedConditions.presenceOfElementLocated(by));
