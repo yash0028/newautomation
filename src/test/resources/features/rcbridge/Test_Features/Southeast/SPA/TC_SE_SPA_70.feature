@@ -1,8 +1,8 @@
 # Last updated on
-@US1407217
+@SPABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: US1407217
+Feature: TC_SE_SPA_AR_70
   @TC_SE_SPA_AR_70
   @Manual
   @User_Interface
