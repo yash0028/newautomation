@@ -2,7 +2,7 @@
 @SMGABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_OR
+Feature: TC_WEST_SMGA_OR_26
   
   @TC_WEST_SMGA_OR_26
   @Manual
@@ -85,5 +85,5 @@ Feature: SMGA Business Testcases_OR
     
     Examples:    
        | site          | paperType     | TCName            |
-       | west uhnn     | SMGA          | TC_WEST_SMGA_OR_26|
+       | west uhn     | SMGA          | TC_WEST_SMGA_OR_26|
     
