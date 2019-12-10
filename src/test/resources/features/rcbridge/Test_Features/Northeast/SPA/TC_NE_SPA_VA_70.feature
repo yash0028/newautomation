@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-#Last updated on
-=======
->>>>>>> aa13be1d2081e870e7d7989630831e6f0a717873
 @SPABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown

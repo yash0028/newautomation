@@ -57,8 +57,9 @@ Feature: TC_SE_SPA_AR_01
     And I Set Status as Active
     And I capture Contract Number
     Examples:
-      | site            | paperType     | TCName          |
-      | southeast uhn   | SPA           | TC_SE_SPA_AR_01 |
+      | site          | paperType     | TCName          |
+      | southeast uhn | SPA           | TC_SE_SPA_AR_01 |
+
   @TC_SE_SPA_AR_01
   @Manual
   @User_Interface
@@ -121,5 +122,5 @@ Feature: TC_SE_SPA_AR_01
 
 
     Examples:
-      | site            | paperType     | TCName          |
-      | southeast uhn   | SPA           | TC_SE_SPA_AR_01 |
+      | site          | paperType     | TCName          |
+      | southeast uhn | SPA           | TC_SE_SPA_AR_01 |

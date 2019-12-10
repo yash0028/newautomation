@@ -57,8 +57,8 @@ Feature: TC_WEST_SPA_OR_19
     And I Set Status as Active
     And I capture Contract Number
     Examples:
-      | site       | paperType     | TCName            |
-      | west uhn   | SPA           | TC_WEST_SPA_OR_19 |
+      | site     | paperType     | TCName            |
+      | west uhn | SPA           | TC_WEST_SPA_OR_19 |
   @TC_WEST_SPA_OR_19
   @Manual
   @User_Interface
@@ -145,5 +145,5 @@ Feature: TC_WEST_SPA_OR_19
 
 
     Examples:
-      | site       | paperType     | TCName            |
-      | west uhn   | SPA           | TC_WEST_SPA_OR_19 |
+      | site     | paperType     | TCName            |
+      | west uhn | SPA           | TC_WEST_SPA_OR_19 |

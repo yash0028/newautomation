@@ -59,8 +59,8 @@ Feature: W2_TC_CEN_SPA_MN_70
     And I capture Contract Number
 
     Examples:
-      | site          | paperType     | TCName           |
-      | central uhn   | SPA           | W2_TC_CEN_SPA_MN_70 |
+      | site        | paperType     | TCName              |
+      | central uhn | SPA           | W2_TC_CEN_SPA_MN_70 |
 
      #CMD Check
     #When I have entered the CMD dashboard URL
@@ -138,5 +138,5 @@ Feature: W2_TC_CEN_SPA_MN_70
     Then I Complete Wizard
 
     Examples:
-      | site          | paperType     | TCName           |
-      | central uhn   | SPA           | W2_TC_CEN_SPA_MN_70 |
+      | site        | paperType     | TCName              |
+      | central uhn | SPA           | W2_TC_CEN_SPA_MN_70 |
