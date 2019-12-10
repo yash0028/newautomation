@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 #Last updated on
+=======
+>>>>>>> aa13be1d2081e870e7d7989630831e6f0a717873
 @SPABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_VA
+Feature: TC_NE_SPA_VA_19
   @TC_NE_SPA_VA_19
   @Manual
   @User_Interface
@@ -25,6 +28,7 @@ Feature: SPA Business Testcases_VA
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
