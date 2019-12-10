@@ -62,7 +62,7 @@ Feature: SPGA Business Testcases_OR
 
     Examples:    
        | site          | paperType     | TCName|  				 
-       | west uhn   | SPGA          | TC_WEST_SPA_OR_18|
+       | west uhn   | SPGA          | TC_WEST_SPGA_OR_18|
   
   @TC_WEST_SPGA_OR_18
   @Manual
@@ -109,5 +109,5 @@ Feature: SPGA Business Testcases_OR
     
     Examples:    
        | site          | paperType     | TCName|  				 
-       | west uhn   | SPGA          | TC_WEST_SPA_OR_18|   
+       | west uhn   | SPGA          | TC_WEST_SPGA_OR_18|   
     
