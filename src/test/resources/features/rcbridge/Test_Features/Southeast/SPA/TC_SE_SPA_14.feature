@@ -2,7 +2,7 @@
 @SPABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_AR
+Feature: TC_SE_SPA_AR_14
   @TC_SE_SPA_AR_14
   @Manual
   @User_Interface

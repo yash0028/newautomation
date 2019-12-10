@@ -2,7 +2,7 @@
 @SPABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: US1407217
+Feature: TC_WEST_SPA_OR_70
   @TC_WEST_SPA_OR_70
   @Manual
   @User_Interface
@@ -19,7 +19,7 @@ Feature: US1407217
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for PAT Contract
+    And I enter Practice Locations for SPA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid

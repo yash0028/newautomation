@@ -11,7 +11,7 @@ Feature: PAT Business Testcases_VA
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_PAT
-  @UAT_AUTO_NORTHEAST
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT_NORTHEAST
   Scenario Outline: TC_NE_PAT_VA_22 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

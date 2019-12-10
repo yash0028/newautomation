@@ -2,7 +2,7 @@
 @SPABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_OR
+Feature: TC_WEST_SPA_OR_65
   @TC_WEST_SPA_OR_65
   @Manual
   @User_Interface
@@ -20,7 +20,7 @@ Feature: SPA Business Testcases_OR
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for PAT Contract
+    And I enter Practice Locations for SPA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid

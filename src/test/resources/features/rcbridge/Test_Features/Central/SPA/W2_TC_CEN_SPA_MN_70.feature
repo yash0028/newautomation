@@ -1,8 +1,8 @@
 # Last updated on
-@US1407217
+@W2_TC_CEN_SPA_MN_70
 @releaseUnknown
 @iterationUnknown
-Feature: US1407217
+Feature: W2_TC_CEN_SPA_MN_70
   @W2_TC_CEN_SPA_MN_70
   @Manual
   @User_Interface

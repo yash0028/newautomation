@@ -26,6 +26,7 @@ Feature: SPGA Business Testcases_AR
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -57,7 +58,7 @@ Feature: SPGA Business Testcases_AR
     And I Set Status as Active
   	And I capture Contract Number
     Examples:    
-       | site          | paperType     | TCName|  				 
+       | site            | paperType     | TCName          |
        | southeast uhn   | SPGA          | TC_SE_SMGA_AR_03|
        
   
@@ -108,7 +109,7 @@ Feature: SPGA Business Testcases_AR
     And I Complete Wizard
 
     Examples:    
-       | site          | paperType     | TCName|  				 
+       | site            | paperType     | TCName          |
        | southeast uhn   | SPGA          | TC_SE_SMGA_AR_03|
 
     

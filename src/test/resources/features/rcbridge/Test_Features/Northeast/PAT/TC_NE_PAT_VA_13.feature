@@ -4,14 +4,14 @@
 @releaseUnknown
 @iterationUnknown
 Feature: PAT Business Testcases_VA
+
   @TC_NE_PAT_VA_13
   @Manual
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_PAT
-  @UAT_AUTO_NORTHEAST
-
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT_NORTHEAST
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

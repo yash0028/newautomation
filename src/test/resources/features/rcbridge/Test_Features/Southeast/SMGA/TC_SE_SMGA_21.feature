@@ -2,7 +2,7 @@
 @SMGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_AR
+Feature: TC_SE_SMGA_AR_21
   
   @TC_SE_SMGA_AR_21
   @Manual
@@ -26,6 +26,7 @@ Feature: SMGA Business Testcases_AR
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -83,6 +84,6 @@ Feature: SMGA Business Testcases_AR
 		
     
     Examples:    
-       | site          | paperType     | TCName|
-       | southeast uhn   | SMGA          | TC_SE_AR_IN_21|
+       | site            | paperType     | TCName          |
+       | southeast uhn   | SMGA          | TC_SE_SMGA_AR_21|
     

@@ -343,6 +343,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter Market Exception Grid in Final Capture$")
     public void MEGFinalCapture() {
+        basePage.getMarketExceptionGrid().checkForDuplicate();
         basePage.getMarketExceptionGrid().chooseTask(hmap, "Task");
 
     }
@@ -490,7 +491,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @When("^I am logged into Exari Dev$")
     public void I_am_Logged_intoExari() {
-        String url = configGetOptionalString("exari.devURL").orElse("");
+        String url = configGetOptionalString("exari.stageURL").orElse("");
         getDriver().get(url);
         basePage.waitForPageLoad();
     }

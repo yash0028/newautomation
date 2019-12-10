@@ -2,7 +2,7 @@
 @SMGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_IN
+Feature: W2_TC_CEN_SMGA_IN_40
 
   @W2_TC_CEN_SMGA_IN_40
   @Manual
