@@ -5,14 +5,14 @@
 @iterationUnknown
 Feature: PAT Business Testcases_VA
 
-  @TC_SE_PAT_VA_04
+  @TC_NE_PAT_VA_04
   @Manual
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_PAT
   @UAT_AUTO_INITIAL_TRANSACTION_PAT_NORTHEAST
-  Scenario Outline: TC_SE_PAT_VA_04 - [RL0] Author PAT contract in <site>
+  Scenario Outline: TC_NE_PAT_VA_04 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
