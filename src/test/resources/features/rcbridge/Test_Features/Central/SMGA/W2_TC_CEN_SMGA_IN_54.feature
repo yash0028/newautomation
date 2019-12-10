@@ -2,7 +2,7 @@
 @SMGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_IN
+Feature: W2_TC_CEN_SMGA_IN_54
 
   @W2_TC_CEN_SMGA_IN_54
   @Manual
@@ -67,7 +67,7 @@ Feature: SMGA Business Testcases_IN
 #    Then Validate Contract "11122328" status and request type "InstallContract"
 
     Examples:
-      | site          | paperType     | TCName|
+      | site          | paperType     | TCName              |
       | central uhn   | SMGA          | W2_TC_CEN_SMGA_IN_54|
       
       
@@ -119,6 +119,6 @@ Feature: SMGA Business Testcases_IN
     And I Complete Wizard
 
     Examples:
-      | site          | paperType     | TCName|
+      | site          | paperType     | TCName              |
       | central uhn   | SMGA          | W2_TC_CEN_SMGA_IN_54|
     

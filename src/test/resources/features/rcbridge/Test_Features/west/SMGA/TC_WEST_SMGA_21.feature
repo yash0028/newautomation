@@ -2,7 +2,7 @@
 @SMGABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_OR
+Feature: TC_WEST_SMGA_OR_21
   
   @TC_WEST_SMGA_OR_21
   @Manual

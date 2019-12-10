@@ -2,7 +2,7 @@
 @SMGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_AR
+Feature: TC_SE_SMGA_AR_59
   
   @TC_SE_SMGA_AR_59
   @Manual
@@ -13,7 +13,7 @@ Feature: SMGA Business Testcases_AR
 	Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -28,6 +28,7 @@ Feature: SMGA Business Testcases_AR
     And I enter HBPs Red Door
     And I enter Market Strategy Grid
     And I enter Appendix 2
+    And I enter Appendix 1
     And I enter Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
@@ -95,6 +96,6 @@ Feature: SMGA Business Testcases_AR
 		
     
     Examples:    
-       | site          | paperType     | TCName|
+       | site            | paperType     | TCName          |
        | southeast uhn   | SMGA          | TC_SE_SMGA_AR_59|
     

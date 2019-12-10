@@ -2,7 +2,7 @@
 @SMGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_IN
+Feature: W2_TC_CEN_SMGA_IN_08 (USED OLD DATA)
 
   @W2_TC_CEN_SMGA_IN_08
   @Manual
@@ -88,5 +88,5 @@ Feature: SMGA Business Testcases_IN
 
 
     Examples:
-      | site          | paperType     | TCName|
+      | site          | paperType     | TCName              |
       | central uhn   | SMGA          | W2_TC_CEN_SMGA_IN_08|
