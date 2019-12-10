@@ -2,7 +2,7 @@
 @SPABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_IN
+Feature: W2_TC_CEN_SPA_IL_06
   @W2_TC_CEN_SPA_IL_06
   @Manual
   @User_Interface

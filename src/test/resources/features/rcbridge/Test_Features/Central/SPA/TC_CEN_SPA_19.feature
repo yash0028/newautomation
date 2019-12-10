@@ -2,7 +2,7 @@
 @SPABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_IN
+Feature: TC_CEN_SPA_IN_19
   @TC_CEN_SPA_IN_19
   @Manual
   @User_Interface
@@ -54,7 +54,7 @@ Feature: SPA Business Testcases_IN
 
     #Activate
     And I Set Status as Active
-		And I capture Contract Number
+    And I capture Contract Number
 
      #CMD Check
     #When I have entered the CMD dashboard URL

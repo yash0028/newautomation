@@ -2,7 +2,7 @@
 @SPABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: US1407217
+Feature: TC_WEST_SPA_OR_70
   @TC_WEST_SPA_OR_70
   @Manual
   @User_Interface
