@@ -14,7 +14,7 @@ Feature: SPGA Business Testcases_AR
   
     #Draft
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
-    And I enter PES Inputs
+       And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
@@ -26,6 +26,7 @@ Feature: SPGA Business Testcases_AR
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
