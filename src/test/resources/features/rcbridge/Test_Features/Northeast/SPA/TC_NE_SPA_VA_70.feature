@@ -2,7 +2,7 @@ Last updated on
 @SPABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_VA
+Feature: TC_NE_SPA_VA_70
   @TC_NE_SPA_VA_70
   @Manual
   @User_Interface
