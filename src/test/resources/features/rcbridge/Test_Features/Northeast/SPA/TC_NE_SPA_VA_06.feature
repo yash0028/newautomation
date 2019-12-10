@@ -1,9 +1,9 @@
-# Last updated on
-@SPABusinessTestcases_AR
+Last updated on
+@SPABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_AR
-  @TC_SE_SPA_AR_57
+Feature: SPA Business Testcases_VA
+  @TC_NE_SPA_VA_06
   @Manual
   @User_Interface
   @UAT_AUTO
@@ -12,10 +12,10 @@ Feature: SPA Business Testcases_AR
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
-    #Draft
+     #Draft
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-    And I enter PES Responses
+    And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
@@ -25,7 +25,6 @@ Feature: SPA Business Testcases_AR
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
-    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -36,10 +35,9 @@ Feature: SPA Business Testcases_AR
     And I enter Group Summary
     Then I Complete Wizard
 
-
-    #Non Std approval process
      #Final capture
-
+    And I Start Workflow
+    And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -57,29 +55,16 @@ Feature: SPA Business Testcases_AR
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    Examples:
-      | site            | paperType     | TCName          |
-      | southeast uhn   | SPA           | TC_SE_SPA_AR_57 |
 
-  @TC_SE_SPA_AR_57
-  @Manual
-  @User_Interface
-  @UAT_AUTO_AMANDAMENT
-  Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-
-    #Draft
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
-
-      #CMD Check
-   #When I have entered the CMD dashboard URL
+     #CMD Check
+    #When I have entered the CMD dashboard URL
+    #When I search for Contract
     #And The dashboard page loads
-    #Then I search for Contract
     #Then Validate Contract status and request type
 
-     #NDB Check
+    #NDB Check
 
-     #Make a correction - Add a new TIN to the existing provider in the Roster.
+    #Make a correction - Add a new TIN to the existing provider in the Roster.
     #When I am logged into Exari Dev
     #And I search Contract using Contract Number
     And I click Make Correction
@@ -95,7 +80,7 @@ Feature: SPA Business Testcases_AR
     Then I Complete Wizard
 
 
-
     Examples:
-      | site            | paperType     | TCName          |
-      | southeast uhn   | SPA           | TC_SE_SPA_AR_57 |
+      | site          | paperType     | TCName           |
+      | northeast uhn   | SPA           | TC_NE_SPA_VA_06 |
+      

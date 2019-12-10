@@ -1,24 +1,30 @@
 # Last updated on
-@US1407217
+# Author commercial with 1 ALD group and 1 Mid-level PAT contract, execute and load contract, verify contract fed_Standard_Fee schedule change
+@PATBusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: US1407217
-  @TC_SE_SPA_AR_70
+Feature: PAT Business Testcases_VA
+  @TC_NE_PAT_VA_13
   @Manual
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  @UAT_AUTO_INITIAL_TRANSACTION_SPA
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT
+  @UAT_AUTO_NORTHEAST
+
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+
     And I enter PES Inputs
-    And I enter PES Responses
+    And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SPA Contract
+    And I enter Practice Locations for PAT Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -29,15 +35,14 @@ Feature: US1407217
     And I enter Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
-    And  I select Provider Roster as None
+    And I select Provider Roster as None
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 
-  #Non Std approval process
-
      #Final capture
-
+    And I Start Workflow
+    And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -52,26 +57,33 @@ Feature: US1407217
     And I enter Group Summary
     Then I Complete Wizard
 
-     #Activate
+    #Activate
     And I Set Status as Active
     And I capture Contract Number
     Examples:
-      | site            | paperType     | TCName          |
-      | southeast uhn   | SPA           | TC_SE_SPA_AR_70 |
+      | site            | paperType     | TCName           |
+      | northeast uhn   | PAT           | TC_NE_PAT_VA_13  |
 
-  @TC_SE_SPA_AR_70
+  @TC_NE_PAT_VA_13
   @Manual
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+
+     #CMD Check
+    #When I have entered the CMD dashboard URL
+    #When I search for Contract
+    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
 
 
-    #NDB Check
-     #Draft Amendment
-   #When I am logged into Exari Dev
-    #And I search Contract using Contract Number
+
+      #NDB Check
+    #Draft Amendment
+
     And I select the contract
     And I click on Create Amendment
     And I enter title
@@ -84,17 +96,15 @@ Feature: US1407217
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
+    And I enter Payment Appendix in Amendments for PAT contracts
     And I check Payment Appendix
     And I enter Additional Manuals
     And I enter Steerage
-    And I enter Payment Appendix in Amendments for SPA contracts
-    And I check Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
 
 
-
-    #Amendment Final Capture
+    #Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
@@ -107,24 +117,12 @@ Feature: US1407217
     And I enter Group Summary
     And I Complete Wizard
 
-
-    #Activating Amendment
+     #Activating Amendment
     And I Set Status as Active in Amendment
+    #Amendment CMD Check
+    #NDB Check
 
-    #Amendment CMD Checking
-   #COSMOS Check
-
-     #Make a correction - Terminating TIN
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I set Roster Action as Cancel
-    And I select provider and cancel date
-    And I enter cancel reason
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
 
     Examples:
-      | site            | paperType     | TCName          |
-      | southeast uhn   | SPA           | TC_SE_SPA_AR_70 |
+      | site            | paperType     | TCName           |
+      | northeast uhn   | PAT           | TC_NE_PAT_VA_13  |
