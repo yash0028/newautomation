@@ -7,6 +7,8 @@ Feature: SPGA Business Testcases_IN
   @W2_TC_CEN_SPGA_MN_56
   @Manual
   @User_Interface
+  @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_CENTRAL
   @W2_CEN_SPGA
   Scenario Outline: W2_TC_CEN_SPGA_MN_56 - [RL0] Author SPGA contract in <site>
@@ -71,6 +73,20 @@ Feature: SPGA Business Testcases_IN
     #CMD Check
 	#NDB Check
 	#Make a Correction - Add a new TIN to the existing provider in the Roster.
+
+    Examples:
+      | site          | paperType     | TCName|
+      | central uhn   | SPGA          | W2_TC_CEN_SPGA_MN_56|
+
+
+  @W2_TC_CEN_SPGA_MN_56
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+
+  Scenario Outline: W2_TC_CEN_SPGA_MN_56 - [RL0] Author SPGA contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
 
     # Draft Amandments
     And I select the contract
