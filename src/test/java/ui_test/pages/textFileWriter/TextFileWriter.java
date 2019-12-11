@@ -19,4 +19,16 @@ public class TextFileWriter {
         }
     }
 
+    public void writeInCSVFile(String filename, HashMap<String, String> hmap) {
+        System.out.println("Filename is: " + filename);
+        try {
+            File statText = new File(filename);
+            BufferedWriter out = new BufferedWriter(new FileWriter(statText, true));
+            out.append(hmap.get("commonName") + "," + hmap.get("Contract Number").replaceAll("\\s+", "") + "," + hmap.get("Contract Link") + "," +hmap.get("Tier")+ "\n");
+            out.close();
+        } catch (IOException e) {
+            System.err.println("Problem writing to the file");
+        }
+    }
+
 }

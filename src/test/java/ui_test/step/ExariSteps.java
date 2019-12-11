@@ -26,12 +26,14 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.Map;
 
 public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster, IContractFlowLoader {
     private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
     private static final String DEFAULT_FLOW = "eif-basic-contract.json";
     String home = System.getProperty("user.dir");
     Path contractDetailsTextFile = Paths.get(home, "src", "test", "resources", "support", "hive", "textFiles", "contractDetails.txt");
+    Path contractNumberCSVFile = Paths.get(home, "src", "test", "resources", "support", "hive", "csvFiles", "contractNumberFile.csv");
     Path contractFlowPath = Paths.get(home, "src", "test", "resources", "support", "hive", "dataMap");
     private ProtoStep protoStep;
     private BasePage basePage;
@@ -42,6 +44,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
 
     public static HashMap<String, String> hmap = null;
+    public static Map<String, String> dataMap = null;
 
     @Given("^I am using the \"([^\"]*)\" flow$")
     public void prepareEIF(String fileName) {
@@ -224,7 +227,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @Then("^I Complete Wizard$")
     public void WizardComplete() {
-        basePage.getWizardComplete().completeWizard();
+        basePage.getWizardComplete().completeWizard(hmap);
     }
 
     @When("^I author a contract using the following contract information$")
@@ -457,7 +460,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("I capture Contract Number")
     public void iCaptureContractNumber() {
-        basePage.getContractDetailsDashboard().captureContractNumber(hmap, contractDetailsTextFile.toString());
+        basePage.getContractDetailsDashboard().captureContractNumber(hmap, contractDetailsTextFile.toString(),contractNumberCSVFile.toString());
     }
 
     @And("I create supporting document")
@@ -468,7 +471,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("I review supporting document")
     public void reviewSupportingDocuments() {
         basePage.getSupportingDocumentSummary().reviewSupportingDocument();
-        basePage.getWizardComplete().completeWizard();
+        basePage.getWizardComplete().completeWizard(hmap);
     }
 
 
@@ -677,8 +680,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("I enter Opt-out in Amendments")
     public void iEnterOptOutInAmendments() {
         basePage.getAmendements().enterOptOut(hmap);
-
-
     }
 
     @And("I enter Opt-out in Amendments finalcapture")
@@ -766,4 +767,22 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void iEnterPayment() {
         basePage.getPayment().negotiateRateEscalator(hmap);
     }
+
+    @Given("^I am logged into Exari Dev as a valid user and launch contract using \"([^\"]*)\"")
+    public void loginPage(String testCase) {
+        Path CSVpath = Paths.get(contractNumberCSVFile.toString());
+        initializeObj();
+        CSVReader csvReader = new CSVReader();
+        System.out.println(CSVpath);
+//        String contractLink =  csvReader.readContractLink(CSVpath.toString(),testCase);
+        this.dataMap = csvReader.readContractDetails(CSVpath.toString(),testCase);
+        this.protoStep.loginHomeByContractLink(dataMap.get("Contract Link").toString());
+    }
+
+    @And("I add contract data in hash map")
+    public void addContractDataInHashMap() {
+        CSVReader csvReader = new CSVReader();
+        csvReader.putDataInHmap(hmap,dataMap);
+    }
+
 }
