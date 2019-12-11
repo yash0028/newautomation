@@ -8,13 +8,13 @@ Feature: SPGA Business Testcases_OR
   @Manual
   @User_Interface
   @UAT_AUTO
-  @UAT_AUTO_WEST
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_WEST_SPGA_OR_69 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
     And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
-    And I enter PES Inputs
+ 	And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
@@ -26,6 +26,7 @@ Feature: SPGA Business Testcases_OR
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -59,10 +60,27 @@ Feature: SPGA Business Testcases_OR
     
     #Activate
     And I Set Status as Active    
+    And I capture Contract Number
     
     #CMD Check
 	#NDB Check
 
+    
+    Examples:    
+       | site          | paperType     | TCName|  				 
+       | west uhn   | SPGA          | TC_WEST_SPGA_OR_69|
+       
+    
+  @TC_WEST_SPGA_OR_69
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: TC_WEST_SPGA_OR_69 - [RL0] Author SPGA contract in <site>  
+	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+  
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
+    
     #Amandments sectio - Fee Schedule
     And I select the contract
     And I click on Create Amendment
@@ -102,5 +120,3 @@ Feature: SPGA Business Testcases_OR
     Examples:    
        | site          | paperType     | TCName|  				 
        | west uhn   | SPGA          | TC_WEST_SPGA_OR_69|
-       
-    

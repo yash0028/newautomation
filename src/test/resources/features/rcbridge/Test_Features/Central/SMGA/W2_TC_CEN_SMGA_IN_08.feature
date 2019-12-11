@@ -2,14 +2,13 @@
 @SMGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_IN
+Feature: W2_TC_CEN_SMGA_IN_08 (USED OLD DATA)
 
   @W2_TC_CEN_SMGA_IN_08
   @Manual
   @User_Interface
-  @UAT_Automation_Batch1
-  @UAT_AUTO_CENTRAL
-  Scenario Outline: W2_TC_CEN_SMGA_IN_08 - [RL0] Author SMGA contract in <site>
+  @UAT_AUTO_INITIAL_TRANSACTION
+   Scenario Outline: W2_TC_CEN_SMGA_IN_08 - [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
@@ -89,5 +88,5 @@ Feature: SMGA Business Testcases_IN
 
 
     Examples:
-      | site          | paperType     | TCName|
+      | site          | paperType     | TCName              |
       | central uhn   | SMGA          | W2_TC_CEN_SMGA_IN_08|

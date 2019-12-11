@@ -8,6 +8,8 @@ Feature: PAT Business Testcases_OR
   @Manual
   @User_Interface
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -52,22 +54,34 @@ Feature: PAT Business Testcases_OR
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
-    And I capture Contract Number
+    
     #Activate
     And I Set Status as Active
-
+	And I capture Contract Number
 
      #CMD Check
     #When I have entered the CMD dashboard URL
     #When I search for Contract
     #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
 
+    Examples:
+      | site          | paperType     | TCName           |
+      | west uhn   | PAT           | TC_WEST_PAT_OR_13 |
+      
+      
+      
+  
+  @TC_WEST_PAT_OR_13
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT  
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
 
-      #NDB Check
     #Draft Amendment
-
     And I select the contract
     And I click on Create Amendment
     And I enter title

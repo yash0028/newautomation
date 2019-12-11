@@ -9,6 +9,7 @@ Feature: TC_CEN_MGA_IN_80
   @TC_CEN_MGA_IN_80
   @Manual
   @User_Interface
+  @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_CENTRAL
   @UAT_AUTO
   Scenario Outline: TC_CEN_MGA_IN_80 - [RL0] Author <paperType> contract in <site>
@@ -57,7 +58,9 @@ Feature: TC_CEN_MGA_IN_80
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+    #Activate
     And I Set Status as Active
+    And I capture Contract Number
     #CMD Checking
     #NDB Checking
     #Make Correction - Provider Roster (Cancel one or more providers from the roster)

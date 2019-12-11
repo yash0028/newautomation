@@ -6,6 +6,7 @@ Feature: W2_TC_CEN_MGA_IN_71
   @W2_TC_CEN_MGA_IN_71
   @Manual
   @User_Interface
+  @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_CENTRAL
   @UAT_AUTO
   @W2_CEN_MGA
@@ -55,7 +56,23 @@ Feature: W2_TC_CEN_MGA_IN_71
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+    #Activate
     And I Set Status as Active
+    And I capture Contract Number
+    Examples:
+      | site          | paperType     | TCName              |
+      | central uhn   | MGA           | W2_TC_CEN_MGA_IN_71 |
+
+  @W2_TC_CEN_MGA_IN_71
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: W2_TC_CEN_MGA_IN_71 - [RL0] Author <paperType> contract in <site>
+
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+
     #CMD Checking
     #NDB Checking
     #Amendment-Fee Schedule
@@ -114,5 +131,5 @@ Feature: W2_TC_CEN_MGA_IN_71
     #CMD Checking
     #NDB Checking
     Examples:
-      | site          | paperType     | TCName           |
+      | site          | paperType     | TCName              |
       | central uhn   | MGA           | W2_TC_CEN_MGA_IN_71 |

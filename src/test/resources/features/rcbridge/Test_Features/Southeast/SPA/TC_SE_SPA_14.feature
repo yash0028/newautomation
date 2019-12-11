@@ -2,11 +2,13 @@
 @SPABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_AR
+Feature: TC_SE_SPA_AR_14
   @TC_SE_SPA_AR_14
   @Manual
   @User_Interface
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
+  @UAT_AUTO_INITIAL_TRANSACTION_SPA
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -23,6 +25,7 @@ Feature: SPA Business Testcases_AR
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -52,6 +55,20 @@ Feature: SPA Business Testcases_AR
 
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
+    Examples:
+      | site            | paperType     | TCName          |
+      | southeast uhn   | SPA           | TC_SE_SPA_IN_14 |
+
+  @TC_SE_SPA_AR_14
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
 
   #CMD Check
    #When I have entered the CMD dashboard URL
@@ -105,5 +122,5 @@ Feature: SPA Business Testcases_AR
 
 
     Examples:
-      | site          | paperType     | TCName           |
+      | site            | paperType     | TCName          |
       | southeast uhn   | SPA           | TC_SE_SPA_IN_14 |

@@ -2,12 +2,13 @@
 @SPABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_IN
+Feature: TC_CEN_SPA_IN_01
  @TC_CEN_SPA_IN_01
  @Manual
  @User_Interface
- @UAT_AUTO_CENTRAL
  @UAT_AUTO
+ @UAT_AUTO_INITIAL_TRANSACTION
+ @UAT_AUTO_INITIAL_TRANSACTION_SPA
  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
   Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -51,78 +52,67 @@ Feature: SPA Business Testcases_IN
   And I enter Group Summary
   Then I Complete Wizard
 
-
-  And I capture Contract Number
-    #Activate
+	#Activate
   And I Set Status as Active
+	And I capture Contract Number
 
 
-     #CMD Check
-   #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
+  Examples:
+      | site          | paperType     | TCName           |
+      | central uhn   | SPA           | TC_CEN_SPA_IN_01 |
+      
+ 
+ @TC_CEN_SPA_IN_01
+ @Manual
+ @User_Interface
+ @UAT_AUTO_AMANDAMENT
+ Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+  	Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
-
-
-
-     #NDB Check
-    #Draft Amendment
-   #When I am logged into Exari Dev
-    #And I search Contract using Contract Number
-  And I select the contract
-  And I click on Create Amendment
-  And I enter title
-  And I enter Amendment Selection
-  And I select Amendments needed in Amendment Selection
-  And I select Amendment Type in Provider Details
-  And I select Types of Amendments
-  And I select Contract Applied in Amendments
-  And I enter Contract Details in Amendments
-  And I enter Effective date in Contract Details
-  And I enter Appendix 2 in Amendments
-  And I select applied Payment Appendix
-  And I check Payment Appendix
-  And I enter Additional Manuals
-  And I enter Steerage
-  And I enter Payment Appendix in Amendments for SPA contracts
-  And I check Payment Appendix
-  And I enter Group Summary
-  And I Complete Wizard
-
-
-
-
+	   #Draft
+	  And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+	 
+	  #Draft Amendment
+	  #When I am logged into Exari Dev
+	  #And I search Contract using Contract Number
+	  And I select the contract
+	  And I click on Create Amendment
+	  And I enter title
+	  And I enter Amendment Selection
+	  And I select Amendments needed in Amendment Selection
+	  And I select Amendment Type in Provider Details
+	  And I select Types of Amendments
+	  And I select Contract Applied in Amendments
+	  And I enter Contract Details in Amendments
+	  And I enter Effective date in Contract Details
+	  And I enter Appendix 2 in Amendments
+	  And I select applied Payment Appendix
+	  And I check Payment Appendix
+	  And I enter Additional Manuals
+	  And I enter Steerage
+	  And I enter Payment Appendix in Amendments for SPA contracts
+	  And I check Payment Appendix
+	  And I enter Group Summary
+	  And I Complete Wizard
 
     #Amendment Final Capture
-  And I Start Workflow
-  And I Start Process for Initial Transaction
-  And I Set Status as Final Pending QA in Amendment
-  And I Start Final Capture
-  And I enter Provider Signatory in Amendment
-  And I enter Our Signatory in Amendment
-  And I enter Appendix 2 in Amendments FinalCapture
-  And I enter Payment Appendix in Amendments FinalCapture
-  And I select Provider Roster as None
-  And I enter Group Summary
-  And I Complete Wizard
-
-
-
-
-    #Activating Amendment
-  And I Set Status as Active in Amendment
+	  And I Start Workflow
+	  And I Start Process for Initial Transaction
+	  And I Set Status as Final Pending QA in Amendment
+	  And I Start Final Capture
+	  And I enter Provider Signatory in Amendment
+	  And I enter Our Signatory in Amendment
+	  And I enter Appendix 2 in Amendments FinalCapture
+	  And I enter Payment Appendix in Amendments FinalCapture
+	  And I select Provider Roster as None
+	  And I enter Group Summary
+	  And I Complete Wizard
+	  
+	  #Activating Amendment
+  	And I Set Status as Active in Amendment
 
     #Amendment CMD Check
     #Cosmos Check
-
-
-
-
-
-
-
-
 
 
   Examples:

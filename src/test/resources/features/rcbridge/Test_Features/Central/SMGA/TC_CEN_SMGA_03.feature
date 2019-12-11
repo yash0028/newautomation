@@ -2,16 +2,16 @@
 @SMGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_IN
+Feature: TC_CEN_SMGA_IN_03
   
   @TC_CEN_SMGA_IN_03
   @Manual
-  @User_Interface
-  @UAT_AUTO_CENTRAL
+  @User_Interface  
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_CEN_SMGA_IN_03 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-
+	 
     #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
@@ -63,8 +63,23 @@ Feature: SMGA Business Testcases_IN
     #Then Validate Contract "71926900" status and request type "InstallContract"
     
     #NDB Checking 
-	
-	#Draft Amandament
+	  
+    Examples:    
+       | site          | paperType     | TCName           |
+       | central uhn   | SMGA          | TC_CEN_SMGA_IN_03|
+       
+  
+  @TC_CEN_SMGA_IN_03
+  @Manual
+  @User_Interface  
+ 	@UAT_AUTO_AMANDAMENT
+  Scenario Outline: TC_CEN_SMGA_IN_03 - [RL0] Author SPGA contract in <site>  
+	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+   
+		#Draft Amandament
     And I select the contract
     And I click on Create Amendment
     And I enter title
@@ -87,7 +102,7 @@ Feature: SMGA Business Testcases_IN
     And I enter Group Summary
     And I Complete Wizard
 	
-	#Amandment final capture
+	  #Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
@@ -100,13 +115,12 @@ Feature: SMGA Business Testcases_IN
     And I enter Group Summary
     And I Complete Wizard
 		
-	
-	#Amendment CMD Checking
-		
+	  #Amendment CMD Checking
+	 	
 		
     
     Examples:    
-       | site          | paperType     | TCName|  				 
+       | site          | paperType     | TCName           |
        | central uhn   | SMGA          | TC_CEN_SMGA_IN_03|
 
     

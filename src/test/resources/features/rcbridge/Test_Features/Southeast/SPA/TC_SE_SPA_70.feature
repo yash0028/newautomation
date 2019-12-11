@@ -1,12 +1,14 @@
 # Last updated on
-@US1407217
+@SPABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: US1407217
+Feature: TC_SE_SPA_AR_70
   @TC_SE_SPA_AR_70
   @Manual
   @User_Interface
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
+  @UAT_AUTO_INITIAL_TRANSACTION_SPA
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
@@ -21,6 +23,7 @@ Feature: US1407217
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -51,8 +54,18 @@ Feature: US1407217
 
      #Activate
     And I Set Status as Active
+    And I capture Contract Number
+    Examples:
+      | site            | paperType     | TCName          |
+      | southeast uhn   | SPA           | TC_SE_SPA_AR_70 |
 
-
+  @TC_SE_SPA_AR_70
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
 
 
     #NDB Check
@@ -113,5 +126,5 @@ Feature: US1407217
     Then I Complete Wizard
 
     Examples:
-      | site          | paperType     | TCName           |
+      | site            | paperType     | TCName          |
       | southeast uhn   | SPA           | TC_SE_SPA_AR_70 |

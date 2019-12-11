@@ -2,12 +2,13 @@
 @SMGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_AR
+Feature: TC_SE_SMGA_AR_63
   
   @TC_SE_SMGA_AR_63
   @Manual
   @User_Interface
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_SE_SMGA_AR_63 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -25,6 +26,7 @@ Feature: SMGA Business Testcases_AR
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -65,11 +67,12 @@ Feature: SMGA Business Testcases_AR
     
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
     
-    #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
-    Then Validate Contract "11122328" status and request type "InstallContract"
+#    #CMD Check
+#    When I have entered the CMD dashboard URL
+#    When I search for Contract
+#    Then Validate Contract "11122328" status and request type "InstallContract"
 
     #NDB Check
     
@@ -87,6 +90,6 @@ Feature: SMGA Business Testcases_AR
   
     
     Examples:    
-       | site          | paperType     | TCName|
+       | site            | paperType     | TCName          |
        | southeast uhn   | SMGA          | TC_SE_SMGA_AR_63|
     

@@ -8,14 +8,14 @@ Feature: SPGA Business Testcases_OR
   @Manual
   @User_Interface
   @UAT_AUTO
-  @UAT_AUTO_WEST
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_WEST_SPGA_OR_56 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
     And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
 
-    And I enter PES Inputs
+     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
@@ -27,6 +27,7 @@ Feature: SPGA Business Testcases_OR
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -35,7 +36,7 @@ Feature: SPGA Business Testcases_OR
     And I select Provider Roster as None
     #And I enter Amendments
     And I enter Group Summary
-    Then I Complete Wizard 
+    Then I Complete Wizard
     
 
     And I Start Workflow
@@ -63,10 +64,26 @@ Feature: SPGA Business Testcases_OR
     
     #Activate
     And I Set Status as Active
-    
+    And I capture Contract Number
     #CMD Check
 	#NDB Check
 	#Make a Correction - Add a new TIN to the existing provider in the Roster.
+
+     
+    Examples:    
+       | site          | paperType     | TCName|  				 
+       | west uhn   | SPGA          | TC_WEST_SPGA_OR_56|
+       
+  
+  @TC_WEST_SPGA_OR_56
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: TC_WEST_SPGA_OR_56 - [RL0] Author SPGA contract in <site>  
+	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+  
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
 
     # Draft Amandments
     And I select the contract
@@ -107,8 +124,8 @@ Feature: SPGA Business Testcases_OR
     #Activating Amendments
     And I Set Status as Active
     
+     
     Examples:    
        | site          | paperType     | TCName|  				 
        | west uhn   | SPGA          | TC_WEST_SPGA_OR_56|
        
-    

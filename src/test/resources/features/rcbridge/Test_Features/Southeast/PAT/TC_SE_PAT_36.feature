@@ -10,6 +10,8 @@ Feature: PAT Business Testcases_AR
   @User_Interface
   @UAT_AUTO_SE
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT
   Scenario Outline: TC_SE_PAT_AR_36 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -34,7 +36,7 @@ Feature: PAT Business Testcases_AR
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    #And I enter Amendments
+    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 
@@ -57,9 +59,22 @@ Feature: PAT Business Testcases_AR
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
+    Examples:
+      | site            | paperType     | TCName         |
+      | southeast uhn   | PAT           | TC_SE_PAT_AR_36|
+
+  @TC_SE_PAT_IN_36
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: TC_SE_PAT_AR_36 - [RL0] Amend PAT contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
 
     #CMD Check
 	#NDB Check
@@ -110,6 +125,6 @@ Feature: PAT Business Testcases_AR
 
 
     Examples:
-      | site          | paperType     | TCName|
-      | southeast uhn   | PAT          | TC_SE_PAT_AR_36|
+      | site            | paperType     | TCName         |
+      | southeast uhn   | PAT           | TC_SE_PAT_AR_36|
 

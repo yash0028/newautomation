@@ -2,12 +2,13 @@
 @SMGABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_OR  
+Feature: TC_WEST_SMGA_OR_78
   @TC_WEST_SMGA_OR_78
   @Manual
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_WEST
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_WEST_SMGA_OR_78 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -80,6 +81,6 @@ Feature: SMGA Business Testcases_OR
 		
     
     Examples:    
-       | site          | paperType     | TCName|
-       | west uhn   | SMGA          | TC_WEST_SMGA_OR_78|
+       | site          | paperType     | TCName            |
+       | west uhn      | SMGA          | TC_WEST_SMGA_OR_78|
     

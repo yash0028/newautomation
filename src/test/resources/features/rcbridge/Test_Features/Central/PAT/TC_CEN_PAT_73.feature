@@ -8,8 +8,9 @@ Feature: PAT Business Testcases_IN
   @TC_CEN_PAT_IN_73
   @Manual
   @User_Interface
-  @UAT_AUTO_CENTRAL
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION 
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT
   Scenario Outline: TC_CEN_PAT_IN_73 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -36,12 +37,8 @@ Feature: PAT Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-    #Workflow Approval at Local contract level
-
-    #Workflow Approval at Pricing level
-
-    #Final Capture process
-
+    #Workflow
+    
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Approve Payment Appendix
@@ -59,16 +56,27 @@ Feature: PAT Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-    And I capture Contract Number
 
     #Activate
     And I Set Status as Active
-
+    And I capture Contract Number
     #CMD Check
 	#NDB Check
+	
+    Examples:
+      | site          | paperType     | TCName|
+      | central uhn   | PAT          | TC_CEN_PAT_IN_73|
+      
+  
+  @TC_CEN_PAT_IN_73
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: TC_CEN_PAT_IN_73 - [RL0] Author PAT contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
-
-
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    
     # Draft Amandments
     And I select the contract
     And I click on Create Amendment

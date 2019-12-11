@@ -2,14 +2,13 @@
 @SMGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_IN
+Feature: TC_CEN_SMGA_IN_21
   
   @TC_CEN_SMGA_IN_21
   @Manual
   @User_Interface 
-  @UAT_Automation_Batch1 
-  @UAT_AUTO_CENTRAL
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_CEN_SMGA_IN_21 - [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -83,6 +82,6 @@ Feature: SMGA Business Testcases_IN
 		
     
     Examples:    
-       | site          | paperType     | TCName|
+       | site          | paperType     | TCName           |
        | central uhn   | SMGA          | TC_CEN_SMGA_IN_21|
     

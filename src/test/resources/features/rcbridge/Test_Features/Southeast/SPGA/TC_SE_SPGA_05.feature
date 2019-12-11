@@ -8,6 +8,7 @@ Feature: SPGA Business Testcases_AR
   @Manual
   @User_Interface  
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_SE_SPGA_AR_05 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -25,6 +26,7 @@ Feature: SPGA Business Testcases_AR
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter HBPs Red Door
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -53,11 +55,24 @@ Feature: SPGA Business Testcases_AR
     Then I Complete Wizard
     #Activate
     And I Set Status as Active
-
-
-
-    #NDB Checking
-
+	And I capture Contract Number
+		
+    
+    Examples:    
+       | site          | paperType     | TCName|  				 
+       | southeast uhn   | SPGA          | TC_SE_SPGA_AR_05|
+       
+       
+  
+  @TC_SE_SPGA_AR_05
+  @Manual
+  @User_Interface  
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: TC_SE_SPGA_AR_05 - [RL0] Author SPGA contract in <site>  
+	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+      #Draft
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+   
     #Draft Amandament
     And I select the contract
     And I click on Create Amendment

@@ -8,7 +8,7 @@ Feature: SPGA Business Testcases_OR
   @Manual
   @User_Interface 
   @UAT_AUTO
-  @UAT_AUTO_WEST
+	@UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_WEST_SPGA_OR_74 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -37,14 +37,14 @@ Feature: SPGA Business Testcases_OR
     And I enter Group Summary
     Then I Complete Wizard
     
-  #Workflow Approval at Local contract level
+    #Workflow Approval at Local contract level
     #Workflow approval atprocing level
     
     #Final Capture process
 
     And I Start Workflow
     And I Start Process for Initial Transaction
-          #Approval
+    #Approval
     And I Approve Payment Appendix
 
     And I Set Status as Final Pending QA
@@ -63,7 +63,8 @@ Feature: SPGA Business Testcases_OR
     
     #Activate
     And I Set Status as Active    
-    
+    And I capture Contract Number
+     
     #CMD Check
 		#NDB Check
 		#Make a Correction - Add a new TIN to the existing provider in the Roster.

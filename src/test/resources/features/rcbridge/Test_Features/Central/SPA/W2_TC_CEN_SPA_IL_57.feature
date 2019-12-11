@@ -2,12 +2,14 @@
 @SPABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPA Business Testcases_IN
+Feature: W2_TC_CEN_SPA_IL_57
   @W2_TC_CEN_SPA_IL_57
   @Manual
   @User_Interface
   @UAT_AUTO_CENTRAL
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION
+  @UAT_AUTO_INITIAL_TRANSACTION_SPA
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -56,7 +58,7 @@ Feature: SPA Business Testcases_IN
 
     #Activate
     And I Set Status as Active
-
+    And I capture Contract Number
 
      #CMD Check
     #When I have entered the CMD dashboard URL

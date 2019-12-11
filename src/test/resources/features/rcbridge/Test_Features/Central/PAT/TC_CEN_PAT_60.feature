@@ -7,8 +7,9 @@ Feature: PAT Business Testcases_IN
   @TC_CEN_PAT_IN_60
   @Manual
   @User_Interface
-  @UAT_AUTO_CENTRAL
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION 
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT
   Scenario Outline: TC_CEN_PAT_IN_60 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -35,13 +36,8 @@ Feature: PAT Business Testcases_IN
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-
-    #Workflow Approval at Local contract level
-
-    #Workflow Approval at Pricing level
-
-    #Final Capture process
-
+    
+    #start workflow
     And I Start Workflow
     #check for Tier Approvals
     And I Start Process for Initial Transaction
@@ -65,7 +61,7 @@ Feature: PAT Business Testcases_IN
 
     #Activate
     And I Set Status as Active
-
+	And I capture Contract Number
     #CMD Check
 	#NDB Check
 
