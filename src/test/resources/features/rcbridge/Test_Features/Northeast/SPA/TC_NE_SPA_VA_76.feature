@@ -1,12 +1,12 @@
-#Last updated on
-
+# Last updated on
 @SPABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: TC_NE_SPA_VA_57
-  @TC_NE_SPA_VA_57
+Feature: TC_NE_SPA_VA_76
+  @TC_NE_SPA_VA_76
   @Manual
   @User_Interface
+  @UAT_AUTO_CENTRAL
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
@@ -36,6 +36,7 @@ Feature: TC_NE_SPA_VA_57
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
+
 
 
     #Non Std approval process
@@ -68,22 +69,8 @@ Feature: TC_NE_SPA_VA_57
 
     #NDB Check
 
-     #Make a correction - Add a new TIN to the existing provider in the Roster.
-    #When I am logged into Exari Dev
-    #And I search Contract using Contract Number
-    #And I click Make Correction
-    #And I enter Market Exception Grid in Make Correction
-    #And I enter Market Exception Grid
-    #And I set Roster Action as Upload
-    #And I Download Current Roster
-    #And I Upload Completed Roster
-    #And I enter warning in Make Correction
-    #And I enter validation
-    #And I acknowledge the warning
-    #And I enter Group Summary
-   # Then I Complete Wizard
+
 
     Examples:
       | site          | paperType     | TCName           |
-      | northeast uhn   | SPA           | TC_NE_SPA_VA_57 |
-      
+      |northeast uhn   | SPA           | TC_NE_SPA_VA_76 |

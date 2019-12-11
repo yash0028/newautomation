@@ -62,6 +62,13 @@ Feature: TC_CEN_SPA_IN_37
       | site          | paperType     | TCName           |
       | central uhn   | SPA           | TC_CEN_SPA_IN_37 |
 
+     #CMD Check
+    #When I have entered the CMD dashboard URL
+    #And The dashboard page loads
+    #Then I search for Contract
+    #Then Validate Contract status and request type
+
+
   @TC_CEN_SPA_IN_37
   @Manual
   @User_Interface
@@ -72,17 +79,7 @@ Feature: TC_CEN_SPA_IN_37
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
-
-     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
-
-
-
-
-
+    
 
     #NDB Check
      #Medcare product check
