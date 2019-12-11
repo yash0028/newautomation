@@ -59,19 +59,19 @@ Feature: TC_SE_SMGA_AR_08
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    
+
     #CMD Check
-    And I have entered the CMD dashboard URL
-    And I am on the CMD dashboard
-    And The dashboard page loads
-    And I search for Contract
+#    And I have entered the CMD dashboard URL
+#    And I am on the CMD dashboard
+#    And The dashboard page loads
+#    And I search for Contract
     #Then Validate Contract details
     
     #NDB Check
     
     #Make a correction - Add a new TIN to the existing provider in the Roster.
-    When I am logged into Exari Dev
-    And I search Contract using Contract Number    
+#    When I am logged into Exari Dev
+#    And I search Contract using Contract Number
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
