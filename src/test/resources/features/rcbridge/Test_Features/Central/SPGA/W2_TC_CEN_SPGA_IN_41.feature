@@ -8,7 +8,6 @@ Feature: SPGA Business Testcases_IN
   @Manual
   @User_Interface
   @UAT_AUTO
-  @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_CENTRAL
   @W2_CEN_SPGA
   Scenario Outline: W2_TC_CEN_SPGA_IN_41 - [RL0] Author SPGA contract in <site>
