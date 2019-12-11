@@ -119,8 +119,6 @@ public class ProtoStep implements IConfigurable {
 //            }
             throw e;
         }
-
-
     }
 
     public ProtoStep setSite() {
@@ -219,6 +217,21 @@ public class ProtoStep implements IConfigurable {
 //        }
 //
         return true;
+    }
+
+    public ProtoStep loginHomeByContractLink(String url) {
+        long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
+        try {
+            driver.get(url);
+            log.info(driver.getTitle());
+            LoginSSOPage loginPage = new LoginSSOPage(driver);
+            Assert.assertTrue(loginPage.confirmCurrentPage());
+            Assert.assertTrue(loginPage.login());
+            dashboardPage = loginPage.getHomePage();
+            return this;
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     /*

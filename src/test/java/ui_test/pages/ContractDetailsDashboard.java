@@ -310,18 +310,18 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         Assert.assertTrue(waitForPageLoad(60));
     }
 
-    public void captureContractNumber(HashMap<String, String> hmap, String filepath) {
+    public void captureContractNumber(HashMap<String, String> hmap, String textFilepath, String csvFilepath) {
         String contractDetails = elements.contractSummary.getText();
         IWebInteract.log.info("Contract Details : {}", contractDetails);
         hmap.put("Contract Number", contractDetails.substring(contractDetails.lastIndexOf('-') + 1));
         IWebInteract.log.info("Contract Number is: {}", hmap.get("Contract Number"));
-        textFileWriter.writeInFile(filepath, hmap);
-
+        textFileWriter.writeInFile(textFilepath, hmap);
+        textFileWriter.writeInCSVFile(csvFilepath,hmap);
     }
 
     public void clickForContractSummary() {
         Assert.assertTrue(click("Open Contract Summary Page", elements.clickToContractSummary));
-        Assert.assertTrue(click("Initial Transaction", elements.initialTransaction));
+//        Assert.assertTrue(click("Initial Transaction", elements.initialTransaction));
 
     }
 
@@ -363,7 +363,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         elements.amendentTitleBar.clear();
         Assert.assertTrue(sendKeys("Entering amendment Title", elements.amendentTitleBar, hmap.get("Amendment Title")));
         Assert.assertTrue(click("Create Amendment Button", elements.getCreateAmendmentButton));
-        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        waitForElementToDissapear(getDriver(), elements.messageElem);
         Assert.assertTrue(waitForPageLoad());
     }
 
@@ -510,6 +510,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         public WebElement openActiveWorkFlow;
         @FindBy(xpath = "//input[@name='USER']")
         public WebElement textBoxUsername;
+        @FindBy(xpath = "//*[@id='message']")
+        public WebElement messageElem;
 
         private String error = "//div[contains(@class,'alf-error-header')]";
         private String spinner = "//mat-progress-spinner";

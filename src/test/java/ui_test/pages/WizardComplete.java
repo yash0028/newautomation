@@ -19,7 +19,7 @@ public class WizardComplete extends GenericInputPage {
         this.elements = new PageElements(driver);
     }
 
-    public void completeWizard() {
+    public void completeWizard(HashMap<String, String> hmap) {
         waitTillClickable(elements.completeWizardElement, 10);
         //dont remove this pause
         pauseSilent(1);
@@ -50,6 +50,7 @@ public class WizardComplete extends GenericInputPage {
         waitForPageLoad(30);
         confirmDashboard();
         IWebInteract.log.info("Contract Link : {}", getDriver().getCurrentUrl());
+        hmap.put("Contract Link",getDriver().getCurrentUrl());
     }
 
     public void confirmDashboard() {
