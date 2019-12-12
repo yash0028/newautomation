@@ -67,16 +67,10 @@ Feature: TC_CEN_MGA_IN_71
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   Scenario Outline: TC_CEN_MGA_IN_71 - [RL0] Amend <paperType> contract in <site>
-
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    #Draft
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
-
-    #CMD Checking
-    #NDB Checking
-    #Amendment-Fee Schedule
-      #Draft
-    And I select the contract
+    And I select the contract   
+    
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
@@ -97,6 +91,7 @@ Feature: TC_CEN_MGA_IN_71
     And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
+    
     #Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -112,9 +107,23 @@ Feature: TC_CEN_MGA_IN_71
 
     #Activating Amendment
     And I Set Status as Active in Amendment
-    #CMD Checking
-    #Check Cosmos
-    #NDB Checking
+    
+    Examples:
+      | site          | paperType     | TCName           |
+      | central uhn   | MGA           | TC_CEN_MGA_IN_71 |
+      
+  
+  @TC_CEN_MGA_IN_71
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+  Scenario Outline: TC_CEN_MGA_IN_71 - [RL0] Amend <paperType> contract in <site>
+
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I select the contract   
+    
     ##Make Correction - Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
@@ -127,6 +136,7 @@ Feature: TC_CEN_MGA_IN_71
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+    
     #CMD Checking
     #NDB Checking
     Examples:
