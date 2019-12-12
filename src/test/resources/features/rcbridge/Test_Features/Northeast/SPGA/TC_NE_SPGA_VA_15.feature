@@ -13,7 +13,7 @@ Feature: SPGA Business Testcases_VA
   Scenario Outline: TC_NE_SPGA_VA_15 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_NE_VA_10.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -33,7 +33,7 @@ Feature: SPGA Business Testcases_VA
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    #And I enter Amendments
+    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 

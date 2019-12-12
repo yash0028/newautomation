@@ -123,6 +123,23 @@ Feature: TC_CEN_SPA_IN_70
     #Amendment CMD Checking
    #COSMOS Check
 
+   
+
+    Examples:
+      | site          | paperType     | TCName           |
+      | central uhn   | SPA           | TC_CEN_SPA_IN_70 |
+      
+      
+  @TC_CEN_SPA_IN_70
+  @Manual
+  @User_Interface
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+   
+  	 Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    
      #Make a correction - Terminating TIN
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
