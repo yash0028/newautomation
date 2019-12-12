@@ -183,5 +183,6 @@ public class CSVReader {
                 hmap.put(mapElement.getKey(),mapElement.getValue());
             }
         }
+        IWebInteract.log.info("[TEST DATA]\r\n{}", displayImap(hmap));
     }
 }
