@@ -66,7 +66,7 @@ Feature: TC_CEN_MGA_IN_53
   @TC_CEN_MGA_IN_53
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
   Scenario Outline: TC_CEN_MGA_IN_53 - [RL0] Amend <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
