@@ -71,10 +71,9 @@ Feature: TC_NE_MGA_VA_71
   @UAT_AUTO_AMANDAMENT
   Scenario Outline: TC_NE_MGA_VA_71 - [RL0] Amend <paperType> contract in <site>
 
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    #Draft
-    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
-
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I add contract data in hash map
     #CMD Checking
     #NDB Checking
     #Amendment-Fee Schedule
