@@ -76,7 +76,6 @@
   Scenario Outline: TC_CEN_PAT_IN_64 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
-    And I add contract data in hash map
 
     # Draft Amandments
     And I select the contract

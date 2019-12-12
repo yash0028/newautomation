@@ -10,6 +10,7 @@ Feature: SPGA Business Testcases_IN
   @UAT_AUTO_CENTRAL
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
+  @SPGA_INITIAL
    Scenario Outline: TC_CEN_SPGA_IN_18 [RL0] Author SPGA contract in <site>
 
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
