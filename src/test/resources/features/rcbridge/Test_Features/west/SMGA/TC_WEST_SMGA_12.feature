@@ -65,10 +65,19 @@ Feature: TC_WEST_SMGA_OR_12
     #When I search for Contract
     #Then Validate Contract "11122328" status and request type "InstallContract"
 
+    Examples:    
+       | site          | paperType     | TCName            |
+       | west uhn      | SMGA          | TC_WEST_SMGA_OR_12|
     
-    #NDB Check
-    
-    #Add provider with Make a correction.   
+  
+  @TC_WEST_SMGA_OR_12
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+  Scenario Outline: TC_WEST_SMGA_OR_12 - [RL0] Author SMGA contract in <site>  
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+ 	And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
     
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction

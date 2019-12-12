@@ -67,9 +67,24 @@ Feature: TC_WEST_SPA_OR_57
     #Then I search for Contract
     #Then Validate Contract status and request type
 
-    #NDB Check
 
-   #Make a correction - Add a new TIN to the existing provider in the Roster.
+
+    Examples:
+      | site       | paperType     | TCName           |
+      | west uhn   | SPA           | TC_WEST_SPA_OR_57 |
+      
+      
+      
+  @TC_WEST_SPA_OR_57
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+   
+    #Make a correction - Add a new TIN to the existing provider in the Roster.
     #When I am logged into Exari Dev
     #And I search Contract using Contract Number
     And I click Make Correction

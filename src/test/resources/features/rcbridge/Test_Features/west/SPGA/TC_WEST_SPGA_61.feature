@@ -65,9 +65,22 @@ Feature: SPGA Business Testcases_OR
     And I Set Status as Active
     And I capture Contract Number
     
-    #CMD Check
-		#NDB Check
-		#Make a Correction - Add a new TIN to the existing provider in the Roster.
+
+    Examples:    
+       | site          | paperType     | TCName|  				 
+       | west uhn   | SPGA          | TC_WEST_SPGA_OR_61|
+       
+    
+    
+  @TC_WEST_SPGA_OR_61
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+  Scenario Outline: TC_WEST_SPGA_OR_61 - [RL0] Author SPGA contract in <site>  
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
+    
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
@@ -80,12 +93,8 @@ Feature: SPGA Business Testcases_OR
     And I enter Group Summary
     Then I Complete Wizard
     
-    #Create supporting document 
-    #CMD Check
-    #NDB check
     
     Examples:    
        | site          | paperType     | TCName|  				 
        | west uhn   | SPGA          | TC_WEST_SPGA_OR_61|
        
-    
