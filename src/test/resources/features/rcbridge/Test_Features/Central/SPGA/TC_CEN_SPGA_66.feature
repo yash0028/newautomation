@@ -61,12 +61,22 @@ Feature: SPGA Business Testcases_IN
     #Activate
     And I Set Status as Active    
     And I capture Contract Number
-    
-    #CMD Check
-	#NDB Check
-	#Make a Correction - Add a new TIN to the existing provider in the Roster.
+  
 	
-    And I click Make Correction
+    Examples:    
+       | site          | paperType     | TCName|  				 
+       | central uhn   | SPGA          | TC_CEN_SPGA_IN_66|
+   
+      
+  @TC_CEN_SPGA_IN_66
+  @Manual
+  @User_Interface 
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT 
+  Scenario Outline: TC_CEN_SPGA_IN_66 - [RL0] Author SPGA contract in <site>  
+	 
+		#Make a Correction - Add a new TIN to the existing provider in the Roster.
+	  And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
     And I add provider using TIN
