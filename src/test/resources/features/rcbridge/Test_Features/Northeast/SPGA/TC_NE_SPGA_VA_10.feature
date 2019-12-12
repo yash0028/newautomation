@@ -1,18 +1,18 @@
-# Last updated on 
-@SMGABusinessTestcases_VA
+# Last updated on
+@SPGABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_VA
-  
-  @TC_NE_SMGA_VA_63
+Feature: SPGA Business Testcases_VA
+
+  @TC_NE_SPGA_VA_10
   @Manual
+  @Murty
   @User_Interface
   @UAT_AUTO
   @Murty
-  @UAT_AUTO_INITIAL_TRANSACTION 
-  Scenario Outline: TC_NE_SMGA_VA_63 - [RL0] Author SMGA contract in <site>
-	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-  
+  @UAT_AUTO_INITIAL_TRANSACTION
+  Scenario Outline: TC_NE_SPGA_VA_10 - [RL0] Author SPGA contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
     And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
@@ -21,7 +21,7 @@ Feature: SMGA Business Testcases_VA
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SMGA Contract
+    And I enter Practice Locations for SPGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -34,24 +34,14 @@ Feature: SMGA Business Testcases_VA
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
+    #And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-    
-    #Non Std approval process
-    
-    #Workflow Approval Physician Local Contract Approver_13476" role
-    
-    #log in with your (User who creates contract need to have following roles in secure
-    
-    #Workflow Approval Physician Local Pricing Approver_13476" role  and click on sign in
-    
-    #Final capture    
+
+   #Final capture
+
     And I Start Workflow
     And I Start Process for Initial Transaction
-        #Approval
-    And I Approve Payment Appendix
-
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -61,43 +51,49 @@ Feature: SMGA Business Testcases_VA
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    
+
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    
-    Examples:    
-       | site          | paperType     | TCName|
-       | northeast uhn   | SMGA          | TC_NE_SMGA_VA_63|
-  
-  @TC_NE_SMGA_VA_63
+
+       Examples:    
+       | site            | paperType     | TCName|
+       | northeast uhn   | SPGA          | TC_NE_SPGA_VA_10|
+       
+       
+  @TC_NE_SPGA_VA_10
   @Manual
   @User_Interface
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
-  Scenario Outline: TC_NE_SMGA_VA_63 - [RL0] Author SMGA contract in <site>
-	
-	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
-    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
-    And I select the contract
-    
-    #Add provider with Make a correction
+  Scenario Outline: TC_NE_SPGA_VA_10 - [RL0] Author SPGA contract in <site>
+   
+   Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_NE_VA_10.csv" of "<site>" and paper type "<paperType>"
+    And I select the contract   
+
+    #Make a correction - Add a new TIN to the existing provider in the Roster.
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
-    And I enter Provider Start Date
-   	And I enter retro code in Provider Roster
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
     And I acknowledge the warning
     And I enter Group Summary
-    Then I Complete Wizard   
-      
+    Then I Complete Wizard
+
+    #Create supporting document
+
+
     Examples:    
-       | site          | paperType     | TCName|
-       | northeast uhn   | SMGA          | TC_NE_SMGA_VA_63|
+       | site            | paperType     | TCName|
+       | northeast uhn   | SPGA          | TC_NE_SPGA_VA_10|
+       
     

@@ -7,9 +7,9 @@ Feature: SMGA Business Testcases_ VA
   @TC_NE_SMGA_VA_54
   @Manual
   @User_Interface
-  @UAT_Automation 
-  @UAT_AUTO_NE
-  @UAT_AUTO_TESTING
+  @UAT_AUTO
+  @Murty
+  @UAT_AUTO_INITIAL_TRANSACTION 
   Scenario Outline: TC_NE_SMGA_VA_54 - [RL0] Author SMGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -39,7 +39,6 @@ Feature: SMGA Business Testcases_ VA
     Then I Complete Wizard
 
     #Final capture
-
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Approve Payment Appendix
@@ -61,17 +60,22 @@ Feature: SMGA Business Testcases_ VA
     And I Set Status as Active
     And I capture Contract Number
 
-    #CMD Check
-#    When I have entered the CMD dashboard URL
-#    When I search for Contract
-#    Then Validate Contract "11122328" status and request type "InstallContract"
 
-    
-    #NDB Check
-    
-    #Add provider with Make a correction - USING MPIN and TIN
-
-    
+    Examples:    
+       | site          | paperType     | TCName|
+       | northeast uhn   | SMGA          | TC_NE_SMGA_VA_54|
+ 
+ 
+  @TC_NE_SMGA_VA_54
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  Scenario Outline: TC_NE_SMGA_VA_54 - [RL0] Author SMGA contract in <site>
+	
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+    And I select the contract
+        
    	#Add Medicare Amandment
     And I select the contract
     And I click on Create Amendment
