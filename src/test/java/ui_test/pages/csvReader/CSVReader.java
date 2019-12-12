@@ -77,7 +77,9 @@ public class CSVReader {
     public String displayImap(HashMap<String, String> imap) {
 
         StringBuilder body = new StringBuilder();
-        StringBuilder header = new StringBuilder();
+        StringBuilder
+
+                header = new StringBuilder();
         int rowLength = 0;
         header.append("|\t").append("KEY");
         for (int count = 0; count < this.maxKeyLength - "KEY".length(); count++) {
