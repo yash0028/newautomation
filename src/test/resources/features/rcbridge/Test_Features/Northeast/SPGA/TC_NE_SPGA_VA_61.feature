@@ -72,8 +72,7 @@ Feature: SPGA Business Testcases_VA
   Scenario Outline: TC_NE_SPGA_VA_61 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
     And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
-    And I select the contract
-    
+   
     #Make a Correction - Add a new TIN to the existing provider in the Roster.
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
