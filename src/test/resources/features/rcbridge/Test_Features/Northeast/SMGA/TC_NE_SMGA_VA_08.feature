@@ -6,10 +6,10 @@ Feature: SMGA Business Testcases_VA
   
   @TC_NE_SMGA_VA_08
   @Manual
-  @User_Interface
-  @UAT_Automation_Batch1
-  @UAT_AUTO_NORTHEAST
-  @UAT_AUTO_TESTING
+  @User_Interface  
+  @UAT_AUTO
+  @Murty
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_NE_SMGA_VA_08 - [RL0] Author SMGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site	 
   
@@ -38,8 +38,7 @@ Feature: SMGA Business Testcases_VA
     And I enter Group Summary
     Then I Complete Wizard
     
-    #Final capture
-    
+    #Final capture    
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -60,19 +59,23 @@ Feature: SMGA Business Testcases_VA
     And I Set Status as Active
     And I capture Contract Number
     
-    #
-    #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract "71926900" status and request type "InstallContract"
-
+    Examples:    
+       | site          | paperType     | TCName|
+       | northeast uhn   | SMGA          | TC_NE_SMGA_VA_08|
+  
+  
+  @TC_NE_SMGA_VA_08
+  @Manual
+  @User_Interface
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
+  Scenario Outline: TC_NE_SMGA_VA_08 - [RL0] Author SMGA contract in <site>
+	
+	  Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+    And I select the contract
     
-    #NDB Check
-    
-    #Make a correction - Add a new TIN to the existing provider in the Roster.
-    #When I am logged into Exari Dev
-    #And I search Contract using Contract Number    
-    And I click Make Correction
+	  And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
     And I set Roster Action as Upload
@@ -83,7 +86,6 @@ Feature: SMGA Business Testcases_VA
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    
     #Create supporting document 
     
     #CMD Check

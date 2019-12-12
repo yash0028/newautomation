@@ -7,8 +7,9 @@ Feature: SMGA Business Testcases_VA
   @TC_NE_SMGA_VA_59
   @Manual
   @User_Interface
-  @UAT_Automation
-  @UAT_AUTO_TESTING
+  @UAT_AUTO
+  @Murty
+  @UAT_AUTO_INITIAL_TRANSACTION 
   Scenario Outline: TC_NE_SMGA_VA_59 - [RL0] Author SMGA contract in <site>
 	Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -70,12 +71,21 @@ Feature: SMGA Business Testcases_VA
     And I Set Status as Active
     And I capture Contract Number
     
-    #CMD Check
-#    When I have entered the CMD dashboard URL
-#    When I search for Contract
-#    Then Validate Contract "11122328" status and request type "InstallContract"
-
-    #NDB Check
+    Examples:    
+       | site          | paperType     | TCName|
+       | northeast uhn   | SMGA          | TC_NE_SMGA_VA_59|
+    
+    
+  @TC_NE_SMGA_VA_59
+  @Manual
+  @User_Interface
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
+  Scenario Outline: TC_NE_SMGA_VA_59 - [RL0] Author SMGA contract in <site>
+	
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+    And I select the contract
     
     #Add provider with Make a correction - TIN Change - Upload 
     When I am logged into Exari Dev
@@ -91,9 +101,6 @@ Feature: SMGA Business Testcases_VA
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard 
-    
-  
-		
     
     Examples:    
        | site          | paperType     | TCName|
