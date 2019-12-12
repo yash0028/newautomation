@@ -76,7 +76,24 @@ Feature: TC_CEN_SMGA_IN_59
 #    Then Validate Contract "11122328" status and request type "InstallContract"
 
     #NDB Check
+   		
     
+    Examples:    
+       | site          | paperType     | TCName|
+       | central uhn   | SMGA          | TC_CEN_SMGA_IN_59|
+       
+       
+        
+  @TC_CEN_SMGA_IN_59
+  @Manual
+  @User_Interface
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
+  Scenario Outline: TC_CEN_SMGA_IN_59 - [RL0] Author SMGA contract in <site>  
+		
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+        
     #Add provider with Make a correction - TIN Change - Upload 
     When I am logged into Exari Dev
     And I search Contract using Contract Number
@@ -91,9 +108,7 @@ Feature: TC_CEN_SMGA_IN_59
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard 
-    
-  
-		
+    	
     
     Examples:    
        | site          | paperType     | TCName|

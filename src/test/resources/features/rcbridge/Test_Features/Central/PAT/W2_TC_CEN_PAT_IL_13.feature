@@ -11,7 +11,6 @@ Feature: PAT Business Testcases_IN
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_PAT
   @UAT_AUTO_INITIAL_TRANSACTION_PAT_W2
-
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

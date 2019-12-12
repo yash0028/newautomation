@@ -65,12 +65,21 @@ Feature: TC_CEN_SMGA_IN_08
     #When I search for Contract
     #Then Validate Contract "71926900" status and request type "InstallContract"
 
+    Examples:    
+       | site          | paperType     | TCName           |
+       | central uhn   | SMGA          | TC_CEN_SMGA_IN_08|
+ 
+ 
+  @TC_CEN_SMGA_IN_08
+  @Manual
+  @User_Interface
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
+  Scenario Outline: TC_CEN_SMGA_IN_08 - [RL0] Author SMGA contract in <site>  
+	  	
+		Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     
-    #NDB Check
-    
-    #Make a correction - Add a new TIN to the existing provider in the Roster.
-    #When I am logged into Exari Dev
-    #And I search Contract using Contract Number    
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
@@ -92,4 +101,3 @@ Feature: TC_CEN_SMGA_IN_08
     Examples:    
        | site          | paperType     | TCName           |
        | central uhn   | SMGA          | TC_CEN_SMGA_IN_08|
- 
