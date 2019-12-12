@@ -1,33 +1,31 @@
 # Last updated on
-@PATBusinessTestcases_IN
+@SPGABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_IN
+Feature: SPGA Business Testcases_VA
 
-  @W2_TC_CEN_PAT_MN_60
+  @TC_NE_SPGA_VA_61
   @Manual
-  @User_Interface
+  @User_Interface  
   @UAT_AUTO
+  @Murty
   @UAT_AUTO_INITIAL_TRANSACTION
-  @UAT_AUTO_INITIAL_TRANSACTION_PAT
-  @UAT_AUTO_INITIAL_TRANSACTION_PAT_W2
-  Scenario Outline: W2_TC_CEN_PAT_MN_60- [RL0] Author PAT contract in <site>
+  Scenario Outline: TC_NE_SPGA_VA_61 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
-
+    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for PAT Contract
+    And I enter Practice Locations for SPGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
+    And I enter HBPs Red Door
     And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
@@ -35,18 +33,14 @@ Feature: PAT Business Testcases_IN
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
+    #And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 
-    #start workflow
+   #Final capture
+
     And I Start Workflow
-    #check for Tier Approvals
     And I Start Process for Initial Transaction
-    #Approval
-    And I Approve Payment Appendix
-    #Final Capture process cont.
-    #check for Tier Approvals
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -64,12 +58,35 @@ Feature: PAT Business Testcases_IN
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    #CMD Check
-	#NDB Check
-
-
 
     Examples:
       | site          | paperType     | TCName|
-      | central uhn   | PAT          | W2_TC_CEN_PAT_MN_60|
-
+      | northeast uhn   | SPGA          | TC_NE_SPGA_VA_61|
+      
+  
+  @TC_NE_SPGA_VA_61
+  @Manual
+  @User_Interface
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
+  Scenario Outline: TC_NE_SPGA_VA_61 - [RL0] Author SPGA contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+    And I select the contract
+    
+    #Make a Correction - Add a new TIN to the existing provider in the Roster.
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    
+    Examples:
+      | site          | paperType     | TCName|
+      | northeast uhn   | SPGA          | TC_NE_SPGA_VA_61|

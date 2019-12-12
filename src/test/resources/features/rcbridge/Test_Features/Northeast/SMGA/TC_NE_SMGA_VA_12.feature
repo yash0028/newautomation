@@ -7,9 +7,9 @@ Feature: SMGA Business Testcases_VA
   @TC_NE_SMGA_VA_12
   @Manual
   @User_Interface
-  @UAT_Automation_Batch1
-  @UAT_AUTO_NORTHEAST
-  @UAT_AUTO_TESTING
+  @UAT_AUTO
+  @Murty
+  @UAT_AUTO_INITIAL_TRANSACTION 
   Scenario Outline: TC_NE_SMGA_VA_12 - [RL0] Author SMGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -60,16 +60,22 @@ Feature: SMGA Business Testcases_VA
     And I Set Status as Active
     And I capture Contract Number
     
-    #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract "11122328" status and request type "InstallContract"
-
+    Examples:    
+       | site          | paperType     | TCName|
+       | northeast uhn   | SMGA          | TC_NE_SMGA_VA_12|
     
-    #NDB Check
+  
+  @TC_NE_SMGA_VA_12
+  @Manual
+  @User_Interface
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
+  Scenario Outline: TC_NE_SMGA_VA_12 - [RL0] Author SMGA contract in <site>
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+    And I select the contract
     
-    #Add provider with Make a correction.   
-    
+    #Add provider with Make a correction    
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
@@ -79,12 +85,8 @@ Feature: SMGA Business Testcases_VA
    	And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
-    Then I Complete Wizard   
-    
-  
-		
+    Then I Complete Wizard 
     
     Examples:    
        | site          | paperType     | TCName|
        | northeast uhn   | SMGA          | TC_NE_SMGA_VA_12|
-    
