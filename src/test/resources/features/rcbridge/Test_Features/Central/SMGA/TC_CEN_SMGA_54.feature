@@ -78,7 +78,6 @@ Feature: TC_CEN_SMGA_IN_54
   Scenario Outline: TC_CEN_SMGA_IN_54 - [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
-    And I add contract data in hash map
    	#Add Medicare Amandment
     And I select the contract
     And I click on Create Amendment
