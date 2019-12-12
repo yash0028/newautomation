@@ -67,12 +67,22 @@ Feature: TC_SE_SMGA_AR_08
 #    And I search for Contract
     #Then Validate Contract details
     
-    #NDB Check
+	
     
-    #Make a correction - Add a new TIN to the existing provider in the Roster.
-#    When I am logged into Exari Dev
-#    And I search Contract using Contract Number
-    And I click Make Correction
+    Examples:    
+       | site            | paperType     | TCName          |
+       | southeast uhn   | SMGA          | TC_SE_SMGA_AR_08|
+ 
+ 
+  @TC_SE_SMGA_AR_08
+  @Manual
+  @User_Interface  
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+  Scenario Outline: TC_SE_SMGA_AR_08 - [RL0] Author SMGA contract in <site>  
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+	And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
     And I set Roster Action as Upload
@@ -93,4 +103,3 @@ Feature: TC_SE_SMGA_AR_08
     Examples:    
        | site            | paperType     | TCName          |
        | southeast uhn   | SMGA          | TC_SE_SMGA_AR_08|
- 
