@@ -65,12 +65,15 @@ Feature: TC_CEN_MGA_IN_71
   @TC_CEN_MGA_IN_71
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_AMENDMENT_MGA
   Scenario Outline: TC_CEN_MGA_IN_71 - [RL0] Amend <paperType> contract in <site>
-	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    #CMD Checking
+    #NDB Checking
+    #Amendment-Fee Schedule
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
-    And I select the contract   
-    
+    #Draft
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
@@ -116,14 +119,12 @@ Feature: TC_CEN_MGA_IN_71
   @TC_CEN_MGA_IN_71
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
   @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
   Scenario Outline: TC_CEN_MGA_IN_71 - [RL0] Amend <paperType> contract in <site>
 
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
-    And I select the contract   
-    
     ##Make Correction - Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
@@ -136,7 +137,7 @@ Feature: TC_CEN_MGA_IN_71
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    
+
     #CMD Checking
     #NDB Checking
     Examples:

@@ -79,8 +79,6 @@ Feature: TC_CEN_MGA_IN_79
 
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
-    And I select the contract
-    
     #CMD Checking
     #NDB Checking
     #Make Correction - Provider Roster (Cancel one or more providers from the roster)

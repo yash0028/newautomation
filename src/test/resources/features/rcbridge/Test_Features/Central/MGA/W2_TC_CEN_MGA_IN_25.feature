@@ -2,7 +2,7 @@
 @MGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: MGA Business Testcases_IN
+Feature: W2_TC_CEN_MGA_IN_25
 
   @W2_TC_CEN_MGA_IN_25
   @Manual
@@ -53,7 +53,22 @@ Feature: MGA Business Testcases_IN
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+    #Activate
     And I Set Status as Active
+    And I capture Contract Number
+
+    Examples:
+      | site          | paperType     | TCName              |
+      | central uhn   | MGA           | W2_TC_CEN_MGA_IN_25 |
+
+  @W2_TC_CEN_MGA_IN_25
+  @Manual
+  @User_Interface
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
         #CMD Checking
         #NDB Checking
         #Make Correction - Provider Roster (Add one or more providers to the roster)
@@ -70,5 +85,5 @@ Feature: MGA Business Testcases_IN
     Then I Complete Wizard
 
     Examples:
-      | site          | paperType     | TCName           |
+      | site          | paperType     | TCName              |
       | central uhn   | MGA           | W2_TC_CEN_MGA_IN_25 |
