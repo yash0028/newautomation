@@ -43,7 +43,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public GenericSitePage sitePage;
 
 
-//    public static HashMap<String, String> hmap = null;
     public static HashMap<String, String> hmap = new HashMap<>();
 
     @Given("^I am using the \"([^\"]*)\" flow$")
@@ -775,10 +774,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         initializeObj();
         CSVReader csvReader = new CSVReader();
         System.out.println(CSVpath);
-//        String contractLink =  csvReader.readContractLink(CSVpath.toString(),testCase);
         this.hmap = csvReader.readFile(CSVpath.toString(),testCase,hmap);
-//        this.dataMap = csvReader.readFile(CSVpath.toString(),testCase);
-//        this.protoStep.loginHomeByContractLink(dataMap.get("Contract Link").toString());
         if(hmap.containsKey("Contract Link")) {
             this.protoStep.loginHomeByContractLink(hmap.get("Contract Link").toString());
         }else{
