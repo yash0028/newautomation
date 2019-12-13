@@ -13,10 +13,7 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
-import ui_test.page.exari.contract.GenericInputPage;
-import ui_test.page.exari.home.site.subpages.GenericSitePage;
 import ui_test.pages.BasePage;
-import ui_test.pages.InitialTransaction;
 import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
 import util.configuration.IConfigurable;
@@ -26,7 +23,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.Map;
 
 public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster, IContractFlowLoader {
     private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
@@ -37,10 +33,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     Path contractFlowPath = Paths.get(home, "src", "test", "resources", "support", "hive", "dataMap");
     private ProtoStep protoStep;
     private BasePage basePage;
-
-
     private ContractFlow contractFlow;
-    public GenericSitePage sitePage;
 
 
     public static HashMap<String, String> hmap = new HashMap<>();
@@ -54,7 +47,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void getData(String testName, String fileName, String site, String paperType) {
         Path CSVpath = Paths.get(contractFlowPath.toString(), site, paperType, fileName);
         CSVReader csvReader = new CSVReader();
-        this.hmap = csvReader.readFile(CSVpath.toString(), testName , hmap);
+        this.hmap = csvReader.readFile(CSVpath.toString(), testName, hmap);
     }
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
@@ -94,7 +87,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void PESResponses() {
         basePage.getPes_response().selectCounterParty(hmap);
         basePage.getPes_response().specifyApproachForCounter(hmap);
-//        basePage.getPes_response().selectCounterPartyAddress(hmap);
 
     }
 
@@ -460,7 +452,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("I capture Contract Number")
     public void iCaptureContractNumber() {
-        basePage.getContractDetailsDashboard().captureContractNumber(hmap, contractDetailsTextFile.toString(),contractNumberCSVFile.toString());
+        basePage.getContractDetailsDashboard().captureContractNumber(hmap, contractDetailsTextFile.toString(), contractNumberCSVFile.toString());
     }
 
     @And("I create supporting document")
@@ -691,11 +683,13 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void iEnterOptOutAddressInAmendments() {
         basePage.getAmendements().enterOptOutadress(hmap);
     }
+
     @And("I enter Opt-out Address in Amendments finalCapture")
     public void ienterOptOutFinalcapture() {
         basePage.getAmendements().enterOptOutFinalcapture();
     }
-        private void initializeObj() {
+
+    private void initializeObj() {
         protoStep = new ProtoStep(getDriver());
         basePage = new BasePage();
     }
@@ -717,7 +711,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("I select Payment Appendix for SMGA contracts")
     public void iSelectPaymentAppendixForSMGAContracts() {
-//        basePage.getPaymentAppendix().selectPaymentAppendixSMGA(hmap);
         basePage.getPaymentAppendixAmendment().selectPaymentAppendixAmendmentSMGA(hmap);
     }
 
@@ -758,8 +751,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("I enter Opt-out Address in Amendments in IL")
-    public void iEnterOptOutAddressInAmendmentsInIL()
-    {
+    public void iEnterOptOutAddressInAmendmentsInIL() {
         basePage.getAmendements().enterOptOutadressIL(hmap);
     }
 
@@ -774,10 +766,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         initializeObj();
         CSVReader csvReader = new CSVReader();
         System.out.println(CSVpath);
-        this.hmap = csvReader.readFile(CSVpath.toString(),testCase,hmap);
-        if(hmap.containsKey("Contract Link")) {
+        this.hmap = csvReader.readFile(CSVpath.toString(), testCase, hmap);
+        if (hmap.containsKey("Contract Link")) {
             this.protoStep.loginHomeByContractLink(hmap.get("Contract Link").toString());
-        }else{
+        } else {
             this.protoStep.loginHome();
             basePage.getDashboard().searchContaractByContractNumber(hmap);
             basePage.getDashboard().openContractDetails();
