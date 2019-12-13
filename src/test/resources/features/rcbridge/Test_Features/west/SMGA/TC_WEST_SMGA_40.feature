@@ -10,6 +10,7 @@ Feature: TC_WEST_SMGA_OR_40
   @UAT_AUTO
   @UAT_AUTO_WEST
   @UAT_AUTO_INITIAL_TRANSACTION
+  @SMGA_INITIAL
    Scenario Outline: TC_WEST_SMGA_OR_40 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   

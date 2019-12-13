@@ -10,6 +10,7 @@ Feature: W2_TC_CEN_SMGA_IN_03
   @W2_CEN_SMGA
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
+  @SMGA_INITIAL
   Scenario Outline: W2_TC_CEN_SMGA_IN_03 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -72,7 +73,7 @@ Feature: W2_TC_CEN_SMGA_IN_03
   @Manual
   @User_Interface
   @UAT_AUTO_AMANDAMENT
-  @CEN_IN_AMANDMENT
+  @SMGA_AMANDMENT
   Scenario Outline: W2_TC_CEN_SMGA_IN_03 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

@@ -9,6 +9,7 @@ Feature: TC_CEN_SMGA_IN_26
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
+  @SMGA_INITIAL
   Scenario Outline: TC_CEN_SMGA_IN_26 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -76,7 +77,7 @@ Feature: TC_CEN_SMGA_IN_26
   @User_Interface
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
-  @CEN_IN_AMANDMENT
+  @SMGA_AMANDMENT
   Scenario Outline: TC_CEN_SMGA_IN_26 - [RL0] Author SMGA contract in <site>  
 	
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 

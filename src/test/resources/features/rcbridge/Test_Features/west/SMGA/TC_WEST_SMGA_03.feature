@@ -10,6 +10,7 @@ Feature: TC_WEST_SMGA_OR_03
   @UAT_AUTO
   @UAT_AUTO_WEST
   @UAT_AUTO_INITIAL_TRANSACTION
+  @SMGA_INITIAL
   Scenario Outline: TC_WEST_SMGA_OR_03 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -66,6 +67,7 @@ Feature: TC_WEST_SMGA_OR_03
   @Manual
   @User_Interface
   @UAT_AUTO_AMANDAMENT
+  @SMGA_AMANDMENT
   Scenario Outline: TC_WEST_SMGA_OR_03 - [RL0] Amend SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

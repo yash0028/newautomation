@@ -10,6 +10,7 @@ Feature: SMGA Business Testcases_VA
   @UAT_AUTO
   @Murty
   @UAT_AUTO_INITIAL_TRANSACTION
+  @SMGA_INITIAL
    Scenario Outline: TC_NE_SMGA_VA_03 - [RL0] Author SPGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -68,6 +69,7 @@ Feature: SMGA Business Testcases_VA
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
+  @SMGA_AMANDMENT
   Scenario Outline: TC_NE_SMGA_VA_03 - [RL0] Author SPGA contract in <site>
 	
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
