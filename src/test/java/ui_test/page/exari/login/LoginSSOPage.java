@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.home.DashboardPage;
+import ui_test.pages.CommonMethods;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
@@ -46,7 +47,6 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
     PAGE ACTIONS METHODS
      */
 
-
     public boolean login() {
         sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
         sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
@@ -72,6 +72,10 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
             case "physician local pricing approver":
                 credentials[0] = configGetOptionalString("exari.phy_local_prcicing_approver_username").orElse("");
                 credentials[1] = configGetOptionalString("exari.phy_local_prcicing_approver_password").orElse("");
+                break;
+            case "exari_username":
+                credentials[0] = configGetOptionalString("exari.username").orElse("");
+                credentials[1] = configGetOptionalString("exari.password").orElse("");
                 break;
             default:
                 Assert.fail("[APPROVER CREDENTIALS NOT FOUND] " + approverType + "");

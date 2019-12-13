@@ -169,17 +169,26 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         CHECK_APPROVAL_ALREADY_COMPLETED = false;
         return approverType;
     }
+    public LoginSSOPage createNewLoginObj(){
+        LoginSSOPage loginPage = new LoginSSOPage(getDriver());
+        return loginPage;
+    }
 
     public boolean switchLogin(String approverType) {
-        String[] credentials = new String[2];
+        String[] credentials;
         if (!USER.equals(approverType)) {
             USER = approverType;
             IWebInteract.log.info("[LOGIN]  {}", approverType);
-            //check for login user return false if same
-                credentials = loginPage.
+                credentials = createNewLoginObj().getCredentials(approverType);
+                if(credentials[0].equals(USERNAME) && credentials[1].equals(PASSWORD)){
+                    return false;
+                }else{
+                    USERNAME = credentials[0];
+                    PASSWORD = credentials[1];
+                }
                 relaunchDriver(approverType);
                 getDriver().get(DASHBOARD_URL);
-                LoginSSOPage loginPage = new LoginSSOPage(getDriver());
+                LoginSSOPage loginPage = createNewLoginObj();
                 waitTillClickable(elements.textBoxUsername);
                 Assert.assertTrue(loginPage.confirmCurrentPage());
                 if (approverType.equals(configGetOptionalString("exari.username").orElse(""))) {
