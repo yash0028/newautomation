@@ -43,8 +43,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public GenericSitePage sitePage;
 
 
-    public static HashMap<String, String> hmap = null;
-    public static Map<String, String> dataMap = null;
+//    public static HashMap<String, String> hmap = null;
+    public static HashMap<String, String> hmap = new HashMap<>();
 
     @Given("^I am using the \"([^\"]*)\" flow$")
     public void prepareEIF(String fileName) {
@@ -55,7 +55,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void getData(String testName, String fileName, String site, String paperType) {
         Path CSVpath = Paths.get(contractFlowPath.toString(), site, paperType, fileName);
         CSVReader csvReader = new CSVReader();
-        this.hmap = csvReader.readFile(CSVpath.toString(), testName);
+        this.hmap = csvReader.readFile(CSVpath.toString(), testName , hmap);
     }
 
     @Given("^I am logged into Exari Dev as a valid user and go to the \"([^\"]*)\" site$")
@@ -776,14 +776,16 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         CSVReader csvReader = new CSVReader();
         System.out.println(CSVpath);
 //        String contractLink =  csvReader.readContractLink(CSVpath.toString(),testCase);
-        this.dataMap = csvReader.readContractDetails(CSVpath.toString(),testCase);
-        this.protoStep.loginHomeByContractLink(dataMap.get("Contract Link").toString());
+        this.hmap = csvReader.readFile(CSVpath.toString(),testCase,hmap);
+//        this.dataMap = csvReader.readFile(CSVpath.toString(),testCase);
+//        this.protoStep.loginHomeByContractLink(dataMap.get("Contract Link").toString());
+        if(hmap.containsKey("Contract Link")) {
+            this.protoStep.loginHomeByContractLink(hmap.get("Contract Link").toString());
+        }else{
+            this.protoStep.loginHome();
+            basePage.getDashboard().searchContaractByContractNumber(hmap);
+            basePage.getDashboard().openContractDetails();
+            basePage.getContractDetailsDashboard().clickForContractSummary();
+        }
     }
-
-    @And("I add contract data in hash map")
-    public void addContractDataInHashMap() {
-        CSVReader csvReader = new CSVReader();
-        csvReader.putDataInHmap(hmap,dataMap);
-    }
-
 }

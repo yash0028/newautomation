@@ -66,6 +66,20 @@ Feature: W2_TC_CEN_SMGA_IN_08 (USED OLD DATA)
 
     #NDB Check
 
+    Examples:
+      | site          | paperType     | TCName              |
+      | central uhn   | SMGA          | W2_TC_CEN_SMGA_IN_08|
+      
+      
+  @W2_TC_CEN_SMGA_IN_08
+  @Manual
+  @User_Interface
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
+   Scenario Outline: W2_TC_CEN_SMGA_IN_08 - [RL0] Author SMGA contract in <site>
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+	And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    
     #Make a correction - Add a new TIN to the existing provider in the Roster.
     #When I am logged into Exari Dev
     #And I search Contract using Contract Number

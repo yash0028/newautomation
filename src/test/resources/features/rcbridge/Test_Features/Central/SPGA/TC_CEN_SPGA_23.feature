@@ -11,6 +11,7 @@ Feature: SPGA Business Testcases_IN
   @UAT_AUTO_CENTRAL
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
+  @SPGA_INITIAL
   Scenario Outline: TC_CEN_SPGA_IN_23 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -60,9 +61,21 @@ Feature: SPGA Business Testcases_IN
     And I Set Status as Active    
     And I capture Contract Number
     #CMD Check
-    
-    #NDB Check
-    
+       
+    Examples:    
+       | site          | paperType     | TCName|  				 
+       | central uhn   | SPGA          | TC_CEN_SPGA_IN_23|
+       
+       
+  @TC_CEN_SPGA_IN_23
+  @Manual
+  @User_Interface 
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
+  Scenario Outline: TC_CEN_SPGA_IN_23 - [RL0] Author SPGA contract in <site>  
+	  Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+   
     #Make a correction - Add a new TIN to the existing provider in the Roster. 
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction

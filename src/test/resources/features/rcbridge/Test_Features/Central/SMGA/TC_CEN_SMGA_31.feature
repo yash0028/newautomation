@@ -64,10 +64,23 @@ Feature: TC_CEN_SMGA_IN_31
 #    When I search for Contract
 #    Then Validate Contract "11122328" status and request type "InstallContract"
 
+    Examples:    
+       | site          | paperType     | TCName|
+       | central uhn   | SMGA          | TC_CEN_SMGA_IN_31|
     
-    #NDB Check
     
-  	#Make a Correction - Cancel Specilaist Provider
+  
+  @TC_CEN_SMGA_IN_31
+  @Manual
+  @User_Interface
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
+  Scenario Outline: TC_CEN_SMGA_IN_31 - [RL0] Author SMGA contract in <site>  
+	
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    
+   	#Make a Correction - Cancel Specilaist Provider
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
@@ -91,9 +104,6 @@ Feature: TC_CEN_SMGA_IN_31
     And I enter Group Summary
     Then I Complete Wizard
 
-
-
     Examples:    
        | site          | paperType     | TCName|
        | central uhn   | SMGA          | TC_CEN_SMGA_IN_31|
-    

@@ -1,5 +1,4 @@
 #Last updated on
-
 @SPABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
@@ -64,25 +63,32 @@ Feature: TC_NE_SPA_VA_06
     #And The dashboard page loads
     #Then Validate Contract status and request type
 
-    #NDB Check
-
-    #Make a correction - Add a new TIN to the existing provider in the Roster.
-    #When I am logged into Exari Dev
-    #And I search Contract using Contract Number
-    #And I click Make Correction
-    #And I enter Market Exception Grid in Make Correction
-    #And I enter Market Exception Grid
-    #And I set Roster Action as Upload
-    #And I Download Current Roster
-    #And I Upload Completed Roster
-    #And I enter warning in Make Correction
-    #And I enter validation
-    #And I acknowledge the warning
-    #And I enter Group Summary
-    #Then I Complete Wizard
+    Examples:
+      | site          | paperType     | TCName           |
+      | northeast uhn   | SPA           | TC_NE_SPA_VA_06 |
+      
+      
+  @TC_NE_SPA_VA_06
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
 
 
     Examples:
       | site          | paperType     | TCName           |
       | northeast uhn   | SPA           | TC_NE_SPA_VA_06 |
-      

@@ -63,6 +63,23 @@ Feature: TC_WEST_MGA_OR_77
     And I capture Contract Number
     #CMD Checking
     #NDB Checking
+
+
+    Examples:
+      | site          | paperType     | TCName            |
+      | west uhn      | MGA           | TC_WEST_MGA_OR_77 |
+      
+      
+  @TC_WEST_MGA_OR_77
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+  Scenario Outline: TC_WEST_MGA_OR_77- [RL0] Author <paperType> contract in <site>
+	
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+	And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
+    
     #Make Correction - Provider Roster (Add one or more providers to the roster)
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction

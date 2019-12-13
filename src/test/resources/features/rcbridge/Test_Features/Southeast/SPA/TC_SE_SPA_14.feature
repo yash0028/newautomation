@@ -66,21 +66,10 @@ Feature: TC_SE_SPA_AR_14
   @UAT_AUTO_AMANDAMENT
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-
     #Draft
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
-
-  #CMD Check
-   #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
-
-
-
-      #NDB Check
+    #NDB Check
     #Draft Amendment
-
     #When I am logged into Exari Dev
     #And I search Contract using Contract Number
     And I select the contract
@@ -96,8 +85,6 @@ Feature: TC_SE_SPA_AR_14
     And I select fee schedule id in Amendments
     And I enter Group Summary
     And I Complete Wizard
-
-
 
     #Amendment Final Capture
 

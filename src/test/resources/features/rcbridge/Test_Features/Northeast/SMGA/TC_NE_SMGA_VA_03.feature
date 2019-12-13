@@ -7,9 +7,10 @@ Feature: SMGA Business Testcases_VA
   @TC_NE_SMGA_VA_03
   @Manual
   @User_Interface
-  @UAT_AUTO_NORTHEAST
-  @UAT_AUTO_TESTING
-  Scenario Outline: TC_NE_SMGA_VA_03 - [RL0] Author SPGA contract in <site>
+  @UAT_AUTO
+  @Murty
+  @UAT_AUTO_INITIAL_TRANSACTION
+   Scenario Outline: TC_NE_SMGA_VA_03 - [RL0] Author SPGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
@@ -58,16 +59,22 @@ Feature: SMGA Business Testcases_VA
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    #
-    #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract "71926900" status and request type "InstallContract"
-
-    #NDB Checking
-
-	#Draft Amandament
+ 
+    Examples:
+       | site          | paperType     | TCName|
+       | northeast uhn   | SMGA          | TC_NE_SMGA_VA_03|
+       
+  @TC_NE_SMGA_VA_03
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  Scenario Outline: TC_NE_SMGA_VA_03 - [RL0] Author SPGA contract in <site>
+	
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
     And I select the contract
+    
+    #DRAFT Amendment
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
@@ -102,10 +109,7 @@ Feature: SMGA Business Testcases_VA
     And I enter Group Summary
     And I Complete Wizard
 
-
 	#Amendment CMD Checking
-
-
 
     Examples:
        | site          | paperType     | TCName|

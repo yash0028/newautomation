@@ -11,6 +11,7 @@ Feature: SPGA Business Testcases_IN
   @UAT_AUTO_CENTRAL
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
+  @SPGA_INITIAL
   Scenario Outline: TC_CEN_SPGA_IN_28 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -86,4 +87,36 @@ Feature: SPGA Business Testcases_IN
        | site          | paperType     | TCName|  				 
        | central uhn   | SPGA          | TC_CEN_SPGA_IN_28|
        
+  @TC_CEN_SPGA_IN_28
+  @Manual
+  @User_Interface 
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
+  
+  Scenario Outline: TC_CEN_SPGA_IN_28 - [RL0] Author SPGA contract in <site>  
+	 
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+       
+    #Make a correction - Add provider with Make a correction.
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I add provider using TIN
+    And I select Providers
+    And I enter Provider Start Date
+    And I enter retro code in Provider Roster
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
     
+    #Create supporting document 
+    
+    #CMD Check
+    #NDB Check
+		
+    
+    Examples:    
+       | site          | paperType     | TCName|  				 
+       | central uhn   | SPGA          | TC_CEN_SPGA_IN_28|
+       

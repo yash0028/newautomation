@@ -1,5 +1,4 @@
 #Last updated on
-
 @SPABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
@@ -66,10 +65,9 @@ Feature: TC_NE_SPA_VA_37
 
 
   @TC_NE_SPA_VA_37
- @Manual
+  @Manual
   @User_Interface
   @UAT_AUTO_AMANDAMENT
-
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

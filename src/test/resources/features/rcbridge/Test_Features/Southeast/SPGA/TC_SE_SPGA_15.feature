@@ -59,9 +59,21 @@ Feature: SPGA Business Testcases_AR
     And I Set Status as Active    
     And I capture Contract Number
     #CMD Check
-    
-    #NDB Check
-    
+
+		
+    Examples:    
+       | site          | paperType     | TCName|  				 
+       | southeast uhn   | SPGA          | TC_SE_SPGA_AR_15|
+       
+       
+  @TC_SE_SPGA_AR_15
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+  Scenario Outline: TC_SE_SPGA_AR_15 - [RL0] Author SPGA contract in <site>  
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+	And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
     #Add provider with Make a correction.   
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction

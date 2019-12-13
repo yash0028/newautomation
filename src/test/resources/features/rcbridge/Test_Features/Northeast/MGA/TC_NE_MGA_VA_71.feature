@@ -74,7 +74,6 @@ Feature: TC_NE_MGA_VA_71
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
-    And I add contract data in hash map
     #CMD Checking
     #NDB Checking
     #Amendment-Fee Schedule
@@ -114,21 +113,34 @@ Feature: TC_NE_MGA_VA_71
 
     #Activating Amendment
     And I Set Status as Active in Amendment
-    #CMD Checking
-    #Check Cosmos
-    #NDB Checking
+   
+    Examples:
+      | site          | paperType     | TCName          |
+      | northeast uhn | MGA           | TC_NE_MGA_VA_71 |
+      
+      
+  @TC_NE_MGA_VA_71
+  @Manual
+  @User_Interface
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMANDAMENT
+  Scenario Outline: TC_NE_MGA_VA_71 - [RL0] Amend <paperType> contract in <site>
+	
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+	And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+	
     ##Make Correction - Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
-#    And I click Make Correction
-#    And I enter Market Exception Grid in Make Correction
-#    And I enter Market Exception Grid
-#    And I set Roster Action as Upload
-#    And I Download Current Roster
-#    And I Upload Completed Roster
-#    And I enter warning in Make Correction
-#    And I enter validation
-#    And I acknowledge the warning
-#    And I enter Group Summary
-#    Then I Complete Wizard
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
     #CMD Checking
     #NDB Checking
     Examples:
