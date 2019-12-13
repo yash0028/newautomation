@@ -19,6 +19,7 @@ public class AmendmentSelection extends GenericInputPage {
 
     public void selectAmendmentTobeUsed(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        waitTillVisible(getQuestionElem("Please select the amendment to be used"),300);
         Assert.assertTrue(click("Amendment Selection", selectAmendments(hmap.get("Amendment Selection"))));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
@@ -32,6 +33,10 @@ public class AmendmentSelection extends GenericInputPage {
 
     private WebElement selectAmendments(String Name) {
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
+    }
+    public WebElement getQuestionElem(String question) {
+        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + question + "')]"});
+
     }
 
 
