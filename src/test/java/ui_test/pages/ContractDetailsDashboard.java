@@ -179,7 +179,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         if (!USER.equals(approverType)) {
             USER = approverType;
             IWebInteract.log.info("[LOGIN]  {}", approverType);
-                credentials = createNewLoginObj().getCredentials(approverType);
+                credentials = createNewLoginObj().getCredentials(approverType.toLowerCase());
                 if(credentials[0].equals(USERNAME) && credentials[1].equals(PASSWORD)){
                     return false;
                 }else{
@@ -191,7 +191,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                 LoginSSOPage loginPage = createNewLoginObj();
                 waitTillClickable(elements.textBoxUsername);
                 Assert.assertTrue(loginPage.confirmCurrentPage());
-                if (approverType.equals(configGetOptionalString("exari.username").orElse(""))) {
+                if (approverType.equals("exari username")) {
                     loginPage.login();
                 } else {
                     loginPage.login(approverType.toLowerCase());
@@ -250,15 +250,16 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public void handleApprovals(String approvalType, boolean tierApproval, String location, HashMap<String, String> hmap) {
-        USERNAME = configGetOptionalString("exari.username").orElse("");
-        PASSWORD = configGetOptionalString("exari.password").orElse("");
+        String[] credentials = createNewLoginObj().getCredentials("exari username");
+        USERNAME = credentials[0];
+        PASSWORD = credentials[1];
         waitTillVisible(elements.headerTabHome);
         if (isVisible(elements.headerTabHome)) {
             highlight(elements.headerTabHome);
             DASHBOARD_URL = getDriver().getCurrentUrl();
             if (getActiveWorkFlow(tierApproval, location, hmap)) {
                 if (startApprovalFlow(approvalType, tierApproval, location, hmap).equals("")) {
-                    switchLogin(configGetOptionalString("exari.username").orElse(""));
+                    switchLogin("exari username");
                 } else {
                     IWebInteract.log.info("[SKIPPED] {}", approvalType);
                     Assert.assertTrue(click("Back", this.elements.backbutton));

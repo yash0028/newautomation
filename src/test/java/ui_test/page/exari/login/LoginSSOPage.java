@@ -73,7 +73,7 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
                 credentials[0] = configGetOptionalString("exari.phy_local_prcicing_approver_username").orElse("");
                 credentials[1] = configGetOptionalString("exari.phy_local_prcicing_approver_password").orElse("");
                 break;
-            case "exari_username":
+            case "exari username":
                 credentials[0] = configGetOptionalString("exari.username").orElse("");
                 credentials[1] = configGetOptionalString("exari.password").orElse("");
                 break;
