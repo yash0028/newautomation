@@ -76,6 +76,7 @@ Feature: W2_TC_CEN_SMGA_IN_31
   @User_Interface
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
+  @CEN_IN_AMANDMENT
   Scenario Outline: W2_TC_CEN_SMGA_IN_31 - [RL0] Author SMGA contract in <site>
   
    

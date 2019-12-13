@@ -72,7 +72,8 @@ Feature: SPGA Business Testcases_IN
   @Manual
   @User_Interface 
   @UAT_AUTO_MAKE_A_CORRECTION
-  @UAT_AUTO_AMENDMENT 
+  @UAT_AUTO_AMENDMENT
+  @CEN_IN_AMANDMENT
   Scenario Outline: TC_CEN_SPGA_IN_66 - [RL0] Author SPGA contract in <site>  
 	 
 		#Make a Correction - Add a new TIN to the existing provider in the Roster.

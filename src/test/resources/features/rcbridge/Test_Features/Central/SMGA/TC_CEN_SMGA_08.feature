@@ -9,7 +9,6 @@ Feature: TC_CEN_SMGA_IN_08
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  @SMGA_INITIAL_TRANSACTION
   Scenario Outline: TC_CEN_SMGA_IN_08 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site	 
   
@@ -75,9 +74,10 @@ Feature: TC_CEN_SMGA_IN_08
   @User_Interface
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
+  @CEN_IN_AMANDMENT
   Scenario Outline: TC_CEN_SMGA_IN_08 - [RL0] Author SMGA contract in <site>  
 	  	
-		Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     
     And I click Make Correction

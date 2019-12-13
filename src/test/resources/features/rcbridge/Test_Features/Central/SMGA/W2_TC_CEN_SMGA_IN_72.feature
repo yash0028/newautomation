@@ -84,6 +84,7 @@ Feature: W2_TC_CEN_SMGA_IN_72 (USED OLD DATA)
   @User_Interface
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
+  @CEN_IN_AMANDMENT
   Scenario Outline: W2_TC_CEN_SMGA_IN_72 - [RL0] Author SMGA contract in <site>
     
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
