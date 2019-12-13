@@ -21,6 +21,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     private static Boolean CHECK_APPROVAL_ALREADY_COMPLETED = true;
     private static String DASHBOARD_URL;
     private static String USER = "";
+    private static String USERNAME = "";
+    private static String PASSWORD = "";
 
     public ContractDetailsDashboard(WebDriver driver) {
         this.elements = new PageElements(driver);
@@ -169,11 +171,12 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public boolean switchLogin(String approverType) {
+        String[] credentials = new String[2];
         if (!USER.equals(approverType)) {
             USER = approverType;
             IWebInteract.log.info("[LOGIN]  {}", approverType);
             //check for login user return false if same
-
+                credentials = loginPage.
                 relaunchDriver(approverType);
                 getDriver().get(DASHBOARD_URL);
                 LoginSSOPage loginPage = new LoginSSOPage(getDriver());
@@ -238,7 +241,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public void handleApprovals(String approvalType, boolean tierApproval, String location, HashMap<String, String> hmap) {
-        //save current user in a static variable
+        USERNAME = configGetOptionalString("exari.username").orElse("");
+        PASSWORD = configGetOptionalString("exari.password").orElse("");
         waitTillVisible(elements.headerTabHome);
         if (isVisible(elements.headerTabHome)) {
             highlight(elements.headerTabHome);

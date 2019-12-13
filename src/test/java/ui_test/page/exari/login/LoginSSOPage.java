@@ -52,33 +52,41 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
         sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
         return clickWithForce("sign in", elements.buttonSignIn);
     }
-
-    public boolean login(String approverType) {
-        String username = "";
-        String password = "";
+    public String[] getCredentials(String approverType){
+        String[] credentials = new String[2];
         switch (approverType) {
             case "physician local contract approver":
-                username = configGetOptionalString("exari.phy_local_contract_approver_username").orElse("");
-                password = configGetOptionalString("exari.phy_local_contract_approver_password").orElse("");
+                //username
+                credentials[0] = configGetOptionalString("exari.phy_local_contract_approver_username").orElse("");
+                //password
+                credentials[1] = configGetOptionalString("exari.phy_local_contract_approver_password").orElse("");
                 break;
             case "senior contract approver":
-                username = configGetOptionalString("exari.sr_contract_approver_username").orElse("");
-                password = configGetOptionalString("exari.sr_contract_approver_password").orElse("");
+                credentials[0] = configGetOptionalString("exari.sr_contract_approver_username").orElse("");
+                credentials[1] = configGetOptionalString("exari.sr_contract_approver_password").orElse("");
                 break;
             case "regional pricing approver":
-                username = configGetOptionalString("exari.reg_prcicing_approver_username").orElse("");
-                password = configGetOptionalString("exari.reg_prcicing_approver_password").orElse("");
+                credentials[0] = configGetOptionalString("exari.reg_prcicing_approver_username").orElse("");
+                credentials[1] = configGetOptionalString("exari.reg_prcicing_approver_password").orElse("");
                 break;
             case "physician local pricing approver":
-                username = configGetOptionalString("exari.phy_local_prcicing_approver_username").orElse("");
-                password = configGetOptionalString("exari.phy_local_prcicing_approver_password").orElse("");
+                credentials[0] = configGetOptionalString("exari.phy_local_prcicing_approver_username").orElse("");
+                credentials[1] = configGetOptionalString("exari.phy_local_prcicing_approver_password").orElse("");
                 break;
             default:
                 Assert.fail("[APPROVER CREDENTIALS NOT FOUND] " + approverType + "");
                 break;
         }
-        sendKeys("username", elements.textBoxUsername, username);
-        sendKeys("password", elements.textBoxPassword, password);
+        return credentials;
+    }
+
+
+
+
+    public boolean login(String approverType) {
+        String[] credentials = getCredentials(approverType);
+        sendKeys("username", elements.textBoxUsername, credentials[0]);
+        sendKeys("password", elements.textBoxPassword, credentials[1]);
         return clickWithForce("sign in", elements.buttonSignIn);
     }
 
