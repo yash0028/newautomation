@@ -62,7 +62,8 @@ Feature: SPGA Business Testcases_IN
 
     #Activate
     And I Set Status as Active
-
+	And I capture Contract Number
+	
     #CMD Check
 	#NDB Check
 	#Amandments.

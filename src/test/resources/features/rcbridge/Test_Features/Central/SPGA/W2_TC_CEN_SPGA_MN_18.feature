@@ -57,6 +57,7 @@ Feature: SPGA Business Testcases_IN
     Then I Complete Wizard
 #    #Activate
     And I Set Status as Active
+    And I capture Contract Number
 #                 #NDB Checking
 
 
@@ -69,7 +70,6 @@ Feature: SPGA Business Testcases_IN
   @Manual
   @User_Interface
   @UAT_AUTO_AMANDAMENT
-
   Scenario Outline: W2_TC_CEN_SPGA_MN_18 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"

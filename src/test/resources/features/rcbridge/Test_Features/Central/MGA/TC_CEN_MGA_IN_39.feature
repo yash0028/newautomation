@@ -35,7 +35,7 @@ Feature: MGA Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
- #Final Capture - Provider Roster (Add one or more providers to the roster through Upload/download)
+    #Final Capture - Provider Roster (Add one or more providers to the roster through Upload/download)
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -55,7 +55,7 @@ Feature: MGA Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
     And I Set Status as Active
-
+	And I capture Contract Number
      #Amendment
 
 
