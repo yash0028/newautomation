@@ -259,7 +259,11 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             DASHBOARD_URL = getDriver().getCurrentUrl();
             if (getActiveWorkFlow(tierApproval, location, hmap)) {
                 if (startApprovalFlow(approvalType, tierApproval, location, hmap).equals("")) {
-                    switchLogin("exari username");
+                    if(!switchLogin("exari username")){
+                        getDriver().get(DASHBOARD_URL);
+                        Assert.assertTrue(waitForPageLoad());
+                        confirmDashboard();
+                    }
                 } else {
                     IWebInteract.log.info("[SKIPPED] {}", approvalType);
                     Assert.assertTrue(click("Back", this.elements.backbutton));
@@ -271,7 +275,24 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             IWebInteract.log.error("Failed to get Dashboard");
         }
     }
-
+    public void confirmDashboard() {
+        boolean dasboard = false;
+        for (int count = 0; count <= 2; count++) {
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.getheaderTabHome))) {
+                waitTillVisible(elements.headerTabHome);
+                if (isVisible(elements.headerTabHome)) {
+                    highlight(elements.headerTabHome);
+                }
+                dasboard = true;
+                break;
+            } else {
+                IWebInteract.log.info("Retrying for Dashboard. Retry : {}", count + 1);
+                refreshPage();
+                pause(3);
+            }
+        }
+        Assert.assertTrue("Unable to load Dashboard.", dasboard);
+    }
     public void editStatus(String option, String Location, HashMap<String, String> hmap) {
         int count = 1;
         boolean activated = false;
@@ -541,6 +562,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private String editDetails = "//select[contains(@id,'ContractDealStatus')]";
         private String editStatusButton = "//div[contains(@class,'edit-status')]/a/span";
         private String activeWorkFlow = "//div[contains(@class,'workflows')]/div/div[contains(@class,'workflows')]/div[contains(@class,'workflow-last')]";
+        private String getheaderTabHome = "//div[@title='Home']";
 
         public PageElements(SearchContext context) {
             super(context);
