@@ -19,6 +19,7 @@ public class AmendmentSelection extends GenericInputPage {
 
     public void selectAmendmentTobeUsed(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        pauseSilent(120);
         waitTillVisible(getQuestionElem("Please select the amendment to be used"),300);
         Assert.assertTrue(click("Amendment Selection", selectAmendments(hmap.get("Amendment Selection"))));
         Assert.assertTrue(clickNext());
