@@ -403,8 +403,6 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         hmap.put("Amendment Title",hmap.get("Amendment Title")+' '+UUID.randomUUID().toString());
         Assert.assertTrue(sendKeys("Entering amendment Title", elements.amendentTitleBar, hmap.get("Amendment Title")));
         Assert.assertTrue(click("Create Amendment Button", elements.getCreateAmendmentButton));
-        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-
         Assert.assertTrue(waitForPageLoad());
     }
 
