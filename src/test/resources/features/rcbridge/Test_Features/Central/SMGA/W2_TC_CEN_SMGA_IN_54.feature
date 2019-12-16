@@ -78,7 +78,7 @@ Feature: W2_TC_CEN_SMGA_IN_54
   @UAT_AUTO_AMANDAMENT
   @SMGA_AMANDMENT
   Scenario Outline: W2_TC_CEN_SMGA_IN_54 - [RL0] Author SMGA contract in <site>
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
   
     #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"

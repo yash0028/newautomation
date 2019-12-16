@@ -61,6 +61,7 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void appliedPaymentAppendix(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         Assert.assertTrue(click("Apply Payment Appendix in Amendments", paymentAppendixElement(hmap.get("Apply Payment Appendix in Amendments"))));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
@@ -93,6 +94,7 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void paymentAppendixToIncludeMGA(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         if (hmap.containsKey("Payment Appendix to Include")) {
             String[] appendixes = hmap.get("Payment Appendix to Include").split("//");
             for (String appendix : appendixes) {

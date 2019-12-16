@@ -60,7 +60,7 @@ Feature: TC_SE_SMGA_AR_03
   	And I capture Contract Number
     Examples:    
        | site            | paperType     | TCName          |
-       | southeast uhn   | SPGA          | TC_SE_SMGA_AR_03|
+       | southeast uhn   | SMGA          | TC_SE_SMGA_AR_03|
        
   
   @TC_SE_SMGA_AR_03
@@ -112,6 +112,6 @@ Feature: TC_SE_SMGA_AR_03
 
     Examples:    
        | site            | paperType     | TCName          |
-       | southeast uhn   | SPGA          | TC_SE_SMGA_AR_03|
+       | southeast uhn   | SMGA          | TC_SE_SMGA_AR_03|
 
     

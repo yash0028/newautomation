@@ -689,7 +689,7 @@ public interface IWebInteract {
     default boolean waitForElementToDissapear(WebDriver driver, WebElement element) {
         try {
             log.info("Waiting for loader to Disappear.");
-            (new WebDriverWait(driver, 10)).until(ExpectedConditions.invisibilityOf(element));
+            (new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOf(element));
             return true;
         } catch (Exception e) {
             log.info("Waiting for loader to Disappear : Failed");

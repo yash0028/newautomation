@@ -125,6 +125,6 @@ Feature: TC_WEST_SMGA_OR_03
     
     Examples:    
        | site          | paperType     | TCName            |
-       | west uhn      | SPGA          | TC_WEST_SMGA_OR_03|
+       | west uhn      | SMGA          | TC_WEST_SMGA_OR_03|
 
     
