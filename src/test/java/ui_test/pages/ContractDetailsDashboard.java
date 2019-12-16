@@ -14,6 +14,7 @@ import ui_test.util.IWebInteract;
 
 import java.util.List;
 import java.util.HashMap;
+import java.util.UUID;
 
 public class ContractDetailsDashboard extends GenericInputPage implements IUiStep {
     public PageElements elements;
@@ -21,6 +22,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     private static Boolean CHECK_APPROVAL_ALREADY_COMPLETED = true;
     private static String DASHBOARD_URL;
     private static String USER = "";
+    private static String USERNAME = "";
+    private static String PASSWORD = "";
 
     public ContractDetailsDashboard(WebDriver driver) {
         this.elements = new PageElements(driver);
@@ -167,19 +170,29 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         CHECK_APPROVAL_ALREADY_COMPLETED = false;
         return approverType;
     }
+    public LoginSSOPage createNewLoginObj(){
+        LoginSSOPage loginPage = new LoginSSOPage(getDriver());
+        return loginPage;
+    }
 
     public boolean switchLogin(String approverType) {
+        String[] credentials;
         if (!USER.equals(approverType)) {
             USER = approverType;
             IWebInteract.log.info("[LOGIN]  {}", approverType);
-            //check for login user return false if same
-
+                credentials = createNewLoginObj().getCredentials(approverType.toLowerCase());
+                if(credentials[0].equals(USERNAME) && credentials[1].equals(PASSWORD)){
+                    return false;
+                }else{
+                    USERNAME = credentials[0];
+                    PASSWORD = credentials[1];
+                }
                 relaunchDriver(approverType);
                 getDriver().get(DASHBOARD_URL);
-                LoginSSOPage loginPage = new LoginSSOPage(getDriver());
+                LoginSSOPage loginPage = createNewLoginObj();
                 waitTillClickable(elements.textBoxUsername);
                 Assert.assertTrue(loginPage.confirmCurrentPage());
-                if (approverType.equals(configGetOptionalString("exari.username").orElse(""))) {
+                if (approverType.equals("exari username")) {
                     loginPage.login();
                 } else {
                     loginPage.login(approverType.toLowerCase());
@@ -200,15 +213,19 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         waitTillClickable(elements.viewtask);
         Assert.assertTrue(click("View Task", elements.viewtask));
         waitTillClickable(elements.claimtask);
-        scrollIntoView("claim-task",3);
-        Assert.assertTrue(click("Claim Task", elements.claimtask));
-        //DONT REMOVE THIS PAUSE
-        pauseSilent(3);
-        waitTillVisible(elements.comments);
-        scrollIntoView("comments",3);
-        if (elements.comments.getAttribute("value").equals("")) {
-            waitTillClickable(elements.comments);
-            Assert.assertTrue(sendKeys("Comments", elements.comments, "Approved"));
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.claimTask))){
+            scrollIntoView("claim-task",3);
+            Assert.assertTrue(click("Claim Task", elements.claimtask));
+            //DONT REMOVE THIS PAUSE
+            pauseSilent(3);
+            waitTillVisible(elements.comments);
+            scrollIntoView("comments",3);
+            if (elements.comments.getAttribute("value").equals("")) {
+                waitTillClickable(elements.comments);
+                Assert.assertTrue(sendKeys("Comments", elements.comments, "Approved"));
+            }
+        }else{
+            IWebInteract.log.info("[RETRY APPROVAL]  {}", approvalType + " - " + approverType);
         }
         waitTillClickable(elements.approve);
         scrollIntoView("adf-form-approve",3);
@@ -238,14 +255,20 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public void handleApprovals(String approvalType, boolean tierApproval, String location, HashMap<String, String> hmap) {
-        //save current user in a static variable
+        String[] credentials = createNewLoginObj().getCredentials("exari username");
+        USERNAME = credentials[0];
+        PASSWORD = credentials[1];
         waitTillVisible(elements.headerTabHome);
         if (isVisible(elements.headerTabHome)) {
             highlight(elements.headerTabHome);
             DASHBOARD_URL = getDriver().getCurrentUrl();
             if (getActiveWorkFlow(tierApproval, location, hmap)) {
                 if (startApprovalFlow(approvalType, tierApproval, location, hmap).equals("")) {
-                    switchLogin(configGetOptionalString("exari.username").orElse(""));
+                    if(!switchLogin("exari username")){
+                        getDriver().get(DASHBOARD_URL);
+                        Assert.assertTrue(waitForPageLoad());
+                        confirmDashboard();
+                    }
                 } else {
                     IWebInteract.log.info("[SKIPPED] {}", approvalType);
                     Assert.assertTrue(click("Back", this.elements.backbutton));
@@ -257,7 +280,24 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             IWebInteract.log.error("Failed to get Dashboard");
         }
     }
-
+    public void confirmDashboard() {
+        boolean dasboard = false;
+        for (int count = 0; count <= 2; count++) {
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.getheaderTabHome))) {
+                waitTillVisible(elements.headerTabHome);
+                if (isVisible(elements.headerTabHome)) {
+                    highlight(elements.headerTabHome);
+                }
+                dasboard = true;
+                break;
+            } else {
+                IWebInteract.log.info("Retrying for Dashboard. Retry : {}", count + 1);
+                refreshPage();
+                pause(3);
+            }
+        }
+        Assert.assertTrue("Unable to load Dashboard.", dasboard);
+    }
     public void editStatus(String option, String Location, HashMap<String, String> hmap) {
         int count = 1;
         boolean activated = false;
@@ -364,10 +404,10 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             pauseSilent(1);
         }
         elements.amendentTitleBar.clear();
+        hmap.put("Amendment Title",hmap.get("Amendment Title")+' '+UUID.randomUUID().toString());
         Assert.assertTrue(sendKeys("Entering amendment Title", elements.amendentTitleBar, hmap.get("Amendment Title")));
         Assert.assertTrue(click("Create Amendment Button", elements.getCreateAmendmentButton));
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-
         Assert.assertTrue(waitForPageLoad());
     }
 
@@ -527,6 +567,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private String editDetails = "//select[contains(@id,'ContractDealStatus')]";
         private String editStatusButton = "//div[contains(@class,'edit-status')]/a/span";
         private String activeWorkFlow = "//div[contains(@class,'workflows')]/div/div[contains(@class,'workflows')]/div[contains(@class,'workflow-last')]";
+        private String getheaderTabHome = "//div[@title='Home']";
+        private String claimTask = "//button[contains(.,'Claim')]";
 
         public PageElements(SearchContext context) {
             super(context);
