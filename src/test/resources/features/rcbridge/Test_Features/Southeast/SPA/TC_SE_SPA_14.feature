@@ -58,7 +58,7 @@ Feature: TC_SE_SPA_AR_14
     And I capture Contract Number
     Examples:
       | site            | paperType     | TCName          |
-      | southeast uhn   | SPA           | TC_SE_SPA_IN_14 |
+      | southeast uhn   | SPA           | TC_SE_SPA_AR_14 |
 
   @TC_SE_SPA_AR_14
   @Manual
@@ -110,4 +110,4 @@ Feature: TC_SE_SPA_AR_14
 
     Examples:
       | site            | paperType     | TCName          |
-      | southeast uhn   | SPA           | TC_SE_SPA_IN_14 |
+      | southeast uhn   | SPA           | TC_SE_SPA_AR_14 |
