@@ -71,7 +71,9 @@ Feature: SPGA Business Testcases_IN
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @CEN_IN_AMANDMENT
-   Scenario Outline: TC_CEN_SPGA_IN_18 [RL0] Author SPGA contract in <site>
+  @SPGA_AMENDMENT
+
+  Scenario Outline: TC_CEN_SPGA_IN_18 [RL0] Author SPGA contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"

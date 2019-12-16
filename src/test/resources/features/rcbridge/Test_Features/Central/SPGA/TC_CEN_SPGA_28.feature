@@ -87,12 +87,13 @@ Feature: SPGA Business Testcases_IN
        | site          | paperType     | TCName|  				 
        | central uhn   | SPGA          | TC_CEN_SPGA_IN_28|
        
-  @TC_CEN_SPGA_IN_28
+  @TC_CEN_SPGA_IN_28_M
   @Manual
   @User_Interface 
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
   @CEN_IN_AMANDMENT
+
   Scenario Outline: TC_CEN_SPGA_IN_28 - [RL0] Author SPGA contract in <site>  
 	 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 

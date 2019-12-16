@@ -72,6 +72,7 @@ Feature: SPGA Business Testcases_IN
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
   @CEN_IN_AMANDMENT
+  @SPGA_AMENDMENT
   Scenario Outline: W2_TC_CEN_SPGA_IL_15 - [RL0] Author SPGA contract in <site>
 
 
