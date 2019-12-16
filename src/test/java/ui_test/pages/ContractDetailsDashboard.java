@@ -14,6 +14,7 @@ import ui_test.util.IWebInteract;
 
 import java.util.List;
 import java.util.HashMap;
+import java.util.UUID;
 
 public class ContractDetailsDashboard extends GenericInputPage implements IUiStep {
     public PageElements elements;
@@ -399,6 +400,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             pauseSilent(1);
         }
         elements.amendentTitleBar.clear();
+        hmap.put("Amendment Title",hmap.get("Amendment Title")+' '+UUID.randomUUID().toString());
         Assert.assertTrue(sendKeys("Entering amendment Title", elements.amendentTitleBar, hmap.get("Amendment Title")));
         Assert.assertTrue(click("Create Amendment Button", elements.getCreateAmendmentButton));
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
