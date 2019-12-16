@@ -70,7 +70,8 @@ Feature: SPGA Business Testcases_IN
   @W2_TC_CEN_SPGA_IL_05
   @Manual
   @User_Interface
-
+  @UAT_AUTO_AMENDMENT
+  @CEN_IN_AMANDMENT
   Scenario Outline: W2_TC_CEN_SPGA_IL_05- [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"

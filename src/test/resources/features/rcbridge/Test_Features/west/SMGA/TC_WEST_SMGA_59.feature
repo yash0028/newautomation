@@ -10,6 +10,7 @@ Feature: TC_WEST_SMGA_OR_59
   @UAT_AUTO
   @UAT_AUTO_WEST
   @UAT_AUTO_INITIAL_TRANSACTION
+  @SMGA_INITIAL
   Scenario Outline: TC_WEST_SMGA_OR_59 - [RL0] Author SMGA contract in <site>  
 	Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -68,7 +69,24 @@ Feature: TC_WEST_SMGA_OR_59
 #    When I search for Contract
 #    Then Validate Contract "11122328" status and request type "InstallContract"
 
-    #NDB Check
+  
+    
+    Examples:    
+       | site          | paperType     | TCName            |
+       | west uhn      | SMGA          | TC_WEST_SMGA_OR_59|
+       
+       
+       
+         
+  @TC_WEST_SMGA_OR_59
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @SMGA_AMANDMENT
+  Scenario Outline: TC_WEST_SMGA_OR_59 - [RL0] Author SMGA contract in <site>  
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+ 	And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
     
     #Add provider with Make a correction - TIN Change - Upload 
     When I am logged into Exari Dev
@@ -89,4 +107,5 @@ Feature: TC_WEST_SMGA_OR_59
     Examples:    
        | site          | paperType     | TCName            |
        | west uhn      | SMGA          | TC_WEST_SMGA_OR_59|
+    
     

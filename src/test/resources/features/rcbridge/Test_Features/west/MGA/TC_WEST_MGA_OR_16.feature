@@ -66,13 +66,12 @@ Feature: TC_WEST_MGA_OR_16
   @TC_WEST_MGA_OR_16
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_AMENDMENT_MGA
   Scenario Outline: TC_WEST_MGA_OR_16 - [RL0] Amend <paperType> contract in <site>
 
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    #Draft
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
-
     #CMD Checking
     #NDB Checking
     #Amendment-Fee Schedule

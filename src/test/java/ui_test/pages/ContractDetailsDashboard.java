@@ -172,17 +172,19 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         if (!USER.equals(approverType)) {
             USER = approverType;
             IWebInteract.log.info("[LOGIN]  {}", approverType);
-            relaunchDriver(approverType);
-            getDriver().get(DASHBOARD_URL);
-            LoginSSOPage loginPage = new LoginSSOPage(getDriver());
-            waitTillClickable(elements.textBoxUsername);
-            Assert.assertTrue(loginPage.confirmCurrentPage());
-            if (approverType.equals(configGetOptionalString("exari.username").orElse(""))) {
-                loginPage.login();
-            } else {
-                loginPage.login(approverType.toLowerCase());
-            }
-            this.elements = new PageElements(getDriver());
+            //check for login user return false if same
+
+                relaunchDriver(approverType);
+                getDriver().get(DASHBOARD_URL);
+                LoginSSOPage loginPage = new LoginSSOPage(getDriver());
+                waitTillClickable(elements.textBoxUsername);
+                Assert.assertTrue(loginPage.confirmCurrentPage());
+                if (approverType.equals(configGetOptionalString("exari.username").orElse(""))) {
+                    loginPage.login();
+                } else {
+                    loginPage.login(approverType.toLowerCase());
+                }
+                this.elements = new PageElements(getDriver());
             return true;
         } else {
             return false;
@@ -236,6 +238,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public void handleApprovals(String approvalType, boolean tierApproval, String location, HashMap<String, String> hmap) {
+        //save current user in a static variable
         waitTillVisible(elements.headerTabHome);
         if (isVisible(elements.headerTabHome)) {
             highlight(elements.headerTabHome);
@@ -363,7 +366,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         elements.amendentTitleBar.clear();
         Assert.assertTrue(sendKeys("Entering amendment Title", elements.amendentTitleBar, hmap.get("Amendment Title")));
         Assert.assertTrue(click("Create Amendment Button", elements.getCreateAmendmentButton));
-        waitForElementToDissapear(getDriver(), elements.messageElem);
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+
         Assert.assertTrue(waitForPageLoad());
     }
 

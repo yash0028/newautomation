@@ -9,6 +9,7 @@ Feature: STC_SE_SMGA_AR_72
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
+  @SMGA_INITIAL
   Scenario Outline: TC_SE_SMGA_AR_72 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -66,12 +67,22 @@ Feature: STC_SE_SMGA_AR_72
     And I Set Status as Active
     And I capture Contract Number
     
-    #CMD Check
-#    When I have entered the CMD dashboard URL
-#    When I search for Contract
-#    Then Validate Contract "11122328" status and request type "InstallContract"
 
-    #NDB Check
+    Examples:    
+       | site            | paperType     | TCName          |
+       | southeast uhn   | SMGA          | TC_SE_SMGA_AR_72|
+       
+       
+       
+  @TC_SE_SMGA_AR_72
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @SMGA_AMANDMENT
+  Scenario Outline: TC_SE_SMGA_AR_72 - [RL0] Author SMGA contract in <site>  
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
     
     #Add provider with Make a correction
     And I click Make Correction
@@ -92,4 +103,5 @@ Feature: STC_SE_SMGA_AR_72
     Examples:    
        | site            | paperType     | TCName          |
        | southeast uhn   | SMGA          | TC_SE_SMGA_AR_72|
+    
     

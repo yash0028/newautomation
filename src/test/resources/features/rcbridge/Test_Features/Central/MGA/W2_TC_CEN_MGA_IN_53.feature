@@ -66,13 +66,12 @@ Feature: W2_TC_CEN_MGA_IN_53
   @W2_TC_CEN_MGA_IN_53
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_AMENDMENT_MGA
   Scenario Outline: W2_TC_CEN_MGA_IN_53 - [RL0] Author <paperType> contract in <site>
 
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    #Draft
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
-
     #CMD Checking
     #NDB Checking
     #Amendment-Fee Schedule
