@@ -9,7 +9,7 @@ Feature: SPGA Business Testcases_AR
   @User_Interface  
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-   Scenario Outline: TC_SE_SPGA_AR_05 - [RL0] Author SPGA contract in <site>  
+   Scenario Outline: TC_SE_SPGA_AR_05 - [RL0] Author SPGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft

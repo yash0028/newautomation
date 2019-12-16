@@ -71,8 +71,8 @@ Feature: SPGA Business Testcases_IN
   @UAT_AUTO_AMANDAMENT
   @SPGA_AMENDMENT
   @CEN_IN_AMANDMENT
-  Scenario Outline: TC_CEN_SPGA_IN_05 - [RL0] Author SPGA contract in <site>  
-	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+  Scenario Outline: TC_CEN_SPGA_IN_05 - [RL0] Author SPGA contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
   
   	#SEARCH CONTRACT

@@ -78,9 +78,9 @@ Feature: SPGA Business Testcases_IN
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
   @CEN_IN_AMANDMENT
-  Scenario Outline: TC_CEN_SPGA_IN_61 - [RL0] Author SPGA contract in <site>  
-	
-	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+  Scenario Outline: TC_CEN_SPGA_IN_61 - [RL0] Author SPGA contract in <site>
+
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
    
 	#Make a Correction - Add a new TIN to the existing provider in the Roster.
