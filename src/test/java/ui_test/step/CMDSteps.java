@@ -145,8 +145,8 @@ public class CMDSteps implements IRestStep, IUiStep {
     public void verifyActionRequiredTransactions() {
         int transCountApp = cmdPage.getTransactionsCount("action required");
         Assert.assertTrue("Transaction count is 0", transCountApp != 0);
-    }
 
+    }
     @When("^There are PCP Reassignment transactions$")
     public void verifyPcpReassignTransactions() {
         //Out of scope for now or deferred
@@ -219,7 +219,11 @@ public class CMDSteps implements IRestStep, IUiStep {
     public void validateContracttype() throws Throwable {
 
         cmdPage.ValidateConract();
+    }
+    @Then("I clicked on Action Required")
+    public void validateactionrequired() throws Throwable {
 
+        cmdPage.clickActionRequiredLink();
     }
 
     public int getTransactionsCountService(String transactionStatus){
