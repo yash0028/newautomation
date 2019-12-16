@@ -67,9 +67,10 @@ Feature: PAT Business Testcases_VA
   @TC_NE_PAT_VA_13
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_AMENDMENT_PAT
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
