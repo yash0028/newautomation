@@ -70,7 +70,7 @@ Feature: TC_WEST_SMGA_OR_17
   @UAT_AUTO_AMANDAMENT
   @SMGA_AMANDMENT
   Scenario Outline: TC_WEST_SMGA_OR_17 - [RL0] Amend SMGA contract in <site>
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
    #Draft
     And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
