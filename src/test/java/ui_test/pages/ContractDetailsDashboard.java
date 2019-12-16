@@ -213,15 +213,19 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         waitTillClickable(elements.viewtask);
         Assert.assertTrue(click("View Task", elements.viewtask));
         waitTillClickable(elements.claimtask);
-        scrollIntoView("claim-task",3);
-        Assert.assertTrue(click("Claim Task", elements.claimtask));
-        //DONT REMOVE THIS PAUSE
-        pauseSilent(3);
-        waitTillVisible(elements.comments);
-        scrollIntoView("comments",3);
-        if (elements.comments.getAttribute("value").equals("")) {
-            waitTillClickable(elements.comments);
-            Assert.assertTrue(sendKeys("Comments", elements.comments, "Approved"));
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.claimTask))){
+            scrollIntoView("claim-task",3);
+            Assert.assertTrue(click("Claim Task", elements.claimtask));
+            //DONT REMOVE THIS PAUSE
+            pauseSilent(3);
+            waitTillVisible(elements.comments);
+            scrollIntoView("comments",3);
+            if (elements.comments.getAttribute("value").equals("")) {
+                waitTillClickable(elements.comments);
+                Assert.assertTrue(sendKeys("Comments", elements.comments, "Approved"));
+            }
+        }else{
+            IWebInteract.log.info("[RETRY APPROVAL]  {}", approvalType + " - " + approverType);
         }
         waitTillClickable(elements.approve);
         scrollIntoView("adf-form-approve",3);
@@ -403,6 +407,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         hmap.put("Amendment Title",hmap.get("Amendment Title")+' '+UUID.randomUUID().toString());
         Assert.assertTrue(sendKeys("Entering amendment Title", elements.amendentTitleBar, hmap.get("Amendment Title")));
         Assert.assertTrue(click("Create Amendment Button", elements.getCreateAmendmentButton));
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         Assert.assertTrue(waitForPageLoad());
     }
 
@@ -563,6 +568,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private String editStatusButton = "//div[contains(@class,'edit-status')]/a/span";
         private String activeWorkFlow = "//div[contains(@class,'workflows')]/div/div[contains(@class,'workflows')]/div[contains(@class,'workflow-last')]";
         private String getheaderTabHome = "//div[@title='Home']";
+        private String claimTask = "//button[contains(.,'Claim')]";
 
         public PageElements(SearchContext context) {
             super(context);
