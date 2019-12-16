@@ -58,7 +58,7 @@ Feature: PAT Business Testcases_OR
     
     #Activate
     And I Set Status as Active
-		And I capture Contract Number
+    And I capture Contract Number
 
      #CMD Check
     #When I have entered the CMD dashboard URL
@@ -77,9 +77,10 @@ Feature: PAT Business Testcases_OR
   @TC_WEST_PAT_OR_04
   @Manual
   @User_Interface
- 	@UAT_AUTO_AMANDAMENT
-  Scenario Outline: TC_WEST_PAT_OR_04 - [RL0] Author PAT contract in <site>
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_AMENDMENT_PAT
+  Scenario Outline: TC_WEST_PAT_OR_04 - [RL0] Amend PAT contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"

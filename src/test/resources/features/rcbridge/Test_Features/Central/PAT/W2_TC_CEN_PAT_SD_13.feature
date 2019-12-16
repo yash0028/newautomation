@@ -77,9 +77,10 @@ Feature: PAT Business Testcases_IN
   @Manual
   @User_Interface
   @UAT_AUTO
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_AMENDMENT_PAT
   @UAT_AUTO_AMENDMENT_TRANSACTION_PAT_W2
-  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+  Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
 
