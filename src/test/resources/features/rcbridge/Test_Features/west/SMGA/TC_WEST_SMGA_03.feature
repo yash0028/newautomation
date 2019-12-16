@@ -63,13 +63,15 @@ Feature: TC_WEST_SMGA_OR_03
     Examples:
       | site          | paperType     | TCName            |
       | west uhn      | SPGA          | TC_WEST_SMGA_OR_03|
+
+
   @TC_WEST_SMGA_OR_03
   @Manual
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SMGA_AMANDMENT
   Scenario Outline: TC_WEST_SMGA_OR_03 - [RL0] Amend SPGA contract in <site>
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"

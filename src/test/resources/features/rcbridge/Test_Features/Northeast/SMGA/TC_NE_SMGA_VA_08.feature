@@ -73,11 +73,10 @@ Feature: SMGA Business Testcases_VA
   @SMGA_AMANDMENT
   Scenario Outline: TC_NE_SMGA_VA_08 - [RL0] Author SMGA contract in <site>
 	
-	  Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
-    And I select the contract
     
-	  And I click Make Correction
+    And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
     And I set Roster Action as Upload
