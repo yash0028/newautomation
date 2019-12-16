@@ -93,6 +93,7 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void paymentAppendixToIncludeMGA(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         if (hmap.containsKey("Payment Appendix to Include")) {
             String[] appendixes = hmap.get("Payment Appendix to Include").split("//");
             for (String appendix : appendixes) {

@@ -38,9 +38,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
 
     public void getActivityManager(boolean refresh, boolean tierApproval) {
         int count = 1;
-        waitTillVisible(elements.inTaskApp);
+        waitTillVisible(elements.inTaskApp,180);
         while (count <= 5) {
-            pause(3);
+            pauseSilent(3);
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.spinner)));
             waitForElementsToPresent(getDriver(), By.xpath(elements.dataTable));
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.notfound))) {
@@ -247,6 +247,10 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             }
             doCaim(approvalType, approverType, tierApproval);
             Assert.assertTrue(click("Back", this.elements.backbutton));
+            pauseSilent(1);
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.saveForm))){
+                Assert.assertTrue(click("Save Modified Form",elements.saveFormElem));
+            }
             Assert.assertTrue(waitForPageLoad());
             getActivityManager(false, tierApproval);
             approverType = getApproverType(approvalType, tierApproval);
@@ -556,6 +560,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         public WebElement textBoxUsername;
         @FindBy(xpath = "//*[@id='message']")
         public WebElement messageElem;
+        @FindBy(xpath = "//div[contains(@class,'cdk-overlay-pane')]//button[contains(.,'SAVE')]")
+        public WebElement saveFormElem;
 
         private String error = "//div[contains(@class,'alf-error-header')]";
         private String spinner = "//mat-progress-spinner";
@@ -569,6 +575,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private String activeWorkFlow = "//div[contains(@class,'workflows')]/div/div[contains(@class,'workflows')]/div[contains(@class,'workflow-last')]";
         private String getheaderTabHome = "//div[@title='Home']";
         private String claimTask = "//button[contains(.,'Claim')]";
+        private String saveForm = "//div[contains(@class,'cdk-overlay-pane')]//button[contains(.,'SAVE')]";
 
         public PageElements(SearchContext context) {
             super(context);
