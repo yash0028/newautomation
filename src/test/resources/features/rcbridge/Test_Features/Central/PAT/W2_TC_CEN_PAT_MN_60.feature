@@ -2,7 +2,7 @@
 @PATBusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_IN
+Feature: W2_TC_CEN_PAT_MN_60
 
   @W2_TC_CEN_PAT_MN_60
   @Manual
