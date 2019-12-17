@@ -72,6 +72,7 @@ Feature: SPGA Business Testcases_IN
   @UAT_AUTO_AMANDAMENT
   @CEN_IN_AMANDMENT
   @SPGA_AMENDMENT
+  @SPGA_RERUN
 
   Scenario Outline: TC_CEN_SPGA_IN_18 [RL0] Author SPGA contract in <site>
 

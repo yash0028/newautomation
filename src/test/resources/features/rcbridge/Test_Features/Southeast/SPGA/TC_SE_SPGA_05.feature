@@ -69,6 +69,7 @@ Feature: SPGA Business Testcases_AR
   @User_Interface  
   @UAT_AUTO_AMANDAMENT
   @SPGA_AMENDMENT
+  @SPGA_RERUN
   Scenario Outline: TC_SE_SPGA_AR_05 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
       #Draft
@@ -88,7 +89,7 @@ Feature: SPGA Business Testcases_AR
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments
+    And I enter Payment Appendix in Amendments for SPGA contracts
     And I check Payment Appendix
     And I enter Additional Manuals
     And I enter Steerage
