@@ -98,7 +98,7 @@ Feature: TC_WEST_SMGA_OR_17
     And I select applied Payment Appendix
 #    And I enter Payment Appendix in Amendments for SMGA contracts
 #    And I check Payment Appendix
-    And I select Payment Appendix for SMGA contracts
+    And I enter Payment Appendix Amendments in Spga Contracts
     And I enter Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for SMGA contracts
