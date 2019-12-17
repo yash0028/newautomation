@@ -2,7 +2,7 @@
 @PATBusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_VA
+Feature: TC_NE_PAT_VA_60
 
   @TC_NE_PAT_VA_60
   @Manual

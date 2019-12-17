@@ -22,6 +22,7 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
     }
 
     public void contractEffectiveDate(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         String date;
         if (hmap.get("Contract Effective Date").equals("today")) {
             date = CommonMethods.todaysDate();
