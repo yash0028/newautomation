@@ -3,9 +3,9 @@
 @PATBusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: TC_SE_PAT_IN_36
+Feature: TC_SE_PAT_AR_36
 
-  @TC_SE_PAT_IN_36
+  @TC_SE_PAT_AR_36
   @Manual
   @User_Interface
   @UAT_AUTO_SE
@@ -66,7 +66,7 @@ Feature: TC_SE_PAT_IN_36
       | site            | paperType     | TCName         |
       | southeast uhn   | PAT           | TC_SE_PAT_AR_36|
 
-  @TC_SE_PAT_IN_36
+  @TC_SE_PAT_AR_36
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
