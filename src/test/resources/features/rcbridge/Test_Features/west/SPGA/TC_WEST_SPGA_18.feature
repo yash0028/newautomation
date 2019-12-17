@@ -87,7 +87,7 @@ Feature: SPGA Business Testcases_OR
     And I enter Effective date in Contract Details
 	And I enter Payment Appendix in Amendments to replace Payment Appendix
 	And I select fee schedule id in Amendments
-    And I select Provider Roster as None
+#    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 

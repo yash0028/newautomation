@@ -3,9 +3,9 @@
 @PATBusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_AR
+Feature: TC_SE_PAT_AR_36
 
-  @TC_SE_PAT_IN_36
+  @TC_SE_PAT_AR_36
   @Manual
   @User_Interface
   @UAT_AUTO_SE
@@ -66,7 +66,7 @@ Feature: PAT Business Testcases_AR
       | site            | paperType     | TCName         |
       | southeast uhn   | PAT           | TC_SE_PAT_AR_36|
 
-  @TC_SE_PAT_IN_36
+  @TC_SE_PAT_AR_36
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
@@ -96,12 +96,11 @@ Feature: PAT Business Testcases_AR
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I check Payment Appendix
+    And I select Payment Appendix to include in Amendments for PAT contracts
     And I enter Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for PAT contracts
     And I check Payment Appendix
-
     And I enter Group Summary
     And I Complete Wizard
 

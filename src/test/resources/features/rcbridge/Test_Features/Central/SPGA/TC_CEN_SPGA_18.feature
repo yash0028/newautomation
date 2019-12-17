@@ -72,6 +72,7 @@ Feature: SPGA Business Testcases_IN
   @UAT_AUTO_AMANDAMENT
   @CEN_IN_AMANDMENT
   @SPGA_AMENDMENT
+  @SPGA_RERUN
 
   Scenario Outline: TC_CEN_SPGA_IN_18 [RL0] Author SPGA contract in <site>
 
@@ -92,7 +93,7 @@ Feature: SPGA Business Testcases_IN
     And I enter Effective date in Contract Details
 	  And I enter Payment Appendix in Amendments to replace Payment Appendix
 	  And I select fee schedule id in Amendments
-    #And I select Provider Roster as None
+#    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 

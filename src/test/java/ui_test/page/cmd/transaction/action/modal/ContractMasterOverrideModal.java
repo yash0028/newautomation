@@ -74,7 +74,28 @@ public class ContractMasterOverrideModal implements IFactoryPage, IWebInteract {
     public boolean clickCancel() {
         return click("cancel", elements.button_cancel);
     }
-    
+
+
+    public boolean openTabContractMasterOverride() {
+        return click("contract master override tab", elements.tab_contractMasterOverride);
+
+    }
+
+    public boolean clickcontractsortbutton() {
+        return click("contract date sort", elements.contractdatesort);
+
+
+    }
+
+    public boolean clickcontractsite() {
+        return click("contract site", elements.sitetab);
+
+    }
+
+    public boolean clickproductgroup() {
+        return click("contract productgroup", elements.productgroup);
+    }
+
     /*
     CLASS METHODS
     */
@@ -125,6 +146,21 @@ public class ContractMasterOverrideModal implements IFactoryPage, IWebInteract {
 
         @FindBy(xpath = "//div[contains(@class,'modal-body')]//button[contains(text(),'Cancel')]")
         public WebElement button_cancel;
+
+        @FindBy(xpath = "//div[contains(@class,'mat-tab-labels')]/div//span[contains(text(),'Contract Master Override')]")
+        public WebElement tab_contractMasterOverride;
+
+        @FindBy(xpath = "//button[contains(text(),'Date')]/following-sibling::div")
+        public WebElement contractdatesort;
+
+        @FindBy(xpath = "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[1]")
+        public WebElement sitetab;
+
+        @FindBy(xpath = "//table[@class='mat-table']//tr[2]//table//tr[1]/td[1]/div/span[1]")
+        public WebElement productgroup;
+
+        @FindBy(xpath = "//button[contains(text(),'Edit')]")
+        public WebElement edit;
 
         PageElements(SearchContext context) {
             super(context);

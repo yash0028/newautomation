@@ -2,7 +2,7 @@
 @PATBusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_AR
+Feature: TC_SE_PAT_AR_60
 
   @TC_SE_PAT_AR_60
   @Manual

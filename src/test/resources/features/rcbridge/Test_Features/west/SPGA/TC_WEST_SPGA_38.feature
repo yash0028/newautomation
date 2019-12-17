@@ -41,6 +41,9 @@ Feature: SPGA Business Testcases_OR
 
     And I Start Workflow
     And I Start Process for Initial Transaction
+    #Approval
+   And I Approve Payment Appendix
+      #Final Capture Cont.
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
