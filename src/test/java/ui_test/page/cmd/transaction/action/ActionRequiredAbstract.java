@@ -64,10 +64,10 @@ public abstract class ActionRequiredAbstract implements IFactoryPage, IWebIntera
         return false;
     }
 
-    public ContractMasterOverrideTab openTabContractMasterOverride() {
-        click("contract master override tab", pageElements.tab_contractMasterOverride);
+    public boolean openTabContractMasterOverride() {
+        return click("contract master override tab", pageElements.tab_contractMasterOverride);
 
-        return new ContractMasterOverrideTab(driver);
+
     }
 
     public DownstreamErrorTab openTabDownstreamErrorResolution() {
@@ -128,8 +128,10 @@ public abstract class ActionRequiredAbstract implements IFactoryPage, IWebIntera
     public boolean isDateDescending() {
         String sort = this.pageElements.theader_date.getAttribute("aria-sort");
         return sort != null && sort.equalsIgnoreCase("descending");
+
+
     }
-    
+
     /*
     PAGE METHODS
      */

@@ -12,10 +12,20 @@ Feature: CMD - [Continued] CMD
       Given I have entered the CMD dashboard URL
       And The dashboard page loads
       And I clicked on Action Required
-     And I am on the contract master override page
+     And I am in contract master override page
+    #Then the default sort of the data should be oldest submission date to newest submission date
+    And I click on contract sort button
       And I click site in contract master override
      And I click product group
-     And I click edit tab in product group
+     #And I click edit tab in product group
+
+
+
+
+
+
+
+     #And I do something
 
      # Then the default sort of the data should be oldest submission date to newest submission date
 

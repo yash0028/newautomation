@@ -15,6 +15,8 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
+import ui_test.page.cmd.transaction.action.ActionRequiredAbstract;
+import ui_test.page.cmd.transaction.action.modal.ContractMasterOverrideModal;
 import ui_test.page.contractManagement.CMDLoginSSOPage;
 import ui_test.page.contractManagement.CMDPage;
 import ui_test.util.IUiStep;
@@ -224,6 +226,30 @@ public class CMDSteps implements IRestStep, IUiStep {
     public void validateactionrequired() throws Throwable {
 
         cmdPage.clickActionRequiredLink();
+
+    }
+    @Then("I am in contract master override page")
+    public void ContractMasterOverrideTab() throws Throwable {
+        ContractMasterOverrideModal overrideModal = new  ContractMasterOverrideModal(getDriver());
+        overrideModal.openTabContractMasterOverride();
+
+    }
+    @Then("I click on contract sort button")
+    public void clickcontractsortbutton() throws Throwable {
+        ContractMasterOverrideModal overrideModal = new  ContractMasterOverrideModal(getDriver());
+        overrideModal.clickcontractsortbutton();
+
+    }
+    @Then("I click site in contract master override")
+    public void cclickcontractsite() throws Throwable {
+        ContractMasterOverrideModal overrideModal = new  ContractMasterOverrideModal(getDriver());
+        overrideModal.clickcontractsite();
+
+    }
+    @Then("I click product group")
+    public void clickproductgroup() throws Throwable {
+        ContractMasterOverrideModal overrideModal = new  ContractMasterOverrideModal(getDriver());
+        overrideModal.clickproductgroup();
     }
 
     public int getTransactionsCountService(String transactionStatus){
