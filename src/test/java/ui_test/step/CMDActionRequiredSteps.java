@@ -32,6 +32,8 @@ public class CMDActionRequiredSteps implements IUiStep {
     @Given("^I have clicked on Action Required button on the CMD dashboard$")
     public void ClickActionRequiredButtonOnCMDDashboard() throws Throwable {
 
+
+
         CMDLoginSSOPage loginSSOPage = new CMDLoginSSOPage(getDriver());
         loginSSOPage.navigateTo(CMD_DASHBOARD_URL);
         log.info("page title {}", getDriver().getTitle());
@@ -41,11 +43,11 @@ public class CMDActionRequiredSteps implements IUiStep {
         cmdPage = new CMDPage(getDriver());
 
         Assert.assertTrue("CMD page could not be displayed", cmdPage.confirmCurrentPage());
-        Assert.assertTrue("Action required link could not be clicked", cmdPage.clickActionRequiredLink());
+       Assert.assertTrue("Action required link could not be clicked", cmdPage.clickActionRequiredLink());
         log.info("Successfully clicked action required page.");
 
         actionRequiredPage = new ActionRequiredPage(getDriver());
-        //Assert.assertTrue("URL for in progress page does not match", actionRequiredPage.confirmCurrentPage());
+        Assert.assertTrue("URL for in progress page does not match", actionRequiredPage.confirmCurrentPage());
     }
 
     @When("^there are Action Required transactions$")
