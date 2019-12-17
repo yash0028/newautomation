@@ -97,10 +97,11 @@ Feature: W2_TC_CEN_PAT_SD_13
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I check Payment Appendix
+    And I select Payment Appendix to include in Amendments for PAT contracts
     And I enter Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for PAT contracts
+    And I check Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
 
