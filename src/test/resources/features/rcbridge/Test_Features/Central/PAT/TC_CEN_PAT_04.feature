@@ -3,7 +3,7 @@
 @PATBusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_IN
+Feature: TC_CEN_PAT_IN_04
 
   @TC_CEN_PAT_IN_04
   @Manual

@@ -3,7 +3,7 @@
   @PATBusinessTestcases_OR
   @releaseUnknown
   @iterationUnknown
-  Feature: PAT Business Testcases_OR
+  Feature: TC_WEST_PAT_OR_22
 
   @TC_WEST_PAT_OR_22
   @Manual

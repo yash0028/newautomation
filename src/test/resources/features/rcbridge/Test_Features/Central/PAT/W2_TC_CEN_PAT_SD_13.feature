@@ -3,7 +3,7 @@
 @PATBusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_IN
+Feature: W2_TC_CEN_PAT_SD_13
   @W2_TC_CEN_PAT_SD_13
   @Manual
   @User_Interface

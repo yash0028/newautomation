@@ -3,7 +3,7 @@
 @PATBusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_VA
+Feature: TC_NE_PAT_VA_36
 
   @TC_NE_PAT_VA_36
   @Manual

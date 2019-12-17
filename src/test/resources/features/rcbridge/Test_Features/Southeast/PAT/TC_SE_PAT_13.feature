@@ -3,7 +3,7 @@
 @PATBusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_AR
+Feature: TC_SE_PAT_AR_13
   @TC_SE_PAT_AR_13
   @Manual
   @User_Interface
