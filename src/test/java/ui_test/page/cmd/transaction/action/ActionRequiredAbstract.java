@@ -129,7 +129,7 @@ public abstract class ActionRequiredAbstract implements IFactoryPage, IWebIntera
         String sort = this.pageElements.theader_date.getAttribute("aria-sort");
         return sort != null && sort.equalsIgnoreCase("descending");
     }
-    
+
     /*
     PAGE METHODS
      */

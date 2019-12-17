@@ -15,6 +15,8 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
+import ui_test.page.cmd.transaction.action.ActionRequiredAbstract;
+import ui_test.page.cmd.transaction.action.DownstreamErrorTab;
 import ui_test.page.contractManagement.CMDLoginSSOPage;
 import ui_test.page.contractManagement.CMDPage;
 import ui_test.util.IUiStep;
@@ -224,6 +226,14 @@ public class CMDSteps implements IRestStep, IUiStep {
     public void validateactionrequired() throws Throwable {
 
         cmdPage.clickActionRequiredLink();
+    }
+
+    @Then("I click Downstream Error Resolution")
+    public void DownstreamErrorTab() throws Throwable {
+
+        //ActionRequiredAbstract.openTabDownstreamErrorResolution();
+
+
     }
 
     public int getTransactionsCountService(String transactionStatus){
