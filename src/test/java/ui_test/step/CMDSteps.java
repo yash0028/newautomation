@@ -18,6 +18,7 @@ import rest_api_test.util.IRestStep;
 import ui_test.page.cmd.transaction.action.ActionRequiredAbstract;
 import ui_test.page.cmd.transaction.action.DownstreamErrorTab;
 import ui_test.page.cmd.transaction.action.modal.ContractMasterOverrideModal;
+import ui_test.page.cmd.transaction.action.modal.DownstreamErrorModal;
 import ui_test.page.contractManagement.CMDLoginSSOPage;
 import ui_test.page.contractManagement.CMDPage;
 import ui_test.util.IUiStep;
@@ -256,10 +257,54 @@ public class CMDSteps implements IRestStep, IUiStep {
     @Then("I click Downstream Error Resolution")
     public void DownstreamErrorTab() throws Throwable {
 
-        //ActionRequiredAbstract.openTabDownstreamErrorResolution();
-
-
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.selectDownstreamErrorResolution();
     }
+    @Then("I click site in Downstream Error Resolution")
+    public void clickDownstreamSite() throws Throwable {
+
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.clickDownstreamSite();
+    }
+    @Then("I click to expand Error Code")
+    public void clickDownstreamErrorCode() throws Throwable {
+
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.clickDownstreamSite();
+    }
+    @Then("I click the Resolve Multiple Tab")
+    public void clickResolveMultiple() throws Throwable {
+
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.clickResolveMultiple();
+    }
+
+    @Then("I Enter Resolution Text")
+    public void enterResolveMultipleText() throws Throwable {
+
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.enterResolutionText("Manually Installed");
+    }
+    @Then("I select Resolution Type Manually Installed")
+    public void selectResolveMultipleManuallyInstalled() throws Throwable {
+
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.selectResolutionManual();
+    }
+
+    @Then("I check box to select all rows")
+    public void selectCheckBoxMultiple() throws Throwable {
+
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.clickDownstreamSite();
+    }
+    @Then("I click submit button")
+    public void clickSubmitButton() throws Throwable {
+
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.clickSubmit();
+    }
+
 
     public int getTransactionsCountService(String transactionStatus){
         Response response = RestAssured.given().baseUri(ENDPOINT_TRANSACTION).get(RESOURCE_CONTRACT_SUMMARIES);

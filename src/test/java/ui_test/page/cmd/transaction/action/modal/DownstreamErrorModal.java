@@ -26,7 +26,7 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
     }
     
     /*
-    FACTORY PAGE METHODS
+    FACTORY PAGE METHODSok
      */
 
     @Override
@@ -42,7 +42,22 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
     /*
     PAGE ACTION METHODS
      */
+    public boolean selectDownstreamErrorResolution() {
+        return click("Downstream Error Resolution tab", elements.tab_downstreamErrorResolution);
 
+    }
+    public boolean clickDownstreamSite() {
+        return click("Downstream site", elements.sitetab);
+
+    }
+    public boolean clickErrorCodeToExpand() {
+        return click("Error Code Tab", elements.errorcode_tab);
+
+    }
+    public boolean clickResolveMultiple() {
+        return click("Resolve Multiple", elements.resolve_multiple);
+
+    }
     public boolean enterResolutionText(String text) {
         return sendKeys("contract master number", elements.textarea_resolutionText, text);
     }
@@ -87,6 +102,18 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
      * private class to contain the webelements. This allows us to reload the context as needed and keeps the code clean.
      */
     private class PageElements extends AbstractPageElements {
+
+        @FindBy(xpath = "//div[contains(@class,'mat-tab-labels')]/div//span[contains(text(),'Downstream Error Resolution')]")
+        public WebElement tab_downstreamErrorResolution;
+
+        @FindBy(xpath = "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[1]")
+        public WebElement sitetab;
+
+        @FindBy(xpath = "//mat-tab/span[contains(text(),'update-failed')]")
+        public WebElement errorcode_tab;
+
+        @FindBy(xpath = "//button[contains(text(),'Resolve Multiple')]")
+        public WebElement resolve_multiple;
 
         @FindBy(xpath = "//div[contains(@class,'modal-body')]//textarea")
         public WebElement textarea_resolutionText;
