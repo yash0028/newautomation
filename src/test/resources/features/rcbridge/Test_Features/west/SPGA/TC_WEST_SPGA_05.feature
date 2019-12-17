@@ -72,7 +72,6 @@ Feature: SPGA Business Testcases_OR
   @User_Interface 
   @UAT_AUTO_AMANDAMENT
   @SPGA_AMENDMENT
-  @SPGA_RERUN
   Scenario Outline: TC_WEST_SPA_OR_05 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
   
