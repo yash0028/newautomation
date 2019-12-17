@@ -92,8 +92,8 @@ Feature: SPGA Business Testcases_AR
     And I enter Payment Appendix Amendments in Spga Contracts
     And I enter Additional Manuals
     And I enter Steerage
-    And I select fee schedule id in Amendments
-    And I enter Regulatory Appendices
+    And I enter Payment Appendix in Amendments for SPGA contracts
+#    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
 
