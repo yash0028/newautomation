@@ -205,6 +205,9 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
         Assert.assertTrue(clickSearchButton());
     }
 
+   // public void validateactionrequired() {
+     //   Assert.assertTrue(click("action required", actionRequiredLink));
+    //}
     public void ValidateConract() {
         String contract = ExariSteps.hmap.get("Contract Number");
         String reqtype = "InstallContract";

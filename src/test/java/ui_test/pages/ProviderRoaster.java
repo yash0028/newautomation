@@ -176,9 +176,9 @@ public class ProviderRoaster extends GenericInputPage {
             date = CommonMethods.formatDate(hmap.get("Contract Effective Date"));
         }
         waitForPageLoad(60);
-        assert sendKeys("Contract Effective Date", this.elements.start_date, date);
-        assert clickNext();
-        assert waitForPageLoad();
+        Assert.assertTrue(sendKeys("Contract Effective Date", this.elements.start_date, date));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     public void providerStartDate(HashMap<String, String> hmap) {

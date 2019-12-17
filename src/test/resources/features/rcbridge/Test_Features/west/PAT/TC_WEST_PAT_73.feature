@@ -3,7 +3,7 @@
 @PATBusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: PAT Business Testcases_OR
+Feature: TC_WEST_PAT_OR_73
 
   @TC_WEST_PAT_OR_73
   @Manual
@@ -77,9 +77,10 @@ Feature: PAT Business Testcases_OR
   @TC_WEST_PAT_OR_73
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
-  Scenario Outline: TC_WEST_PAT_OR_73 - [RL0] Author PAT contract in <site>
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_AMENDMENT_PAT
+  Scenario Outline: TC_WEST_PAT_OR_73 - [RL0] Amend PAT contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
@@ -98,12 +99,11 @@ Feature: PAT Business Testcases_OR
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I check Payment Appendix
+    And I select Payment Appendix to include in Amendments for PAT contracts
     And I enter Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for PAT contracts
     And I check Payment Appendix
-
     And I enter Group Summary
     And I Complete Wizard
 
@@ -121,7 +121,7 @@ Feature: PAT Business Testcases_OR
     And I Complete Wizard
 
     #Activating Amendments
-    And I Set Status as Active
+    And I Set Status as Active in Amendment
 
     #Amendment CMD Checking
 

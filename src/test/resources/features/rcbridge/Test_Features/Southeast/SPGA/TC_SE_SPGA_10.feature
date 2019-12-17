@@ -75,6 +75,7 @@ Feature: SPGA Business Testcases_AR
   @Manual
   @User_Interface 
   @UAT_AUTO_AMENDMENT
+  @SPGA_AMENDMENT
 	@UAT_AUTO_MAKE_A_CORRECTION
   Scenario Outline: TC_CEN_SPGA_AR_10 - [RL0] Author SPGA contract in <site>  
 

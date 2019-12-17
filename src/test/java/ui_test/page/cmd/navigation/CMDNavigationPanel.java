@@ -79,10 +79,10 @@ public class CMDNavigationPanel implements IFactoryPage, IWebInteract {
         @FindBy(xpath = "//app-navbar//a[@href='/transaction-status']")
         public WebElement buttonCurrentTransaction;
 
-        @FindBy(xpath = "//app-navbar//a[@href='/transaction-status']")
+        @FindBy(xpath = "//app-navbar//a[@href='/mass-action']")
         public WebElement buttonMassActions;
 
-        @FindBy(xpath = "//app-navbar//a[@href='/transaction-status']")
+        @FindBy(xpath = "//app-navbar//a[@href='/metadata']")
         public WebElement buttonReferenceData;
 
         PageElements(SearchContext context) {

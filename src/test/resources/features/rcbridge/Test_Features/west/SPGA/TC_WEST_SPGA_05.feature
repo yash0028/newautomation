@@ -71,7 +71,8 @@ Feature: SPGA Business Testcases_OR
   @Manual
   @User_Interface 
   @UAT_AUTO_AMANDAMENT
-  Scenario Outline: TC_CEN_SPGA_IN_05 - [RL0] Author SPGA contract in <site>
+  @SPGA_AMENDMENT
+  Scenario Outline: TC_WEST_SPA_OR_05 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
   
     #Draft
@@ -112,7 +113,7 @@ Feature: SPGA Business Testcases_OR
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
+#    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 		

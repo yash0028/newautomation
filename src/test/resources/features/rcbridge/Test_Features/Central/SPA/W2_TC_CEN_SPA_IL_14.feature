@@ -73,8 +73,9 @@ Feature: W2_TC_CEN_SPA_IL_14
   @Manual
   @User_Interface
   @UAT_AUTO_AMANDAMENT
+  @SPA_AMENDMENT
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
