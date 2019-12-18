@@ -14,7 +14,7 @@
     And I clicked on Action Required
     And I click Downstream Error Resolution
     And I search contract by contract Id
-    And I click search in Downstream Error page
+    And I click search button
     #And I click on contract sort button
     And I click site in Downstream Error Resolution
     Then I click to expand Error Code
@@ -38,7 +38,7 @@
       And I clicked on Action Required
       And I click Downstream Error Resolution
       And I search contract by contract Id
-      And I click search in Downstream Error page
+      And I click search button
     #And I click on contract sort button
       And I click site in Downstream Error Resolution
       Then I click to expand Error Code
@@ -60,7 +60,7 @@
       And I clicked on Action Required
       And I click Downstream Error Resolution
       And I search contract by contract Id
-      And I click search in Downstream Error page
+      And I click search button
     #And I click on contract sort button
       And I click site in Downstream Error Resolution
       Then I click to expand Error Code
