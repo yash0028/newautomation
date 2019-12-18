@@ -46,6 +46,13 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
         return click("Downstream Error Resolution tab", elements.tab_downstreamErrorResolution);
 
     }
+    public boolean enterContractId(String text) {
+        return sendKeys("Contract Id ", elements.contract_id, text);
+    }
+    public boolean clickDownstreamSearch() {
+        return click("Downstream Contract Search", elements.search_downstream);
+
+    }
     public boolean clickDownstreamSite() {
         return click("Downstream site", elements.sitetab);
 
@@ -106,13 +113,20 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
         @FindBy(xpath = "//div[contains(@class,'mat-tab-labels')]/div//span[contains(text(),'Downstream Error Resolution')]")
         public WebElement tab_downstreamErrorResolution;
 
+        @FindBy(xpath = "//*[@id=\"contractIdValue\"]")
+        public WebElement contract_id;
+
+        @FindBy(xpath = "//button[contains(@id,'searchResultButton')]")
+        public WebElement search_downstream;
+        ////*[@id="searchResultButton"]/span
+
         @FindBy(xpath = "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[1]")
         public WebElement sitetab;
 
         @FindBy(xpath = "//mat-tab/span[contains(text(),'update-failed')]")
         public WebElement errorcode_tab;
 
-        @FindBy(xpath = "//button[contains(text(),'Resolve Multiple')]")
+        @FindBy(xpath = "//button[contains(text(),'Resolved')]")
         public WebElement resolve_multiple;
 
         @FindBy(xpath = "//div[contains(@class,'modal-body')]//textarea")

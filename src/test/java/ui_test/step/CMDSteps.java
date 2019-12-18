@@ -267,6 +267,19 @@ public class CMDSteps implements IRestStep, IUiStep {
         DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
         errorModal.selectDownstreamErrorResolution();
     }
+    @Then("I search contract by contract Id")
+    public void DownstreamErrorContractId() throws Throwable {
+
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.enterContractId("");
+    }
+    @Then("I click search in Downstream Error page")
+    public void DownstreamErrorSearch() throws Throwable {
+
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.clickDownstreamSearch();
+    }
+
     @Then("I click site in Downstream Error Resolution")
     public void clickDownstreamSite() throws Throwable {
 
@@ -298,7 +311,18 @@ public class CMDSteps implements IRestStep, IUiStep {
         DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
         errorModal.selectResolutionManual();
     }
+    @Then("I select Resolution Type Resend Coresystem")
+    public void selectResolveMultipleResendCoresystem() throws Throwable {
 
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.selectResolutionResend();
+    }
+    @Then("I select Resolution Type Install Cancelled")
+    public void selectResolveMultipleInstallCancelled() throws Throwable {
+
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.selectResolutionCancelled();
+    }
     @Then("I check box to select all rows")
     public void selectCheckBoxMultiple() throws Throwable {
 
