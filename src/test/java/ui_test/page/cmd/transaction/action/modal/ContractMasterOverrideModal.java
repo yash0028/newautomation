@@ -79,7 +79,9 @@ public class ContractMasterOverrideModal implements IFactoryPage, IWebInteract {
     public boolean openTabContractMasterOverride() {
         return click("contract master override tab", elements.tab_contractMasterOverride);
 
-    }
+
+
+        }
 
     public boolean clickcontractsortbutton() {
         return click("contract date sort", elements.contractdatesort);
