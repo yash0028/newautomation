@@ -68,7 +68,7 @@ Feature: TC_SE_SMGA_AR_26
     
     Examples:    
        | site            | paperType     | TCName           |
-       | southeast uhn   | SMGA          | TC_CEN_SMGA_AR_26|
+       | southeast uhn   | SMGA          | TC_SE_SMGA_AR_26|
        
   @TC_SE_SMGA_AR_26
   @Manual
@@ -95,5 +95,5 @@ Feature: TC_SE_SMGA_AR_26
     
     Examples:    
        | site            | paperType     | TCName           |
-       | southeast uhn   | SMGA          | TC_CEN_SMGA_AR_26|
+       | southeast uhn   | SMGA          | TC_SE_SMGA_AR_26|
     
