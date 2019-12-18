@@ -70,6 +70,7 @@ Feature: SMGA Business Testcases_VA
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @SMGA_AMANDMENT
+  @SMGA_RERUN
   Scenario Outline: TC_NE_SMGA_VA_03 - [RL0] Author SPGA contract in <site>
 	
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
@@ -107,7 +108,7 @@ Feature: SMGA Business Testcases_VA
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
+#    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 

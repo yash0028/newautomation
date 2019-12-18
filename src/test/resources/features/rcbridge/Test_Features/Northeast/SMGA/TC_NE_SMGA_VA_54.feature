@@ -72,6 +72,7 @@ Feature: SMGA Business Testcases_VA
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @SMGA_AMANDMENT
+  @SMGA_RERUN
   Scenario Outline: TC_NE_SMGA_VA_54 - [RL0] Author SMGA contract in <site>
 	
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
