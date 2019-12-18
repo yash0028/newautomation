@@ -73,6 +73,6 @@ Feature: TC_WEST_PAT_OR_60
 
 
     Examples:
-      | site          | paperType     | TCName|
-      | west uhn   | PAT          | TC_WEST_PAT_OR_60|
+      | site          | paperType     | TCName           |
+      | west uhn      | PAT           | TC_WEST_PAT_OR_60|
 
