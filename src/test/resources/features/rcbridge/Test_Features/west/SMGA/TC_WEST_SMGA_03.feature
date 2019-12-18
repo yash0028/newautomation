@@ -11,12 +11,13 @@ Feature: TC_WEST_SMGA_OR_03
   @UAT_AUTO_WEST
   @UAT_AUTO_INITIAL_TRANSACTION
   @SMGA_INITIAL
+  @Test_Failures
   Scenario Outline: TC_WEST_SMGA_OR_03 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
     And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
-    And I enter PES Inputs
+      And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
@@ -35,7 +36,7 @@ Feature: TC_WEST_SMGA_OR_03
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    #And I enter Amendments
+    ##And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
     

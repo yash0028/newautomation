@@ -12,6 +12,7 @@ Feature: W2_TC_CEN_PAT_ND_04
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_PAT
   @UAT_AUTO_INITIAL_TRANSACTION_PAT_W2
+  @Test_Failures
   Scenario Outline: W2_TC_CEN_PAT_ND_04- [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

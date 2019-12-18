@@ -11,6 +11,7 @@ Feature: TC_WEST_SMGA_OR_12
   @UAT_AUTO_WEST
   @UAT_AUTO_INITIAL_TRANSACTION
   @SMGA_INITIAL
+  @Test_Failures
   Scenario Outline: TC_WEST_SMGA_OR_12 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
