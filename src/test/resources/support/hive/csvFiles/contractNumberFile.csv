@@ -11,11 +11,8 @@ TC_NE_MGA_VA_53,29122626,https://uhg-stage.exaricontracts.com/exaricm/page/site/
 TC_NE_MGA_VA_67,61671205,https://uhg-stage.exaricontracts.com/exaricm/page/site/northeast/contract-details?nodeRef=workspace://SpacesStore/4926049f-4ce8-4db2-a0f5-f561203008a9,1
 TC_NE_MGA_VA_71,94002443,https://uhg-stage.exaricontracts.com/exaricm/page/site/northeast/contract-details?nodeRef=workspace://SpacesStore/1b411cf3-e2bd-438a-90de-4afbfe7151ee,1
 TC_SE_MGA_AR_16,35407507,https://uhg-stage.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/3e206a81-ae16-4da8-a1f5-63c4d39a1295,1
-TC_SE_MGA_AR_53,64177868,https://uhg-stage.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/e8d9c7bf-e632-45b5-8f22-86b21afc8556,1
 TC_SE_MGA_AR_67,87909281,https://uhg-stage.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/94228b49-c3fd-4879-8af2-69f8345425ea,1
 TC_SE_MGA_AR_71,26334246,https://uhg-stage.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/1c9cc7fb-6575-4bf7-bf77-9b2b0e46f342,1
-TC_WEST_MGA_OR_16,81454231,https://uhg-stage.exaricontracts.com/exaricm/page/site/west/contract-details?nodeRef=workspace://SpacesStore/63a4c3af-c84b-42e1-9cca-8083c7edf309,1
-TC_WEST_MGA_OR_53,48373017,https://uhg-stage.exaricontracts.com/exaricm/page/site/west/contract-details?nodeRef=workspace://SpacesStore/fccfdb1b-6950-4ff7-b8dd-eca6c06392cb,1
 TC_WEST_MGA_OR_67,41996854,https://uhg-stage.exaricontracts.com/exaricm/page/site/west/contract-details?nodeRef=workspace://SpacesStore/0b96c8ae-0f90-4b84-aab8-f4e61ba0abf9,1
 TC_WEST_MGA_OR_71,20542169,https://uhg-stage.exaricontracts.com/exaricm/page/site/west/contract-details?nodeRef=workspace://SpacesStore/8c45e4d6-a5c6-4234-b81b-26b51f16f635,1
 W2_TC_CEN_PAT_IL_13,41902820,https://uhg-stage.exaricontracts.com/exaricm/page/site/central/contract-details?nodeRef=workspace://SpacesStore/b850488a-541a-4c2b-aa12-5703384ec988,E
@@ -61,3 +58,6 @@ TC_NE_PAT_VA_04,77674562,https://uhg-stage.exaricontracts.com/exaricm/page/site/
 TC_NE_PAT_VA_13,52301349,https://uhg-stage.exaricontracts.com/exaricm/page/site/northeast/contract-details?nodeRef=workspace://SpacesStore/02b6c328-9986-4c78-aeb5-d21e1b778211,E
 TC_WEST_PAT_OR_55,23971628,https://uhg-stage.exaricontracts.com/exaricm/page/site/west/contract-details?nodeRef=workspace://SpacesStore/fdb25657-38ef-40a9-a357-2d2c644189e9,1
 TC_WEST_PAT_OR_64,36930202,https://uhg-stage.exaricontracts.com/exaricm/page/site/west/contract-details?nodeRef=workspace://SpacesStore/355f8f41-8c80-4ba1-9fe0-ac0c122cfb0c,1
+TC_SE_MGA_AR_53,40759759,https://uhg-ha-stage.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/5ba4c873-f6fa-4f61-a219-0bfbfa45a582,1
+TC_WEST_MGA_OR_16,69354352,https://uhg-ha-stage.exaricontracts.com/exaricm/page/site/west/contract-details?nodeRef=workspace://SpacesStore/387b6026-2d48-4247-907d-cd7f7ad8800a,1
+TC_WEST_MGA_OR_53,39259817,https://uhg-ha-stage.exaricontracts.com/exaricm/page/site/west/contract-details?nodeRef=workspace://SpacesStore/ed439339-8197-4ce8-92b6-c0cc38b897a4,1

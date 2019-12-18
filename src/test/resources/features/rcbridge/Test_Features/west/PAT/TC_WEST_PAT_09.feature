@@ -56,9 +56,9 @@ Feature: TC_WEST_PAT_OR_09
     And I enter Group Summary
     Then I Complete Wizard
 
-    And I capture Contract Number
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
 
     #CMD Check
     #And I have entered the CMD dashboard URL
@@ -71,5 +71,5 @@ Feature: TC_WEST_PAT_OR_09
 
 
     Examples:
-      | site          | paperType   | TCName|
-      | west uhn   | PAT         | TC_WEST_PAT_OR_09|
+      | site          | paperType   | TCName           |
+      | west uhn      | PAT         | TC_WEST_PAT_OR_09|

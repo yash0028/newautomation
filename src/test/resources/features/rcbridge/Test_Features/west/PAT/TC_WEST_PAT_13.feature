@@ -65,8 +65,8 @@ Feature: TC_WEST_PAT_OR_13
     #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
 
     Examples:
-      | site          | paperType     | TCName           |
-      | west uhn   | PAT           | TC_WEST_PAT_OR_13 |
+      | site          | paperType     | TCName            |
+      | west uhn      | PAT           | TC_WEST_PAT_OR_13 |
       
       
       
@@ -113,7 +113,6 @@ Feature: TC_WEST_PAT_OR_13
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
@@ -124,5 +123,5 @@ Feature: TC_WEST_PAT_OR_13
 
 
     Examples:
-      | site          | paperType     | TCName           |
-      | west uhn   | PAT           | TC_WEST_PAT_OR_13 |
+      | site          | paperType     | TCName            |
+      | west uhn      | PAT           | TC_WEST_PAT_OR_13 |
