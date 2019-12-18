@@ -10,6 +10,7 @@ Feature: TC_CEN_SMGA_IN_68
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @SMGA_INITIAL
+  @Test_Failures
   Scenario Outline: TC_CEN_SMGA_IN_68 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -46,8 +47,11 @@ Feature: TC_CEN_SMGA_IN_68
     #Workflow Approval Physician Local Pricing Approver_13476" role  and click on sign in
     
     #Final capture    
+   #Final capture    
     And I Start Workflow
     And I Start Process for Initial Transaction
+    #Approval
+    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture

@@ -11,6 +11,7 @@ Feature: TC_WEST_PAT_OR_55
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_PAT
+  @Test_Failures
   Scenario Outline: TC_WEST_PAT_OR_55 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

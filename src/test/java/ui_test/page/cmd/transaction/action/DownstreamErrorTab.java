@@ -70,7 +70,6 @@ public class DownstreamErrorTab extends ActionRequiredAbstract implements IFacto
         return b;
     }
 
-    
     /*
     HELPER METHODS
     */
@@ -89,6 +88,8 @@ public class DownstreamErrorTab extends ActionRequiredAbstract implements IFacto
 
         @FindBy(xpath = "//tbody/tr[contains(@class,'example-detail-row')]/td[contains(@class,'levelTwo')]")
         public List<WebElement> row_detail;
+
+
 
         PageElements(SearchContext context) {
             super(context);

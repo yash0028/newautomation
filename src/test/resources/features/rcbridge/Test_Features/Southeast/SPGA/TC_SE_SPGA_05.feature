@@ -93,6 +93,7 @@ Feature: SPGA Business Testcases_AR
     And I enter Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for SPGA contracts
+    And I verify Providers
 #    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard

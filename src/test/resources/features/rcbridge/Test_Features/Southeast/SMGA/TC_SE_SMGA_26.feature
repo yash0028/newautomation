@@ -10,6 +10,7 @@ Feature: TC_SE_SMGA_AR_26
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @SMGA_INITIAL
+  @Test_Failures
   Scenario Outline: TC_SE_SMGA_AR_26 - [RL0] Author SMGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -68,7 +69,7 @@ Feature: TC_SE_SMGA_AR_26
     
     Examples:    
        | site            | paperType     | TCName           |
-       | southeast uhn   | SMGA          | TC_CEN_SMGA_AR_26|
+       | southeast uhn   | SMGA          | TC_SE_SMGA_AR_26|
        
   @TC_SE_SMGA_AR_26
   @Manual
@@ -95,5 +96,5 @@ Feature: TC_SE_SMGA_AR_26
     
     Examples:    
        | site            | paperType     | TCName           |
-       | southeast uhn   | SMGA          | TC_CEN_SMGA_AR_26|
+       | southeast uhn   | SMGA          | TC_SE_SMGA_AR_26|
     

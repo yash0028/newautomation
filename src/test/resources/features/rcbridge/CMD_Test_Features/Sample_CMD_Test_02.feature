@@ -13,11 +13,11 @@
     And The dashboard page loads
     And I clicked on Action Required
     And I click Downstream Error Resolution
-    #Then the default sort of the data should be oldest submission date to newest submission date
-    #And I search  the Contract by Contract Id
-    And I click the site
-    Then I click the Resolve Multiple Tab
+    And I click on contract sort button
+    And I click site in Downstream Error Resolution
+    Then I click to expand Error Code
+    And I click the Resolve Multiple Tab
     And I Enter Resolution Text
-    And I select Resolution Type
-    And I check box the name
+    And I select Resolution Type Manually Installed
+    And I check box to select all rows
     Then I click submit button

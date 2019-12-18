@@ -9,10 +9,9 @@ Feature: TC_SE_SPA_AR_06
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
-  @SPA_AMENDMENT
-
+  @Test_Failures
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
-    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
@@ -67,6 +66,8 @@ Feature: TC_SE_SPA_AR_06
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
+  @SPA_AMENDMENT
+
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
