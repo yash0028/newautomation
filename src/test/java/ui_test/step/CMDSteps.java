@@ -248,10 +248,17 @@ public class CMDSteps implements IRestStep, IUiStep {
         overrideModal.clickcontractsite();
 
     }
-    @Then("I click product group")
+    @Then("I click to expand product group")
     public void clickproductgroup() throws Throwable {
         ContractMasterOverrideModal overrideModal = new  ContractMasterOverrideModal(getDriver());
         overrideModal.clickproductgroup();
+
+    }
+    @Then("I click edit tab in product group")
+    public void clickeditinproductgroup() throws Throwable {
+        ContractMasterOverrideModal overrideModal = new  ContractMasterOverrideModal(getDriver());
+        overrideModal.clickeditinproductgroup();
+
     }
 
     @Then("I click Downstream Error Resolution")
