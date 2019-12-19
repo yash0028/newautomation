@@ -75,6 +75,7 @@ Feature: TC_NE_PAT_VA_73
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_PAT
+  @rerun
   Scenario Outline: TC_NE_PAT_VA_73 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -111,6 +112,7 @@ Feature: TC_NE_PAT_VA_73
      #Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
+    And I Approve Payment Appendix in Amendment
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
     And I enter Provider Signatory in Amendment
