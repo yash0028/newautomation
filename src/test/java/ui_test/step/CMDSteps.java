@@ -248,10 +248,17 @@ public class CMDSteps implements IRestStep, IUiStep {
         overrideModal.clickcontractsite();
 
     }
-    @Then("I click product group")
+    @Then("I click to expand product group")
     public void clickproductgroup() throws Throwable {
         ContractMasterOverrideModal overrideModal = new  ContractMasterOverrideModal(getDriver());
         overrideModal.clickproductgroup();
+
+    }
+    @Then("I click edit tab in product group")
+    public void clickeditinproductgroup() throws Throwable {
+        ContractMasterOverrideModal overrideModal = new  ContractMasterOverrideModal(getDriver());
+        overrideModal.clickeditinproductgroup();
+
     }
 
     @Then("I click Downstream Error Resolution")
@@ -260,6 +267,19 @@ public class CMDSteps implements IRestStep, IUiStep {
         DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
         errorModal.selectDownstreamErrorResolution();
     }
+    @Then("I search contract by contract Id")
+    public void DownstreamErrorContractId() throws Throwable {
+
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.enterContractId("90591090");
+    }
+    @Then("I click search button")
+    public void clickSearchButton() throws Throwable {
+
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.clickSearchButton();
+    }
+
     @Then("I click site in Downstream Error Resolution")
     public void clickDownstreamSite() throws Throwable {
 
@@ -267,10 +287,10 @@ public class CMDSteps implements IRestStep, IUiStep {
         errorModal.clickDownstreamSite();
     }
     @Then("I click to expand Error Code")
-    public void clickDownstreamErrorCode() throws Throwable {
+    public void clickErrorCodeToExpand() throws Throwable {
 
         DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
-        errorModal.clickDownstreamSite();
+        errorModal.clickErrorCodeToExpand();
     }
     @Then("I click the Resolve Multiple Tab")
     public void clickResolveMultiple() throws Throwable {
@@ -283,7 +303,7 @@ public class CMDSteps implements IRestStep, IUiStep {
     public void enterResolveMultipleText() throws Throwable {
 
         DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
-        errorModal.enterResolutionText("Manually Installed");
+        errorModal.enterResolutionText("Resolved Contract");
     }
     @Then("I select Resolution Type Manually Installed")
     public void selectResolveMultipleManuallyInstalled() throws Throwable {
@@ -291,12 +311,23 @@ public class CMDSteps implements IRestStep, IUiStep {
         DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
         errorModal.selectResolutionManual();
     }
-
-    @Then("I check box to select all rows")
-    public void selectCheckBoxMultiple() throws Throwable {
+    @Then("I select Resolution Type Resend Coresystem")
+    public void selectResolveMultipleResendCoresystem() throws Throwable {
 
         DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
-        errorModal.clickDownstreamSite();
+        errorModal.selectResolutionResend();
+    }
+    @Then("I select Resolution Type Install Cancelled")
+    public void selectResolveMultipleInstallCancelled() throws Throwable {
+
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.selectResolutionCancelled();
+    }
+    @Then("I check box to select all rows")
+    public void selectCheckboxAll() throws Throwable {
+
+        DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
+        errorModal.clickCheckboxAll();
     }
     @Then("I click submit button")
     public void clickSubmitButton() throws Throwable {

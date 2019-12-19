@@ -69,7 +69,7 @@ Feature: TC_NE_SPA_VA_01
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
-
+  @SPA_DATA_ADDED
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
