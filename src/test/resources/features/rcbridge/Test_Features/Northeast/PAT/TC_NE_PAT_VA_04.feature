@@ -116,7 +116,6 @@ Feature: TC_NE_PAT_VA_04
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 

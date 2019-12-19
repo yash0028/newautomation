@@ -1,5 +1,6 @@
 package ui_test.page.cmd.navigation;
 
+import org.junit.Assert;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -54,7 +55,9 @@ public class CMDNavigationPanel implements IFactoryPage, IWebInteract {
     public boolean clickReferenceData() {
         return click("current transaction button", elements.buttonReferenceData);
     }
-    
+
+
+
     /*
     CLASS METHODS
     */

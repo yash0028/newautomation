@@ -114,6 +114,7 @@ public class ProviderRoaster extends GenericInputPage {
     }
 
     public void selectretrocode(HashMap<String, String> hmap, boolean clickNext) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         click("Retro code dropdown open", elements.dropdown_open);
         pause(1);
         waitForPageLoad(60);

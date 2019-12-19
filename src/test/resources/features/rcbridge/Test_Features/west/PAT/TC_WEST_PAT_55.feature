@@ -72,8 +72,8 @@ Feature: TC_WEST_PAT_OR_55
 	#NDB Check
 
     Examples:
-      | site          | paperType     | TCName|
-      | west uhn   | PAT          | TC_WEST_PAT_OR_55|
+      | site          | paperType     | TCName           |
+      | west uhn      | PAT           | TC_WEST_PAT_OR_55|
 
   
   @TC_WEST_PAT_OR_55
@@ -118,7 +118,6 @@ Feature: TC_WEST_PAT_OR_55
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
@@ -128,5 +127,5 @@ Feature: TC_WEST_PAT_OR_55
     #Amendment CMD Checking
 
     Examples:
-      | site          | paperType     | TCName|
-      | west uhn   | PAT          | TC_WEST_PAT_OR_55|
+      | site          | paperType     | TCName           |
+      | west uhn      | PAT           | TC_WEST_PAT_OR_55|
