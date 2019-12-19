@@ -80,7 +80,6 @@ Feature: W2_TC_CEN_PAT_SD_13
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_PAT
   @UAT_AUTO_AMENDMENT_TRANSACTION_PAT_W2
-  @rerun
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
