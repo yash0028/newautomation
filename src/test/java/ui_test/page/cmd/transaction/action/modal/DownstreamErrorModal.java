@@ -82,7 +82,7 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
         return click("usage", elements.dropdown_resolutionType) && click("always", elements.option_cancelled);
     }
     public boolean clickCheckboxAll() {
-        return click(" checkbox all", elements.checkbox_all);
+        return setCheckBox(" checkbox all", elements.checkbox_all,true);
     }
     public boolean clickSubmit() {
         return click("submit", elements.button_submit);
