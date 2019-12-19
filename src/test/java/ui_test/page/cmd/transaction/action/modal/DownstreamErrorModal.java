@@ -46,6 +46,13 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
         return click("Downstream Error Resolution tab", elements.tab_downstreamErrorResolution);
 
     }
+    public boolean enterContractId(String text) {
+        return sendKeys("Contract Id ", elements.contract_id, text);
+    }
+    public boolean clickSearchButton() {
+        return click(" Search Button ", elements.search_button);
+
+    }
     public boolean clickDownstreamSite() {
         return click("Downstream site", elements.sitetab);
 
@@ -73,7 +80,9 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
     public boolean selectResolutionCancelled() {
         return click("usage", elements.dropdown_resolutionType) && click("always", elements.option_cancelled);
     }
-
+    public boolean clickCheckboxAll() {
+        return click(" checkbox all", elements.checkbox_all);
+    }
     public boolean clickSubmit() {
         return click("submit", elements.button_submit);
     }
@@ -106,10 +115,17 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
         @FindBy(xpath = "//div[contains(@class,'mat-tab-labels')]/div//span[contains(text(),'Downstream Error Resolution')]")
         public WebElement tab_downstreamErrorResolution;
 
+        @FindBy(xpath = "//*[@id=\"contractIdValue\"]")
+        public WebElement contract_id;
+
+        @FindBy(xpath = "//button[contains(@id,'searchResultButton')]")
+        public WebElement search_button;
+        ////*[@id="searchResultButton"]/span
+
         @FindBy(xpath = "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[1]")
         public WebElement sitetab;
 
-        @FindBy(xpath = "//mat-tab/span[contains(text(),'update-failed')]")
+        @FindBy(xpath = "//*[@id=\"mat-tab-content-0-1\"]/div/app-type-two-errors/div[3]/table/tbody/tr[2]/td/div/div/table/tbody/tr[1]/td/div/span[1]")
         public WebElement errorcode_tab;
 
         @FindBy(xpath = "//button[contains(text(),'Resolve Multiple')]")
@@ -129,6 +145,9 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
 
         @FindBy(xpath = "//mat-option/span[contains(text(),'Install Cancelled')]")
         public WebElement option_cancelled;
+
+        @FindBy(xpath = "//*[@id=\"mat-checkbox-61\"]/label/div")
+        public WebElement checkbox_all;
 
         @FindBy(xpath = "//button[contains(text(),'Submit')]")
         public WebElement button_submit;

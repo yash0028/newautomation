@@ -80,8 +80,7 @@ public class ContractMasterOverrideModal implements IFactoryPage, IWebInteract {
         return click("contract master override tab", elements.tab_contractMasterOverride);
 
 
-
-        }
+    }
 
     public boolean clickcontractsortbutton() {
         return click("contract date sort", elements.contractdatesort);
@@ -96,7 +95,15 @@ public class ContractMasterOverrideModal implements IFactoryPage, IWebInteract {
 
     public boolean clickproductgroup() {
         return click("contract productgroup", elements.productgroup);
+
     }
+
+    public boolean clickeditinproductgroup() {
+        return click("contract productgroup edit button", elements.edit);
+    }
+
+
+
 
     /*
     CLASS METHODS
@@ -163,6 +170,8 @@ public class ContractMasterOverrideModal implements IFactoryPage, IWebInteract {
 
         @FindBy(xpath = "//button[contains(text(),'Edit')]")
         public WebElement edit;
+
+
 
         PageElements(SearchContext context) {
             super(context);
