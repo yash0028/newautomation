@@ -48,6 +48,7 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
     }
     public boolean enterContractId(String text) {
         return sendKeys("Contract Id ", elements.contract_id, text);
+
     }
     public boolean clickSearchButton() {
         return click(" Search Button ", elements.search_button);
@@ -120,7 +121,6 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
 
         @FindBy(xpath = "//button[contains(@id,'searchResultButton')]")
         public WebElement search_button;
-        ////*[@id="searchResultButton"]/span
 
         @FindBy(xpath = "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[1]")
         public WebElement sitetab;
@@ -146,7 +146,7 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
         @FindBy(xpath = "//mat-option/span[contains(text(),'Install Cancelled')]")
         public WebElement option_cancelled;
 
-        @FindBy(xpath = "//*[@id=\"mat-checkbox-61\"]/label/div")
+        @FindBy(xpath = "//tr[contains(@class,'mat-header-row ng-star-inserted')]//th[1]//div")
         public WebElement checkbox_all;
 
         @FindBy(xpath = "//button[contains(text(),'Submit')]")

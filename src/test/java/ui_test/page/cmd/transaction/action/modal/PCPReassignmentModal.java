@@ -42,6 +42,9 @@ public class PCPReassignmentModal implements IFactoryPage, IWebInteract {
     /*
     PAGE ACTION METHODS
      */
+    public boolean selectPCPReassignment() {
+        return click("PCP Reassignment tab", elements.tab_PCP_Reassignment);
+    }
 
     public boolean enterMPIN(String text) {
         return sendKeys("mpin", elements.input_mpin, text);
@@ -79,6 +82,8 @@ public class PCPReassignmentModal implements IFactoryPage, IWebInteract {
      * private class to contain the webelements. This allows us to reload the context as needed and keeps the code clean.
      */
     private class PageElements extends AbstractPageElements {
+        @FindBy(xpath = "//span[contains(text(),'PCP Reassignment')]")
+        public WebElement tab_PCP_Reassignment;
 
         @FindBy(xpath = "//input[contains(@formcontrolname,'reassignMpin')]")
         public WebElement input_mpin;
