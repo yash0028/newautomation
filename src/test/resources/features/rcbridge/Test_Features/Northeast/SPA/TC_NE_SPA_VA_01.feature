@@ -69,6 +69,7 @@ Feature: TC_NE_SPA_VA_01
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
+    @SPA_RERUN
 
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -91,7 +92,7 @@ Feature: TC_NE_SPA_VA_01
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I check Payment Appendix
+    And I enter Payment Appendix in Amendments FinalCapture
     And I enter Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for SPA contracts

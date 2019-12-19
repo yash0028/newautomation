@@ -75,6 +75,7 @@ Feature: W2_TC_CEN_SPA_MN_37
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
+    @SPA_RERUN
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -116,8 +117,8 @@ Feature: W2_TC_CEN_SPA_MN_37
 #    And I enter Provider Signatory in Amendment
 #    And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
-    And I enter Payment Appendix in Amendments FinalCapture
     And I select Provider Roster as None
+    And I enter Payment Appendix in Amendments FinalCapture
     And I verify Providers
     And I enter Opt-out in Amendments
     And I enter Group Summary

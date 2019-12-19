@@ -67,6 +67,7 @@ Feature: TC_SE_SPA_AR_37
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
+  @SPA_RERUN
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -103,7 +104,7 @@ Feature: TC_SE_SPA_AR_37
     And I enter OurSignatory
     And I select Types of Amendments
     And I select Provider Type Radio Button in Amendments
-    And I enter Opt-out in Amendments
+#    And I enter Opt-out in Amendments
     And I enter Opt-out Address in Amendments in IL
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments

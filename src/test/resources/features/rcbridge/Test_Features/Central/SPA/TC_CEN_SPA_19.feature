@@ -122,16 +122,7 @@ Feature: TC_CEN_SPA_IN_19
     #Amendment CMD Check
     #Cosmos Check
 
-    #Make a correction - Terminating TIN
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I set Roster Action as Cancel
-    And I select provider and cancel date
-    And I enter cancel reason
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
+
 
 
 
@@ -144,6 +135,8 @@ Feature: TC_CEN_SPA_IN_19
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_AMANDAMENT
+  @SPA_AMENDMENT
+  @SPA_RERUN
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"

@@ -73,6 +73,7 @@ Feature: TC_CEN_SPA_IN_37
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
+    @SPA_RERUN
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -115,7 +116,7 @@ Feature: TC_CEN_SPA_IN_37
     And I select Provider Roster as None
     And I check Payment Appendix
     And I enter Opt-out in Amendments
-    And I enter Opt-out Address in Amendments in IL
+#    And I enter Opt-out Address in Amendments in IL
     And I enter Group Summary
     And I Complete Wizard
 

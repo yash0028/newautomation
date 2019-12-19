@@ -61,12 +61,11 @@ Feature: TC_SE_SPA_AR_01
       | site          | paperType     | TCName          |
       | southeast uhn | SPA           | TC_SE_SPA_AR_01 |
 
-  @TC_SE_SPA_AR_01
   @Manual
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
-  @myTest1
+  @SPA_RERUN
 
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -113,7 +112,7 @@ Feature: TC_SE_SPA_AR_01
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
+#    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 

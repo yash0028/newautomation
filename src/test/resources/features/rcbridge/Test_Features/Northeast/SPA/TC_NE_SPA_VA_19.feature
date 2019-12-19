@@ -141,7 +141,7 @@ Feature: TC_NE_SPA_VA_19
    @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
   @SPA_AMENDMENT
-
+  @SPA_RERUN
 
  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
