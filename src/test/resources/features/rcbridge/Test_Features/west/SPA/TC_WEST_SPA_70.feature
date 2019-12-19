@@ -68,7 +68,7 @@ Feature: TC_WEST_SPA_OR_70
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
-
+  @test-run
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     #Draft
@@ -115,7 +115,6 @@ Feature: TC_WEST_SPA_OR_70
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
@@ -137,6 +136,7 @@ Feature: TC_WEST_SPA_OR_70
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
+  @test-run
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"

@@ -10,6 +10,7 @@ Feature: TC_WEST_SPA_OR_06
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
   @Test_Failures
+  @genlink
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -93,5 +94,5 @@ Feature: TC_WEST_SPA_OR_06
     Then I Complete Wizard
 
     Examples:
-      | site       | paperType     | TCName           |
+      | site       | paperType     | TCName            |
       | west uhn   | SPA           | TC_WEST_SPA_OR_06 |

@@ -10,6 +10,7 @@ Feature: TC_WEST_SPA_OR_19
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
   @Test_Failures
+  @genlink
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -116,7 +117,6 @@ Feature: TC_WEST_SPA_OR_19
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
