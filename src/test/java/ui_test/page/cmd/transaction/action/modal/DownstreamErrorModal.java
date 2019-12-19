@@ -116,7 +116,7 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
         @FindBy(xpath = "//div[contains(@class,'mat-tab-labels')]/div//span[contains(text(),'Downstream Error Resolution')]")
         public WebElement tab_downstreamErrorResolution;
 
-        @FindBy(xpath = "//*[@id=\"contractIdValue\"]")
+        @FindBy(xpath = "//input[@id='contractIdValue']")
         public WebElement contract_id;
 
         @FindBy(xpath = "//button[contains(@id,'searchResultButton')]")
@@ -125,7 +125,7 @@ public class DownstreamErrorModal implements IFactoryPage, IWebInteract {
         @FindBy(xpath = "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[1]")
         public WebElement sitetab;
 
-        @FindBy(xpath = "//*[@id=\"mat-tab-content-0-1\"]/div/app-type-two-errors/div[3]/table/tbody/tr[2]/td/div/div/table/tbody/tr[1]/td/div/span[1]")
+        @FindBy(xpath = "//table[@class='mat-table']//tr[2]//table//tr[1]//td[1]/div[1]//span[1]")
         public WebElement errorcode_tab;
 
         @FindBy(xpath = "//button[contains(text(),'Resolve Multiple')]")
