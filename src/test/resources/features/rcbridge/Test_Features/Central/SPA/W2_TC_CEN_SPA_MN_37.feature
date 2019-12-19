@@ -120,7 +120,7 @@ Feature: W2_TC_CEN_SPA_MN_37
     And I select Provider Roster as None
     And I enter Payment Appendix in Amendments FinalCapture
     And I verify Providers
-    And I enter Opt-out in Amendments
+    And I enter Opt-out Address in Amendments in IL
     And I enter Group Summary
     And I Complete Wizard
     And I Set Status as Active in Amendment

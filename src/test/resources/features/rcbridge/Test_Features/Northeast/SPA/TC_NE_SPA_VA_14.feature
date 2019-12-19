@@ -110,7 +110,7 @@ Feature: TC_NE_SPA_VA_14
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
+#    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 

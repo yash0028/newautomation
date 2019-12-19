@@ -76,7 +76,6 @@ Feature: W2_TC_CEN_SPA_MN_52
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
-  @SPA_RERUN
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 

@@ -10,6 +10,7 @@ Feature: TC_SE_SPA_AR_57
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
   @Test_Failures
+    @SPA_RERUN
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
