@@ -93,13 +93,17 @@ Feature: TC_WEST_SPA_OR_37
     And I select Provider Type Radio Button in Amendments
     And I enter Opt-out in Amendments
     And I enter Opt-out Address in Amendments in IL
-    And I enter Contract Details
+    And I enter Contract Details in Amendments
+    And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
+    And I select Payment Appendix to include in Amendments for SPA contracts
+    And I enter Payment Appendix in Amendments for SPA contracts
+    And I check Payment Appendix
+    And I enter Amendments
+    And I check Amendments
     And I enter Group Summary
     And I Complete Wizard
-
-
 
     #Amendment Final Capture
     And I Start Workflow
