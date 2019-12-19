@@ -105,7 +105,7 @@ Feature: TC_SE_SPA_AR_37
     And I enter OurSignatory
     And I select Types of Amendments
     And I select Provider Type Radio Button in Amendments
-#    And I enter Opt-out in Amendments
+    And I enter Opt-out in Amendments
     And I enter Opt-out Address in Amendments in IL
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
