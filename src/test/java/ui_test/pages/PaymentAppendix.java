@@ -131,7 +131,7 @@ public class PaymentAppendix extends GenericInputPage {
             Assert.assertTrue(click("Select Payment Appendix to Replace", elements.selectCode.get(0)));
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
-
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             Assert.assertTrue(click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix to Include"))));
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());

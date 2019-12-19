@@ -10,7 +10,6 @@ Feature: TC_WEST_SPA_OR_19
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
   @Test_Failures
-  @genlink
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -67,7 +66,7 @@ Feature: TC_WEST_SPA_OR_19
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
-
+  @test-run
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -100,7 +99,7 @@ Feature: TC_WEST_SPA_OR_19
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I check Payment Appendix
+    And I select Payment Appendix to include in Amendments for SPA contracts
     And I enter Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for SPA contracts
@@ -137,6 +136,7 @@ Feature: TC_WEST_SPA_OR_19
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
+  @test-run
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 	And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
