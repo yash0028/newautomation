@@ -596,6 +596,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void enterPaymentAppendixforSPAContracts() {
         basePage.getPaymentAppendix().enterDataInPaymentAppendixForSPA(hmap);
     }
+    @And("I select Payment Appendix to include in Amendments for SPA contracts")
+    public void includePaymentAppendixforSPAContracts() {
+        basePage.getPaymentAppendix().paymentAppendixToIncludeMGA(hmap);
+
+    }
 
     @And("I enter Payment Appendix in Amendments for SMGA contracts")
     public void enterPaymentAppendixforSMGAContracts() {
@@ -626,6 +631,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPaymentAppendix().verifyFeeScheduleID();
 
     }
+    @And("I check Amendments")
+    public void checkAmendments() {
+        basePage.getPaymentAppendix().verifyAmendments();
+
+    }
+
 
     @And("I enter Additional Manuals")
     public void enterAdditionalManuals() {
