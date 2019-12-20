@@ -110,16 +110,18 @@ Feature: TC_NE_SPA_VA_37
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
     And I enter Appendix 2 in Amendments FinalCapture
-    And I select Provider Roster as None
+    And I enter Opt-out Address in Amendments finalCapture
     And I check Payment Appendix
-    And I enter Opt-out in Amendments
-    And I enter Opt-out Address in Amendments in IL
+#    And I select Provider Roster as None
+#    And I enter Opt-out in Amendments
+#    And I enter Opt-out Address in Amendments in IL
     And I enter Group Summary
     And I Complete Wizard
 
 
+
  #Activating Amendment
-    #And I Set Status as Active in Amendment
+    And I Set Status as Active in Amendment
    #Amendment CMD Checking
 
 
