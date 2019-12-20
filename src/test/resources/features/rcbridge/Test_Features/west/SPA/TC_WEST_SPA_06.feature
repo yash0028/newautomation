@@ -74,6 +74,7 @@ Feature: TC_WEST_SPA_OR_06
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_AMENDMENT_SPA_WEST
   @UAT_AUTO_MAKE_A_CORRECTION
   @SPA_AMENDMENT
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
