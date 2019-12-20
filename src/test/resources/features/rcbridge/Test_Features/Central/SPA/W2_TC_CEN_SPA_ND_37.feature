@@ -24,6 +24,7 @@ Feature: W2_TC_CEN_SPA_ND_37
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
+    And I select Provider Signatory
     And I enter Contract Details
     And I enter Market Strategy Grid
     And I enter Appendix 2
