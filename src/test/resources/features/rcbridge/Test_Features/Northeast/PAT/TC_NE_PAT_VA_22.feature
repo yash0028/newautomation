@@ -111,6 +111,7 @@ Feature: TC_NE_PAT_VA_22
     And I Start Final Capture
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
+    And I enter Contract Details in Final Capture
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
     And I enter Group Summary

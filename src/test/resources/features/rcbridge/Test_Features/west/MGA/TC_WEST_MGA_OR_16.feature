@@ -68,7 +68,6 @@ Feature: TC_WEST_MGA_OR_16
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_MGA
-  @rerun
   Scenario Outline: TC_WEST_MGA_OR_16 - [RL0] Amend <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

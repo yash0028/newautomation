@@ -108,6 +108,7 @@ Feature: TC_CEN_PAT_IN_22
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
+    And I enter Contract Details in Final Capture
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture

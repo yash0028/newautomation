@@ -101,7 +101,7 @@ public class Appendix2 extends GenericInputPage {
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
-        //if Appendix 2 have second page (MGA VA 53)
+        //if Appendix 2 have second page (MGA VA 53) (PAT VA 22)
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             Assert.assertTrue(clickNext());

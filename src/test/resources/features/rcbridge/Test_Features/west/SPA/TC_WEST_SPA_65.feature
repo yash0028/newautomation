@@ -70,7 +70,6 @@ Feature: TC_WEST_SPA_OR_65
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
-
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -91,7 +90,7 @@ Feature: TC_WEST_SPA_OR_65
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
     And I enter Payment Appendix in Amendments to replace Payment Appendix
-    And I select fee schedule id in Amendments
+    And I enter Payment Appendix in Amendments for SPA contracts
     And I check Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
@@ -106,9 +105,7 @@ Feature: TC_WEST_SPA_OR_65
     And I Start Final Capture
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
-    And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
