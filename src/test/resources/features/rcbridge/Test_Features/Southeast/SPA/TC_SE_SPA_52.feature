@@ -70,6 +70,7 @@ Feature: TC_SE_SPA_AR_52
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
+  @SPA_RERUN
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -100,10 +101,12 @@ Feature: TC_SE_SPA_AR_52
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments for SPA contracts
-    And I check Payment Appendix
+    And I enter Payment Appendix Amendments in Spga Contracts
     And I enter Additional Manuals
     And I enter Steerage
+    And I enter Payment Appendix in Amendments for SPA contracts
+    And I check Payment Appendix
+
     And I enter Group Summary
     And I Complete Wizard
 
@@ -112,11 +115,12 @@ Feature: TC_SE_SPA_AR_52
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-    And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
+    And I enter Opt-out Address in Amendments finalCapture
+    And I enter Provider Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
+#    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 

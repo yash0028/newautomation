@@ -69,6 +69,7 @@ Feature: TC_NE_SPA_VA_37
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
+    @SPA_RERUN
   @SPA_DATA_ADDED
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -94,7 +95,7 @@ Feature: TC_NE_SPA_VA_37
     And I enter OurSignatory
     And I select Unilateral Contract in Amendments
     And I select Provider Type Radio Button in Amendments
-    And I enter Opt-out in Amendments
+#    And I enter Opt-out in Amendments
     And I enter Opt-out Address in Amendments in IL
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details

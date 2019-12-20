@@ -78,6 +78,7 @@ Feature: TC_CEN_SPA_IN_52
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
+
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -100,10 +101,11 @@ Feature: TC_CEN_SPA_IN_52
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments for SPA contracts
-    And I check Payment Appendix
+    And I enter Payment Appendix Amendments in Spga Contracts
     And I enter Additional Manuals
     And I enter Steerage
+    And I enter Payment Appendix in Amendments for SPA contracts
+    And I check Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
 

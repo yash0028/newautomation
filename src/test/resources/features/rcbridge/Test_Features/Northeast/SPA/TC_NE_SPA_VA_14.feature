@@ -75,6 +75,7 @@ Feature: TC_NE_SPA_VA_14
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
+  @SPA_RERUN
   @SPA_DATA_ADDED
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -109,7 +110,7 @@ Feature: TC_NE_SPA_VA_14
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
+#    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
