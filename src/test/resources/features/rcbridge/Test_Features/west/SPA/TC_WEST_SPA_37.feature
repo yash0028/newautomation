@@ -100,8 +100,6 @@ Feature: TC_WEST_SPA_OR_37
     And I select Payment Appendix to include in Amendments for SPA contracts
     And I enter Payment Appendix in Amendments for SPA contracts
     And I check Payment Appendix
-    And I enter Amendments
-    And I check Amendments
     And I enter Group Summary
     And I Complete Wizard
 
