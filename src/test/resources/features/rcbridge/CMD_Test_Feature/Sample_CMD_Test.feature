@@ -8,7 +8,7 @@ Feature: CMD - [Continued] CMD
   Scenario: CMD Action required validation - [RL0]
 
 
-
+    Given I have entered the CMD dashboard URL
     And The dashboard page loads
       And I clicked on Action Required
      And I am in contract master override page

@@ -272,12 +272,14 @@ public class CMDSteps implements IRestStep, IUiStep {
 
         DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
         errorModal.enterContractId("90591090");
+//99674687
     }
     @Then("I click search button")
     public void clickSearchButton() throws Throwable {
 
         DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
         errorModal.clickSearchButton();
+
     }
 
     @Then("I click site in Downstream Error Resolution")
@@ -328,6 +330,7 @@ public class CMDSteps implements IRestStep, IUiStep {
 
         DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
         errorModal.clickCheckboxAll();
+
     }
     @Then("I click submit button")
     public void clickSubmitButton() throws Throwable {
