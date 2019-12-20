@@ -787,4 +787,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
             basePage.getContractDetailsDashboard().clickForContractSummary();
         }
     }
+    
+    @And("I select Provider Signatory")
+    public void handleDBA_Agreement() {
+    	basePage.getProviderSignatory().handleDBA_Agreement();
+    }
+    
 }
