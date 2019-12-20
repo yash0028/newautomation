@@ -39,7 +39,8 @@ Feature: TC_SE_SPA_AR_70
   #Non Std approval process
 
      #Final capture
-
+    And I Start Workflow
+    And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -128,6 +129,7 @@ Feature: TC_SE_SPA_AR_70
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
   @SPA_AMENDMENT
+    @SPA_RERUN
 
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
 	
