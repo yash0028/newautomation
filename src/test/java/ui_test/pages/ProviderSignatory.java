@@ -49,6 +49,17 @@ public class ProviderSignatory extends GenericInputPage {
         Assert.assertTrue(waitForPageLoad());
     }
 
+    public void handleDBA_Agreement()
+    {
+    	
+        if (CommonMethods.isElementPresent(getDriver(),By.xpath("//b[.='Does the counterparty to this agreement have a D/B/A?']")))
+        {
+        	Assert.assertTrue(click("No", getDriver().findElement(By.xpath("//input[contains(@value, 'No')]"))));
+        	Assert.assertTrue(clickNext());
+        }
+    }
+    
+    
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[contains(@id,'CounterpartySignatoryDate')]")
         private WebElement CounterpartySignatoryDate;

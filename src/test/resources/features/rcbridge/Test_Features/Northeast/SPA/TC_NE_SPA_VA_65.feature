@@ -25,6 +25,7 @@ Feature: TC_NE_SPA_VA_65
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
+    And I select Provider Signatory
     And I enter Contract Details
     And I enter Appendix 1
     And I enter Market Strategy Grid

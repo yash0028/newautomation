@@ -26,6 +26,7 @@ Feature: TC_SE_SPA_AR_52
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
+    And I select Provider Signatory
     And I enter Contract Details
     And I enter Appendix 1
     And I enter Market Strategy Grid
@@ -70,7 +71,6 @@ Feature: TC_SE_SPA_AR_52
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
-  @SPA_RERUN
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -115,9 +115,9 @@ Feature: TC_SE_SPA_AR_52
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-    And I enter Our Signatory in Amendment
-    And I enter Opt-out Address in Amendments finalCapture
     And I enter Provider Signatory in Amendment
+    And I enter Our Signatory in Amendment
+#    And I enter Opt-out Address in Amendments finalCapture
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
 #    And I select Provider Roster as None

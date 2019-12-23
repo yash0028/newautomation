@@ -25,6 +25,7 @@ Feature: W2_TC_CEN_SPA_IN_65 (USED OLD DATA)
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
+    And I select Provider Signatory
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix

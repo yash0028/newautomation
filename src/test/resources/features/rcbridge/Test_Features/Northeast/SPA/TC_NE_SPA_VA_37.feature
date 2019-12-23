@@ -24,6 +24,7 @@ Feature: TC_NE_SPA_VA_37
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
+    And I select Provider Signatory
     And I enter Contract Details
     And I enter Appendix 1
     And I enter Market Strategy Grid
@@ -69,7 +70,6 @@ Feature: TC_NE_SPA_VA_37
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
-    @SPA_RERUN
   @SPA_DATA_ADDED
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -110,16 +110,18 @@ Feature: TC_NE_SPA_VA_37
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
     And I enter Appendix 2 in Amendments FinalCapture
-    And I select Provider Roster as None
+    And I enter Opt-out Address in Amendments finalCapture
     And I check Payment Appendix
-    And I enter Opt-out in Amendments
-    And I enter Opt-out Address in Amendments in IL
+#    And I select Provider Roster as None
+#    And I enter Opt-out in Amendments
+#    And I enter Opt-out Address in Amendments in IL
     And I enter Group Summary
     And I Complete Wizard
 
 
+
  #Activating Amendment
-    #And I Set Status as Active in Amendment
+    And I Set Status as Active in Amendment
    #Amendment CMD Checking
 
 

@@ -25,6 +25,7 @@ Feature: TC_SE_SPA_AR_19
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
+    And I select Provider Signatory
     And I enter Contract Details
     And I enter Appendix 1
     And I enter Market Strategy Grid
@@ -40,7 +41,8 @@ Feature: TC_SE_SPA_AR_19
 
 
      #Final capture
-
+    And I Start Workflow
+    And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -58,21 +60,23 @@ Feature: TC_SE_SPA_AR_19
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+
+
+
     Examples:
       | site            | paperType     | TCName          |
       | southeast uhn   | SPA           | TC_SE_SPA_AR_19 |
 
+
   @TC_SE_SPA_AR_19
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
-  @SPA_AMENDMENT
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-
-    #Draft
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
-
 
       #CMD Check
    #When I have entered the CMD dashboard URL
@@ -119,7 +123,7 @@ Feature: TC_SE_SPA_AR_19
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
+#    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
@@ -128,20 +132,19 @@ Feature: TC_SE_SPA_AR_19
     #Amendment CMD Check
     #Cosmos Check
 
+
     Examples:
       | site            | paperType     | TCName          |
       | southeast uhn   | SPA           | TC_SE_SPA_AR_19 |
-      
-      
+
+
   @TC_SE_SPA_AR_19
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
-	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
-    
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     #Make a correction - Terminating TIN
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction

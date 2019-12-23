@@ -22,6 +22,7 @@ Feature: TC_CEN_SPA_IN_70
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
+    And I select Provider Signatory
     And I enter Contract Details
     And I enter Market Strategy Grid
     And I enter Appendix 2

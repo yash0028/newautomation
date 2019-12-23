@@ -29,6 +29,7 @@ Feature: TC_WEST_SMGA_OR_40
     And I enter Market Exception Grid
     And I enter Contract Details
     And I enter HBPs Red Door
+    And I select Provider Signatory
     And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2

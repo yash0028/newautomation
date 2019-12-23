@@ -10,7 +10,6 @@ Feature: TC_SE_SPA_AR_57
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
   @Test_Failures
-    @SPA_RERUN
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -26,6 +25,7 @@ Feature: TC_SE_SPA_AR_57
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
+    And I select Provider Signatory
     And I enter Contract Details
     And I enter Appendix 1
     And I enter Market Strategy Grid
@@ -69,6 +69,7 @@ Feature: TC_SE_SPA_AR_57
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
   @SPA_AMENDMENT
+
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
   	
   	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
