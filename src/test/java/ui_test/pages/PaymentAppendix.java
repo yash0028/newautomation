@@ -179,8 +179,31 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void enterPaymentAppenidix(HashMap<String, String> hmap) {
-        elements.feeSchduleID.clear();
-        Assert.assertTrue(sendKeys("FeeSchdeuleID in Amendments", this.elements.feeSchduleID, hmap.get("FS All Payer Amendments")));
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer?")))) {
+            getFeeScheduleElement("All Payer?").clear();
+            Assert.assertTrue(sendKeys("All Payer", getFeeScheduleElement("All Payer?"), hmap.get("FS All Payer")));
+        }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer  ?")))) {
+            getFeeScheduleElement("All Payer  ?").clear();
+            Assert.assertTrue(sendKeys("All Payer", getFeeScheduleElement("All Payer  ?"), hmap.get("FS All Payer")));
+        }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer for Physicians")))) {
+            getFeeScheduleElement("All Payer for Physicians").clear();
+            Assert.assertTrue(sendKeys("All Payer for Physicians", getFeeScheduleElement("All Payer for Physicians"), hmap.get("FS All Payer Physician")));
+        }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer for Non-Physicians")))) {
+            getFeeScheduleElement("All Payer for Non-Physicians").clear();
+            Assert.assertTrue(sendKeys("All Payer for Non-Physicians", getFeeScheduleElement("All Payer for Non-Physicians"), hmap.get("FS All Payer Non Physician")));
+        }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Medicare Advantage  ?")))) {
+            getFeeScheduleElement("Medicare Advantage  ?").clear();
+            Assert.assertTrue(sendKeys("Medicare Advantage", getFeeScheduleElement("Medicare Advantage  ?"), hmap.get("FS Id Amendments Physician")));
+        }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Medicare Advantage ?")))) {
+            getFeeScheduleElement("Medicare Advantage ?").clear();
+            Assert.assertTrue(sendKeys("Medicare Advantage", getFeeScheduleElement("Medicare Advantage ?"), hmap.get("FS Id Amendments Physician")));
+        }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
