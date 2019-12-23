@@ -344,8 +344,16 @@ public class CMDSteps implements IRestStep, IUiStep {
 
         PCPReassignmentModal PCPModal = new PCPReassignmentModal(getDriver());
         PCPModal.selectPCPReassignment();
+
+
     }
-    @Then("I enter MPIN for Provider Reaasignment")
+    @Then("I click state tab to open PCP Reassignment Window")
+    public void PCpclickcontract() throws Throwable {
+
+        PCPReassignmentModal PCPModal = new PCPReassignmentModal(getDriver());
+        PCPModal.clickcontract();
+    }
+    @Then("I enter MPIN for Provider Reassignment")
     public void enterPCP_MPIN() throws Throwable {
 
         PCPReassignmentModal PCPModal = new PCPReassignmentModal(getDriver());

@@ -17,7 +17,7 @@ Feature: CMD Action Required PCP Reaassignment - [Continued] CMD
     #And I click search button
     #And I click on contract sort button
     And I click state tab to open PCP Reassignment Window
-    Then I enter MPIN for Provider Reaasignment
+    Then I enter MPIN for Provider Reassignment
     And I enter Address Sequence ID
     And I click save
     Then I click Final Load button

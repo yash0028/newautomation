@@ -51,7 +51,7 @@ public class PCPReassignmentModal implements IFactoryPage, IWebInteract {
     }
 
     public boolean enterAddressSequence(String text) {
-        return sendKeys("address sequence", elements.input_mpin, text);
+        return sendKeys("address sequence", elements.input_address, text);
     }
 
     public boolean clickSave() {
@@ -64,7 +64,9 @@ public class PCPReassignmentModal implements IFactoryPage, IWebInteract {
     public boolean clickFinalLoad() {
         return click("Final Load", elements.Final_Load);
     }
-    
+    public boolean clickcontract() {
+        return click("Final Load", elements.clickcontract);
+    }
     /*
     CLASS METHODS
     */
@@ -102,6 +104,9 @@ public class PCPReassignmentModal implements IFactoryPage, IWebInteract {
 
         @FindBy(xpath = "//button[contains(text(),'Final Load')]")
         public WebElement Final_Load;
+
+        @FindBy(xpath = "//*[@class='table-container mat-table']//mat-row[1]")
+        public WebElement clickcontract;
 
         PageElements(SearchContext context) {
             super(context);
