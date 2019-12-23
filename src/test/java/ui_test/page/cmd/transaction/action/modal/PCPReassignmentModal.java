@@ -61,6 +61,9 @@ public class PCPReassignmentModal implements IFactoryPage, IWebInteract {
     public boolean clickBack() {
         return click("back", elements.button_back);
     }
+    public boolean clickFinalLoad() {
+        return click("Final Load", elements.Final_Load);
+    }
     
     /*
     CLASS METHODS
@@ -96,6 +99,9 @@ public class PCPReassignmentModal implements IFactoryPage, IWebInteract {
 
         @FindBy(xpath = "//button[contains(text(),'Back')]")
         public WebElement button_back;
+
+        @FindBy(xpath = "//button[contains(text(),'Final Load')]")
+        public WebElement Final_Load;
 
         PageElements(SearchContext context) {
             super(context);
