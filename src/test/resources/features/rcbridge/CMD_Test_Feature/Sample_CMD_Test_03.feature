@@ -5,9 +5,9 @@
 @SAMPLE
 @Sample_CMD_Test_04
 @User_Interface
-Feature: CMD Action Required PCP Reaassignment - [Continued] CMD
-  Scenario: CMD Action Required PCP Reaassignment - [RL0]
-     # CMD Action Required Downstream Error Resolution --Resolve Multiple --ResolutionType Manually Installed
+Feature: CMD Action Required PCP Reassignment - [Continued] CMD
+  Scenario: CMD Action Required PCP Reassignment - [RL0]
+     # CMD Action Required --PCP Reassignment
 
     Given I have entered the CMD dashboard URL
     And The dashboard page loads
