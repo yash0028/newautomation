@@ -19,6 +19,7 @@ import ui_test.page.cmd.transaction.action.ActionRequiredAbstract;
 import ui_test.page.cmd.transaction.action.DownstreamErrorTab;
 import ui_test.page.cmd.transaction.action.modal.ContractMasterOverrideModal;
 import ui_test.page.cmd.transaction.action.modal.DownstreamErrorModal;
+import ui_test.page.cmd.transaction.action.modal.PCPReassignmentModal;
 import ui_test.page.contractManagement.CMDLoginSSOPage;
 import ui_test.page.contractManagement.CMDPage;
 import ui_test.util.IUiStep;
@@ -338,8 +339,51 @@ public class CMDSteps implements IRestStep, IUiStep {
         DownstreamErrorModal errorModal = new  DownstreamErrorModal(getDriver());
         errorModal.clickSubmit();
     }
+    @Then("I select PCP reassignment tab")
+    public void PCPReassignment() throws Throwable {
+
+        PCPReassignmentModal PCPModal = new PCPReassignmentModal(getDriver());
+        PCPModal.selectPCPReassignment();
 
 
+    }
+    @Then("I click state tab to open PCP Reassignment Window")
+    public void PCpclickcontract() throws Throwable {
+
+        PCPReassignmentModal PCPModal = new PCPReassignmentModal(getDriver());
+        PCPModal.clickcontract();
+    }
+    @Then("I enter MPIN for Provider Reassignment")
+    public void enterPCP_MPIN() throws Throwable {
+
+        PCPReassignmentModal PCPModal = new PCPReassignmentModal(getDriver());
+        PCPModal.enterMPIN("001792165");
+    }
+
+    @Then("I enter Address Sequence ID")
+    public void PCPAddressSequenceID() throws Throwable {
+
+        PCPReassignmentModal PCPModal = new PCPReassignmentModal(getDriver());
+        PCPModal.enterAddressSequence("123456");
+    }
+    @Then("I click save")
+    public void clickPCPSave() throws Throwable {
+
+        PCPReassignmentModal PCPModal = new PCPReassignmentModal(getDriver());
+        PCPModal.clickSave();
+    }
+    @Then("I click Final Load button")
+    public void PCPFinalLoad() throws Throwable {
+
+        PCPReassignmentModal PCPModal = new PCPReassignmentModal(getDriver());
+        PCPModal.clickFinalLoad();
+    }
+    @Then("I click Back button")
+    public void PCPBackButton() throws Throwable {
+
+        PCPReassignmentModal PCPModal = new PCPReassignmentModal(getDriver());
+        PCPModal.clickBack();
+    }
     public int getTransactionsCountService(String transactionStatus){
         Response response = RestAssured.given().baseUri(ENDPOINT_TRANSACTION).get(RESOURCE_CONTRACT_SUMMARIES);
         JsonArray jsonArray = parseJsonElementResponse(response).getAsJsonArray();
