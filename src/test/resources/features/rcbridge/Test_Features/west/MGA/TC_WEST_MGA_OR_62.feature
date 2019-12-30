@@ -53,9 +53,11 @@ Feature: TC_WEST_MGA_OR_62
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
     And I enter Clause Language
-    And I add provider using TIN
-    And I select Providers
-    And I verify Providers
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
