@@ -34,16 +34,13 @@ Feature: TC_WEST_SPA_OR_24
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 
 
 
-    #Non Std approval process
-      #Final capture
-    And I Start Workflow
-    And I Start Process for Initial Transaction
+     #Final capture
+
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
