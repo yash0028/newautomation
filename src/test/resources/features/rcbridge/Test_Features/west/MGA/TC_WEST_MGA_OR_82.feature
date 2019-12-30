@@ -1,16 +1,16 @@
 # Last updated on
-@MGABusinessTestcases_IN
+@MGABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: TC_CEN_MGA_IN_82
+Feature: TC_WEST_MGA_OR_82
 
-  @TC_CEN_MGA_IN_82
+  @TC_WEST_MGA_OR_82
   @Manual
   @User_Interface
   @UAT_AUTO_TESTING
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
 
   	#DRAFT
     And I enter PES Inputs
@@ -38,5 +38,5 @@ Feature: TC_CEN_MGA_IN_82
     #Final capture
 
     Examples:
-          | site          | paperType     | TCName           |
-          | central uhn   | MGA           | TC_CEN_MGA_IN_82 |
+          | site       | paperType     | TCName            |
+          | west uhn   | MGA           | TC_WEST_MGA_OR_82 |
