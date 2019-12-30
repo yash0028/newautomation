@@ -9,7 +9,7 @@ Feature: TC_WEST_SPA_OR_24
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
-  @Test_Failures
+  @NEW
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -41,7 +41,7 @@ Feature: TC_WEST_SPA_OR_24
 
 
     #Non Std approval process
-     #Final capture
+      #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
