@@ -231,6 +231,24 @@ public class CMDSteps implements IRestStep, IUiStep {
         cmdPage.clickActionRequiredLink();
 
     }
+    @Then("I clicked on completed")
+    public void validatecompeted() throws Throwable {
+       Assert.assertTrue(cmdPage.clickCompletedLink());
+        //cmdPage.clickCompletedLink();
+        //cmdPage.Assert.assertTrue(clickCompletedLink());
+
+    }
+    @Then("I clicked on In-progress")
+    public void validateinprogress() throws Throwable {
+
+        cmdPage.clickInProgressLink();
+
+    }
+    @Then("I clicked on error")
+    public void validateerror() throws Throwable {
+
+        cmdPage.clickErrorsLink();
+    }
     @Then("I am in contract master override page")
     public void ContractMasterOverrideTab() throws Throwable {
         ContractMasterOverrideModal overrideModal = new  ContractMasterOverrideModal(getDriver());

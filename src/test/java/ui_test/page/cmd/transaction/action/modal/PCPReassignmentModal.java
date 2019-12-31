@@ -65,7 +65,7 @@ public class PCPReassignmentModal implements IFactoryPage, IWebInteract {
         return click("Final Load", elements.Final_Load);
     }
     public boolean clickcontract() {
-        return click("Final Load", elements.clickcontract);
+        return click("contract", elements.clickcontract);
     }
     /*
     CLASS METHODS
@@ -105,7 +105,7 @@ public class PCPReassignmentModal implements IFactoryPage, IWebInteract {
         @FindBy(xpath = "//button[contains(text(),'Final Load')]")
         public WebElement Final_Load;
 
-        @FindBy(xpath = "//*[@class='table-container mat-table']//mat-row[1]")
+        @FindBy(xpath = "//mat-table[contains(@class, 'table-container mat-table')]//mat-row[1]")
         public WebElement clickcontract;
 
         PageElements(SearchContext context) {

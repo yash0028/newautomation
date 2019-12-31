@@ -22,16 +22,16 @@ import javax.xml.crypto.dsig.spec.HMACParameterSpec;
 
 public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     private static Logger log = LoggerFactory.getLogger(CMDPage.class);
-    @FindBy(xpath = "//a[contains(@href,'/contract-summary/in-progress')]")
+    @FindBy(xpath = "//h3[contains(text(),'In-Progress')]/ancestor::mat-card/p/a")
     WebElement inProgressLink;
 
     @FindBy(xpath = "//h3[contains(text(),'Action')]/ancestor::mat-card/p/a")
     WebElement actionRequiredLink;
 
-    @FindBy(xpath = "//a[contains(@href,'/contract-summary/failed')]")
+    @FindBy(xpath = "//h3[contains(text(),'Errors')]/ancestor::mat-card/p/a")
     WebElement errorsLink;
 
-    @FindBy(xpath = "//a[contains(@href,'/contract-summary/success')]")
+    @FindBy(xpath = "//h3[contains(text(),'Completed')]/ancestor::mat-card/p/a")
     WebElement completedLink;
 
     @FindBy(className = "navbar-brand")
