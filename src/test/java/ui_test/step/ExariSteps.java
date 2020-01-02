@@ -555,6 +555,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void selectTypesOfAmendments() {
         basePage.getAmendements().typeOfAmendmentsNeeded(hmap);
     }
+    @And("I choose Types of Amendments")
+    public void chooseAmendmentsNeeded() {
+        basePage.getAmendements().chooseAmendmentsNeeded(hmap);
+    }
 
     @And("I select Contract Applied in Amendments")
     public void selectContractApplied() {
