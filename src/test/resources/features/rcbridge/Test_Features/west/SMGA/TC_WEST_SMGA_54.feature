@@ -2,7 +2,7 @@
 @SMGABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_OR
+Feature: TC_WEST_SMGA_OR_54
   
   @TC_WEST_SMGA_OR_54
   @Manual
@@ -55,53 +55,57 @@ Feature: SMGA Business Testcases_OR
     Then I Complete Wizard
     #Activate
     And I Set Status as Active
+    And I capture Contract Number
     
-    #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract "71926900" status and request type "InstallContract"
-    
-    #NDB Checking 
-	
-	#Draft Amandament
-    And I select the contract
-    And I click on Create Amendment
-    And I enter title
-    And I enter Amendment Selection
-    And I select Amendments needed in Amendment Selection
-    And I select Amendment Type in Provider Details
-    And I select Types of Amendments
-    And I select Contract Applied in Amendments
-    And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
-    And I enter Appendix 2 in Amendments
-    And I select applied Payment Appendix
-#    And I enter Payment Appendix in Amendments for SMGA contracts
-#    And I check Payment Appendix
-    And I select Payment Appendix for SMGA contracts
-    And I enter Additional Manuals
-    And I enter Steerage
-    And I enter Payment Appendix in Amendments for SMGA contracts
-    And I check Payment Appendix
-    And I enter Group Summary
-    And I Complete Wizard
-
-	#Amandment final capture
-    And I Start Workflow
-    And I Start Process for Initial Transaction
-    And I Set Status as Final Pending QA in Amendment
-    And I Start Final Capture
-    And I enter Provider Signatory in Amendment
-    And I enter Our Signatory in Amendment
-    And I enter Appendix 2 in Amendments FinalCapture
-    And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
-    And I enter Group Summary
-    And I Complete Wizard
-
+    Examples:    
+       | site          | paperType     | TCName|
+       | west uhn   | SMGA          | TC_WEST_SMGA_OR_54|
+       
+       
+  @TC_WEST_SMGA_OR_54
+  @Manual
+  @User_Interface  
+  @UAT_AUTO_AMENDMENT1
+  @UAT_AUTO_MAKE_A_CORRECTION1
+   Scenario Outline: TC_WEST_SMGA_OR_54 - [RL0] Author SMGA contract in <site>
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+	And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
+		#Draft Amandament
+		And I select the contract
+		And I click on Create Amendment
+		And I enter title
+		And I enter Amendment Selection
+		And I select Amendments needed in Amendment Selection
+		And I select Amendment Type in Provider Details
+		And I select Types of Amendments
+		And I select Contract Applied in Amendments
+		And I enter Contract Details in Amendments
+		And I enter Effective date in Contract Details
+		And I enter Appendix 2 in Amendments
+		And I select applied Payment Appendix
+		# And I enter Payment Appendix in Amendments for SMGA contracts
+		# And I check Payment Appendix
+		And I select Payment Appendix for SMGA contracts
+		And I enter Additional Manuals
+		And I enter Steerage
+		And I enter Payment Appendix in Amendments for SMGA contracts
+		And I check Payment Appendix
+		And I enter Group Summary
+		And I Complete Wizard
 		
-		
-    
+		#Amandment final capture
+	    And I Start Workflow
+	    And I Start Process for Initial Transaction
+	    And I Set Status as Final Pending QA in Amendment
+	    And I Start Final Capture
+	    And I enter Provider Signatory in Amendment
+	    And I enter Our Signatory in Amendment
+	    And I enter Appendix 2 in Amendments FinalCapture
+	    And I enter Payment Appendix in Amendments FinalCapture
+	    And I select Provider Roster as None
+	    And I enter Group Summary
+	    And I Complete Wizard
+
     Examples:    
        | site          | paperType     | TCName|
        | west uhn   | SMGA          | TC_WEST_SMGA_OR_54|

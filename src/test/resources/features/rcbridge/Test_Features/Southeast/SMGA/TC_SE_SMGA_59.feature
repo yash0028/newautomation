@@ -108,8 +108,6 @@ Feature: TC_SE_SMGA_AR_59
     And I enter Group Summary
     Then I Complete Wizard 
     
-  
-		
     
     Examples:    
        | site            | paperType     | TCName          |

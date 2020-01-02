@@ -8,7 +8,7 @@ Feature: TC_SE_MGA_AR_82
   @TC_SE_MGA_AR_82
   @Manual
   @User_Interface
-  @UAT_AUTO_INITIAL_TRANSACTION1
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_SE_MGA_AR_82 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -55,6 +55,7 @@ Feature: TC_SE_MGA_AR_82
     And I enter Group Summary
     Then I Complete Wizard
     And I Set Status as Active
+    And I capture Contract Number
     #CMD Checking
     #NDB Checking
 

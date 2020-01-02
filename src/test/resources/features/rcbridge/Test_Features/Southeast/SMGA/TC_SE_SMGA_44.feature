@@ -2,12 +2,12 @@
 @SMGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_AR
+Feature: TC_SE_SMGA_AR_44
 
   @TC_SE_SMGA_AR_44
   @Manual
   @User_Interface
-  @UAT_AUTO_INITIAL_TRANSACTION1
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_SE_SMGA_AR_44 - [RL0] Author SMGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -57,25 +57,36 @@ Feature: SMGA Business Testcases_AR
 
     #Activate
     And I Set Status as Active
-
-    #Make a corretion-Change The Provider Through Upload/Download
-
-       #When I am logged into Exari Dev
-        #And I search Contract using Contract Number
-        And I click Make Correction
-        And I enter Market Exception Grid in Make Correction
-        And I enter Market Exception Grid
-        And I set Roster Action as Upload
-        And I Download Current Roster
-        And I Upload Completed Roster
-        And I enter warning in Make Correction
-        And I enter validation
-        And I acknowledge the warning
-        And I enter Group Summary
-        Then I Complete Wizard
-
-
+	And I capture Contract Number
+	
     Examples:
        | site          | paperType     | TCName|
        | southeast uhn   | SMGA          | TC_SE_SMGA_AR_44|
 
+
+  @TC_SE_SMGA_AR_44
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+  Scenario Outline: TC_SE_SMGA_AR_44 - [RL0] Author SMGA contract in <site>
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+	    #Make a corretion-Change The Provider Through Upload/Download
+	    #When I am logged into Exari Dev
+	    #And I search Contract using Contract Number
+	    And I click Make Correction
+	    And I enter Market Exception Grid in Make Correction
+	    And I enter Market Exception Grid
+	    And I set Roster Action as Upload
+	    And I Download Current Roster
+	    And I Upload Completed Roster
+	    And I enter warning in Make Correction
+	    And I enter validation
+	    And I acknowledge the warning
+	    And I enter Group Summary
+	    Then I Complete Wizard
+
+    Examples:
+       | site          | paperType     | TCName|
+       | southeast uhn   | SMGA          | TC_SE_SMGA_AR_44|
