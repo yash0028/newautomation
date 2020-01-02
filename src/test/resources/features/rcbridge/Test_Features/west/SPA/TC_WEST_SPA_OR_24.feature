@@ -1,5 +1,5 @@
 # Last updated on
-@SPABusinessTestcases_VA
+@SPABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
 Feature: TC_WEST_SPA_OR_24
@@ -7,6 +7,7 @@ Feature: TC_WEST_SPA_OR_24
   @Manual
   @User_Interface
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION1
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
   @NEW
@@ -40,7 +41,8 @@ Feature: TC_WEST_SPA_OR_24
 
 
      #Final capture
-
+    And I Start Workflow
+    And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
