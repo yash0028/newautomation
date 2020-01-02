@@ -76,7 +76,7 @@ Feature: TC_SE_MGA_AR_16
     #CMD Checking
     #NDB Checking
     #Amendment-Fee Schedule
-      #Draft
+     #Draft
     And I select the contract
     And I click on Create Amendment
     And I enter title

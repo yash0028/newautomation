@@ -2,7 +2,7 @@
 @SMGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_AR
+Feature: TC_SE_SMGA_AR_68
   
   @TC_SE_SMGA_AR_68
   @Manual
@@ -56,14 +56,21 @@ Feature: SPGA Business Testcases_AR
     Then I Complete Wizard
     #Activate
     And I Set Status as Active
-    
-    #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract "71926900" status and request type "InstallContract"
-    
-    #NDB Checking 
-	
+    And I capture Contract Number
+   
+    Examples:    
+       | site          | paperType     | TCName|  				 
+       | southeast uhn   | SMGA          | TC_SE_SMGA_AR_68|
+
+
+  
+  @TC_SE_SMGA_AR_68
+  @Manual
+  @User_Interface  
+  @UAT_AUTO_AMENDMENT1
+  Scenario Outline: TC_SE_SMGA_AR_68 - [RL0] Author SPGA contract in <site>
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
 	#Draft Amandament
     And I select the contract
     And I click on Create Amendment
@@ -99,12 +106,8 @@ Feature: SPGA Business Testcases_AR
     And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
-
-		
-		
     
     Examples:    
        | site          | paperType     | TCName|  				 
        | southeast uhn   | SMGA          | TC_SE_SMGA_AR_68|
-
     

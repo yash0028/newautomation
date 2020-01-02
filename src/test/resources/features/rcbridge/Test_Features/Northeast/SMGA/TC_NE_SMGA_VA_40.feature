@@ -2,12 +2,12 @@
 @SMGABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_VA
+Feature: TC_NE_SMGA_VA_40
 
   @TC_NE_SMGA_VA_40
   @Manual
   @User_Interface
-  @UAT_AUTO_INITIAL_TRANSACTION1
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_NE_SMGA_VA_40 - [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -37,17 +37,12 @@ Feature: SMGA Business Testcases_VA
     And I enter Group Summary
     Then I Complete Wizard
 
-
-
-
-     #Final capture
-
+    #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
 
-       #Approval
+    #Approval
     And I Approve Payment Appendix
-
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -74,28 +69,14 @@ Feature: SMGA Business Testcases_VA
   @TC_NE_SMGA_VA_40
   @Manual
   @User_Interface
-  @UAT_AUTO_MAKE_A_CORRECTION1
-  @UAT_AUTO_AMENDMENT1
-  @SMGA_AMANDMENT1
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
+  @SMGA_AMANDMENT
   Scenario Outline: TC_NE_SMGA_VA_40 - [RL0] Author SMGA contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
-    And I select the contract
-     #CMD Check
-   #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
-
-    #NDB Check
-
-
-
-    #Draft Amendment
-   #When I am logged into Exari Dev
-    #And I search Contract using Contract Number
-    And I select the contract
+    And I select the contract    
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
@@ -142,9 +123,9 @@ Feature: SMGA Business Testcases_VA
   @TC_NE_SMGA_VA_40
   @Manual
   @User_Interface
-  @UAT_AUTO_MAKE_A_CORRECTION1
-  @UAT_AUTO_AMENDMENT1
-  @SMGA_AMANDMENT1
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
+  @SMGA_AMANDMENT
   Scenario Outline: TC_NE_SMGA_VA_40 - [RL0] Author SMGA contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

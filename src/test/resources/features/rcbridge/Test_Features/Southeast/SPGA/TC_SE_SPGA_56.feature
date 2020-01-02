@@ -7,11 +7,11 @@ Feature: SPGA Business Testcases_AR
   @TC_SE_SPGA_AR_56
   @Manual
   @User_Interface
-  @UAT_AUTO_INITIAL_TRANSACTION1
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_SE_SPGA_AR_56 - [RL0] Author SPGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
-    #Draft
+     #Draft
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
 
     And I enter PES Inputs
@@ -63,12 +63,22 @@ Feature: SPGA Business Testcases_AR
 
     #Activate
     And I Set Status as Active
-
+	And I capture Contract Number
     
-    #CMD Check
-	#NDB Check
-	#Make a Correction - Add a new TIN to the existing provider in the Roster.
-
+    
+    Examples:    
+       | site          | paperType     | TCName|  				 
+       | southeast uhn   | SPGA          | TC_SE_SPGA_AR_56|
+       
+  
+  @TC_SE_SPGA_AR_56
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT1
+   Scenario Outline: TC_SE_SPGA_AR_56 - [RL0] Author SPGA contract in <site>
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+   
     # Draft Amandments
     And I select the contract
     And I click on Create Amendment
@@ -111,5 +121,4 @@ Feature: SPGA Business Testcases_AR
     Examples:    
        | site          | paperType     | TCName|  				 
        | southeast uhn   | SPGA          | TC_SE_SPGA_AR_56|
-       
     

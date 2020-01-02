@@ -2,12 +2,12 @@
 @SMGABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_VA
+Feature: TC_NE_SMGA_VA_44
   
   @TC_NE_SMGA_VA_44
   @Manual
   @User_Interface
-  @UAT_AUTO_INITIAL_TRANSACTION1
+  @UAT_AUTO_INITIAL_TRANSACTION
    Scenario Outline: TC_NE_SMGA_VA_44 - [RL0] Author SMGA contract in <site>
 	Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   

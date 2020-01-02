@@ -2,7 +2,7 @@
 @SMGABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: SMGA Business Testcases_VA
+Feature: TC_NE_SMGA_VA_03
 
   @TC_NE_SMGA_VA_03
   @Manual
