@@ -280,6 +280,16 @@ public class CMDSteps implements IRestStep, IUiStep {
 
     }
 
+    @Then("I click Mass Actions")
+    public void clickMassActions() throws Throwable {
+        ContractMasterOverrideModal overrideModal = new  ContractMasterOverrideModal(getDriver());
+        overrideModal.clickMassActions();
+    }
+    @Then("I click view tab")
+    public void clickMassActionsView() throws Throwable {
+        ContractMasterOverrideModal overrideModal = new  ContractMasterOverrideModal(getDriver());
+        overrideModal.clickMassActionsView();
+    }
     @Then("I click Downstream Error Resolution")
     public void DownstreamErrorTab() throws Throwable {
 
