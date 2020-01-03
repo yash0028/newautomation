@@ -45,6 +45,10 @@ public class ProviderSignatory extends GenericInputPage {
         Assert.assertTrue(sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date));
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.titleName)))
             Assert.assertTrue(sendKeys("Provider Signatory title", this.elements.name, hmap.get("Provider our Signatory title")));
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.emailXpath))) {
+            elements.email.clear();
+            Assert.assertTrue(sendKeys("Provider Signatory Email", this.elements.email, hmap.get("Provider Signatory Email")));
+        }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -69,7 +73,7 @@ public class ProviderSignatory extends GenericInputPage {
         private WebElement name;
 
         private String titleName = "//input[contains(@name,'Name')]";
-
+        private String emailXpath = "//input[contains(@name,'CounterpartySignatoryEmail')]";
 
         public PageElements(SearchContext context) {
             super(context);
