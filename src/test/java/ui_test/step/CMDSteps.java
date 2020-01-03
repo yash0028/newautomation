@@ -10,13 +10,11 @@ import io.cucumber.datatable.DataTable;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest_api_test.util.IRestStep;
-import ui_test.page.cmd.transaction.action.ActionRequiredAbstract;
-import ui_test.page.cmd.transaction.action.DownstreamErrorTab;
+import ui_test.page.cmd.navigation.CMDNavigationPanel;
 import ui_test.page.cmd.transaction.action.modal.ContractMasterOverrideModal;
 import ui_test.page.cmd.transaction.action.modal.DownstreamErrorModal;
 import ui_test.page.cmd.transaction.action.modal.PCPReassignmentModal;
@@ -280,6 +278,16 @@ public class CMDSteps implements IRestStep, IUiStep {
 
     }
 
+    @Then("I click Mass Actions")
+    public void clickMassAction() throws Throwable {
+        CMDNavigationPanel actionModal = new  CMDNavigationPanel(getDriver());
+        actionModal.clickMassActions();
+    }
+    @Then("I click view tab")
+    public void clickMassActionsView() throws Throwable {
+        ContractMasterOverrideModal overrideModal = new  ContractMasterOverrideModal(getDriver());
+        overrideModal.clickMassActionsView();
+    }
     @Then("I click Downstream Error Resolution")
     public void DownstreamErrorTab() throws Throwable {
 

@@ -103,6 +103,10 @@ public class ContractMasterOverrideModal implements IFactoryPage, IWebInteract {
     }
 
 
+    public boolean clickMassActionsView() {
+        return click("Mass Actions View Tab ", elements.mass_actions_view_tab);
+
+    }
 
 
     /*
@@ -171,6 +175,8 @@ public class ContractMasterOverrideModal implements IFactoryPage, IWebInteract {
         @FindBy(xpath = "//button[contains(text(),'Edit')]")
         public WebElement edit;
 
+        @FindBy(xpath = "//table[contains(@class, 'mat-table')]//tr[3]//td[5]//button")
+        public WebElement mass_actions_view_tab;
 
 
         PageElements(SearchContext context) {
