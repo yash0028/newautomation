@@ -1,5 +1,7 @@
 package ui_test.page.exari.login;
 
+import java.util.Random;
+
 import org.junit.Assert;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -48,8 +50,15 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
      */
 
     public boolean login() {
-        sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
-        sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
+        
+    	String[] users = configGetOptionalString("exari.username").orElse("").split(",");
+    	String[] pwds =  configGetOptionalString("exari.password").orElse("").split(",");
+    	Random rand = new Random();
+    	int rand_index = rand.nextInt(users.length);
+    	//sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
+        //sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
+    	sendKeys("username", elements.textBoxUsername,users[rand_index]);
+    	sendKeys("username", elements.textBoxPassword,pwds[rand_index] );
         return clickWithForce("sign in", elements.buttonSignIn);
     }
     public String[] getCredentials(String approverType){
