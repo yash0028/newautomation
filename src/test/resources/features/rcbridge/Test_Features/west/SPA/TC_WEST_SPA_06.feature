@@ -25,6 +25,7 @@ Feature: TC_WEST_SPA_OR_06
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
+    And I select Provider Signatory
     And I enter Contract Details
     And I enter Appendix 1
     And I enter Market Strategy Grid
@@ -74,6 +75,7 @@ Feature: TC_WEST_SPA_OR_06
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_AMENDMENT_SPA_WEST
   @UAT_AUTO_MAKE_A_CORRECTION
   @SPA_AMENDMENT
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>

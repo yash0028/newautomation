@@ -2,7 +2,7 @@
 @MGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: MGA Business Testcases_IN
+Feature: TC_CEN_MGA_IN_82
 
   @TC_CEN_MGA_IN_82
   @Manual

@@ -35,6 +35,53 @@ public class Amendements extends GenericInputPage {
 
     }
 
+    public void chooseAmendmentsNeeded(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        Assert.assertTrue(click("Type of Amendment needed in Amendments Page", selectAmendments(hmap.get("Amendment Type Needed"))));
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        String Question = "Which contract type will this amendment be applied to";
+        waitForPageLoad(60);
+        chooseContractType(Question, hmap);
+        waitForPageLoad(60);
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        Question = "Provider type";
+        chooseProviderType(Question, hmap);
+        waitForPageLoad(60);
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
+    }
+
+    public void chooseProviderType(String Question, HashMap<String, String> hmap) {
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQuestion(Question)))) {
+            //Open dropdown search
+            click("dropdown open", getDropDown(Question));
+            pause(1);
+            waitForPageLoad(60);
+            //Enter search term
+            sendKeys("dropdown textbox", this.elements.dropdown_textbox, hmap.get("Provider Type in Amendments"));
+            pause(1);
+            waitForPageLoad(60);
+            //Click index option
+            Assert.assertTrue(click("Click Contract Type", elements.dropdown_selection.get(0)));
+        }
+    }
+
+    public void chooseContractType(String Question, HashMap<String, String> hmap) {
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQuestion(Question)))) {
+            //Open dropdown search
+            click("dropdown open", getDropDown(Question));
+            pause(1);
+            waitForPageLoad(60);
+            //Enter search term
+            sendKeys("dropdown textbox", this.elements.dropdown_textbox, hmap.get("Contract Type in Amendments"));
+            pause(1);
+            waitForPageLoad(60);
+            //Click index option
+            Assert.assertTrue(click("Click Contract Type", elements.dropdown_selection.get(0)));
+        }
+    }
+
     public void typeOfContractApplied(HashMap<String, String> hmap) {
         Assert.assertTrue(click("Open Dropdown", elements.clickOnSearch));
         Assert.assertTrue(sendKeys("Select Type of Contract", elements.clickOnBar, hmap.get("Contract Type in Amendments")));
@@ -115,11 +162,6 @@ public class Amendements extends GenericInputPage {
 
     }
 
-    public WebElement selectOptionForstate(String answer) {
-        return findElement(getDriver(), new String[]{"xpath", "//li[contains(text(),'"+answer+"')]"});
-
-    }
-
     public void enterOptOutadressIL(HashMap<String, String> hmap)
     {
 
@@ -158,9 +200,22 @@ public class Amendements extends GenericInputPage {
         Assert.assertTrue(waitForPageLoad());
     }
 
+    public WebElement selectOptionForstate(String answer) {
+        return findElement(getDriver(), new String[]{"xpath", "//li[contains(text(),'"+answer+"')]"});
+
+    }
+
+    public WebElement getDropDown(String Question) {
+        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'"+Question+"')]/../../../..//span[@class='select2-selection__arrow']"});
+    }
+
+    public String getQuestion(String question) {
+        return "//label/b[contains(.,'" + question + "')]";
+    }
+
     private static class PageElements extends AbstractPageElements {
-
-
+        @FindBy(xpath = "//input[@class='select2-search__field']")
+        private WebElement dropdown_textbox;
         @FindBy(xpath="//b[contains(text(),'Address for Notice:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/span/div/input")
         private WebElement optAddrIL;
         @FindBy(xpath = "//b[contains(text(),'Notice City:')]/../../../../div[@class='AnswerAboveAndBelow interview-item__answer']/span/div/input")

@@ -24,6 +24,7 @@ Feature: TC_WEST_SPA_OR_70
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
+    And I select Provider Signatory
     And I enter Contract Details
     And I enter Appendix 1
     And I enter Market Strategy Grid
@@ -66,7 +67,8 @@ Feature: TC_WEST_SPA_OR_70
   @TC_WEST_SPA_OR_70
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_AMENDMENT_SPA_WEST
   @SPA_AMENDMENT
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -134,6 +136,7 @@ Feature: TC_WEST_SPA_OR_70
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_AMENDMENT_SPA_WEST
   @UAT_AUTO_MAKE_A_CORRECTION
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

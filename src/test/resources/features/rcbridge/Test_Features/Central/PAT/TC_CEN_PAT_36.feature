@@ -28,6 +28,7 @@ Feature: TC_CEN_PAT_IN_36
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
+    And I select Provider Signatory
     And I enter Contract Details
     And I enter Market Strategy Grid
     And I enter Appendix 2
