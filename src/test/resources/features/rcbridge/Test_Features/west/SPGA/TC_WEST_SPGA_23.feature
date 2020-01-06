@@ -2,7 +2,7 @@
 @SPGABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_OR
+Feature: TC_WEST_SPA_OR_23
   
   @TC_CEN_SPGA_OR_23
   @Manual

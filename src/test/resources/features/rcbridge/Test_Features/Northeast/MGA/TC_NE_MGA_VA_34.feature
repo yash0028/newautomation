@@ -7,7 +7,7 @@ Feature: TC_NE_MGA_VA_34
   @TC_NE_MGA_VA_34
   @Manual
   @User_Interface
-  @UAT_AUTO_INITIAL_TRANSACTION1
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: TC_NE_MGA_VA_34 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -37,6 +37,7 @@ Feature: TC_NE_MGA_VA_34
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
+    
     #Final Capture - Provider Roster (Add one or more providers to the roster)
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -73,7 +74,7 @@ Feature: TC_NE_MGA_VA_34
     #CMD Checking
     #NDB Checking
     #Amendment-Fee Schedule
-      #Draft
+    #Draft
     And I select the contract
     And I click on Create Amendment
     And I enter title

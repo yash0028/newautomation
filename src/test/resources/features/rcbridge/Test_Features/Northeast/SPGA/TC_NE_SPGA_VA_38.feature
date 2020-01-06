@@ -2,7 +2,7 @@
 @SPGABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_VA
+Feature: TC_NE_SPGA_VA_38
 
   @TC_NE_SPGA_VA_38
   @Manual

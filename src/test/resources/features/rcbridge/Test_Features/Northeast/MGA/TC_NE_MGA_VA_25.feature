@@ -9,7 +9,7 @@ Feature: TC_NE_MGA_VA_25
   @User_Interface
   @UAT_AUTO_TESTING
   @UAT_AUTO
-  @UAT_AUTO_INITIAL_TRANSACTION1
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
@@ -40,26 +40,26 @@ Feature: TC_NE_MGA_VA_25
        And I enter Group Summary
        Then I Complete Wizard
 
-     #Final Capture - Provider Roster (Add one or more providers to the roster)
-    And I Start Workflow
-    And I Start Process for Initial Transaction
-    And I Set Status as Final Pending QA
-    And I Start Final Capture
-    And I enter Contract Details in Final Capture
-    And I enter Provider Signatory
-    And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
-    And I enter Clause Language
-    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
-    And I add provider using TIN
-    And I select Providers
-    And I verify Providers
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
-    And I Set Status as Active
-    And I capture Contract Number
+	    #Final Capture - Provider Roster (Add one or more providers to the roster)
+	    And I Start Workflow
+	    And I Start Process for Initial Transaction
+	    And I Set Status as Final Pending QA
+	    And I Start Final Capture
+	    And I enter Contract Details in Final Capture
+	    And I enter Provider Signatory
+	    And I enter Our Signatory
+	    And I enter Market Exception Grid in Final Capture
+	    And I enter Market Exception Grid
+	    And I enter Clause Language
+	    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
+	    And I add provider using TIN
+	    And I select Providers
+	    And I verify Providers
+	    And I acknowledge the warning
+	    And I enter Group Summary
+	    Then I Complete Wizard
+	    And I Set Status as Active
+	    And I capture Contract Number
 
         Examples:
               | site          | paperType     | TCName           |

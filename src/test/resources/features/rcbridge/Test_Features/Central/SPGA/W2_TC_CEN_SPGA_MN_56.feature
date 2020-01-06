@@ -2,7 +2,7 @@
 @SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_IN
+Feature: W2_TC_CEN_SPGA_IL_56
 
   @W2_TC_CEN_SPGA_MN_56
   @Manual

@@ -2,7 +2,7 @@
 @SPGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_AR
+Feature: TC_SE_SPGA_AR_74
   
   @TC_SE_SPGA_AR_74
   @Manual

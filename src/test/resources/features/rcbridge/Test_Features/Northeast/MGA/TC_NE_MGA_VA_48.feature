@@ -9,7 +9,7 @@ Feature: TC_NE_MGA_VA_48
   @User_Interface
   @UAT_AUTO_TESTING
   @UAT_AUTO
-  @UAT_AUTO_INITIAL_TRANSACTION1
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
