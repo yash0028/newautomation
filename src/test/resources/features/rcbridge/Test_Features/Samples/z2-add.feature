@@ -50,7 +50,7 @@ Feature: US1407217
     And I Set Status as Active
     ##Make Correction - Provider Roster (Add one or more providers to the roster)
 #    And I click Make Correction
-#    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid in Make Correction
 #    And I enter Market Exception Grid
 #    And I add provider using TIN
 #    And I select Providers

@@ -2,9 +2,9 @@
 @SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_IN
+Feature: TC_CEN_SPGA_IN_15
   
-  @TC_CEN_SPGA_IN_15_I
+  @TC_CEN_SPGA_IN_15
   @Manual
   @User_Interface
   @UAT_Automation_Batch1

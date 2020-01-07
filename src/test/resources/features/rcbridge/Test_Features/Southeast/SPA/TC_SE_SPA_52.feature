@@ -102,7 +102,7 @@ Feature: TC_SE_SPA_AR_52
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
     And I enter Payment Appendix Amendments in Spga Contracts
-    And I enter Additional Manuals
+    And I choose Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for SPA contracts
     And I check Payment Appendix

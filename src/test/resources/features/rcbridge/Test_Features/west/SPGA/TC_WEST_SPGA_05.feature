@@ -2,7 +2,7 @@
 @SPGABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_OR
+Feature: TC_WEST_SPA_OR_05
   
   @TC_WEST_SPA_OR_05
   @Manual
@@ -96,7 +96,7 @@ Feature: SPGA Business Testcases_OR
 #    And I enter Payment Appendix in Amendments for SPGA contracts
     And I check Payment Appendix
     And I enter Payment Appendix Amendments in Spga Contracts
-    And I enter Additional Manuals
+    And I choose Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for SPGA contracts
     And I check Payment Appendix

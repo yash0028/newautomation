@@ -87,7 +87,7 @@ Feature: SPGA Business Testcases_IN
 #    And I select Payment Appendix to include in Amendments for SMGA contracts
 #    And I enter Payment Appendix in Amendments for SMGA contracts
 #    And I check Payment Appendix
-#    And I enter Additional Manuals
+#    And I choose Additional Manuals
 #    And I enter Steerage
 ##    And I enter Regulatory Appendices
 #    And I enter Group Summary
@@ -127,7 +127,7 @@ Feature: SPGA Business Testcases_IN
     And I select applied Payment Appendix
     And I enter Payment Appendix in Amendments for SPGA contracts
     And I check Payment Appendix
-    And I enter Additional Manuals
+    And I choose Additional Manuals
     And I enter Group Summary
     And I Complete Wizard
 

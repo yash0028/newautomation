@@ -102,7 +102,7 @@ Feature: W2_TC_CEN_SPA_ND_37
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I enter Additional Manuals
+    And I choose Additional Manuals
     And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard

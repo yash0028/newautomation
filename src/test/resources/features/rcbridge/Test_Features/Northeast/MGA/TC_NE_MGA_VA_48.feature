@@ -9,7 +9,7 @@ Feature: TC_NE_MGA_VA_48
   @User_Interface
   @UAT_AUTO_TESTING
   @UAT_AUTO
-  @UAT_AUTO_INITIAL_TRANSACTION1
+  @UAT_AUTO_INITIAL_TRANSACTION
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -31,7 +31,7 @@ Feature: TC_NE_MGA_VA_48
     And I enter Additional Locations
     And I enter Market Strategy Grid
     And I enter Appendix 2
-    And I enter Additional Manuals in MGA
+    And I choose Additional Manuals
     And I preview Provider Details
     And I enter Payment Appendix
     And I enter Regulatory Appendices

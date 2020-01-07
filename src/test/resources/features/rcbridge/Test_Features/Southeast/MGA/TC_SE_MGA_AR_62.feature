@@ -30,7 +30,7 @@ Feature: TC_SE_MGA_AR_62
     And I enter Additional Locations
     And I enter Market Strategy Grid
     And I enter Appendix 2
-    And I enter Additional Manuals in MGA
+    And I choose Additional Manuals
     And I enter Payment Appendix
     And I enter Regulatory Appendices
     And I select Provider Roster as None
@@ -83,11 +83,11 @@ Feature: TC_SE_MGA_AR_62
     And I select Types of Amendments
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
-    And I enter Additional Manuals
+    And I choose Additional Manuals
     And I enter Benefit Plan Descriptions Provision
     And I select applied Payment Appendix
     And I select Payment Appendix to include in Amendments for MGA contracts
-    And I enter Additional Manuals in MGA
+    And I choose Additional Manuals
     And I enter Steerage
     And I enter Medicare Advantage Payment Appendix in MGA
     And I verify Medicare Advantage

@@ -2,7 +2,7 @@
 @SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: SPGA Business Testcases_IN
+Feature: TC_CEN_SPGA_IN_56
   
   @TC_CEN_SPGA_IN_56
   @Manual
@@ -107,7 +107,7 @@ Feature: SPGA Business Testcases_IN
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
     And I check Payment Appendix
-    And I enter Additional Manuals
+    And I choose Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for SPGA contracts
     And I check Payment Appendix

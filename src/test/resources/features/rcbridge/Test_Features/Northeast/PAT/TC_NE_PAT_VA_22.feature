@@ -97,7 +97,7 @@ Feature: TC_NE_PAT_VA_22
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
     And I select Payment Appendix to include in Amendments for PAT contracts
-    And I enter Additional Manuals
+    And I choose Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for PAT contracts
     And I check Payment Appendix
