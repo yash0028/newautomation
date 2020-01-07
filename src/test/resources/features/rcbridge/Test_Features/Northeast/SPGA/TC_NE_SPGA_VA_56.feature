@@ -101,7 +101,7 @@ Feature: TC_NE_SPGA_VA_56
     And I check Payment Appendix
     And I enter Amendments Page to amend Payment Appendix
     #And I enter Payment Appendix Amendments in SPGA Contracts
-    And I enter Additional Manuals
+    And I choose Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for SPGA contracts
     And I check Payment Appendix

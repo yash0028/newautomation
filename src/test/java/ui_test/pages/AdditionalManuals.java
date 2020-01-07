@@ -22,20 +22,24 @@ public class AdditionalManuals extends GenericInputPage {
         if (hmap.containsKey("Benefit Plan")) {
             String[] plans = hmap.get("Benefit Plan").split("//");
             for (String plan : plans) {
-                Assert.assertTrue(click("Additional Manuals Benefit Plans", selectAdditionalManuals(plan)));
+                Assert.assertTrue(setCheckBox("Additional Manuals Benefit Plans", selectAdditionalManuals(plan),true));
                 pause(1);
             }
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
-
-    public void additionalManualsMGA(HashMap<String, String> hmap) {
-        if(CommonMethods.isElementPresent(getDriver(), By.xpath(elements.additionalManualsXpath))){
-            Assert.assertTrue(click("Additional Manuals in MGA", selectAdditionalManuals(hmap.get("Additional Manuals in MGA"))));
+    public void chooseAdditionalManuals(HashMap<String, String> hmap){
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        Assert.assertTrue(click("Additional Manuals", selectAdditionalManuals(hmap.get("Additional Manuals"))));
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        if(hmap.get("Additional Manuals").equals("Yes")){
+            applyToBenefitPlans(hmap);
+        }else{
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
+
     }
 
     public WebElement selectAdditionalManuals(String Name) {
@@ -44,7 +48,7 @@ public class AdditionalManuals extends GenericInputPage {
 
 
     private static class PageElements extends AbstractPageElements {
-        private String additionalManualsXpath = "//p[contains(.,'Additional Manuals')]";
+        private String message = "//div[contains(@class,'DialogBox')]";
         public PageElements(SearchContext context) {
             super(context);
         }

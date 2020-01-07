@@ -94,7 +94,7 @@ Feature: W2_TC_CEN_SPGA_IL_38
 #    And I enter Payment Appendix in Amendments for SPGA contracts
     And I check Payment Appendix
     And I enter Payment Appendix Amendments in Spga Contracts
-    And I enter Additional Manuals
+    And I choose Additional Manuals
     And I enter Steerage
     And I enter Group Summary
     And I Complete Wizard

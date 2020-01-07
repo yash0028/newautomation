@@ -642,9 +642,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
 
-    @And("I enter Additional Manuals")
-    public void enterAdditionalManuals() {
-        basePage.getAdditionalManuals().applyToBenefitPlans(hmap);
+    @And("I choose Additional Manuals")
+    public void AdditionalManuals() {
+        basePage.getAdditionalManuals().chooseAdditionalManuals(hmap);
     }
 
     @And("I enter Steerage")

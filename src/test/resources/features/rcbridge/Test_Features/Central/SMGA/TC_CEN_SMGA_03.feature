@@ -95,7 +95,7 @@ Feature: TC_CEN_SMGA_IN_03
 #    And I enter Payment Appendix in Amendments for SMGA contracts
 #    And I check Payment Appendix
     And I select Payment Appendix for SMGA contracts
-    And I enter Additional Manuals
+    And I choose Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for SMGA contracts
     And I check Payment Appendix
