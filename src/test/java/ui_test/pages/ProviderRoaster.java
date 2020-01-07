@@ -14,8 +14,10 @@ import ui_test.util.IWebInteract;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static java.lang.Integer.parseInt;
 
@@ -72,10 +74,34 @@ public class ProviderRoaster extends GenericInputPage {
     public void callingExcelReaderWriter(HashMap<String, String> hmap) throws IOException {
         excelReaderWriter = new ExcelReaderWriter();
         List<String> keys = excelReaderWriter.reader(downloadFlowPath.toString(), hmap.get("RosterFileName"), "Sheet1");
+        List<String> keysMap =createListtoPass(keys);
         int rowindex = parseInt(keys.get(keys.size() - 1));
         keys.remove(keys.size() - 1);
-        List<String> dataToWrite = excelReaderWriter.matcher(keys, hmap, rowindex);
+        List<String> dataToWrite = excelReaderWriter.matcher(keys, hmap, rowindex,keysMap);
         excelReaderWriter.writer(downloadFlowPath.toString(), hmap.get("RosterFileName"), "Sheet1", dataToWrite, rowindex);
+    }
+
+    private List createListtoPass(List<String> array)
+    {
+        List<String> headings = new ArrayList<>();
+        headings.add("Line Number");
+        headings.add("TIN");
+        headings.add("MPIN");
+        headings.add("NPI");
+        headings.add("ProviderName");
+        headings.add("Degree Code");
+        headings.add("Organization Type Code");
+        headings.add("Organization Type Description");
+        headings.add("Specialty Code");
+        headings.add("Specialty Description");
+        headings.add("Record Type");
+        headings.add("Contract Effective Date");
+        headings.add("Retro code");
+        headings.add("Cancel Date");
+        headings.add("Cancel Reason Code");
+
+        System.out.println("15 rows entered");
+        return headings;
     }
 
     public void selectretrocode(HashMap<String, String> hmap) {

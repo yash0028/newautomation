@@ -3,14 +3,13 @@ package ui_test.pages.excelReaderWriter;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import ui_test.pages.CommonMethods;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import static java.lang.Integer.parseInt;
 
@@ -105,7 +104,16 @@ public class ExcelReaderWriter {
             if (j == 0) {
                 cell.setCellValue(parseInt(dataToWrite.get(j)));
             } else {
-                cell.setCellValue(dataToWrite.get(j));
+                if(dataToWrite.get(j).equals("today"))
+                {
+                    cell.setCellValue(CommonMethods.todaysDate());
+                }
+                else if(dataToWrite.get(j).equals("R00"))
+                {
+                    cell.setCellValue("R00 - Groups with 10 or less providers and United receives the update less than 30 days after the effective date");
+                }
+                else
+                    cell.setCellValue(dataToWrite.get(j));
             }
             System.out.println("Cell: " + dataToWrite.get(j) + " index " + j);
         }
@@ -115,17 +123,35 @@ public class ExcelReaderWriter {
         outputStream.close();
     }
 
-    public List<String> matcher(List<String> headings, HashMap<String, String> data, int lineNumber) {
+    public List<String> matcher(List<String> headings, HashMap<String, String> data, int lineNumber, List<String> keysMap) {
 
         List<String> dataList = new ArrayList<>();
         dataList.add(String.valueOf(lineNumber));
-        for (int i = 1; i < headings.size(); i++) {
-            if (data.containsKey(headings.get(i))) {
-//                System.out.print("| Data in Map: "+data.get(headings.get(i))+", Data in List: "+headings.get(i));
-                dataList.add(data.get(headings.get(i)));
+        //Iterator hmIterator = keysMap.entrySet().iterator();
+        for (int i = 1; i < keysMap.size(); i++)
+        {
+            if (data.containsKey(keysMap.get(i)))
+            {
+                System.out.print("| Data in Map: "+data.get(headings.get(i))+", Data in List: "+headings.get(i));
+                dataList.add(data.get(keysMap.get(i)));
             } else
                 dataList.add("");
         }
+
+//        while(hmIterator.hasNext())
+//        {
+//
+//            Map.Entry mapElement = (Map.Entry)hmIterator.next();
+//            System.out.println("Value is"+mapElement.getValue()+"  Key is"+mapElement.getKey());
+//            if (data.containsKey(mapElement.getValue()))
+//            {
+//                System.out.print("| Data in Map: "+data.get(mapElement.getValue())+", Data in List: "+mapElement.getValue());
+//                dataList.add(data.get(mapElement.getValue()));
+//            }
+//            else
+//                dataList.add("");
+//
+//        }
 
         System.out.println("Size of List " + dataList.size());
         for (int i = 0; i < dataList.size(); i++) {
