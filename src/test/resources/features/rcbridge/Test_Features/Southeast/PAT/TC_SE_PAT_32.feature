@@ -1,20 +1,22 @@
 #Create a Contract (mgaccent)- Author commercial with 1 Mid-level PCP for PAT contract, execute and load contract, verify contract_Standard_Add Medicare
 # Last updated on
-@PATBusinessTestcases_OR
+@PATBusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: TC_WEST_PAT_OR_36
+Feature: TC_SE_PAT_AR_32
 
-  @TC_WEST_PAT_OR_36
+  @TC_SE_PAT_AR_32
   @Manual
   @User_Interface
+  @UAT_AUTO_SE
+  @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  Scenario Outline: TC_WEST_PAT_OR_36 - [RL0] Author PAT contract in <site>
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT
+  Scenario Outline: TC_SE_PAT_AR_32 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
-
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
 
     And I enter PES Inputs
     And I enter PES Response
@@ -35,11 +37,14 @@ Feature: TC_WEST_PAT_OR_36
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    #And I enter Amendments
+    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 
-    #Final capture
+
+
+    #Final Capture process
+
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -55,26 +60,30 @@ Feature: TC_WEST_PAT_OR_36
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
     #Activate
     And I Set Status as Active
-	And I capture Contract Number
-
+    And I capture Contract Number
     Examples:
-      | site          | paperType     | TCName           |
-      | west uhn      | PAT           | TC_WEST_PAT_OR_36|
-      
-      
-  @TC_WEST_PAT_OR_36
+      | site            | paperType     | TCName         |
+      | southeast uhn   | PAT           | TC_SE_PAT_AR_32|
+
+  @TC_SE_PAT_AR_32
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_PAT
-  Scenario Outline: TC_WEST_PAT_OR_36 - [RL0] Amend PAT contract in <site>
+  Scenario Outline: TC_SE_PAT_AR_32 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
 
-	# Draft Amandments (Add C&S)
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+
+    #CMD Check
+	#NDB Check
+    #Medicare product check
+
+
+    # Draft Amandments (Add C&S)
     And I select the contract
     And I click on Create Amendment
     And I enter title
@@ -116,6 +125,6 @@ Feature: TC_WEST_PAT_OR_36
 
 
     Examples:
-      | site          | paperType     | TCName           |
-      | west uhn      | PAT           | TC_WEST_PAT_OR_36|
+      | site            | paperType     | TCName         |
+      | southeast uhn   | PAT           | TC_SE_PAT_AR_32|
 

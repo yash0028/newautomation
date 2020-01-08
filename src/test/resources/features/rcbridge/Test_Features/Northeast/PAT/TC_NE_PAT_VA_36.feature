@@ -84,7 +84,7 @@ Feature: TC_NE_PAT_VA_36
     #Medicare product check
 
 
-    # Draft Amandments
+    # Draft Amandments (Add C&S)
     And I select the contract
     And I click on Create Amendment
     And I enter title
@@ -92,10 +92,8 @@ Feature: TC_NE_PAT_VA_36
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
     And I preview Provider Details
-    And I select Types of Amendments
-    And I select Contract Applied in Amendments
+    And I choose Types of Amendments
     And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
     And I select Payment Appendix to include in Amendments for PAT contracts
@@ -103,16 +101,18 @@ Feature: TC_NE_PAT_VA_36
     And I enter Steerage
     And I enter Payment Appendix in Amendments for PAT contracts
     And I check Payment Appendix
+    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
 
-     #Amandment final capture
+     #Amandment final capture (Add C&S)
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
+    And I enter Contract Details in Final Capture
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
     And I enter Group Summary
