@@ -55,13 +55,13 @@ Feature: TC_CEN_SPA_IN_06
    
     #Activate
     And I Set Status as Active
-		And I capture Contract Number
+    And I capture Contract Number
 
      #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #And The dashboard page loads
-    #Then Validate Contract status and request type
+    When I have entered the CMD dashboard URL
+    And The dashboard page loads
+    When I search for Contract
+    Then Validate Contract status and request type
 
      Examples:
       | site          | paperType     | TCName           |

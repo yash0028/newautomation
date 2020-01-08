@@ -1,6 +1,5 @@
 package ui_test.page.cmd.navigation;
 
-import org.junit.Assert;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -56,6 +55,11 @@ public class CMDNavigationPanel implements IFactoryPage, IWebInteract {
         return click("current transaction button", elements.buttonReferenceData);
     }
 
+    public boolean massaction() {
+        // return isVisible("current transaction button", elements.massactionheder);
+    return isVisible(elements.massactionheder);
+
+    }
 
 
     /*
@@ -87,6 +91,9 @@ public class CMDNavigationPanel implements IFactoryPage, IWebInteract {
 
         @FindBy(xpath = "//app-navbar//a[@href='/metadata']")
         public WebElement buttonReferenceData;
+
+        @FindBy(xpath = "//h3[contains(text(),'Mass Action')]")
+        public WebElement massactionheder;
 
         PageElements(SearchContext context) {
             super(context);
