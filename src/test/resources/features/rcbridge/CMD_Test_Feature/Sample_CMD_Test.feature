@@ -54,7 +54,7 @@ Feature: CMD - [Continued] CMD
     Given I have entered the CMD dashboard URL
     And The dashboard page loads
     And I click Mass Actions
-   # And The Mass Actions Page Load
+   Then I am on Mass Actions Page
     And I click view tab
     And I clicked on Action Required
     And I am in contract master override page
