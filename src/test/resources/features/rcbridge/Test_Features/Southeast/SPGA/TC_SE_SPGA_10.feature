@@ -60,9 +60,9 @@ Feature: TC_SE_SPGA_AR_10
     And I capture Contract Number
     
     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
+    When I have entered the CMD dashboard URL
+    When I search for Contract
+    Then Validate Contract status and request type
 
     
     #NDB Check
@@ -98,6 +98,10 @@ Feature: TC_SE_SPGA_AR_10
     #Create supporting document 
     
     #CMD Check
+    When I have entered the CMD dashboard URL
+    When I search for Contract
+    Then Validate Contract status and request type
+    
     #NDB Check
 		
     
