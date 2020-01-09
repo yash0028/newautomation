@@ -314,6 +314,7 @@ public class GherkinLogger extends MarkerIgnoringBase {
 
     private void writeScenario(StringBuilder buffer, Throwable t) {
         UtilityGeneralSteps.scenario.write(buffer.toString());
+        write(buffer, t);
 
         if (t != null) {
 //            UtilityGeneralSteps.scenario.write(t.getMessage());
