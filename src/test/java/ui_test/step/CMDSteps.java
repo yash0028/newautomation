@@ -409,6 +409,17 @@ public class CMDSteps implements IRestStep, IUiStep {
 
         PCPReassignmentModal PCPModal = new PCPReassignmentModal(getDriver());
         PCPModal.clickBack();
+
+
+    }
+    @Then("I am on Mass Actions Page")
+    public void massaction() throws Throwable {
+
+        CMDNavigationPanel actionModal = new  CMDNavigationPanel(getDriver());
+        actionModal.massaction();
+
+
+
     }
     public int getTransactionsCountService(String transactionStatus){
         Response response = RestAssured.given().baseUri(ENDPOINT_TRANSACTION).get(RESOURCE_CONTRACT_SUMMARIES);
