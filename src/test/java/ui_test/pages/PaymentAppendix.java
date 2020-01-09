@@ -27,7 +27,17 @@ public class PaymentAppendix extends GenericInputPage {
         if (hmap.containsKey("High Fee Schedule than Default"))
             Assert.assertTrue(click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default"))));
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        Assert.assertTrue(click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix"))));
+
+        //Split PaymentAppendix using // in case need to include multiple PaymentAppendix
+        if (hmap.containsKey("Payment Appendix")) {
+
+            String[] PaymentAppendix = hmap.get("Payment Appendix").split("//");
+            for (String paymentAppendix : PaymentAppendix) {
+                Assert.assertTrue(setCheckBox("Include Product in Appendix 2", paymentAppendixElement(paymentAppendix),true));
+                Assert.assertTrue(waitForPageLoad(60));
+            }
+
+        }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
