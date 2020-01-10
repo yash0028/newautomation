@@ -1,6 +1,5 @@
 package ui_test.page.contractManagement;
 
-import org.junit.Assert;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -58,8 +57,8 @@ public class CMDLoginSSOPage implements IWebInteract, IFactoryPage, IConfigurabl
             sendKeys("username", elements.textBoxUsername,configGetOptionalString("exari.username").orElse("").split(",")[0]);
             sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse("").split(",")[0]);
             // System.out.println(getDriver().getPageSource());
-            click("sign in", elements.buttonlogIn);
-            // clickWithForce("sign in", elements.buttonSignIn);
+            //click("sign in", elements.buttonlogIn);
+            click("sign in", elements.buttonSignIn);
         }
     /*
     PAGE METHODS
