@@ -58,7 +58,7 @@ Feature: TC_CEN_SPA_IN_06
     And I capture Contract Number
 
      #CMD Check
-    When I have entered the CMD dashboard URL
+   When I have entered the CMD dashboard URL
     And The dashboard page loads
     When I search for Contract
     Then Validate Contract status and request type
@@ -91,6 +91,13 @@ Feature: TC_CEN_SPA_IN_06
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+
+
+     #CMD Check
+    When I have entered the CMD dashboard URL
+    And The dashboard page loads
+    When I search for Contract
+    Then Validate Contract status and request type
 
     Examples:
       | site          | paperType     | TCName           |
