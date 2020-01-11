@@ -513,7 +513,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("I select the contract")
     public void contractSelection() {
-        basePage.getContractDetailsDashboard().goToContractSummaryPage();
+        //basePage.getContractDetailsDashboard().goToContractSummaryPage();
     }
 
 
