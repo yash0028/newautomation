@@ -64,11 +64,12 @@ Feature: TC_SE_PAT_AR_04
       | site            | paperType     | TCName         |
       | southeast uhn   | PAT           | TC_SE_PAT_AR_04|
 
-  @TC_SE_PAT_AR_04
+  @TC_SE_PAT_AR_04_1
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_PAT
+  @UAT_AUTO_AMENDMENT_TEST
   Scenario Outline: TC_SE_PAT_AR_04 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
