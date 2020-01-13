@@ -11,7 +11,7 @@ Feature: TC_SE_PAT_AR_64
   @UAT_AUTO_SE
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  @UAT_AUTO_INITIAL_TRANSACTION_PAT
+ @UAT_AUTO_INITIAL_TRANSACTION_PAT
   Scenario Outline: TC_SE_PAT_AR_64 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -22,31 +22,31 @@ Feature: TC_SE_PAT_AR_64
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
-    And I enter Document Selection
+   And I enter Document Selection
     And I preview Provider Details
     And I enter Practice Locations for PAT Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
-    And I select Provider Signatory
+   And I select Provider Signatory
     And I enter Contract Details
     And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
-    And I enter Additional Locations
+   And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 
-    #Workflow Approval at Local contract level
+#    #Workflow Approval at Local contract level
 
-    #Workflow Approval at Pricing level
-
-    #Final Capture process
-
+#    #Workflow Approval at Pricing level
+#
+#    #Final Capture process
+#
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Approve Payment Appendix

@@ -64,6 +64,7 @@ Feature: TC_SE_MGA_AR_79
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+    
     #CMD Checking
     #NDB Checking
     #Make Correction - Provider Roster (Cancel one or more providers from the roster)
@@ -83,13 +84,13 @@ Feature: TC_SE_MGA_AR_79
       | site          | paperType     | TCName          |
       | southeast uhn | MGA           | TC_SE_MGA_AR_79 |
       
-      
-  @TC_SE_MGA_AR_79
-  @Manual
-  @User_Interface
-  @UAT_AUTO_AMENDMENT
-  @UAT_AUTO_MAKE_A_CORRECTION
-  @UAT_AUTO_AMENDMENT_MIG1
+     
+	 @TC_SE_MGA_AR_79
+ 	@Manual
+ 	@User_Interface
+ 	@UAT_AUTO_AMENDMENT
+  	@UAT_AUTO_MAKE_A_CORRECTION
+  	@UAT_AUTO_AMENDMENT_MIG1
   Scenario Outline: TC_SE_MGA_AR_79 - [RL0] Author <paperType> contract in <site>
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
 	And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"

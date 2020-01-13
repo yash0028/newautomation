@@ -40,7 +40,7 @@ Feature: TC_SE_SPA_AR_19
 
 
 
-     #Final capture
+    #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA

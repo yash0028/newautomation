@@ -40,6 +40,7 @@ Feature: TC_SE_MGA_AR_11
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
+    
     #Final Capture - Provider Roster (Add one or more providers to the roster)
     And I Start Workflow
     And I Start Process for Initial Transaction

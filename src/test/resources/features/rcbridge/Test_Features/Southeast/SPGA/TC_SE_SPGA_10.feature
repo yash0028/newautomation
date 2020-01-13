@@ -96,11 +96,11 @@ Feature: TC_SE_SPGA_AR_10
     Then I Complete Wizard
     
     #Create supporting document 
-    
+    #
     #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
-    Then Validate Contract status and request type
+    #When I have entered the CMD dashboard URL
+    #When I search for Contract
+    #Then Validate Contract status and request type
     
     #NDB Check
 		
