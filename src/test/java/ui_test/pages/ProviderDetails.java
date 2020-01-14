@@ -56,6 +56,9 @@ public class ProviderDetails extends GenericInputPage {
             //MGA WEST OR / MGA NORTHEAST VA
             chooseMarketType(Question, hmap);
 
+            if(isVisible(elements.Arbitration_County))
+                click(elements.Arbitration_County);
+
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
@@ -103,7 +106,8 @@ public class ProviderDetails extends GenericInputPage {
         private WebElement dropdown_textbox;
         @FindBy(xpath = "//input[contains(@name,'TierIndicator')]")
         private WebElement tier;
-
+        @FindBy(xpath="//input[contains(@value,'5_Hartford County')]")
+        private WebElement Arbitration_County;
 
         private String tierIndicator = "//input[contains(@name,'TierIndicator')]";
         private String duplicateTIN = "//label[contains(.,'duplicate check failed')]/b";

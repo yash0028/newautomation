@@ -109,7 +109,7 @@ Feature: TC_NE_SPGA_VA_38
     And I select Provider Roster as None
     And I check Payment Appendix
     And I enter Opt-out in Amendments
-    And I enter Opt-out Address in Amendments in VA
+#    And I enter Opt-out Address in Amendments in VA
     And I enter Group Summary
     And I Complete Wizard
 

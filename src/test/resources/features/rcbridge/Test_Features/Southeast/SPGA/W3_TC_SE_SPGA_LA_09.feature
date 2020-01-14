@@ -11,6 +11,7 @@ Feature: W3_TC_SE_SPGA_LA_09
   @UAT_AUTO_INITIAL_TRANSACTION
   @WAVE3INIT
 
+
   Scenario Outline: W3_TC_SE_SPGA_LA_09 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -33,6 +34,7 @@ Feature: W3_TC_SE_SPGA_LA_09
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
+    And I enter Payment Appendix for Louisiana
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
