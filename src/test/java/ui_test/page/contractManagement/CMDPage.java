@@ -195,12 +195,11 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     public boolean enterContractNumber() {
         //  return sendKeys(searchTransactionsTextBox, getSharedString("contractNumber").orElse(""));
         System.out.println(ExariSteps.hmap.get("Contract Number"));
-        return sendKeys(searchTransactionsTextBox, ExariSteps.hmap.get("Contract Number"));
+        return sendKeys(searchTransactionsTextBox, ExariSteps.hmap.get("Contract Number").trim());
     }
 
     public void searchContract() {
         enterContractNumber();
-        pause(20);
         Assert.assertTrue(clickSearchButton());
     }
 
@@ -216,6 +215,8 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
         System.out.println(requesttype);
         Assert.assertEquals(status, "SUCCESS");
         Assert.assertEquals(requesttype, "InstallContract");
+        ExariSteps.hmap.put("CMDStatus",status);
+        ExariSteps.hmap.put("RequestType",requesttype);
 
 
     }
