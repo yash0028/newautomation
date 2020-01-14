@@ -5,14 +5,14 @@
 @iterationUnknown
 Feature: TC_SE_PAT_AR_04
 
-  @TC_SE_PAT_AR_04
-  @Manual
-  @User_Interface
-  @UAT_AUTO
-  @UAT_AUTO_INITIAL_TRANSACTION
-  @UAT_AUTO_INITIAL_TRANSACTION_PAT
-  Scenario Outline: TC_SE_PAT_AR_04 - [RL0] Author PAT contract in <site>
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+@TC_SE_PAT_AR_04
+@Manual
+@User_Interface
+@UAT_AUTO
+@UAT_AUTO_INITIAL_TRANSACTION
+@UAT_AUTO_INITIAL_TRANSACTION_PAT
+Scenario Outline: TC_SE_PAT_AR_04 - [RL0] Author PAT contract in <site>
+Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
@@ -41,34 +41,35 @@ Feature: TC_SE_PAT_AR_04
     Then I Complete Wizard
 
     #Final capture
-    And I Start Workflow
-    And I Start Process for Initial Transaction
-    And I Set Status as Final Pending QA
-    And I Start Final Capture
-    And I enter Contract Details in Final Capture
-    And I enter Provider Signatory
-    And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
-    And I enter retro code in Provider Roster
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
-
+   And I Start Workflow
+   And I Start Process for Initial Transaction
+   And I Set Status as Final Pending QA
+   And I Start Final Capture
+   And I enter Contract Details in Final Capture
+   And I enter Provider Signatory
+   And I enter Our Signatory
+   And I enter Market Exception Grid in Final Capture
+   And I enter Market Exception Grid
+   And I add provider using TIN
+   And I select Providers
+   And I enter retro code in Provider Roster
+   And I acknowledge the warning
+   And I enter Group Summary
+   Then I Complete Wizard
     #Activate
     And I Set Status as Active
     And I capture Contract Number
     Examples:
-      | site            | paperType     | TCName         |
-      | southeast uhn   | PAT           | TC_SE_PAT_AR_04|
+    | site            | paperType     | TCName         |
+    | southeast uhn   | PAT           | TC_SE_PAT_AR_04|
 
   @TC_SE_PAT_AR_04
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_PAT
+  @UAT_AUTO_AMENDMENT_TEST
+   @UAT_AUTO_AMENDMENT_MIG1
   Scenario Outline: TC_SE_PAT_AR_04 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 

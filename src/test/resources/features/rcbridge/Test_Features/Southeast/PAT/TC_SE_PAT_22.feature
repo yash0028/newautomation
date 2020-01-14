@@ -68,6 +68,8 @@ Feature: TC_SE_PAT_AR_22
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_PAT
+  @UAT_AUTO_AMENDMENT_TEST
+   @UAT_AUTO_AMENDMENT_MIG1
   Scenario Outline: TC_SE_PAT_AR_22 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
