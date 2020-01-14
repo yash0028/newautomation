@@ -65,13 +65,6 @@ Feature: W3_TC_SE_SPGA_LA_13
       | site          | paperType     | TCName|
       | southeast uhn   | SPGA        | W3_TC_SE_SPGA_LA_13|
 
-
-
-  @SPGABusinessTestcases_AR
-  @releaseUnknown
-  @iterationUnknown
-  Feature: W3_TC_SE_SPGA_LA_13
-
   @W3_TC_SE_SPGA_LA_13
   @Manual
   @User_Interface
