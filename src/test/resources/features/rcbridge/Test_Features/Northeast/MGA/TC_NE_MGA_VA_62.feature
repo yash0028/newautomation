@@ -8,7 +8,8 @@ Feature: TC_NE_MGA_VA_62
   @TC_NE_MGA_VA_62
   @Manual
   @User_Interface
-  @UAT_AUTO_INITIAL_TRANSACTION1  
+  @UAT_AUTO_INITIAL_TRANSACTION1
+  @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
   Scenario Outline: TC_NE_MGA_VA_62 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
