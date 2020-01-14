@@ -10,6 +10,7 @@ Feature: W3_TC_SE_SPGA_LA_13
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @WAVE3INIT
+  @Abhinav
 
   Scenario Outline: W3_TC_SE_SPGA_LA_13 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site

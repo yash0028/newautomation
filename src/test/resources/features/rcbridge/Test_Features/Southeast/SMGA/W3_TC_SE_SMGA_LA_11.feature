@@ -10,6 +10,7 @@ Feature: W3_TC_SE_SMGA_LA_11
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @SMGA_INITIAL
+  @Abhinav
 
   Scenario Outline: W3_TC_SE_SMGA_LA_11 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site

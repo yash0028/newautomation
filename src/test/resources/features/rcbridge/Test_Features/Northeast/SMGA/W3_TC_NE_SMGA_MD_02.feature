@@ -12,6 +12,7 @@ Feature: W3_TC_NE_SMGA_MD_02
   @UAT_AUTO_INITIAL_TRANSACTION
   @SMGA_INITIAL
   @WAVE3INIT
+  @Abhinav
 
 
   Scenario Outline: W3_TC_NE_SMGA_MD_02 - [RL0] Author SPGA contract in <site>

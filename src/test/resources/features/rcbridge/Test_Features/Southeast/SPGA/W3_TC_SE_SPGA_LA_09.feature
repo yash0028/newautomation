@@ -10,6 +10,7 @@ Feature: W3_TC_SE_SPGA_LA_09
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @WAVE3INIT
+  @Abhinav
 
 
   Scenario Outline: W3_TC_SE_SPGA_LA_09 - [RL0] Author SPGA contract in <site>
