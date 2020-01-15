@@ -1,4 +1,4 @@
-commonName,Contract Number,Contract Link,Tier
+commonName,Contract Number,Contract Link,Tier,CMDStatus,RequestType
 TC_SE_MGA_AR_53,33255230,https://uhg-ha-stage.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/1be426f7-61d9-4ac7-a5cd-b16e6a4f631f,1
 TC_SE_MGA_AR_71,32055823,https://uhg-ha-stage.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/6a338e0a-fb93-4370-9f7f-298f104baa49,1
 TC_SE_MGA_AR_11,57226915,https://uhg-ha-stage.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/28088736-c817-4d44-9967-be8a1b0cd987,1

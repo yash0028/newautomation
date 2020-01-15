@@ -61,10 +61,7 @@ Feature: TC_CEN_SPA_IN_01
    #CMD CHECk
 
    And I Verify CMD and Capture Status
-   #When I have entered the CMD dashboard URL
-   #And The dashboard page loads
-   #When I search for Contract
-   #Then Validate Contract status and request type
+
 
 
    Examples:
