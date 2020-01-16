@@ -10,6 +10,7 @@ import io.cucumber.datatable.DataTable;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,8 +22,11 @@ import ui_test.page.cmd.transaction.action.modal.PCPReassignmentModal;
 import ui_test.page.contractManagement.CMDLoginSSOPage;
 import ui_test.page.contractManagement.CMDPage;
 import ui_test.page.exari.ProtoStepCMD;
+import ui_test.pages.textFileWriter.TextFileWriter;
 import ui_test.util.IUiStep;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -39,7 +43,9 @@ public class CMDSteps implements IRestStep, IUiStep {
     private int totalElements = 0;
     private ProtoStepCMD protoStep;
 
-
+    String home = System.getProperty("user.dir");
+    Path contractNumberCSVFile = Paths.get(home, "src", "test", "resources", "support", "hive", "csvFiles", "contractNumberFile.csv");
+    
 
     private void initializeObj() {
         protoStep = new ProtoStepCMD(getDriver());
@@ -66,23 +72,23 @@ public class CMDSteps implements IRestStep, IUiStep {
         TimeUnit.SECONDS.sleep(5);
         //Search Contract
         cmdPage.searchContract();
-        cmdPage.ValidateConract();
 
         //Verify Details        
-       // String contract = ExariSteps.hmap.get("Contract Number");
-        //String reqtype = "InstallContract";
-        //String status = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'" + reqtype + "')]/../td[7]/span")).getText();
-       // System.out.println(status);
-        //String requesttype = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'" + reqtype + "')]")).getText();
-        //System.out.println(requesttype);
+        String contract = ExariSteps.hmap.get("Contract Number");
+        String reqtype = "InstallContract";
+        String status = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'" + reqtype + "')]/../td[7]/span")).getText();
+        System.out.println(status);
+        String requesttype = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'" + reqtype + "')]")).getText();
+        System.out.println(requesttype);
         
         //Write in CSV file
-        //ExariSteps.hmap.put("CMDStatus",status);
-        //ExariSteps.hmap.put("RequestType",requesttype);
-        //TextFileWriter textFileWriter = new TextFileWriter();
-        //textFileWriter.writeCMDStatus(contractNumberCSVFile.toString(),ExariSteps.hmap);
+        ExariSteps.hmap.put("CMDStatus",status);
+        ExariSteps.hmap.put("RequestType",requesttype);
+        TextFileWriter textFileWriter = new TextFileWriter();
+        textFileWriter.writeCMDStatus(contractNumberCSVFile.toString(),ExariSteps.hmap);
         
     }
+	
 
 
 
