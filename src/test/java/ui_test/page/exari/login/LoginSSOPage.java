@@ -21,7 +21,8 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
 
     private final WebDriver driver;
     private final PageElements elements;
-
+    private static String USERNAME = "";
+    private static String PASSWORD = "";
     /*
     CONSTRUCTOR
      */
@@ -57,6 +58,8 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
     	int rand_index = rand.nextInt(users.length);
     	//sendKeys("username", elements.textBoxUsername, configGetOptionalString("exari.username").orElse(""));
         //sendKeys("password", elements.textBoxPassword, configGetOptionalString("exari.password").orElse(""));
+        USERNAME = users[rand_index];
+        PASSWORD = pwds[rand_index];
     	sendKeys("username", elements.textBoxUsername,users[rand_index]);
     	sendKeys("username", elements.textBoxPassword,pwds[rand_index] );
         return clickWithForce("sign in", elements.buttonSignIn);
@@ -83,8 +86,8 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
                 credentials[1] = configGetOptionalString("exari.phy_local_prcicing_approver_password").orElse("");
                 break;
             case "exari username":
-                credentials[0] = configGetOptionalString("exari.username").orElse("").split(",")[0];
-                credentials[1] = configGetOptionalString("exari.password").orElse("").split(",")[0];
+                credentials[0] = USERNAME;
+                credentials[1] = PASSWORD;
                 break;
             default:
                 Assert.fail("[APPROVER CREDENTIALS NOT FOUND] " + approverType + "");

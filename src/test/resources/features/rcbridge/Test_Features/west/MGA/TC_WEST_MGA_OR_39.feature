@@ -14,6 +14,7 @@ Feature: TC_WEST_MGA_OR_39
   @UAT_AUTO
   @NEW
   @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
+  @generate_link
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
