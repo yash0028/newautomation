@@ -27,8 +27,8 @@ public class PESInputActions extends GenericInputPage {
 
     public void enterPESInput(HashMap<String, String> readFile) {
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
-        String[] heading = this.elements.heading.getText().split("-");
-        String contractNumber = heading[1].split(" ")[0].trim();
+        String[] heading = this.elements.heading.getText().trim().split("-");
+        String contractNumber = heading[1].split(" ")[1].trim();
         IWebInteract.log.info("CONTARCT NUMBER : {}", contractNumber);
         try {
             Assert.assertTrue(waitForPageLoad());
