@@ -98,7 +98,7 @@ public class PESInputActions extends GenericInputPage {
         @FindBy(xpath = "//span[@id='UTQField_3']/input")
         private List<WebElement> providerfirstnam;
 
-        @FindBy(id = "//h1[contains(@class,'title-bar__page-name')]")
+        @FindBy(xpath = "//h1[contains(@class,'title-bar__page-name')]")
         private WebElement heading;
 
         PageElements(SearchContext context) {
