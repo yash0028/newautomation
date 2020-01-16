@@ -75,6 +75,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void PESInputs() {
         Assert.assertTrue(this.protoStep.sitePage.startContractAuthor());
         basePage.getPesInputActions().enterPESInput(hmap);
+
     }
 
     @And("^I enter PES Response$")
@@ -254,10 +255,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void finalPendingQAAmendment() {
         if (!hmap.get("Tier").equals("")) {
             if (hmap.get("Tier").equals("1")) {
-                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""), true, "Amendment", hmap);
+                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""), true, "Amendment","NOT_MANDATORY", hmap);
                 initializeObj();
             } else {
-                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier23E_approval_type").orElse(""), true, "Amendment", hmap);
+                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier23E_approval_type").orElse(""), true, "Amendment","NOT_MANDATORY", hmap);
                 initializeObj();
             }
         }
@@ -266,25 +267,25 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I Approve HBP Red Door in Amendment$")
     public void approveHBPRedDoorAmendment() {
-        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.red_door_approval_type").orElse(""), false, "Amendment", hmap);
+        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.red_door_approval_type").orElse(""), false, "Amendment","MANDATORY", hmap);
         initializeObj();
     }
 
     @And("^I Approve Payment Appendix in Amendment$")
     public void approvePaymentAppendixAmendment() {
-        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.non_std_approval_type").orElse(""), false, "Amendment", hmap);
+        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.non_std_approval_type").orElse(""), false, "Amendment","MANDATORY", hmap);
         initializeObj();
     }
 
     @And("^I Approve HBP Red Door$")
     public void approveHBPRedDoor() {
-        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.red_door_approval_type").orElse(""), false, "Draft", hmap);
+        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.red_door_approval_type").orElse(""), false, "Draft","MANDATORY", hmap);
         initializeObj();
     }
 
     @And("^I Approve Payment Appendix$")
     public void approvePaymentAppendix() {
-        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.non_std_approval_type").orElse(""), false, "Draft", hmap);
+        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.non_std_approval_type").orElse(""), false, "Draft","MANDATORY", hmap);
         initializeObj();
     }
 
@@ -292,10 +293,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void finalPendingQA() {
         if (!hmap.get("Tier").equals("")) {
             if (hmap.get("Tier").equals("1")) {
-                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""), true, "Draft", hmap);
+                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier1_approval_type").orElse(""), true, "Draft","NOT_MANDATORY", hmap);
                 initializeObj();
             } else {
-                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier23E_approval_type").orElse(""), true, "Draft", hmap);
+                basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.tier23E_approval_type").orElse(""), true, "Draft","NOT_MANDATORY", hmap);
                 initializeObj();
             }
         }

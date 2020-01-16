@@ -205,6 +205,18 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         }
 
     }
+    public boolean switchLogin(String userName, String password) {
+            USERNAME = userName;
+            PASSWORD = password;
+            relaunchDriver(userName);
+            getDriver().get(DASHBOARD_URL);
+            LoginSSOPage loginPage = createNewLoginObj();
+            waitTillClickable(elements.textBoxUsername);
+            Assert.assertTrue(loginPage.confirmCurrentPage());
+            loginPage.login(userName,password);
+            this.elements = new PageElements(getDriver());
+            return true;
+    }
 
     public void doCaim(String approvalType, String approverType, boolean tierApproval) {
         if (tierApproval) {
@@ -259,20 +271,29 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         return approverType;
     }
 
-    public void handleApprovals(String approvalType, boolean tierApproval, String location, HashMap<String, String> hmap) {
+    public void handleApprovals(String approvalType, boolean tierApproval, String location,String type, HashMap<String, String> hmap) {
         String[] credentials = createNewLoginObj().getCredentials("exari username");
         USERNAME = credentials[0];
         PASSWORD = credentials[1];
+        String ContractOwnerUserName = credentials[0];
+        String ContractOwnerPassword = credentials[1];
         waitTillVisible(elements.headerTabHome);
         if (isVisible(elements.headerTabHome)) {
             highlight(elements.headerTabHome);
             DASHBOARD_URL = getDriver().getCurrentUrl();
             if (getActiveWorkFlow(tierApproval, location, hmap)) {
                 if (startApprovalFlow(approvalType, tierApproval, location, hmap).equals("")) {
-                    if(!switchLogin("exari username")){
-                        getDriver().get(DASHBOARD_URL);
-                        Assert.assertTrue(waitForPageLoad());
-                        confirmDashboard();
+                    if(type.equals("MANDATORY")){
+                        if(switchLogin(ContractOwnerUserName,ContractOwnerPassword)){
+                            Assert.assertTrue(waitForPageLoad());
+                            confirmDashboard();
+                        }
+                    }else if(type.equals("NOT_MANDATORY")){
+                        if(!switchLogin("exari username")){
+                            getDriver().get(DASHBOARD_URL);
+                            Assert.assertTrue(waitForPageLoad());
+                            confirmDashboard();
+                        }
                     }
                 } else {
                     IWebInteract.log.info("[SKIPPED] {}", approvalType);
