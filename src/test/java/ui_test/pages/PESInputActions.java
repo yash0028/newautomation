@@ -29,7 +29,7 @@ public class PESInputActions extends GenericInputPage {
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
         String[] heading = this.elements.heading.getText().trim().split("-");
         String contractNumber = heading[1].trim().split(" ")[0];
-        IWebInteract.log.info("CONTARCT NUMBER : {}", contractNumber);
+        IWebInteract.log.info("CONTRACT NUMBER : {}", contractNumber);
         try {
             Assert.assertTrue(waitForPageLoad());
             for (Map.Entry<String, String> entry : readFile.entrySet()) {
