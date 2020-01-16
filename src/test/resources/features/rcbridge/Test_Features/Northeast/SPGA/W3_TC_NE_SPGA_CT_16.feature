@@ -41,8 +41,7 @@ Feature: W3_TC_NE_SPGA_CT_16
     Then I Complete Wizard
 
    #Final capture
-
-    And I Start Workflow
+   And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
     And I Start Final Capture
