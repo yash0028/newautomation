@@ -24,6 +24,7 @@ import ui_test.page.contractManagement.CMDPage;
 import ui_test.page.exari.ProtoStepCMD;
 import ui_test.pages.textFileWriter.TextFileWriter;
 import ui_test.util.IUiStep;
+import ui_test.util.IWebInteract;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -83,21 +84,16 @@ public class CMDSteps implements IRestStep, IUiStep {
         
         //Write in CSV file
         ExariSteps.hmap.put("CMDStatus",status);
+        IWebInteract.log.info("CMDStatus : {}",status);
         ExariSteps.hmap.put("RequestType",requesttype);
+        IWebInteract.log.info("RequestType : {}",requesttype);
         TextFileWriter textFileWriter = new TextFileWriter();
         textFileWriter.writeCMDStatus(contractNumberCSVFile.toString(),ExariSteps.hmap);
+
+
         
     }
-	
 
-
-
-    //@Given("^I am logged into cmd$")
-   //public void loginSitePage(String siteOption) {
-       //this.protoStep.loginHome();
-
-
-   // }
     @Given("^I am on the CMD dashboard$")
     public void navigateToCMDdashboardPage() throws InterruptedException {
         navigateToCMDdashboardUrl();
