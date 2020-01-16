@@ -75,6 +75,7 @@ Feature: TC_CEN_MGA_IN_11
   @User_Interface
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
+  @AMENDMENT_ALL_MGA
   Scenario Outline: TC_CEN_MGA_IN_11 - [RL0] Author <paperType> contract in <site>
 		
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

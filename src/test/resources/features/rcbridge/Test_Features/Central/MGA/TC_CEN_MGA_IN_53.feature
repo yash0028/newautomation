@@ -69,6 +69,7 @@ Feature: TC_CEN_MGA_IN_53
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_MGA
+  @AMENDMENT_ALL_MGA
   Scenario Outline: TC_CEN_MGA_IN_53 - [RL0] Amend <paperType> contract in <site>
     #CMD Checking
     #NDB Checking

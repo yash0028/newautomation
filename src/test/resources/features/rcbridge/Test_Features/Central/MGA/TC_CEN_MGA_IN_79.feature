@@ -77,7 +77,7 @@ Feature: TC_CEN_MGA_IN_79
   @User_Interface
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
-  @today
+  @AMENDMENT_ALL_MGA
   Scenario Outline: TC_CEN_MGA_IN_79 - [RL0] Author <paperType> contract in <site>
 
 
