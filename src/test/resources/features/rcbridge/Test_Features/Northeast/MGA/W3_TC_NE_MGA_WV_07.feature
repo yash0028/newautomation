@@ -66,6 +66,7 @@ Feature:W3_TC_NE_MGA_WV_07
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT_W3
+  @AMENDMENT_ALL_MGA
   Scenario Outline:W3_TC_NE_MGA_WV_07 - [RL0] Amend <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

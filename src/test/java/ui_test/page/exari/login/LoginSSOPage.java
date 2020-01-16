@@ -83,8 +83,8 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
                 credentials[1] = configGetOptionalString("exari.phy_local_prcicing_approver_password").orElse("");
                 break;
             case "exari username":
-                credentials[0] = configGetOptionalString("exari.username").orElse("");
-                credentials[1] = configGetOptionalString("exari.password").orElse("");
+                credentials[0] = configGetOptionalString("exari.username").orElse("").split(",")[0];
+                credentials[1] = configGetOptionalString("exari.password").orElse("").split(",")[0];
                 break;
             default:
                 Assert.fail("[APPROVER CREDENTIALS NOT FOUND] " + approverType + "");
@@ -103,6 +103,11 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
         return clickWithForce("sign in", elements.buttonSignIn);
     }
 
+    public boolean login(String userName, String password) {
+        sendKeys("username", elements.textBoxUsername, userName);
+        sendKeys("password", elements.textBoxPassword, password);
+        return clickWithForce("sign in", elements.buttonSignIn);
+    }
 
     /*
     PAGE METHODS

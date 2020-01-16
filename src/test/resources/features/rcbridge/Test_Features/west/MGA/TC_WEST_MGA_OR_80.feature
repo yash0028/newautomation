@@ -12,6 +12,7 @@ Feature: TC_WEST_MGA_OR_80
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_WEST
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
   Scenario Outline: TC_WEST_MGA_OR_80 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -73,6 +74,7 @@ Feature: TC_WEST_MGA_OR_80
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
+  @AMENDMENT_ALL_MGA
   Scenario Outline: TC_WEST_MGA_OR_80 - [RL0] Author <paperType> contract in <site>
 
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

@@ -10,6 +10,7 @@ Feature: TC_NE_MGA_VA_25
   @UAT_AUTO_TESTING
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
+  @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
@@ -72,6 +73,7 @@ Feature: TC_NE_MGA_VA_25
   @User_Interface
   @UAT_AUTO_AMENDMENT1
   @UAT_AUTO_MAKE_A_CORRECTION1
+  @AMENDMENT_ALL_MGA
       Scenario Outline: TC_NE_MGA_VA_25 - [RL0] Author <paperType> contract in <site>
     	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     	And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"

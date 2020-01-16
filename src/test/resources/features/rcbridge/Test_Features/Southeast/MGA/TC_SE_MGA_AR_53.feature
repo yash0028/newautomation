@@ -64,12 +64,14 @@ Feature: TC_SE_MGA_AR_53
 #      | site          | paperType     | TCName          |
 #      | southeast uhn | MGA           | TC_SE_MGA_AR_53 |
 
+
   @TC_SE_MGA_AR_53
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_MGA
   @UAT_AUTO_AMENDMENT_MIG1
+  @AMENDMENT_ALL_MGA
   Scenario Outline: TC_SE_MGA_AR_53 - [RL0] Amend <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
