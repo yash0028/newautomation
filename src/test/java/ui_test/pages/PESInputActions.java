@@ -30,6 +30,7 @@ public class PESInputActions extends GenericInputPage {
         String[] heading = this.elements.heading.getText().trim().split("-");
         String contractNumber = heading[1].trim().split(" ")[0];
         IWebInteract.log.info("CONTRACT NUMBER : {}", contractNumber);
+        IWebInteract.log.info("CONTRACT DETAILS : {} - {}", readFile.get("commonName"), contractNumber);
         try {
             Assert.assertTrue(waitForPageLoad());
             for (Map.Entry<String, String> entry : readFile.entrySet()) {
