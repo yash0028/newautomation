@@ -176,7 +176,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     }
 
     @And("^I enter Appendix 2$")
-    public void Appendix2() {
+    public void Appendix2() throws InterruptedException {
         basePage.getAppendix2().selectAppendix(hmap);
     }
 
@@ -792,5 +792,16 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void handleDBA_Agreement() {
     	basePage.getProviderSignatory().handleDBA_Agreement();
     }
-    
+
+    @And("I enter Payment Appendix to select Standered Payment Appendix")
+    public void iEnterPaymentAppendixToSelectStanderedPaymentAppendix()
+    {
+        basePage.getPaymentAppendix().selectStandered();
+    }
+
+    @And("I enter Payment Appendix for Louisiana")
+    public void iEnterPaymentAppendixForLouisiana()
+    {
+        basePage.getPaymentAppendix().selectPaymentAppendixForLouisiana(hmap);
+    }
 }

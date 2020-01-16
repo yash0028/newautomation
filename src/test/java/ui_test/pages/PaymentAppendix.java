@@ -245,6 +245,21 @@ public class PaymentAppendix extends GenericInputPage {
         return "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'Fee_Schedule_Name')]";
     }
 
+    public void selectStandered()
+    {
+        Assert.assertTrue(click(elements.standard));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
+
+    }
+
+    public void selectPaymentAppendixForLouisiana(HashMap<String, String> hmap)
+    {
+        Assert.assertTrue(click(elements.LouisianaNO));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
+    }
+
 
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name']")
@@ -263,7 +278,11 @@ public class PaymentAppendix extends GenericInputPage {
         private WebElement searchBar;
         @FindBy(xpath = "//span[@class='select2-results']//li")
         private List<WebElement> selectCode;
+        @FindBy(xpath="//input[contains(@value,'Standard')]")
+        private WebElement standard;
         private String message = "//div[contains(@class,'DialogBox')]";
+        @FindBy(xpath="//input[contains(@value, 'No')]")
+        private WebElement LouisianaNO;
 
 
         // @FindBy(xpath = "//div[contains(text(),'You must select at least one answer']")

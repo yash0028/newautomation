@@ -13,6 +13,7 @@ Feature: W3_TC_WEST_SMGA_WV_30
   @SMGA_INITIAL
   @Test_Failures
   @WAVE3INIT
+  @Abhinav
 
   Scenario Outline: W3_TC_WEST_SMGA_WV_30 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site

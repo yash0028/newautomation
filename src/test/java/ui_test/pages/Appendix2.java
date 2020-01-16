@@ -20,7 +20,7 @@ public class Appendix2 extends GenericInputPage {
         this.elements = new PageElements(driver);
     }
 
-    public void selectAppendix(HashMap<String, String> hmap) {
+    public void selectAppendix(HashMap<String, String> hmap) throws InterruptedException {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         //Is this contract only for Virginia MLTSS?
         Question = "Is this contract only for Virginia MLTSS";
@@ -59,6 +59,9 @@ public class Appendix2 extends GenericInputPage {
                 Assert.assertTrue(waitForPageLoad(60));
             }
         }
+        
+        if(isVisible(elements.Louisiana))
+            click(elements.Louisiana);
 
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
@@ -137,6 +140,9 @@ public class Appendix2 extends GenericInputPage {
         public PageElements(SearchContext context) {
             super(context);
         }
+
+        @FindBy (xpath="//input[contains(@value,'Louisiana Medicaid and CHIP Only or Missisippi Medicaid and/or CHIP Red Door Only')]")
+        private WebElement Louisiana;
     }
 
 }

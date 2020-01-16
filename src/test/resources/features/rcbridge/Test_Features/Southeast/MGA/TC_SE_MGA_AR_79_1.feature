@@ -2,18 +2,17 @@
 @MGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: TC_SE_MGA_AR_11
-
+Feature: TC_SE_MGA_AR_79
   @mga_se
+  @cancel
   @leo
-  @TC_SE_MGA_AR_11
+  @TC_SE_MGA_AR_79
   @Manual
   @User_Interface
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_SOUTHEAST
   @UAT_AUTO
-  @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
-  Scenario Outline: TC_SE_MGA_AR_11 - [RL0] Author <paperType> contract in <site>
+  Scenario Outline: TC_SE_MGA_AR_79 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
@@ -41,10 +40,12 @@ Feature: TC_SE_MGA_AR_11
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-    
     #Final Capture - Provider Roster (Add one or more providers to the roster)
     And I Start Workflow
     And I Start Process for Initial Transaction
+          #Approval
+    And I Approve Payment Appendix
+          #Final Capture Cont.
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -65,37 +66,47 @@ Feature: TC_SE_MGA_AR_11
     And I capture Contract Number
     #CMD Checking
     #NDB Checking
+    #Make Correction - Provider Roster (Cancel one or more providers from the roster)
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Cancel
+    And I select provider and cancel date
+    And I enter cancel reason
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    #CMD Checking
+    #NDB Checking
 
     Examples:
       | site          | paperType     | TCName          |
-      | southeast uhn | MGA           | TC_SE_MGA_AR_11 |
+      | southeast uhn | MGA           | TC_SE_MGA_AR_79 |
       
       
-  @TC_SE_MGA_AR_11
+  @TC_SE_MGA_AR_79
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
-   @UAT_AUTO_AMENDMENT_MIG1
-  @AMENDMENT_ALL_MGA
-  Scenario Outline: TC_SE_MGA_AR_11 - [RL0] Author <paperType> contract in <site>
+  @UAT_AUTO_AMENDMENT_MIG
+  Scenario Outline: TC_SE_MGA_AR_79 - [RL0] Author <paperType> contract in <site>
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
 	And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
-	
-    #Make Correction - Provider Roster (Add one or more providers to the roster)
+
+    #Make Correction - Provider Roster (Cancel one or more providers from the roster)
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
-    And I add provider using TIN
-    And I select Providers
-    And I enter Provider Start Date
-    And I enter retro code in Provider Roster
+    And I set Roster Action as Cancel
+    And I select provider and cancel date
+    And I enter cancel reason
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    #Check CMD
-    #Check NDB
+    #CMD Checking
+    #NDB Checking
+
     Examples:
       | site          | paperType     | TCName          |
-      | southeast uhn | MGA           | TC_SE_MGA_AR_11 |
+      | southeast uhn | MGA           | TC_SE_MGA_AR_79 |

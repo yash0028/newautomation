@@ -18,8 +18,6 @@ import ui_test.util.IWebInteract;
 import java.util.List;
 import java.util.Map;
 
-import javax.xml.crypto.dsig.spec.HMACParameterSpec;
-
 public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     private static Logger log = LoggerFactory.getLogger(CMDPage.class);
     @FindBy(xpath = "//h3[contains(text(),'In-Progress')]/ancestor::mat-card/p/a")
@@ -197,7 +195,7 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     public boolean enterContractNumber() {
         //  return sendKeys(searchTransactionsTextBox, getSharedString("contractNumber").orElse(""));
         System.out.println(ExariSteps.hmap.get("Contract Number"));
-        return sendKeys(searchTransactionsTextBox, ExariSteps.hmap.get("Contract Number"));
+        return sendKeys(searchTransactionsTextBox, ExariSteps.hmap.get("Contract Number").trim());
     }
 
     public void searchContract() {
@@ -217,6 +215,8 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
         System.out.println(requesttype);
         Assert.assertEquals(status, "SUCCESS");
         Assert.assertEquals(requesttype, "InstallContract");
+        ExariSteps.hmap.put("CMDStatus",status);
+        ExariSteps.hmap.put("RequestType",requesttype);
 
 
     }

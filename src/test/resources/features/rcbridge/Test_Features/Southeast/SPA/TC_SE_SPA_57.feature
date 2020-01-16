@@ -69,7 +69,8 @@ Feature: TC_SE_SPA_AR_57
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
   @SPA_AMENDMENT
-
+@UAT_AUTO_AMENDMENT_TEST_SPA
+@UAT_AUTO_AMENDMENT_MIG1
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
   	
   	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
