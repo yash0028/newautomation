@@ -81,6 +81,7 @@
   @UAT_AUTO
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_PAT
+  @AMENDMENT_ALL_PAT
   Scenario Outline: TC_WEST_PAT_OR_22 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 

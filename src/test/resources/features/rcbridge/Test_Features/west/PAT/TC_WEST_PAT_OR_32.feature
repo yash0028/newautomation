@@ -66,6 +66,7 @@ Feature: TC_WEST_PAT_OR_32
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_PAT
   @addcs
+  @AMENDMENT_ALL_PAT
   Scenario Outline: TC_WEST_PAT_OR_32 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"

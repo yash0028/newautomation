@@ -78,6 +78,7 @@ Feature: TC_CEN_PAT_IN_13
   @UAT_AUTO
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_PAT
+  @AMENDMENT_ALL_PAT
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
  	And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
