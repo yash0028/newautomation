@@ -86,7 +86,6 @@ Feature: TC_SE_MGA_AR_62
     And I select Types of Amendments
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
-    And I choose Additional Manuals
     And I enter Benefit Plan Descriptions Provision
     And I select applied Payment Appendix
     And I select Payment Appendix to include in Amendments for MGA contracts
