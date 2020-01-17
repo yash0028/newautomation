@@ -58,7 +58,10 @@ Feature: TC_CEN_MGA_IN_25
     Then I Complete Wizard
     And I Set Status as Active
     And I capture Contract Number
-     
+	
+	#cmd CHECK
+	And I Verify CMD and Capture Status
+	     
 
     Examples:
           | site          | paperType     | TCName           |
@@ -87,6 +90,9 @@ Feature: TC_CEN_MGA_IN_25
         And I acknowledge the warning
         And I enter Group Summary
         Then I Complete Wizard
+        
+        #cmd CHECK
+	    And I Verify CMD and Capture Status
 
     Examples:
           | site          | paperType     | TCName           |

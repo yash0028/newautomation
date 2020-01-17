@@ -63,6 +63,9 @@ Feature: TC_CEN_MGA_IN_67
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+    
+    #CMD
+    And I Verify CMD and Capture Status
     Examples:
       | site          | paperType     | TCName           |
       | central uhn   | MGA           | TC_CEN_MGA_IN_67 |
@@ -106,6 +109,7 @@ Feature: TC_CEN_MGA_IN_67
     And I Set Status as Active in Amendment
 
     #CMD Checking
+    And I Verify CMD and Capture Status
     #Check Cosmos
     #NDB Checking
 

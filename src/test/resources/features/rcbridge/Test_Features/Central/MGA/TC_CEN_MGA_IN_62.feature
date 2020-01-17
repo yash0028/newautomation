@@ -35,14 +35,7 @@ Feature: MGA Business Testcases_IN
     And I enter Group Summary
     Then I Complete Wizard
 
-
-
     #Final capture
-
-
-
-
-
 
     Examples:
       | site          | paperType     | TCName           |
