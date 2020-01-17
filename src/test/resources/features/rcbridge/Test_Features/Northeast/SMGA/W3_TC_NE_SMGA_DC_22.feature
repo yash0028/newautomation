@@ -38,6 +38,7 @@ Feature: W3_TC_NE_SMGA_DC_22
     And I enter Payment Appendix
     And I enter Payment Appendix to select Standered Payment Appendix
     And I enter FeeScheduleID in Payment Appendix
+    And I check Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
