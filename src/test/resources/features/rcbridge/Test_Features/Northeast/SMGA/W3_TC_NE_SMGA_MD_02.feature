@@ -39,6 +39,8 @@ Feature: W3_TC_NE_SMGA_MD_02
 
     And I enter Payment Appendix
     And I enter Payment Appendix to select Standered Payment Appendix
+    And I enter FeeScheduleID in Payment Appendix
+    And I enter FeeScheduleID in Payment Appendix for Nexus-CO
 
     And I enter Additional Locations
     And I enter Regulatory Appendices
@@ -79,6 +81,7 @@ Feature: W3_TC_NE_SMGA_MD_02
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
   @SMGA_AMANDMENT
+  @WAVE3AMENDMENT
   Scenario Outline: W3_TC_NE_SMGA_MD_02 - [RL0] Author SMGA contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

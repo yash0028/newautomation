@@ -35,8 +35,8 @@ Feature: W3_TC_NE_SMGA_CT_17
     And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
-
-    And I enter Payment Appendix
+    And I enter Payment Appendix in Amendments for SMGA contracts
+    And I verify Medicare Advantage
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
@@ -77,6 +77,7 @@ Feature: W3_TC_NE_SMGA_CT_17
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
   @SMGA_AMANDMENT
+    @WAVE3AMENDMENT
   Scenario Outline: W3_TC_NE_SMGA_CT_17 - [RL0] Author SMGA contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

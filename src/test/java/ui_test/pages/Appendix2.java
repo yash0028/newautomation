@@ -60,8 +60,6 @@ public class Appendix2 extends GenericInputPage {
             }
         }
         
-        if(isVisible(elements.Louisiana))
-            click(elements.Louisiana);
 
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
@@ -130,6 +128,15 @@ public class Appendix2 extends GenericInputPage {
 
     public WebElement getExcludeProductElem(String Question, String Value) {
         return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + Question + "')]/../../../..//input[contains(@value,'" + Value + "')]"});
+    }
+
+    public void enterLouisiana(HashMap<String, String> hmap)
+    {
+        if(isVisible(elements.Louisiana))
+            click(elements.Louisiana);
+
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     private static class PageElements extends AbstractPageElements {

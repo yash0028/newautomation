@@ -76,6 +76,11 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void appliedPaymentAppendix(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        if(isVisible(elements.PaymentAppendixStructureStandard))
+        {
+            Assert.assertTrue(click("Structure Payment Appendix in Amendments", elements.PaymentAppendixStructureStandard));
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        }
         Assert.assertTrue(click("Apply Payment Appendix in Amendments", paymentAppendixElement(hmap.get("Apply Payment Appendix in Amendments"))));
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         Assert.assertTrue(clickNext());
@@ -260,6 +265,13 @@ public class PaymentAppendix extends GenericInputPage {
         Assert.assertTrue(waitForPageLoad());
     }
 
+    public void enterFeeScheduleIDNexus(HashMap<String, String> hmap)
+    {
+        Assert.assertTrue(sendKeys("FeeSchedule ID Nexus", this.elements.feeScheduleID_Nexus, hmap.get("FS All Payer Physician")));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
+    }
+
 
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name']")
@@ -276,6 +288,8 @@ public class PaymentAppendix extends GenericInputPage {
         private WebElement feeSchduleIDNonPhysicianMedicare;
         @FindBy(xpath = "//input[@type='search']")
         private WebElement searchBar;
+        @FindBy(xpath="//input[contains(@name,'NexusOA_Fee_Schedule_Name')]")
+        private WebElement feeScheduleID_Nexus;
         @FindBy(xpath = "//span[@class='select2-results']//li")
         private List<WebElement> selectCode;
         @FindBy(xpath="//input[contains(@value,'Standard')]")
@@ -283,6 +297,8 @@ public class PaymentAppendix extends GenericInputPage {
         private String message = "//div[contains(@class,'DialogBox')]";
         @FindBy(xpath="//input[contains(@value, 'No')]")
         private WebElement LouisianaNO;
+        @FindBy (xpath="//input[contains(@value,'Standard')]")
+        private WebElement PaymentAppendixStructureStandard;
 
 
         // @FindBy(xpath = "//div[contains(text(),'You must select at least one answer']")

@@ -10,6 +10,7 @@ Feature: W3_TC_SE_SMGA_LA_11
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @SMGA_INITIAL
+  @WAVE3INIT
   @Abhinav
 
   Scenario Outline: W3_TC_SE_SMGA_LA_11 - [RL0] Author SPGA contract in <site>
@@ -33,7 +34,10 @@ Feature: W3_TC_SE_SMGA_LA_11
     And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
+#    And I enter Appendix for Louisiana Medicaid and CHIP Only
     And I enter Payment Appendix
+    And I enter Payment Appendix in Amendments for SMGA contracts
+    And I check Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
@@ -83,12 +87,15 @@ Feature: W3_TC_SE_SMGA_LA_11
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
+    And I preview Provider Details
+
     And I select Types of Amendments
     And I select Contract Applied in Amendments
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
+
 #    And I enter Payment Appendix in Amendments for SMGA contracts
 #    And I check Payment Appendix
     And I select Payment Appendix for SMGA contracts

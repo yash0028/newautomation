@@ -13,7 +13,6 @@ Feature: W3_TC_NE_SMGA_DC_22
   @SMGA_INITIAL
   @WAVE3INIT
   @Abhinav
-
   Scenario Outline: W3_TC_NE_SMGA_DC_22 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -38,6 +37,7 @@ Feature: W3_TC_NE_SMGA_DC_22
 
     And I enter Payment Appendix
     And I enter Payment Appendix to select Standered Payment Appendix
+    And I enter FeeScheduleID in Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
@@ -89,8 +89,13 @@ Feature: W3_TC_NE_SMGA_DC_22
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
+    And I preview Provider Details
+
     And I select Types of Amendments
     And I select Contract Applied in Amendments
+    #preview Regulatory Appendix
+    And I preview Provider Details
+
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
@@ -100,7 +105,9 @@ Feature: W3_TC_NE_SMGA_DC_22
     And I select Payment Appendix for SMGA contracts
     And I choose Additional Manuals
     And I enter Steerage
-    And I enter Payment Appendix in Amendments for SMGA contracts
+    And I enter Payment Appendix Amendments in Spga Contracts
+    And I enter Payment Appendix Amendments in Spga Contracts
+  And I enter Payment Appendix in Amendments for SPGA contracts
     And I check Payment Appendix
     And I enter Group Summary
     And I Complete Wizard

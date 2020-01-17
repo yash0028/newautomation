@@ -34,6 +34,9 @@ Feature: W3_TC_SE_SPGA_LA_09
     And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
+    And I enter Appendix 2 for Louisiana Medicaid and CHIP Only
+    And I enter Market Strategy Grid
+
     And I enter Payment Appendix
     And I enter Payment Appendix for Louisiana
     And I enter Additional Locations

@@ -93,16 +93,18 @@ Feature: W3_TC_NE_SPGA_MD_03
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
     And I enter OurSignatory
-    And I select Unilateral Contract in Amendments
+    And I select Types of Amendments
+#    And I select Unilateral Contract in Amendments
     And I select Provider Type Radio Button in Amendments
-    And I enter Opt-out in Amendments
+    And I enter Opt-out Address in Amendments
+
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments for SPGA contracts
-    And I check Payment Appendix
-    And I choose Additional Manuals
+#    And I enter Payment Appendix in Amendments for SPGA contracts
+#    And I check Payment Appendix
+#    And I choose Additional Manuals
     And I enter Group Summary
     And I Complete Wizard
 
@@ -111,11 +113,14 @@ Feature: W3_TC_NE_SPGA_MD_03
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-    And I enter Provider Signatory in Amendment
-    And I enter Our Signatory in Amendment
-    And I enter Effective date in Contract Details
+    And I enter Appendix 2 in Amendments
+    And I enter Opt-out Address in Amendments
     And I enter Payment Appendix in Amendments FinalCapture
-    And I enter Payment Appendix in Amendments FinalCapture
+#    And I enter Provider Signatory in Amendment
+#    And I enter Our Signatory in Amendment
+#    And I enter Effective date in Contract Details
+#    And I enter Payment Appendix in Amendments FinalCapture
+#    And I enter Payment Appendix in Amendments FinalCapture
     And I enter Group Summary
     And I Complete Wizard
 
