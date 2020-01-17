@@ -244,6 +244,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         scrollIntoView("adf-form-approve",3);
         Assert.assertTrue(click("Approve", elements.approve));
         waitTillVisible(elements.detectapproval);
+        if(!waitTillVisible(elements.confirmApproval)){
+            refreshPage();
+        }
         Assert.assertTrue(waitTillVisible(elements.confirmApproval));
         IWebInteract.log.info("[APPROVED]  {}", approvalType + " - " + approverType);
         Assert.assertTrue(waitForPageLoad());
