@@ -61,8 +61,9 @@ Feature: TC_CEN_MGA_IN_11
     And I capture Contract Number
     
     #CMD Checking
+    And I Verify CMD and Capture Status
     #NDB Checking
-   
+   	
     #Check CMD
     #Check NDB
     Examples:
@@ -95,6 +96,7 @@ Feature: TC_CEN_MGA_IN_11
     Then I Complete Wizard
     
     #Check CMD
+    And I Verify CMD and Capture Status
     #Check NDB
     Examples:
       | site          | paperType     | TCName           |

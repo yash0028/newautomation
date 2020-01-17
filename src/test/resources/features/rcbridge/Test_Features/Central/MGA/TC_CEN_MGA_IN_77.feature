@@ -63,8 +63,9 @@ Feature: TC_CEN_MGA_IN_77
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    
-
+    #CMD
+    And I Verify CMD and Capture Status
+	
     Examples:
       | site          | paperType     | TCName           |
       | central uhn   | MGA           | TC_CEN_MGA_IN_77 |
@@ -92,7 +93,9 @@ Feature: TC_CEN_MGA_IN_77
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    #Check CMD
+      
+    #CMD
+    And I Verify CMD and Capture Status
     #Check NDB
 
     Examples:

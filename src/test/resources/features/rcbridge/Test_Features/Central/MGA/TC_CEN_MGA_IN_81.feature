@@ -58,6 +58,8 @@ Feature: TC_CEN_MGA_IN_81
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+    #CMD
+    And I Verify CMD and Capture Status
     #CMD Checking
     #NDB Checking
 

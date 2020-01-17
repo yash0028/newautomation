@@ -58,7 +58,9 @@ Feature: TC_CEN_MGA_IN_39
     Then I Complete Wizard
     And I Set Status as Active
 	And I capture Contract Number
-     #Amendment
+	
+	#CMD
+    And I Verify CMD and Capture Status
 
 
     Examples:
