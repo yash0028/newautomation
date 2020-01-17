@@ -11,6 +11,7 @@ Feature: TC_NE_MGA_VA_77
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_NORTHEAST
   @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
   Scenario Outline: TC_NE_MGA_VA_77- [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -77,6 +78,7 @@ Feature: TC_NE_MGA_VA_77
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
+  @AMENDMENT_ALL_MGA
   Scenario Outline: TC_NE_MGA_VA_77- [RL0] Author <paperType> contract in <site>
 	
 	

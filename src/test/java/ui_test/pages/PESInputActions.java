@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
+import ui_test.util.IWebInteract;
 import util.TimeKeeper;
 
 import java.util.HashMap;
@@ -26,6 +27,10 @@ public class PESInputActions extends GenericInputPage {
 
     public void enterPESInput(HashMap<String, String> readFile) {
         long startTime = TimeKeeper.getInstance().getCurrentMillisecond();
+        String[] heading = this.elements.heading.getText().trim().split("-");
+        String contractNumber = heading[1].trim().split(" ")[0];
+        IWebInteract.log.info("CONTRACT NUMBER : {}", contractNumber);
+        IWebInteract.log.info("CONTRACT DETAILS : {} - {}", readFile.get("commonName"), contractNumber);
         try {
             Assert.assertTrue(waitForPageLoad());
             for (Map.Entry<String, String> entry : readFile.entrySet()) {
@@ -93,6 +98,9 @@ public class PESInputActions extends GenericInputPage {
 
         @FindBy(xpath = "//span[@id='UTQField_3']/input")
         private List<WebElement> providerfirstnam;
+
+        @FindBy(xpath = "//h1[contains(@class,'title-bar__page-name')]")
+        private WebElement heading;
 
         PageElements(SearchContext context) {
             super(context);

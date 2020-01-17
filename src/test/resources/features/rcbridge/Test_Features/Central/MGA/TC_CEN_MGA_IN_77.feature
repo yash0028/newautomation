@@ -12,6 +12,8 @@ Feature: TC_CEN_MGA_IN_77
   @UAT_AUTO_CENTRAL
   @UAT_AUTO
   @today
+  @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
+  @testing
   Scenario Outline: TC_CEN_MGA_IN_77- [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -73,7 +75,7 @@ Feature: TC_CEN_MGA_IN_77
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @UAT_AUTO_MAKE_A_CORRECTION
-  @today
+  @AMENDMENT_ALL_MGA
   Scenario Outline: TC_CEN_MGA_IN_77- [RL0] Author <paperType> contract in <site>
 	
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 

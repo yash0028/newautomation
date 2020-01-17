@@ -11,6 +11,7 @@ Feature: TC_CEN_SPA_IN_57
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
   @Test_Failures
+  @CMD_CHECK
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -57,15 +58,13 @@ Feature: TC_CEN_SPA_IN_57
     And I enter Group Summary
     Then I Complete Wizard
 
-    #Activate
+   #Activate
     And I Set Status as Active
-	And I capture Contract Number
+    And I capture Contract Number
 
-     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
+   #CMD CHECk
+
+    And I Verify CMD and Capture Status
 
 
     Examples:

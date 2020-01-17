@@ -675,12 +675,12 @@ public interface IWebInteract {
     default WebElement waitForElementToAppear(WebDriver driver, final By by) {
         try {
             pauseSilent(1);
-            log.info("Waiting for loader to Appear.");
+            //log.info("Waiting for loader to Appear.");
             WebElement element = (new WebDriverWait(driver, 5))
                     .until(ExpectedConditions.presenceOfElementLocated(by));
             return element;
         } catch (Exception e) {
-            log.info("Waiting for loader to Appear : Failed");
+            //log.info("Waiting for loader to Appear : Failed");
             return null;
         }
 
@@ -688,11 +688,11 @@ public interface IWebInteract {
 
     default boolean waitForElementToDissapear(WebDriver driver, WebElement element) {
         try {
-            log.info("Waiting for loader to Disappear.");
+            //log.info("Waiting for loader to Disappear.");
             (new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOf(element));
             return true;
         } catch (Exception e) {
-            log.info("Waiting for loader to Disappear : Failed");
+            //log.info("Waiting for loader to Disappear : Failed");
             return false;
         }
     }

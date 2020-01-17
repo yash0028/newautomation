@@ -7,6 +7,7 @@ Feature: W3_TC_NE_MGA_DC_05
   @Manual
   @User_Interface
   @UAT_AUTO_INITIAL_TRANSACTION_W3
+  @generate_link
   Scenario Outline: W3_TC_NE_MGA_DC_05 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -65,6 +66,7 @@ Feature: W3_TC_NE_MGA_DC_05
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT_W3
+  @AMENDMENT_ALL_MGA
   Scenario Outline: W3_TC_NE_MGA_DC_05 - [RL0] Amend <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

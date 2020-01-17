@@ -13,6 +13,8 @@ Feature: TC_WEST_MGA_OR_39
   @UAT_AUTO_WEST
   @UAT_AUTO
   @NEW
+  @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
+  @generate_link
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
@@ -73,6 +75,7 @@ Feature: TC_WEST_MGA_OR_39
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_MGA
   @NEW
+  @AMENDMENT_ALL_MGA
   Scenario Outline: TC_WEST_MGA_OR_39 - [RL0] Amend <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
