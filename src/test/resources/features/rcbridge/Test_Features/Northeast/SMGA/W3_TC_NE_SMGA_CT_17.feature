@@ -35,7 +35,7 @@ Feature: W3_TC_NE_SMGA_CT_17
     And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
-    And I enter Payment Appendix in Amendments for SMGA contracts
+    And I enter Payment Appendix
     And I verify Medicare Advantage
     And I enter Additional Locations
     And I enter Regulatory Appendices
