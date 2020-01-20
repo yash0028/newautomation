@@ -58,6 +58,7 @@ Feature: TC_SE_SPA_AR_14
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+    And I Verify CMD and Capture Status
     Examples:
       | site            | paperType     | TCName          |
       | southeast uhn   | SPA           | TC_SE_SPA_AR_14 |
@@ -69,6 +70,7 @@ Feature: TC_SE_SPA_AR_14
   @SPA_AMENDMENT
   @SPA_DATA_ADDED
  @UAT_AUTO_AMENDMENT_MIG1
+ @SPA_AMENDMENT_Migration
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     #Draft
@@ -111,7 +113,7 @@ Feature: TC_SE_SPA_AR_14
     #Amendment CMD Check
 
     #NDB Check
-
+And I Verify CMD and Capture Status
 
     Examples:
       | site            | paperType     | TCName          |
