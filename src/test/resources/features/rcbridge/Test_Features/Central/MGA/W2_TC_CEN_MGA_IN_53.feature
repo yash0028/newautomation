@@ -59,6 +59,9 @@ Feature: W2_TC_CEN_MGA_IN_53
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+    
+    #CMD
+    And I Verify CMD and Capture Status
     Examples:
       | site          | paperType     | TCName              |
       | central uhn   | MGA           | W2_TC_CEN_MGA_IN_53 |

@@ -59,27 +59,15 @@ Feature: TC_CEN_MGA_IN_58
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    #CMD Checking
-    #NDB Checking
-    #Make Correction - Provider Roster (Add one or more providers to the roster)
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
-    And I add provider using TIN
-    And I select Providers
-    And I enter Provider Start Date
-    And I enter retro code in Provider Roster
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
-
+    
+    #CMD
+    And I Verify CMD and Capture Status
+    
     Examples:
       | site          | paperType     | TCName           |
       | central uhn   | MGA           | TC_CEN_MGA_IN_58 |
       
-      
-  
+    
   @TC_CEN_MGA_IN_58
   @Manual
   @User_Interface
@@ -104,6 +92,9 @@ Feature: TC_CEN_MGA_IN_58
     And I enter Group Summary
     Then I Complete Wizard
 
+	#CMD
+    And I Verify CMD and Capture Status
+    
     Examples:
       | site          | paperType     | TCName           |
       | central uhn   | MGA           | TC_CEN_MGA_IN_58 |

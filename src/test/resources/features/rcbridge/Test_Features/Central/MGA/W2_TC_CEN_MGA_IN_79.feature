@@ -62,7 +62,8 @@ Feature: W2_TC_CEN_MGA_IN_79
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    #CMD Checking
+    #CMD
+    And I Verify CMD and Capture Status
     #NDB Checking
  
 
