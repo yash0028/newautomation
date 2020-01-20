@@ -13,6 +13,7 @@ Feature: TC_NE_PAT_VA_32
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_PAT
   @UAT_AUTO_INITIAL_TRANSACTION_PAT_NORTHEAST
+  @generate_link
   Scenario Outline: TC_NE_PAT_VA_32 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
