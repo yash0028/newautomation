@@ -72,6 +72,7 @@ Feature: TC_CEN_MGA_IN_71
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_MGA
   @AMENDMENT_ALL_MGA
+  @temp
   Scenario Outline: TC_CEN_MGA_IN_71 - [RL0] Amend <paperType> contract in <site>
     #CMD Checking
     #NDB Checking
