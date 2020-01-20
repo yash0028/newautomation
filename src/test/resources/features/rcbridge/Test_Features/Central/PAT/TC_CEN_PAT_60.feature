@@ -63,8 +63,9 @@ Feature: TC_CEN_PAT_IN_60
     #Activate
     And I Set Status as Active
 	And I capture Contract Number
+
     #CMD Check
-	#NDB Check
+    And I Verify CMD and Capture Status
 
 
 

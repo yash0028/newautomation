@@ -61,13 +61,7 @@ Feature: TC_CEN_PAT_IN_22
 	And I capture Contract Number
 
     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #When I search for Contract
-    #Then Validate Contract status and request type
-
-    #NDB Check
-
+    And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName|
@@ -124,6 +118,7 @@ Feature: TC_CEN_PAT_IN_22
 
 
     #Amendment CMD Checking
+    And I Verify CMD and Capture Status
 
 
 
