@@ -133,11 +133,13 @@ public class Appendix2 extends GenericInputPage {
     public void enterLouisiana(HashMap<String, String> hmap)
     {
         if(isVisible(elements.Louisiana))
+        {
             click(elements.Louisiana);
-
-        Assert.assertTrue(clickNext());
-        Assert.assertTrue(waitForPageLoad());
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
     }
+
 
     private static class PageElements extends AbstractPageElements {
 
