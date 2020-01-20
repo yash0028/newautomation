@@ -66,6 +66,8 @@ Feature: W2_TC_CEN_SPGA_IL_41
 	And I capture Contract Number
 	
     #CMD Check
+    And I Verify CMD and Capture Status
+
 	#NDB Check
 	#Amandments.
 

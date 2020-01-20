@@ -58,6 +58,8 @@ Feature: W2_TC_CEN_SPGA_IL_38
     And I Set Status as Active
     And I capture Contract Number
 
+    #CMD checking
+    And I Verify CMD and Capture Status
 
 
     #NDB Checking
@@ -112,8 +114,10 @@ Feature: W2_TC_CEN_SPGA_IL_38
     And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
+    And I Set Status as Active in Amendment
 
     #Amendment CMD Checking
+    And I Verify CMD and Capture Status
 
 
 

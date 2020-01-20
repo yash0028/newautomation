@@ -61,7 +61,10 @@ Feature: TC_CEN_SPGA_IN_18
 	   #Activate
 	   And I Set Status as Active
 	   And I capture Contract Number
-		 #NDB Checking
+
+     #CMD Checking
+    And I Verify CMD and Capture Status
+
 
     Examples:    
        | site          | paperType     | TCName|  				 
@@ -115,12 +118,11 @@ Feature: TC_CEN_SPGA_IN_18
     #Activating Amendment
    And I Set Status as Active in Amendment
 
-		#Activate Amandament
-		
-		#Amendment CMD Checking
-		
-		
-    
+    #Amendment CMD Checking
+    And I Verify CMD and Capture Status
+
+
+
     Examples:    
        | site          | paperType     | TCName|  				 
        | central uhn   | SPGA          | TC_CEN_SPGA_IN_18|

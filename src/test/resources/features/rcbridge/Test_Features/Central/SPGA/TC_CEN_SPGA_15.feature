@@ -65,7 +65,8 @@ Feature: TC_CEN_SPGA_IN_15
     And I capture Contract Number
     
     #CMD Check
-    
+    And I Verify CMD and Capture Status
+
     #NDB Check
  	
     Examples:    

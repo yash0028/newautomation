@@ -58,11 +58,7 @@ Feature: W2_TC_CEN_SPA_ND_37
 	And I capture Contract Number
 
      #CMD Check
-    #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
-
+    And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName           |

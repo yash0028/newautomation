@@ -70,6 +70,10 @@ Feature: W2_TC_CEN_SPGA_IL_38
     And I Set Status as Active
 	And I capture Contract Number
 
+    #CMD checking
+    And I Verify CMD and Capture Status
+
+
     Examples:
       | site          | paperType     | TCName|
       | central uhn   | SPGA          | W2_TC_CEN_SPGA_SD_61|

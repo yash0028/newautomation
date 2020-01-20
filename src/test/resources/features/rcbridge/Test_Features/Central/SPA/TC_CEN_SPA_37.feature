@@ -61,7 +61,6 @@ Feature: TC_CEN_SPA_IN_37
     And I capture Contract Number
 
    #CMD CHECk
-
     And I Verify CMD and Capture Status
 
 
@@ -127,6 +126,7 @@ Feature: TC_CEN_SPA_IN_37
  #Activating Amendment
     And I Set Status as Active in Amendment
    #Amendment CMD Checking
+    And I Verify CMD and Capture Status
 
 
 

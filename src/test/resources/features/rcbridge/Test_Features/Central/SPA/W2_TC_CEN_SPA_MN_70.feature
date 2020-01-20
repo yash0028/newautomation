@@ -59,6 +59,9 @@ Feature: W2_TC_CEN_SPA_MN_70
     And I Set Status as Active
     And I capture Contract Number
 
+    #CMD checking
+    And I Verify CMD and Capture Status
+
     Examples:
       | site        | paperType     | TCName              |
       | central uhn | SPA           | W2_TC_CEN_SPA_MN_70 |
@@ -128,6 +131,8 @@ Feature: W2_TC_CEN_SPA_MN_70
     And I Set Status as Active in Amendment
 
     #Amendment CMD Checking
+    And I Verify CMD and Capture Status
+
    #COSMOS Check
 
      #Make a correction - Terminating TIN

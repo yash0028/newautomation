@@ -69,6 +69,8 @@ Feature: TC_CEN_SPGA_IN_41
     And I Set Status as Active
     And I capture Contract Number
     #CMD Check
+    And I Verify CMD and Capture Status
+
 	#NDB Check
 	#Amandments.
     

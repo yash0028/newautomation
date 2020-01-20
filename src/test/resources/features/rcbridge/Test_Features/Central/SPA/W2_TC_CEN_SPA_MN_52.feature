@@ -62,10 +62,7 @@ Feature: W2_TC_CEN_SPA_MN_52
 	And I capture Contract Number
 
      #CMD Check
-    #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
+    And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName           |
@@ -126,6 +123,8 @@ Feature: W2_TC_CEN_SPA_MN_52
     And I Set Status as Active in Amendment
 
    #Amendment CMD Checking
+    And I Verify CMD and Capture Status
+
    #COSMOS Check
 
     Examples:

@@ -63,7 +63,6 @@ Feature: TC_CEN_SPA_IN_57
     And I capture Contract Number
 
    #CMD CHECk
-
     And I Verify CMD and Capture Status
 
 

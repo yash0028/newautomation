@@ -73,6 +73,8 @@ Feature: W2_TC_CEN_SPGA_IL_56
 	And I capture Contract Number
 	
     #CMD Check
+    And I Verify CMD and Capture Status
+
 	#NDB Check
 	#Make a Correction - Add a new TIN to the existing provider in the Roster.
 
@@ -129,7 +131,11 @@ Feature: W2_TC_CEN_SPGA_IL_56
     And I Complete Wizard
 
     #Activating Amendments
-    And I Set Status as Active
+    And I Set Status as Active in Amendment
+
+    #CMD checking
+    And I Verify CMD and Capture Status
+
 
     Examples:
       | site          | paperType     | TCName|

@@ -37,8 +37,6 @@ Feature: W2_TC_CEN_SPA_SD_19
     And I enter Group Summary
     Then I Complete Wizard
 
-
-
      #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -62,10 +60,7 @@ Feature: W2_TC_CEN_SPA_SD_19
 	And I capture Contract Number
 
      #CMD Check
-    #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
+    And I Verify CMD and Capture Status
 
     #NDB Check
 
@@ -132,6 +127,8 @@ Feature: W2_TC_CEN_SPA_SD_19
     #Activating Amendment
     And I Set Status as Active in Amendment
     #Amendment CMD Check
+    And I Verify CMD and Capture Status
+
     #Cosmos Check
 
     Examples:

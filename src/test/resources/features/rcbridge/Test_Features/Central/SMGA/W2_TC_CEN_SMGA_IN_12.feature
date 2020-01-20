@@ -62,25 +62,11 @@ Feature: W2_TC_CEN_SMGA_IN_12
     And I capture Contract Number
     
     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract "11122328" status and request type "InstallContract"
+    And I Verify CMD and Capture Status
 
     
     #NDB Check
-    
-    #Add provider with Make a correction.
 
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
-    And I enter Provider Start Date
-    And I enter retro code in Provider Roster
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
 
     Examples:
       | site          | paperType     | TCName|
