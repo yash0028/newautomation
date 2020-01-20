@@ -99,7 +99,8 @@ Feature: W2_TC_CEN_SMGA_IN_08 (USED OLD DATA)
 
     #Create supporting document
 
-    #CMD Check
+#CMD Check
+    And I Verify CMD and Capture Status
     #NDB Check
 
 

@@ -92,9 +92,9 @@ Feature: TC_CEN_SMGA_IN_08
     And I enter Group Summary
     Then I Complete Wizard
     
-    #Create supporting document 
-    
-    #CMD Check
+    #Create supporting document
+    # CMD Check
+    And I Verify CMD and Capture Status
     #NDB Check
 		
     

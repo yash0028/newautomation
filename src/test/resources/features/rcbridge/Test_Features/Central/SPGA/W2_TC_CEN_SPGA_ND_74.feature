@@ -106,6 +106,8 @@ Feature: W2_TC_CEN_SPGA_IL_38
     #Create supporting document
     #CMD Check
     #NDB check
+#CMD Checking
+    And I Verify CMD and Capture Status
 
 
     Examples:

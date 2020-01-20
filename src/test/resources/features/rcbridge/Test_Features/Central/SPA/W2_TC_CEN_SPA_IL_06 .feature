@@ -89,6 +89,8 @@ Feature: W2_TC_CEN_SPA_IL_06
     And I enter Group Summary
     Then I Complete Wizard
 
+#CMD Check
+    And I Verify CMD and Capture Status
 
 
 

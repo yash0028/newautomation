@@ -123,6 +123,7 @@ Feature: W2_TC_CEN_SPA_ND_37
     And I Set Status as Active in Amendment
 
    #Amendment CMD Checking
+    And I Verify CMD and Capture Status
 
 
 

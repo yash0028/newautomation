@@ -156,6 +156,8 @@ Feature: W2_TC_CEN_SPA_SD_19
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+#CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName           |

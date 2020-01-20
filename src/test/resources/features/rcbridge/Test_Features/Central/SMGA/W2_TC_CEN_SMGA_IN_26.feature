@@ -93,6 +93,8 @@ Feature: W2_TC_CEN_SMGA_IN_26
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+#CMD Check
+    And I Verify CMD and Capture Status
 
 
 

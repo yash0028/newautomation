@@ -97,7 +97,9 @@ Feature: TC_CEN_SPGA_IN_15
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard   
-    
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     #create supporting document 
 		
     Examples:    

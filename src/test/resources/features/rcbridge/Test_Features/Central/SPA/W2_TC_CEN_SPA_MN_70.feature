@@ -130,8 +130,6 @@ Feature: W2_TC_CEN_SPA_MN_70
     #Activating Amendment
     And I Set Status as Active in Amendment
 
-    #Amendment CMD Checking
-    And I Verify CMD and Capture Status
 
    #COSMOS Check
 
@@ -145,6 +143,8 @@ Feature: W2_TC_CEN_SPA_MN_70
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+#Amendment CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:
       | site        | paperType     | TCName              |

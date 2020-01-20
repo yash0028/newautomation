@@ -105,6 +105,9 @@ Feature: TC_CEN_SMGA_IN_31
     And I enter Group Summary
     Then I Complete Wizard
 
+    #CMD Check
+    And I Verify CMD and Capture Status
+
     Examples:    
        | site          | paperType     | TCName|
        | central uhn   | SMGA          | TC_CEN_SMGA_IN_31|

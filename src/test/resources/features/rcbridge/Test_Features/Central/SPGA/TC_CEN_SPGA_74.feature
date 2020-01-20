@@ -106,6 +106,8 @@ Feature: TC_CEN_SPGA_IN_74
     
     #Create supporting document 
     #CMD Check
+    And I Verify CMD and Capture Status
+
     #NDB check
     
     
