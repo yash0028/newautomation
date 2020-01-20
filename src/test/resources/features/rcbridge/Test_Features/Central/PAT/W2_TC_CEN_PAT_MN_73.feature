@@ -63,8 +63,10 @@ Feature: W2_TC_CEN_PAT_MN_73
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    #CMD Check
-	#NDB Check
+
+     #CMD Check
+    And I Verify CMD and Capture Status
+
 
     Examples:
       | site          | paperType     | TCName|
@@ -120,6 +122,8 @@ Feature: W2_TC_CEN_PAT_MN_73
     And I Set Status as Active in Amendment
 
     #Amendment CMD Checking
+    And I Verify CMD and Capture Status
+
 
 
 
