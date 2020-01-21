@@ -63,7 +63,10 @@ Feature: TC_NE_MGA_VA_25
 	    And I Set Status as Active
 	    And I capture Contract Number
 
-        Examples:
+    #CMD Checking
+        And I Verify CMD and Capture Status
+
+    Examples:
               | site          | paperType     | TCName           |
               | northeast uhn   | MGA           | TC_NE_MGA_VA_25 |
 
@@ -90,6 +93,8 @@ Feature: TC_NE_MGA_VA_25
         And I acknowledge the warning
         And I enter Group Summary
         Then I Complete Wizard
+#CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:
           | site          | paperType     | TCName           |

@@ -61,6 +61,8 @@ Feature: W3_TC_NE_SPA_CT_15
     And I Set Status as Active
     And I capture Contract Number
 
+    #CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName           |

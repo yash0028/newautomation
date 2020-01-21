@@ -62,6 +62,8 @@ Feature: TC_NE_MGA_VA_39
     Then I Complete Wizard
     And I Set Status as Active
 	And I capture Contract Number
+#CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:
           | site          | paperType     | TCName           |
@@ -108,7 +110,10 @@ Feature: TC_NE_MGA_VA_39
       #And I enter Opt-out Address in Amendments in IL
       And I enter Group Summary
       And I Complete Wizard
+      And I Set Status as Active in Amendment
+    #CMD Checking
+      And I Verify CMD and Capture Status
 
-       Examples:
+        Examples:
              | site          | paperType     | TCName           |
              | northeast uhn   | MGA           | TC_NE_MGA_VA_39 |

@@ -13,6 +13,7 @@ Feature: TC_NE_PAT_VA_32
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_PAT
   @UAT_AUTO_INITIAL_TRANSACTION_PAT_NORTHEAST
+  @generate_link
   Scenario Outline: TC_NE_PAT_VA_32 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -64,6 +65,9 @@ Feature: TC_NE_PAT_VA_32
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     Examples:
       | site            | paperType     | TCName         |
       | northeast uhn   | PAT           | TC_NE_PAT_VA_32|
@@ -123,7 +127,8 @@ Feature: TC_NE_PAT_VA_32
     #Activating Amendments
     And I Set Status as Active in Amendment
 
-    #Amendment CMD Checking
+#CMD Checking
+    And I Verify CMD and Capture Status
 
 
 

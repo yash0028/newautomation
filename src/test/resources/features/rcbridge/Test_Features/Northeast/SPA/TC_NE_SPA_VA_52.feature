@@ -61,11 +61,9 @@ Feature: TC_NE_SPA_VA_52
     And I Set Status as Active
     And I capture Contract Number
 
-     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
+     #CMD Checking
+    And I Verify CMD and Capture Status
+
 
 
     Examples:
@@ -128,7 +126,8 @@ Feature: TC_NE_SPA_VA_52
     And I Set Status as Active in Amendment
 
    #Amendment CMD Checking
-  #COSMOS Check
+    And I Verify CMD and Capture Status
+
 
 
 

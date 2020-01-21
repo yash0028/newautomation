@@ -62,7 +62,8 @@ Feature: TC_NE_MGA_VA_58
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    #CMD Checking
+#CMD Checking
+    And I Verify CMD and Capture Status
     #NDB Checking
  
 
@@ -76,6 +77,7 @@ Feature: TC_NE_MGA_VA_58
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
   @AMENDMENT_ALL_MGA
+  @temp
   Scenario Outline: TC_NE_MGA_VA_58 - [RL0] Author <paperType> contract in <site>
 
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -93,6 +95,9 @@ Feature: TC_NE_MGA_VA_58
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
 
     Examples:
       | site          | paperType     | TCName          |

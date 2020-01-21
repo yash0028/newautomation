@@ -60,7 +60,10 @@ Feature: TC_NE_SPGA_VA_18
    And I capture Contract Number
    
     
-    	#NDB Checking 
+    	#NDB Checking
+
+  #CMD Checking
+   And I Verify CMD and Capture Status
 
     Examples:    
        | site            | paperType       | TCName|
@@ -99,8 +102,11 @@ Feature: TC_NE_SPGA_VA_18
         #Activating Amendment
 
 
-    	#Amendment CMD Checking
+     #Amendment CMD Checking
+      And I Verify CMD and Capture Status
 
-        Examples:
+
+
+      Examples:
            | site            | paperType     | TCName|
            | northeast uhn   | SPGA          | TC_NE_SPGA_VA_18|

@@ -58,6 +58,9 @@ Feature: W3_TC_NE_MGA_DC_05
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     Examples:
       | site          | paperType     | TCName            |
       | northeast uhn | MGA           | W3_TC_NE_MGA_DC_05 |
@@ -110,7 +113,8 @@ Feature: W3_TC_NE_MGA_DC_05
     #Activating Amendment
     And I Set Status as Active in Amendment
 
-    #CMD Checking
+#CMD Checking
+    And I Verify CMD and Capture Status
     #Check Cosmos
     #NDB Checking
 

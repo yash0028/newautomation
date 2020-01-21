@@ -70,6 +70,7 @@ Feature: TC_WEST_MGA_OR_71
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_MGA
   @AMENDMENT_ALL_MGA
+  @temp
   Scenario Outline: TC_WEST_MGA_OR_71 - [RL0] Amend <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -87,7 +88,7 @@ Feature: TC_WEST_MGA_OR_71
     And I preview Provider Details
     And I select Types of Amendments
     And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details`
+    And I enter Effective date in Contract Details
     And I enter Benefit Plan Descriptions Provision
     And I select applied Payment Appendix
     And I select Payment Appendix to include in Amendments for MGA contracts
