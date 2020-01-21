@@ -60,8 +60,8 @@ Feature: TC_WEST_SPA_OR_28
     And I Set Status as Active    
     And I capture Contract Number
     
-    #CMD Check    
-    #NDB Check    
+    #CMD Checking
+     And I Verify CMD and Capture Status
  
     
     Examples:    
@@ -92,11 +92,8 @@ Feature: TC_WEST_SPA_OR_28
     And I enter Group Summary
     Then I Complete Wizard
     
-    #Create supporting document 
-    
-    #CMD Check
-    #NDB Check
-		
+   	#Amendment CMD Checking
+      And I Verify CMD and Capture Status
     
     Examples:    
        | site          | paperType     | TCName|  				 

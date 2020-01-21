@@ -60,10 +60,8 @@ Feature: TC_WEST_SPA_OR_10
     And I Set Status as Active
     And I capture Contract Number
     
-    #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract
+   #CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:    
        | site          | paperType     | TCName|         
@@ -92,7 +90,8 @@ Feature: TC_WEST_SPA_OR_10
     And I enter Group Summary
     Then I Complete Wizard
     
-    #Create supporting document 
+    #Amendment CMD Checking
+        And I Verify CMD and Capture Status
     
     Examples:    
        | site          | paperType     | TCName|         
