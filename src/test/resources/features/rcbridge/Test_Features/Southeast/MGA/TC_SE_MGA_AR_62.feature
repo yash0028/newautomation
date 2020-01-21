@@ -73,6 +73,7 @@ Feature: TC_SE_MGA_AR_62
   @AMENDMENT_ALL_MGA
   @SE_MGA_AMT
   @rerunrerun
+  @UAT_AUTO_AMENDMENT_MIG1
   Scenario Outline: TC_SE_MGA_AR_62 - [RL0] Author <paperType> contract in <site>
 	
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
