@@ -10,6 +10,7 @@ import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class AdditionalManuals extends GenericInputPage {
     private PageElements elements;
@@ -19,13 +20,34 @@ public class AdditionalManuals extends GenericInputPage {
     }
 
     public void applyToBenefitPlans(HashMap<String, String> hmap) {
+        boolean state = false;
         if (hmap.containsKey("Benefit Plan")) {
             String[] plans = hmap.get("Benefit Plan").split("//");
             for (String plan : plans) {
+                if(plan.equals("StateMME")){
+                    state = true;
+                }
                 Assert.assertTrue(setCheckBox("Additional Manuals Benefit Plans", selectAdditionalManuals(plan),true));
                 pause(1);
             }
         }
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
+
+        if(state){
+            nameOfState(hmap);
+        }
+    }
+    public void nameOfState(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        Assert.assertTrue(click("Open State Name Dropdown", this.elements.dropdown_open));
+        pause(1);
+        waitForPageLoad(60);
+        Assert.assertTrue(sendKeys("Send Data to State Name", elements.searchBar, hmap.get("Benefit Plan Descriptions Provision")));
+        pause(1);
+        waitForPageLoad(60);
+        Assert.assertTrue(click("Click State Name", elements.selectState.get(0)));
+        waitForPageLoad(60);
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -49,6 +71,12 @@ public class AdditionalManuals extends GenericInputPage {
 
     private static class PageElements extends AbstractPageElements {
         private String message = "//div[contains(@class,'DialogBox')]";
+        @FindBy(xpath = "//span[@class='select2-selection__arrow']")
+        private WebElement dropdown_open;
+        @FindBy(xpath = "//input[@type='search']")
+        private WebElement searchBar;
+        @FindBy(xpath = "//span[@class='select2-results']//li")
+        private List<WebElement> selectState;
         public PageElements(SearchContext context) {
             super(context);
         }
