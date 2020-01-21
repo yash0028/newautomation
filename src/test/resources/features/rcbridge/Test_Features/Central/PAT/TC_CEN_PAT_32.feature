@@ -13,6 +13,7 @@ Feature: TC_CEN_PAT_IN_32
   @UAT_AUTO_INITIAL_TRANSACTION 
   @UAT_AUTO_INITIAL_TRANSACTION_PAT
   @generate_link
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT_CEN
   Scenario Outline: TC_CEN_PAT_IN_32 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

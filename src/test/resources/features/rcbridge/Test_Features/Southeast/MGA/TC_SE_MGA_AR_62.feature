@@ -71,6 +71,7 @@ Feature: TC_SE_MGA_AR_62
   @User_Interface
   @UAT_AUTO_AMENDMENT1
   @AMENDMENT_ALL_MGA
+  @SE_MGA_AMT
   Scenario Outline: TC_SE_MGA_AR_62 - [RL0] Author <paperType> contract in <site>
 	
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
@@ -141,6 +142,7 @@ Feature: TC_SE_MGA_AR_62
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
   @AMENDMENT_ALL_MGA
+  @SE_MGA_AMT
   Scenario Outline: TC_SE_MGA_AR_62 - [RL0] Author <paperType> contract in <site>
 	
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 

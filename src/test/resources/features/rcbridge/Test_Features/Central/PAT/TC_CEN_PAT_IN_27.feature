@@ -9,6 +9,7 @@ Feature: TC_CEN_PAT_IN_27
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT_CEN
   Scenario Outline: TC_CEN_PAT_IN_27 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

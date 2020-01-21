@@ -9,6 +9,7 @@ Feature: TC_SE_MGA_AR_53
   @Manual
   @User_Interface
   @UAT_AUTO_INITIAL_TRANSACTION
+  @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
   @UAT_AUTO_SOUTHEAST
   @UAT_AUTO
   Scenario Outline: TC_SE_MGA_AR_53 - [RL0] Author <paperType> contract in <site>
@@ -72,6 +73,7 @@ Feature: TC_SE_MGA_AR_53
   @UAT_AUTO_AMENDMENT_MGA
   @UAT_AUTO_AMENDMENT_MIG1
   @AMENDMENT_ALL_MGA
+  @SE_MGA_AMT
   Scenario Outline: TC_SE_MGA_AR_53 - [RL0] Amend <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
