@@ -59,6 +59,10 @@ Feature: TC_SE_PAT_AR_13
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     Examples:
       | site            | paperType     | TCName           |
       | southeast uhn   | PAT           | TC_SE_PAT_AR_13  |
@@ -122,6 +126,7 @@ Feature: TC_SE_PAT_AR_13
      #Activating Amendment
     And I Set Status as Active in Amendment
     #Amendment CMD Check
+    And I Verify CMD and Capture Status
     #NDB Check
 
 

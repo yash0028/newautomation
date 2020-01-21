@@ -104,10 +104,13 @@ Feature: TC_SE_SPGA_AR_05
 
     #Amandment final capture
 		
-    #Amendment CMD Checking
-		
-		
-    
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
+
+
     Examples:    
        | site          | paperType     | TCName|  				 
        | southeast uhn   | SPGA          | TC_SE_SPGA_AR_05|

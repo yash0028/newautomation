@@ -60,6 +60,9 @@ Feature: W3_TC_SE_SPGA_LA_13
     And I Set Status as Active
     And I capture Contract Number
 
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     Examples:
       | site          | paperType     | TCName|
       | southeast uhn   | SPGA        | W3_TC_SE_SPGA_LA_13|
@@ -115,6 +118,9 @@ Feature: W3_TC_SE_SPGA_LA_13
 
     #Activating Amendment
     And I Set Status as Active in Amendment
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName|

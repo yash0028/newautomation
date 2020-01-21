@@ -60,8 +60,10 @@ Feature: TC_SE_MGA_AR_81
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
     #CMD Checking
-    #NDB Checking
+    And I Verify CMD and Capture Status
+          #NDB Checking
 
     Examples:
       | site          | paperType     | TCName          |

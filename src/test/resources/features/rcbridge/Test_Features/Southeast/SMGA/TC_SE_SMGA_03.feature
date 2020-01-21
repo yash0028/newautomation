@@ -59,6 +59,10 @@ Feature: TC_SE_SMGA_AR_03
     #Activate
     And I Set Status as Active
   	And I capture Contract Number
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     Examples:    
        | site            | paperType     | TCName          |
        | southeast uhn   | SMGA          | TC_SE_SMGA_AR_03|
@@ -112,6 +116,9 @@ Feature: TC_SE_SMGA_AR_03
     And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:    
        | site            | paperType     | TCName          |

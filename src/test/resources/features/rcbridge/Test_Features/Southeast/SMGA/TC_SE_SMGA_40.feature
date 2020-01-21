@@ -59,10 +59,8 @@ Feature: TC_SE_SMGA_AR_40
     And I Set Status as Active
     And I capture Contract Number
 
-    #CMD Check
-#    When I have entered the CMD dashboard URL
-#    When I search for Contract
-#    Then Validate Contract "11122328" status and request type "InstallContract"
+    #CMD Checking
+   And I Verify CMD and Capture Status
 
 
     #NDB Check

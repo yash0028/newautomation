@@ -59,6 +59,9 @@ Feature: TC_SE_MGA_AR_62
     Then I Complete Wizard
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
    
     Examples:
       | site          | paperType     | TCName          |
@@ -127,8 +130,10 @@ Feature: TC_SE_MGA_AR_62
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    #Check CMD
-    #Check NDB
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+          #Check NDB
     Examples:
       | site          | paperType     | TCName          |
       | southeast uhn | MGA           | TC_SE_MGA_AR_62 |
@@ -157,6 +162,9 @@ Feature: TC_SE_MGA_AR_62
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
     #Check CMD
     #Check NDB
     Examples:

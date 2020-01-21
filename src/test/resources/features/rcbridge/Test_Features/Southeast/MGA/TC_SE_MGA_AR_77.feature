@@ -63,8 +63,10 @@ Feature: TC_SE_MGA_AR_77
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
     #CMD Checking
-    #NDB Checking
+    And I Verify CMD and Capture Status
+          #NDB Checking
 
 
     Examples:
@@ -94,8 +96,10 @@ Feature: TC_SE_MGA_AR_77
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    #Check CMD
-    #Check NDB
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+          #Check NDB
 
     Examples:
       | site          | paperType     | TCName          |

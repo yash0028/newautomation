@@ -62,6 +62,10 @@ Feature: TC_SE_SMGA_AR_08
     And I Set Status as Active
     And I capture Contract Number
 
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     #CMD Check
 #    And I have entered the CMD dashboard URL
 #    And I am on the CMD dashboard
@@ -99,8 +103,11 @@ Feature: TC_SE_SMGA_AR_08
     
     #Create supporting document 
     
-    #CMD Check
-    #NDB Check
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+      # NDB Check
 		
     
     Examples:    

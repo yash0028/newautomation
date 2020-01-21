@@ -61,6 +61,9 @@ Feature: TC_SE_MGA_AR_16
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
     Examples:
       | site          | paperType     | TCName          |
       | southeast uhn | MGA           | TC_SE_MGA_AR_16 |

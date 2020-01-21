@@ -58,8 +58,11 @@ Feature: TC_SE_SPA_AR_01
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Checking
     And I Verify CMD and Capture Status
-    
+
+
     Examples:
       | site          | paperType     | TCName          |
       | southeast uhn | SPA           | TC_SE_SPA_AR_01 |
@@ -121,8 +124,10 @@ Feature: TC_SE_SPA_AR_01
 
     #Activating Amendment
     And I Set Status as Active in Amendment
-     And I Verify CMD and Capture Status
-    #Amendment CMD Check
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     #Cosmos Check
 
 

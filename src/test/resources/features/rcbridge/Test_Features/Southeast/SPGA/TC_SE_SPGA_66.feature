@@ -67,6 +67,9 @@ Feature: TC_SE_SPGA_AR_66
     And I Set Status as Active    
     And I capture Contract Number
 
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     Examples:    
        | site          | paperType     | TCName|  				 
        | southeast uhn   | SPGA          | TC_SE_SPGA_AR_66|
@@ -95,8 +98,9 @@ Feature: TC_SE_SPGA_AR_66
     And I enter Group Summary
     Then I Complete Wizard
     
-    #Create supporting document 
-    #CMD Check
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     #NDB check
     
     

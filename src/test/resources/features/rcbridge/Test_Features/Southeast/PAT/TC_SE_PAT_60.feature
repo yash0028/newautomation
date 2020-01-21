@@ -70,8 +70,11 @@ Feature: TC_SE_PAT_AR_60
     And I Set Status as Active
     And I capture Contract Number
 
-    #CMD Check
-    #NDB check
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+            #NDB check
 
     Examples:
       | site            | paperType     | TCName         |

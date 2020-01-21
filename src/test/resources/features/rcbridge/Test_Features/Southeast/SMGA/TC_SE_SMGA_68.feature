@@ -3,15 +3,15 @@
 @releaseUnknown
 @iterationUnknown
 Feature: TC_SE_SMGA_AR_68
-  
+
   @TC_SE_SMGA_AR_68
   @Manual
-  @User_Interface  
+  @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION1
   Scenario Outline: TC_SE_SMGA_AR_68 - [RL0] Author SPGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-  
+
     #Draft
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
@@ -37,7 +37,7 @@ Feature: TC_SE_SMGA_AR_68
     #And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-    
+
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -57,20 +57,24 @@ Feature: TC_SE_SMGA_AR_68
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-   
-    Examples:    
-       | site          | paperType     | TCName|  				 
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
+    Examples:
+       | site          | paperType     | TCName|
        | southeast uhn   | SMGA          | TC_SE_SMGA_AR_68|
 
 
-  
+
   @TC_SE_SMGA_AR_68
   @Manual
-  @User_Interface  
+  @User_Interface
   @UAT_AUTO_AMENDMENT1
   @UAT_AUTO_AMENDMENT_MIG1
   Scenario Outline: TC_SE_SMGA_AR_68 - [RL0] Author SPGA contract in <site>
-	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
 	#Draft Amandament
     And I select the contract
@@ -107,8 +111,11 @@ Feature: TC_SE_SMGA_AR_68
     And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
-    
-    Examples:    
-       | site          | paperType     | TCName|  				 
+    And I Set Status as Active in Amendment
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+    Examples:
+       | site          | paperType     | TCName|
        | southeast uhn   | SMGA          | TC_SE_SMGA_AR_68|
-    

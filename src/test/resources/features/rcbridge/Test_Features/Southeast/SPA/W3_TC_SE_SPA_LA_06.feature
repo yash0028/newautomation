@@ -59,6 +59,11 @@ Feature: W3_TC_SE_SPA_LA_06
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
     Examples:
       | site          | paperType     | TCName          |
       | southeast uhn | SPA           | W3_TC_SE_SPA_LA_06  |

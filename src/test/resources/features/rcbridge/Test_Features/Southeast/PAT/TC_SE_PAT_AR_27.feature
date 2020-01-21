@@ -58,6 +58,10 @@ Feature: TC_SE_PAT_AR_27
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     Examples:
       | site            | paperType     | TCName          |
       | southeast uhn     | PAT           | TC_SE_PAT_AR_27|
