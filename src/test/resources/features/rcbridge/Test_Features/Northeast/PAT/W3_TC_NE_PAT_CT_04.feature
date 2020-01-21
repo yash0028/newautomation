@@ -59,6 +59,9 @@ Feature: W3_TC_NE_PAT_CT_04
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     Examples:
       | site            | paperType     | TCName         |
       | northeast uhn   | PAT           | W3_TC_NE_PAT_CT_04|
@@ -124,7 +127,8 @@ Feature: W3_TC_NE_PAT_CT_04
 #     #Activating Amendment
 #    And I Set Status as Active in Amendment
 #
-#     #Amendment CMD Checking
+#CMD Checking
+#    And I Verify CMD and Capture Status
 #
 #
 #    Examples:

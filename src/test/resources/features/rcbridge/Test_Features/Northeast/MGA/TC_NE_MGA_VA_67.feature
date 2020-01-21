@@ -65,6 +65,9 @@ Feature: TC_NE_MGA_VA_67
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     Examples:
       | site          | paperType     | TCName          |
       | northeast uhn | MGA           | TC_NE_MGA_VA_67 |
@@ -107,7 +110,8 @@ Feature: TC_NE_MGA_VA_67
     #Activating Amendment
     And I Set Status as Active in Amendment
 
-    #CMD Checking
+#CMD Checking
+    And I Verify CMD and Capture Status
     #Check Cosmos
     #NDB Checking
 

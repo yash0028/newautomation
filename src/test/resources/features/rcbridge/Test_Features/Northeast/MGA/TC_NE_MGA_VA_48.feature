@@ -61,6 +61,8 @@ Feature: TC_NE_MGA_VA_48
     Then I Complete Wizard
     And I Set Status as Active
     And I capture Contract Number
+#CMD Checking
+    And I Verify CMD and Capture Status
 
 
     Examples:

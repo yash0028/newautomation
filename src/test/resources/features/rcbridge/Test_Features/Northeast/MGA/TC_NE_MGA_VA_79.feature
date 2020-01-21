@@ -66,7 +66,9 @@ Feature: TC_NE_MGA_VA_79
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-   
+   #CMD Checking
+    And I Verify CMD and Capture Status
+
 
     Examples:
       | site          | paperType     | TCName          |
@@ -94,7 +96,8 @@ Feature: TC_NE_MGA_VA_79
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    #CMD Checking
+#CMD Checking
+    And I Verify CMD and Capture Status
     #NDB Checking
 
     Examples:

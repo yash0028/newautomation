@@ -65,19 +65,9 @@ Feature: TC_NE_MGA_VA_80
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    #CMD Checking
-    #NDB Checking
-    #Make Correction - Provider Roster (Cancel one or more providers from the roster)
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I set Roster Action as Cancel
-    And I select provider and cancel date
-    And I enter cancel reason
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
-    #Check CMD
+
+#CMD Checking
+    And I Verify CMD and Capture Status
     #Check NDB
     Examples:
       | site          | paperType     | TCName          |
@@ -106,7 +96,8 @@ Feature: TC_NE_MGA_VA_80
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    #Check CMD
+#CMD Checking
+    And I Verify CMD and Capture Status
     #Check NDB
     
     Examples:
