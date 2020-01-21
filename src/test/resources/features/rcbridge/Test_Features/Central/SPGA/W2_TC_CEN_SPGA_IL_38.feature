@@ -63,6 +63,8 @@ Feature: W2_TC_CEN_SPGA_IL_38
 	And I capture Contract Number
 	
     #CMD Check
+    And I Verify CMD and Capture Status
+
     #NDB Check
     #Cosmos check
 
@@ -115,11 +117,13 @@ Feature: W2_TC_CEN_SPGA_IL_38
     And I Complete Wizard
 
     #Activating Amendments
-    And I Set Status as Active
+    And I Set Status as Active in Amendment
 
     #Create supporting document
 
     #CMD Check
+    And I Verify CMD and Capture Status
+
     #NDB Check
 
 

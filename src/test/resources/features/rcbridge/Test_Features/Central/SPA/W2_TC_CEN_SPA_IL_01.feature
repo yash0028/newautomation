@@ -61,10 +61,7 @@ Feature: W2_TC_CEN_SPA_IL_01 (USED OLD DATA)
 
 
      #CMD Check
-     #When I have entered the CMD dashboard URL
-     #And The dashboard page loads
-     #Then I search for Contract
-     #Then Validate Contract status and request type
+    And I Verify CMD and Capture Status
 
 
     Examples:
@@ -123,6 +120,8 @@ Feature: W2_TC_CEN_SPA_IL_01 (USED OLD DATA)
     And I Set Status as Active in Amendment
 
     #Amendment CMD Check
+    And I Verify CMD and Capture Status
+
     #Cosmos Check
 
 

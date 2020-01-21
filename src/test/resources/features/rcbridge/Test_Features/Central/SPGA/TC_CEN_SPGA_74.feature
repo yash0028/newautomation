@@ -68,7 +68,10 @@ Feature: TC_CEN_SPGA_IN_74
     #Activate
     And I Set Status as Active    
     And I capture Contract Number
-    
+
+    #CMD checking
+    And I Verify CMD and Capture Status
+
     Examples:    
        | site          | paperType     |TCName|
        | central uhn   | SPGA          |TC_CEN_SPGA_IN_74|
@@ -103,6 +106,8 @@ Feature: TC_CEN_SPGA_IN_74
     
     #Create supporting document 
     #CMD Check
+    And I Verify CMD and Capture Status
+
     #NDB check
     
     

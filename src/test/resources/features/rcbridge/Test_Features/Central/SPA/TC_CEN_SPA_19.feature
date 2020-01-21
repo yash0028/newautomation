@@ -119,7 +119,10 @@ Feature: TC_CEN_SPA_IN_19
 
     #Activating Amendment
     And I Set Status as Active in Amendment
+
     #Amendment CMD Check
+    And I Verify CMD and Capture Status
+
     #Cosmos Check
 
 

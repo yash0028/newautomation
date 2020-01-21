@@ -58,7 +58,9 @@ Feature: W2_TC_CEN_SPA_IN_65 (USED OLD DATA)
     #Activate
     And I Set Status as Active
 	And I capture Contract Number
-	
+
+    And I Verify CMD and Capture Status
+
     Examples:
       | site          | paperType     | TCName           |
       | central uhn   | SPA           | W2_TC_CEN_SPA_IN_65|
@@ -114,7 +116,8 @@ Feature: W2_TC_CEN_SPA_IN_65 (USED OLD DATA)
 
    #Activating Amendment
     And I Set Status as Active in Amendment
-   #NDB Checking
+   #CMD Checking
+    And I Verify CMD and Capture Status
 
 
 

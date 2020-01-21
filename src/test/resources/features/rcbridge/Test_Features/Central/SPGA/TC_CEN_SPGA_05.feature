@@ -62,6 +62,9 @@ Feature: TC_CEN_SPGA_IN_05
     And I Set Status as Active
     And I capture Contract Number
 
+    #CMD checking
+    And I Verify CMD and Capture Status
+
     Examples:    
        | site          | paperType     | TCName|
        | central uhn   | SPGA          | TC_CEN_SPGA_IN_05|
@@ -119,10 +122,11 @@ Feature: TC_CEN_SPGA_IN_05
     And I Complete Wizard
 		
     #Activating Amendments
-    And I Set Status as Active
+    And I Set Status as Active in Amendment
 
     #Amendment CMD Checking
-    
+    And I Verify CMD and Capture Status
+
     Examples:    
        | site          | paperType     | TCName|
        | central uhn   | SPGA          | TC_CEN_SPGA_IN_05|

@@ -111,6 +111,10 @@ Feature: TC_CEN_SPA_IN_65
 
    #Activating Amendment
     And I Set Status as Active in Amendment
+
+    #Amendment CMD checking
+    And I Verify CMD and Capture Status
+
    #NDB Checking
 
     Examples:

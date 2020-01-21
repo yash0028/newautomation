@@ -62,9 +62,7 @@ Feature: W2_TC_CEN_SMGA_IN_08 (USED OLD DATA)
 
     #
     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract "71926900" status and request type "InstallContract"
+    And I Verify CMD and Capture Status
 
 
     #NDB Check
@@ -101,7 +99,8 @@ Feature: W2_TC_CEN_SMGA_IN_08 (USED OLD DATA)
 
     #Create supporting document
 
-    #CMD Check
+#CMD Check
+    And I Verify CMD and Capture Status
     #NDB Check
 
 

@@ -62,6 +62,9 @@ Feature: TC_CEN_PAT_IN_32
     And I Set Status as Active
 	And I capture Contract Number
 
+    #CMD Check
+    And I Verify CMD and Capture Status
+
     Examples:
       | site          | paperType     | TCName          |
       | central uhn   | PAT           | TC_CEN_PAT_IN_32|
@@ -116,6 +119,7 @@ Feature: TC_CEN_PAT_IN_32
     And I Set Status as Active in Amendment
 
     #Amendment CMD Checking
+    And I Verify CMD and Capture Status
 
 
 

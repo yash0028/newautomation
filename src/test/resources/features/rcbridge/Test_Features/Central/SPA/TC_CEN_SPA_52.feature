@@ -126,6 +126,8 @@ Feature: TC_CEN_SPA_IN_52
     And I Set Status as Active in Amendment
 
    #Amendment CMD Checking
+    And I Verify CMD and Capture Status
+
   #COSMOS Check
 
 

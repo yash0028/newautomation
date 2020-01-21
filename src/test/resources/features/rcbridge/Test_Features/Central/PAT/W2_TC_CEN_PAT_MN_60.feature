@@ -65,8 +65,10 @@ Feature: W2_TC_CEN_PAT_MN_60
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    #CMD Check
-	#NDB Check
+
+     #CMD Check
+    And I Verify CMD and Capture Status
+
 
 
 

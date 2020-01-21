@@ -61,7 +61,11 @@ Feature: W2_TC_CEN_SPGA_IL_23
     #Activate
     And I Set Status as Active
 	And I capture Contract Number
-	
+
+    #CMD checking
+    And I Verify CMD and Capture Status
+
+
     Examples:
       | site          | paperType     | TCName|
       | central uhn   | SPGA          | W2_TC_CEN_SPGA_IL_23|
@@ -95,6 +99,8 @@ Feature: W2_TC_CEN_SPGA_IL_23
     Then I Complete Wizard
 
     #Cancel MPIN and TIN ,which has been added thru make a correction
+#CMD Checking
+    And I Verify CMD and Capture Status
 
 
     Examples:

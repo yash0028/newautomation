@@ -63,12 +63,10 @@ Feature: TC_CEN_SPGA_IN_10
     And I capture Contract Number
     
     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract
+    And I Verify CMD and Capture Status
 
-  
-    
+
+
     Examples:    
        | site          | paperType     | TCName|          
        | central uhn   | SPGA          | TC_CEN_SPGA_IN_10|
@@ -98,7 +96,9 @@ Feature: TC_CEN_SPGA_IN_10
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     #Create supporting document 
     
     #CMD Check

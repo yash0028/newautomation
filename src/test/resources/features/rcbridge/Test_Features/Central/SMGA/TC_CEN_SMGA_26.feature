@@ -61,9 +61,7 @@ Feature: TC_CEN_SMGA_IN_26
     And I capture Contract Number
     
     #CMD Check
-#    When I have entered the CMD dashboard URL
-#    When I search for Contract
-#    Then Validate Contract "11122328" status and request type "InstallContract"
+    And I Verify CMD and Capture Status
 
     
     #NDB Check
@@ -96,8 +94,10 @@ Feature: TC_CEN_SMGA_IN_26
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard   
-    
-    
+    #CMD Check
+    And I Verify CMD and Capture Status
+
+
     Examples:    
        | site          | paperType     | TCName           |
        | central uhn   | SMGA          | TC_CEN_SMGA_IN_26|

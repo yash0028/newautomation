@@ -110,12 +110,13 @@ Feature: TC_CEN_SPA_IN_14
     And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
-
+    And I Set Status as Active in Amendment
 
     #Activating Amendment
     And I Set Status as Active in Amendment
 
     #Amendment CMD Check
+    And I Verify CMD and Capture Status
 
     #NDB Check
 

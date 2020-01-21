@@ -64,7 +64,9 @@ Feature: TC_CEN_SPGA_IN_66
     And I Set Status as Active    
     And I capture Contract Number
   
-	
+	#CMD checking
+    And I Verify CMD and Capture Status
+
     Examples:    
        | site          | paperType     | TCName|  				 
        | central uhn   | SPGA          | TC_CEN_SPGA_IN_66|
@@ -94,7 +96,9 @@ Feature: TC_CEN_SPGA_IN_66
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     #Create supporting document 
     #CMD Check
     #NDB check

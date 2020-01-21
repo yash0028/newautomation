@@ -64,13 +64,9 @@ Feature: W2_TC_CEN_PAT_IL_55
     And I Set Status as Active
     And I capture Contract Number
 
-	#CMD Check
-    #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #When I search for Contract
-    #Then Validate Contract status and request type
+ #CMD Check
+    And I Verify CMD and Capture Status
 
-	#NDB Check
 
 
     Examples:
@@ -125,6 +121,7 @@ Feature: W2_TC_CEN_PAT_IL_55
     And I Set Status as Active in Amendment
 
     #Amendment CMD Checking
+    And I Verify CMD and Capture Status
 
 
 

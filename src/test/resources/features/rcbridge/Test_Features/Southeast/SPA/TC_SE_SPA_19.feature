@@ -75,6 +75,7 @@ Feature: TC_SE_SPA_AR_19
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT_MIG1
+  @SPA_AMENDMENT_Migration
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
@@ -132,7 +133,7 @@ Feature: TC_SE_SPA_AR_19
     And I Set Status as Active in Amendment
     #Amendment CMD Check
     #Cosmos Check
-
+And I Verify CMD and Capture Status
 
     Examples:
       | site            | paperType     | TCName          |
@@ -145,6 +146,7 @@ Feature: TC_SE_SPA_AR_19
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT_TEST_SPA
+  @SPA_AMENDMENT_Migration
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     #Make a correction - Terminating TIN
@@ -157,7 +159,7 @@ Feature: TC_SE_SPA_AR_19
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    
+    And I Verify CMD and Capture Status
     Examples:
       | site            | paperType     | TCName          |
       | southeast uhn   | SPA           | TC_SE_SPA_AR_19 |

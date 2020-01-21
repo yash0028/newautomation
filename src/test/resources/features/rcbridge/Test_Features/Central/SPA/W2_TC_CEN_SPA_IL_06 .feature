@@ -52,16 +52,14 @@ Feature: W2_TC_CEN_SPA_IL_06
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    # And I capture Contract Number
+     And I capture Contract Number
     #Activate
     And I Set Status as Active
 
 
      #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #And The dashboard page loads
-    #Then Validate Contract status and request type
+    And I Verify CMD and Capture Status
+
 
     Examples:
       | site          | paperType     | TCName           |
@@ -91,6 +89,8 @@ Feature: W2_TC_CEN_SPA_IL_06
     And I enter Group Summary
     Then I Complete Wizard
 
+#CMD Check
+    And I Verify CMD and Capture Status
 
 
 

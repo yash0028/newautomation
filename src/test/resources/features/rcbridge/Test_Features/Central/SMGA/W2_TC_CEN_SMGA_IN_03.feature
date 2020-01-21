@@ -61,9 +61,7 @@ Feature: W2_TC_CEN_SMGA_IN_03
     And I capture Contract Number
     #
     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract "71926900" status and request type "InstallContract"
+    And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName|
@@ -116,9 +114,10 @@ Feature: W2_TC_CEN_SMGA_IN_03
     And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
-
+    And I Set Status as Active in Amendment
 
 	#Amendment CMD Checking
+    And I Verify CMD and Capture Status
 
 
 

@@ -72,9 +72,7 @@ Feature: TC_CEN_SMGA_IN_68
     And I capture Contract Number
     
     #CMD Check
-#    When I have entered the CMD dashboard URL
-#    When I search for Contract
-#    Then Validate Contract "11122328" status and request type "InstallContract"
+    And I Verify CMD and Capture Status
 
     #NDB Check
 
@@ -127,6 +125,10 @@ Feature: TC_CEN_SMGA_IN_68
     And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
+    And I Set Status as Active in Amendment
+
+    #Amendment CMD checking
+    And I Verify CMD and Capture Status
 
 
     Examples:    
