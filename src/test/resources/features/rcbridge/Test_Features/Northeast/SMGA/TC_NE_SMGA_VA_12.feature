@@ -61,6 +61,9 @@ Feature: TC_NE_SMGA_VA_12
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Check
+     And I Verify CMD and Capture Status
     
     Examples:    
        | site          | paperType     | TCName|
@@ -73,6 +76,7 @@ Feature: TC_NE_SMGA_VA_12
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
   @SMGA_AMANDMENT
+  @temp
   Scenario Outline: TC_NE_SMGA_VA_12 - [RL0] Author SMGA contract in <site>
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
     And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
@@ -87,7 +91,10 @@ Feature: TC_NE_SMGA_VA_12
    	And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
-    Then I Complete Wizard 
+    Then I Complete Wizard
+
+     #Amendment CMD Checking
+      And I Verify CMD and Capture Status
     
     Examples:    
        | site          | paperType     | TCName|

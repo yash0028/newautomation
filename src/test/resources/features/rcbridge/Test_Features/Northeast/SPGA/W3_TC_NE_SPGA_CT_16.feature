@@ -60,10 +60,8 @@ Feature: W3_TC_NE_SPGA_CT_16
     And I Set Status as Active
     And I capture Contract Number
 
-
     #CMD Check
-
-    #NDB Check
+     And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName|
@@ -117,7 +115,8 @@ Feature: W3_TC_NE_SPGA_CT_16
     #Activating Amendments
     And I Set Status as Active
 
-    #Amendment CMD Checking
+      #AMENDMENT CMD Checking
+        And I Verify CMD and Capture Status
 
 
     Examples:

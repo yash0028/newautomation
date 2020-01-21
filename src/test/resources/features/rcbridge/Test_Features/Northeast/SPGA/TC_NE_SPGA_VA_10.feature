@@ -61,6 +61,9 @@ Feature: TC_NE_SPGA_VA_10
     And I Set Status as Active
     And I capture Contract Number
 
+        #CMD Checking
+    And I Verify CMD and Capture Status
+
        Examples:    
        | site            | paperType     | TCName|
        | northeast uhn   | SPGA          | TC_NE_SPGA_VA_10|
@@ -91,6 +94,9 @@ Feature: TC_NE_SPGA_VA_10
     Then I Complete Wizard
 
     #Create supporting document
+
+        #Amendment CMD Checking
+    And I Verify CMD and Capture Status
 
 
     Examples:    

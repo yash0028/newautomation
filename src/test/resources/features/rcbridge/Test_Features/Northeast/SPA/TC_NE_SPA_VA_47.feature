@@ -62,17 +62,9 @@ Feature: TC_NE_SPA_VA_47
     And I Set Status as Active
     And I capture Contract Number
 
-      #CMD Check
-    #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
+   #CMD Checking
+    And I Verify CMD and Capture Status
 
-    #NDB Check
-
-    #Medicare CMD Check
-    #cosmos
-    #NDB Check R0 product
 
 
     Examples:
