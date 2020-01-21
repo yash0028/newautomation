@@ -64,10 +64,7 @@ Feature: TC_WEST_SPA_OR_57
 
 
      #CMD Check
-   #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
+    And I Verify CMD and Capture Status
 
 
 
@@ -104,6 +101,8 @@ Feature: TC_WEST_SPA_OR_57
     And I enter Group Summary
     Then I Complete Wizard
 
+     #Amendment CMD Check
+    And I Verify CMD and Capture Status
 
     Examples:
       | site       | paperType     | TCName           |

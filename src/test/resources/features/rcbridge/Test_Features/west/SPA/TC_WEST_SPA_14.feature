@@ -57,6 +57,10 @@ Feature: TC_WEST_SPA_OR_14
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+     #CMD Check
+    And I Verify CMD and Capture Status
+
     Examples:
       | site       | paperType     | TCName            |
       | west uhn   | SPA           | TC_WEST_SPA_OR_14 |
@@ -113,8 +117,9 @@ Feature: TC_WEST_SPA_OR_14
 
     #Activating Amendment
     And I Set Status as Active in Amendment
-    #Amendment CMD Check
-    #NDB Check
+
+     #Amendment CMD Check
+    And I Verify CMD and Capture Status
 
 
     Examples:
