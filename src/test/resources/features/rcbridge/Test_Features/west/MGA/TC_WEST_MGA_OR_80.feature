@@ -64,6 +64,10 @@ Feature: TC_WEST_MGA_OR_80
     And I Set Status as Active
     And I capture Contract Number
 
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
     Examples:
       | site          | paperType     | TCName            |
       | west uhn      | MGA           | TC_WEST_MGA_OR_80 |
@@ -91,7 +95,10 @@ Feature: TC_WEST_MGA_OR_80
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    #Check CMD
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     #Check NDB
     Examples:
       | site          | paperType     | TCName            |

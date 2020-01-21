@@ -66,7 +66,10 @@ Feature: TC_WEST_MGA_OR_62
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
     #CMD Checking
+    And I Verify CMD and Capture Status
+
     #NDB Checking
 
 

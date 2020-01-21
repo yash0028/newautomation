@@ -60,6 +60,11 @@ Feature: TC_WEST_MGA_OR_16
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
     Examples:
       | site          | paperType     | TCName            |
       | west uhn      | MGA           | TC_WEST_MGA_OR_16 |
@@ -102,7 +107,10 @@ Feature: TC_WEST_MGA_OR_16
     #Activating Amendment
     And I Set Status as Active in Amendment
 
+
     #CMD Checking
+    And I Verify CMD and Capture Status
+
     #NDB Checking
 
     Examples:
