@@ -60,6 +60,9 @@ Feature: TC_NE_SMGA_VA_08
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+     #CMD Check
+      And I Verify CMD and Capture Status
     
     Examples:    
        | site          | paperType     | TCName|
@@ -90,8 +93,8 @@ Feature: TC_NE_SMGA_VA_08
     Then I Complete Wizard
     #Create supporting document 
     
-    #CMD Check
-    #NDB Check
+     # Amendment CMD Checking
+      And I Verify CMD and Capture Status
 		
     
     Examples:    

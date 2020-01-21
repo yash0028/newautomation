@@ -59,9 +59,8 @@ Feature: TC_NE_SPGA_VA_69
     And I Set Status as Active
     And I capture Contract Number
 
-    #CMD Check
-
-    #NDB Check
+   #CMD Check
+     And I Verify CMD and Capture Status
 
       Examples:
           | site          | paperType     | TCName|
@@ -93,6 +92,10 @@ Feature: TC_NE_SPGA_VA_69
      And I select fee schedule id in Amendments
      And I enter Group Summary
      And I Complete Wizard
+
+      #AMENDMENT CMD Checking
+         And I Verify CMD and Capture Status
+
 
 
 
