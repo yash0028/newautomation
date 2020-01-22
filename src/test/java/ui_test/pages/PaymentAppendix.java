@@ -132,16 +132,18 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void paymentAppendixToIncludeMGA(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        if (hmap.containsKey("Payment Appendix to Include")) {
-            String[] appendixes = hmap.get("Payment Appendix to Include").split("//");
-            for (String appendix : appendixes) {
-                Assert.assertTrue(setCheckBox("Payment Appendix to Include", paymentAppendixElement(appendix),true));
-                pause(1);
+        String Question = "Which of the following products will be included in Appendix 2";
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+            if (hmap.containsKey("Payment Appendix to Include")) {
+                String[] appendixes = hmap.get("Payment Appendix to Include").split("//");
+                for (String appendix : appendixes) {
+                    Assert.assertTrue(setCheckBox("Payment Appendix to Include", paymentAppendixElement(appendix),true));
+                    pause(1);
+                }
             }
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
         }
-        Assert.assertTrue(clickNext());
-        Assert.assertTrue(waitForPageLoad());
-
     }
 
     public void enterDataInPaymentAppendixForSMGA(HashMap<String, String> hmap) {
@@ -220,11 +222,20 @@ public class PaymentAppendix extends GenericInputPage {
             getFeeScheduleElement("Medicare Advantage for Non-Physicians?").clear();
             Assert.assertTrue(sendKeys("Medicare Advantage for Non-Physicians?", getFeeScheduleElement("Medicare Advantage for Non-Physicians?"), hmap.get("FS Id Amendments Non-Physician")));
         }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Advantage for Physicians")))) {
+            getFeeScheduleElement("Advantage for Physicians").clear();
+            Assert.assertTrue(sendKeys("Advantage for Physicians", getFeeScheduleElement("Advantage for Physicians"), hmap.get("FS Id Amendments Physician")));
+        }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Advantage for Non-Physicians")))) {
+            getFeeScheduleElement("Advantage for Non-Physicians").clear();
+            Assert.assertTrue(sendKeys("Advantage for Non-Physicians", getFeeScheduleElement("Advantage for Non-Physicians"), hmap.get("FS Id Amendments Non-Physician")));
+        }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
 
     public void enterPaymentAppendixinAmendmentsFC(HashMap<String, String> hmap) {
+
         if (hmap.containsKey("Payment Appendix in Amendments FC")) {
             String[] appendixes = hmap.get("Payment Appendix in Amendments FC").split("//");
             for (String appendix : appendixes) {
@@ -249,7 +260,9 @@ public class PaymentAppendix extends GenericInputPage {
     public String getFeeSchedule(String allpayerType) {
         return "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'Fee_Schedule_Name')]";
     }
-
+    public String getQn(String question) {
+        return "//label/b[contains(.,'" + question + "')]";
+    }
     public void selectStandered()
     {
         Assert.assertTrue(click(elements.standard));

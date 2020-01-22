@@ -89,6 +89,10 @@ public class LoginSSOPage implements IWebInteract, IFactoryPage, IConfigurable {
                 credentials[0] = USERNAME;
                 credentials[1] = PASSWORD;
                 break;
+            case "terminate":
+                credentials[0] = configGetOptionalString("exari.termination_approver_username").orElse("");
+                credentials[1] = configGetOptionalString("exari.termination_approver_password").orElse("");
+                break;
             default:
                 Assert.fail("[APPROVER CREDENTIALS NOT FOUND] " + approverType + "");
                 break;

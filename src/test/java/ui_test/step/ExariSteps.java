@@ -13,6 +13,7 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.ProtoStep;
+import ui_test.page.exari.contract.ContractPage;
 import ui_test.pages.BasePage;
 import ui_test.pages.csvReader.CSVReader;
 import ui_test.util.IUiStep;
@@ -147,7 +148,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter Market Exception Grid$")
     public void MarketExceptionGrid() {
-        basePage.getMarketExceptionGrid().previewMarketDetails();
+        basePage.getMarketExceptionGrid().previewMarketDetails(hmap);
     }
 
     @And("^I enter Contract Details$")
@@ -338,7 +339,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter Market Exception Grid in Final Capture$")
     public void MEGFinalCapture() {
-        basePage.getMarketExceptionGrid().checkForDuplicate();
+        basePage.getMarketExceptionGrid().checkForDuplicate(hmap);
         basePage.getMarketExceptionGrid().chooseTask(hmap, "Task");
 
     }
@@ -374,7 +375,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter Market Exception Grid in Make Correction$")
     public void MEGMakeCorrection() {
-        basePage.getMarketExceptionGrid().checkForDuplicate();
+        basePage.getMarketExceptionGrid().checkForDuplicate(hmap);
         basePage.getMarketExceptionGrid().chooseTask(hmap, "MC_Task");
 
     }
@@ -826,4 +827,47 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPaymentAppendix().enterFeeScheduleIDNexus(hmap);
         basePage.getPaymentAppendix().verifyFeeScheduleID();
     }
+    
+    @And("^I click on Termination$")
+    public void startTerminationProcess() {
+//        basePage.getDashboard().searchContaractByContractNumberForTermination("25488556");
+//        basePage.getDashboard().openContractDetails();
+    	ContractPage page = new ContractPage(getDriver());
+    	page.startTerminate();
+        
+    }
+    @And("^I enter Termination details$")
+    public void iEnteredTerminationDetails() {
+    	
+    	basePage.getTerminationData().clickNext();
+        basePage.getTerminationData().submitTermination();
+    }
+    @And("^I select Provider Roaster as None$")
+    public void iSelectProviderRoasterAsNone() {
+    	basePage.getTerminationData().clickNext();
+    	
+       
+    }
+    @And("^I Select Contract Action$")
+    public void clicknextbtncontract() {
+    	basePage.getTerminationData().clickNext();
+    	
+       
+    }
+    
+    @And("^I Set Status as Final Pending QA in Termination$")
+    public void finalPendingQATermination() 
+	{
+    	
+    	basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.termination_approval_type").orElse(""), true, "Termination","MANDATORY", hmap);
+    	//basePage.getContractDetailsDashboard().handleApprovals_Termination();
+    	 //initializeObj();
+         basePage.getContractDetailsDashboard().editStatus("Final Pending QA", "Termination", hmap);
+    }
+    @And("^I Set Status as Active in Termination$")
+    public void setStatusActiveTerminatio() {
+        basePage.getContractDetailsDashboard().editStatus("Active", "Termination", hmap);
+
+    }
+	
 }
