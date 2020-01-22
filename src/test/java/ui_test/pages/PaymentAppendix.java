@@ -220,6 +220,14 @@ public class PaymentAppendix extends GenericInputPage {
             getFeeScheduleElement("Medicare Advantage ?").clear();
             Assert.assertTrue(sendKeys("Medicare Advantage", getFeeScheduleElement("Medicare Advantage ?"), hmap.get("FS Id Amendments Physician")));
         }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Advantage for Physicians")))) {
+            getFeeScheduleElement("Advantage for Physicians").clear();
+            Assert.assertTrue(sendKeys("Advantage for Physicians", getFeeScheduleElement("Advantage for Physicians"), hmap.get("FS Id Amendments Physician")));
+        }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Advantage for Non-Physicians")))) {
+            getFeeScheduleElement("Advantage for Non-Physicians").clear();
+            Assert.assertTrue(sendKeys("Advantage for Non-Physicians", getFeeScheduleElement("Advantage for Non-Physicians"), hmap.get("FS Id Amendments Non-Physician")));
+        }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
