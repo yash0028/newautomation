@@ -173,10 +173,15 @@ public class ProviderRoaster extends GenericInputPage {
 
     public void selectProviders(HashMap<String, String> hmap) {
         MULTIPLE_PROVIDERS = 0;
+        //GIVE THE KEYWORD "default" in csv for selecting providers dynamically from the dropdown.
         String[] providers = hmap.get("Select Providers").split("//");
         waitForPageLoad(60);
         for (String provider : providers) {
-            Assert.assertTrue(sendKeys("Search provider", elements.selectProvider, provider.trim()));
+            if(provider.equals("default")){
+                Assert.assertTrue(click("Search provider", elements.selectProvider));
+            }else{
+                Assert.assertTrue(sendKeys("Search provider", elements.selectProvider, provider.trim()));
+            }
             waitForPageLoad(60);
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.selectProviderWithNamenotFound))) {
                 elements.selectProvider.clear();

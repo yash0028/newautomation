@@ -62,3 +62,31 @@ Feature: US1407217
     Examples:
       | site          | paperType     | TCName |
       | central uhn   | SPGA          | demo   |
+
+
+#  @TC_CEN_PAT_IN_45
+#  @Manual
+#  @User_Interface
+#  @examp
+#  Scenario Outline: TC_SE_MGA_AR_11 - [RL0] Author <paperType> contract in <site>
+#    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+#    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+#
+#    #Make Correction - Provider Roster (Add one or more providers to the roster)
+#    And I click Make Correction
+#    And I enter Market Exception Grid in Make Correction
+#    And I enter Market Exception Grid
+#    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
+#    And I add provider using TIN
+#    And I select Providers
+#    And I enter Provider Start Date
+#    And I enter retro code in Provider Roster
+#    And I acknowledge the warning
+#    And I enter Group Summary
+#    Then I Complete Wizard
+#
+#    #CMD Checking
+#    And I Verify CMD and Capture Status
+#    Examples:
+#      | site          | paperType     | TCName           |
+#      | central uhn   | MGA           | TC_CEN_MGA_IN_11 |
