@@ -74,6 +74,7 @@ Feature: TC_SE_MGA_AR_16
   @UAT_AUTO_AMENDMENT_MIG1
   @SE_MGA_AMT
   @rerunrerun
+  @rerunfnl
   Scenario Outline: TC_SE_MGA_AR_16 - [RL0] Amend <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
