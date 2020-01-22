@@ -59,7 +59,8 @@ Feature: TC_WEST_SPA_OR_05
     And I capture Contract Number
 
     
-    #NDB Checking
+     #CMD Checking
+      And I Verify CMD and Capture Status
     
 		
     
@@ -122,6 +123,7 @@ Feature: TC_WEST_SPA_OR_05
     And I Set Status as Active
 
     #Amendment CMD Checking
+        And I Verify CMD and Capture Status
 		
     
     Examples:    

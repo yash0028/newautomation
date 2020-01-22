@@ -59,7 +59,8 @@ Feature: TC_WEST_SPA_OR_18
    And I Set Status as Active
    And I capture Contract Number
    
-   #NDB Checking
+   #CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:    
        | site          | paperType     | TCName|  				 
@@ -109,6 +110,7 @@ Feature: TC_WEST_SPA_OR_18
     And I Set Status as Active in Amendment
 
 	#Amendment CMD Checking
+      And I Verify CMD and Capture Status
     
     Examples:    
        | site          | paperType     | TCName|  				 

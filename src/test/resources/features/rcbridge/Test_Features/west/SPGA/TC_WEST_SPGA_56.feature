@@ -66,9 +66,9 @@ Feature: TC_WEST_SPA_OR_56
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    #CMD Check
-	#NDB Check
-	#Make a Correction - Add a new TIN to the existing provider in the Roster.
+
+     #CMD Checking
+     And I Verify CMD and Capture Status
 
      
     Examples:    
@@ -127,6 +127,9 @@ Feature: TC_WEST_SPA_OR_56
 
     #Activating Amendments
     And I Set Status as Active
+
+    #Amendment CMD Checking
+    And I Verify CMD and Capture Status
     
      
     Examples:    

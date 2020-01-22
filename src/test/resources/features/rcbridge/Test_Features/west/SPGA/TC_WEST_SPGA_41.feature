@@ -64,13 +64,9 @@ Feature: TC_WEST_SPA_OR_41
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    #CMD Check
-	#NDB Check
-	#Amandments.
-    
-    #CMD Check
-    #NDB check
-    
+
+     #CMD Checking
+     And I Verify CMD and Capture Status
     
     Examples:    
        | site          | paperType     | TCName|  				 

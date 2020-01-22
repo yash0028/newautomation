@@ -62,18 +62,9 @@ Feature: TC_WEST_SPA_OR_38
     #Activate
     And I Set Status as Active    
     And I capture Contract Number
-    #CMD Check    
-    #NDB Check    
-    #Cosmos check
-    
-  	 #Add ER Wrap and Remove Core
-    
-    #Create supporting document 
-    
-    #CMD Check
-    #NDB Check
-		
-    
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
     Examples:    
        | site          | paperType     | TCName|  				 
        | west uhn   | SPGA          | TC_WEST_SPGA_OR_38|

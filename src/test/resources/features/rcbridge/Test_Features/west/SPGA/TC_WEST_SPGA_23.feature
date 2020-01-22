@@ -59,9 +59,8 @@ Feature: TC_WEST_SPA_OR_23
     And I Set Status as Active    
     And I capture Contract Number
     
-    #CMD Check
-    
-    #NDB Check
+   #CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:    
        | site          | paperType     | TCName|  				 
@@ -91,13 +90,8 @@ Feature: TC_WEST_SPA_OR_23
     And I enter Group Summary
     Then I Complete Wizard    
     
-    #create supporting document 
-    
-    #CMD Check
-    #NDB Check
-		
-    #Cancel MPIN and TIN ,which has been added thru make a correction
-    
+    #Amendment CMD Checking
+     And I Verify CMD and Capture Status
         
     Examples:    
        | site          | paperType     | TCName|  				 
