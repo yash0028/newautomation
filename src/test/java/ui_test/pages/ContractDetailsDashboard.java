@@ -95,6 +95,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             } else if (location.equals("Amendment")) {
                 waitTillClickable(getAmendmentLink(hmap.get("Amendment Title")));
                 Assert.assertTrue(click("Amendment", getAmendmentLink(hmap.get("Amendment Title"))));
+            } else if (location.equals("Termination")) {
+            	waitTillClickable(this.elements.Termination);
+                Assert.assertTrue(click("Initial Transaction", this.elements.Termination));
             }
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             IWebInteract.log.info("Retrying for Active Work Flow, Retry: {}", count);
@@ -177,6 +180,9 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
     }
 
     public boolean switchLogin(String approverType) {
+    	if(approverType.contains("Termination_ApprovalRule"))
+        	approverType = "Terminate";
+    	
         String[] credentials;
         if (!USER.equals(approverType)) {
             USER = approverType;
@@ -251,9 +257,37 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         IWebInteract.log.info("[APPROVED]  {}", approvalType + " - " + approverType);
         Assert.assertTrue(waitForPageLoad());
     }
+    
+    public void doCaim(String approvalType, String approverType, boolean tierApproval, String location) {
+        if (tierApproval) {
+            approvalType = updateApprovalType(approvalType, tierApproval, approverType);
+        }
+        Assert.assertTrue(click("Open Task", getMenu(approvalType, approverType)));
+        waitTillClickable(elements.viewtask);
+        Assert.assertTrue(click("View Task", elements.viewtask));
+        waitTillClickable(elements.claimtask);
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.claimTask))){
+            scrollIntoView("claim-task",3);
+            Assert.assertTrue(click("Claim Task", elements.claimtask));
+            //DONT REMOVE THIS PAUSE
+            pauseSilent(3);
+            waitTillVisible(elements.approveradio);
+            scrollIntoView("adf-form-complete",3);
+            Assert.assertTrue(click("Approve", elements.approveradio));
+        }else{
+            IWebInteract.log.info("[RETRY APPROVAL]  {}", approvalType + " - " + approverType);
+        }
+        waitTillClickable(elements.completebtn);
+        scrollIntoView("adf-form-complete",3);
+        Assert.assertTrue(click("Complete", elements.completebtn));
+        pause(3);
+        IWebInteract.log.info("[APPROVED]  {}", approvalType + " - " + approverType);
+        Assert.assertTrue(waitForPageLoad());
+    }
 
     public String startApprovalFlow(String approvalType, boolean tierApproval, String location, HashMap<String, String> hmap) {
-        String approverType = getApproverType(approvalType, tierApproval);
+        String approverType = getApproverType(approvalType, tierApproval);        
+        
         while (approverType != "" && !approverType.equals("TierApprovalNotRequired")) {
             if (switchLogin(approverType)) {
                 if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.prompt))) {
@@ -261,7 +295,12 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
                 }
                 getActiveWorkFlow(tierApproval, location, hmap);
             }
-            doCaim(approvalType, approverType, tierApproval);
+            
+            if(location.equals("Termination")){
+                doCaim(approvalType, approverType, tierApproval , location);
+            }else{
+                doCaim(approvalType, approverType, tierApproval);
+            }
             Assert.assertTrue(click("Back", this.elements.backbutton));
             pauseSilent(1);
             if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.saveForm))){
@@ -309,6 +348,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             IWebInteract.log.error("Failed to get Dashboard");
         }
     }
+    
+  
     public void confirmDashboard() {
         boolean dasboard = false;
         for (int count = 0; count <= 2; count++) {
@@ -343,6 +384,10 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             } else if (Location.equals("Amendment")) {
                 waitTillClickable(getAmendmentLink(hmap.get("Amendment Title")));
                 Assert.assertTrue(click("Amendment", getAmendmentLink(hmap.get("Amendment Title"))));
+            }
+            else if (Location.equals("Termination")) {
+                waitTillClickable(this.elements.Termination);
+                Assert.assertTrue(click("Termination", this.elements.Termination));
             }
 
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
@@ -605,6 +650,14 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private String claimTask = "//button[contains(.,'Claim')]";
         private String saveForm = "//div[contains(@class,'cdk-overlay-pane')]//button[contains(.,'SAVE')]";
 
+        
+        @FindBy(xpath = "//td/span[contains(.,'Termination')]")
+        private WebElement Termination;
+        @FindBy(xpath = "(//div[@class='mat-radio-label-content'])[1]")
+        private WebElement approveradio;
+        @FindBy(xpath = "//button[@id='adf-form-complete']")
+        private WebElement completebtn;
+        
         public PageElements(SearchContext context) {
             super(context);
         }
