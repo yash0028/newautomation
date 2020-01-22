@@ -108,8 +108,25 @@ public class Appendix2 extends GenericInputPage {
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
-    }
+        //if Payment Appendix is shown in second page
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topicPA))) {
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            if (hmap.containsKey("Payment Appendix")) {
 
+                String[] PaymentAppendix = hmap.get("Payment Appendix").split("//");
+                for (String paymentAppendix : PaymentAppendix) {
+                    Assert.assertTrue(setCheckBox("Include Product in Appendix 2", paymentAppendixElement(paymentAppendix),true));
+                    Assert.assertTrue(waitForPageLoad(60));
+                }
+
+            }
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
+    }
+    public WebElement paymentAppendixElement(String paymentAppendix) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + paymentAppendix + "')]"});
+    }
     public WebElement getXPath(String answer) {
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + answer + "')]"});
     }
@@ -145,6 +162,8 @@ public class Appendix2 extends GenericInputPage {
 
         private String message = "//div[contains(@class,'DialogBox')]";
         private String topic = "//div[contains(@class,'topicArea')]/p[contains(.,'Appendix 2')]";
+        private String topicPA = "//div[contains(@class,'topicArea')]/p[contains(.,'Payment Appendix')]";
+
 
         public PageElements(SearchContext context) {
             super(context);
