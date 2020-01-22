@@ -1,7 +1,7 @@
 # Last updated on
 @CMDTest
 
-Feature: CMD - [Continued] CMD
+
 
   @TC_CMD_ActionRequired_05
   @User_Interface

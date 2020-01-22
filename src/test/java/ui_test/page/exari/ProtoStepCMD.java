@@ -61,7 +61,7 @@ public class ProtoStepCMD implements IConfigurable {
 
 
     public ProtoStepCMD logincmd() {
-        String env = configGetOptionalString("cmd.environment").orElse("");
+        String env = configGetOptionalString("exari.environment").orElse("");
         String urlkey;
         switch (env.toUpperCase()) {
             case "DEV":
