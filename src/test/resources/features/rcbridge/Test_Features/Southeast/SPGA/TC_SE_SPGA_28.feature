@@ -77,6 +77,7 @@ Feature: TC_SE_SPGA_AR_28
   @SPGA_AMENDMENT
    @UAT_AUTO_AMENDMENT_MIG1
   @SE_SPGA_AMT
+  @task111
    Scenario Outline: TC_SE_SPGA_AR_28 - [RL0] Author SPGA contract in <site>  
 	
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
 
@@ -18,6 +19,21 @@ public class AmendmentSelection extends GenericInputPage {
     }
 
     public void selectAmendmentTobeUsed(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        //if contract details template appear
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
+            String date;
+            if (hmap.get("Contract Effective Date").equals("today")) {
+                date = CommonMethods.todaysDate();
+            } else {
+                date = CommonMethods.formatDate(hmap.get("Contract Effective Date"));
+            }
+            waitForPageLoad(60);
+            Assert.assertTrue(sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date));
+
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         //given 300 for testing purpose
         for(int count = 0 ; count<300; count++){
@@ -53,6 +69,9 @@ public class AmendmentSelection extends GenericInputPage {
 
     private static class PageElements extends AbstractPageElements {
         private String message = "//div[contains(@class,'DialogBox')]";
+        private String topic = "//div[contains(@class,'topicArea')]/p[contains(.,'Contract Details')]";
+        @FindBy(xpath = "//input[contains(@id,'Effective')]")
+        private WebElement contractEffectiveDate;
 
         public PageElements(SearchContext context) {
             super(context);

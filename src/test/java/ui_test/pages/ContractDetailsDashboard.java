@@ -413,10 +413,12 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
 
     public void goToContractSummaryPage() {
         Assert.assertTrue(click("Contract Summary Page", elements.contractSummaryButton));
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         Assert.assertTrue(waitForPageLoad());
     }
 
     public void startAmendmentProcess(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         Assert.assertTrue(click("Start Amendment Process", elements.createAmendmentButton));
         Assert.assertTrue(waitForPageLoad());
         pause(5);
