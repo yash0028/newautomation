@@ -73,6 +73,8 @@ Feature: TC_SE_SMGA_AR_54
   @UAT_AUTO_AMENDMENT1  
   @UAT_AUTO_AMENDMENT_MIG1
   @SE_SMGA_AMT
+    @myTest
+
   Scenario Outline: TC_SE_SMGA_AR_54 - [RL0] Author SPGA contract in <site>
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"

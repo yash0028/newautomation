@@ -4,7 +4,6 @@
 @iterationUnknown
 Feature: SPGA Business Testcases_IN
 
-  @myTest
   @Manual
   @User_Interface
   Scenario Outline: myTest - [RL0] Author SPGA contract in <site>

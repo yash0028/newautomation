@@ -75,6 +75,7 @@ Feature: TC_SE_SMGA_AR_44
   @UAT_AUTO_MAKE_A_CORRECTION
    @UAT_AUTO_AMENDMENT_MIG1
   @SE_SMGA_AMT
+@myTest
   Scenario Outline: TC_SE_SMGA_AR_44 - [RL0] Author SMGA contract in <site>
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
@@ -84,6 +85,7 @@ Feature: TC_SE_SMGA_AR_44
 	    And I click Make Correction
 	    And I enter Market Exception Grid in Make Correction
 	    And I enter Market Exception Grid
+        And I select Provider Signatory
 	    And I set Roster Action as Upload
 	    And I Download Current Roster
 	    And I Upload Completed Roster

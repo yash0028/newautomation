@@ -214,13 +214,13 @@ public class PaymentAppendix extends GenericInputPage {
             getFeeScheduleElement("All Payer for Non-Physicians").clear();
             Assert.assertTrue(sendKeys("All Payer for Non-Physicians", getFeeScheduleElement("All Payer for Non-Physicians"), hmap.get("FS All Payer Non Physician")));
         }
-        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Medicare Advantage  ?")))) {
-            getFeeScheduleElement("Medicare Advantage  ?").clear();
-            Assert.assertTrue(sendKeys("Medicare Advantage", getFeeScheduleElement("Medicare Advantage  ?"), hmap.get("FS Id Amendments Physician")));
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Medicare Advantage for Physicians ?")))) {
+            getFeeScheduleElement("Medicare Advantage for Physicians ?").clear();
+            Assert.assertTrue(sendKeys("Medicare Advantage for Physicians ?", getFeeScheduleElement("Medicare Advantage for Physicians ?"), hmap.get("FS Id Amendments Physician")));
         }
-        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Medicare Advantage ?")))) {
-            getFeeScheduleElement("Medicare Advantage ?").clear();
-            Assert.assertTrue(sendKeys("Medicare Advantage", getFeeScheduleElement("Medicare Advantage ?"), hmap.get("FS Id Amendments Physician")));
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Medicare Advantage for Non-Physicians?")))) {
+            getFeeScheduleElement("Medicare Advantage for Non-Physicians?").clear();
+            Assert.assertTrue(sendKeys("Medicare Advantage for Non-Physicians?", getFeeScheduleElement("Medicare Advantage for Non-Physicians?"), hmap.get("FS Id Amendments Non-Physician")));
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Advantage for Physicians")))) {
             getFeeScheduleElement("Advantage for Physicians").clear();

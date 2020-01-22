@@ -58,7 +58,8 @@ public class ProviderSignatory extends GenericInputPage {
     	
         if (CommonMethods.isElementPresent(getDriver(),By.xpath("//b[.='Does the counterparty to this agreement have a D/B/A?']")))
         {
-        	Assert.assertTrue(click("No", getDriver().findElement(By.xpath("//input[contains(@value, 'No')]"))));
+        	if(CommonMethods.isElementPresent(getDriver(),By.xpath("//input[contains(@value, 'No')]")))
+        	    Assert.assertTrue(click("No", getDriver().findElement(By.xpath("//input[contains(@value, 'No')]"))));
         	Assert.assertTrue(clickNext());
         }
     }
