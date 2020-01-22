@@ -100,6 +100,16 @@ public class Appendix2 extends GenericInputPage {
                 }
             }
         }
+        Question = "Which of the following products will be included in Appendix 2";
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+            if (hmap.containsKey("Payment Appendix to Include")) {
+                String[] appendixes = hmap.get("Payment Appendix to Include").split("//");
+                for (String appendix : appendixes) {
+                    Assert.assertTrue(setCheckBox("Payment Appendix to Include", paymentAppendixElement(appendix),true));
+                    pause(1);
+                }
+            }
+        }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
         //if Appendix 2 have second page (MGA VA 53) (PAT VA 22)
@@ -123,6 +133,9 @@ public class Appendix2 extends GenericInputPage {
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
+    }
+    public String getQn(String question) {
+        return "//label/b[contains(.,'" + question + "')]";
     }
     public WebElement paymentAppendixElement(String paymentAppendix) {
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + paymentAppendix + "')]"});
