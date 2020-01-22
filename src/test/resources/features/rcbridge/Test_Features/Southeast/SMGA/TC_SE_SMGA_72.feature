@@ -2,7 +2,7 @@
 @SMGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: STC_SE_SMGA_AR_72
+Feature: TC_SE_SMGA_AR_72
   
   @TC_SE_SMGA_AR_72
   @Manual
@@ -94,6 +94,7 @@ Feature: STC_SE_SMGA_AR_72
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
+    And I select Provider Signatory
     And I add provider using TIN
     And I select Providers
     And I enter Provider Start Date

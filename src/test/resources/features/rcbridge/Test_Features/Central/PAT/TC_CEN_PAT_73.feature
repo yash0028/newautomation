@@ -78,6 +78,7 @@ Feature: TC_CEN_PAT_IN_73
   @UAT_AUTO_AMENDMENT_PAT
   @AMENDMENT_ALL_PAT
   @temp
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT_CEN
   Scenario Outline: TC_CEN_PAT_IN_73 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 

@@ -74,6 +74,9 @@ Feature: TC_SE_MGA_AR_62
   @User_Interface
   @UAT_AUTO_AMENDMENT1
   @AMENDMENT_ALL_MGA
+  @SE_MGA_AMT
+  @rerunrerun
+  @UAT_AUTO_AMENDMENT_MIG1
   Scenario Outline: TC_SE_MGA_AR_62 - [RL0] Author <paperType> contract in <site>
 	
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
@@ -114,26 +117,7 @@ Feature: TC_SE_MGA_AR_62
 
     #Activating Amendment
     And I Set Status as Active in Amendment
-    
-    #CMD Checking
-    #Check Cosmos
-    #NDB Checking
-    ##Make Correction - Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I set Roster Action as Upload
-    And I Download Current Roster
-    And I Upload Completed Roster
-    And I enter warning in Make Correction
-    And I enter validation
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
 
-    #CMD Checking
-    And I Verify CMD and Capture Status
-          #Check NDB
     Examples:
       | site          | paperType     | TCName          |
       | southeast uhn | MGA           | TC_SE_MGA_AR_62 |
@@ -146,6 +130,8 @@ Feature: TC_SE_MGA_AR_62
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
   @AMENDMENT_ALL_MGA
+  @SE_MGA_AMT
+  @rerunrerun
   Scenario Outline: TC_SE_MGA_AR_62 - [RL0] Author <paperType> contract in <site>
 	
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 

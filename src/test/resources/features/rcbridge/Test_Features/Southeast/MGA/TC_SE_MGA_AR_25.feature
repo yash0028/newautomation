@@ -73,6 +73,8 @@ Feature: TC_SE_MGA_AR_25
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @AMENDMENT_ALL_MGA
+  @UAT_AUTO_AMENDMENT_MIG1
+  @SE_MGA_AMT
   Scenario Outline: TC_SE_MGA_AR_25 - [RL0] Author <paperType> contract in <site>
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
 	And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
