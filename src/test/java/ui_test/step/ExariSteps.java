@@ -148,7 +148,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter Market Exception Grid$")
     public void MarketExceptionGrid() {
-        basePage.getMarketExceptionGrid().previewMarketDetails();
+        basePage.getMarketExceptionGrid().previewMarketDetails(hmap);
     }
 
     @And("^I enter Contract Details$")

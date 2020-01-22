@@ -18,10 +18,24 @@ public class MarketExceptionGrid extends GenericInputPage {
         elements = new PageElements(driver);
     }
 
-    public void previewMarketDetails() {
+    public void previewMarketDetails(HashMap<String, String> hmap) {
         //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        String Question = "What is the fee schedule ID for Erickson Advantage Medicare Advantage";
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
+
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        Question = "Select the payment appendix whose increases/decreases have been negotiated for the initial";
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
     }
 
     public void checkForDuplicate() {
@@ -44,7 +58,9 @@ public class MarketExceptionGrid extends GenericInputPage {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + Name + "')]"});
     }
-
+    public String getQn(String question) {
+        return "//label/b[contains(.,'" + question + "')]";
+    }
     private static class PageElements extends AbstractPageElements {
 
         private String message = "//div[contains(@class,'DialogBox')]";
