@@ -62,6 +62,9 @@ Feature: TC_NE_SMGA_VA_54
     And I Set Status as Active
     And I capture Contract Number
 
+    #CMD Check
+    And I Verify CMD and Capture Status
+
 
     Examples:    
        | site          | paperType     | TCName|
@@ -116,6 +119,8 @@ Feature: TC_NE_SMGA_VA_54
     And I enter Group Summary
     And I Complete Wizard
 
+   #CMD Check
+    And I Verify CMD and Capture Status
 
     Examples:    
        | site          | paperType     | TCName|

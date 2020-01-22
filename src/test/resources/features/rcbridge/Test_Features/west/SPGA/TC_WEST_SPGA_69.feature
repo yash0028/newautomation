@@ -63,8 +63,8 @@ Feature: TC_WEST_SPA_OR_69
     And I Set Status as Active    
     And I capture Contract Number
     
-    #CMD Check
-	#NDB Check
+   #CMD Checking
+      And I Verify CMD and Capture Status
 
     
     Examples:    
@@ -115,11 +115,9 @@ Feature: TC_WEST_SPA_OR_69
     And I Set Status as Active in Amendment
 
 
-    #Create supporting document 
-    #CMD Check
-    #NDB check
-    
-    
+   #Amendment CMD Checking
+     And I Verify CMD and Capture Status
+
     Examples:    
        | site          | paperType     | TCName|  				 
        | west uhn   | SPGA          | TC_WEST_SPGA_OR_69|

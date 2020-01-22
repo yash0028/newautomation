@@ -61,15 +61,10 @@ Feature: TC_WEST_PAT_OR_09
     And I Set Status as Active
     And I capture Contract Number
 
-    #CMD Check
-    #And I have entered the CMD dashboard URL
-    #And I am on the CMD dashboard
-    #And The dashboard page loads
-    #And I search for Contract
-    #Then Validate Contract details
+    #CMD Checking
+    And I Verify CMD and Capture Status
 
     #NDB Check
-
 
     Examples:
       | site          | paperType   | TCName           |

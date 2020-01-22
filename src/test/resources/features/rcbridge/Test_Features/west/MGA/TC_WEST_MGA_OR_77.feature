@@ -62,7 +62,10 @@ Feature: TC_WEST_MGA_OR_77
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
     #CMD Checking
+    And I Verify CMD and Capture Status
+
     #NDB Checking
 
 
@@ -94,7 +97,10 @@ Feature: TC_WEST_MGA_OR_77
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    #Check CMD
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     #Check NDB
 
     Examples:

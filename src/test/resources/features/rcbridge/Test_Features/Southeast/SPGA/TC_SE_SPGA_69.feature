@@ -96,7 +96,10 @@ Feature: TC_SE_SPGA_AR_69
 
 
     #Create supporting document
-    #CMD Check
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     #NDB check
 
 

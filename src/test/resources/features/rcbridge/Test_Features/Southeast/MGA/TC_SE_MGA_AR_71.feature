@@ -61,6 +61,10 @@ Feature: TC_SE_MGA_AR_71
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     Examples:
       | site          | paperType     | TCName          |
       | southeast uhn | MGA           | TC_SE_MGA_AR_71 |
@@ -117,6 +121,11 @@ Feature: TC_SE_MGA_AR_71
 
     #Activating Amendment
     And I Set Status as Active in Amendment
+
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     Examples:
       | site          | paperType     | TCName          |
       | southeast uhn | MGA           | TC_SE_MGA_AR_71 |
@@ -152,6 +161,9 @@ Feature: TC_SE_MGA_AR_71
     And I enter Group Summary
     Then I Complete Wizard
     #CMD Checking
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
     #NDB Checking
     Examples:
       | site          | paperType     | TCName          |

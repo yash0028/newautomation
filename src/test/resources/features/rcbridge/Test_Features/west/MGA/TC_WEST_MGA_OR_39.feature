@@ -65,6 +65,10 @@ Feature: TC_WEST_MGA_OR_39
     #Amendment
     #Add ER Wrap and Remove Charter
 
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
     Examples:
           | site       | paperType     | TCName            |
           | west uhn   | MGA           | TC_WEST_MGA_OR_39 |
@@ -109,7 +113,10 @@ Feature: TC_WEST_MGA_OR_39
     #Activating Amendment
     And I Set Status as Active in Amendment
 
+
     #CMD Checking
+    And I Verify CMD and Capture Status
+
     #Check Cosmos
     #NDB Checking
     Examples:

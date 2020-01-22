@@ -61,6 +61,10 @@ Feature: TC_WEST_PAT_OR_36
     And I Set Status as Active
 	And I capture Contract Number
 
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
     Examples:
       | site          | paperType     | TCName           |
       | west uhn      | PAT           | TC_WEST_PAT_OR_36|
@@ -114,9 +118,9 @@ Feature: TC_WEST_PAT_OR_36
     #Activating Amendments
     And I Set Status as Active in Amendment
 
-    #Amendment CMD Checking
 
-
+    #CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName           |

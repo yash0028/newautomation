@@ -65,6 +65,11 @@ Feature: W3_TC_WEST_SMGA_WV_30
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
     Examples:
       | site          | paperType     | TCName            |
       | west uhn      | SMGA          | W3_TC_WEST_SMGA_WV_30|

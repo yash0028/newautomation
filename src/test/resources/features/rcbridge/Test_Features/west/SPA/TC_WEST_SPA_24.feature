@@ -62,16 +62,7 @@ Feature: TC_WEST_SPA_OR_24
     And I capture Contract Number
 
      #CMD Check
-    #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
-
-    #NDB Check
-
-    #Medicare CMD Check
-    #cosmos
-    #NDB Check R0 product
+    And I Verify CMD and Capture Status
 
     Examples:
       | site       | paperType     | TCName            |

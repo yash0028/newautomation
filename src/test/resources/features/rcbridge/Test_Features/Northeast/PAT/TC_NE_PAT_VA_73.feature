@@ -67,6 +67,9 @@ Feature: TC_NE_PAT_VA_73
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     Examples:
       | site            | paperType     | TCName         |
       | northeast uhn   | PAT           | TC_NE_PAT_VA_73|
@@ -125,7 +128,8 @@ Feature: TC_NE_PAT_VA_73
     #Activating Amendments
     And I Set Status as Active in Amendment
 
-    #Amendment CMD Checking
+#CMD Checking
+    And I Verify CMD and Capture Status
 
 
 

@@ -59,11 +59,9 @@ Feature: TC_NE_SPA_VA_06
     And I Set Status as Active
     And I capture Contract Number
 
-     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #And The dashboard page loads
-    #Then Validate Contract status and request type
+     #CMD Checking
+    And I Verify CMD and Capture Status
+
 
     Examples:
       | site          | paperType     | TCName           |
@@ -91,6 +89,9 @@ Feature: TC_NE_SPA_VA_06
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+
+       #CMD Checking
+    And I Verify CMD and Capture Status
 
 
     Examples:

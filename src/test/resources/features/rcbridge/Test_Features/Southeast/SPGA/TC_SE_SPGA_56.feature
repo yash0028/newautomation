@@ -64,9 +64,11 @@ Feature: TC_SE_SPGA_AR_56
     #Activate
     And I Set Status as Active
 	And I capture Contract Number
-    
-    
-    Examples:    
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+    Examples:
        | site          | paperType     | TCName|  				 
        | southeast uhn   | SPGA          | TC_SE_SPGA_AR_56|
        

@@ -59,10 +59,11 @@ Feature: TC_SE_SPGA_AR_10
     And I Set Status as Active
     And I capture Contract Number
     
-    #CMD Check
-    When I have entered the CMD dashboard URL
-    When I search for Contract
-    Then Validate Contract status and request type
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
 
     
     #NDB Check
@@ -96,13 +97,10 @@ Feature: TC_SE_SPGA_AR_10
     And I enter Group Summary
     Then I Complete Wizard
     
-    #Create supporting document 
-    #
-    #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract status and request type
-    
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     #NDB Check
 		
     

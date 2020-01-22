@@ -62,6 +62,11 @@ Feature: TC_WEST_SMGA_OR_03
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
     Examples:
       | site          | paperType     | TCName            |
       | west uhn      | SMGA          | TC_WEST_SMGA_OR_03|
@@ -121,12 +126,14 @@ Feature: TC_WEST_SMGA_OR_03
     And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
-		
+	And I Set Status as Active in Amendment
 	
-	#Amendment CMD Checking
-		
-		
-    
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
+
+
     Examples:    
        | site          | paperType     | TCName            |
        | west uhn      | SMGA          | TC_WEST_SMGA_OR_03|

@@ -62,8 +62,8 @@ Feature: W3_TC_WEST_SPGA_WV_31
     And I Set Status as Active
     And I capture Contract Number
 
-
-    #NDB Checking
+     #CMD Checking
+      And I Verify CMD and Capture Status
 
 
 

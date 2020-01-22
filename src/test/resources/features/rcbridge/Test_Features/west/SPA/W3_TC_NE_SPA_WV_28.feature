@@ -56,6 +56,10 @@ Feature: W3_TC_WEST_SPA_WV_28
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+     #CMD Check
+    And I Verify CMD and Capture Status
+
     Examples:
       | site       | paperType     | TCName            |
       | west uhn   | SPA           | W3_TC_WEST_SPA_WV_28 |

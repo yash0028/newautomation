@@ -62,6 +62,11 @@ Feature: TC_WEST_SMGA_OR_17
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
     Examples:
       | site          | paperType     | TCName            |
       | west uhn      | SMGA          | TC_WEST_SMGA_OR_17|
@@ -122,11 +127,11 @@ Feature: TC_WEST_SMGA_OR_17
     And I enter Group Summary
     And I Complete Wizard
 
+    #CMD Checking
+    And I Verify CMD and Capture Status
 
-		
-		#Amendment CMD Checking
-		
-    
+
+
     Examples:    
        | site          | paperType     | TCName            |
        | west uhn      | SMGA          | TC_WEST_SMGA_OR_17|

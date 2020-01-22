@@ -58,11 +58,9 @@ Feature: TC_NE_SPA_VA_19
     And I Set Status as Active
     And I capture Contract Number
 
-     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
+   #CMD Checking
+    And I Verify CMD and Capture Status
+
 
     #NDB Check
 
@@ -157,7 +155,11 @@ Feature: TC_NE_SPA_VA_19
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    
-    Examples:
+
+      #Amendment CMD Checking
+   And I Verify CMD and Capture Status
+
+
+   Examples:
      | site          | paperType     | TCName           |
       | northeast uhn   | SPA           | TC_NE_SPA_VA_19 |

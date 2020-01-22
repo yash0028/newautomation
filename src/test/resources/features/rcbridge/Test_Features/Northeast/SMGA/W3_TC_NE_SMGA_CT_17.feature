@@ -65,6 +65,9 @@ Feature: W3_TC_NE_SMGA_CT_17
     And I Set Status as Active
     And I capture Contract Number
 
+   #CMD Check
+    And I Verify CMD and Capture Status
+
     Examples:
       | site          | paperType     | TCName|
       | northeast uhn   | SMGA          | W3_TC_NE_SMGA_CT_17|
@@ -94,6 +97,9 @@ Feature: W3_TC_NE_SMGA_CT_17
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+
+    #AMENDMENT CMD Checking
+     And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName|

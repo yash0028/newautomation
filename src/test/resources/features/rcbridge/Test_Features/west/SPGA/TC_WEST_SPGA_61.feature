@@ -65,6 +65,9 @@ Feature: TC_WEST_SPA_OR_61
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+      #CMD Checking
+       And I Verify CMD and Capture Status
     
 
     Examples:    
@@ -95,6 +98,9 @@ Feature: TC_WEST_SPA_OR_61
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+
+    #Amendment CMD Checking
+     And I Verify CMD and Capture Status
     
     
     Examples:    

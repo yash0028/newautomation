@@ -64,6 +64,9 @@ Feature: TC_SE_MGA_AR_67
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+        #CMD Checking
+    And I Verify CMD and Capture Status
     Examples:
       | site          | paperType     | TCName          |
       | southeast uhn | MGA           | TC_SE_MGA_AR_67 |
@@ -108,8 +111,10 @@ Feature: TC_SE_MGA_AR_67
     #Activating Amendment
     And I Set Status as Active in Amendment
 
+
     #CMD Checking
-    #Check Cosmos
+    And I Verify CMD and Capture Status
+          #Check Cosmos
     #NDB Checking
 
     Examples:

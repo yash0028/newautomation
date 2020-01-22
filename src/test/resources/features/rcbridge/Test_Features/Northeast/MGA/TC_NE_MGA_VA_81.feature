@@ -61,7 +61,8 @@ Feature: TC_NE_MGA_VA_81
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    #CMD Checking
+#CMD Checking
+    And I Verify CMD and Capture Status
     #NDB Checking
 
     Examples:

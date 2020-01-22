@@ -60,12 +60,7 @@ Feature: TC_NE_SPGA_VA_41
     And I capture Contract Number
 
     #CMD Check
-
-    #NDB Check
-
-     #CMD Check
-
-    #NDB Check
+     And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName|
@@ -116,7 +111,8 @@ Feature: TC_NE_SPGA_VA_41
     #Activating Amendments
     And I Set Status as Active
 
-    #Amendment CMD Checking
+   #AMENDMENT CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName|

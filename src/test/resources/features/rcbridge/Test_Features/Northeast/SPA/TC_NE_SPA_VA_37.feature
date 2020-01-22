@@ -58,6 +58,9 @@ Feature: TC_NE_SPA_VA_37
     And I Set Status as Active
     And I capture Contract Number
 
+       #CMD Checking
+    And I Verify CMD and Capture Status
+
 
     Examples:
       | site          | paperType     | TCName           |
@@ -123,6 +126,7 @@ Feature: TC_NE_SPA_VA_37
  #Activating Amendment
     And I Set Status as Active in Amendment
    #Amendment CMD Checking
+    And I Verify CMD and Capture Status
 
 
 

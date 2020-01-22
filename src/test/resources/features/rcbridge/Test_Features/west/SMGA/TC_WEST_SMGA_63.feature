@@ -65,13 +65,11 @@ Feature: TC_WEST_SMGA_OR_63
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    
-    #CMD Check
-#    When I have entered the CMD dashboard URL
-#    When I search for Contract
-#    Then Validate Contract "11122328" status and request type "InstallContract"
 
-    Examples:    
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+    Examples:
        | site          | paperType     | TCName            |
        | west uhn      | SMGA          | TC_WEST_SMGA_OR_63|
     
@@ -97,8 +95,12 @@ Feature: TC_WEST_SMGA_OR_63
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard   
-  
-    
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
+
     Examples:    
        | site          | paperType     | TCName            |
        | west uhn      | SMGA          | TC_WEST_SMGA_OR_63|

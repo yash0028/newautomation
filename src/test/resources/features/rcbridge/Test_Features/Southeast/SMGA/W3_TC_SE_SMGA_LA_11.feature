@@ -64,6 +64,11 @@ Feature: W3_TC_SE_SMGA_LA_11
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
     Examples:
       | site            | paperType     | TCName          |
       | southeast uhn   | SMGA          | W3_TC_SE_SMGA_LA_11|
@@ -118,7 +123,10 @@ Feature: W3_TC_SE_SMGA_LA_11
     And I enter Group Summary
     And I Complete Wizard
 
-	#Amendment CMD Checking
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
 
     Examples:
       | site          | paperType     | TCName|

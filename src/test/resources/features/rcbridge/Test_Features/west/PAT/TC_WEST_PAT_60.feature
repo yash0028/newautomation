@@ -69,7 +69,9 @@ Feature: TC_WEST_PAT_OR_60
     #Activate
     And I Set Status as Active
 
-    #CMD Check
+   #CMD Checking
+    And I Verify CMD and Capture Status
+
     #NDB check
 
 

@@ -62,6 +62,9 @@ Feature: TC_NE_SMGA_VA_17
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Check
+     And I Verify CMD and Capture Status
     
     
     Examples:    
@@ -117,6 +120,7 @@ Feature: TC_NE_SMGA_VA_17
     And I Complete Wizard
 
 	#Amendment CMD Checking
+	And I Verify CMD and Capture Status
 		
     
     Examples:    

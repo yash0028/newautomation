@@ -59,8 +59,13 @@ Feature: TC_SE_SPGA_AR_23
     #Activate
     And I Set Status as Active    
     And I capture Contract Number
-    
-   Examples:    
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
+
+    Examples:
        | site          | paperType     | TCName|  				 
        | southeast uhn   | SPGA          | TC_SE_SPGA_AR_23|
        
@@ -91,10 +96,10 @@ Feature: TC_SE_SPGA_AR_23
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard    
-    
-    #create supporting document 
-    
-    #CMD Check
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     #NDB Check
 		
     #Cancel MPIN and TIN ,which has been added thru make a correction

@@ -63,7 +63,10 @@ Feature: TC_SE_SPGA_AR_41
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    #CMD Check
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
 	#NDB Check
 	#Amandments.
     

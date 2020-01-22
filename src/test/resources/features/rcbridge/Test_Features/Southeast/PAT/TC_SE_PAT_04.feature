@@ -59,6 +59,10 @@ Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Activate
     And I Set Status as Active
     And I capture Contract Number
+
+    #CMD Checking
+  And I Verify CMD and Capture Status
+
     Examples:
     | site            | paperType     | TCName         |
     | southeast uhn   | PAT           | TC_SE_PAT_AR_04|
@@ -123,8 +127,9 @@ Given I am logged into Exari Dev as a valid user and go to the "<site>" site
      #Activating Amendment
     And I Set Status as Active in Amendment
 
-     #Amendment CMD Checking
 
+    #CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:
       | site            | paperType     | TCName         |

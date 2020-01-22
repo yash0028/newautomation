@@ -56,8 +56,10 @@ Feature: W3_TC_SE_MGA_LA_02
     Then I Complete Wizard
     And I Set Status as Active
     And I capture Contract Number
+
     #CMD Checking
-    #NDB Checking
+    And I Verify CMD and Capture Status
+          #NDB Checking
 
     #Check CMD
     #Check NDB

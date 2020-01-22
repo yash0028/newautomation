@@ -59,9 +59,12 @@ Feature: TC_SE_SPGA_AR_15
     #Activate
     And I Set Status as Active    
     And I capture Contract Number
-    #CMD Check
 
-		
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
+
     Examples:    
        | site          | paperType     | TCName|  				 
        | southeast uhn   | SPGA          | TC_SE_SPGA_AR_15|
@@ -89,7 +92,11 @@ Feature: TC_SE_SPGA_AR_15
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard   
-    
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
     #create supporting document 
 		
     Examples:    

@@ -59,6 +59,9 @@ Feature: TC_SE_SMGA_AR_17
     And I Set Status as Active
 	And I capture Contract Number
 
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
     Examples:
        | site          | paperType     | TCName|
        | southeast uhn   | SMGA          | TC_SE_SMGA_AR_17|
@@ -110,7 +113,8 @@ Feature: TC_SE_SMGA_AR_17
     And I enter Group Summary
     And I Complete Wizard
 
-	#Amendment CMD Checking
+    #CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:
        | site          | paperType     | TCName|

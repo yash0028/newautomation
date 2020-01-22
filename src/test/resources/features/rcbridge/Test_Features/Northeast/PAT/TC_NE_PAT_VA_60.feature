@@ -72,7 +72,8 @@ Feature: TC_NE_PAT_VA_60
     And I Set Status as Active
     And I capture Contract Number
 
-    #CMD Check
+#CMD Checking
+    And I Verify CMD and Capture Status
     #NDB check
 
     Examples:
