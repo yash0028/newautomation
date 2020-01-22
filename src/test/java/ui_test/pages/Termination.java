@@ -20,8 +20,9 @@ public class Termination extends GenericInputPage {
 
 	public void submitTermination() {
 		selectDropDownByValue("Termination Intiator", elements.terminationIntiator, "Triage (Non UHN)");
-		pause(5);
-		selectDropDownByValue("Termination reason code", elements.terminationReasoncode, "Network Optimization Term");
+		click(elements.terminationReasoncode);
+		sendKeys(elements.terminationReasoncode, "Network Optimization Term");
+		click("Termination reason code", elements.terminationReason);
 		pause(5);
 		sendKeys("Termination effective date", elements.terminationEffectiveDate, "January 21, 2020");
 		clickNext();
@@ -30,8 +31,10 @@ public class Termination extends GenericInputPage {
 	private static class PageElements extends AbstractPageElements {
 		@FindBy(xpath = "(//select[starts-with(@id,'MCQAnswerBlock')])[1]")
 		private WebElement terminationIntiator;
-		@FindBy(xpath = "(//select[starts-with(@id,'MCQAnswerBlock')])[2]")
-		private WebElement terminationReasoncode;
+		@FindBy(xpath = "(//span[contains(@id,'select2-MCQAnswerBlock')])[2]")
+		private WebElement terminationReasoncode;		
+		@FindBy(xpath = "//li[contains(@id,'Network Optimization Term')]")
+		private WebElement terminationReason;
 		@FindBy(xpath = "//input[@class='Answer input-text hasDatepicker']")
 		private WebElement terminationEffectiveDate;
 
