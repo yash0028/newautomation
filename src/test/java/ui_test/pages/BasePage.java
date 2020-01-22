@@ -40,7 +40,9 @@ public class BasePage extends GenericInputPage {
     private ClauseLanguage clauseLanguage;
     private BenefitPlanDescriptionsProvision benefitPlanDescriptionsProvision;
     private Payment payment;
-
+    private Termination termination;
+    private TerminationRoasterWarning terminationWarning;
+    
     public BenefitPlanDescriptionsProvision getBenefitPlanDescriptionsProvision() {
         return (benefitPlanDescriptionsProvision == null) ? new BenefitPlanDescriptionsProvision(getDriver()) : benefitPlanDescriptionsProvision;
     }
@@ -183,5 +185,11 @@ public class BasePage extends GenericInputPage {
 
     public Payment getPayment(){
         return (payment == null) ? new Payment(getDriver()) : payment;
+    }
+    public Termination getTerminationData() {
+        return (termination == null) ? new Termination(getDriver()) : termination;
+    }
+    public TerminationRoasterWarning getTerminationWarningData() {
+        return (termination == null) ? new TerminationRoasterWarning(getDriver()) : terminationWarning;
     }
 }
