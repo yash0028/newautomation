@@ -9,7 +9,8 @@ Feature: TC_SE_SPGA_AR_69
   @User_Interface
   @UAT_AUTO_INITIAL_TRANSACTION1
   Scenario Outline: TC_SE_SPGA_AR_69 - [RL0] Author SPGA contract in <site>
-	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+	
+	Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
@@ -36,10 +37,7 @@ Feature: TC_SE_SPGA_AR_69
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-
-    #Workflow Approval at Local contract level
-    #Workflow approval atprocing level
-
+  
     #Final Capture process
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -61,9 +59,28 @@ Feature: TC_SE_SPGA_AR_69
     #Activate
     And I Set Status as Active
 
-    #CMD Check
-	#NDB Check
+ 	#CMD Checking
+    And I Verify CMD and Capture Status
+    
+	Examples:
+       | site          | paperType     | TCName|
+       | southeast uhn   | SPGA          | TC_SE_SPGA_AR_69|
 
+  @TC_SE_SPGA_AR_15
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @SPGA_AMENDMENT
+  @UAT_AUTO_AMENDMENT_MIG1
+  @SE_SPGA_AMT 
+  Scenario Outline: TC_SE_SPGA_AR_69 - [RL0] Author SPGA contract in <site>
+
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+      #Draft
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+   
+    #Draft Amandament
+    And I select the contract
     #Amandments sectio - Fee Schedule
     And I select the contract
     And I click on Create Amendment
@@ -94,14 +111,8 @@ Feature: TC_SE_SPGA_AR_69
     #Activating Amendments
     And I Set Status as Active in Amendment
 
-
-    #Create supporting document
-
     #CMD Checking
     And I Verify CMD and Capture Status
-
-    #NDB check
-
 
     Examples:
        | site          | paperType     | TCName|
