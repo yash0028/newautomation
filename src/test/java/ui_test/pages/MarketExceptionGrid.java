@@ -38,6 +38,13 @@ public class MarketExceptionGrid extends GenericInputPage {
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
+
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        Question = "Does the counterparty to this agreement have a D/B/A";
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
     }
 
     public void checkForDuplicate(HashMap<String, String> hmap) {
