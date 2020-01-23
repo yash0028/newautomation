@@ -25,11 +25,21 @@ public class Warning extends GenericInputPage {
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        String Question = "Do Appeals rights apply to this contract";
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
     }
 
     public void warningMakeCorrection() {
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+    }
+    public String getQn(String question) {
+        return "//label/b[contains(.,'" + question + "')]";
     }
 
     private static class PageElements extends AbstractPageElements {
