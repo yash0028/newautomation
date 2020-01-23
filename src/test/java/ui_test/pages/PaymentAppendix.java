@@ -132,18 +132,21 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void paymentAppendixToIncludeMGA(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        String Question = "Which of the following products will be included in Appendix 2";
-        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
-            if (hmap.containsKey("Payment Appendix to Include")) {
-                String[] appendixes = hmap.get("Payment Appendix to Include").split("//");
-                for (String appendix : appendixes) {
-                    Assert.assertTrue(setCheckBox("Payment Appendix to Include", paymentAppendixElement(appendix),true));
-                    pause(1);
+        String[] Questions = {"Which of the following products will be included in Appendix 2","Select Payment Appendix to include"};
+
+        for(String Question:Questions){
+            if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+                if (hmap.containsKey("Payment Appendix to Include")) {
+                    String[] appendixes = hmap.get("Payment Appendix to Include").split("//");
+                    for (String appendix : appendixes) {
+                        Assert.assertTrue(setCheckBox("Payment Appendix to Include", paymentAppendixElement(appendix),true));
+                        pause(1);
+                    }
                 }
             }
-            Assert.assertTrue(clickNext());
-            Assert.assertTrue(waitForPageLoad());
         }
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     public void enterDataInPaymentAppendixForSMGA(HashMap<String, String> hmap) {
