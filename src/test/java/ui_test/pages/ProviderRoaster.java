@@ -247,6 +247,7 @@ public class ProviderRoaster extends GenericInputPage {
             }
 
         }
+        click("Start Date Title",this.elements.startDateTilte);
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
 
@@ -424,6 +425,9 @@ public class ProviderRoaster extends GenericInputPage {
         private WebElement downloadProviderRoster;
         @FindBy(xpath = "//a[contains(.,'Next')]")
         private WebElement nextLink;
+        @FindBy(xpath = "//p/label/b[contains(.,'Start Date')]")
+        private WebElement startDateTilte;
+
 
         private String message = "//div[contains(@class,'DialogBox')]";
         private String retroDropdown = "//span[contains(@class,'select2-selection__rendered')]";
