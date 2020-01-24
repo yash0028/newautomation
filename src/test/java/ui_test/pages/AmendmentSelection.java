@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
+import ui_test.util.IWebInteract;
 
 import java.util.HashMap;
 
@@ -36,8 +37,10 @@ public class AmendmentSelection extends GenericInputPage {
         }
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         //given 300 for testing purpose
+        String Question = "Please select the amendment to be used";
         for(int count = 0 ; count<300; count++){
-            if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQuestionXpath("Please select the amendment to be used")))){
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQuestionXpath(Question)))){
+                IWebInteract.log.info("Question : {}",Question);
                 break;
             }
             pause(1);
@@ -48,7 +51,9 @@ public class AmendmentSelection extends GenericInputPage {
     }
 
     public void amendmentNeeded(HashMap<String, String> hmap) {
-        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQuestionXpath("Which of the following amendments is needed")))){
+        String Question = "Which of the following amendments is needed";
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQuestionXpath(Question)))){
+            IWebInteract.log.info("Question: {}",Question);
             Assert.assertTrue(click("Select Amendments Needed", selectAmendments(hmap.get("Amendment Needed"))));
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());

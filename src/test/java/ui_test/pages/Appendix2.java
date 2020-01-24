@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
+import ui_test.util.IWebInteract;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +26,7 @@ public class Appendix2 extends GenericInputPage {
         //Is this contract only for Virginia MLTSS?
         Question = "Is this contract only for Virginia MLTSS";
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
+            IWebInteract.log.info("Question : {}",Question);
             if (hmap.get("Is this contract only for Virginia MLTSS").equals("No")) {
                 Assert.assertTrue(click(Question, getContractTypeElem(Question, hmap.get(Question))));
                 waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
@@ -86,7 +88,10 @@ public class Appendix2 extends GenericInputPage {
     }
 
     public void enterAppendix2FC(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         Question = "Which of the following products will be excluded in Appendix 2";
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+            IWebInteract.log.info("Question: {}",Question);
         if (hmap.containsKey("Exclude Product in Amendment")) {
             String[] products = hmap.get("Exclude Product in Amendment").split("//");
             for (String product : products) {
@@ -100,39 +105,42 @@ public class Appendix2 extends GenericInputPage {
                 }
             }
         }
+    }
         Question = "Which of the following products will be included in Appendix 2";
         if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
-            if (hmap.containsKey("Payment Appendix to Include")) {
-                String[] appendixes = hmap.get("Payment Appendix to Include").split("//");
+            IWebInteract.log.info("Question: {}",Question);
+            if (hmap.containsKey("Include Medicare Product")) {
+                String[] appendixes = hmap.get("Include Medicare Product").split("//");
                 for (String appendix : appendixes) {
-                    Assert.assertTrue(setCheckBox("Payment Appendix to Include", paymentAppendixElement(appendix),true));
+                    Assert.assertTrue(setCheckBox(appendix, paymentAppendixElement(appendix),true));
                     pause(1);
                 }
             }
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+        //sometimes we will get the above two questions in 2 different pages
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        Question = "Which of the following products will be included in Appendix 2";
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+            IWebInteract.log.info("Question: {}",Question);
+            if (hmap.containsKey("Include Medicare Product")) {
+                String[] appendixes = hmap.get("Include Medicare Product").split("//");
+                for (String appendix : appendixes) {
+                    Assert.assertTrue(setCheckBox(appendix, paymentAppendixElement(appendix),true));
+                    pause(1);
+                }
+            }
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
         //if Appendix 2 have second page (MGA VA 53) (PAT VA 22)
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
-        //if Payment Appendix is shown in second page
-        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topicPA))) {
-            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-            if (hmap.containsKey("Payment Appendix")) {
 
-                String[] PaymentAppendix = hmap.get("Payment Appendix").split("//");
-                for (String paymentAppendix : PaymentAppendix) {
-                    Assert.assertTrue(setCheckBox("Include Product in Appendix 2", paymentAppendixElement(paymentAppendix),true));
-                    Assert.assertTrue(waitForPageLoad(60));
-                }
-
-            }
-            Assert.assertTrue(clickNext());
-            Assert.assertTrue(waitForPageLoad());
-        }
     }
     public String getQn(String question) {
         return "//label/b[contains(.,'" + question + "')]";
@@ -175,7 +183,6 @@ public class Appendix2 extends GenericInputPage {
 
         private String message = "//div[contains(@class,'DialogBox')]";
         private String topic = "//div[contains(@class,'topicArea')]/p[contains(.,'Appendix 2')]";
-        private String topicPA = "//div[contains(@class,'topicArea')]/p[contains(.,'Payment Appendix')]";
 
 
         public PageElements(SearchContext context) {

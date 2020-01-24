@@ -20,7 +20,7 @@ Feature: TC_NE_SPA_VA_76
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
-    And I enter Document Selection
+    And Payment Appendix in Amendments FCI enter Document Selection
     And I preview Provider Details
     And I enter Practice Locations for SPA Contract
     And I preview Provider Details

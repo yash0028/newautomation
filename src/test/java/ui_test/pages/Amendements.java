@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
+import ui_test.util.IWebInteract;
 
 import java.util.HashMap;
 import java.util.List;
@@ -54,6 +55,7 @@ public class Amendements extends GenericInputPage {
 
     public void chooseProviderType(String Question, HashMap<String, String> hmap) {
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQuestion(Question)))) {
+            IWebInteract.log.info("Question: {}",Question);
             //Open dropdown search
             click("dropdown open", getDropDown(Question));
             pause(1);
@@ -69,6 +71,7 @@ public class Amendements extends GenericInputPage {
 
     public void chooseContractType(String Question, HashMap<String, String> hmap) {
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQuestion(Question)))) {
+            IWebInteract.log.info("Question: {}",Question);
             //Open dropdown search
             click("dropdown open", getDropDown(Question));
             pause(1);

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
 import org.openqa.selenium.JavascriptExecutor;
+import ui_test.util.IWebInteract;
 
 import java.util.HashMap;
 import java.util.List;
@@ -136,6 +137,7 @@ public class PaymentAppendix extends GenericInputPage {
 
         for(String Question:Questions){
             if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+                IWebInteract.log.info("Question : {}",Question);
                 if (hmap.containsKey("Payment Appendix to Include")) {
                     String[] appendixes = hmap.get("Payment Appendix to Include").split("//");
                     for (String appendix : appendixes) {
@@ -246,16 +248,21 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void enterPaymentAppendixinAmendmentsFC(HashMap<String, String> hmap) {
+        //if Payment Appendix is shown
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topicPA))) {
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            if (hmap.containsKey("Payment Appendix in Amendments FC")) {
 
-        if (hmap.containsKey("Payment Appendix in Amendments FC")) {
-            String[] appendixes = hmap.get("Payment Appendix in Amendments FC").split("//");
-            for (String appendix : appendixes) {
-                Assert.assertTrue(setCheckBox("Payment Appendix to Include", paymentAppendixElement(appendix), true));
-                pause(1);
+                String[] PaymentAppendix = hmap.get("Payment Appendix in Amendments FC").split("//");
+                for (String paymentAppendix : PaymentAppendix) {
+                    Assert.assertTrue(setCheckBox(paymentAppendix, paymentAppendixElement(paymentAppendix),true));
+                    Assert.assertTrue(waitForPageLoad(60));
+                }
+
             }
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
         }
-        Assert.assertTrue(clickNext());
-        Assert.assertTrue(waitForPageLoad());
     }
 
     public void selectPaymentAppendixSMGA(HashMap<String, String> hmap) {
@@ -324,7 +331,7 @@ public class PaymentAppendix extends GenericInputPage {
         @FindBy (xpath="//input[contains(@value,'Standard')]")
         private WebElement PaymentAppendixStructureStandard;
 
-
+        private String topicPA = "//div[contains(@class,'topicArea')]/p[contains(.,'Payment Appendix')]";
         // @FindBy(xpath = "//div[contains(text(),'You must select at least one answer']")
         // private WebElement errormessage;
         // @FindBy(xpath = "//a[@title='go back one interview round']")

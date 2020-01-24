@@ -80,6 +80,7 @@ Feature: TC_SE_MGA_AR_53
   @AMENDMENT_ALL_MGA
   @SE_MGA_AMT
   @rerunrerun
+    @exenow
   Scenario Outline: TC_SE_MGA_AR_53 - [RL0] Amend <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
