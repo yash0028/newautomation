@@ -12,6 +12,7 @@ Feature: TC_SE_MGA_AR_67
   @UAT_AUTO_SOUTHEAST
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
+  @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_SE
   Scenario Outline: TC_SE_MGA_AR_67- [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site

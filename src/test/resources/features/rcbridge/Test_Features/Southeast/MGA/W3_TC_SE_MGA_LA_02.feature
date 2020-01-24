@@ -9,6 +9,7 @@ Feature: W3_TC_SE_MGA_LA_02
   @User_Interface
   @UAT_AUTO_INITIAL_TRANSACTION_W3
   @generate_link
+  @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_SE
   Scenario Outline: W3_TC_SE_MGA_LA_02 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
