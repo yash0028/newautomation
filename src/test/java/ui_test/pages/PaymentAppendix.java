@@ -77,9 +77,9 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void appliedPaymentAppendix(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        if(isVisible(elements.PaymentAppendixStructureStandard))
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.PaymentAppendixStructureStandard)))
         {
-            Assert.assertTrue(click("Structure Payment Appendix in Amendments", elements.PaymentAppendixStructureStandard));
+            Assert.assertTrue(click("Structure Payment Appendix in Amendments", elements.PaymentAppendixStructureStandardElem));
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         }
         Assert.assertTrue(click("Apply Payment Appendix in Amendments", paymentAppendixElement(hmap.get("Apply Payment Appendix in Amendments"))));
@@ -328,9 +328,10 @@ public class PaymentAppendix extends GenericInputPage {
         private String message = "//div[contains(@class,'DialogBox')]";
         @FindBy(xpath="//input[contains(@value, 'No')]")
         private WebElement LouisianaNO;
-        @FindBy (xpath="//input[contains(@value,'Standard')]")
-        private WebElement PaymentAppendixStructureStandard;
+        @FindBy(xpath="//input[contains(@value,'Standard')]")
+        private WebElement PaymentAppendixStructureStandardElem;
 
+        private String PaymentAppendixStructureStandard = "//input[contains(@value,'Standard')]";
         private String topicPA = "//div[contains(@class,'topicArea')]/p[contains(.,'Payment Appendix')]";
         // @FindBy(xpath = "//div[contains(text(),'You must select at least one answer']")
         // private WebElement errormessage;
