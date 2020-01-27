@@ -66,14 +66,18 @@ public class ResultsLib implements IUiStep{
 			String strpath = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(new Date());
 			Reportfolder = strpath;	
 			System.out.println("Report folder"+Reportfolder);
-			if(new File("TestReports\\"+Reportfolder).exists())
+			if(new File("TestReports").exists())
 			{
-				new File("TestReports\\"+Reportfolder).mkdir();
-				new File("TestReports\\"+Reportfolder+"\\Screenshots" ).mkdir();
+				new File("TestReports"+"\\"+Reportfolder).mkdir();
+				new File("TestReports"+"\\"+Reportfolder+"\\Screenshots" ).mkdir();
 			}
 				
 			else
-				new File("TestReports\\"+Reportfolder);
+			{
+				new File("TestReports").mkdir();;
+				new File("TestReports"+"\\"+Reportfolder).mkdir();
+				new File("TestReports"+"\\"+Reportfolder+"\\Screenshots" ).mkdir();
+			}
 						
 			
 			File tempfile =  new File("TestReports\\temp.txt");
@@ -176,7 +180,7 @@ public class ResultsLib implements IUiStep{
 			if (screenshot) {
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 				String strDate = dateFormat.format(new Date());
-				String hrefString = "TestReports\\"+ Reportfolder+"\\Screenshots\\"+strDate+ ".png";			 
+				String hrefString = "Screenshots\\"+strDate+ ".png";			 
 				objres.fnTakeScreenShot(strResultStatus,hrefString);
 				
 				template = "<tr><td width='30%' align='center'><font color='#153e7e' size='1' face='Arial align='center''><b>" + strExceptedResult
@@ -207,7 +211,7 @@ public class ResultsLib implements IUiStep{
 		else {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 			String strDate = dateFormat.format(new Date());
-			String hrefString = "TestReports\\"+ Reportfolder+"\\Screenshots\\"+strDate+ ".png";			 
+			String hrefString = "Screenshots\\"+strDate+ ".png";		 
 			objres.fnTakeScreenShot(strResultStatus,hrefString);
 			template = "<tr><td width='30%' align='center'><font color='#153e7e' size='1' face='Arial align='center''><b>" + strExceptedResult
 					+ "</b></font></td><td align='center'><font color='#153e7e' size='1' face='Arial' align='center'><b>"  + strDescription
@@ -233,7 +237,7 @@ public class ResultsLib implements IUiStep{
 	public static void updateTestSummary()  {
 		try {
 			
-			File fXmlFile = new File("build/xml-reports/xml-report.xml");
+			File fXmlFile = new File("build/cucumber-report/cucumber.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(fXmlFile);
@@ -439,7 +443,7 @@ public class ResultsLib implements IUiStep{
     @After(value = "@User_Interface")
     public void updateResult(Scenario scenario) {
 	    Reportfolder = returnreportfolder();
-		String hrefString_image = "TestReports\\"+Reportfolder+"\\screenshots\\"+scenario.getName()+".png";
+		String hrefString_image = "screenshots\\"+scenario.getName()+".png";
 	    fnTakeScreenShot("",hrefString_image);
 	  	updateResultInSummaryreport(scenario.isFailed(),scenario.getName());
 	  	//Capture contract	  	
@@ -470,8 +474,14 @@ public class ResultsLib implements IUiStep{
 		try {
 			
 			File snapshort_file = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-			FileHandler.copy(snapshort_file, new File(imgpath));
-			
+			if(new File(imgpath).exists())
+				FileHandler.copy(snapshort_file, new File(imgpath));
+			else
+			{
+				String repfolder = "TestReports\\"+returnreportfolder()+"\\"+imgpath;
+				FileHandler.copy(snapshort_file, new File(repfolder));
+			}
+				
 //			BufferedImage image = new Robot()
 //					.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 //			
