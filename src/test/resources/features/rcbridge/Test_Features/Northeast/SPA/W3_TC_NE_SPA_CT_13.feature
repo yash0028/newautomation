@@ -2,9 +2,9 @@
 @SPABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: W3_TC_NE_SPA_MD_01
+Feature: W3_TC_NE_SPA_CT_13
 
-  @W3_TC_NE_SPA_MD_01
+  @W3_TC_NE_SPA_CT_13
   @Manual
   @User_Interface
   @UAT_AUTO
@@ -62,16 +62,14 @@ Feature: W3_TC_NE_SPA_MD_01
     And I Set Status as Active
     And I capture Contract Number
 
-        #CMD Checking
+    #CMD Checking
     And I Verify CMD and Capture Status
-
 
     Examples:
       | site          | paperType     | TCName           |
-      | northeast uhn   | SPA           | W3_TC_NE_SPA_MD_01|
+      | northeast uhn   | SPA           | W3_TC_NE_SPA_CT_13|
 
-
-  @W3_TC_NE_SPA_MD_01
+  @TC_NE_SPA_VA_70
   @Manual
   @User_Interface
   @UAT_AUTO_AMANDAMENT
@@ -80,47 +78,50 @@ Feature: W3_TC_NE_SPA_MD_01
 
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-
-    #Draft
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
 
-     #Draft Amendment
-    #When I am logged into Exari Dev
-    #And I search Contract using Contract Number
+  #Draft Amendment
+	  #When I am logged into Exari Dev
+	  #And I search Contract using Contract Number
     And I select the contract
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I enter Amendments Page to amend Payment Appendix
+    And I select Types of Amendments
+    And I select Contract Applied in Amendments
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
-    And I enter Payment Appendix in Amendments to replace Payment Appendix
-    And I select fee schedule id in Amendments
+    And I enter Appendix 2 in Amendments
+    And I select applied Payment Appendix
+    And I enter Payment Appendix in Amendments FinalCapture
+    And I choose Additional Manuals
+    And I enter Steerage
+    And I enter Payment Appendix in Amendments for SPA contracts
+    And I check Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
 
-	#Amendment Final Capture
-
+    #Amendment Final Capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
+    And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
 #    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
-   #Activating Amendment
+	  #Activating Amendment
     And I Set Status as Active in Amendment
 
-     #Amendment CMD Checking
+    #Amendment CMD Check
     And I Verify CMD and Capture Status
-
 
     Examples:
       | site          | paperType     | TCName           |
-      | northeast uhn   | SPA           | W3_TC_NE_SPA_MD_01 |
+      | northeast uhn   | SPA           | W3_TC_NE_SPA_CT_13|

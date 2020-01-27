@@ -1,16 +1,16 @@
-#Last updated on
-@SPABusinessTestcases_VA
+# Last updated on
+@SPABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W3_TC_NE_SPA_DC_20
-
-  @W3_TC_NE_SPA_DC_20
+Feature: W3_TC_SE_SPA_LA_05
+  @W3_TC_SE_SPA_LA_05
   @Manual
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
   @WAVE3INIT
+  @SPAIW3
 
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -18,7 +18,7 @@ Feature: W3_TC_NE_SPA_DC_20
     #Draft
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-    And I enter PES Response
+    And I enter PES Responses
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
@@ -57,13 +57,46 @@ Feature: W3_TC_NE_SPA_DC_20
     And I enter Group Summary
     Then I Complete Wizard
 
-	#Activate
+    #Activate
     And I Set Status as Active
     And I capture Contract Number
 
     #CMD Checking
     And I Verify CMD and Capture Status
 
+
     Examples:
-      | site          | paperType     | TCName           |
-      | northeast uhn   | SPA           | W3_TC_NE_SPA_DC_20|
+      | site          | paperType     | TCName          |
+      | southeast uhn | SPA           | W3_TC_SE_SPA_LA_05  |
+
+
+
+
+
+  @W3_TC_SE_SPA_LA_05
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+@WAVE3AMENDMENT
+  Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+
+      #Make a correction - Add provider with Make a correction.
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I add provider using TIN
+    And I select Providers
+    And I enter Provider Start Date
+    And I enter retro code in Provider Roster
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+    Examples:
+      | site          | paperType     | TCName          |
+      | southeast uhn | SPA           | W3_TC_SE_SPA_LA_05  |

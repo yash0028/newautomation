@@ -78,7 +78,6 @@ Feature: TC_SE_SMGA_AR_26
   @SMGA_AMANDMENT
    @UAT_AUTO_AMENDMENT_MIG1
   @SE_SMGA_AMT
-   @myTest
 
   Scenario Outline: TC_SE_SMGA_AR_26 - [RL0] Author SMGA contract in <site>
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 

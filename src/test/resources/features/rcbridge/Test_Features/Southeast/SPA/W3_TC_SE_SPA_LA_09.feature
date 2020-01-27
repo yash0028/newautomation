@@ -1,21 +1,24 @@
-# Last updated on
-@SPABusinessTestcases_OR
+  # Last updated on
+@SPABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W3_TC_WEST_SPA_WV_28
-  @W3_TC_WEST_SPA_WV_28
+Feature: W3_TC_SE_SPA_LA_09
+  @W3_TC_SE_SPA_LA_09
   @Manual
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
+  @WAVE3INIT
+  @SPAIW3
+
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-    And I enter PES Response
+    And I enter PES Responses
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
@@ -33,6 +36,7 @@ Feature: W3_TC_WEST_SPA_WV_28
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
+    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 
@@ -57,9 +61,41 @@ Feature: W3_TC_WEST_SPA_WV_28
     And I Set Status as Active
     And I capture Contract Number
 
-     #CMD Check
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
+    Examples:
+      | site          | paperType     | TCName          |
+      | southeast uhn | SPA           | W3_TC_SE_SPA_LA_09 |
+
+
+  @W3_TC_SE_SPA_LA_05
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @WAVE3AMENDMENT
+
+  Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+#CMD Checking
     And I Verify CMD and Capture Status
 
     Examples:
-      | site       | paperType     | TCName            |
-      | west uhn   | SPA           | W3_TC_WEST_SPA_WV_28 |
+      | site          | paperType     | TCName          |
+      | southeast uhn | SPA           | W3_TC_SE_SPA_LA_09 |
+

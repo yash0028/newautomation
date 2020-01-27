@@ -1,15 +1,15 @@
-  # Last updated on
-@SPABusinessTestcases_AR
+# Last updated on
+@SPABusinessTestcases_OR
 @releaseUnknown
 @iterationUnknown
-Feature: W3_TC_SE_SPA_LA_10
-  @W3_TC_SE_SPA_LA_10
+Feature: W3_TC_WEST_SPA_WV_23
+  @W3_TC_WEST_SPA_WV_23
   @Manual
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
-  @WAVE3INIT
+  @SPAIW3
 
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -17,7 +17,7 @@ Feature: W3_TC_SE_SPA_LA_10
     #Draft
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-    And I enter PES Responses
+    And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
@@ -35,7 +35,6 @@ Feature: W3_TC_SE_SPA_LA_10
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 
@@ -60,10 +59,9 @@ Feature: W3_TC_SE_SPA_LA_10
     And I Set Status as Active
     And I capture Contract Number
 
-    #CMD Checking
+     #CMD Check
     And I Verify CMD and Capture Status
 
-
     Examples:
-      | site          | paperType     | TCName          |
-      | southeast uhn | SPA           | W3_TC_SE_SPA_LA_10 |
+      | site       | paperType     | TCName            |
+      | west uhn   | SPA           | W3_TC_WEST_SPA_WV_23 |
