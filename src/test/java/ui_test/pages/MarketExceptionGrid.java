@@ -28,6 +28,7 @@ public class MarketExceptionGrid extends GenericInputPage {
         waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         String Question = "What is the fee schedule ID for Erickson Advantage Medicare Advantage";
         if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+            IWebInteract.log.info("Question : {}",Question);
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
@@ -35,6 +36,15 @@ public class MarketExceptionGrid extends GenericInputPage {
         waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         Question = "Select the payment appendix whose increases/decreases have been negotiated for the initial";
         if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+            IWebInteract.log.info("Question : {}",Question);
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
+
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        Question = "Does the counterparty to this agreement have a D/B/A";
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+            IWebInteract.log.info("Question : {}",Question);
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }

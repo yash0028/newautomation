@@ -74,12 +74,14 @@ public class CMDSteps implements IRestStep, IUiStep {
         //Search Contract
         cmdPage.searchContract();
 
+
+
         //Verify Details        
-        String contract = ExariSteps.hmap.get("Contract Number");
-        String reqtype = "InstallContract";
-        String status = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'" + reqtype + "')]/../td[7]/span")).getText();
+       String contract = ExariSteps.hmap.get("Contract Number");
+       // String reqtype = "InstallContract";
+        String status = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[7]/span")).getText();
         System.out.println(status);
-        String requesttype = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'" + reqtype + "')]")).getText();
+        String requesttype = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[8]")).getText();
         System.out.println(requesttype);
         
         //Write in CSV file

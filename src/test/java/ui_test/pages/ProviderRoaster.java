@@ -172,6 +172,7 @@ public class ProviderRoaster extends GenericInputPage {
     }
 
     public void selectProviders(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         MULTIPLE_PROVIDERS = 0;
         //GIVE THE KEYWORD "default" in csv for selecting providers dynamically from the dropdown.
         String[] providers = hmap.get("Select Providers").split("//");
@@ -244,6 +245,7 @@ public class ProviderRoaster extends GenericInputPage {
                     }
 
                 }
+                click("Start Date Title",this.elements.startDateTilte);
             }
 
         }
@@ -275,6 +277,7 @@ public class ProviderRoaster extends GenericInputPage {
     }
 
     public void providerandcanceldate(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         CANCEL_MULTIPLE_PROVIDERS = 0;
         String[] providers = hmap.get("providers to cancel").split("//");
         boolean createNewRow = elements.dropdown_open_count.size() > providers.length ? false : true;
@@ -333,6 +336,7 @@ public class ProviderRoaster extends GenericInputPage {
                 } else {
                     Assert.assertTrue(sendKeys("Provider Cancel Date", providerCancelDate(count - 1), CommonMethods.todaysDate()));
                 }
+                click("Start Date Title",this.elements.startDateTilte);
             }
 
         }
@@ -424,6 +428,9 @@ public class ProviderRoaster extends GenericInputPage {
         private WebElement downloadProviderRoster;
         @FindBy(xpath = "//a[contains(.,'Next')]")
         private WebElement nextLink;
+        @FindBy(xpath = "//p/label/b[contains(.,'Start Date')]")
+        private WebElement startDateTilte;
+
 
         private String message = "//div[contains(@class,'DialogBox')]";
         private String retroDropdown = "//span[contains(@class,'select2-selection__rendered')]";

@@ -74,20 +74,14 @@ Feature: TC_SE_PAT_AR_13
   @UAT_AUTO_AMENDMENT_PAT
   @UAT_AUTO_AMENDMENT_TEST
   @AMENDMENT_ALL_PAT
+  @PAT_SE_AMEND
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
 
-     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #When I search for Contract
-    #Then Validate Contract "<contract>" status and request type "<Contractstatus>"
-
-
-
-      #NDB Check
+    #NDB Check
     #Draft Amendment
 
     And I select the contract

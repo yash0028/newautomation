@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
+import ui_test.util.IWebInteract;
 
 public class Warning extends GenericInputPage {
     private PageElements elements;
@@ -25,11 +26,22 @@ public class Warning extends GenericInputPage {
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        String Question = "Do Appeals rights apply to this contract";
+        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+            IWebInteract.log.info("Question: {}",Question);
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
     }
 
     public void warningMakeCorrection() {
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+    }
+    public String getQn(String question) {
+        return "//label/b[contains(.,'" + question + "')]";
     }
 
     private static class PageElements extends AbstractPageElements {
