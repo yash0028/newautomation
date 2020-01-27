@@ -53,6 +53,10 @@ dependencies {
     //testCompile 'io.cucumber:cucumber-java:3.0.2'
     //testCompile 'io.cucumber:cucumber-junit:3.0.2'
     testCompile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.12'
+    // https://mvnrepository.com/artifact/javax.mail/mail
+    compile group: 'javax.mail', name: 'mail', version: '1.4.5'
+    compile group: 'javax.activation', name: 'activation', version: '1.1.1'
+
 }
 
 task(hive, dependsOn: 'classes', type: JavaExec) {
