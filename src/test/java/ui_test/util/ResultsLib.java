@@ -237,7 +237,7 @@ public class ResultsLib implements IUiStep{
 	public static void updateTestSummary()  {
 		try {
 			
-			File fXmlFile = new File("build/xml-reports/xml-report.xml");
+			File fXmlFile = new File("build/cucumber-report/cucumber.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(fXmlFile);

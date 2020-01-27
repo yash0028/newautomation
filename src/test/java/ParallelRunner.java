@@ -30,10 +30,12 @@ import org.junit.runner.RunWith;
                 features = "src/test/resources/features",
                 plugin = {
                         "pretty",
-                      "json:build/json-reports/json-report.json",
-                        "junit:build/xml-reports/xml-report.xml"},
-                glue = {"general_test", "rest_api_test", "ui_test", "exari_test"},
-                tags = {"@TC_CEN_SPGA_IN_15"},
+                        "json:build/json-reports/json-report.json",
+                        "json:build/cucumber-report/cucumber.json",
+                        "html:build/cucumber-report/cucumber.html",
+                        "junit:build/cucumber-report/cucumber.xml"},
+                        glue = {"general_test", "rest_api_test", "ui_test", "exari_test"},
+                tags = {"@Murty2"},
                 strict = true
         ))
 public class ParallelRunner {
