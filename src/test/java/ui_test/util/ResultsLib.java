@@ -66,8 +66,16 @@ public class ResultsLib implements IUiStep{
 			String strpath = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(new Date());
 			Reportfolder = strpath;	
 			System.out.println("Report folder"+Reportfolder);
-			new File("TestReports\\"+Reportfolder).mkdir();
-			new File("TestReports\\"+Reportfolder+"\\Screenshots" ).mkdir();
+			if(new File("TestReports\\"+Reportfolder).exists())
+			{
+				new File("TestReports\\"+Reportfolder).mkdir();
+				new File("TestReports\\"+Reportfolder+"\\Screenshots" ).mkdir();
+			}
+				
+			else
+				new File("TestReports\\"+Reportfolder);
+						
+			
 			File tempfile =  new File("TestReports\\temp.txt");
 			FileWriter fw;			
 			tempfile.createNewFile();
@@ -225,7 +233,7 @@ public class ResultsLib implements IUiStep{
 	public static void updateTestSummary()  {
 		try {
 			
-			File fXmlFile = new File("build\\xml-reports\\xml-report.xml");
+			File fXmlFile = new File("build/xml-reports/xml-report.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(fXmlFile);
