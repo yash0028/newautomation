@@ -66,6 +66,12 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             click("Active Workflows", this.elements.openActiveWorkFlow);
         }
     }
+    public void opencompletedWorkFlow() {
+        if (this.elements.completedWorkFlow.getAttribute("class").contains("alfresco-twister-closed")) {
+            click("Completed Workflows", this.elements.completedWorkFlow);
+        }
+    }
+
 
     public boolean getActiveWorkFlow(boolean tierApproval, String location, HashMap<String, String> hmap) {
         int count = 1;
@@ -73,6 +79,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         boolean dontSkip = true;
         while (count <= 20) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getStatus("Approval Complete")))) {
+                opencompletedWorkFlow();
                 if (!tierApproval) {
                     Assert.fail("Approval Type Error , Please check data in csv file.");
                 }
@@ -629,6 +636,8 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         public WebElement headerTabHome;
         @FindBy(xpath = "//h2[contains(.,'Active Workflows')]")
         public WebElement openActiveWorkFlow;
+        @FindBy(xpath = "//h2[contains(.,'Completed Workflows')]")
+        public WebElement completedWorkFlow;
         @FindBy(xpath = "//input[@name='USER']")
         public WebElement textBoxUsername;
         @FindBy(xpath = "//*[@id='message']")
