@@ -35,6 +35,18 @@ public class Appendix2 extends GenericInputPage {
             }
         }
 
+        //Will this contract be for Kansas and/or Missouri Medicaid and/or CHIP ONLY contracts?
+        this.Question = "Kansas and/or Missouri Medicaid and/or CHIP ONLY";
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(this.Question)))) {
+            IWebInteract.log.info("Question : {}",this.Question);
+            if (hmap.containsKey("Kansas and/or Missouri Medicaid and/or CHIP ONLY")) {
+                Assert.assertTrue(click(this.Question,getXPath(hmap.get(this.Question))));
+                waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            } else {
+                Assert.fail("[ERROR] [Invalid input/Not implemented] for [Will this contract be for Kansas and/or Missouri Medicaid and/or CHIP ONLY contracts? = " + hmap.get(this.Question) + "]");
+            }
+        }
+
         //Split Products using // in case need to include/ exclude multiple products
         if (hmap.containsKey("Include Product")) {
 
