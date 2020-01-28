@@ -65,9 +65,22 @@ public class ResultsLib implements IUiStep{
 		{
 			String strpath = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(new Date());
 			Reportfolder = strpath;	
-			new File(System.getProperty("user.dir") + "\\TestReports\\"+Reportfolder).mkdir();
-			new File(System.getProperty("user.dir") + "\\TestReports\\"+Reportfolder+"\\Screenshots" ).mkdir();
-			File tempfile =  new File(System.getProperty("user.dir") + "\\TestReports\\temp.txt");
+			System.out.println("Report folder"+Reportfolder);
+			if(new File("TestReports").exists())
+			{
+				new File("TestReports"+"\\"+Reportfolder).mkdir();
+				new File("TestReports"+"\\"+Reportfolder+"\\Screenshots" ).mkdir();
+			}
+				
+			else
+			{
+				new File("TestReports").mkdir();;
+				new File("TestReports"+"\\"+Reportfolder).mkdir();
+				new File("TestReports"+"\\"+Reportfolder+"\\Screenshots" ).mkdir();
+			}
+						
+			
+			File tempfile =  new File("TestReports\\temp.txt");
 			FileWriter fw;			
 			tempfile.createNewFile();
 			fw = new FileWriter(tempfile);
@@ -98,7 +111,7 @@ public class ResultsLib implements IUiStep{
 			
 			String template;						
 			
-			File reportfile = new File(System.getProperty("user.dir") + "\\TestReports\\"+Reportfolder +"\\DetailedTestReport.html");
+			File reportfile = new File("TestReports\\"+Reportfolder +"\\DetailedTestReport.html");
 			FileWriter fw;
 			reportfile.createNewFile();			
 			template = header;
@@ -119,8 +132,7 @@ public class ResultsLib implements IUiStep{
 		try {
 						
 			String header = "<html><head><title>TestReport</title></head><body link='orange'><table border='0' cellspacing='1' cellpadding='1' width='100%'><tr><td align='left'><img src='"
-					+ System.getProperty("user.dir")
-					+ "\\Optum.PNG' alt='Logo'height='50' width='100'/></td></tr><tr><td align='center'><h4 align='center'><font face='arial'  color='#153e7e' size='5'><b><center>Detailed Report</center></b></font></h4></td></tr><tr></tr></table>";
+					+ "Optum.PNG' alt='Logo'height='50' width='100'/></td></tr><tr><td align='center'><h4 align='center'><font face='arial'  color='#153e7e' size='5'><b><center>Detailed Report</center></b></font></h4></td></tr><tr></tr></table>";
 			
 			String table = "<table border='1' cellspacing='1' cellpadding='1' width='80%'>"
 					+ "		<tr><td colspan='3'><h4 align='center'><font color='black' size='4' face='Arial'><b>"+strTestName
@@ -128,7 +140,7 @@ public class ResultsLib implements IUiStep{
 			
 			
 			String template = header + table;			
-			reportfilePath = System.getProperty("user.dir") + "\\TestReports\\"+Reportfolder+"\\"+strTestName+".html";			
+			reportfilePath = "TestReports\\"+Reportfolder+"\\"+strTestName+".html";			
 			File reportfile = new File(reportfilePath);
 			FileWriter fw;				
 			reportfilePath = reportfile.getAbsolutePath();
@@ -162,13 +174,13 @@ public class ResultsLib implements IUiStep{
 		String template;
 		//reportfilePath = System.getProperty("user.dir") + "\\TestReports\\"+Reportfolder+"\\"+strTestName+".html";
 		Reportfolder = returnreportfolder();		
-		reportfilePath = System.getProperty("user.dir") + "\\TestReports\\"+Reportfolder+"\\"+strTestName+".html";
+		reportfilePath = "TestReports\\"+Reportfolder+"\\"+strTestName+".html";
 		if (strResultStatus.equalsIgnoreCase("Pass")) 
 		{
 			if (screenshot) {
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 				String strDate = dateFormat.format(new Date());
-				String hrefString = System.getProperty("user.dir") + "\\TestReports\\"+ Reportfolder+"\\Screenshots\\"+strDate+ ".png";			 
+				String hrefString = "Screenshots\\"+strDate+ ".png";			 
 				objres.fnTakeScreenShot(strResultStatus,hrefString);
 				
 				template = "<tr><td width='30%' align='center'><font color='#153e7e' size='1' face='Arial align='center''><b>" + strExceptedResult
@@ -199,7 +211,7 @@ public class ResultsLib implements IUiStep{
 		else {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 			String strDate = dateFormat.format(new Date());
-			String hrefString = System.getProperty("user.dir") + "\\TestReports\\"+ Reportfolder+"\\Screenshots\\"+strDate+ ".png";			 
+			String hrefString = "Screenshots\\"+strDate+ ".png";		 
 			objres.fnTakeScreenShot(strResultStatus,hrefString);
 			template = "<tr><td width='30%' align='center'><font color='#153e7e' size='1' face='Arial align='center''><b>" + strExceptedResult
 					+ "</b></font></td><td align='center'><font color='#153e7e' size='1' face='Arial' align='center'><b>"  + strDescription
@@ -225,7 +237,7 @@ public class ResultsLib implements IUiStep{
 	public static void updateTestSummary()  {
 		try {
 			
-			File fXmlFile = new File(System.getProperty("user.dir")+"\\build\\xml-reports\\xml-report.xml");
+			File fXmlFile = new File("build/cucumber-report/cucumber.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(fXmlFile);
@@ -243,7 +255,7 @@ public class ResultsLib implements IUiStep{
 			
 			
 			Reportfolder = returnreportfolder();
-			String reportfilePath = System.getProperty("user.dir") + "\\TestReports\\"+Reportfolder+"\\DetailedTestReport.html";
+			String reportfilePath = "TestReports\\"+Reportfolder+"\\DetailedTestReport.html";
 			File reportfile = new File(reportfilePath);
 			FileReader fr;
 			fr = new FileReader(reportfile.getAbsoluteFile());
@@ -279,13 +291,13 @@ public class ResultsLib implements IUiStep{
 	public static void addscenarioinDetailedReport(String TestName) {
 		try {
 			Reportfolder = returnreportfolder();
-			String hrefString_image = System.getProperty("user.dir") + "\\TestReports\\"+Reportfolder+"\\screenshots\\"+TestName+".png";
-			String hrefString_testname = System.getProperty("user.dir") + "\\TestReports\\"+Reportfolder+"\\"+TestName+".html";
+			String hrefString_image = "screenshots\\"+TestName+".png";
+			String hrefString_testname = TestName+".html";
 			String totalStr = "<tr align='center'><td><a href='"
 						+ hrefString_testname + "'>"+TestName+"</td><td><a href='"
 						+ hrefString_image + "'> "+TestName.split("-")[0].trim()+"_result_here</a></td><td>"+TestName.split("-")[0].trim()+"_contractnum_here</td></tr>"
 								+ "<tr></tr>";
-			String reportfilePath = System.getProperty("user.dir") + "\\TestReports\\"+ Reportfolder +"\\DetailedTestReport.html";
+			String reportfilePath = "TestReports\\"+ Reportfolder +"\\DetailedTestReport.html";
 			File reportfile = new File(reportfilePath);
 			FileWriter fw;
 			fw = new FileWriter(reportfile.getAbsoluteFile(), true);
@@ -302,7 +314,7 @@ public class ResultsLib implements IUiStep{
 	public static void updateResultInSummaryreport(Boolean isfailed, String TestName) {
 		try {
 			Reportfolder = returnreportfolder();
-			String reportfilePath = System.getProperty("user.dir") + "\\TestReports\\"+ Reportfolder+"\\DetailedTestReport.html";
+			String reportfilePath = "TestReports\\"+ Reportfolder+"\\DetailedTestReport.html";
 			File reportfile = new File(reportfilePath);
 			FileReader fr;
 			fr = new FileReader(reportfile.getAbsoluteFile());
@@ -316,7 +328,7 @@ public class ResultsLib implements IUiStep{
 				
 	            totalStr = totalStr+s;
 	        }
-			 String hrefString_image = System.getProperty("user.dir") + "\\TestReports\\"+Reportfolder+"\\screenshots\\"+TestName+".png";
+			 String hrefString_image = "TestReports\\"+Reportfolder+"\\screenshots\\"+TestName+".png";
 			if(isfailed)
 			{	result = "FAIL";
 			    int a = totalStr.indexOf(TestName);			   
@@ -355,7 +367,7 @@ public class ResultsLib implements IUiStep{
 			
 			System.out.println(TestName);
 			Reportfolder = returnreportfolder();
-			String reportfilePath = System.getProperty("user.dir") + "\\TestReports\\"+ Reportfolder+"\\DetailedTestReport.html";
+			String reportfilePath = "TestReports\\"+ Reportfolder+"\\DetailedTestReport.html";
 			File reportfile = new File(reportfilePath);
 			FileReader fr;
 			fr = new FileReader(reportfile.getAbsoluteFile());
@@ -431,7 +443,7 @@ public class ResultsLib implements IUiStep{
     @After(value = "@User_Interface")
     public void updateResult(Scenario scenario) {
 	    Reportfolder = returnreportfolder();
-		String hrefString_image = System.getProperty("user.dir") + "\\TestReports\\"+Reportfolder+"\\screenshots\\"+scenario.getName()+".png";
+		String hrefString_image = "screenshots\\"+scenario.getName()+".png";
 	    fnTakeScreenShot("",hrefString_image);
 	  	updateResultInSummaryreport(scenario.isFailed(),scenario.getName());
 	  	//Capture contract	  	
@@ -445,7 +457,7 @@ public class ResultsLib implements IUiStep{
   public static String returnreportfolder()
   {
 	  try{
-		  String fileName = System.getProperty("user.dir") + "\\TestReports\\temp.txt";
+		  String fileName = "TestReports\\temp.txt";
 		  Path path = Paths.get(fileName);
 		  byte[] bytes = Files.readAllBytes(path);
 		  List<String> allLines = Files.readAllLines(path, StandardCharsets.UTF_8);
@@ -462,8 +474,14 @@ public class ResultsLib implements IUiStep{
 		try {
 			
 			File snapshort_file = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-			FileHandler.copy(snapshort_file, new File(imgpath));
-			
+			if(new File(imgpath).exists())
+				FileHandler.copy(snapshort_file, new File(imgpath));
+			else
+			{
+				String repfolder = "TestReports\\"+returnreportfolder()+"\\"+imgpath;
+				FileHandler.copy(snapshort_file, new File(repfolder));
+			}
+				
 //			BufferedImage image = new Robot()
 //					.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 //			
@@ -523,7 +541,7 @@ public class ResultsLib implements IUiStep{
       Session session = Session.getInstance(props, null);
       props.put("mail.smtp.host", smtpHostServer);
       String repfolder = returnreportfolder();
-      String fileName = System.getProperty("user.dir") + "\\TestReports\\"+repfolder+"\\DetailedTestReport.html";
+      String fileName = "TestReports\\"+repfolder+"\\DetailedTestReport.html";
       String header = "Execution Started <br><br> Results Link: <a href="+fileName+">ResultLink";       
       sendEmail(session, "vlnmurthy.tarigoppala@optum.com","Automation Execution Started",header,"");
 
@@ -539,7 +557,7 @@ public class ResultsLib implements IUiStep{
       
       String repfolder = returnreportfolder();
       
-      String fileName = System.getProperty("user.dir") + "\\TestReports\\"+repfolder+"\\DetailedTestReport.html";
+      String fileName = "TestReports\\"+repfolder+"\\DetailedTestReport.html";
 	  Path path = Paths.get(fileName);
 	  byte[] bytes = Files.readAllBytes(path);
 	  List<String> allLines = Files.readAllLines(path, StandardCharsets.UTF_8);
