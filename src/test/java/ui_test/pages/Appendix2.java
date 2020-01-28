@@ -35,12 +35,16 @@ public class Appendix2 extends GenericInputPage {
             }
         }
         //Which Appendix 2 will be used for this contract
-        Question = "Which Appendix 2 will be used for this contract";
-        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
-            IWebInteract.log.info("Question : {}",Question);
-                Assert.assertTrue(click(Question, getContractTypeElem(Question, hmap.get(Question))));
+        //Choose the following Appendix 2
+        String[] Questions = {"Which Appendix 2 will be used for this contract","Choose the following Appendix 2"};
+        for(String Question : Questions){
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
+                IWebInteract.log.info("Question : {}",Question);
+                Assert.assertTrue(click(Question, getContractTypeElem(Question, hmap.get("Appendix2"))));
                 waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            }
         }
+
 
         //Split Products using // in case need to include/ exclude multiple products
         if (hmap.containsKey("Include Product")) {

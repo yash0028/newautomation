@@ -10,6 +10,7 @@ Feature: W4_TC_SE_SPA_1
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
   @W4LCJ
+  @w4test
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -66,8 +67,8 @@ Feature: W4_TC_SE_SPA_1
     Examples:
       | site          | paperType     | TCName         |
       | southeast uhn | SPA           | W4_TC_SE_SPA_1 |
-      | southeast uhn | SPA           | W4_TC_SE_SPA_2 |
-      | southeast uhn | SPA           | W4_TC_SE_SPA_3 |
-      | southeast uhn | SPA           | W4_TC_SE_SPA_4 |
-      | southeast uhn | SPA           | W4_TC_SE_SPA_5 |
+#      | southeast uhn | SPA           | W4_TC_SE_SPA_2 |
+#      | southeast uhn | SPA           | W4_TC_SE_SPA_3 |
+#      | southeast uhn | SPA           | W4_TC_SE_SPA_4 |
+#      | southeast uhn | SPA           | W4_TC_SE_SPA_5 |
 
