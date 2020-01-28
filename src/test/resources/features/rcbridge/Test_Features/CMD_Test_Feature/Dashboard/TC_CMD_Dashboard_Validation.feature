@@ -4,7 +4,7 @@
 Feature: CMD - [Continued] CMD
 
 
-  @TC_CMD_Errors_01
+  @TC_CMD_Dashboard_01
   @User_Interface
 
 
