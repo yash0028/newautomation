@@ -34,6 +34,13 @@ public class Appendix2 extends GenericInputPage {
                 Assert.fail("[ERROR] [Invalid input/Not implemented] for [Is this contract only for Virginia MLTSS = " + hmap.get("Is this contract only for Virginia MLTSS") + "]");
             }
         }
+        //Which Appendix 2 will be used for this contract
+        Question = "Which Appendix 2 will be used for this contract";
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
+            IWebInteract.log.info("Question : {}",Question);
+                Assert.assertTrue(click(Question, getContractTypeElem(Question, hmap.get(Question))));
+                waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        }
 
         //Split Products using // in case need to include/ exclude multiple products
         if (hmap.containsKey("Include Product")) {
