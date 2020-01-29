@@ -2,14 +2,15 @@
 @SPGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: TC_SE_SPGA_AR_10
-  
-  @TC_SE_SPGA_AR_10
+Feature: W4_TC_SE_SPGA_MS_1
+  #Mississippi (MS)
+  @W4_TC_SE_SPGA_1
   @Manual
   @User_Interface 
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  Scenario Outline: TC_CEN_SPGA_AR_10 - [RL0] Author SPGA contract in <site>  
+    @W4LCJ
+  Scenario Outline: <TCName> - [RL0] Author SPGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
@@ -69,42 +70,9 @@ Feature: TC_SE_SPGA_AR_10
     #NDB Check
      
     Examples:    
-       | site          | paperType     | TCName|          
-       | southeast uhn   | SPGA          | TC_SE_SPGA_AR_10|
-       
-       
-  @TC_SE_SPGA_AR_10
-  @Manual
-  @User_Interface 
-  @UAT_AUTO_AMENDMENT
-  @UAT_AUTO_AMENDMENT_MIG1
-	@UAT_AUTO_MAKE_A_CORRECTION
-  @SE_SPGA_AMT
-  @task111
-  Scenario Outline: TC_CEN_SPGA_AR_10 - [RL0] Author SPGA contract in <site>  
-
-		Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-		And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
-    #Make a correction - Add a new TIN to the existing provider in the Roster.
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I set Roster Action as Upload
-    And I Download Current Roster
-    And I Upload Completed Roster
-    And I enter warning in Make Correction
-    And I enter validation
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
-    
-
-    #CMD Checking
-    And I Verify CMD and Capture Status
-
-    #NDB Check
-		
-    
-    Examples:    
-       | site          | paperType     | TCName|          
-       | southeast uhn   | SPGA          | TC_SE_SPGA_AR_10|
+       | site            | paperType   | TCName            |
+       | southeast uhn   | SPGA        | W4_TC_SE_SPGA_MS_1|
+       | southeast uhn   | SPGA        | W4_TC_SE_SPGA_MS_2|
+       | southeast uhn   | SPGA        | W4_TC_SE_SPGA_MS_3|
+       | southeast uhn   | SPGA        | W4_TC_SE_SPGA_MS_4|
+       | southeast uhn   | SPGA        | W4_TC_SE_SPGA_MS_5|

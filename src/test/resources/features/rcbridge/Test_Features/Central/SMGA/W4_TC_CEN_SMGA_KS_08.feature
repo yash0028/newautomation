@@ -1,26 +1,28 @@
 # Last updated on
-@SPGABusinessTestcases_AR
+@SMGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: TC_SE_SPGA_AR_10
-  
-  @TC_SE_SPGA_AR_10
+Feature: W4_TC_CEN_SMGA_KS_08
+
+  @W4_TC_CEN_SMGA_KS_08
   @Manual
-  @User_Interface 
+  @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  Scenario Outline: TC_CEN_SPGA_AR_10 - [RL0] Author SPGA contract in <site>  
-	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-  
+  @SMGA_INITIAL
+  @Wave4
+  Scenario Outline: W4_TC_CEN_SMGA_KS_08 - [RL0] Author SMGA contract in <site>
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
+
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SPGA Contract
+    And I enter Practice Locations for SMGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -37,8 +39,9 @@ Feature: TC_SE_SPGA_AR_10
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-    
+
     #Final capture
+
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -50,42 +53,35 @@ Feature: TC_SE_SPGA_AR_10
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I verify Providers
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    
+
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    
 
-    #CMD Checking
+    #
+    #CMD Check
     And I Verify CMD and Capture Status
 
+    Examples:
+      | site          | paperType     | TCName           |
+      | central uhn   | SMGA          | W4_TC_CEN_SMGA_KS_08|
 
 
-    
-    #NDB Check
-     
-    Examples:    
-       | site          | paperType     | TCName|          
-       | southeast uhn   | SPGA          | TC_SE_SPGA_AR_10|
-       
-       
-  @TC_SE_SPGA_AR_10
+  @W4_TC_CEN_SMGA_KS_08
   @Manual
-  @User_Interface 
+  @User_Interface
+  @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
-  @UAT_AUTO_AMENDMENT_MIG1
-	@UAT_AUTO_MAKE_A_CORRECTION
-  @SE_SPGA_AMT
-  @task111
-  Scenario Outline: TC_CEN_SPGA_AR_10 - [RL0] Author SPGA contract in <site>  
+  @SMGA_AMANDMENT
+  Scenario Outline: W4_TC_CEN_SMGA_KS_08 - [RL0] Author SMGA contract in <site>
 
-		Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-		And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
-    #Make a correction - Add a new TIN to the existing provider in the Roster.
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
@@ -97,14 +93,13 @@ Feature: TC_SE_SPGA_AR_10
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    
 
-    #CMD Checking
+    #Create supporting document
+    # CMD Check
     And I Verify CMD and Capture Status
-
     #NDB Check
-		
-    
-    Examples:    
-       | site          | paperType     | TCName|          
-       | southeast uhn   | SPGA          | TC_SE_SPGA_AR_10|
+
+
+    Examples:
+      | site          | paperType     | TCName           |
+      | central uhn   | SMGA          | W4_TC_CEN_SMGA_KS_08|

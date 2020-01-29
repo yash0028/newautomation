@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
 import ui_test.util.IWebInteract;
+import ui_test.util.ResultsLib;
 import util.TimeKeeper;
 
 import java.util.HashMap;
@@ -31,6 +32,7 @@ public class PESInputActions extends GenericInputPage {
         String contractNumber = heading[1].trim().split(" ")[0];
         IWebInteract.log.info("CONTRACT NUMBER : {}", contractNumber);
         IWebInteract.log.info("CONTRACT DETAILS : {} - {}", readFile.get("commonName"), contractNumber);
+        ResultsLib.writeContractnumberInReport(readFile.get("commonName"), contractNumber);
         try {
             Assert.assertTrue(waitForPageLoad());
             for (Map.Entry<String, String> entry : readFile.entrySet()) {
