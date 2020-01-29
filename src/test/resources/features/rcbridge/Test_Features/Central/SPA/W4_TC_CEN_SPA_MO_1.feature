@@ -2,7 +2,8 @@
 @SPABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_CEN_SPA_1
+Feature: W4_TC_CEN_SPA_MO_1
+ #Missouri (MO)
  @W4_TC_CEN_SPA_1
  @Manual
  @User_Interface
@@ -66,9 +67,9 @@ Feature: W4_TC_CEN_SPA_1
 
 
    Examples:
-      | site          | paperType     | TCName           |
-      | central uhn   | SPA           | W4_TC_CEN_SPA_1  |
-      | central uhn   | SPA           | W4_TC_CEN_SPA_2  |
-      | central uhn   | SPA           | W4_TC_CEN_SPA_3  |
-      | central uhn   | SPA           | W4_TC_CEN_SPA_4  |
-      | central uhn   | SPA           | W4_TC_CEN_SPA_5  |
+      | site          | paperType     | TCName              |
+      | central uhn   | SPA           | W4_TC_CEN_SPA_MO_1  |
+      | central uhn   | SPA           | W4_TC_CEN_SPA_MO_2  |
+      | central uhn   | SPA           | W4_TC_CEN_SPA_MO_3  |
+      | central uhn   | SPA           | W4_TC_CEN_SPA_MO_4  |
+      | central uhn   | SPA           | W4_TC_CEN_SPA_MO_5  |

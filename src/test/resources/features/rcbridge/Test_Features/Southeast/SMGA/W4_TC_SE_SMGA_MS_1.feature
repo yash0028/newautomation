@@ -1,15 +1,16 @@
 # Last updated on
-@SPGABusinessTestcases_AR
+@SMGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SPGA_1
-  
-  @W4_TC_SE_SPGA_1
+Feature: W4_TC_SE_SMGA_MS_1
+  #Mississippi (MS)
+  @W4_TC_SE_SMGA_1
   @Manual
-  @User_Interface 
+  @User_Interface  
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-    @W4LCJ
+  @SMGA_INITIAL
+  @W4LCJ
   Scenario Outline: <TCName> - [RL0] Author SPGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -21,7 +22,7 @@ Feature: W4_TC_SE_SPGA_1
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SPGA Contract
+    And I enter Practice Locations for SMGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -58,21 +59,15 @@ Feature: W4_TC_SE_SPGA_1
     
     #Activate
     And I Set Status as Active
-    And I capture Contract Number
-    
+  	And I capture Contract Number
 
     #CMD Checking
     And I Verify CMD and Capture Status
 
-
-
-    
-    #NDB Check
-     
     Examples:    
-       | site            | paperType   | TCName         |
-       | southeast uhn   | SPGA        | W4_TC_SE_SPGA_1|
-       | southeast uhn   | SPGA        | W4_TC_SE_SPGA_2|
-       | southeast uhn   | SPGA        | W4_TC_SE_SPGA_3|
-       | southeast uhn   | SPGA        | W4_TC_SE_SPGA_4|
-       | southeast uhn   | SPGA        | W4_TC_SE_SPGA_5|
+       | site            | paperType     | TCName            |
+       | southeast uhn   | SMGA          | W4_TC_SE_SMGA_MS_1|
+       | southeast uhn   | SMGA          | W4_TC_SE_SMGA_MS_2|
+       | southeast uhn   | SMGA          | W4_TC_SE_SMGA_MS_3|
+       | southeast uhn   | SMGA          | W4_TC_SE_SMGA_MS_4|
+       | southeast uhn   | SMGA          | W4_TC_SE_SMGA_MS_5|
