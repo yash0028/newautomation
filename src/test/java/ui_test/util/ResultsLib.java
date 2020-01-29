@@ -90,7 +90,7 @@ public class ResultsLib implements IUiStep{
 			bw.close();			
 			fnGenerateHtmlReportsummaryTable(Reportfolder);		
 			
-			sendStartEmail();
+			//sendStartEmail();
 		}
 		catch(Exception ex)
 		{
