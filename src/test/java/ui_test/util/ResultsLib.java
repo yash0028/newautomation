@@ -181,7 +181,7 @@ public class ResultsLib implements IUiStep{
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 				String strDate = dateFormat.format(new Date());
 				String hrefString = "Screenshots\\"+strDate+ ".png";			 
-				objres.fnTakeScreenShot(strResultStatus,hrefString);
+				//objres.fnTakeScreenShot(strResultStatus,hrefString);
 				
 				template = "<tr><td width='30%' align='center'><font color='#153e7e' size='1' face='Arial align='center''><b>" + strExceptedResult
 						+ "</b></font></td><td align='center'><font color='#153e7e' size='1' face='Arial' align='center'><b>"  + strDescription
