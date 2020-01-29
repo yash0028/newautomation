@@ -1,19 +1,22 @@
 # Last updated on
-@SMGABusinessTestcases_IN
+@SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_CEN_SMGA_1
-  
-  @W4_TC_CEN_SMGA_1
+Feature: W4_TC_CEN_SPGA_MO_1
+  #Missouri (MO)
+  @W4_TC_CEN_SPGA_1
   @Manual
-  @User_Interface  
+  @User_Interface
+  @UAT_Automation_Batch1
+  @UAT_AUTO_CENTRAL
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  @SMGA_INITIAL
+  @SPGA_INITIAL
+  @Test_Failures
   @W4LCJ
   Scenario Outline: <TCName> - [RL0] Author SPGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-	 
+  
     #Draft
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
@@ -22,7 +25,7 @@ Feature: W4_TC_CEN_SMGA_1
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SMGA Contract
+    And I enter Practice Locations for SPGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -56,20 +59,18 @@ Feature: W4_TC_CEN_SMGA_1
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
+    
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    #
-    #CMD Check
+
+    #CMD checking
     And I Verify CMD and Capture Status
 
-    #NDB Checking 
-	  
     Examples:    
-       | site          | paperType     | TCName          |
-       | central uhn   | SMGA          | W4_TC_CEN_SMGA_1|
-       | central uhn   | SMGA          | W4_TC_CEN_SMGA_2|
-       | central uhn   | SMGA          | W4_TC_CEN_SMGA_3|
-       | central uhn   | SMGA          | W4_TC_CEN_SMGA_4|
-       | central uhn   | SMGA          | W4_TC_CEN_SMGA_5|
+       | site          | paperType     | TCName             |
+       | central uhn   | SPGA          | W4_TC_CEN_SPGA_MO_1|
+       | central uhn   | SPGA          | W4_TC_CEN_SPGA_MO_2|
+       | central uhn   | SPGA          | W4_TC_CEN_SPGA_MO_3|
+       | central uhn   | SPGA          | W4_TC_CEN_SPGA_MO_4|
+       | central uhn   | SPGA          | W4_TC_CEN_SPGA_MO_5|
