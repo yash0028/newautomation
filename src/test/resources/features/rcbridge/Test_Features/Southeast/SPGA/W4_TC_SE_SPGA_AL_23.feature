@@ -1,17 +1,18 @@
 # Last updated on
-@SMGABusinessTestcases_AR
+@SPGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SMGA_AL_17
+Feature: W4_TC_SE_SPGA_AL_23
 
-  @W4_TC_SE_SMGA_AL_17
+  @W4_TC_SE_SPGA_AL_23
   @Manual
   @User_Interface
+  @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @Wave4_AL
-  Scenario Outline: W4_TC_SE_SMGA_AL_17 - [RL0] Author SMGA contract in <site>
+  Scenario Outline: W4_TC_SE_SPGA_AL_23 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-
+  
     #Draft
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
@@ -20,7 +21,7 @@ Feature: W4_TC_SE_SMGA_AL_17
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SMGA Contract
+    And I enter Practice Locations for SPGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -37,7 +38,7 @@ Feature: W4_TC_SE_SMGA_AL_17
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-
+    
     #Final capture
 
     And I Start Workflow
@@ -51,11 +52,11 @@ Feature: W4_TC_SE_SMGA_AL_17
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
+    
     #Activate
     And I Set Status as Active
     And I capture Contract Number
@@ -63,61 +64,49 @@ Feature: W4_TC_SE_SMGA_AL_17
     #CMD Checking
     And I Verify CMD and Capture Status
 
+
+
     Examples:
       | site          | paperType     | TCName|
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_17|
+      | southeast uhn   | SPGA          | W4_TC_SE_SPGA_AL_23|
 
-
-  @W4_TC_SE_SMGA_AL_17
+  @W4_TC_SE_SPGA_AL_23
   @Manual
   @User_Interface
-  @UAT_AUTO_AMENDMENT1
+  @UAT_AUTO
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @SPGA_AMENDMENT
   @UAT_AUTO_AMENDMENT_MIG1
-  @SE_SMGA_AMT
-  @run_now
-  Scenario Outline: W4_TC_SE_SMGA_AL_17 - [RL0] Author SMGA contract in <site>
+  @temp
+  @SE_SPGA_AMT
+  Scenario Outline: W4_TC_SE_SPGA_AL_23 - [RL0] Author SPGA contract in <site>
+
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
-	#Draft Amandament
-    And I select the contract
-    And I click on Create Amendment
-    And I enter title
-    And I enter Amendment Selection
-    And I select Amendments needed in Amendment Selection
-    And I select Amendment Type in Provider Details
-    And I select Types of Amendments
-    And I select Contract Applied in Amendments
-    And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
-    And I enter Appendix 2 in Amendments
-    And I select applied Payment Appendix
-#    And I enter Payment Appendix in Amendments for SMGA contracts
-#    And I check Payment Appendix
-    And I select Payment Appendix for SMGA contracts
-    And I choose Additional Manuals
-    And I enter Steerage
-    And I enter Payment Appendix in Amendments for SMGA contracts
-    And I check Payment Appendix
-    And I enter Regulatory Appendices
+    
+    #Make a correction - Add a new TIN to the existing provider in the Roster.
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
     And I enter Group Summary
-    And I Complete Wizard
-
-	#Amandment final capture
-    And I Start Workflow
-    And I Start Process for Initial Transaction
-    And I Set Status as Final Pending QA in Amendment
-    And I Start Final Capture
-    And I enter Provider Signatory in Amendment
-    And I enter Our Signatory in Amendment
-    And I enter Appendix 2 in Amendments FinalCapture
-    And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
-    And I enter Group Summary
-    And I Complete Wizard
+    Then I Complete Wizard    
 
     #CMD Checking
     And I Verify CMD and Capture Status
 
+    #NDB Check
+		
+    #Cancel MPIN and TIN ,which has been added thru make a correction
+
+
     Examples:
       | site          | paperType     | TCName|
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_17|
+      | southeast uhn   | SPGA          | W4_TC_SE_SPGA_AL_23|
+       

@@ -1,15 +1,17 @@
 # Last updated on
-@SMGABusinessTestcases_AR
+#Author commercial with 1 Mid-level PCP for PAT contract, execute and load contract, verify contract fed__Standard_Add Medicare.
+@PATBusinessTestcases_AL
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SMGA_AL_17
+Feature: W4_TC_SE_PAT_AL_22
 
-  @W4_TC_SE_SMGA_AL_17
+  @W4_TC_SE_PAT_AL_22
   @Manual
   @User_Interface
+  @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  @Wave4_AL
-  Scenario Outline: W4_TC_SE_SMGA_AL_17 - [RL0] Author SMGA contract in <site>
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT
+  Scenario Outline: W4_TC_SE_PAT_AL_22 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
@@ -20,13 +22,12 @@ Feature: W4_TC_SE_SMGA_AL_17
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SMGA Contract
+    And I enter Practice Locations for PAT Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
-    And I enter Contract Details
-    And I enter HBPs Red Door
     And I select Provider Signatory
+    And I enter Contract Details
     And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
@@ -39,7 +40,6 @@ Feature: W4_TC_SE_SMGA_AL_17
     Then I Complete Wizard
 
     #Final capture
-
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -64,21 +64,28 @@ Feature: W4_TC_SE_SMGA_AL_17
     And I Verify CMD and Capture Status
 
     Examples:
-      | site          | paperType     | TCName|
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_17|
+      | site            | paperType     | TCName         |
+      | southeast uhn   | PAT           | W4_TC_SE_PAT_AL_22|
 
-
-  @W4_TC_SE_SMGA_AL_17
+  @W4_TC_SE_PAT_AL_22
   @Manual
   @User_Interface
-  @UAT_AUTO_AMENDMENT1
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_AMENDMENT_PAT
+  @UAT_AUTO_AMENDMENT_TEST
   @UAT_AUTO_AMENDMENT_MIG1
-  @SE_SMGA_AMT
-  @run_now
-  Scenario Outline: W4_TC_SE_SMGA_AL_17 - [RL0] Author SMGA contract in <site>
+  @AMENDMENT_ALL_PAT
+  @task111
+  @bigh
+  @PAT_SE_AMEND
+  Scenario Outline: W4_TC_SE_PAT_AL_22 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+
+    #Draft
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
-	#Draft Amandament
+
+
+    #Draft Amandament
     And I select the contract
     And I click on Create Amendment
     And I enter title
@@ -91,18 +98,16 @@ Feature: W4_TC_SE_SMGA_AL_17
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-#    And I enter Payment Appendix in Amendments for SMGA contracts
-#    And I check Payment Appendix
-    And I select Payment Appendix for SMGA contracts
+    And I select Payment Appendix to include in Amendments for PAT contracts
     And I choose Additional Manuals
     And I enter Steerage
-    And I enter Payment Appendix in Amendments for SMGA contracts
+    And I enter Payment Appendix in Amendments for PAT contracts
     And I check Payment Appendix
-    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
 
-	#Amandment final capture
+
+    #Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
@@ -111,13 +116,18 @@ Feature: W4_TC_SE_SMGA_AL_17
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
+
+     #Activating Amendment
+    And I Set Status as Active in Amendment
+
 
     #CMD Checking
     And I Verify CMD and Capture Status
 
+
     Examples:
-      | site          | paperType     | TCName|
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_17|
+      | site            | paperType     | TCName         |
+      | southeast uhn   | PAT           | W4_TC_SE_PAT_AL_22|
+

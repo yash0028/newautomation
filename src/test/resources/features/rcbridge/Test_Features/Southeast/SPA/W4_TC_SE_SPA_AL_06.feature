@@ -1,34 +1,33 @@
 # Last updated on
-@SMGABusinessTestcases_AR
+@SPABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SMGA_AL_12
-
-  @W4_TC_SE_SMGA_AL_12
+Feature: W4_TC_SE_SPA_AL_06
+  @W4_TC_SE_SPA_AL_06
   @Manual
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  @SMGA_INITIAL
+  @UAT_AUTO_INITIAL_TRANSACTION_SPA
+  @Test_Failures
   @Wave4_AL
-  Scenario Outline: W4_TC_SE_SMGA_AL_12 - [RL0] Author SMGA contract in <site>
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-    And I enter PES Response
+    And I enter PES Responses
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SMGA Contract
+    And I enter Practice Locations for SPA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
-    And I enter Contract Details
-    And I enter HBPs Red Door
     And I select Provider Signatory
+    And I enter Contract Details
     And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
@@ -40,8 +39,7 @@ Feature: W4_TC_SE_SMGA_AL_12
     And I enter Group Summary
     Then I Complete Wizard
 
-    #Final capture
-
+     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -62,45 +60,45 @@ Feature: W4_TC_SE_SMGA_AL_12
     And I Set Status as Active
     And I capture Contract Number
 
-
     #CMD Checking
     And I Verify CMD and Capture Status
 
+
     Examples:
       | site            | paperType     | TCName          |
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_12|
+      | southeast uhn   | SPA           | W4_TC_SE_SPA_AL_06 |
 
-
-  @W4_TC_SE_SMGA_AL_12
+  @W4_TC_SE_SPA_AL_06
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
-  @SMGA_AMANDMENT
+  @SPA_AMENDMENT
+  @UAT_AUTO_AMENDMENT_TEST_SPA
   @UAT_AUTO_AMENDMENT_MIG1
-  @SE_SMGA_AMT
-
-  Scenario Outline: W4_TC_SE_SMGA_AL_12 - [RL0] Author SMGA contract in <site>
+  @temp
+  @SPA_AMENDMENT_Migration
+  @SPA_SE_AMEND
+  Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
-
-    #Add provider with Make a correction.
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
     And I select Provider Signatory
-    And I add provider using TIN
-    And I select Providers
-    And I enter Provider Start Date
-    And I enter retro code in Provider Roster
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
     And I acknowledge the warning
-    And I preview Provider Details
     And I enter Group Summary
     Then I Complete Wizard
 
     #CMD Checking
     And I Verify CMD and Capture Status
 
+
     Examples:
       | site            | paperType     | TCName          |
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_12|
+      | southeast uhn   | SPA           | W4_TC_SE_SPA_AL_06 |
