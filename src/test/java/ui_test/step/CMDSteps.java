@@ -73,6 +73,7 @@ public class CMDSteps implements IRestStep, IUiStep {
         TimeUnit.SECONDS.sleep(5);
         //Search Contract
         cmdPage.searchContract();
+        TimeUnit.SECONDS.sleep(5);
 
 
 
