@@ -58,6 +58,13 @@ public class Appendix2 extends GenericInputPage {
 //            }
 //        }
 
+        if(isVisible(elements.Alabama))
+        {
+            Assert.assertTrue(click(elements.Alabama));
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+
+        }
+
         //Split Products using // in case need to include/ exclude multiple products
         if (hmap.containsKey("Include Product")) {
 
@@ -214,6 +221,9 @@ public class Appendix2 extends GenericInputPage {
 
         @FindBy (xpath="//input[contains(@value,'Louisiana Medicaid and CHIP Only or Missisippi Medicaid and/or CHIP Red Door Only')]")
         private WebElement Louisiana;
+
+        @FindBy (xpath="//input[contains(@value,''Alabama Only)]")
+        private WebElement Alabama;
     }
 
 }
