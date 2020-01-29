@@ -45,14 +45,6 @@ public class Appendix2 extends GenericInputPage {
             }
         }
 
-
-        if(isVisible(elements.Alabama))
-        {
-            Assert.assertTrue(click(elements.Alabama));
-            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-
-        }
-
         //Split Products using // in case need to include/ exclude multiple products
 
         if (hmap.containsKey("Include Medicare Product")) {
@@ -84,6 +76,12 @@ public class Appendix2 extends GenericInputPage {
             }
         }
 
+        if(isVisible(elements.Alabama))
+        {
+            Assert.assertTrue(click(elements.Alabama));
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+
+        }
 
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
