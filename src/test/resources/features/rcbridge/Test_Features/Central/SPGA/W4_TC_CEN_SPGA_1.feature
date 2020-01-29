@@ -1,19 +1,24 @@
 # Last updated on
-@SPGABusinessTestcases_AR
+@SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: TC_SE_SPGA_AR_10
+Feature: W4_TC_CEN_SPGA_1
   
-  @TC_SE_SPGA_AR_10
+  @W4_TC_CEN_SPGA_1
   @Manual
-  @User_Interface 
+  @User_Interface
+  @UAT_Automation_Batch1
+  @UAT_AUTO_CENTRAL
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  Scenario Outline: TC_CEN_SPGA_AR_10 - [RL0] Author SPGA contract in <site>  
+  @SPGA_INITIAL
+  @Test_Failures
+  @W4LCJ
+  Scenario Outline: <TCName> - [RL0] Author SPGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -37,7 +42,7 @@ Feature: TC_SE_SPGA_AR_10
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-    
+
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
@@ -58,53 +63,14 @@ Feature: TC_SE_SPGA_AR_10
     #Activate
     And I Set Status as Active
     And I capture Contract Number
-    
 
-    #CMD Checking
+    #CMD checking
     And I Verify CMD and Capture Status
 
-
-
-    
-    #NDB Check
-     
     Examples:    
-       | site          | paperType     | TCName|          
-       | southeast uhn   | SPGA          | TC_SE_SPGA_AR_10|
-       
-       
-  @TC_SE_SPGA_AR_10
-  @Manual
-  @User_Interface 
-  @UAT_AUTO_AMENDMENT
-  @UAT_AUTO_AMENDMENT_MIG1
-	@UAT_AUTO_MAKE_A_CORRECTION
-  @SE_SPGA_AMT
-  @task111
-  Scenario Outline: TC_CEN_SPGA_AR_10 - [RL0] Author SPGA contract in <site>  
-
-		Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-		And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
-    #Make a correction - Add a new TIN to the existing provider in the Roster.
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I set Roster Action as Upload
-    And I Download Current Roster
-    And I Upload Completed Roster
-    And I enter warning in Make Correction
-    And I enter validation
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
-    
-
-    #CMD Checking
-    And I Verify CMD and Capture Status
-
-    #NDB Check
-		
-    
-    Examples:    
-       | site          | paperType     | TCName|          
-       | southeast uhn   | SPGA          | TC_SE_SPGA_AR_10|
+       | site          | paperType     | TCName          |
+       | central uhn   | SPGA          | W4_TC_CEN_SPGA_1|
+       | central uhn   | SPGA          | W4_TC_CEN_SPGA_2|
+       | central uhn   | SPGA          | W4_TC_CEN_SPGA_3|
+       | central uhn   | SPGA          | W4_TC_CEN_SPGA_4|
+       | central uhn   | SPGA          | W4_TC_CEN_SPGA_5|

@@ -34,18 +34,29 @@ public class Appendix2 extends GenericInputPage {
                 Assert.fail("[ERROR] [Invalid input/Not implemented] for [Is this contract only for Virginia MLTSS = " + hmap.get("Is this contract only for Virginia MLTSS") + "]");
             }
         }
-
-        //Will this contract be for Kansas and/or Missouri Medicaid and/or CHIP ONLY contracts?
-        this.Question = "Kansas and/or Missouri Medicaid and/or CHIP ONLY";
-        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(this.Question)))) {
-            IWebInteract.log.info("Question : {}",this.Question);
-            if (hmap.containsKey("Kansas and/or Missouri Medicaid and/or CHIP ONLY")) {
-                Assert.assertTrue(click(this.Question,getXPath(hmap.get(this.Question))));
+        //Which Appendix 2 will be used for this contract
+        //Choose the following Appendix 2
+        String[] Questions = {"Which Appendix 2 will be used for this contract","Choose the following Appendix 2","Kansas and/or Missouri Medicaid and/or CHIP ONLY"};
+        for(String Question : Questions){
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
+                IWebInteract.log.info("Question : {}",Question);
+                Assert.assertTrue(click(Question, getContractTypeElem(Question, hmap.get("Appendix2"))));
                 waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-            } else {
-                Assert.fail("[ERROR] [Invalid input/Not implemented] for [Will this contract be for Kansas and/or Missouri Medicaid and/or CHIP ONLY contracts? = " + hmap.get(this.Question) + "]");
             }
         }
+
+
+//        //Will this contract be for Kansas and/or Missouri Medicaid and/or CHIP ONLY contracts?
+//        this.Question = "Kansas and/or Missouri Medicaid and/or CHIP ONLY";
+//        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(this.Question)))) {
+//            IWebInteract.log.info("Question : {}",this.Question);
+//            if (hmap.containsKey("Kansas and/or Missouri Medicaid and/or CHIP ONLY")) {
+//                Assert.assertTrue(click(this.Question,getXPath(hmap.get(this.Question))));
+//                waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+//            } else {
+//                Assert.fail("[ERROR] [Invalid input/Not implemented] for [Will this contract be for Kansas and/or Missouri Medicaid and/or CHIP ONLY contracts? = " + hmap.get(this.Question) + "]");
+//            }
+//        }
 
         //Split Products using // in case need to include/ exclude multiple products
         if (hmap.containsKey("Include Product")) {

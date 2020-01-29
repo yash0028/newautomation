@@ -22,6 +22,10 @@ public class ProviderDetails extends GenericInputPage {
 
     public void selectEntry(HashMap<String, String> data) {
         text_dropdown(data.get("Market Number"));
+        String Question = "Select the State this Market Number applies to";
+        chooseMarketType(Question, data);
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
     public void text_dropdown(String answer) {
@@ -40,8 +44,6 @@ public class ProviderDetails extends GenericInputPage {
     private void selectOption(String answer) {
         click("MarketNumber", selectOptionForMarketNumber(answer));
         waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        Assert.assertTrue(clickNext());
-        Assert.assertTrue(waitForPageLoad());
 
     }
 
@@ -56,8 +58,14 @@ public class ProviderDetails extends GenericInputPage {
             //MGA WEST OR / MGA NORTHEAST VA
             chooseMarketType(Question, hmap);
 
-            if(isVisible(elements.Arbitration_County))
-                click(elements.Arbitration_County);
+            //Select the Arbitration County:*
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.Arbitration_County_Xpath)))
+                Assert.assertTrue(click("Arbitration_County_Xpath",elements.Arbitration_County));
+
+            //Select the Arbitration County:* w4
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.Arbitration_County_Xpath2)))
+                Assert.assertTrue(click("Arbitration_County_Xpath",elements.Arbitration_County2));
+
 
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
@@ -108,7 +116,11 @@ public class ProviderDetails extends GenericInputPage {
         private WebElement tier;
         @FindBy(xpath="//input[contains(@value,'5_Hartford County')]")
         private WebElement Arbitration_County;
+        @FindBy(xpath="//input[contains(@value,'Jackson County')]")
+        private WebElement Arbitration_County2;
 
+        private String Arbitration_County_Xpath2 = "//input[contains(@value,'Jackson County')]";
+        private String Arbitration_County_Xpath = "//input[contains(@value,'5_Hartford County')]";
         private String tierIndicator = "//input[contains(@name,'TierIndicator')]";
         private String duplicateTIN = "//label[contains(.,'duplicate check failed')]/b";
         private String message = "//div[contains(@class,'DialogBox')]";

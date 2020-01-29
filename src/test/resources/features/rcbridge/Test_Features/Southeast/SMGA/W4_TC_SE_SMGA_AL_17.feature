@@ -2,13 +2,14 @@
 @SMGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: TC_SE_SMGA_AR_17
+Feature: W4_TC_SE_SMGA_AL_17
 
-  @TC_SE_SMGA_AR_17
+  @W4_TC_SE_SMGA_AL_17
   @Manual
   @User_Interface
   @UAT_AUTO_INITIAL_TRANSACTION
-  Scenario Outline: TC_SE_SMGA_AR_17 - [RL0] Author SMGA contract in <site>
+  @Wave4
+  Scenario Outline: W4_TC_SE_SMGA_AL_17 - [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
@@ -64,17 +65,17 @@ Feature: TC_SE_SMGA_AR_17
 
     Examples:
       | site          | paperType     | TCName|
-      | southeast uhn   | SMGA          | TC_SE_SMGA_AR_17|
+      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_17|
 
 
-  @TC_SE_SMGA_AR_17
+  @W4_TC_SE_SMGA_AL_17
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT1
   @UAT_AUTO_AMENDMENT_MIG1
   @SE_SMGA_AMT
   @run_now
-  Scenario Outline: TC_SE_SMGA_AR_17 - [RL0] Author SMGA contract in <site>
+  Scenario Outline: W4_TC_SE_SMGA_AL_17 - [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
 	#Draft Amandament
@@ -119,4 +120,4 @@ Feature: TC_SE_SMGA_AR_17
 
     Examples:
       | site          | paperType     | TCName|
-      | southeast uhn   | SMGA          | TC_SE_SMGA_AR_17|
+      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_17|
