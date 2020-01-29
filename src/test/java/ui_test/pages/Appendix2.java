@@ -36,7 +36,9 @@ public class Appendix2 extends GenericInputPage {
         }
         //Which Appendix 2 will be used for this contract
         //Choose the following Appendix 2
-        String[] Questions = {"Which Appendix 2 will be used for this contract","Choose the following Appendix 2"};
+        String[] Questions = {"Which Appendix 2 will be used for this contract",
+                              "Choose the following Appendix 2",
+                              "Select the appropriate Appendix 2"};
         for(String Question : Questions){
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
                 IWebInteract.log.info("Question : {}",Question);
