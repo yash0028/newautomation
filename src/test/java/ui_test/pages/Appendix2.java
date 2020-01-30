@@ -23,7 +23,6 @@ public class Appendix2 extends GenericInputPage {
 
     public void selectAppendix(HashMap<String, String> hmap) throws InterruptedException {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        //Is this contract only for Virginia MLTSS?
         Question = "Is this contract only for Virginia MLTSS";
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
             IWebInteract.log.info("Question : {}",Question);
@@ -34,8 +33,7 @@ public class Appendix2 extends GenericInputPage {
                 Assert.fail("[ERROR] [Invalid input/Not implemented] for [Is this contract only for Virginia MLTSS = " + hmap.get("Is this contract only for Virginia MLTSS") + "]");
             }
         }
-        //Which Appendix 2 will be used for this contract
-        //Choose the following Appendix 2
+
         String[] Questions = {"Which Appendix 2 will be used for this contract",
                               "Choose the following Appendix 2",
                               "Select the appropriate Appendix 2"};
@@ -58,15 +56,9 @@ public class Appendix2 extends GenericInputPage {
             }
 
         }
-        if (hmap.containsKey("Include Medicare Product")) {
 
-            String[] IncludeProducts = hmap.get("Include Medicare Product").split("//");
-            for (String product : IncludeProducts) {
-                Assert.assertTrue(click("Include Medicare Product", getXPath(product)));
-                Assert.assertTrue(waitForPageLoad(60));
-            }
+        includeMedicareProduct(hmap,false);
 
-        }
         if (hmap.containsKey("Exclude Product")) {
             String[] ExcludeProducts = hmap.get("Exclude Product").split("//");
             for (String product : ExcludeProducts) {
@@ -78,6 +70,29 @@ public class Appendix2 extends GenericInputPage {
 
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+
+        //in some cases include medicare product will be displayed in the next page
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        includeMedicareProduct(hmap,true);
+
+    }
+
+    public void includeMedicareProduct(HashMap<String, String> hmap,boolean clickNext){
+        Question = "Medicare Advantage";
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
+            if (hmap.containsKey("Include Medicare Product")) {
+                String[] IncludeProducts = hmap.get("Include Medicare Product").split("//");
+                for (String product : IncludeProducts) {
+                    Assert.assertTrue(click("Include Medicare Product : "+product, getContractTypeElem(Question, product)));
+                    Assert.assertTrue(waitForPageLoad(60));
+                }
+
+            }
+            if(clickNext){
+                Assert.assertTrue(clickNext());
+                Assert.assertTrue(waitForPageLoad());
+            }
+        }
     }
 
     public void productsExcludedFromAgreement(HashMap<String, String> hmap) {
