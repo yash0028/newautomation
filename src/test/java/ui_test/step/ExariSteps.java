@@ -192,6 +192,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPaymentAppendix().enterFeeScheduleID(hmap);
         basePage.getPaymentAppendix().verifyFeeScheduleID();
     }
+    @And("^I enter Rate Escalator$")
+    public void Payment() {
+        basePage.getPaymentAppendix().payment();
+    }
 
     @And("^I enter Additional Locations$")
     public void AdditionalLocations() {
@@ -410,7 +414,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I verify Providers$")
     public void verifyProviders() {
-        basePage.getProviderRoaster().verifyProviders();
+        basePage.getProviderRoaster().verifyProviders(hmap);
 
     }
 

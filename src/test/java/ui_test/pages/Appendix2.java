@@ -23,68 +23,89 @@ public class Appendix2 extends GenericInputPage {
 
     public void selectAppendix(HashMap<String, String> hmap) throws InterruptedException {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        //Is this contract only for Virginia MLTSS?
         Question = "Is this contract only for Virginia MLTSS";
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
             IWebInteract.log.info("Question : {}",Question);
             if (hmap.get("Is this contract only for Virginia MLTSS").equals("No")) {
-                Assert.assertTrue(click(Question, getContractTypeElem(Question, hmap.get(Question))));
+                Assert.assertTrue(click(Question +":"+ hmap.get(Question), getContractTypeElem(Question, hmap.get(Question))));
                 waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             } else {
                 Assert.fail("[ERROR] [Invalid input/Not implemented] for [Is this contract only for Virginia MLTSS = " + hmap.get("Is this contract only for Virginia MLTSS") + "]");
             }
         }
-        //Which Appendix 2 will be used for this contract
-        //Choose the following Appendix 2
-        String[] Questions = {"Which Appendix 2 will be used for this contract","Choose the following Appendix 2","Kansas and/or Missouri Medicaid and/or CHIP ONLY","Which Appendix 2 will be used for this contract?"};
+
+        String[] Questions = {"Which Appendix 2 will be used for this contract",
+                              "Choose the following Appendix 2",
+                              "Select the appropriate Appendix 2",
+                              "Kansas and/or Missouri Medicaid and/or CHIP ONLY"};
+
         for(String Question : Questions){
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
                 IWebInteract.log.info("Question : {}",Question);
-                Assert.assertTrue(click(Question, getContractTypeElem(Question, hmap.get("Appendix2"))));
+                Assert.assertTrue(click(Question + ":"+hmap.get("Appendix2"), getContractTypeElem(Question, hmap.get("Appendix2"))));
                 waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             }
         }
 
         //Split Products using // in case need to include/ exclude multiple products
 
-        if (hmap.containsKey("Include Medicare Product")) {
-
-            String[] IncludeProducts = hmap.get("Include Medicare Product").split("//");
-            for (String product : IncludeProducts) {
-                Assert.assertTrue(click("Include Medicare Product", getXPath(product)));
-                Assert.assertTrue(waitForPageLoad(60));
+        includeMedicareProduct(hmap,false);
+        Question = "products will be excluded";
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
+            IWebInteract.log.info("Question : {}",Question);
+            if (hmap.containsKey("Exclude Product")) {
+                String[] ExcludeProducts = hmap.get("Exclude Product").split("//");
+                for (String product : ExcludeProducts) {
+                    Assert.assertTrue(click("Exclude Product in Appendix 2", getXPath(product)));
+                    Assert.assertTrue(waitForPageLoad(60));
+                }
             }
-
-        }
-        if (hmap.containsKey("Exclude Product")) {
-            String[] ExcludeProducts = hmap.get("Exclude Product").split("//");
-            for (String product : ExcludeProducts) {
-                Assert.assertTrue(click("Exclude Product in Appendix 2", getXPath(product)));
-                Assert.assertTrue(waitForPageLoad(60));
-            }
+        }else{
+            IWebInteract.log.info("[NOT FOUND] Question : {}",Question);
         }
 
-        Question = "include";
+        Question = "products will be included";
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
             IWebInteract.log.info("Question : {}",Question);
             if (hmap.containsKey("Include Product")) {
                 String[] IncludeProducts = hmap.get("Include Product").split("//");
                 for (String product : IncludeProducts) {
-                    Assert.assertTrue(click("Include Product in Appendix 2",getContractTypeElem(Question, hmap.get(Question))));
+                    Assert.assertTrue(click("Include Product in Appendix 2 : "+product,getContractTypeElem(Question, product)));
                     Assert.assertTrue(waitForPageLoad(60));
                 }
             }
-        }
-
-        if(isVisible(elements.Alabama))
-        {
-            Assert.assertTrue(click(elements.Alabama));
-            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-
+        }else{
+            IWebInteract.log.info("[NOT FOUND] Question : {}",Question);
         }
 
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+
+        //in some cases include medicare product will be displayed in the next page
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        includeMedicareProduct(hmap,true);
+
+    }
+
+    public void includeMedicareProduct(HashMap<String, String> hmap,boolean clickNext){
+        Question = "Medicare Advantage";
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
+            IWebInteract.log.info("Question : {}",Question);
+            if (hmap.containsKey("Include Medicare Product")) {
+                String[] IncludeProducts = hmap.get("Include Medicare Product").split("//");
+                for (String product : IncludeProducts) {
+                    Assert.assertTrue(click("Include Medicare Product : "+product, getContractTypeElem(Question, product)));
+                    Assert.assertTrue(waitForPageLoad(60));
+                }
+
+            }
+            if(clickNext){
+                Assert.assertTrue(clickNext());
+                Assert.assertTrue(waitForPageLoad());
+            }
+        }else{
+            IWebInteract.log.info("[NOT FOUND] Question : {}",Question);
+        }
     }
 
     public void productsExcludedFromAgreement(HashMap<String, String> hmap) {
@@ -190,7 +211,7 @@ public class Appendix2 extends GenericInputPage {
 
     public void enterLouisiana(HashMap<String, String> hmap)
     {
-        if(isVisible(elements.Louisiana))
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.LouisianaXpath)))
         {
             click(elements.Louisiana);
             Assert.assertTrue(clickNext());
@@ -203,7 +224,7 @@ public class Appendix2 extends GenericInputPage {
 
         private String message = "//div[contains(@class,'DialogBox')]";
         private String topic = "//div[contains(@class,'topicArea')]/p[contains(.,'Appendix 2')]";
-
+        private String LouisianaXpath = "//input[contains(@value,'Louisiana Medicaid and CHIP Only or Missisippi Medicaid and/or CHIP Red Door Only')]";
 
         public PageElements(SearchContext context) {
             super(context);
@@ -214,6 +235,7 @@ public class Appendix2 extends GenericInputPage {
 
         @FindBy (xpath="//input[contains(@value,'Alabama Only')]")
         private WebElement Alabama;
+
     }
 
 }
