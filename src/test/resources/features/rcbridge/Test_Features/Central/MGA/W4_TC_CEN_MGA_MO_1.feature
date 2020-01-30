@@ -14,6 +14,7 @@ Feature: W4_TC_CEN_MGA_MO_1
   @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
   @W4LCJ
   @w4test
+    @wave4
     #completed adding data and steps
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
 

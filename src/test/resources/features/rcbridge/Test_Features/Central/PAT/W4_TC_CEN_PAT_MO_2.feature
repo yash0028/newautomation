@@ -3,9 +3,9 @@
 @PATBusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_CEN_PAT_MO_1
+Feature: W4_TC_CEN_PAT_MO_2
 
-  @W4_TC_CEN_PAT_MO_1
+  @W4_TC_CEN_PAT_MO_2
   @Manual
   @User_Interface
   @UAT_AUTO
@@ -15,7 +15,6 @@ Feature: W4_TC_CEN_PAT_MO_1
   @UAT_AUTO_INITIAL_TRANSACTION_PAT_CEN
   @W4LCJ
   @wave4
-
     #completed adding data and steps
   Scenario Outline: TC_CEN_PAT_IN_04 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -48,8 +47,6 @@ Feature: W4_TC_CEN_PAT_MO_1
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-    #Approval
-    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -76,6 +73,5 @@ Feature: W4_TC_CEN_PAT_MO_1
 
     Examples:
       | site          | paperType     | TCName            |
-      | central uhn   | PAT           | W4_TC_CEN_PAT_MO_1|
       | central uhn   | PAT           | W4_TC_CEN_PAT_MO_2|
 
