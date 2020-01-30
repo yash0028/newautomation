@@ -52,6 +52,7 @@ public class Appendix2 extends GenericInputPage {
         includeMedicareProduct(hmap,false);
         Question = "products will be excluded";
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
+            IWebInteract.log.info("Question : {}",Question);
             if (hmap.containsKey("Exclude Product")) {
                 String[] ExcludeProducts = hmap.get("Exclude Product").split("//");
                 for (String product : ExcludeProducts) {
@@ -59,6 +60,8 @@ public class Appendix2 extends GenericInputPage {
                     Assert.assertTrue(waitForPageLoad(60));
                 }
             }
+        }else{
+            IWebInteract.log.info("[NOT FOUND] Question : {}",Question);
         }
 
         Question = "products will be included";
@@ -71,6 +74,8 @@ public class Appendix2 extends GenericInputPage {
                     Assert.assertTrue(waitForPageLoad(60));
                 }
             }
+        }else{
+            IWebInteract.log.info("[NOT FOUND] Question : {}",Question);
         }
 
         Assert.assertTrue(clickNext());
@@ -98,6 +103,8 @@ public class Appendix2 extends GenericInputPage {
                 Assert.assertTrue(clickNext());
                 Assert.assertTrue(waitForPageLoad());
             }
+        }else{
+            IWebInteract.log.info("[NOT FOUND] Question : {}",Question);
         }
     }
 
