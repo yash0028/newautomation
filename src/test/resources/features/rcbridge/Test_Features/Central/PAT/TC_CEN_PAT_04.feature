@@ -29,7 +29,7 @@ Feature: TC_CEN_PAT_IN_04
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I select Provider Signatory    
-    And I enter Contract Details    
+    And I enter Contract Details
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
