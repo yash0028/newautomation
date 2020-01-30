@@ -27,7 +27,7 @@ public class ProviderSignatory extends GenericInputPage {
         }
         Assert.assertTrue(sendKeys("Provider Signatory Date", this.elements.CounterpartySignatoryDate, date));
 
-        if (isVisible(this.elements.email)) {
+        if (CommonMethods.isElementPresent(getDriver(),By.xpath(elements.emailXpath))) {
             elements.email.clear();
             Assert.assertTrue(sendKeys("Provider Signatory Email", this.elements.email, hmap.get("Provider Signatory Email")));
         }

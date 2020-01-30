@@ -1,26 +1,31 @@
 # Last updated on
-@SMGABusinessTestcases_AR
+@SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SMGA_AL_17
+Feature: W4_TC_CEN_SPGA_KS_05
 
-  @W4_TC_SE_SMGA_AL_17
+  @W4_TC_CEN_SPGA_KS_05
   @Manual
   @User_Interface
+  @UAT_Automation_Batch1
+  @UAT_AUTO_CENTRAL
+  @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  @Wave4_AL
-  Scenario Outline: W4_TC_SE_SMGA_AL_17 - [RL0] Author SMGA contract in <site>
+  @SPGA_INITIAL
+  @Test_Failures
+  @Wave4
+  Scenario Outline: W4_TC_CEN_SPGA_KS_05 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SMGA Contract
+    And I enter Practice Locations for SPGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -39,7 +44,6 @@ Feature: W4_TC_SE_SMGA_AL_17
     Then I Complete Wizard
 
     #Final capture
-
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -51,7 +55,7 @@ Feature: W4_TC_SE_SMGA_AL_17
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -60,49 +64,53 @@ Feature: W4_TC_SE_SMGA_AL_17
     And I Set Status as Active
     And I capture Contract Number
 
-    #CMD Checking
+    #CMD checking
     And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName|
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_17|
+      | central uhn   | SPGA          | W4_TC_CEN_SPGA_KS_05|
 
 
-  @W4_TC_SE_SMGA_AL_17
+  @W4_TC_CEN_SPGA_KS_05
   @Manual
   @User_Interface
-  @UAT_AUTO_AMENDMENT1
-  @UAT_AUTO_AMENDMENT_MIG1
-  @SE_SMGA_AMT
-  @run_now
-  Scenario Outline: W4_TC_SE_SMGA_AL_17 - [RL0] Author SMGA contract in <site>
+  @UAT_AUTO_AMANDAMENT
+  @SPGA_AMENDMENT
+  @CEN_IN_AMANDMENT
+  Scenario Outline: W4_TC_CEN_SPGA_KS_05 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
-	#Draft Amandament
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+
+  	#SEARCH CONTRACT
+
+    #Draft Amandament
     And I select the contract
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
+    And I preview Provider Details
     And I select Types of Amendments
     And I select Contract Applied in Amendments
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-#    And I enter Payment Appendix in Amendments for SMGA contracts
-#    And I check Payment Appendix
-    And I select Payment Appendix for SMGA contracts
+#    And I enter Payment Appendix in Amendments for SPGA contracts
+    And I check Payment Appendix
+    And I enter Payment Appendix Amendments in Spga Contracts
     And I choose Additional Manuals
     And I enter Steerage
-    And I enter Payment Appendix in Amendments for SMGA contracts
+    And I enter Payment Appendix in Amendments for SPGA contracts
     And I check Payment Appendix
-    And I enter Regulatory Appendices
+
     And I enter Group Summary
     And I Complete Wizard
 
-	#Amandment final capture
+
+    #Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
@@ -115,9 +123,12 @@ Feature: W4_TC_SE_SMGA_AL_17
     And I enter Group Summary
     And I Complete Wizard
 
-    #CMD Checking
+    #Activating Amendments
+    And I Set Status as Active in Amendment
+
+    #Amendment CMD Checking
     And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName|
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_17|
+      | central uhn   | SPGA          | W4_TC_CEN_SPGA_KS_05|

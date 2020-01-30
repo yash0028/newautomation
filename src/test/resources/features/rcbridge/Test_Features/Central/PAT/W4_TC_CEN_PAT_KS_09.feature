@@ -1,34 +1,33 @@
 # Last updated on
-@SPABusinessTestcases_AR
+# Author commercial with 1 Mid-level Specialist for PAT contract, execute and load contract, verify contract fed_Standard.
+@PATBusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SPA_MS_1
-  #Mississippi (MS)
-  @W4_TC_SE_SPA_1
+Feature: W4_TC_CEN_PAT_KS_09
+  @W4_TC_CEN_PAT_KS_09
   @Manual
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  @UAT_AUTO_INITIAL_TRANSACTION_SPA
-  @W4LCJ
-  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT_CEN
+  Scenario Outline: W4_TC_CEN_PAT_KS_09 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
-    And I enter PES Responses
+    And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SPA Contract
+    And I enter Practice Locations for PAT Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I select Provider Signatory
     And I enter Contract Details
-    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -39,7 +38,7 @@ Feature: W4_TC_SE_SPA_MS_1
     And I enter Group Summary
     Then I Complete Wizard
 
-     #Final capture
+    #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -56,19 +55,16 @@ Feature: W4_TC_SE_SPA_MS_1
     And I enter Group Summary
     Then I Complete Wizard
 
+   
     #Activate
     And I Set Status as Active
     And I capture Contract Number
 
-    #CMD Checking
+    #CMD Check
     And I Verify CMD and Capture Status
 
 
-    Examples:
-      | site          | paperType     | TCName            |
-      | southeast uhn | SPA           | W4_TC_SE_SPA_MS_1 |
-#      | southeast uhn | SPA           | W4_TC_SE_SPA_MS_2 |
-#      | southeast uhn | SPA           | W4_TC_SE_SPA_MS_3 |
-#      | southeast uhn | SPA           | W4_TC_SE_SPA_MS_4 |
-#      | southeast uhn | SPA           | W4_TC_SE_SPA_MS_5 |
 
+    Examples:
+      | site          | paperType   | TCName|
+      | central uhn   | PAT         | W4_TC_CEN_PAT_KS_09|

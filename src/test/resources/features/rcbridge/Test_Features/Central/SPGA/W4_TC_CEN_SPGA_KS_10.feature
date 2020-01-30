@@ -1,28 +1,31 @@
 # Last updated on
-@SMGABusinessTestcases_AR
+@SPGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SMGA_AL_12
+Feature: W4_TC_CEN_SPGA_KS_10
 
-  @W4_TC_SE_SMGA_AL_12
+  @W4_TC_CEN_SPGA_KS_10
   @Manual
   @User_Interface
+  @UAT_Automation_Batch1
+  @UAT_AUTO_CENTRAL
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  @SMGA_INITIAL
-  @Wave4_AL
-  Scenario Outline: W4_TC_SE_SMGA_AL_12 - [RL0] Author SMGA contract in <site>
+  @SPGA_INITIAL
+  @Test_Failures
+  @Wave4
+  Scenario Outline: W4_TC_CEN_SPGA_KS_10 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SMGA Contract
+    And I enter Practice Locations for SPGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -41,7 +44,6 @@ Feature: W4_TC_SE_SMGA_AL_12
     Then I Complete Wizard
 
     #Final capture
-
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -53,7 +55,7 @@ Feature: W4_TC_SE_SMGA_AL_12
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -62,45 +64,49 @@ Feature: W4_TC_SE_SMGA_AL_12
     And I Set Status as Active
     And I capture Contract Number
 
-
-    #CMD Checking
+    #CMD Check
     And I Verify CMD and Capture Status
 
+
+
     Examples:
-      | site            | paperType     | TCName          |
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_12|
+      | site          | paperType     | TCName|
+      | central uhn   | SPGA          | W4_TC_CEN_SPGA_KS_10|
 
 
-  @W4_TC_SE_SMGA_AL_12
+  @W4_TC_CEN_SPGA_KS_10
   @Manual
   @User_Interface
-  @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
-  @SMGA_AMANDMENT
-  @UAT_AUTO_AMENDMENT_MIG1
-  @SE_SMGA_AMT
+  @UAT_AUTO_AMENDMENT
+  @CEN_IN_AMANDMENT
+  @SPGA_AMENDMENT
+  Scenario Outline: W4_TC_CEN_SPGA_KS_10 - [RL0] Author SPGA contract in <site>
 
-  Scenario Outline: W4_TC_SE_SMGA_AL_12 - [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
 
-    #Add provider with Make a correction.
+    #Make a correction - Add a new TIN to the existing provider in the Roster.
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    And I select Provider Signatory
-    And I add provider using TIN
-    And I select Providers
-    And I enter Provider Start Date
-    And I enter retro code in Provider Roster
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
     And I acknowledge the warning
-    And I preview Provider Details
     And I enter Group Summary
     Then I Complete Wizard
-
     #CMD Checking
     And I Verify CMD and Capture Status
 
+    #Create supporting document
+
+    #CMD Check
+    #NDB Check
+
+
     Examples:
-      | site            | paperType     | TCName          |
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_12|
+      | site          | paperType     | TCName|
+      | central uhn   | SPGA          | W4_TC_CEN_SPGA_KS_10|

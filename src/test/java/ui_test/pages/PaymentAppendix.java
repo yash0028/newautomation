@@ -74,7 +74,12 @@ public class PaymentAppendix extends GenericInputPage {
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
-
+    public void payment(){
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        Assert.assertTrue(click("Did you negotiate a rate escalator? : Yes", getRateEscalator("No")));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
+    }
     public void appliedPaymentAppendix(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.PaymentAppendixStructureStandard)))
@@ -273,6 +278,9 @@ public class PaymentAppendix extends GenericInputPage {
 
     public WebElement getFeeScheduleElement(String allpayerType) {
         return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'Fee_Schedule_Name')]"});
+    }
+    public WebElement getRateEscalator(String ans) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'"+ans+"')]"});
     }
 
     public String getFeeSchedule(String allpayerType) {

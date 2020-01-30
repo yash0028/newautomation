@@ -1,34 +1,34 @@
 # Last updated on
-@SMGABusinessTestcases_AR
+# Author commercial with 1 Mid-level Specialist for PAT contract, execute and load contract, verify contract fed_Standard.
+@PATBusinessTestcases_AL
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SMGA_AL_12
+Feature: W4_TC_SE_PAT_AL_09
 
-  @W4_TC_SE_SMGA_AL_12
+  @W4_TC_SE_PAT_AL_09
   @Manual
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  @SMGA_INITIAL
-  @Wave4_AL
-  Scenario Outline: W4_TC_SE_SMGA_AL_12 - [RL0] Author SMGA contract in <site>
+  @UAT_AUTO_INITIAL_TRANSACTION_PAT
+  Scenario Outline: W4_TC_SE_PAT_AL_09 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SMGA Contract
+    And I enter Practice Locations for PAT Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
-    And I enter Contract Details
-    And I enter HBPs Red Door
     And I select Provider Signatory
+    And I enter Contract Details
     And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
@@ -41,7 +41,6 @@ Feature: W4_TC_SE_SMGA_AL_12
     Then I Complete Wizard
 
     #Final capture
-
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -62,45 +61,14 @@ Feature: W4_TC_SE_SMGA_AL_12
     And I Set Status as Active
     And I capture Contract Number
 
+    #CMD Check
 
     #CMD Checking
     And I Verify CMD and Capture Status
 
-    Examples:
-      | site            | paperType     | TCName          |
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_12|
+    #NDB Check
 
-
-  @W4_TC_SE_SMGA_AL_12
-  @Manual
-  @User_Interface
-  @UAT_AUTO_AMENDMENT
-  @UAT_AUTO_MAKE_A_CORRECTION
-  @SMGA_AMANDMENT
-  @UAT_AUTO_AMENDMENT_MIG1
-  @SE_SMGA_AMT
-
-  Scenario Outline: W4_TC_SE_SMGA_AL_12 - [RL0] Author SMGA contract in <site>
-    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
-
-    #Add provider with Make a correction.
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I select Provider Signatory
-    And I add provider using TIN
-    And I select Providers
-    And I enter Provider Start Date
-    And I enter retro code in Provider Roster
-    And I acknowledge the warning
-    And I preview Provider Details
-    And I enter Group Summary
-    Then I Complete Wizard
-
-    #CMD Checking
-    And I Verify CMD and Capture Status
 
     Examples:
-      | site            | paperType     | TCName          |
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_12|
+      | site            | paperType   | TCName         |
+      | southeast uhn   | PAT         | W4_TC_SE_PAT_AL_09|

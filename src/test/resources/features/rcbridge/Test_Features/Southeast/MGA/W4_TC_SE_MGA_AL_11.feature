@@ -1,17 +1,16 @@
 # Last updated on
-@SMGABusinessTestcases_AR
+@MGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SMGA_AL_12
+Feature: W4_TC_SE_MGA_AL_11
 
-  @W4_TC_SE_SMGA_AL_12
+  @W4_TC_SE_MGA_AL_11
   @Manual
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  @SMGA_INITIAL
-  @Wave4_AL
-  Scenario Outline: W4_TC_SE_SMGA_AL_12 - [RL0] Author SMGA contract in <site>
+  @Wave4AL
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
@@ -22,26 +21,24 @@ Feature: W4_TC_SE_SMGA_AL_12
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SMGA Contract
+    And I enter Practice Locations for MGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
-    And I enter HBPs Red Door
-    And I select Provider Signatory
-    And I enter Appendix 1
+    And I enter Article Page
+    And I enter Signature Block
+    And I enter Additional Locations
     And I enter Market Strategy Grid
     And I enter Appendix 2
+    And I choose Additional Manuals
     And I enter Payment Appendix
-    And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-
-    #Final capture
-
+    #Final Capture - Provider Roster (Add one or more providers to the roster)
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -51,56 +48,23 @@ Feature: W4_TC_SE_SMGA_AL_12
     And I enter Our Signatory
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
+    And I enter Clause Language
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
-    #Activate
     And I Set Status as Active
     And I capture Contract Number
 
-
     #CMD Checking
     And I Verify CMD and Capture Status
+    #NDB Checking
+
 
     Examples:
       | site            | paperType     | TCName          |
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_12|
+      | southeast uhn   | MGA          | W4_TC_SE_MGA_AL_11|
 
 
-  @W4_TC_SE_SMGA_AL_12
-  @Manual
-  @User_Interface
-  @UAT_AUTO_AMENDMENT
-  @UAT_AUTO_MAKE_A_CORRECTION
-  @SMGA_AMANDMENT
-  @UAT_AUTO_AMENDMENT_MIG1
-  @SE_SMGA_AMT
-
-  Scenario Outline: W4_TC_SE_SMGA_AL_12 - [RL0] Author SMGA contract in <site>
-    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
-
-    #Add provider with Make a correction.
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I select Provider Signatory
-    And I add provider using TIN
-    And I select Providers
-    And I enter Provider Start Date
-    And I enter retro code in Provider Roster
-    And I acknowledge the warning
-    And I preview Provider Details
-    And I enter Group Summary
-    Then I Complete Wizard
-
-    #CMD Checking
-    And I Verify CMD and Capture Status
-
-    Examples:
-      | site            | paperType     | TCName          |
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_12|

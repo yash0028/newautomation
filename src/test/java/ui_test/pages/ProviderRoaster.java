@@ -166,7 +166,10 @@ public class ProviderRoaster extends GenericInputPage {
         }
     }
 
-    public void verifyProviders() {
+    public void verifyProviders(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        String Question = "Select the State this Market Number applies to";
+        chooseMarketType(Question, hmap);
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -366,6 +369,12 @@ public class ProviderRoaster extends GenericInputPage {
 
     }
 
+    public void chooseMarketType(String Question, HashMap<String, String> hmap) {
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getMarketType(Question)))) {
+            Assert.assertTrue(click(Question, getMarketTypeElem(hmap.get(Question))));
+        }
+    }
+
     public WebElement providerStartDate(int Count) {
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@name,'StartDate_Multi__SL_Repeat_AddEntry.DMCQ_Multi.count_" + Count + "')]"});
     }
@@ -394,7 +403,12 @@ public class ProviderRoaster extends GenericInputPage {
         return findElement(getDriver(), new String[]{"xpath", "//select[contains(@name,'ReasonCode__SL_Repeat_Cancel.rpti_" + count + "')]/following::button[3]"});
     }
 
-
+    public String getMarketType(String question) {
+        return "//label/b[contains(.,'" + question + "')]";
+    }
+    public WebElement getMarketTypeElem(String MarketType) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + MarketType + "')]"});
+    }
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//span[contains(@class,'select2-selection__rendered')]")
         private WebElement dropdown_open;
