@@ -31,8 +31,6 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
         }
         waitForPageLoad(60);
         Assert.assertTrue(sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date));
-        if(isVisible(elements.AmendmentEffDate))
-            Assert.assertTrue(sendKeys("Amendment Effective Date", this.elements.AmendmentEffDate, date));
 
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
@@ -63,8 +61,7 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
         private WebElement phyConNumber;
         @FindBy(xpath = "//input[contains(@id,'Effective')]")
         private WebElement contractEffectiveDate;
-        @FindBy(xpath = "")
-        private WebElement AmendmentEffDate;
+
         private String message = "//div[contains(@class,'DialogBox')]";
 
         public PageElements(SearchContext context) {

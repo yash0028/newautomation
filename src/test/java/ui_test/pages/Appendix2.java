@@ -204,7 +204,7 @@ public class Appendix2 extends GenericInputPage {
 
     public void enterLouisiana(HashMap<String, String> hmap)
     {
-        if(isVisible(elements.Louisiana))
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.LouisianaXpath)))
         {
             click(elements.Louisiana);
             Assert.assertTrue(clickNext());
@@ -217,7 +217,7 @@ public class Appendix2 extends GenericInputPage {
 
         private String message = "//div[contains(@class,'DialogBox')]";
         private String topic = "//div[contains(@class,'topicArea')]/p[contains(.,'Appendix 2')]";
-
+        private String LouisianaXpath = "//input[contains(@value,'Louisiana Medicaid and CHIP Only or Missisippi Medicaid and/or CHIP Red Door Only')]";
 
         public PageElements(SearchContext context) {
             super(context);
@@ -228,6 +228,7 @@ public class Appendix2 extends GenericInputPage {
 
         @FindBy (xpath="//input[contains(@value,'Alabama Only')]")
         private WebElement Alabama;
+
     }
 
 }
