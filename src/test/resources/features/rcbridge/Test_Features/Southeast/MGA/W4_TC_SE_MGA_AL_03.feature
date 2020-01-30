@@ -2,14 +2,14 @@
 @MGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SMGA_AL_16
+Feature: W4_TC_SE_MGA_AL_03
 
-  @W4_TC_SE_MGA_AL_16
+  @W4_TC_SE_MGA_AL_03
   @Manual
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  @Wave4AL
+  @UAT_AUTO_INITIAL_TRANSACTION_W4
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -35,7 +35,7 @@ Feature: W4_TC_SE_SMGA_AL_16
     And I enter Payment Appendix
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
+   # And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
     #Final Capture - Provider Roster (Add one or more providers to the roster)
@@ -58,6 +58,9 @@ Feature: W4_TC_SE_SMGA_AL_16
     And I Set Status as Active
     And I capture Contract Number
 
+
+
+
     #CMD Checking
     And I Verify CMD and Capture Status
 
@@ -67,6 +70,7 @@ Feature: W4_TC_SE_SMGA_AL_16
 
     Examples:
       | site            | paperType     | TCName          |
-      | southeast uhn   | SMGA          | W4_TC_SE_MGA_AL_16|
+      | southeast uhn | MGA           | W4_TC_SE_MGA_AL_03|
+
 
 
