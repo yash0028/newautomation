@@ -14,6 +14,8 @@ Feature: W4_TC_CEN_SPGA_MO_1
   @SPGA_INITIAL
   @Test_Failures
   @W4LCJ
+  @wave4
+    #completed adding data and steps
   Scenario Outline: <TCName> - [RL0] Author SPGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -46,6 +48,9 @@ Feature: W4_TC_CEN_SPGA_MO_1
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
+      #Approval
+    And I Approve HBP Red Door
+    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -70,7 +75,3 @@ Feature: W4_TC_CEN_SPGA_MO_1
     Examples:    
        | site          | paperType     | TCName             |
        | central uhn   | SPGA          | W4_TC_CEN_SPGA_MO_1|
-       | central uhn   | SPGA          | W4_TC_CEN_SPGA_MO_2|
-       | central uhn   | SPGA          | W4_TC_CEN_SPGA_MO_3|
-       | central uhn   | SPGA          | W4_TC_CEN_SPGA_MO_4|
-       | central uhn   | SPGA          | W4_TC_CEN_SPGA_MO_5|

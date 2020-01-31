@@ -2,17 +2,24 @@
 @MGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SMGA_AL_16
-
-  @W4_TC_SE_MGA_AL_16
+Feature: W4_TC_SE_MGA_MS_3
+  @mga_se
+  @leo
+  @W4_TC_SE_MGA_MS_3
   @Manual
   @User_Interface
-  @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  @Wave4AL
+  @UAT_AUTO_SOUTHEAST
+  @UAT_AUTO
+  @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
+  @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_SE
+  @W4LCJ
+  @wave4
+    @LCJT
+    #completed adding data and steps
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
-    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
+    Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
@@ -35,7 +42,6 @@ Feature: W4_TC_SE_SMGA_AL_16
     And I enter Payment Appendix
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
     #Final Capture - Provider Roster (Add one or more providers to the roster)
@@ -49,24 +55,25 @@ Feature: W4_TC_SE_SMGA_AL_16
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
     And I enter Clause Language
+    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
     And I add provider using TIN
     And I select Providers
     And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+    #Activate
     And I Set Status as Active
     And I capture Contract Number
 
     #CMD Checking
     And I Verify CMD and Capture Status
+    #NDB Checking
 
-
-
-
-
+    #Check CMD
+    #Check NDB
     Examples:
-      | site            | paperType     | TCName          |
-      | southeast uhn   | SMGA          | W4_TC_SE_MGA_AL_16|
-
+      | site          | paperType     | TCName            |
+      | southeast uhn | MGA           | W4_TC_SE_MGA_MS_3 |
+      | southeast uhn | MGA           | W4_TC_SE_MGA_MS_4 |
 

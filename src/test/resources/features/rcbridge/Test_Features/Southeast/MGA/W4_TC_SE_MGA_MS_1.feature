@@ -1,26 +1,27 @@
 # Last updated on
-@MGABusinessTestcases_IN
+@MGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_CEN_MGA_MO_1
-  @mga_cen
+Feature: W4_TC_SE_MGA_MS_1
+  @mga_se
   @leo
-  @W4_TC_CEN_MGA_MO_1
+  @W4_TC_SE_MGA_MS_1
   @Manual
   @User_Interface
   @UAT_AUTO_INITIAL_TRANSACTION
-  @UAT_AUTO_CENTRAL
+  @UAT_AUTO_SOUTHEAST
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
+  @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_SE
   @W4LCJ
-  @w4test
-    @wave4
+  @wave4
+    @LCJT
     #completed adding data and steps
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -39,7 +40,6 @@ Feature: W4_TC_CEN_MGA_MO_1
     And I enter Appendix 2
     And I choose Additional Manuals
     And I enter Payment Appendix
-    And I enter Rate Escalator
     And I enter Regulatory Appendices
     And I select Provider Roster as None
     And I enter Group Summary
@@ -47,8 +47,9 @@ Feature: W4_TC_CEN_MGA_MO_1
     #Final Capture - Provider Roster (Add one or more providers to the roster)
     And I Start Workflow
     And I Start Process for Initial Transaction
-    #Approval
+     #Approval
     And I Approve Payment Appendix
+      #Final Capture Cont.
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -75,5 +76,7 @@ Feature: W4_TC_CEN_MGA_MO_1
     #Check CMD
     #Check NDB
     Examples:
-      | site          | paperType     | TCName             |
-      | central uhn   | MGA           | W4_TC_CEN_MGA_MO_1 |
+      | site          | paperType     | TCName            |
+      | southeast uhn | MGA           | W4_TC_SE_MGA_MS_1 |
+      | southeast uhn | MGA           | W4_TC_SE_MGA_MS_2 |
+
