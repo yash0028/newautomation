@@ -10,6 +10,8 @@ Feature: W4_TC_CEN_MGA_KS_16
   @UAT_AUTO_CENTRAL
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
+  @W4_KS
+
   Scenario Outline: W4_TC_CEN_MGA_KS_16 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site

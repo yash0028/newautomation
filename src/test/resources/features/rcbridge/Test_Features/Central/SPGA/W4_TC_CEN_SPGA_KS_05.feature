@@ -14,6 +14,8 @@ Feature: W4_TC_CEN_SPGA_KS_05
   @SPGA_INITIAL
   @Test_Failures
   @Wave4
+  @W4_KS
+
   Scenario Outline: W4_TC_CEN_SPGA_KS_05 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

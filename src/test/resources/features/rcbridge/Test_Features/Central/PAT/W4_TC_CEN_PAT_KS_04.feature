@@ -13,6 +13,9 @@ Feature: W4_TC_CEN_PAT_KS_04
   @UAT_AUTO_INITIAL_TRANSACTION_PAT
   @today
   @UAT_AUTO_INITIAL_TRANSACTION_PAT_CEN
+  @W4_KS
+  @myTest
+
   Scenario Outline: W4_TC_CEN_PAT_KS_04 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -30,6 +33,7 @@ Feature: W4_TC_CEN_PAT_KS_04
     And I enter Market Exception Grid
     And I select Provider Signatory
     And I enter Contract Details
+    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix

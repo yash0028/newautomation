@@ -13,6 +13,8 @@ Feature: W4_TC_CEN_SPGA_KS_15
   @UAT_AUTO_INITIAL_TRANSACTION
   @SPGA_INITIAL
   @Wave4
+  @W4_KS
+
   Scenario Outline: W4_TC_CEN_SPGA_KS_15 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
