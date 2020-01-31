@@ -13,8 +13,7 @@ Feature: W4_TC_CEN_SPGA_KS_05
   @UAT_AUTO_INITIAL_TRANSACTION
   @SPGA_INITIAL
   @Test_Failures
-  @Wave4
-  @W4_KS
+  @UAT_AUTO_INITIAL_TRANSACTION_W4
 
   Scenario Outline: W4_TC_CEN_SPGA_KS_05 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -38,6 +37,8 @@ Feature: W4_TC_CEN_SPGA_KS_05
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
+    And I enter Medicare Advantage Payment Appendix in MGA
+    And I verify Medicare Advantage
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None

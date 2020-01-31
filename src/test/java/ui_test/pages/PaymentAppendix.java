@@ -41,6 +41,8 @@ public class PaymentAppendix extends GenericInputPage {
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+
+        enterMedicaidCHIPPaymentAppendix();
     }
 
     //For SPGA contracts
@@ -69,6 +71,7 @@ public class PaymentAppendix extends GenericInputPage {
     public void verifyFeeScheduleID() {
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+        enterMedicaidCHIPPaymentAppendix();
     }
     public void verifyAmendments() {
         Assert.assertTrue(clickNext());
@@ -289,6 +292,18 @@ public class PaymentAppendix extends GenericInputPage {
     public String getQn(String question) {
         return "//label/b[contains(.,'" + question + "')]";
     }
+
+    public WebElement getQnInputElem(String ques,String val){
+        if(val!=null){
+            return findElement(getDriver(),new String[]{"xpath",getQn(ques)+"/../../../..//input[contains(@value,'" + val + "')]"});
+        }
+        return findElement(getDriver(),new String[]{"xpath",getQn(ques)+"/../../../..//input"});
+    }
+
+    public String getSubTopic(String ans)  {
+        return "//p[contains(.,'"+ans+"')]";
+    }
+
     public void selectStandered()
     {
         Assert.assertTrue(click(elements.standard));
@@ -311,6 +326,39 @@ public class PaymentAppendix extends GenericInputPage {
         Assert.assertTrue(waitForPageLoad());
     }
 
+    public void enterMedicaidCHIPPaymentAppendix(){
+        String subtopic = "Medicaid and CHIP";
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getSubTopic(subtopic)))){
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath("//a[contains(.,'Select All')]"))){
+                Assert.assertTrue(click(elements.selectAll));
+            }
+            String[] InputQuestions = {"percentage of the Medicaid conversion factor",
+                    "percentage of the Medicaid Fee Schedule",
+                    "percentage of your Customary Charges",
+                    "percentage of the Medicaid fee schedule",
+                    "percentage or equivalent of CMS",
+                    "percentage of the current year CMS",
+                    "percentage of the CMS",
+                    "% of customary charges"};
+            for(String Question:InputQuestions){
+                if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+                    IWebInteract.log.info("Question : {}",Question);
+                    Assert.assertTrue(sendKeys("Entering Data to "+Question,getQnInputElem(Question,null),"5"));
+                }
+            }
+
+            String[] RadioQuestions = {"CPT/HCPC Codes","Red Door Alternate","adding Incentive Program language for PCP"};
+            for(String Question:RadioQuestions){
+                if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
+                    IWebInteract.log.info("Question : {}",Question);
+                    Assert.assertTrue(click("Entering Data to "+Question,getQnInputElem(Question,"No")));
+                }
+            }
+
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
+    }
 
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name']")
@@ -339,17 +387,19 @@ public class PaymentAppendix extends GenericInputPage {
         @FindBy(xpath="//input[contains(@value,'Standard')]")
         private WebElement PaymentAppendixStructureStandardElem;
 
+        @FindBy(xpath="//a[contains(.,'Select All')]")
+        private WebElement selectAll;
+
         private String PaymentAppendixStructureStandard = "//input[contains(@value,'Standard')]";
         private String topicPA = "//div[contains(@class,'topicArea')]/p[contains(.,'Payment Appendix')]";
         // @FindBy(xpath = "//div[contains(text(),'You must select at least one answer']")
         // private WebElement errormessage;
         // @FindBy(xpath = "//a[@title='go back one interview round']")
-        //private WebElement backbutton;
+//        //private WebElement backbutton;
+//        private String selectAll = "//a[contains(.,'Select All')]";
 
         public PageElements(SearchContext context) {
             super(context);
         }
     }
 }
-
-

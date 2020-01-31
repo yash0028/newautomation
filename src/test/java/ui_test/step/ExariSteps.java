@@ -191,6 +191,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPaymentAppendix().selectPaymentAppendix(hmap);
         basePage.getPaymentAppendix().enterFeeScheduleID(hmap);
         basePage.getPaymentAppendix().verifyFeeScheduleID();
+        basePage.getPaymentAppendix().enterMedicaidCHIPPaymentAppendix();
     }
     @And("^I enter Rate Escalator$")
     public void Payment() {
@@ -754,6 +755,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("I verify Medicare Advantage")
     public void verifyMedicareAdvantage() {
         basePage.getPaymentAppendix().verifyMedicareAdvantage();
+        basePage.getPaymentAppendix().enterMedicaidCHIPPaymentAppendix();
     }
 
 
@@ -793,10 +795,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
             basePage.getContractDetailsDashboard().clickForContractSummary();
         }
     }
-    
+
     @And("I select Provider Signatory")
     public void handleDBA_Agreement() {
-    	basePage.getProviderSignatory().handleDBA_Agreement();
+        basePage.getProviderSignatory().handleDBA_Agreement();
     }
 
     @And("I enter Payment Appendix to select Standered Payment Appendix")
@@ -831,47 +833,47 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPaymentAppendix().enterFeeScheduleIDNexus(hmap);
         basePage.getPaymentAppendix().verifyFeeScheduleID();
     }
-    
+
     @And("^I click on Termination$")
     public void startTerminationProcess() {
 //        basePage.getDashboard().searchContaractByContractNumberForTermination("25488556");
 //        basePage.getDashboard().openContractDetails();
-    	ContractPage page = new ContractPage(getDriver());
-    	page.startTerminate();
-        
+        ContractPage page = new ContractPage(getDriver());
+        page.startTerminate();
+
     }
     @And("^I enter Termination details$")
     public void iEnteredTerminationDetails() {
-    	
-    	basePage.getTerminationData().clickNext();
+
+        basePage.getTerminationData().clickNext();
         basePage.getTerminationData().submitTermination();
     }
     @And("^I select Provider Roaster as None$")
     public void iSelectProviderRoasterAsNone() {
-    	basePage.getTerminationData().clickNext();
-    	
-       
+        basePage.getTerminationData().clickNext();
+
+
     }
     @And("^I Select Contract Action$")
     public void clicknextbtncontract() {
-    	basePage.getTerminationData().clickNext();
-    	
-       
+        basePage.getTerminationData().clickNext();
+
+
     }
-    
+
     @And("^I Set Status as Final Pending QA in Termination$")
-    public void finalPendingQATermination() 
-	{
-    	
-    	basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.termination_approval_type").orElse(""), true, "Termination","MANDATORY", hmap);
-    	//basePage.getContractDetailsDashboard().handleApprovals_Termination();
-    	 //initializeObj();
-         basePage.getContractDetailsDashboard().editStatus("Final Pending QA", "Termination", hmap);
+    public void finalPendingQATermination()
+    {
+
+        basePage.getContractDetailsDashboard().handleApprovals(configGetOptionalString("exari.termination_approval_type").orElse(""), true, "Termination","MANDATORY", hmap);
+        //basePage.getContractDetailsDashboard().handleApprovals_Termination();
+        //initializeObj();
+        basePage.getContractDetailsDashboard().editStatus("Final Pending QA", "Termination", hmap);
     }
     @And("^I Set Status as Active in Termination$")
     public void setStatusActiveTerminatio() {
         basePage.getContractDetailsDashboard().editStatus("Active", "Termination", hmap);
 
     }
-	
+
 }
