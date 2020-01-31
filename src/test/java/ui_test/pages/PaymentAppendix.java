@@ -47,24 +47,31 @@ public class PaymentAppendix extends GenericInputPage {
 
     //For SPGA contracts
     public void enterFeeScheduleID(HashMap<String, String> hmap) {
-
+        boolean pageExist = false;
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer?")))) {
             Assert.assertTrue(sendKeys("All Payer", getFeeScheduleElement("All Payer?"), hmap.get("FS All Payer")));
+            pageExist = true;
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer  ?")))) {
             Assert.assertTrue(sendKeys("All Payer", getFeeScheduleElement("All Payer  ?"), hmap.get("FS All Payer")));
+            pageExist = true;
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer for Physicians")))) {
             Assert.assertTrue(sendKeys("All Payer for Physicians", getFeeScheduleElement("All Payer for Physicians"), hmap.get("FS All Payer Physician")));
+            pageExist = true;
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer for Non-Physicians")))) {
             Assert.assertTrue(sendKeys("All Payer for Non-Physicians", getFeeScheduleElement("All Payer for Non-Physicians"), hmap.get("FS All Payer Non Physician")));
+            pageExist = true;
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Additional Network")))) {
             Assert.assertTrue(sendKeys("Additional Network", getFeeScheduleElement("Additional Network"), hmap.get("FS Additional Network")));
+            pageExist = true;
         }
-        Assert.assertTrue(clickNext());
-        Assert.assertTrue(waitForPageLoad());
+        if(pageExist){
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
 
     }
 
@@ -333,9 +340,9 @@ public class PaymentAppendix extends GenericInputPage {
                 Assert.assertTrue(click(elements.selectAll));
             }
             String[] InputQuestions = {"percentage of the Medicaid conversion factor",
+                    "percentage of the Medicaid fee schedule",
                     "percentage of the Medicaid Fee Schedule",
                     "percentage of your Customary Charges",
-                    "percentage of the Medicaid fee schedule",
                     "percentage or equivalent of CMS",
                     "percentage of the current year CMS",
                     "percentage of the CMS",
@@ -352,6 +359,7 @@ public class PaymentAppendix extends GenericInputPage {
                 if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
                     IWebInteract.log.info("Question : {}",Question);
                     Assert.assertTrue(click("Entering Data to "+Question,getQnInputElem(Question,"No")));
+                    waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
                 }
             }
 
