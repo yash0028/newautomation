@@ -11,8 +11,9 @@ Feature: W4_TC_CEN_SMGA_MO_1
   @UAT_AUTO_INITIAL_TRANSACTION
   @SMGA_INITIAL
   @W4LCJ
-    
+  @wave4
     @instant
+    #completed adding data and steps
   Scenario Outline: <TCName> - [RL0] Author SPGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 	 
@@ -45,6 +46,10 @@ Feature: W4_TC_CEN_SMGA_MO_1
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
+       #Approval
+    And I Approve HBP Red Door
+    And I Approve Payment Appendix
+      #Final Capture Cont.
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -70,8 +75,4 @@ Feature: W4_TC_CEN_SMGA_MO_1
 	  
     Examples:    
        | site          | paperType     | TCName             |
-#       | central uhn   | SMGA          | W4_TC_CEN_SMGA_MO_1|
-#       | central uhn   | SMGA          | W4_TC_CEN_SMGA_MO_2|
-#       | central uhn   | SMGA          | W4_TC_CEN_SMGA_MO_3|
-#       | central uhn   | SMGA          | W4_TC_CEN_SMGA_MO_4|
-       | central uhn   | SMGA          | W4_TC_CEN_SMGA_MO_5|
+       | central uhn   | SMGA          | W4_TC_CEN_SMGA_MO_1|
