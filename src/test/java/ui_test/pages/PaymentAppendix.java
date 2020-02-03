@@ -348,8 +348,8 @@ public class PaymentAppendix extends GenericInputPage {
                     if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn("fee schedule")))) {
                         Assert.assertTrue(sendKeys("FeeSchedule ID", this.elements.genericFeeScheduleID, hmap.get("FS All Payer Physician")));
                     }
-//                    Assert.assertTrue(clickNext());
-//                    Assert.assertTrue(waitForPageLoad());
+                    Assert.assertTrue(clickNext());
+                    Assert.assertTrue(waitForPageLoad());
                 }
                 if (CommonMethods.isElementPresent(getDriver(), By.xpath("//a[contains(.,'Select All')]"))) {
                     Assert.assertTrue(click(elements.selectAll));
