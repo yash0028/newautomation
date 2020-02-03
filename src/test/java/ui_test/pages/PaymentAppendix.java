@@ -47,25 +47,36 @@ public class PaymentAppendix extends GenericInputPage {
 
     //For SPGA contracts
     public void enterFeeScheduleID(HashMap<String, String> hmap) {
-
+        boolean pageExist = false;
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer?")))) {
             Assert.assertTrue(sendKeys("All Payer", getFeeScheduleElement("All Payer?"), hmap.get("FS All Payer")));
+            pageExist = true;
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer  ?")))) {
             Assert.assertTrue(sendKeys("All Payer", getFeeScheduleElement("All Payer  ?"), hmap.get("FS All Payer")));
+            pageExist = true;
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer for Physicians")))) {
             Assert.assertTrue(sendKeys("All Payer for Physicians", getFeeScheduleElement("All Payer for Physicians"), hmap.get("FS All Payer Physician")));
+            pageExist = true;
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("All Payer for Non-Physicians")))) {
             Assert.assertTrue(sendKeys("All Payer for Non-Physicians", getFeeScheduleElement("All Payer for Non-Physicians"), hmap.get("FS All Payer Non Physician")));
+            pageExist = true;
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Additional Network")))) {
             Assert.assertTrue(sendKeys("Additional Network", getFeeScheduleElement("Additional Network"), hmap.get("FS Additional Network")));
+            pageExist = true;
         }
+        if(pageExist){
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
+
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
         enterMedicaidCHIPPaymentAppendix(hmap);
+
 
     }
 
@@ -327,6 +338,7 @@ public class PaymentAppendix extends GenericInputPage {
         Assert.assertTrue(waitForPageLoad());
     }
 
+
     public void enterMedicaidCHIPPaymentAppendix(HashMap<String, String> hmap){
 //        String subtopic = "Medicaid and CHIP";
         String[] subtopics = {"Medicaid and CHIP","Medicaid Simplified","CHIP Simplified"};
@@ -357,11 +369,13 @@ public class PaymentAppendix extends GenericInputPage {
                     }
                 }
 
+
                 String[] RadioQuestions = {"CPT/HCPC Codes", "Red Door Alternate", "adding Incentive Program language for PCP"};
                 for (String Question : RadioQuestions) {
                     if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))) {
                         IWebInteract.log.info("Question : {}", Question);
                         Assert.assertTrue(click("Entering Data to " + Question, getQnInputElem(Question, "No")));
+                        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
                     }
                 }
 
