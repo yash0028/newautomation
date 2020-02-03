@@ -15,8 +15,8 @@ Feature: W4_TC_SE_MGA_MS_1
   @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_SE
   @W4LCJ
   @wave4
-    @LCJT
-    #completed adding data and steps
+  @UAT_AUTO_INITIAL_TRANSACTION_W4
+        #completed adding data and steps
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site

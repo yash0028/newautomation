@@ -12,7 +12,7 @@ Feature: W4_TC_CEN_SPA_KS_01
   @CMD_CHECK
   @Wave4
   @W4_KS
-
+  @UAT_AUTO_INITIAL_TRANSACTION_W4
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

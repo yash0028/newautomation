@@ -1,22 +1,23 @@
 # Last updated on
-@SMGABusinessTestcases_AR
+@SMGABusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SMGA_AL_21
+Feature: W4_TC_CEN_SMGA_KS_12
 
-  @W4_TC_SE_SMGA_AL_21
+  @W4_TC_CEN_SMGA_KS_12
   @Manual
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @SMGA_INITIAL
-  @Wave4_AL
+  @Wave4
+  @W4_KS
   @UAT_AUTO_INITIAL_TRANSACTION_W4
-  Scenario Outline: W4_TC_SE_SMGA_AL_21- [RL0] Author SMGA contract in <site>
+  Scenario Outline: W4_TC_CEN_SMGA_KS_12 - [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -63,32 +64,30 @@ Feature: W4_TC_SE_SMGA_AL_21
     And I Set Status as Active
     And I capture Contract Number
     
-
-    #CMD Checking
+    #CMD Check
     And I Verify CMD and Capture Status
 
     Examples:
-      | site            | paperType     | TCName          |
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_21|
+      | site          | paperType     | TCName           |
+      | central uhn   | SMGA          | W4_TC_CEN_SMGA_KS_12|
 
 
-  @W4_TC_SE_SMGA_AL_21
+  @W4_TC_CEN_SMGA_KS_12
   @Manual
   @User_Interface
-  @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
+  @UAT_AUTO_AMENDMENT
   @SMGA_AMANDMENT
-  @UAT_AUTO_AMENDMENT_MIG1
-  @SE_SMGA_AMT
+  Scenario Outline: W4_TC_CEN_SMGA_KS_12 - [RL0] Author SMGA contract in <site>
 
-  Scenario Outline: W4_TC_SE_SMGA_AL_21- [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    
     #Add provider with Make a correction.
+
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    And I select Provider Signatory
     And I add provider using TIN
     And I select Providers
     And I enter Provider Start Date
@@ -96,11 +95,13 @@ Feature: W4_TC_SE_SMGA_AL_21
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard   
-
-    #CMD Checking
+     #CMD Check
     And I Verify CMD and Capture Status
 
+
+
+
     Examples:
-      | site            | paperType     | TCName          |
-      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_21|
+      | site          | paperType     | TCName           |
+      | central uhn   | SMGA          | W4_TC_CEN_SMGA_KS_12|
     
