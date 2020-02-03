@@ -42,7 +42,7 @@ public class PaymentAppendix extends GenericInputPage {
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
 
-        enterMedicaidCHIPPaymentAppendix();
+        enterMedicaidCHIPPaymentAppendix(hmap);
     }
 
     //For SPGA contracts
@@ -65,13 +65,14 @@ public class PaymentAppendix extends GenericInputPage {
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+        enterMedicaidCHIPPaymentAppendix(hmap);
 
     }
 
-    public void verifyFeeScheduleID() {
+    public void verifyFeeScheduleID(HashMap<String, String> hmap) {
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
-        enterMedicaidCHIPPaymentAppendix();
+        enterMedicaidCHIPPaymentAppendix(hmap);
     }
     public void verifyAmendments() {
         Assert.assertTrue(clickNext());
@@ -326,37 +327,47 @@ public class PaymentAppendix extends GenericInputPage {
         Assert.assertTrue(waitForPageLoad());
     }
 
-    public void enterMedicaidCHIPPaymentAppendix(){
-        String subtopic = "Medicaid and CHIP";
-        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getSubTopic(subtopic)))){
-            if(CommonMethods.isElementPresent(getDriver(),By.xpath("//a[contains(.,'Select All')]"))){
-                Assert.assertTrue(click(elements.selectAll));
-            }
-            String[] InputQuestions = {"percentage of the Medicaid conversion factor",
-                    "percentage of the Medicaid Fee Schedule",
-                    "percentage of your Customary Charges",
-                    "percentage of the Medicaid fee schedule",
-                    "percentage or equivalent of CMS",
-                    "percentage of the current year CMS",
-                    "percentage of the CMS",
-                    "% of customary charges"};
-            for(String Question:InputQuestions){
-                if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
-                    IWebInteract.log.info("Question : {}",Question);
-                    Assert.assertTrue(sendKeys("Entering Data to "+Question,getQnInputElem(Question,null),"5"));
+    public void enterMedicaidCHIPPaymentAppendix(HashMap<String, String> hmap){
+//        String subtopic = "Medicaid and CHIP";
+        String[] subtopics = {"Medicaid and CHIP","Medicaid Simplified","CHIP Simplified"};
+        for(String subtopic : subtopics) {
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(getSubTopic(subtopic)))) {
+                if(subtopic=="CHIP Simplified"){
+                    if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn("fee schedule")))) {
+                        Assert.assertTrue(sendKeys("FeeSchedule ID", this.elements.genericFeeScheduleID, hmap.get("FS All Payer Physician")));
+                    }
+//                    Assert.assertTrue(clickNext());
+//                    Assert.assertTrue(waitForPageLoad());
                 }
-            }
-
-            String[] RadioQuestions = {"CPT/HCPC Codes","Red Door Alternate","adding Incentive Program language for PCP"};
-            for(String Question:RadioQuestions){
-                if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
-                    IWebInteract.log.info("Question : {}",Question);
-                    Assert.assertTrue(click("Entering Data to "+Question,getQnInputElem(Question,"No")));
+                if (CommonMethods.isElementPresent(getDriver(), By.xpath("//a[contains(.,'Select All')]"))) {
+                    Assert.assertTrue(click(elements.selectAll));
                 }
-            }
+                String[] InputQuestions = {"percentage of the Medicaid conversion factor",
+                        "percentage of the Medicaid Fee Schedule",
+                        "percentage of your Customary Charges",
+                        "percentage of the Medicaid fee schedule",
+                        "percentage or equivalent of CMS",
+                        "percentage of the current year CMS",
+                        "percentage of the CMS",
+                        "% of customary charges"};
+                for (String Question : InputQuestions) {
+                    if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))) {
+                        IWebInteract.log.info("Question : {}", Question);
+                        Assert.assertTrue(sendKeys("Entering Data to " + Question, getQnInputElem(Question, null), "5"));
+                    }
+                }
 
-            Assert.assertTrue(clickNext());
-            Assert.assertTrue(waitForPageLoad());
+                String[] RadioQuestions = {"CPT/HCPC Codes", "Red Door Alternate", "adding Incentive Program language for PCP"};
+                for (String Question : RadioQuestions) {
+                    if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))) {
+                        IWebInteract.log.info("Question : {}", Question);
+                        Assert.assertTrue(click("Entering Data to " + Question, getQnInputElem(Question, "No")));
+                    }
+                }
+
+                Assert.assertTrue(clickNext());
+                Assert.assertTrue(waitForPageLoad());
+            }
         }
     }
 
@@ -387,6 +398,8 @@ public class PaymentAppendix extends GenericInputPage {
         @FindBy(xpath="//input[contains(@value,'Standard')]")
         private WebElement PaymentAppendixStructureStandardElem;
 
+        @FindBy(xpath="//input[contains(@name,'Fee_Schedule')]")
+        private WebElement genericFeeScheduleID;
         @FindBy(xpath="//a[contains(.,'Select All')]")
         private WebElement selectAll;
 

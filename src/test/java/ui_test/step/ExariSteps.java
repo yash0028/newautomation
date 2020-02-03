@@ -190,8 +190,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void PaymentAppendix() {
         basePage.getPaymentAppendix().selectPaymentAppendix(hmap);
         basePage.getPaymentAppendix().enterFeeScheduleID(hmap);
-        basePage.getPaymentAppendix().verifyFeeScheduleID();
-        basePage.getPaymentAppendix().enterMedicaidCHIPPaymentAppendix();
+        basePage.getPaymentAppendix().verifyFeeScheduleID(hmap);
+        basePage.getPaymentAppendix().enterMedicaidCHIPPaymentAppendix(hmap);
     }
     @And("^I enter Rate Escalator$")
     public void Payment() {
@@ -639,7 +639,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("I check Payment Appendix")
     public void checkPaymentAppendix() {
-        basePage.getPaymentAppendix().verifyFeeScheduleID();
+        basePage.getPaymentAppendix().verifyFeeScheduleID(hmap);
 
     }
     @And("I check Amendments")
@@ -673,7 +673,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("I select fee schedule id in Amendments")
     public void iSelectFeeScheduleIdInAmendments() {
         basePage.getPaymentAppendix().enterPaymentAppenidix(hmap);
-        basePage.getPaymentAppendix().verifyFeeScheduleID();
+        basePage.getPaymentAppendix().verifyFeeScheduleID(hmap);
     }
 
     @And("I enter OurSignatory")
@@ -755,7 +755,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("I verify Medicare Advantage")
     public void verifyMedicareAdvantage() {
         basePage.getPaymentAppendix().verifyMedicareAdvantage();
-        basePage.getPaymentAppendix().enterMedicaidCHIPPaymentAppendix();
+        basePage.getPaymentAppendix().enterMedicaidCHIPPaymentAppendix(hmap);
     }
 
 
@@ -823,7 +823,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void iEnterFeeScheduleIDInPaymentAppendix()
     {
         basePage.getPaymentAppendix().enterFeeScheduleID(hmap);
-        basePage.getPaymentAppendix().verifyFeeScheduleID();
+        basePage.getPaymentAppendix().verifyFeeScheduleID(hmap);
 
     }
 
@@ -831,7 +831,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void iEnterFeeScheduleIDInPaymentAppendixForNexusCO()
     {
         basePage.getPaymentAppendix().enterFeeScheduleIDNexus(hmap);
-        basePage.getPaymentAppendix().verifyFeeScheduleID();
+        basePage.getPaymentAppendix().verifyFeeScheduleID(hmap);
     }
 
     @And("^I click on Termination$")
