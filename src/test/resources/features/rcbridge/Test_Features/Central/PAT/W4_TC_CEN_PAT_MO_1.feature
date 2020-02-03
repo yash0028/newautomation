@@ -14,8 +14,7 @@ Feature: W4_TC_CEN_PAT_MO_1
   @today
   @UAT_AUTO_INITIAL_TRANSACTION_PAT_CEN
   @W4LCJ
-  @wave4
-
+  @UAT_AUTO_INITIAL_TRANSACTION_W4
     #completed adding data and steps
   Scenario Outline: TC_CEN_PAT_IN_04 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site

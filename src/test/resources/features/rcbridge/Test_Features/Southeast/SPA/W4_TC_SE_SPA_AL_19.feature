@@ -11,6 +11,7 @@ Feature: W4_TC_SE_SPA_AL_19
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
   @Test_Failures
   @Wave4_AL
+  @UAT_AUTO_INITIAL_TRANSACTION_W4
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

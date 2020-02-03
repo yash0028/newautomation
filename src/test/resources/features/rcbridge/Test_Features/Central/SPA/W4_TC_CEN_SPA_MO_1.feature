@@ -13,6 +13,7 @@ Feature: W4_TC_CEN_SPA_MO_1
  @CMD_CHECK
  @W4LCJ
  @wave4
+ @UAT_AUTO_INITIAL_TRANSACTION_W4
   #completed adding data and steps
  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
   Given I am logged into Exari Dev as a valid user and go to the "<site>" site
