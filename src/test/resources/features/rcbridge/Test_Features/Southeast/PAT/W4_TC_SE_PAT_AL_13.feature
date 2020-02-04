@@ -12,6 +12,7 @@ Feature: W4_TC_SE_PAT_AL_13
   @UAT_AUTO_INITIAL_TRANSACTION_PAT
   @UAT_AUTO_INITIAL_TRANSACTION_W4
   @w4AL
+  @testw4_AL
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
