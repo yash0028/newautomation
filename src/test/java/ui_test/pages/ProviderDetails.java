@@ -50,7 +50,7 @@ public class ProviderDetails extends GenericInputPage {
     public void previewProfile(HashMap<String, String> hmap) {
         String Question = "Select the State this Market Number applies to";
         waitForPageLoad(60);
-        pause(3);
+//        pause(3);
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.tierIndicator))) {
                 hmap.put("Tier", elements.tier.getAttribute("value"));
