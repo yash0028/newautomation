@@ -79,6 +79,7 @@ Feature: W4_TC_CEN_SMGA_KS_08
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
   @SMGA_AMANDMENT
+  @UAT_AUTO_AMENDMENT_W4
   Scenario Outline: W4_TC_CEN_SMGA_KS_08 - [RL0] Author SMGA contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

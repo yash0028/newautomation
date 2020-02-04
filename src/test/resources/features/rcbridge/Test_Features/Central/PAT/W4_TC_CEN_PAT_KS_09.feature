@@ -83,48 +83,24 @@ Feature: W4_TC_CEN_PAT_KS_09
   @UAT_AUTO_AMENDMENT_PAT
   @today
   @AMENDMENT_ALL_PAT
+  @UAT_AUTO_AMENDMENT_W4
   Scenario Outline: W4_TC_CEN_PAT_KS_04 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
 
-    #Draft Amandments
-    And I select the contract
-    And I click on Create Amendment
-    And I enter title
-    And I enter Amendment Selection
-    And I select Amendments needed in Amendment Selection
-    And I select Amendment Type in Provider Details
-    And I select Types of Amendments
-    And I select Contract Applied in Amendments
-    And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
-    And I enter Appendix 2 in Amendments
-    And I select applied Payment Appendix
-    And I select Payment Appendix to include in Amendments for PAT contracts
-    And I choose Additional Manuals
-    And I enter Steerage
-    And I enter Payment Appendix in Amendments for PAT contracts
-    And I check Payment Appendix
+    #cancel provider
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Cancel
+    And I select provider and cancel date
+    And I enter cancel reason
+    And I acknowledge the warning
+#    And I enter warning in Make Correction
+#    And I enter validation
+#    And I acknowledge the warning
     And I enter Group Summary
-    And I Complete Wizard
-
-    #Amandment final capture
-    And I Start Workflow
-    And I Start Process for Initial Transaction
-    And I Set Status as Final Pending QA in Amendment
-    And I Start Final Capture
-    And I enter Provider Signatory in Amendment
-    And I enter Our Signatory in Amendment
-    And I enter Appendix 2 in Amendments FinalCapture
-    And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
-    And I enter Group Summary
-    And I Complete Wizard
-
-     #Activating Amendment
-    And I Set Status as Active in Amendment
-    #Amendment CMD Checking
-    And I Verify CMD and Capture Status
+    Then I Complete Wizard
 
 
     Examples:

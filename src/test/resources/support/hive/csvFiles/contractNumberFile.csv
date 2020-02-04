@@ -57,9 +57,8 @@ TC_SE_SPGA_AR_69,69354352,https://uhg-ha-stage.exaricontracts.com/exaricm/page/s
 W4_TC_CEN_SMGA_KS_08,95919507,https://uhg-ha-stage.exaricontracts.com/exaricm/page/site/central/contract-details?nodeRef=workspace://SpacesStore/2fadec87-7bba-40af-bbf1-cc81d6e05339,E
 W4_TC_SE_SMGA_AL_03,32457616,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/4103170e-a31c-4322-8ddb-618bbb4cd56d,E,FAILED,InstallContract
 W4_TC_CEN_PAT_KS_09,58518051,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/central/contract-details?nodeRef=workspace://SpacesStore/fee8bef6-78c9-48d8-adf4-490b6ee15cac,E
-<<<<<<< HEAD
 W4_TC_CEN_PAT_KS_04,51773541,https://uhg-stage.exaricontracts.com/exaricm/page/site/central/contract-details?nodeRef=workspace://SpacesStore/e4109db2-f19e-43a4-a771-b240c581eb16,1,FAILED,InstallContract
-=======
 W4_TC_SE_SMGA_AL_12,92098834,https://uhg-stage.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/ddf43b45-d8dc-4e65-b771-8783d9abbf76,E,SUCCESS,InstallContract
 W4_TC_SE_SMGA_AL_17,49571044,https://uhg-stage.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/284aca7a-be30-4110-b453-f0a45a67accb,E,FAILED,InstallContract
->>>>>>> ff4056cda10b4c993de2c62b198c5fd5f9d11596
+W4_TC_CEN_MGA_KS_11,22449123,https://uhg-stage.exaricontracts.com/exaricm/page/site/central/contract-details?nodeRef=workspace://SpacesStore/7a2e920d-b9d2-41e4-a6c6-c8ac5ba254c1,E,,
+W4_TC_CEN_SPGA_KS_05,59797581,https://uhg-stage.exaricontracts.com/exaricm/page/site/central/contract-details?nodeRef=workspace://SpacesStore/8fcc5d74-cc96-41da-adb2-55683f999229,E,FAILED,AmendContract
