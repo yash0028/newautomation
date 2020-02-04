@@ -813,6 +813,26 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPaymentAppendix().selectPaymentAppendixForLouisiana(hmap);
     }
 
+    @And("I enter FL Medicaid for Alabama")
+    public void iEnterPaymentAppendixForAlabama() {
+        basePage.getPaymentAppendix().selectPaymentAppendix(hmap);
+        basePage.getPaymentAppendix().enterFeeScheduleID(hmap);
+        basePage.getPaymentAppendix().verifyFeeScheduleID(hmap);
+        basePage.getPaymentAppendix().enterMedicaidCHIPPaymentAppendixFL();
+    }
+    @And("I enter FL Medicaid&Long term for Alabama")
+    public void iEnterPaymentAppendixForAlabamafl() {
+        basePage.getPaymentAppendix().selectPaymentAppendix(hmap);
+        basePage.getPaymentAppendix().enterMedicaidCHIPPaymentAppendixFL();
+
+    }
+    @And("I enter Payment Appendix for Mississippi CHIP")
+    public void iEnterPaymentAppendixMississippichip() {
+        basePage.getPaymentAppendix().selectPaymentAppendix(hmap);
+        basePage.getPaymentAppendix().enterMississippiMedicaidMGA();
+        basePage.getPaymentAppendix().enterFeeScheduleIDMS(hmap);
+        basePage.getPaymentAppendix().verifyFeeScheduleID(hmap);
+    }
     @And("I enter Appendix for Louisiana Medicaid and CHIP Only")
     public void iEnterAppendixForLouisianaMedicaidAndCHIPOnly(int arg0)
     {
