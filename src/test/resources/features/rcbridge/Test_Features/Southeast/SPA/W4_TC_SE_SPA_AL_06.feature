@@ -43,6 +43,7 @@ Feature: W4_TC_SE_SPA_AL_06
      #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
+    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
