@@ -34,7 +34,7 @@ public class RegulatoryAppendices extends GenericInputPage {
                     if(appendix.getText().trim().equals(hmap.get("Regulatory Appendix"))){
                         Assert.assertTrue(click("Click Regulatory Appendix", appendix));
                         appendixFound = true;
-                        waitForPageLoad(60);
+                        break;
                     }
                 }
                 Assert.assertTrue("[NOT FOUND] Regulatory Appendix, Please verify the data in csv",appendixFound);
