@@ -11,6 +11,7 @@ Feature: W4_TC_SE_SPGA_AL_05
   @UAT_AUTO_INITIAL_TRANSACTION
   @Wave4_AL
   @UAT_AUTO_INITIAL_TRANSACTION_W4
+  @w4AL
   Scenario Outline: W4_TC_SE_SPGA_AL_05 - [RL0] Author SPGA contract in <site>  
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

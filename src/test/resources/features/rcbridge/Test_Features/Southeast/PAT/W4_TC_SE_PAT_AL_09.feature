@@ -12,6 +12,7 @@ Feature: W4_TC_SE_PAT_AL_09
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_PAT
   @UAT_AUTO_INITIAL_TRANSACTION_W4
+  @w4AL
   Scenario Outline: W4_TC_SE_PAT_AL_09 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

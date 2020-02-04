@@ -12,6 +12,7 @@ Feature: W4_TC_SE_SMGA_AL_08
   @SMGA_INITIAL
   @Wave4_AL
   @UAT_AUTO_INITIAL_TRANSACTION_W4
+  @w4AL
   Scenario Outline: W4_TC_SE_SMGA_AL_08 - [RL0] Author SMGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
