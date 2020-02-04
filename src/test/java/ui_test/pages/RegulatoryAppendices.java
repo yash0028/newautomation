@@ -29,7 +29,10 @@ public class RegulatoryAppendices extends GenericInputPage {
                 Assert.assertTrue(sendKeys("Send Data to regulatory Appendix", elements.clickOnBar, hmap.get("Regulatory Appendix")));
                 pause(1);
                 waitForPageLoad(60);
-                Assert.assertTrue(click("Click Regulatory Appendix", elements.dropdown_selection.get(0)));
+                if(elements.dropdown_selection.get(0).equals(hmap.get("Regulatory Appendix")))
+                	Assert.assertTrue(click("Click Regulatory Appendix", elements.dropdown_selection.get(0)));
+                else
+                	Assert.assertTrue(click("Click Regulatory Appendix", elements.dropdown_selection.get(1)));
                 waitForPageLoad(60);
             }
             Assert.assertTrue(clickNext());

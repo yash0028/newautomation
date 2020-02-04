@@ -76,8 +76,24 @@ public class PaymentAppendix extends GenericInputPage {
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
         enterMedicaidCHIPPaymentAppendix(hmap);
-
-
+        
+        pageExist = false;
+        
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Medicare Advantage for Physicians ?")))) {
+            Assert.assertTrue(sendKeys("Medicare Advantage for Physicians ?", getFeeScheduleElement("Medicare Advantage"), hmap.get("FS Medicare Advantage")));
+            pageExist = true;
+        }
+        
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Medicare Advantage for Non-Physicians?")))) {
+            Assert.assertTrue(sendKeys("Medicare Advantage for Non-Physicians?", getFeeScheduleElement("Medicare Advantage for Non-Physicians?"), hmap.get("FS Medicare Advantage")));
+            pageExist = true;
+        }
+        
+        if (pageExist) {
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
+       
     }
 
     public void verifyFeeScheduleID(HashMap<String, String> hmap) {
@@ -499,6 +515,9 @@ public class PaymentAppendix extends GenericInputPage {
         private WebElement selectAll;
         @FindBy(xpath="//input[contains(@value,'Medicaid')]")
         private WebElement selectmedicaid;
+        @FindBy(xpath="//input[contains(@value,'MedicareAdvantage_Fee_Schedule_Name')]")
+        private WebElement Medicare_FeeSchName;
+        
         private String PaymentAppendixStructureStandard = "//input[contains(@value,'Standard')]";
         private String topicPA = "//div[contains(@class,'topicArea')]/p[contains(.,'Payment Appendix')]";
         // @FindBy(xpath = "//div[contains(text(),'You must select at least one answer']")
