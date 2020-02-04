@@ -2,7 +2,7 @@
 @SPGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SPGA_MS_1
+Feature: W4_TC_SE_MGA_MS_4
   #Mississippi (MS)
   @W4_TC_SE_SPGA_1
   @Manual
@@ -44,7 +44,7 @@ Feature: W4_TC_SE_SPGA_MS_1
     And I Start Workflow
     And I Start Process for Initial Transaction
       #Approval
-    And I Approve Payment Appendix
+    And I Approve HBP Red Door
       #Final Capture Cont.
     And I Set Status as Final Pending QA
     And I Start Final Capture
@@ -75,4 +75,4 @@ Feature: W4_TC_SE_SPGA_MS_1
      
     Examples:    
        | site            | paperType   | TCName            |
-       | southeast uhn   | SPGA        | W4_TC_SE_SPGA_MS_1|
+       | southeast uhn   | SPGA        | W4_TC_SE_MGA_MS_4|
