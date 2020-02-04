@@ -43,6 +43,9 @@ Feature: W4_TC_SE_SPA_MS_1
      #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
+      #Approval
+    And I Approve Payment Appendix
+      #Final Capture Cont.
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -68,8 +71,4 @@ Feature: W4_TC_SE_SPA_MS_1
     Examples:
       | site          | paperType     | TCName            |
       | southeast uhn | SPA           | W4_TC_SE_SPA_MS_1 |
-#      | southeast uhn | SPA           | W4_TC_SE_SPA_MS_2 |
-#      | southeast uhn | SPA           | W4_TC_SE_SPA_MS_3 |
-#      | southeast uhn | SPA           | W4_TC_SE_SPA_MS_4 |
-#      | southeast uhn | SPA           | W4_TC_SE_SPA_MS_5 |
 

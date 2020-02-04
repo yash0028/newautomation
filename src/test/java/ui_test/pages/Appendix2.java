@@ -90,6 +90,7 @@ public class Appendix2 extends GenericInputPage {
     public void includeMedicareProduct(HashMap<String, String> hmap,boolean clickNext){
         Question = "Medicare Advantage";
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
+            System.out.println(hmap.get("Include Medicare Product"));
             IWebInteract.log.info("Question : {}",Question);
             if (hmap.containsKey("Include Medicare Product")) {
                 String[] IncludeProducts = hmap.get("Include Medicare Product").split("//");

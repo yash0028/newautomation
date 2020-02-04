@@ -3,9 +3,9 @@
 @PATBusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_PAT_MS_1
+Feature: W4_TC_SE_PAT_MS_4
 
-@W4_TC_SE_PAT_MS_1
+@W4_TC_SE_PAT_MS_4
 @Manual
 @User_Interface
 @UAT_AUTO
@@ -45,7 +45,7 @@ Given I am logged into Exari Dev as a valid user and go to the "<site>" site
    And I Start Workflow
    And I Start Process for Initial Transaction
     #Approval
-  And I Approve Payment Appendix
+  And I Approve HBP Red Door
       #Final Capture Cont.
    And I Set Status as Final Pending QA
    And I Start Final Capture
@@ -69,4 +69,4 @@ Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     Examples:
     | site            | paperType     | TCName           |
-    | southeast uhn   | PAT           | W4_TC_SE_PAT_MS_1|
+    | southeast uhn   | PAT           | W4_TC_SE_PAT_MS_4|

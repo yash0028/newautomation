@@ -1,16 +1,15 @@
 # Last updated on
-@SMGABusinessTestcases_AR
+@SPGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SMGA_MS_1
+Feature: W4_TC_SE_SPGA_MS_3
   #Mississippi (MS)
-  @W4_TC_SE_SMGA_1
+  @W4_TC_SE_SPGA_1
   @Manual
-  @User_Interface  
+  @User_Interface 
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
-  @SMGA_INITIAL
-  @W4LCJ
+    @W4LCJ
   @UAT_AUTO_INITIAL_TRANSACTION_W4
   Scenario Outline: <TCName> - [RL0] Author SPGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -23,7 +22,7 @@ Feature: W4_TC_SE_SMGA_MS_1
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SMGA Contract
+    And I enter Practice Locations for SPGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
@@ -44,9 +43,6 @@ Feature: W4_TC_SE_SMGA_MS_1
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-      #Approval
-    And I Approve Payment Appendix
-      #Final Capture Cont.
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -63,11 +59,17 @@ Feature: W4_TC_SE_SMGA_MS_1
     
     #Activate
     And I Set Status as Active
-  	And I capture Contract Number
+    And I capture Contract Number
+    
 
     #CMD Checking
     And I Verify CMD and Capture Status
 
+
+
+    
+    #NDB Check
+     
     Examples:    
-       | site            | paperType     | TCName            |
-       | southeast uhn   | SMGA          | W4_TC_SE_SMGA_MS_1|
+       | site            | paperType   | TCName            |
+       | southeast uhn   | SPGA        | W4_TC_SE_SPGA_MS_3|

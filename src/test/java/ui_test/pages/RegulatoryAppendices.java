@@ -22,6 +22,7 @@ public class RegulatoryAppendices extends GenericInputPage {
     }
 
     public void selectRegulatoryAppendix(HashMap<String, String> hmap) {
+        boolean appendixFound =false;
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         pause(3);
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
@@ -29,8 +30,14 @@ public class RegulatoryAppendices extends GenericInputPage {
                 Assert.assertTrue(sendKeys("Send Data to regulatory Appendix", elements.clickOnBar, hmap.get("Regulatory Appendix")));
                 pause(1);
                 waitForPageLoad(60);
-                Assert.assertTrue(click("Click Regulatory Appendix", elements.dropdown_selection.get(0)));
-                waitForPageLoad(60);
+                for(WebElement appendix : elements.dropdown_selection){
+                    if(appendix.getText().trim().equals(hmap.get("Regulatory Appendix"))){
+                        Assert.assertTrue(click("Click Regulatory Appendix", appendix));
+                        appendixFound = true;
+                        waitForPageLoad(60);
+                    }
+                }
+                Assert.assertTrue("[NOT FOUND] Regulatory Appendix, Please verify the data in csv",appendixFound);
             }
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());

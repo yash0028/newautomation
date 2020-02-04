@@ -32,7 +32,7 @@ Feature: W4_TC_SE_MGA_AL_03
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I choose Additional Manuals
-    And I enter Payment Appendix
+    And I enter FL Medicaid for Alabama
     And I enter Regulatory Appendices
     And I select Provider Roster as None
    # And I enter Amendments
