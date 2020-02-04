@@ -3,9 +3,9 @@
 @PATBusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_MGA_MS_4
+Feature: W4_TC_SE_PAT_MS_4
 
-@W4_TC_SE_MGA_MS_4
+@W4_TC_SE_PAT_MS_4
 @Manual
 @User_Interface
 @UAT_AUTO

@@ -2,7 +2,7 @@
 @SPGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_MGA_MS_3
+Feature: W4_TC_SE_SPGA_MS_3
   #Mississippi (MS)
   @W4_TC_SE_SPGA_1
   @Manual
@@ -72,4 +72,4 @@ Feature: W4_TC_SE_MGA_MS_3
      
     Examples:    
        | site            | paperType   | TCName            |
-       | southeast uhn   | SPGA        | W4_TC_SE_MGA_MS_3|
+       | southeast uhn   | SPGA        | W4_TC_SE_SPGA_MS_3|

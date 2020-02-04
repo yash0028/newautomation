@@ -3,9 +3,9 @@
 @PATBusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_MGA_MS_3
+Feature: W4_TC_SE_PAT_MS_3
 
-@W4_TC_SE_MGA_MS_3
+@W4_TC_SE_PAT_MS_3
 @Manual
 @User_Interface
 @UAT_AUTO
@@ -66,4 +66,4 @@ Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     Examples:
     | site            | paperType     | TCName           |
-    | southeast uhn   | PAT           | W4_TC_SE_MGA_MS_3|
+    | southeast uhn   | PAT           | W4_TC_SE_PAT_MS_3|
