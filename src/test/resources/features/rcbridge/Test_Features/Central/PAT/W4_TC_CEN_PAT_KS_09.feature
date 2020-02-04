@@ -3,9 +3,9 @@
 @PATBusinessTestcases_IN
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_CEN_PAT_KS_04
+Feature: W4_TC_CEN_PAT_KS_09
 
-  @W4_TC_CEN_PAT_KS_04
+  @W4_TC_CEN_PAT_KS_09
   @Manual
   @User_Interface
   @UAT_AUTO
@@ -15,7 +15,8 @@ Feature: W4_TC_CEN_PAT_KS_04
   @UAT_AUTO_INITIAL_TRANSACTION_PAT_CEN
   @W4_KS
   @UAT_AUTO_INITIAL_TRANSACTION_W4
-  Scenario Outline: W4_TC_CEN_PAT_KS_04 - [RL0] Author PAT contract in <site>
+
+  Scenario Outline: W4_TC_CEN_PAT_KS_09 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
@@ -72,10 +73,10 @@ Feature: W4_TC_CEN_PAT_KS_04
 
     Examples:
       | site          | paperType     | TCName|
-      | central uhn   | PAT          | W4_TC_CEN_PAT_KS_04|
+      | central uhn   | PAT          | W4_TC_CEN_PAT_KS_09|
 
 
-  @W4_TC_CEN_PAT_KS_04
+  @W4_TC_CEN_PAT_KS_09
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
@@ -128,5 +129,5 @@ Feature: W4_TC_CEN_PAT_KS_04
 
     Examples:
       | site          | paperType     | TCName|
-      | central uhn   | PAT          | W4_TC_CEN_PAT_KS_04|
+      | central uhn   | PAT          | W4_TC_CEN_PAT_KS_09|
 

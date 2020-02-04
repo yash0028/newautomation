@@ -750,6 +750,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("I enter Medicare Advantage Payment Appendix in MGA")
     public void medicareAdvantagePaymentAppendixMGA() {
         basePage.getPaymentAppendix().medicareAdvantagePaymentAppendixMGA(hmap);
+        basePage.getPaymentAppendix().enterMedicaidCHIPPaymentAppendix(hmap);
+
     }
 
     @And("I verify Medicare Advantage")
