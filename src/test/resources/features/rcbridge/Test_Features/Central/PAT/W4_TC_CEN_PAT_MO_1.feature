@@ -77,7 +77,7 @@ Feature: W4_TC_CEN_PAT_MO_1
       | site          | paperType     | TCName            |
       | central uhn   | PAT           | W4_TC_CEN_PAT_MO_1|
 
-    #add medicare PAT CEN
+    #Add Medicare PAT CEN
   @W4_TC_CEN_PAT_MO_1
   @Manual
   @User_Interface
@@ -131,6 +131,6 @@ Feature: W4_TC_CEN_PAT_MO_1
 
 
     Examples:
-      | site          | paperType     | TCName|
-      | central uhn   | PAT          | W4_TC_CEN_PAT_MO_1|
+      | site          | paperType     | TCName            |
+      | central uhn   | PAT           | W4_TC_CEN_PAT_MO_1|
 
