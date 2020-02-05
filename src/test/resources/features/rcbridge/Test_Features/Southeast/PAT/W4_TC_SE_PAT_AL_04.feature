@@ -39,7 +39,7 @@ Feature: W4_TC_SE_PAT_AL_04
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
+    #And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 
