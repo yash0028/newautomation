@@ -76,3 +76,40 @@ Feature: W4_TC_SE_SPGA_MS_1
     Examples:    
        | site            | paperType   | TCName            |
        | southeast uhn   | SPGA        | W4_TC_SE_SPGA_MS_1|
+    #add provider SPAG SE
+  @W4_TC_SE_SPGA_MS_1
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_MAKE_A_CORRECTION
+  @SPGA_AMENDMENT
+  @UAT_AUTO_AMENDMENT_MIG1
+  @SE_SPGA_AMT
+  @task111
+  @UAT_AUTO_AMENDMENT_W4
+  Scenario Outline: W4_TC_SE_SPGA_MS_1 - [RL0] Author SPGA contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    #Add provider with Make a correction.
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I add provider using TIN
+    And I select Providers
+    And I enter Provider Start Date
+    And I enter retro code in Provider Roster
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard   
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
+    #create supporting document
+
+    Examples:
+      | site          | paperType   | TCName            |
+      | southeast uhn | SPGA        | W4_TC_SE_SPGA_MS_1|
+       
+    

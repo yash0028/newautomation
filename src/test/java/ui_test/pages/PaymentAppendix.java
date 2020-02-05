@@ -348,7 +348,11 @@ public class PaymentAppendix extends GenericInputPage {
         Assert.assertTrue(click(elements.standard));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+    }
 
+    public void FLmedicaid() {
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
 
@@ -433,7 +437,7 @@ public class PaymentAppendix extends GenericInputPage {
         Assert.assertTrue(waitForPageLoad());
     }
     public void enterFeeScheduleIDMS(HashMap<String, String> hmap) {
-        Assert.assertTrue(sendKeys("FeeSchedule ID Nexus", this.elements.feeScheduleID_MS, hmap.get("FS All Payer Physician")));
+        Assert.assertTrue(sendKeys("FeeSchedule ID MS", this.elements.feeScheduleID_MS, hmap.get("FS All Payer Physician")));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
