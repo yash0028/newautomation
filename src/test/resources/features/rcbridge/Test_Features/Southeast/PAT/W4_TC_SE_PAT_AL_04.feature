@@ -1,4 +1,4 @@
-#Create a Contract (mgaccent)- Author commercial with 1 Mid-level PCP for PAT contract, execute and load contract, verify contract_Standard_Add Medicare
+# Appendix-2 Alabama Only  +Add medicare ;  Payment Appendix -all payer + medicare  pay app
 # Last updated on
 @PATBusinessTestcases_AL
 @releaseUnknown
