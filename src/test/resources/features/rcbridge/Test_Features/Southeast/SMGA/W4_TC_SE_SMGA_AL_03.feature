@@ -80,6 +80,7 @@ Feature: W4_TC_SE_SMGA_AL_03
   @SMGA_AMANDMENT
   @SMGA_RERUN
   @UAT_AUTO_AMENDMENT_MIG1
+  @UAT_AUTO_AMENDMENT_W4
   Scenario Outline: W4_TC_SE_SMGA_AL_03 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -118,7 +119,7 @@ Feature: W4_TC_SE_SMGA_AL_03
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
+#    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
