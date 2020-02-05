@@ -37,7 +37,8 @@ public class Appendix2 extends GenericInputPage {
         String[] Questions = {"Which Appendix 2 will be used for this contract",
                               "Choose the following Appendix 2",
                               "Select the appropriate Appendix 2",
-                              "Kansas and/or Missouri Medicaid and/or CHIP ONLY"};
+                              "Kansas and/or Missouri Medicaid and/or CHIP ONLY",
+                              "Which Appendix 2 do you need?"};
 
         for(String Question : Questions){
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
