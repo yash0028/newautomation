@@ -11,7 +11,7 @@ Feature: W4_TC_SE_MGA_AL_01
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_W4
     @w4AL
-  @testw4_AL
+  @testw4_mgaAL
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -43,17 +43,14 @@ Feature: W4_TC_SE_MGA_AL_01
     #Final Capture - Provider Roster (Add one or more providers to the roster)
     And I Start Workflow
     And I Start Process for Initial Transaction
+    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
     And I enter Clause Language
-    And I add provider using TIN
-    And I select Providers
-    And I verify Providers
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -76,3 +73,53 @@ Feature: W4_TC_SE_MGA_AL_01
 
 
 
+#
+#  @W4_TC_SE_MGA_AL_01
+#  @Manual
+#  @User_Interface
+#  @UAT_AUTO_AMENDMENT
+#  @AMENDMENT_ALL_MGA
+#  @UAT_AUTO_AMENDMENT_MGA
+#  @UAT_AUTO_AMENDMENT_W4
+#
+#  Scenario Outline: W4_TC_SE_MGA_AL_01 - [RL0] Amend <paperType> contract in <site>
+#
+#    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+#    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+#
+
+#    #CMD Checking
+#    #NDB Checking
+#    #Amendment-Fee Schedule
+#     #Draft
+#    And I select the contract
+#    And I click on Create Amendment
+#    And I enter title
+#
+#    And I enter Amendment Selection
+#    And I select Amendments needed in Amendment Selection
+#    And I select Amendment Type in Provider Details
+#    And I enter Our Signatory in Amendment
+#    And I select Types of Amendments
+#    And I enter Contract Details in Amendments
+#    And I enter Effective date in Contract Details
+#    And I enter Group Summary
+#    And I Complete Wizard
+#
+#    #Amandment final capture
+#    And I Start Workflow
+#    And I Start Process for Initial Transaction
+#    And I Set Status as Final Pending QA in Amendment
+#    And I Start Final Capture
+#    And I enter Group Summary
+#    And I Complete Wizard
+#
+#    #Activating Amendment
+#    And I Set Status as Active in Amendment
+#
+#    #CMD Checking
+#    #NDB Checking
+#
+#    Examples:
+#      | site          | paperType     | TCName          |
+#      | southeast uhn | MGA           | W4_TC_SE_MGA_AL_01 |
