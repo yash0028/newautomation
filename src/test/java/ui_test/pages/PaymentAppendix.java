@@ -88,6 +88,7 @@ public class PaymentAppendix extends GenericInputPage {
             pageExist = true;
         }
 
+
         if (pageExist) {
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
@@ -444,11 +445,10 @@ public class PaymentAppendix extends GenericInputPage {
 
 
     public void enterMedicaidCHIPPaymentAppendix(HashMap<String, String> hmap){
-//        String subtopic = "Medicaid and CHIP";
         String[] subtopics = {"Medicaid and CHIP","Medicaid Simplified","CHIP Simplified","Medicaid MGA"};
         for(String subtopic : subtopics) {
-            IWebInteract.log.info("[TOPIC] : {}",subtopic);
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getSubTopic(subtopic)))) {
+                IWebInteract.log.info("[FOUND SUB TOPIC] : {}",subtopic);
                 if(subtopic.equals("CHIP Simplified")){
                     if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn("fee schedule")))) {
                         if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.feeSchdElem))){
@@ -489,6 +489,7 @@ public class PaymentAppendix extends GenericInputPage {
 
                 Assert.assertTrue(clickNext());
                 Assert.assertTrue(waitForPageLoad());
+                enterFeeScheduleID(hmap,true);
             }
         }
     }
