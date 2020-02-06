@@ -445,8 +445,9 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void enterMedicaidCHIPPaymentAppendix(HashMap<String, String> hmap){
 //        String subtopic = "Medicaid and CHIP";
-        String[] subtopics = {"Medicaid and CHIP","Medicaid Simplified","CHIP Simplified"};
+        String[] subtopics = {"Medicaid and CHIP","Medicaid Simplified","CHIP Simplified","Medicaid MGA"};
         for(String subtopic : subtopics) {
+            IWebInteract.log.info("[TOPIC] : {}",subtopic);
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getSubTopic(subtopic)))) {
                 if(subtopic.equals("CHIP Simplified")){
                     if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn("fee schedule")))) {
