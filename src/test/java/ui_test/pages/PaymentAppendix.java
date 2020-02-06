@@ -29,6 +29,13 @@ public class PaymentAppendix extends GenericInputPage {
             Assert.assertTrue(click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default"))));
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
 
+        System.out.println("Payment Appendix Include"+isVisible(elements.PaymentAppendixToInclude));
+        if(!isVisible(elements.PaymentAppendixToInclude))
+        {
+            System.out.println("Include Payment Appendix not Present");
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
         //Split PaymentAppendix using // in case need to include multiple PaymentAppendix
         if (hmap.containsKey("Payment Appendix")) {
 
@@ -485,6 +492,15 @@ public class PaymentAppendix extends GenericInputPage {
         }
     }
 
+    public void selectPaymentAppendixInAmendments(HashMap<String, String> hmap)
+    {
+        if (hmap.containsKey("High Fee Schedule than Default"))
+            Assert.assertTrue(click("High Fee Schedule than Default", paymentAppendixElement(hmap.get("High Fee Schedule than Default"))));
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
+    }
+
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[@name='0@/files/logic/Payment Appendix Fragment test.lgc#AllPayer_Fee_Schedule_Name']")
         private WebElement feeSchduleID;
@@ -502,6 +518,8 @@ public class PaymentAppendix extends GenericInputPage {
         private WebElement searchBar;
         @FindBy(xpath="//input[contains(@name,'NexusOA_Fee_Schedule_Name')]")
         private WebElement feeScheduleID_Nexus;
+        @FindBy(xpath="//b[contains(.,'Payment Appendix to include')]")
+        private WebElement PaymentAppendixToInclude;
 
         @FindBy(xpath=" //input[contains(@name,'MS_CHIP_Fee_Schedule_ID')]")
         private WebElement feeScheduleID_MS;

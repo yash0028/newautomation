@@ -898,4 +898,17 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     }
 
+    @And("I select Additional Mannuals to Include")
+    public void iSelectAdditionalMannualsToInclude()
+    {
+        basePage.getAdditionalManuals().additionalMannualsToInclude();
+    }
+
+    @And("I enter Payment Appendix in Amendments for MGA contracts")
+    public void iEnterPaymentAppendixInAmendmentsForMGAContracts()
+    {
+        basePage.getPaymentAppendix().selectPaymentAppendixInAmendments(hmap);
+        basePage.getPaymentAppendix().enterFeeScheduleID(hmap,false);
+        basePage.getPaymentAppendix().verifyFeeScheduleID(hmap);
+    }
 }
