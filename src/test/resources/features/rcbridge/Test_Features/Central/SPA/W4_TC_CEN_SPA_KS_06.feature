@@ -49,11 +49,13 @@ Feature: W4_TC_CEN_SPA_KS_06
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
     And I enter retro code in Provider Roster
+
+#    And I enter Market Exception Grid in Final Capture
+#    And I enter Market Exception Grid
+#    And I add provider using TIN
+#    And I select Providers
+#    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -76,6 +78,8 @@ Feature: W4_TC_CEN_SPA_KS_06
   @UAT_AUTO_MAKE_A_CORRECTION
   @UAT_AUTO_AMENDMENT
   @SPA_AMENDMENT
+  @UAT_AUTO_AMENDMENT_W4
+
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

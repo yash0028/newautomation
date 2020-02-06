@@ -49,11 +49,12 @@ Feature: W4_TC_CEN_SPA_KS_01
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
     And I enter retro code in Provider Roster
+#    And I enter Market Exception Grid in Final Capture
+#    And I enter Market Exception Grid
+#    And I add provider using TIN
+#    And I select Providers
+#    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -77,6 +78,8 @@ Feature: W4_TC_CEN_SPA_KS_01
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
+  @UAT_AUTO_AMENDMENT_W4
+
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -92,17 +95,17 @@ Feature: W4_TC_CEN_SPA_KS_01
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
+    And I preview Provider Details
     And I select Types of Amendments
     And I select Contract Applied in Amendments
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I check Payment Appendix
+#    And I check Payment Appendix
     And I choose Additional Manuals
     And I enter Steerage
-    And I enter Payment Appendix in Amendments for SPA contracts
-    And I check Payment Appendix
+    And I enter Payment Appendix in Amendments for MGA contracts
     And I enter Group Summary
     And I Complete Wizard
 
