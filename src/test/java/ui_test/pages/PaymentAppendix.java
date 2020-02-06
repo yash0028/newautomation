@@ -451,6 +451,7 @@ public class PaymentAppendix extends GenericInputPage {
                 if(subtopic=="CHIP Simplified"){
                     if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn("fee schedule")))) {
                         Assert.assertTrue(sendKeys("FeeSchedule ID", this.elements.genericFeeScheduleID, hmap.get("FS All Payer Physician")));
+                        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
                     }
                     Assert.assertTrue(clickNext());
                     Assert.assertTrue(waitForPageLoad());
