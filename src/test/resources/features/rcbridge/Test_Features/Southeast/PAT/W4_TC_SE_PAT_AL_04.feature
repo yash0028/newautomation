@@ -1,4 +1,4 @@
-#Create a Contract (mgaccent)- Author commercial with 1 Mid-level PCP for PAT contract, execute and load contract, verify contract_Standard_Add Medicare
+# Appendix-2 Alabama Only  +Add medicare ;  Payment Appendix -all payer + medicare  pay app
 # Last updated on
 @PATBusinessTestcases_AL
 @releaseUnknown
@@ -14,6 +14,7 @@ Feature: W4_TC_SE_PAT_AL_04
   @today
   @UAT_AUTO_INITIAL_TRANSACTION_W4
   @w4AL
+  @testw4_AL
   Scenario Outline: <TCName> - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -38,7 +39,7 @@ Feature: W4_TC_SE_PAT_AL_04
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
+    #And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 

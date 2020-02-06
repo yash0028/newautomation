@@ -355,7 +355,11 @@ public class PaymentAppendix extends GenericInputPage {
         Assert.assertTrue(click(elements.standard));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+    }
 
+    public void FLmedicaid() {
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
     }
 
 
@@ -440,7 +444,7 @@ public class PaymentAppendix extends GenericInputPage {
         Assert.assertTrue(waitForPageLoad());
     }
     public void enterFeeScheduleIDMS(HashMap<String, String> hmap) {
-        Assert.assertTrue(sendKeys("FeeSchedule ID Nexus", this.elements.feeScheduleID_MS, hmap.get("FS All Payer Physician")));
+        Assert.assertTrue(sendKeys("FeeSchedule ID MS", this.elements.feeScheduleID_MS, hmap.get("FS All Payer Physician")));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -448,12 +452,16 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void enterMedicaidCHIPPaymentAppendix(HashMap<String, String> hmap){
 //        String subtopic = "Medicaid and CHIP";
-        String[] subtopics = {"Medicaid and CHIP","Medicaid Simplified","CHIP Simplified"};
+        String[] subtopics = {"Medicaid and CHIP","Medicaid Simplified","CHIP Simplified","Medicaid MGA"};
         for(String subtopic : subtopics) {
+            IWebInteract.log.info("[TOPIC] : {}",subtopic);
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getSubTopic(subtopic)))) {
-                if(subtopic=="CHIP Simplified"){
+                if(subtopic.equals("CHIP Simplified")){
                     if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn("fee schedule")))) {
-                        Assert.assertTrue(sendKeys("FeeSchedule ID", this.elements.genericFeeScheduleID, hmap.get("FS All Payer Physician")));
+                        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.feeSchdElem))){
+                            Assert.assertTrue(sendKeys("FeeSchedule ID", this.elements.genericFeeScheduleID, hmap.get("FS All Payer Physician")));
+                            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+                        }
                     }
                     Assert.assertTrue(clickNext());
                     Assert.assertTrue(waitForPageLoad());
@@ -544,6 +552,7 @@ public class PaymentAppendix extends GenericInputPage {
         @FindBy(xpath="//input[contains(@value,'MedicareAdvantage_Fee_Schedule_Name')]")
         private WebElement Medicare_FeeSchName;
 
+        private String feeSchdElem = "//input[contains(@name,'Fee_Schedule')]";
         private String PA_sub_topic = "//p[contains(@class,'subTopic')]/a[contains(@name,'Medicare Advantage')]";
         private String PA_topic = "//p[contains(@class,'topic')]/a[contains(@name,'Payment Appendix')]";
         private String PaymentAppendixStructureStandard = "//input[contains(@value,'Standard')]";

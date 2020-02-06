@@ -106,3 +106,51 @@ Feature: W4_TC_SE_SMGA_AL_12
     Examples:
       | site            | paperType     | TCName          |
       | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_12|
+
+
+  @W4_TC_SE_SMGA_AL_12
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @SMGA_AMANDMENT
+  @UAT_AUTO_AMENDMENT_MIG1
+  @SE_SMGA_AMT
+  @UAT_AUTO_AMENDMENT_W4
+  Scenario Outline: W4_TC_SE_SMGA_AL_12 - [RL0] Author SMGA contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+
+   #Draft Amandament
+    And I select the contract
+    And I click on Create Amendment
+    And I enter title
+    And I enter Amendment Selection
+    And I select Amendments needed in Amendment Selection
+    And I select Amendment Type in Provider Details
+    And I enter Amendments Page to amend Payment Appendix
+    And I enter Contract Details in Amendments
+    And I enter Effective date in Contract Details
+    And I enter Payment Appendix in Amendments to replace Payment Appendix
+    And I select fee schedule id in Amendments
+    And I enter Group Summary
+    And I Complete Wizard
+
+	#Amandment final capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA in Amendment
+    And I Start Final Capture
+    And I enter Provider Signatory in Amendment
+    And I enter Our Signatory in Amendment
+    And I enter Appendix 2 in Amendments FinalCapture
+    And I enter Payment Appendix in Amendments FinalCapture
+#    And I select Provider Roster as None
+    And I enter Group Summary
+    And I Complete Wizard
+    And I Set Status as Active in Amendment
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+    Examples:
+      | site            | paperType     | TCName          |
+      | southeast uhn   | SMGA          | W4_TC_SE_SMGA_AL_12|

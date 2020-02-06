@@ -13,6 +13,7 @@ Feature: W4_TC_SE_PAT_AL_22
   @UAT_AUTO_INITIAL_TRANSACTION_PAT
   @UAT_AUTO_INITIAL_TRANSACTION_W4
   @w4AL
+  @testw4_AL
   Scenario Outline: W4_TC_SE_PAT_AL_22 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -37,7 +38,7 @@ Feature: W4_TC_SE_PAT_AL_22
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
+    #And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 

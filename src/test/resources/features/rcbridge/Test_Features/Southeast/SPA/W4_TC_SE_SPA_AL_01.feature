@@ -43,7 +43,7 @@ Feature: W4_TC_SE_SPA_AL_01
      #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-    And I Approve HBP Red Door
+#    And I Approve HBP Red Door
     And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
@@ -77,6 +77,7 @@ Feature: W4_TC_SE_SPA_AL_01
   @SPA_AMENDMENT_Migration
   @UAT_AUTO_AMENDMENT_TEST_SPA
   @SPA_SE_AMEND
+  @UAT_AUTO_AMENDMENT_W4
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 

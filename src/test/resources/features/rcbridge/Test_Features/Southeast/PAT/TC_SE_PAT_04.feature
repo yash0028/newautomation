@@ -84,15 +84,6 @@ Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
 
-     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #When I search for Contract
-    #Then Validate Contract status and request type
-
-    #NDB Check
-
-
     #Draft Amandament
     And I select the contract
     And I click on Create Amendment
