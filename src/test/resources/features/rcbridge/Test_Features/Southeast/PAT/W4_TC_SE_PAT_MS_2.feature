@@ -45,7 +45,6 @@ Given I am logged into Exari Dev as a valid user and go to the "<site>" site
    And I Start Workflow
    And I Start Process for Initial Transaction
     #Approval
-  And I Approve HBP Red Door
   And I Approve Payment Appendix
       #Final Capture Cont.
    And I Set Status as Final Pending QA
