@@ -79,6 +79,7 @@ Feature: W4_TC_CEN_SPA_KS_06
   @UAT_AUTO_AMENDMENT
   @SPA_AMENDMENT
   @UAT_AUTO_AMENDMENT_W4
+  @KS_W4_AMENDMENTS
 
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
 

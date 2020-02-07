@@ -86,6 +86,7 @@ Feature: W4_TC_CEN_MGA_KS_11
   @AMENDMENT_ALL_MGA
   @UAT_AUTO_AMENDMENT_MGA
   @UAT_AUTO_AMENDMENT_W4
+    @KS_W4_AMENDMENTS
   Scenario Outline: TC_CEN_MGA_IN_71 - [RL0] Amend <paperType> contract in <site>
     #CMD Checking
     #NDB Checking
