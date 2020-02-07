@@ -459,11 +459,9 @@ public class PaymentAppendix extends GenericInputPage {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getSubTopic(subtopic)))) {
                 IWebInteract.log.info("[FOUND SUB TOPIC] : {}",subtopic);
                 if(subtopic.equals("CHIP Simplified")){
-                    if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn("fee schedule")))) {
-                        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.feeSchdElem))){
-                            Assert.assertTrue(sendKeys("FeeSchedule ID", this.elements.genericFeeScheduleID, hmap.get("FS All Payer Physician")));
-                            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-                        }
+                    if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("fee schedule")))) {
+                        Assert.assertTrue(sendKeys("FeeSchedule ID", getFeeScheduleElement("fee schedule"), hmap.get("FS All Payer Physician")));
+                        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
                     }
                     Assert.assertTrue(clickNext());
                     Assert.assertTrue(waitForPageLoad());
