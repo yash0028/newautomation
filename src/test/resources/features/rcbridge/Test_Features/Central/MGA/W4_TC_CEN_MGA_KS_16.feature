@@ -101,6 +101,7 @@ Feature: W4_TC_CEN_MGA_KS_16
     And I choose Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for MGA contracts
+    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
 
