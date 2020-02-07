@@ -16,7 +16,7 @@ Feature: W4_TC_CEN_SPGA_KS_05
   @Wave4
   @W4_KS
   @UAT_AUTO_INITIAL_TRANSACTION_W4
-
+  @KS_W4_AMENDMENTS
 
   Scenario Outline: W4_TC_CEN_SPGA_KS_05 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -52,7 +52,7 @@ Feature: W4_TC_CEN_SPGA_KS_05
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-    And I Approve Payment Appendix
+#    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture

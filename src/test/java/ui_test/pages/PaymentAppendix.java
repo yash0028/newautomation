@@ -151,6 +151,13 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void enterDataInPaymentAppendixForPAT(HashMap<String, String> hmap) {
+        System.out.println("Payment Appendix Include"+isVisible(elements.PaymentAppendixToInclude));
+        if(!isVisible(elements.PaymentAppendixToInclude))
+        {
+            System.out.println("Include Payment Appendix not Present");
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Medicare Advantage  ?")))) {
             getFeeScheduleElement("Medicare Advantage  ?").clear();
             Assert.assertTrue(sendKeys("Medicare Advantage", getFeeScheduleElement("Medicare Advantage  ?"), hmap.get("FS Id Amendments Physician")));
@@ -232,6 +239,13 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void medicareAdvantagePaymentAppendixMGA(HashMap<String, String> hmap) {
+        System.out.println("Payment Appendix Include"+isVisible(elements.PaymentAppendixToInclude));
+        if(!isVisible(elements.PaymentAppendixToInclude))
+        {
+            System.out.println("Include Payment Appendix not Present");
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Advantage for Physicians")))) {
             getFeeScheduleElement("Advantage for Physicians").clear();
             Assert.assertTrue(sendKeys("Advantage for Physicians", getFeeScheduleElement("Advantage for Physicians"), hmap.get("FS Id Amendments Physician")));

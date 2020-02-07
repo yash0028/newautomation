@@ -84,6 +84,7 @@ Feature: W4_TC_CEN_PAT_KS_09
   @UAT_AUTO_AMENDMENT_PAT
   @today
   @AMENDMENT_ALL_PAT
+  @KS_W4_AMENDMENTS
   @UAT_AUTO_AMENDMENT_W4
   Scenario Outline: W4_TC_CEN_PAT_KS_04 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
