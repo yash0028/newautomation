@@ -108,6 +108,7 @@ Feature: W4_TC_CEN_PAT_KS_04
     And I enter Steerage
     And I enter Payment Appendix in Amendments for PAT contracts
     And I check Payment Appendix
+    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
 
