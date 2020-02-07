@@ -11,7 +11,7 @@ Feature: W4_TC_SE_MGA_AL_03
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_W4
   @w4AL
-  @testw4_mgaAL3
+  @testw4_mgaAL
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -78,16 +78,14 @@ Feature: W4_TC_SE_MGA_AL_03
   @AMENDMENT_ALL_MGA
   @UAT_AUTO_AMENDMENT_MGA
   @UAT_AUTO_AMENDMENT_W4
-  @Amendw4_mgaAL3
+  @Amendw4_mgaAL
 
   Scenario Outline: <TCName>  - [RL0] Amend <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
 
-
-
-    #Amendment-Fee Schedule
+ #Amendment-Fee Schedule
      #Draft
     And I select the contract
     And I click on Create Amendment
@@ -116,8 +114,7 @@ Feature: W4_TC_SE_MGA_AL_03
     And I enter Provider Signatory
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
-    And I preview Provider Details
-    And I select Provider Roster as None
+    And I enter Payment Appendix in Amendments FinalCapture
     And I enter Group Summary
     And I Complete Wizard
 
