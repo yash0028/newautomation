@@ -16,7 +16,6 @@ Feature: W4_TC_CEN_SPGA_KS_05
   @Wave4
   @W4_KS
   @UAT_AUTO_INITIAL_TRANSACTION_W4
-  @KS_W4_AMENDMENTS
 
   Scenario Outline: W4_TC_CEN_SPGA_KS_05 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -86,6 +85,8 @@ Feature: W4_TC_CEN_SPGA_KS_05
   @SPGA_AMENDMENT
   @CEN_IN_AMANDMENT
   @UAT_AUTO_AMENDMENT_W4
+  @KS_W4_AMENDMENTS
+
   Scenario Outline: W4_TC_CEN_SPGA_KS_05 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
