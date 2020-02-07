@@ -344,6 +344,9 @@ public class PaymentAppendix extends GenericInputPage {
     public WebElement getFeeScheduleElement(String allpayerType) {
         return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'Fee_Schedule_')]"});
     }
+    public WebElement getFeeScheduleElementID(String allpayerType) {
+        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'Fee_Schedule_ID')]"});
+    }
 
     public WebElement getRateEscalator(String ans) {
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + ans + "')]"});
@@ -351,6 +354,9 @@ public class PaymentAppendix extends GenericInputPage {
 
     public String getFeeSchedule(String allpayerType) {
         return "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'Fee_Schedule_')]";
+    }
+    public String getFeeScheduleID(String allpayerType) {
+        return "//label/b[contains(.,'" + allpayerType + "')]/../../../..//input[contains(@name,'Fee_Schedule_ID')]";
     }
 
     public String getQn(String question) {
@@ -473,8 +479,8 @@ public class PaymentAppendix extends GenericInputPage {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getSubTopic(subtopic)))) {
                 IWebInteract.log.info("[FOUND SUB TOPIC] : {}",subtopic);
                 if(subtopic.equals("CHIP Simplified")){
-                    if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("fee schedule")))) {
-                        Assert.assertTrue(sendKeys("FeeSchedule ID", getFeeScheduleElement("fee schedule"), hmap.get("FS All Payer Physician")));
+                    if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeScheduleID("fee schedule")))) {
+                        Assert.assertTrue(sendKeys("FeeSchedule ID", getFeeScheduleElementID("fee schedule"), hmap.get("FS All Payer")));
                         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
                         Assert.assertTrue(clickNext());
                         Assert.assertTrue(waitForPageLoad());
