@@ -48,7 +48,7 @@ Feature: W4_TC_CEN_MGA_KS_11
     #Final Capture - Provider Roster (Add one or more providers to the roster)
     And I Start Workflow
     And I Start Process for Initial Transaction
-    And I Approve HBP Red Door
+#    And I Approve HBP Red Door
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture

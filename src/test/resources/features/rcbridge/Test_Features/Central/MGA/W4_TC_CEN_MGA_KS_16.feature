@@ -35,7 +35,7 @@ Feature: W4_TC_CEN_MGA_KS_16
     And I enter Appendix 2
     And I choose Additional Manuals
     And I enter Payment Appendix
-    And I select Additional Mannuals to Include
+#    And I select Additional Mannuals to Include
     And I enter Payment
     And I enter Regulatory Appendices
     And I select Provider Roster as None
