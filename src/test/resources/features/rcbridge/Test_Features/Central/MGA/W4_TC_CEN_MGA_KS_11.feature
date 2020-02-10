@@ -13,6 +13,7 @@ Feature: W4_TC_CEN_MGA_KS_11
   @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
   @W4_KS
   @UAT_AUTO_INITIAL_TRANSACTION_W4
+  @w4MGARerun
   Scenario Outline: W4_TC_CEN_MGA_KS_11 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -31,7 +32,6 @@ Feature: W4_TC_CEN_MGA_KS_11
     And I enter Contract Details
     And I enter Article Page
     And I preview Provider Details
-#    And I preview Provider Details
     And I enter Signature Block
     And I enter Additional Locations
     And I enter Market Strategy Grid
@@ -54,13 +54,14 @@ Feature: W4_TC_CEN_MGA_KS_11
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
+    #And I enter Market Exception Grid in Final Capture
+    #And I enter Market Exception Grid
     And I enter Clause Language
-    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
-    And I add provider using TIN
-    And I select Providers
-    And I verify Providers
+#    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
+#    And I add provider using TIN
+#    And I select Providers
+#    And I verify Providers
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
