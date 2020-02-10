@@ -13,6 +13,7 @@ Feature: W4_TC_SE_PAT_MS_4
 @UAT_AUTO_INITIAL_TRANSACTION_PAT
 @W4LCJ
 @UAT_AUTO_INITIAL_TRANSACTION_W4
+@W4LCJ_rerun
 Scenario Outline: <TCName> - [RL0] Author PAT contract in <site>
 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
