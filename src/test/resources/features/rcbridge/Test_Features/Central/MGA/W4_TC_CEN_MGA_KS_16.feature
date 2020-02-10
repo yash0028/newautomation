@@ -12,7 +12,7 @@ Feature: W4_TC_CEN_MGA_KS_16
   @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
   @W4_KS
   @UAT_AUTO_INITIAL_TRANSACTION_W4
-  @w4MGARerun
+  @w4MGARerun11
   Scenario Outline: W4_TC_CEN_MGA_KS_16 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -46,6 +46,7 @@ Feature: W4_TC_CEN_MGA_KS_16
     And I Start Workflow
     And I Start Process for Initial Transaction
 #    And I Approve HBP Red Door
+    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
