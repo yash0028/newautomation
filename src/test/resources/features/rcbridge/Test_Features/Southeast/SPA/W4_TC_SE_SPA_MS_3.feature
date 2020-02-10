@@ -12,6 +12,7 @@ Feature: W4_TC_SE_SPA_MS_3
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
   @W4LCJ
   @UAT_AUTO_INITIAL_TRANSACTION_W4
+  @W4LCJ_rerun
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
