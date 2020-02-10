@@ -45,10 +45,7 @@ Feature: W4_TC_SE_PAT_AL_32
     And I enter Group Summary
     Then I Complete Wizard
 
-
-
-    #Final Capture process
-
+     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
@@ -56,10 +53,9 @@ Feature: W4_TC_SE_PAT_AL_32
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
+    #And I enter Market Exception Grid in Final Capture
+    #And I enter Market Exception Grid
+    #And I select Providers
     And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
@@ -74,6 +70,7 @@ Feature: W4_TC_SE_PAT_AL_32
     Examples:
       | site            | paperType     | TCName         |
       | southeast uhn   | PAT           | W4_TC_SE_PAT_AL_32|
+
 
   @W4_TC_SE_PAT_AL_32
   @Manual
