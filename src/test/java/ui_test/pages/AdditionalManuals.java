@@ -68,11 +68,20 @@ public class AdditionalManuals extends GenericInputPage {
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
     }
 
+    public void additionalMannualsToInclude()
+    {
+        Assert.assertTrue(click("Additional Manuals to Include",elements.selectAll));
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
+    }
+
 
     private static class PageElements extends AbstractPageElements {
         private String message = "//div[contains(@class,'DialogBox')]";
         @FindBy(xpath = "//span[@class='select2-selection__arrow']")
         private WebElement dropdown_open;
+        @FindBy(xpath = "//a[contains(.,'Select All')]")
+        private WebElement selectAll;
         @FindBy(xpath = "//input[@type='search']")
         private WebElement searchBar;
         @FindBy(xpath = "//span[@class='select2-results']//li")

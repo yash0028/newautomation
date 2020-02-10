@@ -83,6 +83,9 @@ Feature: W4_TC_CEN_PAT_KS_04
   @UAT_AUTO_AMENDMENT_PAT
   @today
   @AMENDMENT_ALL_PAT
+  @UAT_AUTO_AMENDMENT_W4
+  @KS_W4_AMENDMENTS
+
   Scenario Outline: W4_TC_CEN_PAT_KS_04 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
@@ -105,6 +108,7 @@ Feature: W4_TC_CEN_PAT_KS_04
     And I enter Steerage
     And I enter Payment Appendix in Amendments for PAT contracts
     And I check Payment Appendix
+    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
 

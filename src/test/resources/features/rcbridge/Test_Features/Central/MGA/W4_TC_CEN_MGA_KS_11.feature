@@ -48,6 +48,7 @@ Feature: W4_TC_CEN_MGA_KS_11
     #Final Capture - Provider Roster (Add one or more providers to the roster)
     And I Start Workflow
     And I Start Process for Initial Transaction
+    And I Approve HBP Red Door
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -85,6 +86,7 @@ Feature: W4_TC_CEN_MGA_KS_11
   @AMENDMENT_ALL_MGA
   @UAT_AUTO_AMENDMENT_MGA
   @UAT_AUTO_AMENDMENT_W4
+    @KS_W4_AMENDMENTS
   Scenario Outline: TC_CEN_MGA_IN_71 - [RL0] Amend <paperType> contract in <site>
     #CMD Checking
     #NDB Checking
@@ -116,6 +118,7 @@ Feature: W4_TC_CEN_MGA_KS_11
     #Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
+    And I Approve HBP Red Door
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
     And I enter Provider Signatory in Amendment

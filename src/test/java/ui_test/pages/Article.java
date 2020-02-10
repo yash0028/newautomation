@@ -49,7 +49,7 @@ class ArticleI extends Article {
 
     public void handleArticleI() {
 
-
+        System.out.println("1");
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
@@ -65,7 +65,7 @@ class ArticleII extends Article {
 
 
     public void handleArticleII() {
-
+        System.out.println("2");
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
 
@@ -80,6 +80,7 @@ class ArticleIII extends Article {
 
 
     public void handleArticleIII() {
+        System.out.println("3");
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -91,6 +92,7 @@ class ArticleIV extends Article {
     }
 
     public void handleArticleIV() {
+        System.out.println("4");
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -102,6 +104,7 @@ class ArticleV extends Article {
     }
 
     public void handleArticleV() {
+        System.out.println("5");
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
 
@@ -114,6 +117,7 @@ class ArticleVI extends Article {
     }
 
     public void handleArticleVI() {
+        System.out.println("6");
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
 
@@ -126,19 +130,22 @@ class ArticleVII extends Article {
     }
 
     public void handleArticleVII(HashMap<String, String> hmap) {
+        System.out.println("7.1");
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
         waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(message)));
         if(CommonMethods.isElementPresent(getDriver(),By.xpath(article7Xpath))){
             for(WebElement elem: getAllInput(hmap.get("Article 7"))){
-                Assert.assertTrue(click("Article 7",elem));
+                Assert.assertTrue(click("A",elem));
                 waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(message)));
             }
+            System.out.println("7.1.1");
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
         waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(message)));
         if(CommonMethods.isElementPresent(getDriver(),By.xpath(article7Xpath))) {
+            System.out.println("7.1.2");
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
@@ -165,6 +172,7 @@ class ArticleVIII extends Article {
         } else if (selectArticle(hmap.get("Article 8")).getAttribute("type").equals("radio")) {
             Assert.assertTrue(click("Select Article 8", selectArticle(hmap.get("Article 8"))));
         }
+        System.out.println("8");
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -176,6 +184,7 @@ class ArticleIX extends Article {
     }
 
     public void handleArticlIX() {
+        System.out.println("9");
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
 
@@ -188,6 +197,7 @@ class ArticleX extends Article {
     }
 
     public void handleArticleX() {
+        System.out.println("10");
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }

@@ -2,10 +2,10 @@
 @MGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_MGA_MS_3
+Feature: W4_TC_SE_MGA_MS_4
   @mga_se
   @leo
-  @W4_TC_SE_MGA_MS_3
+  @W4_TC_SE_MGA_MS_4
   @Manual
   @User_Interface
   @UAT_AUTO_INITIAL_TRANSACTION
@@ -69,5 +69,5 @@ Feature: W4_TC_SE_MGA_MS_3
     #Check NDB
     Examples:
       | site          | paperType     | TCName            |
-      | southeast uhn | MGA           | W4_TC_SE_MGA_MS_3 |
+      | southeast uhn | MGA           | W4_TC_SE_MGA_MS_4 |
 

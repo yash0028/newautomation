@@ -33,7 +33,10 @@ Feature: W4_TC_CEN_MGA_KS_16
     And I enter Additional Locations
     And I enter Market Strategy Grid
     And I enter Appendix 2
+    And I choose Additional Manuals
     And I enter Payment Appendix
+    And I select Additional Mannuals to Include
+    And I enter Payment
     And I enter Regulatory Appendices
     And I select Provider Roster as None
     And I enter Group Summary
@@ -41,6 +44,7 @@ Feature: W4_TC_CEN_MGA_KS_16
     #Final Capture - Provider Roster (Add one or more providers to the roster)
     And I Start Workflow
     And I Start Process for Initial Transaction
+    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -72,6 +76,8 @@ Feature: W4_TC_CEN_MGA_KS_16
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_AMENDMENT_MGA
   @AMENDMENT_ALL_MGA
+  @UAT_AUTO_AMENDMENT_W4
+  @KS_W4_AMENDMENTS
   Scenario Outline: W4_TC_CEN_MGA_KS_16 - [RL0] Amend <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -86,18 +92,29 @@ Feature: W4_TC_CEN_MGA_KS_16
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I enter Our Signatory in Amendment
     And I select Types of Amendments
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
+    And I enter Benefit Plan Descriptions Provision
+    And I select applied Payment Appendix
+    And I select Payment Appendix to include in Amendments for MGA contracts
+    And I choose Additional Manuals
+    And I enter Steerage
+    And I enter Payment Appendix in Amendments for MGA contracts
+    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
 
     #Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
+#    And I Approve Payment Appendix
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
+    And I enter Provider Signatory
+    And I enter Our Signatory in Amendment
+    And I enter Appendix 2
+    And I preview Provider Details
     And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
