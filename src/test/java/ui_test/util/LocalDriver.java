@@ -96,7 +96,7 @@ public class LocalDriver implements IConfigurable, IFileReader {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.setExperimentalOption("useAutomationExtension", false);
             chromeOptions.setExperimentalOption("prefs", prefs);
-            //chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("--headless");
             driver = new ChromeDriver(chromeOptions);
             driver.manage().deleteAllCookies();
             driver.manage().window().maximize();
