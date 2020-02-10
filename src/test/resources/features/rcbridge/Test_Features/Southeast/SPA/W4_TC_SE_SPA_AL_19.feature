@@ -13,6 +13,7 @@ Feature: W4_TC_SE_SPA_AL_19
   @Wave4_AL
   @UAT_AUTO_INITIAL_TRANSACTION_W4
   @w4AL
+  @Wave4_KS
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -51,10 +52,10 @@ Feature: W4_TC_SE_SPA_AL_19
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
+#    And I enter Market Exception Grid in Final Capture
+#    And I enter Market Exception Grid
+#    And I add provider using TIN
+#    And I select Providers
     And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
