@@ -12,7 +12,7 @@ Feature: TC_CEN_MGA_IN_11
   @UAT_AUTO_CENTRAL
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
-  @4j1
+  @4j11
   Scenario Outline: TC_CEN_MGA_IN_11 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
