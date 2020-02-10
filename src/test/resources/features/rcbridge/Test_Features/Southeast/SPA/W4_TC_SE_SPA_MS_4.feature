@@ -44,9 +44,6 @@ Feature: W4_TC_SE_SPA_MS_4
      #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-      #Approval
-    And I Approve HBP Red Door
-      #Final Capture Cont.
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
