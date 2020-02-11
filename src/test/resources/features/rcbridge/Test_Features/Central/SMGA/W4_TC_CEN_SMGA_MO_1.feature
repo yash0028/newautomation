@@ -78,3 +78,34 @@ Feature: W4_TC_CEN_SMGA_MO_1
     Examples:    
        | site          | paperType     | TCName             |
        | central uhn   | SMGA          | W4_TC_CEN_SMGA_MO_1|
+
+  @W4_TC_CEN_SMGA_MO_1
+  @Manual
+  @User_Interface
+  @UAT_AUTO_TERMINATION_W4
+  @UAT_AUTO_AMENDMENT_W4
+    #Terminate contract SMGA CEN
+  Scenario Outline: <TCName> - Terminate Contract in <site>
+
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I select the contract
+    And I click on Termination
+    And I enter Termination details
+    And I select Provider Roaster as None
+    And I Select Contract Action
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    And I Set Status as Final Pending QA in Termination
+    And I Start Final Capture
+    And I select Provider Roster as None
+    And I Select Contract Action
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    And I Set Status as Active in Termination
+
+
+    Examples:
+      | site          | paperType     | TCName             |
+      | central uhn   | SMGA          | W4_TC_CEN_SMGA_MO_1|
