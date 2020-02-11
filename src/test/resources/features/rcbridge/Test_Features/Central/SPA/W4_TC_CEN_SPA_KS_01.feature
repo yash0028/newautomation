@@ -134,5 +134,5 @@ Feature: W4_TC_CEN_SPA_KS_01
 
 
     Examples:
-      | site          | paperType     | TCName           |
+      | site          | paperType     | TCName              |
       | central uhn   | SPA           | W4_TC_CEN_SPA_KS_01 |
