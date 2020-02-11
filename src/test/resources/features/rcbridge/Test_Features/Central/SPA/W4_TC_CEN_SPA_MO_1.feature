@@ -13,6 +13,7 @@ Feature: W4_TC_CEN_SPA_MO_1
  @CMD_CHECK
  @W4LCJ
  @wave4
+ @W4_Murty
  @UAT_AUTO_INITIAL_TRANSACTION_W4
   #completed adding data and steps
  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
@@ -73,7 +74,7 @@ Feature: W4_TC_CEN_SPA_MO_1
       | site          | paperType     | TCName              |
       | central uhn   | SPA           | W4_TC_CEN_SPA_MO_1  |
 
-  #Tin change (Make a correction) SPA CEN
+ #Tin change (Make a correction) SPA CEN
  @W4_TC_CEN_SPA_MO_1
  @Manual
  @User_Interface

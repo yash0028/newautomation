@@ -14,6 +14,7 @@ Feature: W4_TC_CEN_SMGA_MO_1
   @wave4
   @UAT_AUTO_INITIAL_TRANSACTION_W4
   @instant
+   @W4_Murty
     #completed adding data and steps
   Scenario Outline: <TCName> - [RL0] Author SPGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
