@@ -14,6 +14,7 @@ Feature: W4_TC_CEN_PAT_KS_04
   @today
   @UAT_AUTO_INITIAL_TRANSACTION_PAT_CEN
   @W4_KS
+  @W4_Murty
   @UAT_AUTO_INITIAL_TRANSACTION_W4
 
   Scenario Outline: W4_TC_CEN_PAT_KS_04 - [RL0] Author PAT contract in <site>
@@ -52,10 +53,10 @@ Feature: W4_TC_CEN_PAT_KS_04
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
+#    And I enter Market Exception Grid in Final Capture
+#    And I enter Market Exception Grid
+#    And I add provider using TIN
+#    And I select Providers
     And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
