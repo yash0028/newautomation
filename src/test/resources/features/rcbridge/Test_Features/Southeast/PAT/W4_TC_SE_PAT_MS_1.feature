@@ -71,3 +71,33 @@ Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     Examples:
     | site            | paperType     | TCName           |
     | southeast uhn   | PAT           | W4_TC_SE_PAT_MS_1|
+
+  @W4_TC_SE_PAT_MS_1
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT_W4
+  @UAT_AUTO_MAKE_A_CORRECTION
+  Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    #Make Correction - Provider Roster (Add one or more providers to the roster)
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
+    And I add provider using TIN
+    And I select Providers
+    And I enter Provider Start Date
+    And I enter retro code in Provider Roster
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
+    Examples:
+      | site            | paperType     | TCName             |
+      | southeast uhn   | PAT           | W4_TC_SE_PAT_MS_1  |

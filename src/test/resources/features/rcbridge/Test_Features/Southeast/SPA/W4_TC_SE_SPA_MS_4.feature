@@ -70,3 +70,30 @@ Feature: W4_TC_SE_SPA_MS_4
       | site          | paperType     | TCName            |
       | southeast uhn | SPA           | W4_TC_SE_SPA_MS_4 |
 
+  @W4_TC_SE_SPA_MS_4
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT_W4
+  Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I select Provider Signatory
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+
+    Examples:
+      | site            | paperType     | TCName            |
+      | southeast uhn   | SPA           | W4_TC_SE_SPA_MS_4 |
