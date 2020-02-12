@@ -66,7 +66,7 @@ Feature: TC_SE_SMGA_AR_03
     Examples:    
        | site            | paperType     | TCName          |
        | southeast uhn   | SMGA          | TC_SE_SMGA_AR_03|
-       #
+
   
   @TC_SE_SMGA_AR_03
   @Manual
