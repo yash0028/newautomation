@@ -74,7 +74,7 @@ public class PaymentAppendix extends GenericInputPage {
             pageExist = true;
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Medicare Advantage for Physicians ?")))) {
-            Assert.assertTrue(sendKeys("Medicare Advantage for Physicians ?", getFeeScheduleElement("Medicare Advantage"), hmap.get("FS Medicare Advantage")));
+            Assert.assertTrue(sendKeys("Medicare Advantage for Physicians ?", getFeeScheduleElement("Medicare Advantage for Physicians ?"), hmap.get("FS Medicare Advantage")));
             pageExist = true;
         }
 
