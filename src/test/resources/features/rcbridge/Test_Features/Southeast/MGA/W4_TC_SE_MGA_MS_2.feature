@@ -2,10 +2,10 @@
 @MGABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_MGA_MS_1
+Feature: W4_TC_SE_MGA_MS_2
   @mga_se
   @leo
-  @W4_TC_SE_MGA_MS_1
+  @W4_TC_SE_MGA_MS_2
   @Manual
   @User_Interface
   @UAT_AUTO_INITIAL_TRANSACTION
@@ -78,35 +78,5 @@ Feature: W4_TC_SE_MGA_MS_1
     #Check NDB
     Examples:
       | site          | paperType     | TCName            |
-      | southeast uhn | MGA           | W4_TC_SE_MGA_MS_1 |
+      | southeast uhn | MGA           | W4_TC_SE_MGA_MS_2 |
 
-
-  @W4_TC_SE_MGA_MS_1
-  @Manual
-  @User_Interface
-  @UAT_AUTO_AMENDMENT_W4
-  @UAT_AUTO_MAKE_A_CORRECTION
-  Scenario Outline: W4_TC_SE_MGA_MS_1 - [RL0] Author <paperType> contract in <site>
-
-    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
-	#Make a Correction
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I set Roster Action as Upload
-    And I Download Current Roster
-    And I Upload Completed Roster
-    And I enter warning in Make Correction
-    And I enter validation
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
-
-    #CMD Checking
-    And I Verify CMD and Capture Status
-    #Check CMD
-    #Check NDB
-    Examples:
-      | site          | paperType     | TCName          |
-      | southeast uhn | MGA           | W4_TC_SE_MGA_MS_1 |
