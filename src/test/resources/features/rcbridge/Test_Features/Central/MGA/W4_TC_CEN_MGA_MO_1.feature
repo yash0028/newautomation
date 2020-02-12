@@ -14,8 +14,7 @@ Feature: W4_TC_CEN_MGA_MO_1
   @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
   @W4LCJ
   @UAT_AUTO_INITIAL_TRANSACTION_W4
-  @wave4
-    #completed adding data and steps
+  @wave4_Medicare
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -54,13 +53,13 @@ Feature: W4_TC_CEN_MGA_MO_1
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
-#    And I enter Market Exception Grid in Final Capture
-#    And I enter Market Exception Grid
-#    And I enter Clause Language
-#    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
-#    And I add provider using TIN
-#    And I select Providers
-#    And I verify Providers
+    And I enter Market Exception Grid in Final Capture
+    And I enter Market Exception Grid
+    And I enter Clause Language
+    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
+    And I add provider using TIN
+    And I select Providers
+    And I verify Providers
     And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary

@@ -65,6 +65,8 @@ Feature: W4_TC_SE_SPGA_AL_05
     And I Set Status as Active
     And I capture Contract Number
 
+ #CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:    
        | site          | paperType     | TCName|  				 
