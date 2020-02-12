@@ -52,13 +52,13 @@ Feature: W4_TC_SE_MGA_MS_4
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
-#   And I enter Market Exception Grid in Final Capture
-#   And I enter Market Exception Grid
+   And I enter Market Exception Grid in Final Capture
+   And I enter Market Exception Grid
     And I enter Clause Language
-#    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
-#    And I add provider using TIN
-#    And I select Providers
-#    And I verify Providers
+    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
+    And I add provider using TIN
+    And I select Providers
+    And I verify Providers
     And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
@@ -77,3 +77,33 @@ Feature: W4_TC_SE_MGA_MS_4
       | site          | paperType     | TCName            |
       | southeast uhn | MGA           | W4_TC_SE_MGA_MS_4 |
 
+  @W4_TC_SE_MGA_MS_4
+  @Manual
+  @User_Interface
+  @UAT_AUTO_TERMINATION_W4
+  @UAT_AUTO_AMENDMENT_W4
+    #Terminate contract SMGA CEN
+  Scenario Outline: <TCName> - Terminate Contract in <site>
+
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I select the contract
+    And I click on Termination
+    And I enter Termination details
+    And I select Provider Roaster as None
+    And I Select Contract Action
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    And I Set Status as Final Pending QA in Termination
+    And I Start Final Capture
+    And I select Provider Roster as None
+    And I Select Contract Action
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+    And I Set Status as Active in Termination
+
+
+    Examples:
+      | site          | paperType     | TCName             |
+      | central uhn   | SMGA          | W4_TC_SE_MGA_MS_4|

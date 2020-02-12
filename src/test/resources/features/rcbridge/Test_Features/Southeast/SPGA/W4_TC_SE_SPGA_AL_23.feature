@@ -12,6 +12,7 @@ Feature: W4_TC_SE_SPGA_AL_23
   @Wave4_AL
   @UAT_AUTO_INITIAL_TRANSACTION_W4
   @w4AL
+   @W4_Murty
   Scenario Outline: W4_TC_SE_SPGA_AL_23 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
@@ -51,11 +52,11 @@ Feature: W4_TC_SE_SPGA_AL_23
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
-    And I verify Providers
+#    And I enter Market Exception Grid in Final Capture
+#    And I enter Market Exception Grid
+#    And I add provider using TIN
+#    And I select Providers
+#    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard

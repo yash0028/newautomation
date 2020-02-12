@@ -14,6 +14,8 @@ Feature: W4_TC_CEN_SMGA_MO_1
   @wave4
   @UAT_AUTO_INITIAL_TRANSACTION_W4
   @instant
+   @W4_Murty
+   @wave4_Medicare
     #completed adding data and steps
   Scenario Outline: <TCName> - [RL0] Author SPGA contract in <site>
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
@@ -56,11 +58,11 @@ Feature: W4_TC_CEN_SMGA_MO_1
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
-#    And I enter Market Exception Grid in Final Capture
-#    And I enter Market Exception Grid
-#    And I add provider using TIN
-#    And I select Providers
-#    And I verify Providers
+    And I enter Market Exception Grid in Final Capture
+    And I enter Market Exception Grid
+    And I add provider using TIN
+    And I select Providers
+    And I verify Providers
     And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
