@@ -51,11 +51,11 @@ Feature: W4_TC_CEN_SPA_KS_06
     And I enter Our Signatory
     And I enter retro code in Provider Roster
 
-#    And I enter Market Exception Grid in Final Capture
-#    And I enter Market Exception Grid
-#    And I add provider using TIN
-#    And I select Providers
-#    And I enter retro code in Provider Roster
+    And I enter Market Exception Grid in Final Capture
+    And I enter Market Exception Grid
+    And I add provider using TIN
+    And I select Providers
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
