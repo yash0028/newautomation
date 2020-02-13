@@ -52,11 +52,11 @@ Feature: W4_TC_SE_SPGA_AL_15
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
     And I enter Our Signatory
-#    And I enter Market Exception Grid in Final Capture
-#    And I enter Market Exception Grid
-#    And I add provider using TIN
-#    And I select Providers
-#    And I verify Providers
+    And I enter Market Exception Grid in Final Capture
+    And I enter Market Exception Grid
+    And I add provider using TIN
+    And I select Providers
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
