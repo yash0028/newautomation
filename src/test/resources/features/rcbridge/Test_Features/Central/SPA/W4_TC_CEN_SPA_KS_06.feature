@@ -48,9 +48,7 @@ Feature: W4_TC_CEN_SPA_KS_06
     And I Start Final Capture
     And I enter Contract Details in Final Capture
     And I enter Provider Signatory
-    And I enter Our Signatory
-    And I enter retro code in Provider Roster
-
+    And I enter Our Signatory    
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
     And I add provider using TIN
