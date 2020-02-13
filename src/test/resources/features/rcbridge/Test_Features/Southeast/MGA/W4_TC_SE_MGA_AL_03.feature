@@ -11,7 +11,7 @@ Feature: W4_TC_SE_MGA_AL_03
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_W4
   @w4AL
-  @w4MGARerun
+  @w4MGARerun...
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -90,45 +90,45 @@ Feature: W4_TC_SE_MGA_AL_03
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
 
- #Amendment-Fee Schedule
-     #Draft
+  #Draft Amendment(cancel product)
+
+
     And I select the contract
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I select Types of Amendments
+    And I enter OurSignatory
+    And I select Unilateral Contract in Amendments
+    And I select Provider Type Radio Button in Amendments
+    And I enter Opt-out in Amendments
+    And I enter Opt-out Address in Amendments in IL
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
-    And I enter Benefit Plan Descriptions Provision
+    And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I select Payment Appendix to include in Amendments for MGA contracts
-    And I choose Additional Manuals
-    And I enter Steerage
-    And I enter Payment Appendix in Amendments for MGA contracts
-    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
 
-    #Amandment final capture
+      #Amandment final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-    And I enter Provider Signatory
-    And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
-    And I enter Payment Appendix in Amendments FinalCapture
+    And I select Provider Roster as None
+    And I check Payment Appendix
+    And I enter Opt-out in Amendments
+#    And I enter Opt-out Address in Amendments in IL
     And I enter Group Summary
     And I Complete Wizard
 
-    #Activating Amendment
-    And I Set Status as Active in Amendment
 
-    #CMD Checking
+ #Activating Amendment
+    And I Set Status as Active in Amendment
+   #Amendment CMD Checking
     And I Verify CMD and Capture Status
-    #NDB Checking
 
 
 
