@@ -79,7 +79,7 @@ Feature: W4_TC_SE_SMGA_AL_03
   @UAT_AUTO_AMANDAMENT
   @SMGA_AMANDMENT
   @SMGA_RERUN
-  @UAT_AUTO_AMENDMENT_MIG1
+
   @UAT_AUTO_AMENDMENT_W4
   Scenario Outline: W4_TC_SE_SMGA_AL_03 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

@@ -79,7 +79,7 @@ Feature: W4_TC_SE_SPA_AL_19
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
-  @UAT_AUTO_AMENDMENT_MIG1
+
   @SPA_AMENDMENT_Migration
   @SPA_SE_AMEND
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>

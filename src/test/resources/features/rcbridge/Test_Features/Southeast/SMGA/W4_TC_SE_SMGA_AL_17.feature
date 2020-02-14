@@ -74,7 +74,6 @@ Feature: W4_TC_SE_SMGA_AL_17
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT1
-  @UAT_AUTO_AMENDMENT_MIG1
   @SE_SMGA_AMT
   @run_now
   Scenario Outline: W4_TC_SE_SMGA_AL_17 - [RL0] Author SMGA contract in <site>

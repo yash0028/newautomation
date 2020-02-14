@@ -79,7 +79,6 @@ Feature: W4_TC_SE_SMGA_AL_12
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
   @SMGA_AMANDMENT
-  @UAT_AUTO_AMENDMENT_MIG1
   @SE_SMGA_AMT
 
   Scenario Outline: W4_TC_SE_SMGA_AL_12 - [RL0] Author SMGA contract in <site>
@@ -113,7 +112,6 @@ Feature: W4_TC_SE_SMGA_AL_12
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @SMGA_AMANDMENT
-  @UAT_AUTO_AMENDMENT_MIG1
   @SE_SMGA_AMT
   @UAT_AUTO_AMENDMENT_W4
   Scenario Outline: W4_TC_SE_SMGA_AL_12 - [RL0] Author SMGA contract in <site>
