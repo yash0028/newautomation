@@ -126,8 +126,15 @@ public class Appendix2 extends GenericInputPage {
             Assert.assertTrue(clickNext());
             waitForPageLoad();
         }
+    }
 
-
+    public void includeAdditionalManualsAppendix1(){
+        waitForPageLoad();
+        if (getDriver().findElement(By.xpath("//label[@class='QuestionText']/b")).isDisplayed()) {
+            click("Which additional manual is included?", getXPath("Florida"));
+            Assert.assertTrue(clickNext());
+            waitForPageLoad();
+        }
     }
 
     public void enterAppendix2FC(HashMap<String, String> hmap) {
