@@ -81,7 +81,6 @@ Feature: W4_TC_SE_SPGA_AL_15
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
   @SPGA_AMENDMENT
-  @UAT_AUTO_AMENDMENT_MIG1
   @SE_SPGA_AMT
   @task111
   Scenario Outline: W4_TC_SE_SPGA_AL_15 - [RL0] Author SPGA contract in <site>
