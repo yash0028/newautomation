@@ -45,7 +45,6 @@ Feature: W4_TC_SE_SPA_MS_2
     And I Start Workflow
     And I Start Process for Initial Transaction
       #Approval
-    And I Approve HBP Red Door
     And I Approve Payment Appendix
       #Final Capture Cont.
     And I Set Status as Final Pending QA
