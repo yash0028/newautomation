@@ -2,9 +2,9 @@
 @SPGABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: W5_TC_NE_SPGA_NH_33
+Feature: W5_TC_NE_SPGA_VM_38
 
-  @W5_TC_NE_SPGA_NH_33
+  @W5_TC_NE_SPGA_VM_38
   @Manual
   @User_Interface
   @UAT_AUTO1
@@ -12,7 +12,7 @@ Feature: W5_TC_NE_SPGA_NH_33
   @WAVE5INIT
   @UAT_AUTO_INITIAL_TRANSACTION_W5
 
-  Scenario Outline: W5_TC_NE_SPGA_NH_33- [RL0] Author SPGA contract in <site>
+  Scenario Outline: W5_TC_NE_SPGA_VM_38- [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
     And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
@@ -69,4 +69,4 @@ Feature: W5_TC_NE_SPGA_NH_33
 
     Examples:
       | site          | paperType     | TCName|
-      | northeast uhn   | SPGA          | W5_TC_NE_SPGA_NH_33|
+      | northeast uhn   | SPGA          | W5_TC_NE_SPGA_VM_38|
