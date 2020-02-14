@@ -103,6 +103,13 @@ public class ProviderRoaster extends GenericInputPage {
         System.out.println("15 rows entered");
         return headings;
     }
+    public void providerRoaster(HashMap<String, String> hmap){
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.providerRosterTitle))){
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.retrocodeTitle))){
+                selectretrocode(hmap);
+            }
+        }
+    }
 
     public void selectretrocode(HashMap<String, String> hmap) {
         if (MULTIPLE_PROVIDERS > 0) {
@@ -450,7 +457,8 @@ public class ProviderRoaster extends GenericInputPage {
         private String retroDropdown = "//span[contains(@class,'select2-selection__rendered')]";
         private String selectProviderpath = "//input[@type='search']";
         private String selectProviderWithNamenotFound = "//span[@class='select2-results']//li[contains(.,'No results found')]";
-
+        private String providerRosterTitle = "//p[contains(.,'Provider Roster')]";
+        private String retrocodeTitle = "//label/b[contains(.,'retro code')]";
 
         public PageElements(SearchContext context) {
             super(context);
