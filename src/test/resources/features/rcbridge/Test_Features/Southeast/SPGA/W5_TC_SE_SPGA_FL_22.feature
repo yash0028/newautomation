@@ -15,7 +15,7 @@ Feature: W5_TC_SE_SPGA_FL_22
   Scenario Outline: W5_TC_SE_SPGA_FL_22- [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -70,4 +70,4 @@ Feature: W5_TC_SE_SPGA_FL_22
 
     Examples:
       | site          | paperType     | TCName|
-      | northeast uhn   | SPGA          | W5_TC_SE_SPGA_FL_22|
+      | southeast uhn   | SPGA          | W5_TC_SE_SPGA_FL_22|
