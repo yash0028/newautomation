@@ -50,7 +50,6 @@ public class ProviderDetails extends GenericInputPage {
     public void previewProfile(HashMap<String, String> hmap) {
         String Question = "Select the State this Market Number applies to";
         waitForPageLoad(60);
-//        pause(3);
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.tierIndicator))) {
                 hmap.put("Tier", elements.tier.getAttribute("value"));
@@ -58,14 +57,19 @@ public class ProviderDetails extends GenericInputPage {
             //MGA WEST OR / MGA NORTHEAST VA
             chooseMarketType(Question, hmap);
 
-            //Select the Arbitration County:*
-            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.Arbitration_County_Xpath)))
-                Assert.assertTrue(click("Arbitration_County_Xpath",elements.Arbitration_County));
+            //Select the Arbitration County:*  choose the first answer.
+            Question = "Select the Arbitration County";
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQuestion(Question)))){
+                Assert.assertTrue(click(Question,getArbitrationCounty(Question)));
+                waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            }
 
-            //Select the Arbitration County:* w4
-            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.Arbitration_County_Xpath2)))
-                Assert.assertTrue(click("Arbitration_County_Xpath",elements.Arbitration_County2));
-
+            //Select the Territory this Market Number applies to.
+            Question = "Select the Territory this Market Number applies to";
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQuestion(Question)))){
+                Assert.assertTrue(click(Question,getMarketTypeElem(Question,hmap.get("Select the State this Market Number applies to"))));
+                waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            }
 
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
@@ -106,7 +110,12 @@ public class ProviderDetails extends GenericInputPage {
     public WebElement getMarketTypeElem(String question, String MarketType) {
         return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'" + question + "')]/../../../..//input[contains(@value,'" + MarketType + "')]"});
     }
-
+    public WebElement getArbitrationCounty(String question) {
+        return findElement(getDriver(), new String[]{"xpath", "//label/b[contains(.,'"+question+"')]/../../../..//input[contains(@type,'radio')]"});
+    }
+    public String getQuestion(String question) {
+        return "//label/b[contains(.,'"+question+"')]";
+    }
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//span[@class='select2-selection__arrow']")
         private WebElement dropdown_open;
@@ -114,13 +123,7 @@ public class ProviderDetails extends GenericInputPage {
         private WebElement dropdown_textbox;
         @FindBy(xpath = "//input[contains(@name,'TierIndicator')]")
         private WebElement tier;
-        @FindBy(xpath="//input[contains(@value,'5_Hartford County')]")
-        private WebElement Arbitration_County;
-        @FindBy(xpath="//input[contains(@value,'Jackson County')]")
-        private WebElement Arbitration_County2;
 
-        private String Arbitration_County_Xpath2 = "//input[contains(@value,'Jackson County')]";
-        private String Arbitration_County_Xpath = "//input[contains(@value,'5_Hartford County')]";
         private String tierIndicator = "//input[contains(@name,'TierIndicator')]";
         private String duplicateTIN = "//label[contains(.,'duplicate check failed')]/b";
         private String message = "//div[contains(@class,'DialogBox')]";
