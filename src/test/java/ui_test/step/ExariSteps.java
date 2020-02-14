@@ -913,4 +913,9 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPaymentAppendix().enterFeeScheduleID(hmap,false);
         basePage.getPaymentAppendix().verifyFeeScheduleID(hmap);
     }
+
+    @And("I select included Additional Manuals in Appendix1")
+    public void iSelectIncludedAdditionalManualsInAppendix() {
+        basePage.getAppendix2().includeAdditionalManualsAppendix1();
+    }
 }
