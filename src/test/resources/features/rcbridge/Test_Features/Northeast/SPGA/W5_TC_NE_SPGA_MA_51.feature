@@ -35,6 +35,7 @@ Feature: W5_TC_NE_SPGA_MA_51
 
     And I enter Appendix 2
     And I enter Payment Appendix
+    And I enter Payment Appendix in Rhode Island
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
