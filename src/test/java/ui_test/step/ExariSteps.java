@@ -351,8 +351,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter retro code in Provider Roster$")
     public void retrocodeProviderRoster() {
-        basePage.getProviderRoaster().selectretrocode(hmap);
-
+        basePage.getProviderRoaster().providerRoaster(hmap);
     }
 
     @And("^I acknowledge the warning$")

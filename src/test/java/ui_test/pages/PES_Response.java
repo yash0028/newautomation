@@ -50,7 +50,10 @@ public class PES_Response extends GenericInputPage {
 
 
     public WebElement counterPartyName(String Name) {
-        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
+       if(Name.toUpperCase().equals("DEFAULT"))
+    	   return getDriver().findElements(By.xpath("//input[@type='checkbox']")).get(0);
+       else
+    	   return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
     }
 
     public WebElement counterPartyAddress(String Name) {

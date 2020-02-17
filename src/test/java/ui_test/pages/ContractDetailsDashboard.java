@@ -614,7 +614,7 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
         private WebElement detectapproval;
         @FindBy(xpath = "//*[@id='ygtvlabelel1']")
         private WebElement clickToContractSummary;
-        @FindBy(xpath = "//span[contains(text(),'Agreement')]")
+        @FindBy(xpath = "//tr[contains(@class,'ygtvrow')]/td[2]/span[contains(@class,'ygtvlabel')]")
         private WebElement contractSummaryButton;
         @FindBy(xpath = "//a[contains(@title,'Create Amendment')]")
         private WebElement createAmendmentButton;
