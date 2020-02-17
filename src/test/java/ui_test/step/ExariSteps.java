@@ -191,8 +191,16 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPaymentAppendix().selectPaymentAppendix(hmap);
         basePage.getPaymentAppendix().enterFeeScheduleID(hmap,false);
         basePage.getPaymentAppendix().verifyFeeScheduleID(hmap);
+        basePage.getPaymentAppendix().enterMedicaidCHIPPaymentAppendix(hmap);
+    }
+
+    @And("^I enter Payment Appendix in Rhode Island$")
+    public void PaymentAppendixforRhodeIsland() {
         basePage.getPaymentAppendix().enterRhodeIslandPaymentAppendix(hmap);
     }
+
+
+
     @And("^I enter Rate Escalator$")
     public void Payment() {
         basePage.getPaymentAppendix().payment();
@@ -351,7 +359,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter retro code in Provider Roster$")
     public void retrocodeProviderRoster() {
-        basePage.getProviderRoaster().providerRoaster(hmap);
+        basePage.getProviderRoaster().selectretrocode(hmap);
+
     }
 
     @And("^I acknowledge the warning$")
@@ -917,5 +926,4 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void iSelectIncludedAdditionalManualsInAppendix() {
         basePage.getAppendix2().includeAdditionalManualsAppendix1();
     }
-
 }
