@@ -317,6 +317,11 @@ public class PaymentAppendix extends GenericInputPage {
             getFeeScheduleElement("Medicare Advantage ?").clear();
             Assert.assertTrue(sendKeys("Medicare Advantage", getFeeScheduleElement("Medicare Advantage ?"), hmap.get("FS Id Amendments Physician")));
         }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid and CHIP?")))) {
+            getFeeScheduleElement("All Payer?").clear();
+            Assert.assertTrue(sendKeys("Rhode Island Medicaid and CHIP", getFeeScheduleElement("Rhode Island Medicaid and CHIP?"), hmap.get("FS All Payer")));
+        }
+
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -535,6 +540,13 @@ public class PaymentAppendix extends GenericInputPage {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+    }
+
+    public void enterRhodeIslandPaymentAppendix(HashMap<String, String> hmap)
+    {
+        enterFeeScheduleID(hmap,true);
+        verifyFeeScheduleID(hmap);
+
     }
 
     private static class PageElements extends AbstractPageElements {
