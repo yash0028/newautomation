@@ -191,7 +191,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getPaymentAppendix().selectPaymentAppendix(hmap);
         basePage.getPaymentAppendix().enterFeeScheduleID(hmap,false);
         basePage.getPaymentAppendix().verifyFeeScheduleID(hmap);
-        basePage.getPaymentAppendix().enterMedicaidCHIPPaymentAppendix(hmap);
+        basePage.getPaymentAppendix().enterRhodeIslandPaymentAppendix(hmap);
     }
     @And("^I enter Rate Escalator$")
     public void Payment() {
