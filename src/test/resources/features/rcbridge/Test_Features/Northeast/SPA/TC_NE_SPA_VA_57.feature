@@ -51,7 +51,8 @@ Feature: TC_NE_SPA_VA_57
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
+    #And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -70,13 +71,13 @@ Feature: TC_NE_SPA_VA_57
       | site          | paperType     | TCName           |
       | northeast uhn   | SPA           | TC_NE_SPA_VA_57 |
       
+      
   @TC_NE_SPA_VA_57
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT
   @UAT_AUTO_MAKE_A_CORRECTION
   @SPA_AMENDMENT
-
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"

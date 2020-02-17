@@ -58,7 +58,7 @@ Feature: W4_TC_SE_SMGA_MS_2
     And I add provider using TIN
     And I select Providers
     And I verify Providers
-    And I enter retro code in Provider Roster
+    #And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
