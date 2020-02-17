@@ -79,7 +79,6 @@ Feature: W4_TC_SE_SPA_AL_06
   @UAT_AUTO_MAKE_A_CORRECTION
   @SPA_AMENDMENT
   @UAT_AUTO_AMENDMENT_TEST_SPA
-  @temp
   @SPA_AMENDMENT_Migration
   @SPA_SE_AMEND
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>

@@ -11,7 +11,7 @@ Feature: W5_TC_SE_SMGA_FL_02
   @UAT_AUTO_INITIAL_TRANSACTION
   @SMGA_INITIAL
   @UAT_AUTO_INITIAL_TRANSACTION_W5
-
+  @Wave5
   Scenario Outline: W5_TC_SE_SMGA_FL_02 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -31,7 +31,7 @@ Feature: W5_TC_SE_SMGA_FL_02
     And I enter HBPs Red Door
     And I select Provider Signatory
     And I enter Appendix 1
-    And I select included Additional Manuals in Appendix1
+#    And I select included Additional Manuals in Appendix1
     And I enter Market Strategy Grid
     And I enter Appendix 2
     And I enter Payment Appendix
@@ -79,7 +79,6 @@ Feature: W5_TC_SE_SMGA_FL_02
   @UAT_AUTO_AMANDAMENT
   @SMGA_AMANDMENT
   @SMGA_RERUN
-  @UAT_AUTO_AMENDMENT_MIG1
   @UAT_AUTO_AMENDMENT_W4
   Scenario Outline: W5_TC_SE_SMGA_FL_02 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
