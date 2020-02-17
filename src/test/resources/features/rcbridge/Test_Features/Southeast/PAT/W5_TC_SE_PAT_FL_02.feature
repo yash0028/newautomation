@@ -69,7 +69,7 @@ Feature: W5_TC_SE_PAT_FL_02
 
     Examples:
       | site          | paperType     | TCName|
-      | southeast uhn   | PAT          | W4_TC_SE_PAT_FL_02|
+      | southeast uhn   | PAT          | W5_TC_SE_PAT_FL_02|
 
 
   @W5_TC_SE_PAT_FL_02
@@ -127,5 +127,5 @@ Feature: W5_TC_SE_PAT_FL_02
 
     Examples:
       | site          | paperType     | TCName|
-      | southeast uhn   | PAT          | W4_TC_SE_PAT_FL_02|
+      | southeast uhn   | PAT          | W5_TC_SE_PAT_FL_02|
 
