@@ -30,10 +30,9 @@ Feature: W5_TC_NE_SMGA_ME_29
     And I enter Contract Details
     And I enter HBPs Red Door
     And I select Provider Signatory
-    And I enter Appendix 1
+#    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
-
     And I enter Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
