@@ -98,9 +98,6 @@ Feature: TC_CEN_SPGA_IN_74
     And I select provider and cancel date
     And I enter cancel reason
     And I acknowledge the warning
-#    And I enter warning in Make Correction
-#    And I enter validation
-#    And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
     

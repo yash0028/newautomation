@@ -1,8 +1,8 @@
 # Last updated on
-@SPGABusinessTestcases_VA
-@releaseUnknown
-@iterationUnknown
-Feature: W5_TC_NE_SPGA_NH_33
+  @SPGABusinessTestcases_VA
+  @releaseUnknown
+  @iterationUnknown
+  Feature: W5_TC_NE_SPGA_NH_33
 
   @W5_TC_NE_SPGA_NH_33
   @Manual
@@ -70,3 +70,34 @@ Feature: W5_TC_NE_SPGA_NH_33
     Examples:
       | site          | paperType     | TCName|
       | northeast uhn   | SPGA          | W5_TC_NE_SPGA_NH_33|
+
+    @W5_TC_NE_SPGA_NH_33
+    @Manual
+    @User_Interface
+    @UAT_AUTO_AMANDAMENT
+    @SPGA_AMENDMENT
+    @UAT_AUTO_AMENDMENT_W5
+    @SPGA_W5_AMENDMENTS
+
+    Scenario Outline: W5_TC_NE_SPGA_NH_33 - [RL0] Author SPGA contract in <site>
+      Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+      And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+
+    #Make a correction - Add provider with Make a correction.
+      And I click Make Correction
+      And I enter Market Exception Grid in Make Correction
+      And I enter Market Exception Grid
+      And I add provider using TIN
+      And I select Providers
+      And I enter Provider Start Date
+      And I enter retro code in Provider Roster
+      And I acknowledge the warning
+      And I enter Group Summary
+      Then I Complete Wizard
+
+      #Amendment CMD Checking
+      And I Verify CMD and Capture Status
+
+      Examples:
+        | site          | paperType     | TCName|
+        | northeast uhn   | SPGA          | W5_TC_NE_SPGA_NH_33|
