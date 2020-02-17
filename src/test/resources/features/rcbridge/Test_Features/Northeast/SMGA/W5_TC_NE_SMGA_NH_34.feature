@@ -30,10 +30,9 @@ Feature: W5_TC_NE_SMGA_NH_34
     And I enter Contract Details
     And I enter HBPs Red Door
     And I select Provider Signatory
-    And I enter Appendix 1
+#    And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
-
     And I enter Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
@@ -45,6 +44,8 @@ Feature: W5_TC_NE_SMGA_NH_34
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
+    And I Approve HBP Red Door
+    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
