@@ -57,7 +57,8 @@ Feature: W4_TC_SE_PAT_AL_32
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
+    #And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard

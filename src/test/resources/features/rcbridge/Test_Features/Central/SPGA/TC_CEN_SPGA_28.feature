@@ -65,28 +65,6 @@ Feature: TC_CEN_SPGA_IN_28
     
     #CMD Check
     And I Verify CMD and Capture Status
-
-    #NDB Check    
-    #Cosmos check
-    
-    #Make a correction - Add provider with Make a correction.
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
-    And I enter Provider Start Date
-    And I enter retro code in Provider Roster
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
-    #CMD Checking
-    And I Verify CMD and Capture Status
-
-    #Create supporting document 
-    
-    #CMD Check
-    #NDB Check
 		
     
     Examples:    

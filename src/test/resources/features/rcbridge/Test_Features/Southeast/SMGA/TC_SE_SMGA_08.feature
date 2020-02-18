@@ -52,7 +52,8 @@ Feature: TC_SE_SMGA_AR_08
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
+    #And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -65,14 +66,6 @@ Feature: TC_SE_SMGA_AR_08
 
     #CMD Checking
     And I Verify CMD and Capture Status
-
-    #CMD Check
-#    And I have entered the CMD dashboard URL
-#    And I am on the CMD dashboard
-#    And The dashboard page loads
-#    And I search for Contract
-    #Then Validate Contract details
-    
 	
     
     Examples:    

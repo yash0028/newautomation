@@ -43,30 +43,32 @@ Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     Then I Complete Wizard
 
     #Final capture
-   And I Start Workflow
-   And I Start Process for Initial Transaction
+   	And I Start Workflow
+   	And I Start Process for Initial Transaction
     #Approval
-  And I Approve Payment Appendix
-      #Final Capture Cont.
-   And I Set Status as Final Pending QA
-   And I Start Final Capture
-   And I enter Contract Details in Final Capture
-   And I enter Provider Signatory
-   And I enter Our Signatory
-  And I enter Market Exception Grid in Final Capture
-  And I enter Market Exception Grid
-  And I add provider using TIN
-  And I select Providers
-   And I enter retro code in Provider Roster
-   And I acknowledge the warning
-   And I enter Group Summary
-   Then I Complete Wizard
+  	And I Approve Payment Appendix
+    
+    #Final Capture Cont.
+   	And I Set Status as Final Pending QA
+   	And I Start Final Capture
+   	And I enter Contract Details in Final Capture
+   	And I enter Provider Signatory
+   	And I enter Our Signatory
+  	And I enter Market Exception Grid in Final Capture
+  	And I enter Market Exception Grid
+  	And I add provider using TIN
+  	And I select Providers
+   	And I verify Providers
+   	#And I enter retro code in Provider Roster
+   	And I acknowledge the warning
+   	And I enter Group Summary
+   	Then I Complete Wizard
     #Activate
     And I Set Status as Active
     And I capture Contract Number
 
     #CMD Checking
-  And I Verify CMD and Capture Status
+  	And I Verify CMD and Capture Status
 
     Examples:
     | site            | paperType     | TCName           |

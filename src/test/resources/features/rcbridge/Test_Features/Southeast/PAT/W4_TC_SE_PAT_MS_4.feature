@@ -54,7 +54,7 @@ Given I am logged into Exari Dev as a valid user and go to the "<site>" site
    And I enter Market Exception Grid
    And I add provider using TIN
    And I select Providers
-   And I enter retro code in Provider Roster
+   #And I enter retro code in Provider Roster
    And I acknowledge the warning
    And I enter Group Summary
    Then I Complete Wizard
@@ -73,7 +73,6 @@ Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   @Manual
   @User_Interface
   @UAT_AUTO_AMENDMENT_W4
-
   Scenario Outline: W4_TC_SE_PAT_MS_4 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
