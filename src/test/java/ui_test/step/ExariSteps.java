@@ -197,7 +197,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     @And("^I enter Payment Appendix in Rhode Island$")
     public void PaymentAppendixforRhodeIsland() {
         basePage.getPaymentAppendix().enterRhodeIslandPaymentAppendix(hmap);
-    }
+
+
+
+        }
 
 
 
