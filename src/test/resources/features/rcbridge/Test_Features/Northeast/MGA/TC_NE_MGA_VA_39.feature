@@ -13,7 +13,7 @@ Feature: TC_NE_MGA_VA_39
   @generate_link
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_NE.csv" of "<site>" and paper type "<paperType>"
 
   	#DRAFT
      And I enter PES Inputs
@@ -77,7 +77,7 @@ Feature: TC_NE_MGA_VA_39
       Scenario Outline: TC_NE_MGA_VA_39 - [RL0] Amend <paperType> contract in <site>
 
         Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-        And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+        And I am using the "<TCName>" data from "<paperType>_NE.csv" of "<site>" and paper type "<paperType>"
 
          #Amandments Add ER Wrap and Remove Charter
       And I select the contract

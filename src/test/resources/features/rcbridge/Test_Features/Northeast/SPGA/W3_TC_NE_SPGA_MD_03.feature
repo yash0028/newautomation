@@ -15,7 +15,7 @@ Feature: W3_TC_NE_SPGA_MD_03
   Scenario Outline: W3_TC_NE_SPGA_MD_03 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_NE.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -80,7 +80,7 @@ Feature: W3_TC_NE_SPGA_MD_03
   Scenario Outline: W3_TC_NE_SPGA_CT_16 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_NE.csv" of "<site>" and paper type "<paperType>"
 
      #cancel Amendment
     And I select the contract
