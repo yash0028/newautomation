@@ -33,8 +33,8 @@ Feature: W5_TC_NE_SMGA_MA_48
     And I enter Appendix 1
     And I enter Market Strategy Grid
     And I enter Appendix 2
-
     And I enter Payment Appendix
+    And I enter Payment Appendix in Rhode Island
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
