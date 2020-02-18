@@ -544,7 +544,8 @@ public class PaymentAppendix extends GenericInputPage {
 
     public void enterRhodeIslandPaymentAppendix(HashMap<String, String> hmap)
     {
-        enterFeeScheduleID(hmap,true);
+
+        enterPaymentAppenidix(hmap);
         verifyFeeScheduleID(hmap);
 
     }
