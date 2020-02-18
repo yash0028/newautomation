@@ -16,7 +16,7 @@ Feature: TC_SE_PAT_AR_55
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
 
     And I enter PES Inputs
     And I enter PES Response
@@ -89,7 +89,7 @@ Feature: TC_SE_PAT_AR_55
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
 
     #CMD Check
 	#NDB Check

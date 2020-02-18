@@ -50,7 +50,8 @@ Feature: W2_TC_CEN_SPA_MN_70
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
+    #And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -66,13 +67,6 @@ Feature: W2_TC_CEN_SPA_MN_70
       | site        | paperType     | TCName              |
       | central uhn | SPA           | W2_TC_CEN_SPA_MN_70 |
 
-     #CMD Check
-    #When I have entered the CMD dashboard URL
-    #And The dashboard page loads
-    #Then I search for Contract
-    #Then Validate Contract status and request type
-
-    #NDB Check
 
   @W2_TC_CEN_SPA_MN_70
   @Manual
@@ -80,7 +74,6 @@ Feature: W2_TC_CEN_SPA_MN_70
   @UAT_AUTO_AMANDAMENT
   @SPA_AMENDMENT
   @SPA_RERUN
-
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 

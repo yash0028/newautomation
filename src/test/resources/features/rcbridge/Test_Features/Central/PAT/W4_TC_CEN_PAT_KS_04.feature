@@ -16,7 +16,6 @@ Feature: W4_TC_CEN_PAT_KS_04
   @W4_KS
   @W4_Murty
   @UAT_AUTO_INITIAL_TRANSACTION_W4
-
   Scenario Outline: W4_TC_CEN_PAT_KS_04 - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -57,7 +56,8 @@ Feature: W4_TC_CEN_PAT_KS_04
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    And I verify Providers
+    #And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard

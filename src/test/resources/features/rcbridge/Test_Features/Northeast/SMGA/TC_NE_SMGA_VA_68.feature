@@ -13,7 +13,7 @@ Feature: TC_NE_SMGA_VA_68
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_NE.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -88,7 +88,7 @@ Feature: TC_NE_SMGA_VA_68
   Scenario Outline: TC_NE_SMGA_VA_68 - [RL0] Author SMGA contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>_NE_VA.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_NE.csv" of "<site>" and paper type "<paperType>"
     And I select the contract
     And I click on Create Amendment
     And I enter title
