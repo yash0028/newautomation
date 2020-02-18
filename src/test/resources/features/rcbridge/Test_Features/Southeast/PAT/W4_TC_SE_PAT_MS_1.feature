@@ -18,7 +18,7 @@ Scenario Outline: <TCName> - [RL0] Author PAT contract in <site>
 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -43,30 +43,32 @@ Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     Then I Complete Wizard
 
     #Final capture
-   And I Start Workflow
-   And I Start Process for Initial Transaction
+   	And I Start Workflow
+   	And I Start Process for Initial Transaction
     #Approval
-  And I Approve Payment Appendix
-      #Final Capture Cont.
-   And I Set Status as Final Pending QA
-   And I Start Final Capture
-   And I enter Contract Details in Final Capture
-   And I enter Provider Signatory
-   And I enter Our Signatory
-  And I enter Market Exception Grid in Final Capture
-  And I enter Market Exception Grid
-  And I add provider using TIN
-  And I select Providers
-   And I enter retro code in Provider Roster
-   And I acknowledge the warning
-   And I enter Group Summary
-   Then I Complete Wizard
+  	And I Approve Payment Appendix
+    
+    #Final Capture Cont.
+   	And I Set Status as Final Pending QA
+   	And I Start Final Capture
+   	And I enter Contract Details in Final Capture
+   	And I enter Provider Signatory
+   	And I enter Our Signatory
+  	And I enter Market Exception Grid in Final Capture
+  	And I enter Market Exception Grid
+  	And I add provider using TIN
+  	And I select Providers
+   	And I verify Providers
+   	#And I enter retro code in Provider Roster
+   	And I acknowledge the warning
+   	And I enter Group Summary
+   	Then I Complete Wizard
     #Activate
     And I Set Status as Active
     And I capture Contract Number
 
     #CMD Checking
-  And I Verify CMD and Capture Status
+  	And I Verify CMD and Capture Status
 
     Examples:
     | site            | paperType     | TCName           |
@@ -80,7 +82,7 @@ Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_SE_AR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
     #Make Correction - Provider Roster (Add one or more providers to the roster)
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction

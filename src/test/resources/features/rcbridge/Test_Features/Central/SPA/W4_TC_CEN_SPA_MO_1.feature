@@ -3,7 +3,6 @@
 @releaseUnknown
 @iterationUnknown
 Feature: W4_TC_CEN_SPA_MO_1
- #Missouri (MO)
  @W4_TC_CEN_SPA_1
  @Manual
  @User_Interface
@@ -13,11 +12,8 @@ Feature: W4_TC_CEN_SPA_MO_1
  @CMD_CHECK
  @W4LCJ
  @wave4
- @W4_Murty
  @UAT_AUTO_INITIAL_TRANSACTION_W4
- @wave4_Medicare
-  #completed adding data and steps
- Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
   Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
@@ -45,7 +41,7 @@ Feature: W4_TC_CEN_SPA_MO_1
   And I enter Group Summary
   Then I Complete Wizard
 
-     #Final capture
+  #Final capture
   And I Start Workflow
   And I Start Process for Initial Transaction
   And I Set Status as Final Pending QA
@@ -57,7 +53,8 @@ Feature: W4_TC_CEN_SPA_MO_1
   And I enter Market Exception Grid
   And I add provider using TIN
   And I select Providers
-  And I enter retro code in Provider Roster
+  And I verify Providers
+  #And I enter retro code in Provider Roster
   And I acknowledge the warning
   And I enter Group Summary
   Then I Complete Wizard
