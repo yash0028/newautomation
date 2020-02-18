@@ -318,8 +318,18 @@ public class PaymentAppendix extends GenericInputPage {
             Assert.assertTrue(sendKeys("Medicare Advantage", getFeeScheduleElement("Medicare Advantage ?"), hmap.get("FS Id Amendments Physician")));
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid and CHIP?")))) {
-            getFeeScheduleElement("All Payer?").clear();
+            getFeeScheduleElement("Rhode Island Medicaid and CHIP").clear();
             Assert.assertTrue(sendKeys("Rhode Island Medicaid and CHIP", getFeeScheduleElement("Rhode Island Medicaid and CHIP?"), hmap.get("FS All Payer")));
+        }
+
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid for Physician")))) {
+            getFeeScheduleElement("Rhode Island Medicaid for Physician").clear();
+            Assert.assertTrue(sendKeys("Rhode Island Medicaid for Physician", getFeeScheduleElement("Rhode Island Medicaid for Physician"), hmap.get("FS All Payer Physician")));
+        }
+
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid Non-Physician")))) {
+            getFeeScheduleElement("Rhode Island Medicaid Non-Physician").clear();
+            Assert.assertTrue(sendKeys("Rhode Island Medicaid Non-Physician", getFeeScheduleElement("Rhode Island Medicaid Non-Physician"), hmap.get("FS All Payer Non Physician")));
         }
 
         Assert.assertTrue(clickNext());
