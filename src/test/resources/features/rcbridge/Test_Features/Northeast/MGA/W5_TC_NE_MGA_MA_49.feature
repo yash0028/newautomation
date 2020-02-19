@@ -9,8 +9,10 @@ Feature: W5_TC_NE_MGA_MA_49
     @UAT_AUTO_INITIAL_TRANSACTION
     @UAT_AUTO_INITIAL_TRANSACTION_W5
     @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
+    @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_W5
     @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_NE
-    @2020-02-18
+    @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_NE_W5
+
     Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
         
 #Begin Draft Contract
@@ -36,6 +38,7 @@ Feature: W5_TC_NE_MGA_MA_49
     And I enter Payment Appendix
     And I enter Regulatory Appendices
     And I select Provider Roster as None
+    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 #End Draft Contract
