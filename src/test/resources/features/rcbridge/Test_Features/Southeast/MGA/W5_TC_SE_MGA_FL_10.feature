@@ -46,7 +46,7 @@ Feature: W5_TC_SE_MGA_FL_10
     And I Start Workflow
     And I Start Process for Initial Transaction
     #Begin Approval
-        And I Approve Payment Appendix
+        #And I Approve Payment Appendix
     #End Approval
     And I Set Status as Final Pending QA
     And I Start Final Capture
