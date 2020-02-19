@@ -2,7 +2,7 @@
 @SPGABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: W5_TC_NE_SPGA_MA_51
+Feature: W5_TC_NE_SPGA_MA_45
 
 
   @W5_TC_NE_SPGA_MA_45
@@ -12,7 +12,7 @@ Feature: W5_TC_NE_SPGA_MA_51
   @UAT_AUTO_INITIAL_TRANSACTION1
   @WAVE5INIT
   @UAT_AUTO_INITIAL_TRANSACTION_W5
-
+  @WAVE5INIT_SPGA
   Scenario Outline: W5_TC_NE_SPGA_MA_45- [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
