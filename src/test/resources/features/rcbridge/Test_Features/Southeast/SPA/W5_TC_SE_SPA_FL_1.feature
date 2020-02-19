@@ -2,7 +2,7 @@
 @SPABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SPA_FL_1
+Feature: W5_TC_SE_SPA_FL_1
   @W5_TC_SE_SPA_FL_1
   @Manual
   @User_Interface
@@ -11,6 +11,7 @@ Feature: W4_TC_SE_SPA_FL_1
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
   @W4LCJ
   @UAT_AUTO_INITIAL_TRANSACTION_W5
+  @W5Y
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

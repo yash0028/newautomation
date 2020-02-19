@@ -1,21 +1,22 @@
-# Last updated on
-@SPGABusinessTestcases_VA
-@releaseUnknown
-@iterationUnknown
-Feature: W5_TC_NE_SPGA_MA_51
+#Last Updated : 2020-02-18 18:49:52.187798
 
+Feature: W5_TC_NE_MGA_VT_37
+    @W5_TC_NE_MGA_VT_37
+    @Manual
+    @User_Interface
+    @UAT_AUTO
+    @UAT_AUTO_NORTHEAST
+    @UAT_AUTO_INITIAL_TRANSACTION
+    @UAT_AUTO_INITIAL_TRANSACTION_W5
+    @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
+    @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_W5
+    @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_NE
+    @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_NE_W5
 
-  @W5_TC_NE_SPGA_MA_51
-  @Manual
-  @User_Interface
-  @UAT_AUTO1
-  @UAT_AUTO_INITIAL_TRANSACTION1
-  @WAVE5INIT
-  @UAT_AUTO_INITIAL_TRANSACTION_W5
-  @WAVE5INIT_SPGA
-  Scenario Outline: W5_TC_NE_SPGA_MA_51- [RL0] Author SPGA contract in <site>
+    Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+        
+#Begin Draft Contract
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    #Draft
     And I am using the "<TCName>" data from "<paperType>_NE.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
@@ -23,30 +24,31 @@ Feature: W5_TC_NE_SPGA_MA_51
     And I enter Request For Participation Response
     And I enter Document Selection
     And I preview Provider Details
-    And I enter Practice Locations for SPGA Contract
+    And I enter Practice Locations for MGA Contract
     And I preview Provider Details
     And I enter Market Exception Grid
     And I enter Market Exception Grid
     And I enter Contract Details
-    And I enter HBPs Red Door
-    And I select Provider Signatory
-    And I enter Appendix 1
-    And I enter Market Strategy Grid
-
-    And I enter Appendix 2
-    And I enter Payment Appendix
-    And I enter Payment Appendix in Rhode Island
+    And I enter Article Page
+    And I enter Signature Block
     And I enter Additional Locations
+    And I enter Market Strategy Grid
+    And I enter Appendix 2
+    And I choose Additional Manuals
+    And I enter Payment Appendix
     And I enter Regulatory Appendices
     And I select Provider Roster as None
     And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
-
-   #Final capture
-
+#End Draft Contract
+    
+#Begin Final Capture
     And I Start Workflow
     And I Start Process for Initial Transaction
+    #Begin Approval
+        And I Approve Payment Appendix
+    #End Approval
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -54,20 +56,30 @@ Feature: W5_TC_NE_SPGA_MA_51
     And I enter Our Signatory
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
-    And I verify Providers
+    And I enter Clause Language
+    #Provider Roster (Add one or more providers to the roster)
+        And I add provider using TIN
+        And I select Providers
+        And I verify Providers
+    #End Provider Roster
+    And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-
-    #Activate
+#End Final Capture
+    
+#Begin Activate
     And I Set Status as Active
     And I capture Contract Number
+#End Activate
 
-    #CMD Check
+#Begin CMD Checking
     And I Verify CMD and Capture Status
+#End CMD Checking
 
+#Begin NDB Checking
+#End NDB Checking
+        
     Examples:
-      | site          | paperType     | TCName|
-      | northeast uhn   | SPGA          | W5_TC_NE_SPGA_MA_51|
+      | site          | paperType     | TCName            |
+      | northeast uhn | MGA           | W5_TC_NE_MGA_VT_37 |

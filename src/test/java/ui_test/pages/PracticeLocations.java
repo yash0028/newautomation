@@ -36,11 +36,19 @@ public class PracticeLocations extends GenericInputPage {
     }
 
     //Select Practice Location when Paper Type is MGA
-    public void selectPracticeLocation() {
-        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.radio))) {
-            click("Practice Location", elements.radioBtnSelection);
-        } else if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.checkbox))) {
-            setCheckBox("Practice Location", elements.checkboxBtnSelection, true);
+    public void selectPracticeLocation(HashMap<String, String> hmap) {
+        if(hmap.get("Practice Location").toLowerCase().equals("default")) {
+            if ( elements.defaultpracticeloc.getAttribute("type").equals("checkbox")){
+                Assert.assertTrue(setCheckBox("Practice Location", elements.defaultpracticeloc, true));
+            }else{
+                Assert.assertTrue(click("Practice Location", elements.defaultpracticeloc));
+            }
+        }else{
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.radio))) {
+                click("Practice Location", elements.radioBtnSelection);
+            } else if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.checkbox))) {
+                setCheckBox("Practice Location", elements.checkboxBtnSelection, true);
+            }
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
@@ -58,6 +66,9 @@ public class PracticeLocations extends GenericInputPage {
         private WebElement radioBtnSelection;
         @FindBy(xpath = "//input[@type='checkbox']")
         private WebElement checkboxBtnSelection;
+        @FindBy(xpath = "//input[contains(@value,'serviceAddress')]")
+        private WebElement defaultpracticeloc;
+
 
         private String radio = "//input[@type='radio']";
         private String checkbox = "//input[@type='checkbox']";

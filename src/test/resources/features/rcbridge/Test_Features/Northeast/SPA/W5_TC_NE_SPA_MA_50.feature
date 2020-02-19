@@ -1,17 +1,17 @@
 # Last updated on
-@SPABusinessTestcases_AR
+@SPABusinessTestcases_MA
 @releaseUnknown
 @iterationUnknown
-Feature: W5_TC_SE_SPA_FL_4
-  @W5_TC_SE_SPA_FL_4
+Feature: W5_TC_NE_SPA_MA_50
+  @W5_TC_NE_SPA_MA_50
   @Manual
   @User_Interface
   @UAT_AUTO
   @UAT_AUTO_INITIAL_TRANSACTION
   @UAT_AUTO_INITIAL_TRANSACTION_SPA
-  @W4LCJ
-  @UAT_AUTO_INITIAL_TRANSACTION_W5
+  @W5Y1
   @W5Y
+  @UAT_AUTO_INITIAL_TRANSACTION_W5
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -31,8 +31,10 @@ Feature: W5_TC_SE_SPA_FL_4
     And I enter Contract Details
     And I enter Appendix 1
     And I enter Market Strategy Grid
+   
     And I enter Appendix 2
     And I enter Payment Appendix
+    And I enter Payment Appendix in Rhode Island
     And I enter Additional Locations
     And I enter Regulatory Appendices
     And I select Provider Roster as None
@@ -43,8 +45,7 @@ Feature: W5_TC_SE_SPA_FL_4
      #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-      #Approval
-   # And I Approve Payment Appendix
+ 
       #Final Capture Cont.
     And I Set Status as Final Pending QA
     And I Start Final Capture
@@ -53,9 +54,8 @@ Feature: W5_TC_SE_SPA_FL_4
     And I enter Our Signatory
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
-    And I enter retro code in Provider Roster
+    And I select Provider Roster as None
+    And I enter retro code in Provider Roster 
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -70,5 +70,5 @@ Feature: W5_TC_SE_SPA_FL_4
 
     Examples:
       | site          | paperType     | TCName            |
-      | southeast uhn | SPA           | W4_TC_SE_SPA_FL_4 |
+      | northeast uhn | SPA           | W5_TC_NE_SPA_MA_50 |
 

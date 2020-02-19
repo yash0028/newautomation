@@ -1,10 +1,11 @@
-# Last updated on
+#Last updated on
 @SPGABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: W5_TC_SE_SPGA_FL_04
+Feature: W5_TC_NE_SPGA_MA_45
 
-  @W5_TC_SE_SPGA_FL_04
+
+  @W5_TC_NE_SPGA_MA_45
   @Manual
   @User_Interface
   @UAT_AUTO1
@@ -12,10 +13,10 @@ Feature: W5_TC_SE_SPGA_FL_04
   @WAVE5INIT
   @UAT_AUTO_INITIAL_TRANSACTION_W5
   @WAVE5INIT_SPGA
-  Scenario Outline: W5_TC_SE_SPGA_FL_04- [RL0] Author SPGA contract in <site>
+  Scenario Outline: W5_TC_NE_SPGA_MA_45- [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_NE.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -31,8 +32,8 @@ Feature: W5_TC_SE_SPGA_FL_04
     And I select Provider Signatory
     And I enter Appendix 1
     And I enter Market Strategy Grid
-    And I enter Appendix 2
 
+    And I enter Appendix 2
     And I enter Payment Appendix
     And I enter Additional Locations
     And I enter Regulatory Appendices
@@ -45,6 +46,7 @@ Feature: W5_TC_SE_SPGA_FL_04
 
     And I Start Workflow
     And I Start Process for Initial Transaction
+    And I Approve HBP Red Door
     And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
@@ -69,37 +71,4 @@ Feature: W5_TC_SE_SPGA_FL_04
 
     Examples:
       | site          | paperType     | TCName|
-      | southeast uhn   | SPGA          | W5_TC_SE_SPGA_FL_04|
-
-
-  @W5_TC_SE_SPGA_FL_04
-  @Manual
-  @User_Interface
-  @UAT_AUTO_AMANDAMENT
-  @SPGA_AMENDMENT
-  @UAT_AUTO_AMENDMENT_W5
-  @SPGA_W5_AMENDMENTS
-
-  Scenario Outline: W5_TC_SE_SPGA_FL_04 - [RL0] Author SPGA contract in <site>
-
-    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
-
-	#Make a Correction - Add a new TIN to the existing provider in the Roster.
-    And I click Make Correction
-    And I enter Market Exception Grid in Make Correction
-    And I enter Market Exception Grid
-    And I set Roster Action as Upload
-    And I Download Current Roster
-    And I Upload Completed Roster
-    And I enter warning in Make Correction
-    And I enter validation
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
-    #CMD Checking
-    And I Verify CMD and Capture Status
-
-    Examples:
-      | site          | paperType     | TCName|
-      | southeast uhn   | SPGA          | W5_TC_SE_SPGA_FL_04|
+      | northeast uhn   | SPGA          | W5_TC_NE_SPGA_MA_45|

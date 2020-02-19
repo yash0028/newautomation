@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
 
@@ -36,11 +37,20 @@ public class PES_Response extends GenericInputPage {
                 Assert.assertTrue(click("Approach for Counter Party", counterPartyApproach(hmap.get("CounterPartyApproach"))));
             }
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-            if (counterPartyAddress(hmap.get("CounterPartyAddress")).getAttribute("type").equals("checkbox")) {
-                Assert.assertTrue(setCheckBox("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")), true));
-            } else if (counterPartyAddress(hmap.get("CounterPartyAddress")).getAttribute("type").equals("radio")) {
-                Assert.assertTrue(click("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress"))));
+            if(hmap.get("CounterPartyAddress").toLowerCase().equals("default")) {
+                if ( elements.counterPartyAdd.getAttribute("type").equals("checkbox")){
+                    Assert.assertTrue(setCheckBox("CounterParty address checkbox", elements.counterPartyAdd, true));
+                }else{
+                    Assert.assertTrue(click("CounterParty address checkbox", elements.counterPartyAdd));
+                }
+            }else{
+                if (counterPartyAddress(hmap.get("CounterPartyAddress")).getAttribute("type").equals("checkbox")) {
+                    Assert.assertTrue(setCheckBox("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress")), true));
+                } else if (counterPartyAddress(hmap.get("CounterPartyAddress")).getAttribute("type").equals("radio")) {
+                    Assert.assertTrue(click("CounterParty address checkbox", counterPartyAddress(hmap.get("CounterPartyAddress"))));
+                }
             }
+
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         } catch (Exception e) {
@@ -65,6 +75,9 @@ public class PES_Response extends GenericInputPage {
     }
 
     private static class PageElements extends AbstractPageElements {
+
+        @FindBy(xpath = "//input[contains(@value,'address')]")
+        private WebElement counterPartyAdd;
 
         private String noresult = "//input[contains(@value, 'No Results found')]";
         private String message = "//div[contains(@class,'DialogBox')]";
