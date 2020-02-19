@@ -10,7 +10,7 @@ Feature: W5_TC_SE_MGA_FL_15
     @UAT_AUTO_INITIAL_TRANSACTION_W5
     @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
     @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_SE
-
+    @2020-02-18
     Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
         
 #Begin Draft Contract
