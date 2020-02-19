@@ -45,7 +45,7 @@ Feature: W5_TC_SE_SPGA_FL_04
 
     And I Start Workflow
     And I Start Process for Initial Transaction
-    And I Approve Payment Appendix
+#    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
