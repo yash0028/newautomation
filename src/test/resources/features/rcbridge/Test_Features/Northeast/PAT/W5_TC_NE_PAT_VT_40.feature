@@ -9,6 +9,7 @@ Feature: W5_TC_NE_PAT_VT_40
   @UAT_AUTO1
   @UAT_AUTO_INITIAL_TRANSACTION1
   @WAVE5INIT
+  @W5Y
   @UAT_AUTO_INITIAL_TRANSACTION_W5
   Scenario Outline: W5_TC_NE_PAT_VT_40 [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
