@@ -45,8 +45,8 @@ Feature: W5_TC_NE_SMGA_VT_39
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-    And I Approve HBP Red Door
-    And I Approve Payment Appendix
+#    And I Approve HBP Red Door
+#    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -124,3 +124,30 @@ Feature: W5_TC_NE_SMGA_VT_39
       | site          | paperType     | TCName|
       | northeast uhn   | SMGA          | W5_TC_NE_SMGA_VT_39|
 
+  @W5_TC_NE_SMGA_VT_39
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_MAKE_A_CORRECTION_W5
+  @UAT_AUTO_AMENDMENT_W5
+  Scenario Outline: W5_TC_SE_SMGA_FL_02 - [RL0] Author SPGA contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_NE.csv" of "<site>" and paper type "<paperType>"
+
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+
+    Examples:
+      | site            | paperType     | TCName          |
+      | southeast uhn   | SMGA          |W5_TC_NE_SMGA_VT_39|

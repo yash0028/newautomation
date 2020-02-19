@@ -45,7 +45,7 @@ Feature: W5_TC_SE_SMGA_FL_09
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-    And I Approve Payment Appendix
+#    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -76,9 +76,7 @@ Feature: W5_TC_SE_SMGA_FL_09
   @Manual
   @User_Interface
   @UAT_AUTO_AMANDAMENT
-  @SMGA_AMANDMENT
-  @SMGA_RERUN
-  @UAT_AUTO_AMENDMENT_W4
+  @UAT_AUTO_AMENDMENT_W5
   Scenario Outline: W5_TC_SE_SMGA_FL_09 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -92,19 +90,11 @@ Feature: W5_TC_SE_SMGA_FL_09
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I select Types of Amendments
-    And I select Contract Applied in Amendments
+    And I enter Amendments Page to amend Payment Appendix
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
-    And I enter Appendix 2 in Amendments
-    And I select applied Payment Appendix
-#    And I enter Payment Appendix in Amendments for SMGA contracts
-#    And I check Payment Appendix
-    And I select Payment Appendix for SMGA contracts
-    And I choose Additional Manuals
-    And I enter Steerage
-    And I enter Payment Appendix in Amendments for SMGA contracts
-    And I check Payment Appendix
+    And I enter Payment Appendix in Amendments to replace Payment Appendix
+    And I select fee schedule id in Amendments
     And I enter Group Summary
     And I Complete Wizard
 
@@ -128,3 +118,28 @@ Feature: W5_TC_SE_SMGA_FL_09
       | site            | paperType     | TCName          |
       | southeast uhn   | SMGA          | W5_TC_SE_SMGA_FL_09|
 
+  @W5_TC_SE_SMGA_FL_09
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_MAKE_A_CORRECTION_W5
+  @UAT_AUTO_AMENDMENT_W5
+  Scenario Outline: W5_TC_SE_SMGA_FL_02 - [RL0] Author SPGA contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
+
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Cancel
+    And I select provider and cancel date
+    And I enter cancel reason
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+
+    Examples:
+      | site            | paperType     | TCName          |
+      | southeast uhn   | SMGA          | W5_TC_SE_SMGA_FL_09|

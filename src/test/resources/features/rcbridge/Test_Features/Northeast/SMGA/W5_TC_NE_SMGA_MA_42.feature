@@ -45,8 +45,8 @@ Feature: W5_TC_NE_SMGA_MA_42
     #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-    And I Approve HBP Red Door
-    And I Approve Payment Appendix
+#    And I Approve HBP Red Door
+#    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -83,24 +83,17 @@ Feature: W5_TC_NE_SMGA_MA_42
     And I select the contract
 
     #DRAFT Amendment
+    And I select the contract
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I select Types of Amendments
-    And I select Contract Applied in Amendments
+    And I enter Amendments Page to amend Payment Appendix
     And I enter Contract Details in Amendments
     And I enter Effective date in Contract Details
-    And I enter Appendix 2 in Amendments
-    And I select applied Payment Appendix
-#    And I enter Payment Appendix in Amendments for SMGA contracts
-#    And I check Payment Appendix
-    And I select Payment Appendix for SMGA contracts
-    And I choose Additional Manuals
-    And I enter Steerage
-    And I enter Payment Appendix in Amendments for SMGA contracts
-    And I check Payment Appendix
+    And I enter Payment Appendix in Amendments to replace Payment Appendix
+    And I select fee schedule id in Amendments
     And I enter Group Summary
     And I Complete Wizard
 
