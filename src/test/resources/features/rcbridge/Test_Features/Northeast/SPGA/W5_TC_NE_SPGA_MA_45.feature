@@ -2,7 +2,7 @@
 @SPGABusinessTestcases_VA
 @releaseUnknown
 @iterationUnknown
-Feature: W5_TC_NE_SPGA_MA_51
+Feature: W5_TC_NE_SPGA_MA_45
 
 
   @W5_TC_NE_SPGA_MA_45
