@@ -12,6 +12,7 @@ Feature: W5_TC_SE_SPA_FL_4
   @W4LCJ
   @UAT_AUTO_INITIAL_TRANSACTION_W5
   @W5Y
+  @W5_PAT_SPA
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -70,5 +71,5 @@ Feature: W5_TC_SE_SPA_FL_4
 
     Examples:
       | site          | paperType     | TCName            |
-      | southeast uhn | SPA           | W4_TC_SE_SPA_FL_4 |
+      | southeast uhn | SPA           | W5_TC_SE_SPA_FL_4 |
 

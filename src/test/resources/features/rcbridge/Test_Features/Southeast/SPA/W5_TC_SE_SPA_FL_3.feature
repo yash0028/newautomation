@@ -12,6 +12,7 @@ Feature: W5_TC_SE_SPA_FL_3
   @W4LCJ
   @UAT_AUTO_INITIAL_TRANSACTION_W5
   @W5Y
+  @W5_PAT_SPA
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -44,7 +45,7 @@ Feature: W5_TC_SE_SPA_FL_3
     And I Start Workflow
     And I Start Process for Initial Transaction
       #Approval
-    And I Approve Payment Appendix
+    #And I Approve Payment Appendix
       #Final Capture Cont.
     And I Set Status as Final Pending QA
     And I Start Final Capture

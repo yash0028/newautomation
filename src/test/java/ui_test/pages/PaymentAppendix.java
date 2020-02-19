@@ -106,6 +106,11 @@ public class PaymentAppendix extends GenericInputPage {
             Assert.assertTrue(sendKeys("MSPS for Physicians", getFeeScheduleElement("MSPS for Physicians"), hmap.get("FS All Payer Physician")));
             pageExist = true;
         }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Florida Medicaid MSPS")))) {
+            getFeeScheduleElement("Florida Medicaid MSPS").clear();
+            Assert.assertTrue(sendKeys("Florida Medicaid MSPS", getFeeScheduleElement("Florida Medicaid MSPS"), hmap.get("FS All Payer Physician")));
+            pageExist = true;
+        }
 
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("MSPS for Non-Physicians")))) {
             getFeeScheduleElement("MSPS for Non-Physicians").clear();
@@ -529,7 +534,7 @@ public class PaymentAppendix extends GenericInputPage {
 
 
     public void enterMedicaidCHIPPaymentAppendix(HashMap<String, String> hmap){
-        String[] subtopics = {"Medicaid and CHIP","Medicaid Simplified","CHIP Simplified","Medicaid MGA","Long Term Care PASP","Florida Medicaid MSPS","Rhode Island Medicaid"};
+        String[] subtopics = {"Medicaid and CHIP","Medicaid Simplified","CHIP Simplified","Medicaid MGA","Long Term Care PASP","Florida Medicaid MSPS","Rhode Island Medicaid",};
         for(String subtopic : subtopics) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getSubTopic(subtopic)))) {
                 IWebInteract.log.info("[FOUND SUB TOPIC] : {}",subtopic);
