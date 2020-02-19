@@ -2,7 +2,7 @@
 @SPABusinessTestcases_AR
 @releaseUnknown
 @iterationUnknown
-Feature: W4_TC_SE_SPA_FL_1
+Feature: W5_TC_SE_SPA_FL_1
   @W5_TC_SE_SPA_FL_1
   @Manual
   @User_Interface

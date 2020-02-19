@@ -128,7 +128,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("^I enter Practice Locations for MGA Contract$")
     public void MGAPracticeLocations() {
-        basePage.getPracticeLocations().selectPracticeLocation();
+        basePage.getPracticeLocations().selectPracticeLocation(hmap);
     }
 
     @And("^I enter Practice Locations for SMGA Contract$")

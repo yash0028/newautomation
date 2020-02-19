@@ -43,7 +43,7 @@ Feature: W5_TC_SE_SPA_FL_4
     And I Start Workflow
     And I Start Process for Initial Transaction
       #Approval
-    And I Approve Payment Appendix
+   # And I Approve Payment Appendix
       #Final Capture Cont.
     And I Set Status as Final Pending QA
     And I Start Final Capture
