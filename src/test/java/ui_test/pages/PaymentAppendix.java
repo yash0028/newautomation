@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui_test.page.exari.contract.GenericInputPage;
 import ui_test.util.AbstractPageElements;
-import org.openqa.selenium.JavascriptExecutor;
 import ui_test.util.IWebInteract;
 
 import java.util.HashMap;
@@ -99,6 +98,33 @@ public class PaymentAppendix extends GenericInputPage {
 
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Mississippi CHIP")))) {
             Assert.assertTrue(sendKeys("Mississippi CHIP", getFeeScheduleElement("Mississippi CHIP"), hmap.get("FS All Payer Physician")));
+            pageExist = true;
+        }
+
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("MSPS for Physicians")))) {
+            getFeeScheduleElement("MSPS for Physicians").clear();
+            Assert.assertTrue(sendKeys("MSPS for Physicians", getFeeScheduleElement("MSPS for Physicians"), hmap.get("FS All Payer Physician")));
+            pageExist = true;
+        }
+
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("MSPS for Non-Physicians")))) {
+            getFeeScheduleElement("MSPS for Non-Physicians").clear();
+            Assert.assertTrue(sendKeys("MSPS for Non-Physicians", getFeeScheduleElement("MSPS for Non-Physicians"), hmap.get("FS All Payer Physician")));
+            pageExist = true;
+        }
+
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Non-Physician Professionals for Florida Medicaid MSPS")))) {
+            getFeeScheduleElement("Non-Physician Professionals for Florida Medicaid MSPS").clear();
+            Assert.assertTrue(sendKeys("Non-Physician Professionals for Florida Medicaid MSPS", getFeeScheduleElement("Non-Physician Professionals for Florida Medicaid MSPS"), hmap.get("FS All Payer Physician")));
+            pageExist = true;
+        }
+
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getSubTopic("Florida Medicaid MSPS")))){
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn("Select the following Payment Appendix")))) {
+                Assert.assertTrue(click("Clicked CHIP", elements.selectCHIP));
+                Assert.assertTrue(click("Clicked Medicaid", elements.selectmedicaid));
+                Assert.assertTrue(click("Clicked Long Term", elements.selectLTC));
+            }
             pageExist = true;
         }
 
@@ -493,55 +519,96 @@ public class PaymentAppendix extends GenericInputPage {
 
 
     public void enterMedicaidCHIPPaymentAppendix(HashMap<String, String> hmap){
-        String[] subtopics = {"Medicaid and CHIP","Medicaid Simplified","CHIP Simplified","Medicaid MGA"};
+        String[] subtopics = {"Medicaid and CHIP","Medicaid Simplified","CHIP Simplified","Medicaid MGA","Long Term Care PASP","Florida Medicaid MSPS"};
         for(String subtopic : subtopics) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getSubTopic(subtopic)))) {
                 IWebInteract.log.info("[FOUND SUB TOPIC] : {}",subtopic);
-                if(subtopic.equals("CHIP Simplified")){
-                    if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeScheduleID("fee schedule")))) {
-                        Assert.assertTrue(sendKeys("FeeSchedule ID", getFeeScheduleElementID("fee schedule"), hmap.get("FS All Payer")));
-                        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-                        Assert.assertTrue(clickNext());
-                        Assert.assertTrue(waitForPageLoad());
+                if(subtopic.equals("Florida Medicaid MSPS")){
+                        enterFeeScheduleID(hmap, true);
+                }else{
+                    if(subtopic.equals("CHIP Simplified")){
+                        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeScheduleID("fee schedule")))) {
+                            Assert.assertTrue(sendKeys("FeeSchedule ID", getFeeScheduleElementID("fee schedule"), hmap.get("FS All Payer")));
+                            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+                            Assert.assertTrue(clickNext());
+                            Assert.assertTrue(waitForPageLoad());
+                        }
                     }
-                }
-                if (CommonMethods.isElementPresent(getDriver(), By.xpath("//a[contains(.,'Select All')]"))) {
-                    Assert.assertTrue(click(elements.selectAll));
-                }
-                String[] InputQuestions = {"percentage of the Medicaid conversion factor",
-                        "percentage of the Medicaid Fee Schedule",
-                        "percentage of your Customary Charges",
-                        "percentage of the Medicaid fee schedule",
-                        "percentage or equivalent of CMS",
-                        "percentage of the current year CMS",
-                        "percentage of the CMS",
-                        "% of customary charges"};
-                for (String Question : InputQuestions) {
-                    if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))) {
-                        IWebInteract.log.info("Question : {}", Question);
-                        Assert.assertTrue(sendKeys("Entering Data to " + Question, getQnInputElem(Question, null), "5"));
+                    if(subtopic.equals("Long Term Care PASP")){
+                        enterLongTermCarePASP(hmap);
                     }
-                }
-
-
-                String[] RadioQuestions = {"CPT/HCPC Codes", "Red Door Alternate", "adding Incentive Program language for PCP"};
-                for (String Question : RadioQuestions) {
-                    if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))) {
-                        IWebInteract.log.info("Question : {}", Question);
-                        Assert.assertTrue(click("Entering Data to " + Question, getQnInputElem(Question, "No")));
-                        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+                    if (CommonMethods.isElementPresent(getDriver(), By.xpath("//a[contains(.,'Select All')]"))) {
+                        Assert.assertTrue(click(elements.selectAll));
                     }
-                }
+                    String[] InputQuestions = {"percentage of the Medicaid conversion factor",
+                            "percentage of the Medicaid Fee Schedule",
+                            "percentage of your Customary Charges",
+                            "percentage of the Medicaid fee schedule",
+                            "percentage or equivalent of CMS",
+                            "percentage of the current year CMS",
+                            "percentage of the CMS",
+                            "% of customary charges"};
+                    for (String Question : InputQuestions) {
+                        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))) {
+                            IWebInteract.log.info("Question : {}", Question);
+                            Assert.assertTrue(sendKeys("Entering Data to " + Question, getQnInputElem(Question, null), "5"));
+                        }
+                    }
 
-                Assert.assertTrue(clickNext());
-                Assert.assertTrue(waitForPageLoad());
-                if(subtopic.equals("Medicaid MGA")){
-                    enterFeeScheduleID(hmap,true);
-                }
 
+                    String[] RadioQuestions = {"CPT/HCPC Codes", "Red Door Alternate", "adding Incentive Program language for PCP"};
+                    for (String Question : RadioQuestions) {
+                        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))) {
+                            IWebInteract.log.info("Question : {}", Question);
+                            Assert.assertTrue(click("Entering Data to " + Question, getQnInputElem(Question, "No")));
+                            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+                        }
+                    }
+
+                    Assert.assertTrue(clickNext());
+                    Assert.assertTrue(waitForPageLoad());
+                    if(subtopic.equals("Medicaid MGA")){
+                        enterFeeScheduleID(hmap,true);
+                    }
+
+                }
             }
         }
+
     }
+
+    private void enterLongTermCarePASP(HashMap<String, String> hmap) {
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn("Payment Appendix applies to covered services")))) {
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            Assert.assertTrue(click("Clicked CHIP",elements.selectCHIP));
+            Assert.assertTrue(click("Clicked Medicaid",elements.selectmedicaid));
+            Assert.assertTrue(click("Clicked Long Term",elements.selectLongTerm));
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
+
+        String[] RadioQuestions = {"standard payment methodology", "specific CPT codes", "% of CMS" , "standard 100% maximum allowable rate"};
+        for (String Question : RadioQuestions) {
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))) {
+                IWebInteract.log.info("Question : {}", Question);
+                Assert.assertTrue(click("Entering Data to " + Question, getQnInputElem(Question, "No")));
+                Assert.assertTrue(clickNext());
+                waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            }
+        }
+
+        String question = "Enter Contract Rate";
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(question)))) {
+            IWebInteract.log.info("Question : {}", question);
+            Assert.assertTrue(sendKeys("Entering Data to " + question, getQnInputElem(question, null), "$100.50"));
+            Assert.assertTrue(clickNext());
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        }
+
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
+    }
+
 
     public void selectPaymentAppendixInAmendments(HashMap<String, String> hmap)
     {
@@ -598,6 +665,12 @@ public class PaymentAppendix extends GenericInputPage {
         private WebElement selectAll;
         @FindBy(xpath="//input[contains(@value,'Medicaid')]")
         private WebElement selectmedicaid;
+        @FindBy(xpath="//input[contains(@value,'CHIP')]")
+        private WebElement selectCHIP;
+        @FindBy(xpath="//input[contains(@value,'Long Term Care')]")
+        private WebElement selectLongTerm;
+        @FindBy(xpath="//input[contains(@value,'LTC')]")
+        private WebElement selectLTC;
         @FindBy(xpath="//input[contains(@value,'MedicareAdvantage_Fee_Schedule_Name')]")
         private WebElement Medicare_FeeSchName;
 
