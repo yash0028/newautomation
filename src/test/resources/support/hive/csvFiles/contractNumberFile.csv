@@ -74,3 +74,4 @@ W4_TC_SE_SPA_AL_01,76364479,https://uhg-stage.exaricontracts.com/exaricm/page/si
 W4_TC_SE_SPA_AL_01,77409849,https://uhg-stage.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/74e7e9cf-b768-4d01-8d0e-5b755ebe60e3,3,,
 
 W4_TC_SE_MGA_MS_4,66213490,https://uhg-stage.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/ed34651a-d8fa-4fff-8c46-a33b3df954a6,E,FAILED,InstallContract
+W4_TC_SE_SMGA_AL_21,77145667,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/54adcb9e-e5eb-441c-b015-a396097b6a43,E,FAILED,InstallContract
