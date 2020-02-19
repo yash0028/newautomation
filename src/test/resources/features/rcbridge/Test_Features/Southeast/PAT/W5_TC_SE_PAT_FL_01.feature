@@ -16,6 +16,7 @@ Feature: W5_TC_SE_PAT_FL_01
   @testw5_FL
   @Wave5_KS
   @W5_Murty
+  @W5Y
   Scenario Outline: <TCName> - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
