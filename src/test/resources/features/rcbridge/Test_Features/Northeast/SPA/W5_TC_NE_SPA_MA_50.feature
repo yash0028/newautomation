@@ -47,8 +47,6 @@ Feature: W5_TC_NE_SPA_MA_50
     And I Start Process for Initial Transaction
  
       #Final Capture Cont.
-      
-    And I Approve Payment Appendix  
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
