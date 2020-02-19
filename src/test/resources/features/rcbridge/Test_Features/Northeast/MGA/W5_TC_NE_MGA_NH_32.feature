@@ -38,7 +38,6 @@ Feature: W5_TC_NE_MGA_NH_32
     And I enter Payment Appendix
     And I enter Regulatory Appendices
     And I select Provider Roster as None
-    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
 #End Draft Contract
@@ -46,9 +45,6 @@ Feature: W5_TC_NE_MGA_NH_32
 #Begin Final Capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-    #Begin Approval
-        And I Approve Payment Appendix
-    #End Approval
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
