@@ -113,7 +113,7 @@
     @SPGA_AMENDMENT
     @UAT_AUTO_AMENDMENT_W5
     @SPGA_W5_AMENDMENTS
-
+    @AMEND_W5_SPGA
     Scenario Outline: W5_TC_NE_SPGA_NH_33 - [RL0] Author SPGA contract in <site>
       Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
       And I am using the "<TCName>" data from "<paperType>_NE.csv" of "<site>" and paper type "<paperType>"
@@ -126,7 +126,7 @@
       And I enter Amendment Selection
       And I select Amendments needed in Amendment Selection
       And I select Amendment Type in Provider Details
-      And I enter Our Signatory
+      And I enter Our Signatory in Amendment
       And I select Unilateral Contract in Amendments
       And I select Provider Type Radio Button in Amendments
       And I enter Opt-out in Amendments
