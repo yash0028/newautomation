@@ -37,3 +37,8 @@ W5_TC_NE_SPGA_MA_45,31481123,https://uhgpoc-dev.exaricontracts.com/exaricm/page/
 W5_TC_NE_SPGA_MA_51,40656155,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/northeast/contract-details?nodeRef=workspace://SpacesStore/6069a367-1f12-4533-bacd-2d26c308269f,E,,
 W5_TC_SE_SMGA_FL_09,85515768,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/14d06563-1aa7-4a0b-ada9-27d93dce7cfd,E,,
 W5_TC_SE_PAT_FL_05,33571578,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/45ab4798-158e-4338-a78d-0c4e9b964a16,1,FAILED,InstallContract
+W5_TC_SE_SPA_FL_3,27511048,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/9b74aa45-8107-45bb-b0f3-0bca3314c39b,E,MANUAL-INPUT,InstallContract
+W5_TC_SE_SPA_FL_4,96999837,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/b9751dbf-3964-43c7-aa57-c166c0e32fc0,E,FAILED,InstallContract
+W5_TC_SE_SPA_FL_5,61587413,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/f9481e23-3c49-4d56-9b0c-7e6283ae6d18,E,MANUAL-INPUT,InstallContract
+W5_TC_SE_SPA_FL_1,98425355,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/df6daa81-5120-4969-9f9d-fcaa39806bc3,E
+W5_TC_SE_SPA_FL_2,32156761,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/0b1ec172-f642-4682-bacb-d8528f6fd2ae,E
