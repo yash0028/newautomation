@@ -80,6 +80,7 @@ Feature: W5_TC_SE_SPGA_FL_17
   @SPGA_AMENDMENT
   @UAT_AUTO_AMENDMENT_W5
   @SPGA_W5_AMENDMENTS
+  @WAVE5_SPGA_MC
   Scenario Outline: W5_TC_SE_SPGA_FL_17 - [RL0] Author SPGA contract in <site>
 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

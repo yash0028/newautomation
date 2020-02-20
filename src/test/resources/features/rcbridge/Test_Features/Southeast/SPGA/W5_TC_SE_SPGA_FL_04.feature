@@ -79,6 +79,7 @@ Feature: W5_TC_SE_SPGA_FL_04
   @SPGA_AMENDMENT
   @UAT_AUTO_AMENDMENT_W5
   @SPGA_W5_AMENDMENTS
+  @WAVE5_SPGA_MC
 
   Scenario Outline: W5_TC_SE_SPGA_FL_04 - [RL0] Author SPGA contract in <site>
 
