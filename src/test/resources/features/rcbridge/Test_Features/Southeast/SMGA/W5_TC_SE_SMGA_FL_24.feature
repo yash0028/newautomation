@@ -77,7 +77,6 @@ Feature: W5_TC_SE_SMGA_FL_24
   @User_Interface
   @UAT_AUTO_AMANDAMENT
   @UAT_AUTO_AMENDMENT_W5
-  @Wave5_NE
   Scenario Outline: W5_TC_SE_SMGA_FL_24 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
