@@ -79,3 +79,48 @@ Feature: W5_TC_NE_MGA_ME_27
     Examples:
       | site          | paperType     | TCName            |
       | northeast uhn | MGA           | W5_TC_NE_MGA_ME_27 |
+
+    @W5_TC_NE_MGA_ME_27
+    @Manual
+    @User_Interface
+    @UAT_AUTO_AMENDMENT
+    @UAT_AUTO_AMENDMENT_W5
+    @UAT_AUTO_AMENDMENT_ALL_MGA
+    @UAT_AUTO_AMENDMENT_ALL_MGA_W5
+    @UAT_AUTO_AMENDMENT_ALL_MGA_NE
+    @UAT_AUTO_AMENDMENT_ALL_MGA_NE_W5
+    @UAT_AUTO_MAKE_A_CORRECTION
+    @UAT_AUTO_MAKE_A_CORRECTION_W5
+    @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA
+    @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_W5
+    @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_NE
+    @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_NE_W5
+
+    Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+
+#Begin Make A Correction
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>_NE.csv" of "<site>" and paper type "<paperType>"
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    #Begin Provider Roster (Cancel one or more providers from the roster)
+    And I set Roster Action as Cancel
+    And I select provider and cancel date
+    And I enter cancel reason
+    #End Provider Roster
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+#End Make A Correction
+
+#Begin CMD Checking
+    And I Verify CMD and Capture Status
+#End CMD Checking
+
+#Begin NDB Checking
+#End NDB Checking
+
+    Examples:
+      | site          | paperType     | TCName          |
+      | northeast uhn | MGA           | W5_TC_NE_MGA_ME_27 |
