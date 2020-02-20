@@ -34,6 +34,25 @@ public class PaymentAppendixAmendment extends GenericInputPage {
         Assert.assertTrue(waitForPageLoad());
     }
 
+    public void addPaymentAppendixInAmendment(HashMap<String, String> hmap){
+        //Split PaymentAppendix using // in case need to include multiple PaymentAppendix
+        if (hmap.containsKey("Payment Appendix to Include")) {
+
+            String[] PaymentAppendix = hmap.get("Payment Appendix to Include").split("//");
+            for (String paymentAppendix : PaymentAppendix) {
+                Assert.assertTrue(setCheckBox("Add Payment Appendix", paymentAppendixAmendemntElement(paymentAppendix), true));
+                Assert.assertTrue(waitForPageLoad(60));
+            }
+
+        }
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
+    }
+
+    public WebElement paymentAppendixAmendemntElement(String paymentAppendix) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + paymentAppendix + "')]"});
+    }
+
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[contains(@value,'Physicians')]")
         private WebElement physician;
