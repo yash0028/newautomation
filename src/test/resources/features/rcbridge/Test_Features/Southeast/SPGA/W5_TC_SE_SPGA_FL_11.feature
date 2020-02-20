@@ -155,6 +155,7 @@ Feature: W5_TC_SE_SPGA_FL_11
     And I enter Appendix 2 in Amendments
     And I enter Appendix 2 in Amendments
     And I enter Payment Appendix in Amendments FinalCapture
+    And I enter FeeScheduleID in Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
 
