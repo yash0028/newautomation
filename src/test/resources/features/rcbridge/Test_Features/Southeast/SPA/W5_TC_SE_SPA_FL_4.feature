@@ -91,6 +91,7 @@ Feature: W5_TC_SE_SPA_FL_4
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
+    And I enter payment Appendix in Make Correction
     And I add provider using TIN
     And I select Providers
     And I enter Provider Start Date
