@@ -539,7 +539,9 @@ public class PaymentAppendix extends GenericInputPage {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getSubTopic(subtopic)))) {
                 IWebInteract.log.info("[FOUND SUB TOPIC] : {}",subtopic);
                 if(subtopic.equals("Florida Medicaid MSPS")||subtopic.equals("Rhode Island Medicaid")){
+                    if(!CommonMethods.isElementPresent(getDriver(),By.xpath(getQn("Fee Schedule Name")))){
                         enterFeeScheduleID(hmap, true);
+                    }
                 }else{
                     if(subtopic.equals("CHIP Simplified")){
                         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeScheduleID("fee schedule")))) {
