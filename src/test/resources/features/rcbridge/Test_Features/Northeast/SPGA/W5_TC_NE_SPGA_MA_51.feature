@@ -79,7 +79,7 @@ Feature: W5_TC_NE_SPGA_MA_51
   @SPGA_AMENDMENT
   @UAT_AUTO_AMENDMENT_W5
   @SPGA_W5_AMENDMENTS
-  @WAVE5_SPGA_MC
+
 
   Scenario Outline: W5_TC_NE_SPGA_MA_51 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -103,9 +103,9 @@ Feature: W5_TC_NE_SPGA_MA_51
     And I enter Amendments Page to amend Payment Appendix
     And I choose Additional Manuals
     And I enter Steerage
-    And I check Payment Appendix
+#    And I check Payment Appendix
     And I enter Payment Appendix in Amendments for SPGA contracts
-    And I check Payment Appendix
+#    And I check Payment Appendix
     And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard

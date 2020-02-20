@@ -12,7 +12,7 @@ Feature: W5_TC_SE_SPGA_FL_22
   @WAVE5INIT
   @UAT_AUTO_INITIAL_TRANSACTION_W5
   @WAVE5INIT_SPGA
-  Scenario Outline: W5_TC_SE_SPGA_FL_22- [RL0] Author SPGA contract in <site>
+  Scenario Outline: W5_TC_SE_SPGA_FL_17- [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
     And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
@@ -74,7 +74,7 @@ Feature: W5_TC_SE_SPGA_FL_22
 
 
 
-  @W5_TC_SE_SPGA_FL_22
+  @W5_TC_SE_SPGA_FL_2
   @Manual
   @User_Interface
   @UAT_AUTO_AMANDAMENT
@@ -82,10 +82,10 @@ Feature: W5_TC_SE_SPGA_FL_22
   @UAT_AUTO_AMENDMENT_W5
   @SPGA_W5_AMENDMENTS
   @WAVE5_SPGA_MC
-  Scenario Outline: W5_TC_SE_SPGA_FL_07 - [RL0] Author SPGA contract in <site>
-
+    @myTest
+  Scenario Outline: W5_TC_SE_SPGA_FL_22 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
 
 		#Make a Correction - Cancel
     And I click Make Correction
@@ -107,4 +107,4 @@ Feature: W5_TC_SE_SPGA_FL_22
 
     Examples:
       | site          | paperType     |TCName|
-      | central uhn   | SPGA          |W5_TC_SE_SPGA_FL_22|
+      | southeast uhn   | SPGA          |W5_TC_SE_SPGA_FL_22|

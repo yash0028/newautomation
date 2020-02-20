@@ -115,6 +115,7 @@ Feature: W5_TC_NE_SPGA_ME_28
   @SPGA_AMENDMENT
   @UAT_AUTO_AMENDMENT_W5
   @SPGA_W5_AMENDMENTS
+  @WAVE5_SPGA_AMENDMENT
 
   Scenario Outline: W5_TC_NE_SPGA_ME_28 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -128,7 +129,7 @@ Feature: W5_TC_NE_SPGA_ME_28
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I enter Our Signatory
+    And I enter Our Signatory in Amendment
     And I select Unilateral Contract in Amendments
     And I select Provider Type Radio Button in Amendments
     And I enter Opt-out in Amendments
