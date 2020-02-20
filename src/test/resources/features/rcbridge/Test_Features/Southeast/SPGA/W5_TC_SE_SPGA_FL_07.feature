@@ -106,6 +106,6 @@ Feature: W5_TC_SE_SPGA_FL_07
 
     Examples:
       | site          | paperType     |TCName|
-      | central uhn   | SPGA          |W5_TC_SE_SPGA_FL_07|
+      | southeast uhn   | SPGA          |W5_TC_SE_SPGA_FL_07|
 
 

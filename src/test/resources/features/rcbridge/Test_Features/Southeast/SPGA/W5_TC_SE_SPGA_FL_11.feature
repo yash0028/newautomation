@@ -102,7 +102,7 @@ Feature: W5_TC_SE_SPGA_FL_11
 
     Examples:
       | site          | paperType     | TCName|
-      | northeast uhn   | SPGA          | W5_TC_SE_SPGA_FL_11|
+      | southeast uhn   | SPGA          | W5_TC_SE_SPGA_FL_11|
 
 
   @W5_TC_SE_SPGA_FL_11
