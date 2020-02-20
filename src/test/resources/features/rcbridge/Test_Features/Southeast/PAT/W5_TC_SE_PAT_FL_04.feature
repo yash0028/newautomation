@@ -59,7 +59,7 @@ Feature: W5_TC_SE_PAT_FL_04
     And I enter Our Signatory
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
-    And I enter Clause Language
+    #And I enter Clause Language
     #Provider Roster (Add one or more providers to the roster)
     And I add provider using TIN
     And I select Providers
@@ -91,6 +91,7 @@ Feature: W5_TC_SE_PAT_FL_04
   @UAT_AUTO_AMENDMENT_PAT
   @today
   @AMENDMENT_ALL_PAT
+  @W5_PAT_SPA
   Scenario Outline: W5_TC_SE_PAT_FL_04 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
