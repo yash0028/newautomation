@@ -106,6 +106,11 @@ public class PaymentAppendix extends GenericInputPage {
             Assert.assertTrue(sendKeys("MSPS for Physicians", getFeeScheduleElement("MSPS for Physicians"), hmap.get("FS All Payer Physician")));
             pageExist = true;
         }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Florida Medicaid MSPS")))) {
+            getFeeScheduleElement("Florida Medicaid MSPS").clear();
+            Assert.assertTrue(sendKeys("Florida Medicaid MSPS", getFeeScheduleElement("Florida Medicaid MSPS"), hmap.get("FS All Payer Physician")));
+            pageExist = true;
+        }
 
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("MSPS for Non-Physicians")))) {
             getFeeScheduleElement("MSPS for Non-Physicians").clear();
@@ -116,6 +121,16 @@ public class PaymentAppendix extends GenericInputPage {
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Non-Physician Professionals for Florida Medicaid MSPS")))) {
             getFeeScheduleElement("Non-Physician Professionals for Florida Medicaid MSPS").clear();
             Assert.assertTrue(sendKeys("Non-Physician Professionals for Florida Medicaid MSPS", getFeeScheduleElement("Non-Physician Professionals for Florida Medicaid MSPS"), hmap.get("FS All Payer Physician")));
+            pageExist = true;
+        }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid for Physicians")))) {
+            getFeeScheduleElement("Rhode Island Medicaid for Physicians").clear();
+            Assert.assertTrue(sendKeys("Rhode Island Medicaid for Physicians", getFeeScheduleElement("Rhode Island Medicaid for Physicians"), hmap.get("FS All Payer Physician")));
+            pageExist = true;
+        }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid Non-Physician Providers")))) {
+            getFeeScheduleElement("Rhode Island Medicaid Non-Physician Providers").clear();
+            Assert.assertTrue(sendKeys("Rhode Island Medicaid Non-Physician Providers", getFeeScheduleElement("Rhode Island Medicaid Non-Physician Providers"), hmap.get("FS All Payer Physician")));
             pageExist = true;
         }
 
@@ -519,12 +534,14 @@ public class PaymentAppendix extends GenericInputPage {
 
 
     public void enterMedicaidCHIPPaymentAppendix(HashMap<String, String> hmap){
-        String[] subtopics = {"Medicaid and CHIP","Medicaid Simplified","CHIP Simplified","Medicaid MGA","Long Term Care PASP","Florida Medicaid MSPS"};
+        String[] subtopics = {"Medicaid and CHIP","Medicaid Simplified","CHIP Simplified","Medicaid MGA","Long Term Care PASP","Florida Medicaid MSPS","Rhode Island Medicaid",};
         for(String subtopic : subtopics) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getSubTopic(subtopic)))) {
                 IWebInteract.log.info("[FOUND SUB TOPIC] : {}",subtopic);
-                if(subtopic.equals("Florida Medicaid MSPS")){
+                if(subtopic.equals("Florida Medicaid MSPS")||subtopic.equals("Rhode Island Medicaid")){
+                    if(!CommonMethods.isElementPresent(getDriver(),By.xpath(getQn("Fee Schedule Name")))){
                         enterFeeScheduleID(hmap, true);
+                    }
                 }else{
                     if(subtopic.equals("CHIP Simplified")){
                         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeScheduleID("fee schedule")))) {

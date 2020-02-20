@@ -46,7 +46,7 @@ Feature: W5_TC_SE_MGA_FL_5
     And I Start Workflow
     And I Start Process for Initial Transaction
     #Begin Approval
-        And I Approve Payment Appendix
+        #And I Approve Payment Appendix
     #End Approval
     And I Set Status as Final Pending QA
     And I Start Final Capture
@@ -82,3 +82,49 @@ Feature: W5_TC_SE_MGA_FL_5
     Examples:
       | site          | paperType     | TCName            |
       | southeast uhn | MGA           | W5_TC_SE_MGA_FL_5 |
+
+    @W5_TC_SE_MGA_FL_5
+    @Manual
+    @User_Interface
+    @UAT_AUTO_AMENDMENT
+    @UAT_AUTO_AMENDMENT_W5
+    @UAT_AUTO_AMENDMENT_ALL_MGA
+    @UAT_AUTO_AMENDMENT_ALL_MGA_W5
+    @UAT_AUTO_AMENDMENT_ALL_MGA_SE
+    @UAT_AUTO_AMENDMENT_ALL_MGA_SE_W5
+    @UAT_AUTO_MAKE_A_CORRECTION
+    @UAT_AUTO_MAKE_A_CORRECTION_W5
+    @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA
+    @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_W5
+    @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_SE
+    @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_SE_W5
+
+    Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+
+#Begin Make A Correction
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    #Begin Provider Roster (Add one or more providers to the roster)
+        And I add provider using TIN
+        And I select Providers
+        And I enter Provider Start Date
+        And I enter retro code in Provider Roster
+    #End Provider Roster
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+#End Make A Correction
+
+#Begin CMD Checking
+    And I Verify CMD and Capture Status
+#End CMD Checking
+
+#Begin NDB Checking
+#End NDB Checking
+
+    Examples:
+      | site          | paperType     | TCName          |
+      | northeast uhn | MGA           | W5_TC_SE_MGA_FL_5 |

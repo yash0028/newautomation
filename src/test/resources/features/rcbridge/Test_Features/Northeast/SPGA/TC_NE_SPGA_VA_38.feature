@@ -92,6 +92,7 @@ Feature: TC_NE_SPGA_VA_38
     And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
+
     And I enter Group Summary
     And I Complete Wizard
 

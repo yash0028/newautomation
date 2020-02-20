@@ -12,6 +12,7 @@ Feature: W5_TC_SE_SPA_FL_2
   @W4LCJ
   @UAT_AUTO_INITIAL_TRANSACTION_W5
   @W5Y
+  @W5_PAT_SPA
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -55,7 +56,7 @@ Feature: W5_TC_SE_SPA_FL_2
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    And I enter retro code in Provider Roster
+    #And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard

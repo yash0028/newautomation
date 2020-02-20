@@ -17,6 +17,7 @@ Feature: W5_TC_SE_PAT_FL_04
   @Wave5_KS
   @W5_Murty
   @W5Y
+  @W5_PAT_SPA
   Scenario Outline: <TCName> - [RL0] Author PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -45,9 +46,12 @@ Feature: W5_TC_SE_PAT_FL_04
     And I enter Group Summary
     Then I Complete Wizard
 
-     #Final capture
+    #Begin Final Capture
     And I Start Workflow
     And I Start Process for Initial Transaction
+    #Begin Approval
+        #And I Approve Payment Appendix
+    #End Approval
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -55,15 +59,22 @@ Feature: W5_TC_SE_PAT_FL_04
     And I enter Our Signatory
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
+    And I enter Clause Language
+    #Provider Roster (Add one or more providers to the roster)
+    And I add provider using TIN
     And I select Providers
+    And I verify Providers
+    #End Provider Roster
     And I enter retro code in Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-    #Activate
+#End Final Capture
+
+#Begin Activate
     And I Set Status as Active
     And I capture Contract Number
-
+#End Activate
     #CMD Checking
     And I Verify CMD and Capture Status
 

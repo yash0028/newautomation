@@ -310,7 +310,11 @@ public class ProviderRoaster extends GenericInputPage {
             }
             pause(1);
             waitForPageLoad(60);
-            Assert.assertTrue(sendKeys("Search provider", elements.selectProvider, provider.trim()));
+            //Select first record if "DEFAULT" is fiven in csv
+            if(provider.toUpperCase().equals("DEFAULT"))
+            	 Assert.assertTrue(click("Search provider", elements.selectProvider));
+            else
+            	Assert.assertTrue(sendKeys("Search provider", elements.selectProvider, provider.trim()));
             waitForPageLoad(60);
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.selectProviderWithNamenotFound))) {
                 elements.selectProvider.clear();
