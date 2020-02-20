@@ -21,6 +21,10 @@ TC_CEN_PAT_IN_04,,https://uhg-ha-stage.exaricontracts.com/exaricm/page/site/cent
 TC_CEN_PAT_IN_55,,https://uhg-ha-stage.exaricontracts.com/exaricm/page/site/central/contract-details?nodeRef=workspace://SpacesStore/76a05f5f-6879-49b2-932a-4a603a6df6cd,1,,
 TC_CEN_PAT_IN_13,,https://uhg-ha-stage.exaricontracts.com/exaricm/page/site/central/contract-details?nodeRef=workspace://SpacesStore/8ac007c5-221c-46e5-8f5e-958b93353a80,1,,
 W4_TC_CEN_PAT_MO_1,,https://uhg-ha-stage.exaricontracts.com/exaricm/page/site/central/contract-details?nodeRef=workspace://SpacesStore/fc90ea23-88fe-4721-9a05-08209d2fffe4,1,,
+W5_TC_SE_SMGA_FL_02,,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/991e5db7-3d31-4b35-a418-fbd869c5ac0f,1,,
+W5_TC_SE_SMGA_FL_19,,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/fb4e4588-a1fb-47d8-aa96-1a673c440a29,1,,
+W5_TC_SE_SMGA_FL_24,,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/99c5a3f7-518f-4a86-9ccd-4caf35a56042,1,,
+W5_TC_SE_SMGA_FL_02,88014305,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/51a44d49-3ae2-4d80-ac8d-04aa6f7b7739,E
 W5_TC_NE_SPGA_NH_33,98492999,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/northeast/contract-details?nodeRef=workspace://SpacesStore/42d7c697-25c0-4f57-a508-f1ba76baa159,E,,
 W5_TC_SE_SPGA_FL_04,51698474,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/southeast/contract-details?nodeRef=workspace://SpacesStore/ca145032-5aa8-4eb9-94d9-dab6c176452f,E,,
 W5_TC_NE_SPGA_VM_38,56868031,https://uhgpoc-dev.exaricontracts.com/exaricm/page/site/northeast/contract-details?nodeRef=workspace://SpacesStore/4e58fd83-b9a4-4104-8823-b045e639d275,E,,

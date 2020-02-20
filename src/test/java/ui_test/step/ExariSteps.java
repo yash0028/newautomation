@@ -930,4 +930,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getAppendix2().includeAdditionalManualsAppendix1();
     }
 
+    @And("I enter Payment Appendix in Amendments to add Payment Appendix")
+    public void iEnterPaymentAppendixInAmendmentsToAddPaymentAppendix() {
+        basePage.getPaymentAppendixAmendment().addPaymentAppendixInAmendment(hmap);
+    }
 }
