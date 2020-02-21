@@ -12,7 +12,7 @@ Feature: W5_TC_SE_SPA_FL_1
   @W4LCJ
   @UAT_AUTO_INITIAL_TRANSACTION_W5
   @W5Y
-  @W5_PAT_SPA
+  @W5_PAT_SPA_1
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -133,16 +133,13 @@ Feature: W5_TC_SE_SPA_FL_1
     And I check Provider Details
     And I select Types of Amendments
     And I select Contract Applied in Amendments
-    And I enter Regulatory Appendices
     And I enter Contract Details in Amendments
     And I enter Appendix 2 in Amendments
-
     And I select applied Payment Appendix
-    And I enter Payment Appendix Amendments in Spga Contracts
     And I choose Additional Manuals
     And I enter Steerage
-    And I enter Payment Appendix in Amendments for SPA contracts
-    And I verify Providers
+    And I enter Payment Appendix Amendments in Spga Contracts
+    And I enter FeeScheduleID in Payment Appendix
     And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
@@ -156,10 +153,10 @@ Feature: W5_TC_SE_SPA_FL_1
     And I Start Final Capture
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
-    And I enter Appendix 2 in Amendments
-    And I enter Appendix 2 in Amendments
+    And I enter Payment Appendix Amendments in Spga Contracts
+    And I enter Appendix 2 in Amendments FinalCapture
+    And I preview Provider Details
     And I enter Payment Appendix in Amendments FinalCapture
-    And I enter FeeScheduleID in Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
 
