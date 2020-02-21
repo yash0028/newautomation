@@ -383,6 +383,11 @@ public class PaymentAppendix extends GenericInputPage {
             Assert.assertTrue(sendKeys("Rhode Island Medicaid Non-Physician", getFeeScheduleElement("Rhode Island Medicaid Non-Physician"), hmap.get("FS All Payer Non Physician")));
         }
 
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid Non-Physician Professionals")))) {
+            getFeeScheduleElement("Rhode Island Medicaid Non-Physician Professionals").clear();
+            Assert.assertTrue(sendKeys("Rhode Island Medicaid Non-Physician Professionals", getFeeScheduleElement("Rhode Island Medicaid Non-Physician Professionals"), hmap.get("FS All Payer Non Physician")));
+        }
+
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
