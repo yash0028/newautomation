@@ -3,16 +3,9 @@
 @releaseUnknown
 @iterationUnknown
 Feature: W5_TC_SE_SPA_FL_3
-    @W5_TC_SE_SPA_FL_3
+    @qwerty
     @Manual
-    @User_Interface
-    @UAT_AUTO
-    @UAT_AUTO_INITIAL_TRANSACTION
-    @UAT_AUTO_INITIAL_TRANSACTION_SPA
-    @W4LCJ
-    @UAT_AUTO_INITIAL_TRANSACTION_W5
-    @W5Y
-    @W5_PAT_SPA
+
     Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
         Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
@@ -75,48 +68,9 @@ Feature: W5_TC_SE_SPA_FL_3
 
 
 
-
     @Manual
     @User_Interface
-    @UAT_AUTO_AMANDAMENT
-    @SPA_AMENDMENT_Migration
-    @UAT_AUTO_AMENDMENT_TEST_SPA
-    @SPA_SE_AMEND
-    @W5_TC_SE_SPA_FL_3
-    @W5_PAT_SPA_MC
 
-    Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
-        Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-
-    #Draft
-        And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
-
-        And I click Make Correction
-        And I enter Market Exception Grid in Make Correction
-        And I enter Market Exception Grid
-        And I set Roster Action as Upload
-        And I Download Current Roster
-        And I Upload Completed Roster
-        And I enter warning in Make Correction
-        And I enter validation
-        And I acknowledge the warning
-        And I enter Group Summary
-        Then I Complete Wizard
-
-        Examples:
-            | site            | paperType     | TCName          |
-            | southeast uhn   | SPA          | W5_TC_SE_SPA_FL_3|
-
-
-
-    @Manual
-    @User_Interface
-    @UAT_AUTO_AMANDAMENT
-    @SPA_AMENDMENT_Migration
-    @UAT_AUTO_AMENDMENT_TEST_SPA
-    @SPA_SE_AMEND
-    @W5_TC_SE_SPA_FL_3
-    @W5_PAT_SPA_amed
 
     Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
         Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -131,10 +85,7 @@ Feature: W5_TC_SE_SPA_FL_3
         And I enter Amendment Selection
         And I select Amendments needed in Amendment Selection
         And I select Amendment Type in Provider Details
-        //Our Signatory
-
         And I enter Amendments Page to amend Payment Appendix
-
         And I enter Contract Details in Amendments
         And I enter Payment Appendix in Amendments to add Payment Appendix
         And I select fee schedule id in Amendments

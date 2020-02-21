@@ -98,9 +98,9 @@ Feature: TC_SE_MGA_AR_16
     And I select Amendment Type in Provider Details
     And I enter Our Signatory in Amendment
     And I select Types of Amendments
-    #What is the purpose of this amendment? HANDLE
-
     And I enter Contract Details in Amendments
+    And I enter Payment Appendix in Amendments to add Payment Appendix
+    And I select fee schedule id in Amendments
     And I enter Group Summary
     And I Complete Wizard
 
@@ -109,6 +109,8 @@ Feature: TC_SE_MGA_AR_16
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
+#if contract details exist enter effective date
+    And I enter Payment Appendix in Amendments FinalCapture
     And I enter Group Summary
     And I Complete Wizard
 
