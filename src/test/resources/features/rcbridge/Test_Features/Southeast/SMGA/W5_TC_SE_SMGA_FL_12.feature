@@ -78,6 +78,7 @@ Feature: W5_TC_SE_SMGA_FL_12
   @UAT_AUTO_AMANDAMENT
   @UAT_AUTO_MAKE_A_CORRECTION_W5
   @UAT_AUTO_AMENDMENT_W5
+  @SMGA_MAKE_A_CORRECTION_W5
   Scenario Outline: W5_TC_SE_SMGA_FL_02 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -87,6 +88,8 @@ Feature: W5_TC_SE_SMGA_FL_12
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
+    And I check Payment Appendix
+    And I check Payment Appendix
     And I set Roster Action as Cancel
     And I select provider and cancel date
     And I enter cancel reason

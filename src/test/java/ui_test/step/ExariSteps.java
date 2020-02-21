@@ -688,6 +688,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("I select fee schedule id in Amendments")
     public void iSelectFeeScheduleIdInAmendments() {
+        //TODO handle multiple payment appendix
         basePage.getPaymentAppendix().enterPaymentAppenidix(hmap);
         basePage.getPaymentAppendix().verifyFeeScheduleID(hmap);
     }

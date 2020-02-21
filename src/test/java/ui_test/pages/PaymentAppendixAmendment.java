@@ -47,6 +47,10 @@ public class PaymentAppendixAmendment extends GenericInputPage {
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+        //TODO handle qn2 Are any fee schedules higher than the market default rate?
+
+
+
     }
 
     public WebElement paymentAppendixAmendemntElement(String paymentAppendix) {

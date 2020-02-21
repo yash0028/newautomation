@@ -79,6 +79,7 @@ Feature: W5_TC_SE_SMGA_FL_02
   @UAT_AUTO_AMANDAMENT
   @SMGA_AMANDMENT
   @UAT_AUTO_AMENDMENT_W5
+  @SMGA_AMANDMENT_W5
   Scenario Outline: W5_TC_SE_SMGA_FL_02 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -127,7 +128,7 @@ Feature: W5_TC_SE_SMGA_FL_02
   @UAT_AUTO_AMANDAMENT
   @UAT_AUTO_MAKE_A_CORRECTION_W5
   @UAT_AUTO_AMENDMENT_W5
-
+  @SMGA_MAKE_A_CORRECTION_W5
   Scenario Outline: W5_TC_SE_SMGA_FL_02 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
