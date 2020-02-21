@@ -135,7 +135,6 @@ Feature: W5_TC_SE_SPA_FL_1
     And I select Contract Applied in Amendments
     And I enter Regulatory Appendices
     And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
 
     And I select applied Payment Appendix

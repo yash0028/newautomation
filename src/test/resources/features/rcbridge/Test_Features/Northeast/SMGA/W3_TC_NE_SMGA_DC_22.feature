@@ -101,7 +101,6 @@ Feature: W3_TC_NE_SMGA_DC_22
     And I preview Provider Details
 
     And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
 #    And I enter Payment Appendix in Amendments for SMGA contracts

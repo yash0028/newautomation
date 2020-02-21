@@ -92,7 +92,6 @@ Feature: W2_TC_CEN_SPA_IN_65 (USED OLD DATA)
     And I select Amendment Type in Provider Details
     And I enter Amendments Page to amend Payment Appendix
     And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
     And I enter Payment Appendix in Amendments to replace Payment Appendix
     And I select fee schedule id in Amendments
     And I check Payment Appendix

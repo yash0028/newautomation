@@ -102,7 +102,6 @@ Feature: TC_NE_SPA_VA_37
 #    And I enter Opt-out in Amendments
     And I enter Opt-out Address in Amendments in IL
     And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
     And I enter Group Summary

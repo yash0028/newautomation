@@ -83,6 +83,8 @@ Feature: W5_TC_NE_SPGA_MA_45
   @UAT_AUTO_AMENDMENT_W5
   @SPGA_W5_AMENDMENTS
   @AMEND_W5_SPGA
+  @myTest
+
   Scenario Outline: TC_NE_SPGA_VA_18 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
@@ -98,7 +100,6 @@ Feature: W5_TC_NE_SPGA_MA_45
     And I select Amendment Type in Provider Details
     And I enter Amendments Page to amend Payment Appendix
     And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
     And I enter Payment Appendix in Amendments to replace Payment Appendix
     And I select fee schedule id in Amendments
 
@@ -115,7 +116,7 @@ Feature: W5_TC_NE_SPGA_MA_45
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-    And I select Provider Roster as None
+#    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
