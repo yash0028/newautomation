@@ -109,3 +109,60 @@ Feature: W5_TC_SE_SPGA_FL_07
       | southeast uhn   | SPGA          |W5_TC_SE_SPGA_FL_07|
 
 
+
+  @W5_TC_SE_SPGA_FL_07
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  @SPGA_AMENDMENT
+  @UAT_AUTO_AMENDMENT_W5
+  @SPGA_W5_AMENDMENTS
+  @AMEND_W5_SPGA
+
+  Scenario Outline: W5_TC_SE_SPGA_FL_07 - [RL0] Author SPGA contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
+
+
+ #Draft Amandament
+    And I select the contract
+    And I click on Create Amendment
+    And I enter title
+    And I enter Amendment Selection
+    And I select Amendments needed in Amendment Selection
+    And I select Amendment Type in Provider Details
+    And I enter Our Signatory in Amendment
+    And I select Unilateral Contract in Amendments
+    And I select Provider Type Radio Button in Amendments
+    And I enter Opt-out in Amendments
+    And I enter Contract Details in Amendments
+    And I enter Effective date in Contract Details
+    And I enter Appendix 2 in Amendments
+    And I select applied Payment Appendix
+    And I choose Additional Manuals
+    And I enter Regulatory Appendices
+    And I enter Group Summary
+    And I Complete Wizard
+
+	      #Amandment final capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA in Amendment
+    And I Start Final Capture
+    And I enter Appendix 2 in Amendments FinalCapture
+    And I enter Appendix 2 in Amendments FinalCapture
+    And I enter Appendix 2 in Amendments FinalCapture
+    And I enter Payment Appendix in Amendments FinalCapture
+    And I enter Group Summary
+    And I Complete Wizard
+
+    #Activating Amendments
+    And I Set Status as Active
+
+
+  #Amendment CMD Checking
+    And I Verify CMD and Capture Status
+
+    Examples:
+      | site          | paperType     |TCName|
+      | southeast uhn   | SPGA          |W5_TC_SE_SPGA_FL_07|

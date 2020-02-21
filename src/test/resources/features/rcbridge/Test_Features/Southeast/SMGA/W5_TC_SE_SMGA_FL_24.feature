@@ -101,7 +101,9 @@ Feature: W5_TC_SE_SMGA_FL_24
     And I select Payment Appendix for SMGA contracts
     And I choose Additional Manuals
     And I enter Steerage
-    And I enter Payment Appendix in Amendments for SMGA contracts
+#    And I check Payment Appendix
+#    And I enter Payment Appendix in Amendments for SMGA contracts
+    And I check Payment Appendix
     And I check Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
@@ -114,6 +116,7 @@ Feature: W5_TC_SE_SMGA_FL_24
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
+    And I check Payment Appendix
     And I enter Payment Appendix in Amendments FinalCapture
 #    And I select Provider Roster as None
     And I enter Group Summary

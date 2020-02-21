@@ -116,7 +116,7 @@ Feature: W5_TC_NE_SPGA_ME_28
   @UAT_AUTO_AMENDMENT_W5
   @SPGA_W5_AMENDMENTS
   @WAVE5_SPGA_AMENDMENT
-
+  @AMEND_W5_SPGA
   Scenario Outline: W5_TC_NE_SPGA_ME_28 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_NE.csv" of "<site>" and paper type "<paperType>"

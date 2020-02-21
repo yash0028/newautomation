@@ -56,7 +56,7 @@ Feature: W5_TC_SE_SPA_FL_3
     And I enter Market Exception Grid
     And I add provider using TIN
     And I select Providers
-    #And I enter retro code in Provider Roster
+    And I verify Providers
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
@@ -72,4 +72,90 @@ Feature: W5_TC_SE_SPA_FL_3
     Examples:
       | site          | paperType     | TCName            |
       | southeast uhn | SPA           | W5_TC_SE_SPA_FL_3 |
+
+
+
+
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  @SPA_AMENDMENT_Migration
+  @UAT_AUTO_AMENDMENT_TEST_SPA
+  @SPA_SE_AMEND
+  @W5_TC_SE_SPA_FL_3
+  @W5_PAT_SPA_MC
+
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I set Roster Action as Upload
+    And I Download Current Roster
+    And I Upload Completed Roster
+    And I enter warning in Make Correction
+    And I enter validation
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+
+    Examples:
+      | site            | paperType     | TCName          |
+      | southeast uhn   | SPA          | W5_TC_SE_SPA_FL_3|
+
+
+
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  @SPA_AMENDMENT_Migration
+  @UAT_AUTO_AMENDMENT_TEST_SPA
+  @SPA_SE_AMEND
+  @W5_TC_SE_SPA_FL_3
+  @W5_PAT_SPA_amed
+
+  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+
+    #Draft
+    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+
+	#Draft Amandament
+    And I select the contract
+    And I click on Create Amendment
+    And I enter title
+    And I enter Amendment Selection
+    And I select Amendments needed in Amendment Selection
+    And I select Amendment Type in Provider Details
+    And I enter Amendments Page to amend Payment Appendix
+    And I enter Contract Details in Amendments
+    And I enter Effective date in Contract Details
+    And I enter Payment Appendix in Amendments to add Payment Appendix
+    And I select fee schedule id in Amendments
+    And I enter Group Summary
+    And I Complete Wizard
+
+	#Amandment final capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA in Amendment
+    And I Start Final Capture
+    And I enter Provider Signatory in Amendment
+    And I enter Our Signatory in Amendment
+    And I enter Appendix 2 in Amendments FinalCapture
+    And I enter Payment Appendix in Amendments FinalCapture
+#    And I select Provider Roster as None
+    And I enter Group Summary
+    And I Complete Wizard
+
+    #CMD Checking
+    And I Verify CMD and Capture Status
+
+    Examples:
+      | site            | paperType     | TCName          |
+      | southeast uhn   | SPA          | W5_TC_SE_SPA_FL_3|
 

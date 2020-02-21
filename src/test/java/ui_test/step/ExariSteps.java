@@ -202,7 +202,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
         }
 
+    @And("^I enter payment Appendix in Make Correction$")
+    public void PaymentAppendixmakecorrection() {
+        basePage.getPaymentAppendix().makecorrectionMSPS();
+        basePage.getPaymentAppendix().verifyFeeScheduleID(hmap);
 
+    }
 
     @And("^I enter Rate Escalator$")
     public void Payment() {
@@ -930,4 +935,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getAppendix2().includeAdditionalManualsAppendix1();
     }
 
+    @And("I enter Payment Appendix in Amendments to add Payment Appendix")
+    public void iEnterPaymentAppendixInAmendmentsToAddPaymentAppendix() {
+        basePage.getPaymentAppendixAmendment().addPaymentAppendixInAmendment(hmap);
+    }
 }
