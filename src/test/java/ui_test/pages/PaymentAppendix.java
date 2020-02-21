@@ -133,6 +133,11 @@ public class PaymentAppendix extends GenericInputPage {
             Assert.assertTrue(sendKeys("Rhode Island Medicaid Non-Physician Providers", getFeeScheduleElement("Rhode Island Medicaid Non-Physician Providers"), hmap.get("FS All Payer Physician")));
             pageExist = true;
         }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid and CHIP")))) {
+            getFeeScheduleElement("Rhode Island Medicaid and CHIP").clear();
+            Assert.assertTrue(sendKeys("Rhode Island Medicaid and CHIP", getFeeScheduleElement("Rhode Island Medicaid and CHIP"), hmap.get("FS All Payer")));
+            pageExist = true;
+        }
 
         if(CommonMethods.isElementPresent(getDriver(),By.xpath(getSubTopic("Florida Medicaid MSPS")))){
             if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn("Select the following Payment Appendix")))) {
@@ -166,6 +171,11 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void verifyAmendments() {
+        Assert.assertTrue(clickNext());
+        Assert.assertTrue(waitForPageLoad());
+    }
+
+    public void makecorrectionMSPS() {
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
