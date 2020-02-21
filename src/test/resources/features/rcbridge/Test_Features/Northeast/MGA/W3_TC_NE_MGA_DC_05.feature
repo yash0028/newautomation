@@ -87,7 +87,6 @@ Feature: W3_TC_NE_MGA_DC_05
     And I preview Provider Details
     And I select Types of Amendments
     And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
     And I enter Benefit Plan Descriptions Provision
     And I select applied Payment Appendix
     And I select Payment Appendix to include in Amendments for MGA contracts

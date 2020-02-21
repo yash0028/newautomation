@@ -90,7 +90,6 @@ Feature: TC_SE_SPGA_AR_69
     And I select Amendment Type in Provider Details
 	And I enter Amendments Page to amend Payment Appendix
     And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
 	And I enter Payment Appendix in Amendments to replace Payment Appendix
 	And I select fee schedule id in Amendments
     And I enter Group Summary

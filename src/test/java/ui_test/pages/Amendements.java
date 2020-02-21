@@ -31,6 +31,11 @@ public class Amendements extends GenericInputPage {
     public void typeOfAmendmentsNeeded(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         Assert.assertTrue(click("Type of Amendment needed in Amendments Page", selectAmendments(hmap.get("Amendment Type Needed"))));
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        //What is the purpose of this amendment?
+        //keyword Amend Payment Appendix
+
+
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
 

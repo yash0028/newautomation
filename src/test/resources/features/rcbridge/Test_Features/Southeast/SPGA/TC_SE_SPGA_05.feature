@@ -90,7 +90,6 @@ Feature: TC_SE_SPGA_AR_05
     And I select Types of Amendments
     And I select Contract Applied in Amendments
     And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
     And I enter Payment Appendix Amendments in Spga Contracts

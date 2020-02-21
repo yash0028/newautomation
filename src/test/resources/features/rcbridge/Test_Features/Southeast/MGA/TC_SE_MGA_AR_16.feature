@@ -98,8 +98,9 @@ Feature: TC_SE_MGA_AR_16
     And I select Amendment Type in Provider Details
     And I enter Our Signatory in Amendment
     And I select Types of Amendments
+    #What is the purpose of this amendment? HANDLE
+
     And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
     And I enter Group Summary
     And I Complete Wizard
 

@@ -48,8 +48,13 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
     public void setSpecificEffectiveDate(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         Assert.assertTrue(click("Set Specific Effective Date", selectContractDetails(hmap.get("Set Specific Effective Date"))));
-        Assert.assertTrue(clickNext());
-        Assert.assertTrue(waitForPageLoad());
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        if(hmap.get("Set Specific Effective Date").toLowerCase().equals("yes")){
+            contractEffectiveDate(hmap);
+        }else{
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
     }
 
     private WebElement selectContractDetails(String Name) {
