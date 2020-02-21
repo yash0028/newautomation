@@ -47,14 +47,32 @@ public class PaymentAppendixAmendment extends GenericInputPage {
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
-        //TODO handle qn2 Are any fee schedules higher than the market default rate?
 
-
+        //if default rate is shown in next page"
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.topicPA))){
+            String question = "default rate";
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn(question)))){
+                Assert.assertTrue(click("High Fee Schedule than Default", getQnInputElem(question,"No")));
+                waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+                Assert.assertTrue(clickNext());
+                Assert.assertTrue(waitForPageLoad());
+            }
+        }
 
     }
 
     public WebElement paymentAppendixAmendemntElement(String paymentAppendix) {
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + paymentAppendix + "')]"});
+    }
+    public String getQn(String question) {
+        return "//label/b[contains(.,'" + question + "')]";
+    }
+
+    public WebElement getQnInputElem(String ques, String val) {
+        if (val != null) {
+            return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input[contains(@value,'" + val + "')]"});
+        }
+        return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input"});
     }
 
     private static class PageElements extends AbstractPageElements {
@@ -63,7 +81,7 @@ public class PaymentAppendixAmendment extends GenericInputPage {
         @FindBy(xpath = "//input[contains(@value,'Non-Physician')]")
         private WebElement nonPhysician;
         private String message = "//div[contains(@class,'DialogBox')]";
-
+        private String topicPA = "//div[contains(@class,'topicArea')]/p[contains(.,'Payment Appendix')]";
 
         public PageElements(SearchContext context) {
             super(context);

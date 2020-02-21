@@ -337,6 +337,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getContractDetails().contractEffectiveDate(hmap);
     }
 
+    @And("^I enter Contract Details in Amendments Final Capture$")
+    public void contractDetailsAmendmentsFinalCapture() {
+        basePage.getContractDetails().contractEffectiveDate(hmap);
+    }
+
+
     @And("^I enter Provider Signatory$")
     public void providerSignatory() {
         basePage.getProviderSignatory().ProviderSignatory(hmap);

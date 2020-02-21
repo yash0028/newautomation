@@ -393,6 +393,11 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void enterPaymentAppendixinAmendmentsFC(HashMap<String, String> hmap) {
+        String question = "YOU MUST SELECT Payment Appendix";
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn(question)))){
+            Assert.assertTrue(click(question, getQnInputElem(question,"NONE","radio")));
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        }
         //if Payment Appendix is shown
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topicPA))) {
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
@@ -443,6 +448,9 @@ public class PaymentAppendix extends GenericInputPage {
             return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input[contains(@value,'" + val + "')]"});
         }
         return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input"});
+    }
+    public WebElement getQnInputElem(String ques, String val , String type) {
+        return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input[contains(@value,'" + val + "') and contains(@type,'"+type+"')]"});
     }
 
     public String getSubTopic(String ans) {

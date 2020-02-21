@@ -109,7 +109,7 @@ Feature: TC_SE_MGA_AR_16
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-#if contract details exist enter effective date
+    And I enter Contract Details in Amendments Final Capture
     And I enter Payment Appendix in Amendments FinalCapture
     And I enter Group Summary
     And I Complete Wizard
