@@ -85,6 +85,38 @@ Feature: W5_TC_SE_PAT_FL_03
       | site          | paperType     | TCName|
       | southeast uhn   | PAT          | W5_TC_SE_PAT_FL_03|
 
+  @W5_TC_SE_PAT_FL_03
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMANDAMENT
+  @SPA_AMENDMENT_Migration
+  @UAT_AUTO_AMENDMENT_TEST_PAT
+  @SPA_SE_AMEND
+  @W5_PAT_SPA_MC
+
+
+  Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
+
+    #Make a correction - Add provider with Make a correction.
+    And I click Make Correction
+    And I enter Market Exception Grid in Make Correction
+    And I enter Market Exception Grid
+    And I add provider using TIN
+    And I select Providers
+    And I enter Provider Start Date
+    And I enter retro code in Provider Roster
+    And I acknowledge the warning
+    And I enter Group Summary
+    Then I Complete Wizard
+
+      #Amendment CMD Checking
+    And I Verify CMD and Capture Status
+
+    Examples:
+      | site          | paperType     | TCName|
+      | southeast uhn   | PAT         | W5_TC_SE_PAT_FL_03|
 
   @W5_TC_SE_PAT_FL_03
   @Manual
