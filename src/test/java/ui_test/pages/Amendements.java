@@ -1,6 +1,5 @@
 package ui_test.pages;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
