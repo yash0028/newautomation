@@ -100,22 +100,20 @@ Feature: W5_TC_SE_PAT_FL_01
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    #Begin Provider Roster (Add one or more providers to the roster)
     And I add provider using TIN
     And I select Providers
     And I enter Provider Start Date
     And I enter retro code in Provider Roster
-    #End Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
-#End Make A Correction
 
-#Begin CMD Checking
+      #Amendment CMD Checking
     And I Verify CMD and Capture Status
+
     Examples:
       | site          | paperType     | TCName|
-      | southeast uhn   | PAT         | W5_TC_SE_PAT_FL_01|
+      | southeast uhn   | PAT          | W5_TC_SE_PAT_FL_01|
 
   @W5_TC_SE_PAT_FL_01
   @Manual
@@ -130,7 +128,7 @@ Feature: W5_TC_SE_PAT_FL_01
 
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>._SE.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
 
 
      #Draft Amandament
@@ -140,32 +138,41 @@ Feature: W5_TC_SE_PAT_FL_01
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
+    And I check Provider Details
     And I select Types of Amendments
     And I select Contract Applied in Amendments
     And I enter Contract Details in Amendments
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I select Payment Appendix to include in Amendments for PAT contracts
     And I choose Additional Manuals
     And I enter Steerage
-    And I enter Payment Appendix in Amendments for PAT contracts
-    And I check Payment Appendix
+    And I enter Payment Appendix Amendments in Spga Contracts
+    And I enter FeeScheduleID in Payment Appendix
+    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
 
 
-    #Amandment final capture
+
+#Final Capture Amendment
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
+    And I enter Payment Appendix Amendments in Spga Contracts
     And I enter Appendix 2 in Amendments FinalCapture
+    And I preview Provider Details
     And I enter Payment Appendix in Amendments FinalCapture
     And I enter Group Summary
     And I Complete Wizard
 
+    #Activating Amendment
+    And I Set Status as Active in Amendment
+
+#CMD Checking
+    And I Verify CMD and Capture Status
 
     Examples:
       | site          | paperType     | TCName|
