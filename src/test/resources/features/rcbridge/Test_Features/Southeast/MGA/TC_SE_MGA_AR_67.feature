@@ -97,7 +97,6 @@ Feature: TC_SE_MGA_AR_67
     And I enter Our Signatory in Amendment
     And I select Types of Amendments
     And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
     And I enter Group Summary
     And I Complete Wizard
 

@@ -97,7 +97,6 @@ Feature: TC_WEST_MGA_OR_39
     And I preview Provider Details
     And I choose Types of Amendments
     And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
     And I enter Group Summary
     And I Complete Wizard
     #Amandment final capture

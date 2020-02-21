@@ -136,7 +136,6 @@ Feature: W5_TC_SE_SPGA_FL_07
     And I select Provider Type Radio Button in Amendments
     And I enter Opt-out in Amendments
     And I enter Contract Details in Amendments
-    And I enter Effective date in Contract Details
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
     And I choose Additional Manuals
