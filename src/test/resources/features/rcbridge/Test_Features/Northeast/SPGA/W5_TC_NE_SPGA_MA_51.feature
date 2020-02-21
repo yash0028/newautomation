@@ -80,6 +80,7 @@ Feature: W5_TC_NE_SPGA_MA_51
   @UAT_AUTO_AMENDMENT_W5
   @SPGA_W5_AMENDMENTS
   @AMEND_W5_SPGA
+  @myTest
 
   Scenario Outline: W5_TC_NE_SPGA_MA_51 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -115,7 +116,7 @@ Feature: W5_TC_NE_SPGA_MA_51
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-    And I enter Provider Signatory in Amendment
+    And I enter Provider Signatory
     And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture

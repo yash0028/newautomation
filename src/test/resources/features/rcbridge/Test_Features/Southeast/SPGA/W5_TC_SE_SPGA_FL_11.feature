@@ -113,7 +113,7 @@ Feature: W5_TC_SE_SPGA_FL_11
   @UAT_AUTO_AMENDMENT_W5
   @SPGA_W5_AMENDMENTS
   @AMEND_W5_SPGA
-
+  @myTest
   Scenario Outline: W5_TC_SE_SPGA_FL_11 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
@@ -138,7 +138,7 @@ Feature: W5_TC_SE_SPGA_FL_11
     And I choose Additional Manuals
     And I enter Steerage
     And I enter Payment Appendix in Amendments for SPGA contracts
-    And I verify Providers
+    And I enter FeeScheduleID in Payment Appendix
     And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
@@ -151,10 +151,10 @@ Feature: W5_TC_SE_SPGA_FL_11
     And I Start Final Capture
     And I enter Provider Signatory in Amendment
     And I enter Our Signatory in Amendment
-    And I enter Appendix 2 in Amendments
-    And I enter Appendix 2 in Amendments
+    And I enter Appendix 2
+#    And I enter Appendix 2 in Amendments
+#    And I check Payment Appendix
     And I enter Payment Appendix in Amendments FinalCapture
-    And I enter FeeScheduleID in Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
 
