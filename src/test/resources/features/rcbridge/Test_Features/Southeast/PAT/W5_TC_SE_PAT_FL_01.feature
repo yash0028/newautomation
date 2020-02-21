@@ -86,7 +86,7 @@ Feature: W5_TC_SE_PAT_FL_01
   @Manual
   @User_Interface
   @UAT_AUTO_AMANDAMENT
-  @SPA_AMENDMENT_Migration
+  @PAT_AMENDMENT_Migration
   @UAT_AUTO_AMENDMENT_TEST_PAT
   @SPA_SE_AMEND
   @W5_PAT_SPA_MC
@@ -100,17 +100,19 @@ Feature: W5_TC_SE_PAT_FL_01
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
+    #Begin Provider Roster (Add one or more providers to the roster)
     And I add provider using TIN
     And I select Providers
     And I enter Provider Start Date
     And I enter retro code in Provider Roster
+    #End Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+#End Make A Correction
 
-      #Amendment CMD Checking
+#Begin CMD Checking
     And I Verify CMD and Capture Status
-
     Examples:
       | site          | paperType     | TCName|
       | southeast uhn   | PAT         | W5_TC_SE_PAT_FL_01|
