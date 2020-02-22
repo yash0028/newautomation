@@ -26,6 +26,7 @@ public class RegulatoryAppendices extends GenericInputPage {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         pause(3);
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
+            //TODO add support for multiple regu appendix
             if (!CommonMethods.isElementPresent(getDriver(), By.xpath(defaultValue(hmap.get("Regulatory Appendix"))))) {
                 Assert.assertTrue(sendKeys("Send Data to regulatory Appendix", elements.clickOnBar, hmap.get("Regulatory Appendix")));
                 pause(1);

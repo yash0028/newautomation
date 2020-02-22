@@ -761,7 +761,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 
     @And("I enter Benefit Plan Descriptions Provision")
     public void benefitPlanDescriptionsProvision() {
-        //basePage.getBenefitPlanDescriptionsProvision().nameOfState(hmap);
         basePage.getAdditionalManuals().applyToBenefitPlans(hmap);
     }
 
