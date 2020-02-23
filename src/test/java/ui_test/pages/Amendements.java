@@ -56,6 +56,15 @@ public class Amendements extends GenericInputPage {
         chooseProviderType(Question, hmap);
         waitForPageLoad(60);
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+
+        Question = "What type of paper are you amending";
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn(Question)))){
+            //possible values {Legacy,LegacyNon}
+            Assert.assertTrue(click(Question, getQnInputElem(Question,hmap.get("Type Of Paper For Amending"))));
+        }else{
+            IWebInteract.log.info("[NOT FOUND] {}",Question);
+        }
+
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -222,6 +231,7 @@ public class Amendements extends GenericInputPage {
     public String getQuestion(String question) {
         return "//label/b[contains(.,'" + question + "')]";
     }
+
     public String getQn(String question) {
         return "//label/b[contains(.,'" + question + "')]";
     }
@@ -231,9 +241,6 @@ public class Amendements extends GenericInputPage {
             return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input[contains(@value,'" + val + "')]"});
         }
         return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input"});
-    }
-    public WebElement getQnInputElem(String ques, String val , String type) {
-        return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input[contains(@value,'" + val + "') and contains(@type,'"+type+"')]"});
     }
 
     private static class PageElements extends AbstractPageElements {
@@ -273,6 +280,7 @@ public class Amendements extends GenericInputPage {
 
         @FindBy(xpath = "//span[@class='select2-results']//li")
         public List<WebElement> dropdown_selection;
+
 
         private String message = "//div[contains(@class,'DialogBox')]";
 

@@ -224,6 +224,10 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getRegulatoryAppendices().selectRegulatoryAppendix(hmap);
     }
 
+    @And("^I enter Regulatory Appendices in Amendment$")
+    public void RegulatoryAppendicesAmendment() {
+        basePage.getRegulatoryAppendices().selectRegulatoryAppendixAmendment(hmap);
+    }
     @And("^I enter Amendments$")
     public void Amendments() {
         basePage.getAmendements().authorAmendments(hmap);
@@ -584,6 +588,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void selectTypesOfAmendments() {
         basePage.getAmendements().typeOfAmendmentsNeeded(hmap);
     }
+
     @And("I choose Types of Amendments")
     public void chooseAmendmentsNeeded() {
         basePage.getAmendements().chooseAmendmentsNeeded(hmap);
@@ -763,6 +768,12 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void benefitPlanDescriptionsProvision() {
         basePage.getAdditionalManuals().applyToBenefitPlans(hmap);
     }
+
+    @And("I enter Benefit Plan Descriptions Provision For Canceling Product")
+    public void benefitPlanDescriptionsProvisionCnclProd() {
+        basePage.getAdditionalManuals().applyToBenefitPlansCnclProd(hmap);
+    }
+
 
     @And("I select Payment Appendix to include in Amendments for MGA contracts")
     public void includePaymentAppendixforMGAContracts() {

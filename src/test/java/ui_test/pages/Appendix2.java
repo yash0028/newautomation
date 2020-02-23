@@ -113,9 +113,9 @@ public class Appendix2 extends GenericInputPage {
     public void includeMedicareProductAmendment(HashMap<String, String> hmap, boolean clickNext) {
         Question = "Medicare Advantage";
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
-            IWebInteract.log.info("Question : {} = {}", Question, hmap.get("Include Medicare Product"));
-            if (hmap.containsKey("Include Medicare Product")) {
-                String[] IncludeProducts = hmap.get("Include Medicare Product").split("//");
+            IWebInteract.log.info("Question : {} = {}", Question, hmap.get("Include Medicare Product Amendment FC"));
+            if (hmap.containsKey("Include Medicare Product Amendment FC")) {
+                String[] IncludeProducts = hmap.get("Include Medicare Product Amendment FC").split("//");
                 for (String product : IncludeProducts) {
                     Assert.assertTrue(click("Include Medicare Product : " + product, getContractTypeElem(Question, product)));
                     waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
@@ -133,8 +133,8 @@ public class Appendix2 extends GenericInputPage {
     }
 
     public void productsExcludedFromAgreement(HashMap<String, String> hmap) {
-        if (hmap.containsKey("Exclude Product in Amendment")) {
-            Assert.assertTrue(click("Exclude Product in Appendix 2", getXPath(hmap.get("Exclude Product in Amendment"))));
+        if (hmap.containsKey("Exclude Product in Amendment FC")) {
+            Assert.assertTrue(click("Exclude Product in Appendix 2", getXPath(hmap.get("Exclude Product in Amendment FC"))));
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
@@ -161,8 +161,6 @@ public class Appendix2 extends GenericInputPage {
 
     public void enterAppendix2FC(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        //TODO add Appendix2 amendments
-        //TODO add include product amendments
         String[] Questions = {"Which Appendix 2 will be used for this contract",
                 "Choose the following Appendix 2",
                 "Select the appropriate Appendix 2",
@@ -172,15 +170,15 @@ public class Appendix2 extends GenericInputPage {
         for (String Question : Questions) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
                 IWebInteract.log.info("Question : {}", Question);
-                Assert.assertTrue(click(Question + ":" + hmap.get("Appendix2"), getContractTypeElem(Question, hmap.get("Appendix2"))));
+                Assert.assertTrue(click(Question + ":" + hmap.get("Appendix2 Amendment FC"), getContractTypeElem(Question, hmap.get("Appendix2 Amendment FC"))));
                 waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             }
         }
         Question = "products will be excluded";
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))) {
             IWebInteract.log.info("Question: {}", Question);
-            if (hmap.containsKey("Exclude Product in Amendment")) {
-                String[] products = hmap.get("Exclude Product in Amendment").split("//");
+            if (hmap.containsKey("Exclude Product in Amendment FC FC")) {
+                String[] products = hmap.get("Exclude Product in Amendment FC FC").split("//");
                 for (String product : products) {
                     if (CommonMethods.isElementPresent(getDriver(), By.xpath(getExcludeProductXpath(Question, product)))) {
                         if (getExcludeProductElem(Question, product).getAttribute("type").equals("radio")) {
@@ -196,8 +194,8 @@ public class Appendix2 extends GenericInputPage {
         Question = "products will be included";
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
             IWebInteract.log.info("Question : {}", Question);
-            if (hmap.containsKey("Include Product")) {
-                String[] IncludeProducts = hmap.get("Include Product").split("//");
+            if (hmap.containsKey("Include Product Amendment FC")) {
+                String[] IncludeProducts = hmap.get("Include Product Amendment FC").split("//");
                 for (String product : IncludeProducts) {
                     Assert.assertTrue(click("Include Product in Appendix 2 : " + product, getContractTypeElem(Question, product)));
                     Assert.assertTrue(waitForPageLoad(60));

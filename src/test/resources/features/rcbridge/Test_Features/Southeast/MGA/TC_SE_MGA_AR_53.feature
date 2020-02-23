@@ -106,6 +106,7 @@ Feature: TC_SE_MGA_AR_53
     And I enter Medicare Advantage Payment Appendix in MGA
     And I verify Medicare Advantage
     And I enter Regulatory Appendices
+    And I enter Regulatory Appendices in Amendment
     And I enter Group Summary
     And I Complete Wizard
     #Amandment final capture
@@ -134,7 +135,7 @@ Feature: TC_SE_MGA_AR_53
       | site          | paperType     | TCName          |
       | southeast uhn | MGA           | TC_SE_MGA_AR_53 |
 
-   #(Cancel Product Amendment)
+   #(Cancel Product in Amendment)
   @TC_SE_MGA_AR_53
   @Manual
   @User_Interface
@@ -160,13 +161,9 @@ Feature: TC_SE_MGA_AR_53
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
     And I preview Provider Details
-
-    And I select Types of Amendments
-    #And I select Types of Amendments For Canceling Product
+    And I choose Types of Amendments
     And I enter Contract Details in Amendments
-
-    And I enter Benefit Plan Descriptions Provision
-    #And I enter Benefit Plan Descriptions Provision For Canceling Product
+    And I enter Benefit Plan Descriptions Provision For Canceling Product
     And I select applied Payment Appendix
     And I enter Group Summary
     And I Complete Wizard
