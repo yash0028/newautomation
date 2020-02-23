@@ -177,8 +177,8 @@ public class Appendix2 extends GenericInputPage {
         Question = "products will be excluded";
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))) {
             IWebInteract.log.info("Question: {}", Question);
-            if (hmap.containsKey("Exclude Product in Amendment FC FC")) {
-                String[] products = hmap.get("Exclude Product in Amendment FC FC").split("//");
+            if (hmap.containsKey("Exclude Product in Amendment FC")) {
+                String[] products = hmap.get("Exclude Product in Amendment FC").split("//");
                 for (String product : products) {
                     if (CommonMethods.isElementPresent(getDriver(), By.xpath(getExcludeProductXpath(Question, product)))) {
                         if (getExcludeProductElem(Question, product).getAttribute("type").equals("radio")) {
