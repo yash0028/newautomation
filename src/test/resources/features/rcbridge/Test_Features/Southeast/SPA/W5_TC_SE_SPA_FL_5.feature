@@ -80,7 +80,7 @@ Feature: W5_TC_SE_SPA_FL_5
   @UAT_AUTO_AMENDMENT_TEST_SPA
   @SPA_SE_AMEND
   @W5_TC_SE_SPA_FL_5
-  @W5_PAT_SPA_MC
+  @W5_PAT_SPA_MC_1
 
 
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
@@ -145,7 +145,6 @@ Feature: W5_TC_SE_SPA_FL_5
     And I enter Appendix 2 in Amendments FinalCapture
     And I preview Provider Details
     And I enter Payment Appendix in Amendments FinalCapture
-#    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
