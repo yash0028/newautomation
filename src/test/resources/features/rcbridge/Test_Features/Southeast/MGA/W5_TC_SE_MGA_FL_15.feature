@@ -128,3 +128,64 @@ Feature: W5_TC_SE_MGA_FL_15
     Examples:
       | site          | paperType     | TCName          |
       | northeast uhn | MGA           | W5_TC_SE_MGA_FL_15 |
+
+
+    @W5_TC_SE_MGA_FL_15
+    @Manual
+    @User_Interface
+    @UAT_AUTO_AMENDMENT
+    @UAT_AUTO_AMENDMENT_W5
+    @UAT_AUTO_AMENDMENT_ALL_MGA
+    @UAT_AUTO_AMENDMENT_ALL_MGA_W5
+    @UAT_AUTO_AMENDMENT_ALL_MGA_SE
+    @UAT_AUTO_AMENDMENT_ALL_MGA_SE_W5
+    
+    Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
+	
+    
+#Begin Cancel Product Amendment
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
+    And I select the contract
+    And I click on Create Amendment
+    And I enter title
+    And I enter Amendment Selection
+    And I select Amendments needed in Amendment Selection
+    And I select Amendment Type in Provider Details
+    And I preview Provider Details
+    And I choose Types of Amendments
+    And I enter Contract Details in Amendments
+    And I enter Benefit Plan Descriptions Provision For Canceling Product
+    And I select applied Payment Appendix
+    And I enter Group Summary
+    And I Complete Wizard
+#End Cancel Product Amendment
+
+#Begin Cancel Product Final Capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA in Amendment
+    And I Start Final Capture
+    And I enter Contract Details in Amendments Final Capture
+    And I enter Provider Signatory in Amendment
+    And I enter Our Signatory in Amendment
+    And I enter Appendix 2 in Amendments FinalCapture
+    And I enter Payment Appendix in Amendments FinalCapture
+    And I enter Group Summary
+    And I Complete Wizard
+#End Cancel Product Final Capture
+    
+#Begin Activate
+    And I Set Status as Active in Amendment
+#End Activate
+
+#Begin CMD Checking
+    And I Verify CMD and Capture Status
+#End CMD Checking
+
+#Begin NDB Checking
+#End NDB Checking
+        
+    Examples:
+      | site          | paperType     | TCName            |
+      | southeast uhn | MGA           | W5_TC_SE_MGA_FL_15 |
