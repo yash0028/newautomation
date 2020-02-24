@@ -140,16 +140,7 @@ public class ProviderRoaster extends GenericInputPage {
             waitForPageLoad(60);
             Assert.assertTrue(click("Select retro code", elements.selectRetroCode.get(0)));
         }
-        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        click("Retro code dropdown open", elements.dropdown_open);
-        pause(1);
-        waitForPageLoad(60);
-        Assert.assertTrue(sendKeys("Search retro code", elements.retroCode, hmap.get("Retro code")));
-        pause(1);
-        waitForPageLoad(60);
-        Assert.assertTrue(click("Select retro code", elements.selectRetroCode.get(0)));
-
-        //waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
