@@ -80,7 +80,7 @@ Feature: W5_TC_SE_SPA_FL_5
   @UAT_AUTO_AMENDMENT_TEST_SPA
   @SPA_SE_AMEND
   @W5_TC_SE_SPA_FL_5
-  @W5_PAT_SPA_MC_1
+  @W5_PAT_SPA_MC
 
 
   Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
