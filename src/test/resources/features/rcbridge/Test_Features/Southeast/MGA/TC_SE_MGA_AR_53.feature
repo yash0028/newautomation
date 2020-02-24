@@ -105,7 +105,6 @@ Feature: TC_SE_MGA_AR_53
     And I enter Steerage
     And I enter Medicare Advantage Payment Appendix in MGA
     And I verify Medicare Advantage
-    And I enter Regulatory Appendices
     And I enter Regulatory Appendices in Amendment
     And I enter Group Summary
     And I Complete Wizard
