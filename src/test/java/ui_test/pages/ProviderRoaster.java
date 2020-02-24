@@ -155,6 +155,14 @@ public class ProviderRoaster extends GenericInputPage {
     }
 
     public void selectretrocode(HashMap<String, String> hmap, boolean clickNext) {
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        click("Retro code dropdown open", elements.dropdown_open);
+        pause(1);
+        waitForPageLoad(60);
+        Assert.assertTrue(sendKeys("Search retro code", elements.retroCode, hmap.get("Retro code")));
+        pause(1);
+        waitForPageLoad(60);
+        Assert.assertTrue(click("Select retro code", elements.selectRetroCode.get(0)));
         if (clickNext) {
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad(60));
