@@ -26,24 +26,54 @@ public class RegulatoryAppendices extends GenericInputPage {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         pause(3);
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
-            if (!CommonMethods.isElementPresent(getDriver(), By.xpath(defaultValue(hmap.get("Regulatory Appendix"))))) {
-                Assert.assertTrue(sendKeys("Send Data to regulatory Appendix", elements.clickOnBar, hmap.get("Regulatory Appendix")));
-                pause(1);
-                waitForPageLoad(60);
-                for(WebElement appendix : elements.dropdown_selection){
-                    if(appendix.getText().trim().equals(hmap.get("Regulatory Appendix"))){
-                        Assert.assertTrue(click("Click Regulatory Appendix", appendix));
-                        appendixFound = true;
-                        break;
+            String[] RegulatoryAppendix = hmap.get("Regulatory Appendix").split("//");
+            for (String regAppendix : RegulatoryAppendix) {
+                if (!CommonMethods.isElementPresent(getDriver(), By.xpath(defaultValue(regAppendix)))) {
+                    Assert.assertTrue(sendKeys("Send Data to regulatory Appendix", elements.clickOnBar, regAppendix));
+                    pause(1);
+                    waitForPageLoad(60);
+                    for(WebElement appendix : elements.dropdown_selection){
+                        if(appendix.getText().trim().equals(regAppendix)){
+                            Assert.assertTrue(click("Click Regulatory Appendix", appendix));
+                            appendixFound = true;
+                            break;
+                        }
                     }
+                    Assert.assertTrue("[NOT FOUND] Regulatory Appendix, Please verify the data in csv",appendixFound);
                 }
-                Assert.assertTrue("[NOT FOUND] Regulatory Appendix, Please verify the data in csv",appendixFound);
             }
+
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
     }
 
+    public void selectRegulatoryAppendixAmendment(HashMap<String, String> hmap) {
+        boolean appendixFound =false;
+        waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        pause(3);
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topic))) {
+            String[] RegulatoryAppendix = hmap.get("Regulatory Appendix in Amendment").split("//");
+            for (String regAppendix : RegulatoryAppendix) {
+                if (!CommonMethods.isElementPresent(getDriver(), By.xpath(defaultValue(regAppendix)))) {
+                    Assert.assertTrue(sendKeys("Send Data to regulatory Appendix", elements.clickOnBar, regAppendix));
+                    pause(1);
+                    waitForPageLoad(60);
+                    for(WebElement appendix : elements.dropdown_selection){
+                        if(appendix.getText().trim().equals(regAppendix)){
+                            Assert.assertTrue(click("Click Regulatory Appendix", appendix));
+                            appendixFound = true;
+                            break;
+                        }
+                    }
+                    Assert.assertTrue("[NOT FOUND] Regulatory Appendix, Please verify the data in csv",appendixFound);
+                }
+            }
+
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
+    }
     public WebElement regulatory(String Name) {
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
     }

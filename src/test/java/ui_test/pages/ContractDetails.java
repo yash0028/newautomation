@@ -23,17 +23,22 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
 
     public void contractEffectiveDate(HashMap<String, String> hmap) {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        String date;
-        if (hmap.get("Contract Effective Date").equals("today")) {
-            date = CommonMethods.todaysDate();
-        } else {
-            date = CommonMethods.formatDate(hmap.get("Contract Effective Date"));
-        }
-        waitForPageLoad(60);
-        Assert.assertTrue(sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date));
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.contractDetails))){
+            String date;
+            if (hmap.get("Contract Effective Date").equals("today")) {
+                date = CommonMethods.todaysDate();
+            } else {
+                date = CommonMethods.formatDate(hmap.get("Contract Effective Date"));
+            }
+            waitForPageLoad(60);
+            Assert.assertTrue(sendKeys("Contract Effective Date", this.elements.contractEffectiveDate, date));
 
-        Assert.assertTrue(clickNext());
-        Assert.assertTrue(waitForPageLoad());
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }else{
+            IWebInteract.log.info("[NOT FOUND] Contract Details");
+            IWebInteract.log.info("Contract Details Option In CSV = {}",hmap.get("Set Specific Effective Date"));
+        }
     }
 
 
@@ -68,6 +73,7 @@ public class ContractDetails extends GenericInputPage implements IWebInteract, I
         private WebElement contractEffectiveDate;
 
         private String message = "//div[contains(@class,'DialogBox')]";
+        private String contractDetails = "//div[contains(@class,'topicArea')]/p[contains(.,'Contract Details')]";
 
         public PageElements(SearchContext context) {
             super(context);

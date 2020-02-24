@@ -69,6 +69,8 @@ Feature: TC_SE_MGA_AR_16
       | site          | paperType     | TCName          |
       | southeast uhn | MGA           | TC_SE_MGA_AR_16 |
 
+
+    #ADD PAY APP STEPS
   @TC_SE_MGA_AR_16
   @Manual
   @User_Interface
@@ -109,7 +111,63 @@ Feature: TC_SE_MGA_AR_16
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-#if contract details exist enter effective date
+    And I enter Contract Details in Amendments Final Capture
+    And I enter Payment Appendix in Amendments FinalCapture
+    And I enter Group Summary
+    And I Complete Wizard
+
+    #Activating Amendment
+    And I Set Status as Active in Amendment
+
+    #CMD Checking
+    #NDB Checking
+
+    Examples:
+      | site          | paperType     | TCName          |
+      | southeast uhn | MGA           | TC_SE_MGA_AR_16 |
+
+    #REPLACE PAY APP STEPS (ALL Payer or medicare)
+  @TC_SE_MGA_AR_16
+  @Manual
+  @User_Interface
+  @UAT_AUTO_AMENDMENT
+  @UAT_AUTO_AMENDMENT_MGA
+  @AMENDMENT_ALL_MGA
+  @UAT_AUTO_AMENDMENT_MIG1
+  @SE_MGA_AMT
+  @rerunrerun
+  @rerunfnl
+  Scenario Outline: TC_SE_MGA_AR_16 - [RL0] Amend <paperType> contract in <site>
+
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
+
+
+    #CMD Checking
+    #NDB Checking
+    #Amendment-Fee Schedule
+     #Draft
+    And I select the contract
+    And I click on Create Amendment
+    And I enter title
+
+    And I enter Amendment Selection
+    And I select Amendments needed in Amendment Selection
+    And I select Amendment Type in Provider Details
+    And I enter Our Signatory in Amendment
+    And I select Types of Amendments
+    And I enter Contract Details in Amendments
+    And I enter Payment Appendix in Amendments to replace Payment Appendix
+    And I select fee schedule id in Amendments
+    And I enter Group Summary
+    And I Complete Wizard
+
+    #Amandment final capture
+    And I Start Workflow
+    And I Start Process for Initial Transaction
+    And I Set Status as Final Pending QA in Amendment
+    And I Start Final Capture
+    And I enter Contract Details in Amendments Final Capture
     And I enter Payment Appendix in Amendments FinalCapture
     And I enter Group Summary
     And I Complete Wizard

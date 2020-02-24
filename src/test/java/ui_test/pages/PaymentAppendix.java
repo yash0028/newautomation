@@ -195,6 +195,7 @@ public class PaymentAppendix extends GenericInputPage {
         }
         Assert.assertTrue(click("Apply Payment Appendix in Amendments", paymentAppendixElement(hmap.get("Apply Payment Appendix in Amendments"))));
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -279,28 +280,58 @@ public class PaymentAppendix extends GenericInputPage {
     public WebElement paymentAppendixElement(String paymentAppendix) {
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + paymentAppendix + "')]"});
     }
+    public WebElement paymentAppendixAmendemntElement(String paymentAppendix) {
+        return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value,'" + paymentAppendix + "')]"});
+    }
 
     public void replacePaymentAppendixInAmendments(HashMap<String, String> hmap) {
         if (hmap.containsKey("Payment Appendix to Replace")) {
-            Assert.assertTrue(sendKeys("Replace Payment Appendix", elements.searchBar, hmap.get("Payment Appendix to Replace")));
-            Assert.assertTrue(click("Select Payment Appendix to Replace", elements.selectCode.get(0)));
+            String[] PaymentAppendixtoReplace = hmap.get("Payment Appendix to Replace").split("//");
+            for (String paymentAppendix : PaymentAppendixtoReplace) {
+                Assert.assertTrue(sendKeys("Replace Payment Appendix", elements.searchBar, paymentAppendix));
+                Assert.assertTrue(click("Select Payment Appendix to Replace", elements.selectCode.get(0)));
+                Assert.assertTrue(waitForPageLoad(60));
+            }
+
+            //Are any fee schedules higher than the market default rate?
+            String question = "default rate";
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(question)))) {
+                Assert.assertTrue(click("High Fee Schedule than Default", getQnInputElem(question, "No")));
+                waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            }
+
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
-            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-            Assert.assertTrue(click("paymentAppendix", paymentAppendixElement(hmap.get("Payment Appendix to Include"))));
-            Assert.assertTrue(clickNext());
-            Assert.assertTrue(waitForPageLoad());
+        }else{
+            Assert.fail("[DATA ERROR] Payment Appendix to Replace : "+hmap.containsKey("Payment Appendix to Replace")+"");
         }
+            //Split PaymentAppendix using // in case need to include multiple PaymentAppendix
+            if (hmap.containsKey("Payment Appendix to Include")) {
+
+                String[] PaymentAppendix = hmap.get("Payment Appendix to Include").split("//");
+                for (String paymentAppendix : PaymentAppendix) {
+                    Assert.assertTrue(setCheckBox("Add Payment Appendix", paymentAppendixAmendemntElement(paymentAppendix), true));
+                    Assert.assertTrue(waitForPageLoad(60));
+                }
+                Assert.assertTrue(clickNext());
+                Assert.assertTrue(waitForPageLoad());
+            }else{
+                Assert.fail("[DATA ERROR] Payment Appendix to Include : "+hmap.containsKey("Payment Appendix to Include")+"");
+            }
+
     }
 
     public void medicareAdvantagePaymentAppendixMGA(HashMap<String, String> hmap) {
-        System.out.println("Payment Appendix Include"+isVisible(elements.PaymentAppendixToInclude));
-        if(!isVisible(elements.PaymentAppendixToInclude))
-        {
-            System.out.println("Include Payment Appendix not Present");
+
+        //Are any fee schedules higher than the market default rate?
+        String question = "default rate";
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(question)))) {
+            Assert.assertTrue(click("High Fee Schedule than Default", getQnInputElem(question, "No")));
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
+
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Advantage for Physicians")))) {
             getFeeScheduleElement("Advantage for Physicians").clear();
             Assert.assertTrue(sendKeys("Advantage for Physicians", getFeeScheduleElement("Advantage for Physicians"), hmap.get("FS Id Amendments Physician")));
@@ -393,6 +424,11 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void enterPaymentAppendixinAmendmentsFC(HashMap<String, String> hmap) {
+        String question = "YOU MUST SELECT Payment Appendix";
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn(question)))){
+            Assert.assertTrue(click(question, getQnInputElem(question,"NONE","radio")));
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        }
         //if Payment Appendix is shown
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topicPA))) {
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
@@ -443,6 +479,9 @@ public class PaymentAppendix extends GenericInputPage {
             return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input[contains(@value,'" + val + "')]"});
         }
         return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input"});
+    }
+    public WebElement getQnInputElem(String ques, String val , String type) {
+        return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input[contains(@value,'" + val + "') and contains(@type,'"+type+"')]"});
     }
 
     public String getSubTopic(String ans) {

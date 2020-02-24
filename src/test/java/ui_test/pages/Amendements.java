@@ -1,6 +1,5 @@
 package ui_test.pages;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
@@ -33,10 +32,12 @@ public class Amendements extends GenericInputPage {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         Assert.assertTrue(click("Type of Amendment needed in Amendments Page", selectAmendments(hmap.get("Amendment Type Needed"))));
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        //What is the purpose of this amendment?
-        //keyword Amend Payment Appendix
-        //TODO handle qn1
-
+        String question = "What is the purpose of this amendment";
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn(question)))){
+            Assert.assertTrue(setCheckBox(question, getQnInputElem(question,hmap.get("Amend Payment Appendix")), true));
+        }else{
+            IWebInteract.log.info("[NOT FOUND] {}",question);
+        }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
 
@@ -55,6 +56,15 @@ public class Amendements extends GenericInputPage {
         chooseProviderType(Question, hmap);
         waitForPageLoad(60);
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+
+        Question = "What type of paper are you amending";
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn(Question)))){
+            //possible values {Legacy,LegacyNon}
+            Assert.assertTrue(click(Question, getQnInputElem(Question,hmap.get("Type Of Paper For Amending"))));
+        }else{
+            IWebInteract.log.info("[NOT FOUND] {}",Question);
+        }
+
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -222,6 +232,17 @@ public class Amendements extends GenericInputPage {
         return "//label/b[contains(.,'" + question + "')]";
     }
 
+    public String getQn(String question) {
+        return "//label/b[contains(.,'" + question + "')]";
+    }
+
+    public WebElement getQnInputElem(String ques, String val) {
+        if (val != null) {
+            return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input[contains(@value,'" + val + "')]"});
+        }
+        return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input"});
+    }
+
     private static class PageElements extends AbstractPageElements {
         @FindBy(xpath = "//input[@class='select2-search__field']")
         private WebElement dropdown_textbox;
@@ -259,6 +280,7 @@ public class Amendements extends GenericInputPage {
 
         @FindBy(xpath = "//span[@class='select2-results']//li")
         public List<WebElement> dropdown_selection;
+
 
         private String message = "//div[contains(@class,'DialogBox')]";
 
