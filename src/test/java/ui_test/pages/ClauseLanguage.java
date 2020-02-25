@@ -23,6 +23,14 @@ public class ClauseLanguage extends GenericInputPage {
         Assert.assertTrue(click("Clause Language", getClauseLanguage(hmap.get("Clause Language"))));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
+
+        //if clause language have a second page
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.topicCL))){
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }
+
     }
 
     private WebElement getClauseLanguage(String Name) {
@@ -31,7 +39,7 @@ public class ClauseLanguage extends GenericInputPage {
 
     private static class PageElements extends AbstractPageElements {
         private String message = "//div[contains(@class,'DialogBox')]";
-
+        private String topicCL = "//div[contains(@class,'topicArea')]/p[contains(.,'Clause Language')]";
 
         public PageElements(SearchContext context) {
             super(context);
