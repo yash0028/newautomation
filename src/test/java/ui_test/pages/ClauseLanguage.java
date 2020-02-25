@@ -25,7 +25,7 @@ public class ClauseLanguage extends GenericInputPage {
         Assert.assertTrue(waitForPageLoad());
 
         //if clause language have a second page
-        if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.topicCL))){
+        if(hmap.get("Clause Language").toLowerCase().equals("yes")){
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
