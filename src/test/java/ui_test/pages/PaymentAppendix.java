@@ -305,20 +305,6 @@ public class PaymentAppendix extends GenericInputPage {
         }else{
             Assert.fail("[DATA ERROR] Payment Appendix to Replace : "+hmap.containsKey("Payment Appendix to Replace")+"");
         }
-            //Split PaymentAppendix using // in case need to include multiple PaymentAppendix
-            if (hmap.containsKey("Payment Appendix to Include")) {
-
-                String[] PaymentAppendix = hmap.get("Payment Appendix to Include").split("//");
-                for (String paymentAppendix : PaymentAppendix) {
-                    Assert.assertTrue(setCheckBox("Add Payment Appendix", paymentAppendixAmendemntElement(paymentAppendix), true));
-                    Assert.assertTrue(waitForPageLoad(60));
-                }
-                Assert.assertTrue(clickNext());
-                Assert.assertTrue(waitForPageLoad());
-            }else{
-                Assert.fail("[DATA ERROR] Payment Appendix to Include : "+hmap.containsKey("Payment Appendix to Include")+"");
-            }
-
     }
 
     public void medicareAdvantagePaymentAppendixMGA(HashMap<String, String> hmap) {
