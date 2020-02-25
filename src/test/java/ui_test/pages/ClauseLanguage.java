@@ -26,10 +26,15 @@ public class ClauseLanguage extends GenericInputPage {
 
         //if clause language have a second page
         if(hmap.get("Clause Language").toLowerCase().equals("yes")){
-            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-            Assert.assertTrue(clickNext());
-            Assert.assertTrue(waitForPageLoad());
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.topicCL))){
+                waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+                Assert.assertTrue(clickNext());
+                Assert.assertTrue(waitForPageLoad());
+            }else {
+                Assert.fail("[NOT FOUND] Clause Language Second Page, Clause Language = "+hmap.get("Clause Language"));
+            }
         }
+
 
     }
 
