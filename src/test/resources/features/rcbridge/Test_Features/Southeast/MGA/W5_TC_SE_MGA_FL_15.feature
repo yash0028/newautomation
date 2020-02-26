@@ -99,7 +99,7 @@ Feature: W5_TC_SE_MGA_FL_15
     @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_SE
     @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_SE_W5
 
-    Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Scenario Outline: <TCName> - [RL0] Make A Correction <paperType> contract in <site>
 
 #Begin Make A Correction
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
