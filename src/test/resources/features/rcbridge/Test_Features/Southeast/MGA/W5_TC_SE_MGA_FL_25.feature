@@ -127,4 +127,4 @@ Feature: W5_TC_SE_MGA_FL_25
 
     Examples:
       | site          | paperType     | TCName          |
-      | northeast uhn | MGA           | W5_TC_SE_MGA_FL_25 |
+      | southeast uhn | MGA           | W5_TC_SE_MGA_FL_25 |
