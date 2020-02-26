@@ -56,12 +56,10 @@ Feature: W5_TC_NE_MGA_MA_53
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
     And I enter Clause Language
-    #Begin Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
-        And I set Roster Action as Upload
-        And I Download Current Roster
-        And I Upload Completed Roster
-        And I enter warning in Make Correction
-        And I enter validation
+    #Provider Roster (Add one or more providers to the roster)
+        And I add provider using TIN
+        And I select Providers
+        And I verify Providers
     #End Provider Roster
     And I enter retro code in Provider Roster
     And I acknowledge the warning
