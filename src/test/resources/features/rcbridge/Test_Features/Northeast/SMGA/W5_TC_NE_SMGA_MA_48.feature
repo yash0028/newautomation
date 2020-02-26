@@ -12,8 +12,6 @@ Feature: W5_TC_NE_SMGA_MA_48
   @SMGA_INITIAL
   @UAT_AUTO_INITIAL_TRANSACTION_W5
   @Wave5
-  @myTest
-
   Scenario Outline: W5_TC_NE_SMGA_MA_48 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
