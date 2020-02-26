@@ -39,6 +39,7 @@ Feature: W5_TC_NE_MGA_MA_53
     And I enter Payment Appendix
     And I enter Regulatory Appendices
     And I select Provider Roster as None
+    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
     
