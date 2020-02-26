@@ -147,4 +147,4 @@ Feature: W5_TC_NE_SMGA_MA_48
 
     Examples:
       | site            | paperType     | TCName          |
-      | southeast uhn   | SMGA          | W5_TC_NE_SMGA_MA_48|
+      | northeast uhn   | SMGA          | W5_TC_NE_SMGA_MA_48|
