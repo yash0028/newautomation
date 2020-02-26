@@ -167,6 +167,7 @@ class ArticleVIII extends Article {
     }
 
     public void handleArticleVIII(HashMap<String, String> hmap) {
+        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath("//div[contains(@class,'DialogBox')]")));
         if (selectArticle(hmap.get("Article 8")).getAttribute("type").equals("checkbox")) {
             Assert.assertTrue(setCheckBox("Select Article 8", selectArticle(hmap.get("Article 8")), true));
         } else if (selectArticle(hmap.get("Article 8")).getAttribute("type").equals("radio")) {
