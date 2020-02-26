@@ -48,15 +48,6 @@ public class MarketExceptionGrid extends GenericInputPage {
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
-        //make a correction
-        //Medicare Advantage Fee Schedule Version (leave blank for latest version)
-        waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        Question = "leave blank for latest version";
-        if(CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))){
-            IWebInteract.log.info("Question : {}",Question);
-            Assert.assertTrue(clickNext());
-            Assert.assertTrue(waitForPageLoad());
-        }
     }
 
     public void checkForDuplicate(HashMap<String, String> hmap) {
