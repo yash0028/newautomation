@@ -123,11 +123,7 @@ public class PaymentAppendix extends GenericInputPage {
             Assert.assertTrue(sendKeys("Non-Physician Professionals for Florida Medicaid MSPS", getFeeScheduleElement("Non-Physician Professionals for Florida Medicaid MSPS"), hmap.get("FS All Payer Physician")));
             pageExist = true;
         }
-        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid for Physicians")))) {
-            getFeeScheduleElement("Rhode Island Medicaid for Physicians").clear();
-            Assert.assertTrue(sendKeys("Rhode Island Medicaid for Physicians", getFeeScheduleElement("Rhode Island Medicaid for Physicians"), hmap.get("FS All Payer Physician")));
-            pageExist = true;
-        }
+
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid Non-Physician Providers")))) {
             getFeeScheduleElement("Rhode Island Medicaid Non-Physician Providers").clear();
             Assert.assertTrue(sendKeys("Rhode Island Medicaid Non-Physician Providers", getFeeScheduleElement("Rhode Island Medicaid Non-Physician Providers"), hmap.get("FS All Payer Physician")));
@@ -138,6 +134,28 @@ public class PaymentAppendix extends GenericInputPage {
             Assert.assertTrue(sendKeys("Rhode Island Medicaid and CHIP", getFeeScheduleElement("Rhode Island Medicaid and CHIP"), hmap.get("FS All Payer")));
             pageExist = true;
         }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid for Physician")))) {
+            getFeeScheduleElement("Rhode Island Medicaid for Physician").clear();
+            Assert.assertTrue(sendKeys("Rhode Island Medicaid for Physician", getFeeScheduleElement("Rhode Island Medicaid for Physician"), hmap.get("FS All Payer Physician")));
+            pageExist = true;
+
+        }
+
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid Non-Physician")))) {
+            getFeeScheduleElement("Rhode Island Medicaid Non-Physician").clear();
+            Assert.assertTrue(sendKeys("Rhode Island Medicaid Non-Physician", getFeeScheduleElement("Rhode Island Medicaid Non-Physician"), hmap.get("FS All Payer Non Physician")));
+            pageExist = true;
+
+        }
+
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid Non-Physician Professionals")))) {
+            getFeeScheduleElement("Rhode Island Medicaid Non-Physician Professionals").clear();
+            Assert.assertTrue(sendKeys("Rhode Island Medicaid Non-Physician Professionals", getFeeScheduleElement("Rhode Island Medicaid Non-Physician Professionals"), hmap.get("FS All Payer Non Physician")));
+            pageExist = true;
+
+        }
+
+
 
         if(CommonMethods.isElementPresent(getDriver(),By.xpath(getSubTopic("Florida Medicaid MSPS")))){
             if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn("Select the following Payment Appendix")))) {
