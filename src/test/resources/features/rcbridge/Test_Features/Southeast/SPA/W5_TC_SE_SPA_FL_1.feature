@@ -12,7 +12,7 @@ Feature: W5_TC_SE_SPA_FL_1
   @W4LCJ
   @UAT_AUTO_INITIAL_TRANSACTION_W5
   @W5Y
-  @W5_PAT_SPA_1
+  @W5_PAT_SPA
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
