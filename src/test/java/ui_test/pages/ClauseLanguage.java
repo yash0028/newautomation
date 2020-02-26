@@ -33,6 +33,14 @@ public class ClauseLanguage extends GenericInputPage {
             }else {
                 Assert.fail("[NOT FOUND] Clause Language Second Page, Clause Language = "+hmap.get("Clause Language"));
             }
+        }else if(hmap.get("Clause Language").toLowerCase().equals("no")){
+            if(CommonMethods.isElementPresent(getDriver(),By.xpath(elements.topicCL))){
+                waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+                Assert.assertTrue(clickNext());
+                Assert.assertTrue(waitForPageLoad());
+            }else {
+                Assert.fail("[NOT FOUND] Clause Language Second Page, Clause Language = "+hmap.get("Clause Language"));
+            }
         }
 
 
