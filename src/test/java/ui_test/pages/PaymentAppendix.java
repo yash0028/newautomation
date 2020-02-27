@@ -445,6 +445,8 @@ public class PaymentAppendix extends GenericInputPage {
         if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn(question)))){
             Assert.assertTrue(click(question, getQnInputElem(question,"NONE","radio")));
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
         }
         //if Payment Appendix is shown
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topicPA))) {
