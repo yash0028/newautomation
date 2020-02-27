@@ -84,23 +84,16 @@ Feature: W5_TC_NE_SMGA_NH_34
     And I select the contract
 
     #DRAFT Amendment
+    And I select the contract
     And I click on Create Amendment
     And I enter title
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I select Types of Amendments
-    And I select Contract Applied in Amendments
+    And I enter Amendments Page to amend Payment Appendix
     And I enter Contract Details in Amendments
-    And I enter Appendix 2 in Amendments
-    And I select applied Payment Appendix
-#    And I enter Payment Appendix in Amendments for SMGA contracts
-#    And I check Payment Appendix
-    And I select Payment Appendix for SMGA contracts
-    And I choose Additional Manuals
-    And I enter Steerage
-    And I enter Payment Appendix in Amendments for SMGA contracts
-    And I check Payment Appendix
+    And I enter Payment Appendix in Amendments to add Payment Appendix
+    And I select fee schedule id in Amendments
     And I enter Group Summary
     And I Complete Wizard
 
@@ -151,4 +144,4 @@ Feature: W5_TC_NE_SMGA_NH_34
 
     Examples:
       | site            | paperType     | TCName          |
-      | southeast uhn   | SMGA          | W5_TC_NE_SMGA_NH_34|
+      | northeast uhn   | SMGA          | W5_TC_NE_SMGA_NH_34|
