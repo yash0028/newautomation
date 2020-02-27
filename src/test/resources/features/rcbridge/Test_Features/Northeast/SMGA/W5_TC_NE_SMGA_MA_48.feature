@@ -7,7 +7,6 @@ Feature: W5_TC_NE_SMGA_MA_48
   @Manual
   @User_Interface
   @UAT_AUTO
-  @Murty
   @UAT_AUTO_INITIAL_TRANSACTION
   @SMGA_INITIAL
   @UAT_AUTO_INITIAL_TRANSACTION_W5
@@ -89,16 +88,15 @@ Feature: W5_TC_NE_SMGA_MA_48
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I enter OurSignatory
+    And I enter Our Signatory in Amendment
     And I select Unilateral Contract in Amendments
     And I select Provider Type Radio Button in Amendments
     And I enter Opt-out in Amendments
     And I enter Contract Details in Amendments
     And I enter Appendix 2 in Amendments
     And I select applied Payment Appendix
-    And I enter Payment Appendix in Amendments for SPGA contracts
-    And I check Payment Appendix
     And I choose Additional Manuals
+    And I enter Regulatory Appendices
     And I enter Group Summary
     And I Complete Wizard
 
@@ -107,11 +105,8 @@ Feature: W5_TC_NE_SMGA_MA_48
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
-    And I enter Provider Signatory in Amendment
-    And I enter Our Signatory in Amendment
     And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
-#    And I select Provider Roster as None
     And I enter Group Summary
     And I Complete Wizard
 
