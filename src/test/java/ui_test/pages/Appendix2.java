@@ -216,11 +216,31 @@ public class Appendix2 extends GenericInputPage {
             Assert.assertTrue(clickNext());
             Assert.assertTrue(waitForPageLoad());
         }
+        //if Provider Details is getting after Appendix 2 (Florida)
+        if(hmap.get("Select the State this Market Number applies to").equals("Florida")) {
+            if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.providerDetailstopic))) {
+                waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+                //Select the Territory this Market Number applies to.
+                Question = "Select the Territory this Market Number applies to";
+                if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn(Question)))){
+                    Assert.assertTrue(click(Question,getQnInputElem(Question,hmap.get("Select the State this Market Number applies to"))));
+                    waitForElementToDissapear(getDriver(),waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+                    Assert.assertTrue(clickNext());
+                    Assert.assertTrue(waitForPageLoad());
+                }
+            }
+        }
 
     }
 
     public String getQn(String question) {
         return "//label/b[contains(.,'" + question + "')]";
+    }
+    public WebElement getQnInputElem(String ques, String val) {
+        if (val != null) {
+            return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input[contains(@value,'" + val + "')]"});
+        }
+        return findElement(getDriver(), new String[]{"xpath", getQn(ques) + "/../../../..//input"});
     }
 
     public WebElement paymentAppendixElement(String paymentAppendix) {
@@ -260,6 +280,7 @@ public class Appendix2 extends GenericInputPage {
 
         private String message = "//div[contains(@class,'DialogBox')]";
         private String topic = "//div[contains(@class,'topicArea')]/p[contains(.,'Appendix 2')]";
+        private String providerDetailstopic = "//div[contains(@class,'topicArea')]/p[contains(.,'Provider Details')]";
         private String LouisianaXpath = "//input[contains(@value,'Louisiana Medicaid and CHIP Only or Missisippi Medicaid and/or CHIP Red Door Only')]";
 
         public PageElements(SearchContext context) {
