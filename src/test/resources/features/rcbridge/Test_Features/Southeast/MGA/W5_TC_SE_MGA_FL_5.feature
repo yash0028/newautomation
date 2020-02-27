@@ -12,7 +12,7 @@ Feature: W5_TC_SE_MGA_FL_5
     @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_W5
     @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_SE
     @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_SE_W5
-    @qwertyqwertyy
+
     Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
         
 #Begin Draft Contract
