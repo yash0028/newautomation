@@ -28,3 +28,7 @@ public static void main(String[] args) {
 	}
 
 }
+for(int y=4;y>=0;y--)
+{
+syso("print");	
+}
