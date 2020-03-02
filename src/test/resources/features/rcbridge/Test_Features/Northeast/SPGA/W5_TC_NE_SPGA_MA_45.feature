@@ -4,7 +4,7 @@
 @iterationUnknown
 Feature: W5_TC_NE_SPGA_MA_45
 
-u
+
   @W5_TC_NE_SPGA_MA_45
   @Manual
   @User_Interface
