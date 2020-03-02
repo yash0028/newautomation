@@ -44,7 +44,7 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     @FindBy(className = "statnumber")
     List<WebElement> transCount;
 
-    @FindBy(xpath = "//div[contains(@class, 'search-bar row')]/input[contains(@class, 'w-25 ng-untouched ng-pristine ng-valid')]")
+    @FindBy(xpath = "//div[contains(@class, 'search-bar row')]/input")
     WebElement searchTransactionsTextBox;
 
     @FindBy(xpath = "//button[contains(text(),'Search')]")
@@ -82,7 +82,7 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
 
     public CMDPage(WebDriver driver) {
         this.driver = driver;
-        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, 100);
+        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, 20);
         //create all web elements on the CMD page
         PageFactory.initElements(factory, this);
     }

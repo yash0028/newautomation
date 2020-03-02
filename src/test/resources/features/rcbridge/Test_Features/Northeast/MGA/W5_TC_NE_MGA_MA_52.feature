@@ -1,23 +1,24 @@
-#Last Updated : 2020-02-18 18:30:38.542213
-
-Feature: W5_TC_SE_MGA_FL_5
-    @W5_TC_SE_MGA_FL_5
+#Author : Leo C Jacob <jacob_leo@optum.com>
+#Last Updated : 2020-02-25 17:29:32.433328
+Feature: W5_TC_NE_MGA_MA_52
+    @W5_TC_NE_MGA_MA_52
     @Manual
     @User_Interface
     @UAT_AUTO
-    @UAT_AUTO_SOUTHEAST
+    @UAT_AUTO_NORTHEAST
     @UAT_AUTO_INITIAL_TRANSACTION
     @UAT_AUTO_INITIAL_TRANSACTION_W5
     @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA
     @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_W5
-    @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_SE
-    @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_SE_W5
+    @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_NE
+    @UAT_AUTO_INITIAL_TRANSACTION_ALL_MGA_NE_W5
 
     Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
-        
+
 #Begin Draft Contract
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_NE.csv" of "<site>" and paper type "<paperType>"
+        
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -38,16 +39,15 @@ Feature: W5_TC_SE_MGA_FL_5
     And I enter Payment Appendix
     And I enter Regulatory Appendices
     And I select Provider Roster as None
+    And I enter Amendments
     And I enter Group Summary
     Then I Complete Wizard
+    
 #End Draft Contract
     
 #Begin Final Capture
     And I Start Workflow
     And I Start Process for Initial Transaction
-    #Begin Approval
-        #And I Approve Payment Appendix
-    #End Approval
     And I Set Status as Final Pending QA
     And I Start Final Capture
     And I enter Contract Details in Final Capture
@@ -56,7 +56,7 @@ Feature: W5_TC_SE_MGA_FL_5
     And I enter Market Exception Grid in Final Capture
     And I enter Market Exception Grid
     And I enter Clause Language
-    #Provider Roster (Add one or more providers to the roster)
+    #Begin Provider Roster (Add one or more providers to the roster)
         And I add provider using TIN
         And I select Providers
         And I verify Providers
@@ -81,72 +81,71 @@ Feature: W5_TC_SE_MGA_FL_5
         
     Examples:
       | site          | paperType     | TCName            |
-      | southeast uhn | MGA           | W5_TC_SE_MGA_FL_5 |
+      | northeast uhn | MGA           | W5_TC_NE_MGA_MA_52 |
 
-    @W5_TC_SE_MGA_FL_5
+    
+    @W5_TC_NE_MGA_MA_52
     @Manual
     @User_Interface
     @UAT_AUTO_AMENDMENT
-    @UAT_AUTO_AMENDMENT_SOUTHEAST
+    @UAT_AUTO_AMENDMENT_NORTHEAST
     @UAT_AUTO_AMENDMENT_W5
     @UAT_AUTO_AMENDMENT_ALL_MGA
     @UAT_AUTO_AMENDMENT_ALL_MGA_W5
-    @UAT_AUTO_AMENDMENT_ALL_MGA_SE
-    @UAT_AUTO_AMENDMENT_ALL_MGA_SE_W5
+    @UAT_AUTO_AMENDMENT_ALL_MGA_NE
+    @UAT_AUTO_AMENDMENT_ALL_MGA_NE_W5
     @UAT_AUTO_MAKE_A_CORRECTION
-    @UAT_AUTO_MAKE_A_CORRECTION_SOUTHEAST
+    @UAT_AUTO_MAKE_A_CORRECTION_NORTHEAST
     @UAT_AUTO_MAKE_A_CORRECTION_W5
     @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA
     @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_W5
-    @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_SE
-    @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_SE_W5
+    @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_NE
+    @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_NE_W5
 
     Scenario Outline: <TCName> - [RL0] Make A Correction <paperType> contract in <site>
-
+    
 #Begin Make A Correction
-    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
+	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+	And I am using the "<TCName>" data from "<paperType>_NE.csv" of "<site>" and paper type "<paperType>"
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    #Begin Provider Roster (Add one or more providers to the roster)
-        And I add provider using TIN
-        And I select Providers
-        And I enter Provider Start Date
-        And I enter retro code in Provider Roster
+    #Begin Provider Roster (Cancel one or more providers from the roster)
+        And I set Roster Action as Cancel
+        And I select provider and cancel date
+        And I enter cancel reason
     #End Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
 #End Make A Correction
-
+    
 #Begin CMD Checking
     And I Verify CMD and Capture Status
 #End CMD Checking
 
 #Begin NDB Checking
 #End NDB Checking
-
+        
     Examples:
-      | site          | paperType     | TCName          |
-      | southeast uhn | MGA           | W5_TC_SE_MGA_FL_5 |
-
-
-    @W5_TC_SE_MGA_FL_5
+      | site          | paperType     | TCName            |
+      | northeast uhn | MGA           | W5_TC_NE_MGA_MA_52 |
+    
+    @W5_TC_NE_MGA_MA_52
     @Manual
     @User_Interface
     @UAT_AUTO_AMENDMENT
-    @UAT_AUTO_AMENDMENT_SOUTHEAST
+    @UAT_AUTO_AMENDMENT_NORTHEAST
     @UAT_AUTO_AMENDMENT_W5
     @UAT_AUTO_AMENDMENT_ALL_MGA
     @UAT_AUTO_AMENDMENT_ALL_MGA_W5
-    @UAT_AUTO_AMENDMENT_ALL_MGA_SE
-    @UAT_AUTO_AMENDMENT_ALL_MGA_SE_W5
+    @UAT_AUTO_AMENDMENT_ALL_MGA_NE
+    @UAT_AUTO_AMENDMENT_ALL_MGA_NE_W5
     
     Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
 	
     
-#Begin Cancel Product Amendment
+#Begin Add Payment Appendix Amendment
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
     And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
     And I select the contract
@@ -155,28 +154,25 @@ Feature: W5_TC_SE_MGA_FL_5
     And I enter Amendment Selection
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
-    And I preview Provider Details
-    And I choose Types of Amendments
+    And I enter Our Signatory in Amendment
+    And I select Types of Amendments
     And I enter Contract Details in Amendments
-    And I enter Benefit Plan Descriptions Provision For Canceling Product
-    And I select applied Payment Appendix
+    And I enter Payment Appendix in Amendments to add Payment Appendix
+    And I select fee schedule id in Amendments
     And I enter Group Summary
     And I Complete Wizard
-#End Cancel Product Amendment
+#End Add Payment Appendix Amendment
 
-#Begin Cancel Product Final Capture
+#Begin Add Payment Appendix Final Capture
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA in Amendment
     And I Start Final Capture
     And I enter Contract Details in Amendments Final Capture
-    And I enter Provider Signatory in Amendment
-    And I enter Our Signatory in Amendment
-    And I enter Appendix 2 in Amendments FinalCapture
     And I enter Payment Appendix in Amendments FinalCapture
     And I enter Group Summary
     And I Complete Wizard
-#End Cancel Product Final Capture
+#End Add Payment Appendix Final Capture
     
 #Begin Activate
     And I Set Status as Active in Amendment
@@ -191,4 +187,4 @@ Feature: W5_TC_SE_MGA_FL_5
         
     Examples:
       | site          | paperType     | TCName            |
-      | southeast uhn | MGA           | W5_TC_SE_MGA_FL_5 |
+      | northeast uhn | MGA           | W5_TC_NE_MGA_MA_52 |

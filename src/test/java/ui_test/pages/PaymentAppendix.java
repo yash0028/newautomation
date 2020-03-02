@@ -123,11 +123,7 @@ public class PaymentAppendix extends GenericInputPage {
             Assert.assertTrue(sendKeys("Non-Physician Professionals for Florida Medicaid MSPS", getFeeScheduleElement("Non-Physician Professionals for Florida Medicaid MSPS"), hmap.get("FS All Payer Physician")));
             pageExist = true;
         }
-        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid for Physicians")))) {
-            getFeeScheduleElement("Rhode Island Medicaid for Physicians").clear();
-            Assert.assertTrue(sendKeys("Rhode Island Medicaid for Physicians", getFeeScheduleElement("Rhode Island Medicaid for Physicians"), hmap.get("FS All Payer Physician")));
-            pageExist = true;
-        }
+
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid Non-Physician Providers")))) {
             getFeeScheduleElement("Rhode Island Medicaid Non-Physician Providers").clear();
             Assert.assertTrue(sendKeys("Rhode Island Medicaid Non-Physician Providers", getFeeScheduleElement("Rhode Island Medicaid Non-Physician Providers"), hmap.get("FS All Payer Physician")));
@@ -138,6 +134,28 @@ public class PaymentAppendix extends GenericInputPage {
             Assert.assertTrue(sendKeys("Rhode Island Medicaid and CHIP", getFeeScheduleElement("Rhode Island Medicaid and CHIP"), hmap.get("FS All Payer")));
             pageExist = true;
         }
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid for Physician")))) {
+            getFeeScheduleElement("Rhode Island Medicaid for Physician").clear();
+            Assert.assertTrue(sendKeys("Rhode Island Medicaid for Physician", getFeeScheduleElement("Rhode Island Medicaid for Physician"), hmap.get("FS All Payer Physician")));
+            pageExist = true;
+
+        }
+
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid Non-Physician")))) {
+            getFeeScheduleElement("Rhode Island Medicaid Non-Physician").clear();
+            Assert.assertTrue(sendKeys("Rhode Island Medicaid Non-Physician", getFeeScheduleElement("Rhode Island Medicaid Non-Physician"), hmap.get("FS All Payer Non Physician")));
+            pageExist = true;
+
+        }
+
+        if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Rhode Island Medicaid Non-Physician Professionals")))) {
+            getFeeScheduleElement("Rhode Island Medicaid Non-Physician Professionals").clear();
+            Assert.assertTrue(sendKeys("Rhode Island Medicaid Non-Physician Professionals", getFeeScheduleElement("Rhode Island Medicaid Non-Physician Professionals"), hmap.get("FS All Payer Non Physician")));
+            pageExist = true;
+
+        }
+
+
 
         if(CommonMethods.isElementPresent(getDriver(),By.xpath(getSubTopic("Florida Medicaid MSPS")))){
             if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn("Select the following Payment Appendix")))) {
@@ -305,20 +323,19 @@ public class PaymentAppendix extends GenericInputPage {
         }else{
             Assert.fail("[DATA ERROR] Payment Appendix to Replace : "+hmap.containsKey("Payment Appendix to Replace")+"");
         }
-            //Split PaymentAppendix using // in case need to include multiple PaymentAppendix
-            if (hmap.containsKey("Payment Appendix to Include")) {
+        //Split PaymentAppendix using // in case need to include multiple PaymentAppendix
+        if (hmap.containsKey("Payment Appendix to Include")) {
 
-                String[] PaymentAppendix = hmap.get("Payment Appendix to Include").split("//");
-                for (String paymentAppendix : PaymentAppendix) {
-                    Assert.assertTrue(setCheckBox("Add Payment Appendix", paymentAppendixAmendemntElement(paymentAppendix), true));
-                    Assert.assertTrue(waitForPageLoad(60));
-                }
-                Assert.assertTrue(clickNext());
-                Assert.assertTrue(waitForPageLoad());
-            }else{
-                Assert.fail("[DATA ERROR] Payment Appendix to Include : "+hmap.containsKey("Payment Appendix to Include")+"");
+            String[] PaymentAppendix = hmap.get("Payment Appendix to Include").split("//");
+            for (String paymentAppendix : PaymentAppendix) {
+                Assert.assertTrue(setCheckBox("Add Payment Appendix", paymentAppendixAmendemntElement(paymentAppendix), true));
+                Assert.assertTrue(waitForPageLoad(60));
             }
-
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
+        }else{
+            Assert.fail("[DATA ERROR] Payment Appendix to Include : "+hmap.containsKey("Payment Appendix to Include")+"");
+        }
     }
 
     public void medicareAdvantagePaymentAppendixMGA(HashMap<String, String> hmap) {
@@ -428,6 +445,8 @@ public class PaymentAppendix extends GenericInputPage {
         if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn(question)))){
             Assert.assertTrue(click(question, getQnInputElem(question,"NONE","radio")));
             waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+            Assert.assertTrue(clickNext());
+            Assert.assertTrue(waitForPageLoad());
         }
         //if Payment Appendix is shown
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(elements.topicPA))) {

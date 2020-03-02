@@ -87,19 +87,21 @@ Feature: W5_TC_SE_MGA_FL_25
     @Manual
     @User_Interface
     @UAT_AUTO_AMENDMENT
+    @UAT_AUTO_AMENDMENT_SOUTHEAST
     @UAT_AUTO_AMENDMENT_W5
     @UAT_AUTO_AMENDMENT_ALL_MGA
     @UAT_AUTO_AMENDMENT_ALL_MGA_W5
     @UAT_AUTO_AMENDMENT_ALL_MGA_SE
     @UAT_AUTO_AMENDMENT_ALL_MGA_SE_W5
     @UAT_AUTO_MAKE_A_CORRECTION
+    @UAT_AUTO_MAKE_A_CORRECTION_SOUTHEAST
     @UAT_AUTO_MAKE_A_CORRECTION_W5
     @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA
     @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_W5
     @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_SE
     @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_SE_W5
 
-    Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Scenario Outline: <TCName> - [RL0] Make A Correction <paperType> contract in <site>
 
 #Begin Make A Correction
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -127,4 +129,4 @@ Feature: W5_TC_SE_MGA_FL_25
 
     Examples:
       | site          | paperType     | TCName          |
-      | northeast uhn | MGA           | W5_TC_SE_MGA_FL_25 |
+      | southeast uhn | MGA           | W5_TC_SE_MGA_FL_25 |

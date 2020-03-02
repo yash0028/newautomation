@@ -85,19 +85,21 @@ Feature: W5_TC_NE_MGA_MA_43
     @Manual
     @User_Interface
     @UAT_AUTO_AMENDMENT
+    @UAT_AUTO_AMENDMENT_NORTHEAST
     @UAT_AUTO_AMENDMENT_W5
     @UAT_AUTO_AMENDMENT_ALL_MGA
     @UAT_AUTO_AMENDMENT_ALL_MGA_W5
     @UAT_AUTO_AMENDMENT_ALL_MGA_NE
     @UAT_AUTO_AMENDMENT_ALL_MGA_NE_W5
     @UAT_AUTO_MAKE_A_CORRECTION
+    @UAT_AUTO_MAKE_A_CORRECTION_NORTHEAST
     @UAT_AUTO_MAKE_A_CORRECTION_W5
     @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA
     @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_W5
     @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_NE
     @UAT_AUTO_MAKE_A_CORRECTION_ALL_MGA_NE_W5
 
-    Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>
+    Scenario Outline: <TCName> - [RL0] Make A Correction <paperType> contract in <site>
 
 #Begin Make A Correction
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
@@ -131,6 +133,7 @@ Feature: W5_TC_NE_MGA_MA_43
     @Manual
     @User_Interface
     @UAT_AUTO_AMENDMENT
+    @UAT_AUTO_AMENDMENT_NORTHEAST
     @UAT_AUTO_AMENDMENT_W5
     @UAT_AUTO_AMENDMENT_ALL_MGA
     @UAT_AUTO_AMENDMENT_ALL_MGA_W5

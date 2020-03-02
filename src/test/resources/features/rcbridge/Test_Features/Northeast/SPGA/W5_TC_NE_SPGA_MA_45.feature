@@ -4,7 +4,7 @@
 @iterationUnknown
 Feature: W5_TC_NE_SPGA_MA_45
 
-
+u
   @W5_TC_NE_SPGA_MA_45
   @Manual
   @User_Interface
@@ -83,9 +83,8 @@ Feature: W5_TC_NE_SPGA_MA_45
   @UAT_AUTO_AMENDMENT_W5
   @SPGA_W5_AMENDMENTS
   @AMEND_W5_SPGA
-  @myTest
 
-  Scenario Outline: TC_NE_SPGA_VA_18 - [RL0] Author SPGA contract in <site>
+  Scenario Outline: W5_TC_NE_SPGA_MA_45 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
         #Draft
