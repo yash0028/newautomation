@@ -20,7 +20,7 @@ public class AdditionalLocations extends GenericInputPage {
 
     private void selectAddressFromNDB() {
         waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-        click("Select Address from NDB", elements.addressFromNDB);
+        Assert.assertTrue(setCheckBox("Select Address from NDB", elements.addressFromNDB,true));
 
     }
 
