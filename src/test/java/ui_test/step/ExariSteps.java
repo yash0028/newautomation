@@ -956,4 +956,174 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     public void iEnterPaymentAppendixInAmendmentsToAddPaymentAppendix() {
         basePage.getPaymentAppendixAmendment().addPaymentAppendixInAmendment(hmap);
     }
+    
+    
+    @And("I complete final capture by add provider using TIN")
+    public void completeFinalCapture_using_TIN() {
+    	
+        //And I Start Final Capture
+    	basePage.getContractDetailsDashboard().finalCapture();
+    	
+        //And I enter Contract Details in Final Capture
+    	basePage.getContractDetails().contractEffectiveDate(hmap);
+       
+    	//And I enter Provider Signatory
+    	basePage.getProviderSignatory().ProviderSignatory(hmap);
+    	
+        //And I enter Our Signatory
+    	basePage.getOurSignatory().ourSignatoryDate(hmap);
+
+        //And I enter Market Exception Grid in Final Capture
+    	basePage.getMarketExceptionGrid().checkForDuplicate(hmap);
+        basePage.getMarketExceptionGrid().chooseTask(hmap, "Task");
+        
+        //And I enter Market Exception Grid
+        basePage.getMarketExceptionGrid().previewMarketDetails(hmap);
+        
+        //And I add provider using TIN
+        basePage.getProviderRoaster().roasterAction("Add");
+        basePage.getProviderRoaster().approachForProvider(hmap, "TIN", false);
+        basePage.getProviderRoaster().enterTIN(hmap);
+        
+        //And I select Providers
+        basePage.getProviderRoaster().selectProviders(hmap);
+        
+        //And I verify Providers
+        basePage.getProviderRoaster().verifyProviders(hmap);
+           
+        //And I acknowledge the warning
+        basePage.getWarning().acknowledgment();
+        
+        //And I enter Group Summary
+        basePage.getGroupSummary().readInterviewSummary();
+        
+        //Then I Complete Wizard
+        basePage.getWizardComplete().completeWizard(hmap);
+    } 
+    
+    @And("I complete final capture with Roaster as None")
+    public void completeFinalCapture() {
+    	
+        //And I Start Final Capture
+    	basePage.getContractDetailsDashboard().finalCapture();
+    	
+        //And I enter Contract Details in Final Capture
+    	basePage.getContractDetails().contractEffectiveDate(hmap);
+       
+    	//And I enter Provider Signatory
+    	basePage.getProviderSignatory().ProviderSignatory(hmap);
+    	
+        //And I enter Our Signatory
+    	basePage.getOurSignatory().ourSignatoryDate(hmap);
+
+        //And I enter Market Exception Grid in Final Capture
+    	basePage.getMarketExceptionGrid().checkForDuplicate(hmap);
+        basePage.getMarketExceptionGrid().chooseTask(hmap, "Task");
+        
+        //And I enter Market Exception Grid
+        basePage.getMarketExceptionGrid().previewMarketDetails(hmap);
+        
+        //And I enter retro code in Provider Roster 
+        basePage.getProviderRoaster().roasterAction("NONE");
+        
+        //And I enter retro code in Provider Roster 
+        basePage.getProviderRoaster().selectretrocode(hmap);
+        
+        //And I acknowledge the warning
+        basePage.getWarning().acknowledgment();
+        
+        //And I enter Group Summary
+        basePage.getGroupSummary().readInterviewSummary();
+        
+        //Then I Complete Wizard
+        basePage.getWizardComplete().completeWizard(hmap);
+    } 
+    
+    
+    @And("I complete final capture for MGA by add provider using TIN")
+    public void completeFinalCapture_Using_TIN_MGA() {
+    	
+        //And I Start Final Capture
+    	basePage.getContractDetailsDashboard().finalCapture();
+    	
+        //And I enter Contract Details in Final Capture
+    	basePage.getContractDetails().contractEffectiveDate(hmap);
+       
+    	//And I enter Provider Signatory
+    	basePage.getProviderSignatory().ProviderSignatory(hmap);
+    	
+        //And I enter Our Signatory
+    	basePage.getOurSignatory().ourSignatoryDate(hmap);
+
+        //And I enter Market Exception Grid in Final Capture
+    	basePage.getMarketExceptionGrid().checkForDuplicate(hmap);
+        basePage.getMarketExceptionGrid().chooseTask(hmap, "Task");
+        
+        //And I enter Market Exception Grid
+        basePage.getMarketExceptionGrid().previewMarketDetails(hmap);
+        
+        //I enter Clause Language
+        basePage.getClauseLanguage().clauseLanguage(hmap);
+        
+        //And I add provider using TIN
+        basePage.getProviderRoaster().roasterAction("Add");
+        basePage.getProviderRoaster().approachForProvider(hmap, "TIN", false);
+        basePage.getProviderRoaster().enterTIN(hmap);
+        
+        //And I select Providers
+        basePage.getProviderRoaster().selectProviders(hmap);
+        
+        //And I verify Providers
+        basePage.getProviderRoaster().verifyProviders(hmap);
+           
+        //And I acknowledge the warning
+        basePage.getWarning().acknowledgment();
+        
+        //And I enter Group Summary
+        basePage.getGroupSummary().readInterviewSummary();
+        
+        //Then I Complete Wizard
+        basePage.getWizardComplete().completeWizard(hmap);
+    }
+    @And("I complete final capture for MGA with Roaster as None")
+    public void completeFinalCapture_MGA() {
+    	
+        //And I Start Final Capture
+    	basePage.getContractDetailsDashboard().finalCapture();
+    	
+        //And I enter Contract Details in Final Capture
+    	basePage.getContractDetails().contractEffectiveDate(hmap);
+       
+    	//And I enter Provider Signatory
+    	basePage.getProviderSignatory().ProviderSignatory(hmap);
+    	
+        //And I enter Our Signatory
+    	basePage.getOurSignatory().ourSignatoryDate(hmap);
+
+        //And I enter Market Exception Grid in Final Capture
+    	basePage.getMarketExceptionGrid().checkForDuplicate(hmap);
+        basePage.getMarketExceptionGrid().chooseTask(hmap, "Task");
+        
+        //And I enter Market Exception Grid
+        basePage.getMarketExceptionGrid().previewMarketDetails(hmap);
+        
+        //I enter Clause Language
+        basePage.getClauseLanguage().clauseLanguage(hmap);
+        
+        //And I enter retro code in Provider Roster 
+        basePage.getProviderRoaster().roasterAction("NONE");
+        
+        //And I enter retro code in Provider Roster 
+        basePage.getProviderRoaster().selectretrocode(hmap);
+        
+        //And I acknowledge the warning
+        basePage.getWarning().acknowledgment();
+        
+        //And I enter Group Summary
+        basePage.getGroupSummary().readInterviewSummary();
+        
+        //Then I Complete Wizard
+        basePage.getWizardComplete().completeWizard(hmap);
+    } 
+    
 }
