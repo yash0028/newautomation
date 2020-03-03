@@ -18,7 +18,7 @@ Feature: TC_CEN_MGA_IN_71
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -79,7 +79,7 @@ Feature: TC_CEN_MGA_IN_71
     #NDB Checking
     #Amendment-Fee Schedule
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN.csv" of "<site>" and paper type "<paperType>"
     #Draft
     And I select the contract
     And I click on Create Amendment
@@ -132,7 +132,7 @@ Feature: TC_CEN_MGA_IN_71
   Scenario Outline: TC_CEN_MGA_IN_71 - [RL0] Amend <paperType> contract in <site>
 
 	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN.csv" of "<site>" and paper type "<paperType>"
     ##Make Correction - Provider Roster (Upload a spreadsheet containing the roster / Download the current roster)
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
