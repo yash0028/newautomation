@@ -37,7 +37,6 @@ Feature: W2_TC_CEN_SMGA_IN_17
     And I enter Regulatory Appendices
     And I select Provider Roster as None
     And I enter Amendments
-#    And I select Amendment in Document Selection
     And I enter Group Summary
     Then I Complete Wizard
 
