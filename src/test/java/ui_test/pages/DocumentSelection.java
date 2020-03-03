@@ -57,7 +57,11 @@ public class DocumentSelection extends GenericInputPage {
         }
 
     }
-
+    public void selectVACCNAmendmentType(HashMap<String, String> hmap) {
+           Assert.assertTrue(click("Select VACCN Amendment Type", selectTypeOfAgreement(hmap.get("VACCN Amendments"))));
+            Assert.assertTrue(clickNext());
+    	       Assert.assertTrue(waitForPageLoad());
+      }
     public WebElement selectPaperType(String Name) {
         return findElement(getDriver(), new String[]{"xpath", "//input[contains(@value, '" + Name + "')]"});
     }
