@@ -219,7 +219,7 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void enterDataInPaymentAppendixForSPGA(HashMap<String, String> hmap) {
-        Assert.assertTrue(sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicareSPGA, hmap.get("FS Id Amendments")));
+        Assert.assertTrue(sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicareSPGA, hmap.get("FS Id Amendments All Payer")));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
