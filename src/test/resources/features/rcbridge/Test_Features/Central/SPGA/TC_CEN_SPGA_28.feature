@@ -17,7 +17,7 @@ Feature: TC_CEN_SPGA_IN_28
 	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
   
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -81,7 +81,7 @@ Feature: TC_CEN_SPGA_IN_28
   Scenario Outline: TC_CEN_SPGA_IN_28 - [RL0] Author SPGA contract in <site>  
 	 
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
-    And I am using the "<TCName>" data from "<paperType>_CEN_IN.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN.csv" of "<site>" and paper type "<paperType>"
        
     #Make a correction - Add provider with Make a correction.
     And I click Make Correction

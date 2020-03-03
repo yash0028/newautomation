@@ -14,7 +14,7 @@ Feature: TC_WEST_PAT_OR_36
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_WEST.csv" of "<site>" and paper type "<paperType>"
 
 
     And I enter PES Inputs
@@ -79,7 +79,7 @@ Feature: TC_WEST_PAT_OR_36
   @AMENDMENT_ALL_PAT
   Scenario Outline: TC_WEST_PAT_OR_36 - [RL0] Amend PAT contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
-    And I am using the "<TCName>" data from "<paperType>_WEST_OR.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_WEST.csv" of "<site>" and paper type "<paperType>"
 
 	# Draft Amandaments
     And I select the contract

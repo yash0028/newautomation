@@ -12,7 +12,7 @@ Feature: MGA Business Testcases_IN
   Scenario Outline: TC_CEN_MGA_IN_62 - [RL0] Author <paperType> contract in <site>
 
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number

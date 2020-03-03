@@ -13,7 +13,7 @@ Feature: TC_WEST_SPA_OR_01
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_WEST.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -75,7 +75,7 @@ Feature: TC_WEST_SPA_OR_01
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_WEST.csv" of "<site>" and paper type "<paperType>"
 
       #CMD Check
    #When I have entered the CMD dashboard URL

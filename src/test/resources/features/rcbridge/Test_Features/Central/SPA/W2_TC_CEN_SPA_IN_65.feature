@@ -13,7 +13,7 @@ Feature: W2_TC_CEN_SPA_IN_65 (USED OLD DATA)
     Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN.csv" of "<site>" and paper type "<paperType>"
     And I enter PES Inputs
     And I enter PES Response
     And I select Market Number
@@ -79,7 +79,7 @@ Feature: W2_TC_CEN_SPA_IN_65 (USED OLD DATA)
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
 
     #Draft
-    And I am using the "<TCName>" data from "<paperType>.csv" of "<site>" and paper type "<paperType>"
+    And I am using the "<TCName>" data from "<paperType>_CEN.csv" of "<site>" and paper type "<paperType>"
     
     #Draft Amendment
     #When I am logged into Exari Dev
