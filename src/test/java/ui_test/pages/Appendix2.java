@@ -26,12 +26,8 @@ public class Appendix2 extends GenericInputPage {
         Question = "Is this contract only for Virginia MLTSS";
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getContractType(Question)))) {
             IWebInteract.log.info("Question : {}", Question);
-            if (hmap.get("Is this contract only for Virginia MLTSS").equals("No")) {
-                Assert.assertTrue(click(Question + ":" + hmap.get(Question), getContractTypeElem(Question, hmap.get(Question))));
-                waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
-            } else {
-                Assert.fail("[ERROR] [Invalid input/Not implemented] for [Is this contract only for Virginia MLTSS = " + hmap.get("Is this contract only for Virginia MLTSS") + "]");
-            }
+            Assert.assertTrue(click(Question + ": No", getContractTypeElem(Question, "No")));
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
         }
 
         String[] Questions = {"Which Appendix 2 will be used for this contract",

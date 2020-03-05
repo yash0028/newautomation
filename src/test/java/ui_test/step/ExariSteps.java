@@ -709,11 +709,6 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         basePage.getOurSignatory().ourSignatorytitle(hmap);
     }
 
-    @And("I select Unilateral Contract in Amendments")
-    public void iSelectUnilateralContractInAmendments() {
-        basePage.getAmendements().selectUnilateralContract(hmap);
-    }
-
     @And("I select Provider Type Radio Button in Amendments")
     public void iSelectProviderTypeRadioButtonInAmendments() {
         basePage.getAmendements().selectproviderTypeInAmendments(hmap);

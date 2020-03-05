@@ -244,12 +244,12 @@ public class ContractDetailsDashboard extends GenericInputPage implements IUiSte
             Assert.assertTrue(click("Claim Task", elements.claimtask));
             //DONT REMOVE THIS PAUSE
             pauseSilent(3);
-            waitTillVisible(elements.comments);
-            scrollIntoView("comments",3);
-            if (elements.comments.getAttribute("value").equals("")) {
-                waitTillClickable(elements.comments);
-                Assert.assertTrue(sendKeys("Comments", elements.comments, "Approved"));
-            }
+//            waitTillVisible(elements.comments);
+//            scrollIntoView("comments",3);
+//            if (elements.comments.getAttribute("value").equals("")) {
+//                waitTillClickable(elements.comments);
+//                Assert.assertTrue(sendKeys("Comments", elements.comments, "Approved"));
+//            }
         }else{
             IWebInteract.log.info("[RETRY APPROVAL]  {}", approvalType + " - " + approverType);
         }
