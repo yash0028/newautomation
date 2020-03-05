@@ -45,19 +45,7 @@ Feature: W2_TC_CEN_SMGA_IN_40
     And I Start Workflow
     And I Start Process for Initial Transaction
     And I Set Status as Final Pending QA
-    And I Start Final Capture
-    And I enter Contract Details in Final Capture
-    And I enter Provider Signatory
-    And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
-    And I add provider using TIN
-    And I select Providers
-    And I verify Providers
-    #And I enter retro code in Provider Roster
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
+    And I complete final capture by add provider using TIN
 
      #Activate
     And I Set Status as Active
