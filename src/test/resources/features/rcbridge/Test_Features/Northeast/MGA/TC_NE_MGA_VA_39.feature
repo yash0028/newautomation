@@ -87,7 +87,7 @@ Feature: TC_NE_MGA_VA_39
       And I select Amendments needed in Amendment Selection
       And I select Amendment Type in Provider Details
       And I enter OurSignatory
-      And I select Unilateral Contract in Amendments
+      And I select Types of Amendments
       And I select Provider Type Radio Button in Amendments
       And I enter Opt-out in Amendments
       And I enter Opt-out Address in Amendments in IL

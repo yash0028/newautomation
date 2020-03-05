@@ -120,12 +120,6 @@ public class Amendements extends GenericInputPage {
         Assert.assertTrue(waitForPageLoad());
     }
 
-    public void selectUnilateralContract(HashMap<String, String> hmap) {
-        Assert.assertTrue(click("Select Unilateral Contract", selectAmendments(hmap.get("Unilateral Contract"))));
-        Assert.assertTrue(clickNext());
-        Assert.assertTrue(waitForPageLoad());
-    }
-
     public void selectproviderTypeInAmendments(HashMap<String, String> hmap) {
         Assert.assertTrue(click("Select Provider Type in Amendments", selectAmendments(hmap.get("Contract Type in Amendments"))));
         Assert.assertTrue(clickNext());
