@@ -51,21 +51,7 @@ Feature: W4_TC_SE_MGA_MS_2
     And I Approve Payment Appendix
       #Final Capture Cont.
     And I Set Status as Final Pending QA
-    And I Start Final Capture
-    And I enter Contract Details in Final Capture
-    And I enter Provider Signatory
-    And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
-    And I enter Clause Language
-    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
-    And I add provider using TIN
-    And I select Providers
-    And I verify Providers
-    And I enter retro code in Provider Roster
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
+    And I complete final capture for MGA by add provider using TIN
     #Activate
     And I Set Status as Active
     And I capture Contract Number
