@@ -128,7 +128,7 @@ Feature: W5_TC_NE_SPGA_VM_38
     And I select Amendments needed in Amendment Selection
     And I select Amendment Type in Provider Details
     And I enter Our Signatory in Amendment
-    And I select Unilateral Contract in Amendments
+    And I select Types of Amendments
     And I select Provider Type Radio Button in Amendments
     And I enter Opt-out in Amendments
     And I enter Contract Details in Amendments

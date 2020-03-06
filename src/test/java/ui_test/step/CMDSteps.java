@@ -74,27 +74,10 @@ public class CMDSteps implements IRestStep, IUiStep {
         //Search Contract
         cmdPage.searchContract();
         TimeUnit.SECONDS.sleep(5);
+        cmdPage.CMDValidation();
 
 
 
-        //Verify Details        
-       String contract = ExariSteps.hmap.get("Contract Number");
-       // String reqtype = "InstallContract";
-        String status = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[7]/span")).getText();
-        System.out.println(status);
-        String requesttype = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[8]")).getText();
-        System.out.println(requesttype);
-        
-        //Write in CSV file
-        ExariSteps.hmap.put("CMDStatus",status);
-        IWebInteract.log.info("CMDStatus : {}",status);
-        ExariSteps.hmap.put("RequestType",requesttype);
-        IWebInteract.log.info("RequestType : {}",requesttype);
-        TextFileWriter textFileWriter = new TextFileWriter();
-        textFileWriter.writeCMDStatus(contractNumberCSVFile.toString(),ExariSteps.hmap);
-
-
-        
     }
 
     @Given("^I am on the CMD dashboard$")
@@ -253,7 +236,7 @@ public class CMDSteps implements IRestStep, IUiStep {
     @Then("^Validate Contract status and request type$")
     public void validateContracttype() throws Throwable {
 
-        cmdPage.ValidateConract();
+        cmdPage.CMDValidation();
     }
     @Then("I clicked on Action Required")
     public void validateactionrequired() throws Throwable {

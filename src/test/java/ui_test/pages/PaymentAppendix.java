@@ -69,7 +69,7 @@ public class PaymentAppendix extends GenericInputPage {
             pageExist = true;
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Additional Network")))) {
-            Assert.assertTrue(sendKeys("Additional Network", getFeeScheduleElement("Additional Network"), hmap.get("FS Additional Network")));
+            Assert.assertTrue(sendKeys("Additional Network", getFeeScheduleElement("Additional Network"), hmap.get("FS All Payer")));
             pageExist = true;
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Medicare Advantage for Physicians ?")))) {
@@ -219,7 +219,7 @@ public class PaymentAppendix extends GenericInputPage {
     }
 
     public void enterDataInPaymentAppendixForSPGA(HashMap<String, String> hmap) {
-        Assert.assertTrue(sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicareSPGA, hmap.get("FS Id Amendments")));
+        Assert.assertTrue(sendKeys("Enter Fees Schedule Id for Medicare in Amendments", elements.feeSchduleIDMedicareSPGA, hmap.get("FS Id Amendments All Payer")));
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
     }
@@ -255,7 +255,7 @@ public class PaymentAppendix extends GenericInputPage {
             Assert.assertTrue(sendKeys("Medicare Advantage", getFeeScheduleElement("Medicare Advantage ?"), hmap.get("FS Id Amendments Physician")));
         }
         if (CommonMethods.isElementPresent(getDriver(), By.xpath(getFeeSchedule("Additional Network")))) {
-            Assert.assertTrue(sendKeys("Additional Network", getFeeScheduleElement("Additional Network"), hmap.get("FS Additional Network")));
+            Assert.assertTrue(sendKeys("Additional Network", getFeeScheduleElement("Additional Network"), hmap.get("FS All Payer")));
         }
         Assert.assertTrue(clickNext());
         Assert.assertTrue(waitForPageLoad());
