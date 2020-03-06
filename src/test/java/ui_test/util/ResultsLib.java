@@ -316,7 +316,7 @@ public class ResultsLib implements IUiStep{
 				
 	            totalStr = totalStr+s;
 	        }
-			 String hrefString_image = "screenshots/"+TestName+".png";
+			 String hrefString_image = "Screenshots/"+TestName+".png";
 			if(isfailed)
 			{	result = "FAIL";
 			    int a = totalStr.indexOf(TestName);			   
