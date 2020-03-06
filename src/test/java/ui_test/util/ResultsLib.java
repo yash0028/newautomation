@@ -472,8 +472,6 @@ public class ResultsLib implements IUiStep{
 					FileHandler.copy(snapshort_file, new File(repfolder));
 				}
 				
-			
-			
 				
 //			BufferedImage image = new Robot()
 //					.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
