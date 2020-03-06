@@ -11,12 +11,18 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui_test.page.exari.home.site.SiteManager;
+import ui_test.pages.CommonMethods;
+import ui_test.pages.textFileWriter.TextFileWriter;
 import ui_test.step.ExariSteps;
 import ui_test.util.IFactoryPage;
 import ui_test.util.IWebInteract;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
+
+
 
 public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     private static Logger log = LoggerFactory.getLogger(CMDPage.class);
@@ -73,6 +79,34 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
 
     @FindBy(xpath = "//tr[contains(@class, 'mat-row')]/td[contains(@class,'User')]")
     WebElement user;
+
+
+    @FindBy(xpath = "//td[contains(text(),'')]/../td[contains(text(),'')]/../td[7]/span[2]")
+    WebElement Resolve;
+
+    @FindBy(xpath = "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[1]")
+    public WebElement sitetab;
+
+    @FindBy(xpath = "//span[contains(@class, 'innerHeaderStyle')][1]")
+    public WebElement productgrp;
+
+    @FindBy(xpath = "//button[text()='Abort ']")
+    public WebElement Abort;
+
+    @FindBy(xpath = "//button[text()='Abort Product Install']")
+    public WebElement AbortProduct;
+
+    @FindBy(xpath = "//button[text()='Load ']")
+    public WebElement load;
+
+    @FindBy(xpath = "//a[text()='Contract Management']")
+    public WebElement clickhome;
+
+
+    String plusbt2= "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[1]";
+
+    String productgroup= "//span[contains(@class, 'innerHeaderStyle')][1]";
+
 
     private WebDriver driver;
 
@@ -203,23 +237,89 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
         Assert.assertTrue(clickSearchButton());
     }
 
-   // public void validateactionrequired() {
-     //   Assert.assertTrue(click("action required", actionRequiredLink));
+    // public void validateactionrequired() {
+    //   Assert.assertTrue(click("action required", actionRequiredLink));
     //}
-    public void ValidateConract() {
+
+    public void ValidateMessage()
+    {
         String contract = ExariSteps.hmap.get("Contract Number");
-        String reqtype = "InstallContract";
-        String status = driver.findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'" + reqtype + "')]/../td[7]/span")).getText();
-        System.out.println(status);
-        String requesttype = driver.findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'" + reqtype + "')]")).getText();
-        System.out.println(requesttype);
-        Assert.assertEquals(status, "SUCCESS");
-        Assert.assertEquals(requesttype, "InstallContract");
-        ExariSteps.hmap.put("CMDStatus",status);
-        ExariSteps.hmap.put("RequestType",requesttype);
+        String status = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[7]/span")).getText();
+        String requesttype = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[8]")).getText();
+
+        if (status.equals("SUCCESS") || (status.equals("FAILED")))
+        {
+            //Write in CSV file
 
 
+            IWebInteract.log.info("CMDStatus : {}", status);
+            ExariSteps.hmap.put("RequestType", requesttype);
+            IWebInteract.log.info("RequestType : {}", requesttype);
+            TextFileWriter textFileWriter = new TextFileWriter();
+            textFileWriter.writeCMDStatus(contractNumberCSVFile.toString(), ExariSteps.hmap);
+        }
     }
+
+    public void CMDValidation() {
+        //Verify Details
+        String contract = ExariSteps.hmap.get("Contract Number");
+        String status = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[7]/span")).getText();
+        String requesttype = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[8]")).getText();
+
+        if (status.equals("SUCCESS") || (status.equals("FAILED")))
+        {
+            //Write in CSV file
+
+
+            IWebInteract.log.info("CMDStatus : {}", status);
+            ExariSteps.hmap.put("RequestType", requesttype);
+            IWebInteract.log.info("RequestType : {}", requesttype);
+            TextFileWriter textFileWriter = new TextFileWriter();
+            textFileWriter.writeCMDStatus(contractNumberCSVFile.toString(), ExariSteps.hmap);
+        } else
+        {
+            Assert.assertTrue(click("click resolve", Resolve));
+          pause(3);
+          Assert.assertTrue(click("click site", sitetab));
+         pause(5);
+                int plus=getDriver().findElements(By.xpath(productgroup)).size();
+                System.out.print(plus);
+                for(int j=0;j<plus;j++)
+                {
+
+                    Assert.assertTrue(click("click productgroup", productgrp));
+                    Assert.assertTrue(click("click Abort", Abort));
+                    Assert.assertTrue(click("click Abortproduct", AbortProduct));
+                   if(getDriver().findElements(By.xpath(plusbt2)).size()>0)
+                   {
+
+                       if(sitetab.isDisplayed())
+                       {
+                           Assert.assertTrue(click("click site", sitetab));
+                       }
+
+
+
+                }
+
+
+
+            }
+
+
+            Assert.assertTrue(click("click load button", load));
+            Assert.assertTrue(click("click home", clickhome));
+            pause(30);
+            enterContractNumber();
+            Assert.assertTrue(clickSearchButton());
+            ValidateMessage();
+        }
+
+        }
+
+
+
+
 
     public void validateContractDetails(Map<String, String> params) {
         Assert.assertTrue("Contract Id value didn't match", contractId.getText().contains(getSharedString("contractNumber").orElse("")));
@@ -253,4 +353,7 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
             }
         }
     }
+
+    String home = System.getProperty("user.dir");
+    Path contractNumberCSVFile = Paths.get(home, "src", "test", "resources", "support", "hive", "csvFiles", "contractNumberFile.csv");
 }
