@@ -15,6 +15,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -66,23 +67,11 @@ public class ResultsLib implements IUiStep{
 			String strpath = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(new Date());
 			Reportfolder = strpath;	
 			System.out.println("Report folder"+Reportfolder);
-			if(new File("TestReports").exists())
-			{
-				new File("TestReports"+"\\"+Reportfolder).mkdir();
-				new File("TestReports"+"\\"+Reportfolder+"\\Screenshots" ).mkdir();
-			}
-				
-			else
-			{
-				new File("TestReports").mkdir();;
-				new File("TestReports"+"\\"+Reportfolder).mkdir();
-				new File("TestReports"+"\\"+Reportfolder+"\\Screenshots" ).mkdir();
-			}
-						
-			
-			File tempfile =  new File("TestReports\\temp.txt");
+			System.out.println(new File("TestReports").getAbsolutePath());
+			new File(System.getProperty("user.dir")+"/TestReports/"+Reportfolder+"/Screenshots" ).mkdirs();
+			File tempfile =  new File(System.getProperty("user.dir")+"/TestReports/temp.txt");
 			FileWriter fw;			
-			tempfile.createNewFile();
+			//tempfile.createNewFile();
 			fw = new FileWriter(tempfile);
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(Reportfolder);
@@ -105,13 +94,13 @@ public class ResultsLib implements IUiStep{
 			String header = "<html><head><title>TestReport</title></head><body link='orange'>"
 					+ "<table border='0' cellspacing='1' cellpadding='1' width='100%'><tr><td align='left'><img src='"
 					+ System.getProperty("user.dir")
-					+ "\\Optum.PNG' alt='Logo'height='50' width='100'/></td></tr><tr><td align='center'><h4 align='center'><font face='arial'  color='#153e7e' size='5'><b><center>Summary Report</center></b></font></h4></td></tr></table>"
+					+ "/Optum.PNG' alt='Logo'height='50' width='100'/></td></tr><tr><td align='center'><h4 align='center'><font face='arial'  color='#153e7e' size='5'><b><center>Summary Report</center></b></font></h4></td></tr></table>"
 					+ "<table border='1' cellspacing='1' cellpadding='1' width='60%'><tr><td>Total Executed</td><td>Totalvalue</td></tr><tr><td>Total Pass</td><td>Totalpassvalue</td></tr><tr><td>Total Fail</td><td>Totalfailvalue</td></tr><tr><td>Total Skipped</td><td>Totalskipvalue</td></tr></table>"
 					+  "<br><table border='1' cellspacing='1' cellpadding='1' width='60%'><th>TestCase</th><th >Result</th><th >ContractNumber</th>";
 			
 			String template;						
 			
-			File reportfile = new File("TestReports\\"+Reportfolder +"\\DetailedTestReport.html");
+			File reportfile = new File(System.getProperty("user.dir")+"/TestReports/"+Reportfolder +"/DetailedTestReport.html");
 			FileWriter fw;
 			reportfile.createNewFile();			
 			template = header;
@@ -140,10 +129,9 @@ public class ResultsLib implements IUiStep{
 			
 			
 			String template = header + table;			
-			reportfilePath = "TestReports\\"+Reportfolder+"\\"+strTestName+".html";			
+			reportfilePath = System.getProperty("user.dir")+"/TestReports/"+Reportfolder+"/"+strTestName+".html";			
 			File reportfile = new File(reportfilePath);
 			FileWriter fw;				
-			reportfilePath = reportfile.getAbsolutePath();
 			if(!reportfile.exists())
 			{
 				reportfile.createNewFile();
@@ -172,15 +160,15 @@ public class ResultsLib implements IUiStep{
 	
 	public static void fnTestResult(String strTestName, String strExceptedResult, String strDescription, String strResultStatus, boolean screenshot) {
 		String template;
-		//reportfilePath = System.getProperty("user.dir") + "\\TestReports\\"+Reportfolder+"\\"+strTestName+".html";
+		//reportfilePath = System.getProperty("user.dir") + "/TestReports/"+Reportfolder+"/"+strTestName+".html";
 		Reportfolder = returnreportfolder();		
-		reportfilePath = "TestReports\\"+Reportfolder+"\\"+strTestName+".html";
+		reportfilePath = System.getProperty("user.dir")+"/TestReports/"+Reportfolder+"/"+strTestName+".html";
 		if (strResultStatus.equalsIgnoreCase("Pass")) 
 		{
 			if (screenshot) {
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 				String strDate = dateFormat.format(new Date());
-				String hrefString = "Screenshots\\"+strDate+ ".png";			 
+				String hrefString = "Screenshots/"+strDate+ ".png";			 
 				//objres.fnTakeScreenShot(strResultStatus,hrefString);
 				
 				template = "<tr><td width='30%' align='center'><font color='#153e7e' size='1' face='Arial align='center''><b>" + strExceptedResult
@@ -211,7 +199,7 @@ public class ResultsLib implements IUiStep{
 		else {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 			String strDate = dateFormat.format(new Date());
-			String hrefString = "Screenshots\\"+strDate+ ".png";		 
+			String hrefString = "Screenshots/"+strDate+ ".png";		 
 			objres.fnTakeScreenShot(strResultStatus,hrefString);
 			template = "<tr><td width='30%' align='center'><font color='#153e7e' size='1' face='Arial align='center''><b>" + strExceptedResult
 					+ "</b></font></td><td align='center'><font color='#153e7e' size='1' face='Arial' align='center'><b>"  + strDescription
@@ -255,7 +243,7 @@ public class ResultsLib implements IUiStep{
 			
 			
 			Reportfolder = returnreportfolder();
-			String reportfilePath = "TestReports\\"+Reportfolder+"\\DetailedTestReport.html";
+			String reportfilePath = System.getProperty("user.dir")+"/TestReports/"+Reportfolder+"/DetailedTestReport.html";
 			File reportfile = new File(reportfilePath);
 			FileReader fr;
 			fr = new FileReader(reportfile.getAbsoluteFile());
@@ -291,13 +279,13 @@ public class ResultsLib implements IUiStep{
 	public static void addscenarioinDetailedReport(String TestName) {
 		try {
 			Reportfolder = returnreportfolder();
-			String hrefString_image = "screenshots\\"+TestName+".png";
+			String hrefString_image = "screenshots/"+TestName+".png";
 			String hrefString_testname = TestName+".html";
 			String totalStr = "<tr align='center'><td><a href='"
 						+ hrefString_testname + "'>"+TestName+"</td><td><a href='"
 						+ hrefString_image + "'> "+TestName.split("-")[0].trim()+"_result_here</a></td><td>"+TestName.split("-")[0].trim()+"_contractnum_here</td></tr>"
 								+ "<tr></tr>";
-			String reportfilePath = "TestReports\\"+ Reportfolder +"\\DetailedTestReport.html";
+			String reportfilePath = System.getProperty("user.dir")+"/TestReports/"+ Reportfolder +"/DetailedTestReport.html";
 			File reportfile = new File(reportfilePath);
 			FileWriter fw;
 			fw = new FileWriter(reportfile.getAbsoluteFile(), true);
@@ -314,7 +302,7 @@ public class ResultsLib implements IUiStep{
 	public static void updateResultInSummaryreport(Boolean isfailed, String TestName) {
 		try {
 			Reportfolder = returnreportfolder();
-			String reportfilePath = "TestReports\\"+ Reportfolder+"\\DetailedTestReport.html";
+			String reportfilePath = System.getProperty("user.dir")+"/TestReports/"+ Reportfolder+"/DetailedTestReport.html";
 			File reportfile = new File(reportfilePath);
 			FileReader fr;
 			fr = new FileReader(reportfile.getAbsoluteFile());
@@ -328,7 +316,7 @@ public class ResultsLib implements IUiStep{
 				
 	            totalStr = totalStr+s;
 	        }
-			 String hrefString_image = "TestReports\\"+Reportfolder+"\\screenshots\\"+TestName+".png";
+			 String hrefString_image = "screenshots/"+TestName+".png";
 			if(isfailed)
 			{	result = "FAIL";
 			    int a = totalStr.indexOf(TestName);			   
@@ -367,7 +355,7 @@ public class ResultsLib implements IUiStep{
 			
 			System.out.println(TestName);
 			Reportfolder = returnreportfolder();
-			String reportfilePath = "TestReports\\"+ Reportfolder+"\\DetailedTestReport.html";
+			String reportfilePath = System.getProperty("user.dir")+"/TestReports/"+ Reportfolder+"/DetailedTestReport.html";
 			File reportfile = new File(reportfilePath);
 			FileReader fr;
 			fr = new FileReader(reportfile.getAbsoluteFile());
@@ -443,7 +431,7 @@ public class ResultsLib implements IUiStep{
     @After(value = "@User_Interface")
     public void updateResult(Scenario scenario) {
 	    Reportfolder = returnreportfolder();
-		String hrefString_image = "screenshots\\"+scenario.getName()+".png";
+		String hrefString_image = "screenshots/"+scenario.getName()+".png";
 	    fnTakeScreenShot("",hrefString_image);
 	  	updateResultInSummaryreport(scenario.isFailed(),scenario.getName());
 	  	//Capture contract	  	
@@ -457,7 +445,7 @@ public class ResultsLib implements IUiStep{
   public static String returnreportfolder()
   {
 	  try{
-		  String fileName = "TestReports\\temp.txt";
+		  String fileName = System.getProperty("user.dir")+"/TestReports/temp.txt";
 		  Path path = Paths.get(fileName);
 		  byte[] bytes = Files.readAllBytes(path);
 		  List<String> allLines = Files.readAllLines(path, StandardCharsets.UTF_8);
@@ -474,13 +462,18 @@ public class ResultsLib implements IUiStep{
 		try {
 			
 			File snapshort_file = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-			if(new File(imgpath).exists())
-				FileHandler.copy(snapshort_file, new File(imgpath));
-			else
-			{
-				String repfolder = "TestReports\\"+returnreportfolder()+"\\"+imgpath;
-				FileHandler.copy(snapshort_file, new File(repfolder));
-			}
+			
+				
+				if(new File(imgpath).exists())
+					FileHandler.copy(snapshort_file, new File(imgpath));
+				else
+				{
+					String repfolder = System.getProperty("user.dir")+"/TestReports/"+returnreportfolder()+"/"+imgpath;
+					FileHandler.copy(snapshort_file, new File(repfolder));
+				}
+				
+			
+			
 				
 //			BufferedImage image = new Robot()
 //					.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
@@ -509,8 +502,8 @@ public class ResultsLib implements IUiStep{
 //	        if(Filename.equals(""))
 //	        {
 //	        	 MimeBodyPart attachmentBodyPart= new MimeBodyPart();
-//	        	 String resultfile = System.getProperty("user.dir")+ "\\TestResult\\DetailedTestReport.html";
-//	 	        FileDataSource source = new FileDataSource(resultfile); // ex : "C:\\test.pdf"
+//	        	 String resultfile = System.getProperty("user.dir")+ "/TestResult/DetailedTestReport.html";
+//	 	        FileDataSource source = new FileDataSource(resultfile); // ex : "C:/test.pdf"
 //	 	        attachmentBodyPart.setDataHandler(new DataHandler(source));
 //	 	        attachmentBodyPart.setFileName(resultfile); // ex : "test.pdf"
 //	 	       // add the text part
@@ -541,7 +534,7 @@ public class ResultsLib implements IUiStep{
       Session session = Session.getInstance(props, null);
       props.put("mail.smtp.host", smtpHostServer);
       String repfolder = returnreportfolder();
-      String fileName = "TestReports\\"+repfolder+"\\DetailedTestReport.html";
+      String fileName = System.getProperty("user.dir")+"/TestReports/"+repfolder+"/DetailedTestReport.html";
       String header = "Execution Started <br><br> Results Link: <a href="+fileName+">ResultLink";       
       sendEmail(session, "vlnmurthy.tarigoppala@optum.com","Automation Execution Started",header,"");
 
@@ -557,7 +550,13 @@ public class ResultsLib implements IUiStep{
       
       String repfolder = returnreportfolder();
       
-      String fileName = "TestReports\\"+repfolder+"\\DetailedTestReport.html";
+      String fileName = System.getProperty("user.dir")+"/TestReports/"+repfolder+"/DetailedTestReport.html";
+      
+      File sourceDirectory =  new File(System.getProperty("user.dir")+"/TestReports/"+repfolder);
+	  File targetDirectory = new File(System.getProperty("user.dir")+"/build/TestReports");
+      //copy source to target using Files Class
+      copyFolder(sourceDirectory, targetDirectory);
+      
 	  Path path = Paths.get(fileName);
 	  byte[] bytes = Files.readAllBytes(path);
 	  List<String> allLines = Files.readAllLines(path, StandardCharsets.UTF_8);
@@ -571,7 +570,45 @@ public class ResultsLib implements IUiStep{
      
       sendEmail(session, "vlnmurthy.tarigoppala@optum.com","Automation Execution Completed",bodymsg,"");
 
+      
+
+      
 	}
+	
+
+	private static void copyFolder(File sourceFolder, File destinationFolder) throws IOException
+    {
+        //Check if sourceFolder is a directory or file
+        //If sourceFolder is file; then copy the file directly to new location
+        if (sourceFolder.isDirectory()) 
+        {
+            //Verify if destinationFolder is already present; If not then create it
+            if (!destinationFolder.exists()) 
+            {
+                destinationFolder.mkdir();
+                System.out.println("Directory created :: " + destinationFolder);
+            }
+             
+            //Get all files from source directory
+            String files[] = sourceFolder.list();
+             
+            //Iterate over all files and copy them to destinationFolder one by one
+            for (String file : files) 
+            {
+                File srcFile = new File(sourceFolder, file);
+                File destFile = new File(destinationFolder, file);
+                 
+                //Recursive function call
+                copyFolder(srcFile, destFile);
+            }
+        }
+        else
+        {
+            //Copy the file content from one place to another 
+            Files.copy(sourceFolder.toPath(), destinationFolder.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("File copied :: " + destinationFolder);
+        }
+    }
   
  
 }
