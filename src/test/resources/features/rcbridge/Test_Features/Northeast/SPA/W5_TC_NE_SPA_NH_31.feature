@@ -45,17 +45,18 @@ Feature: W5_TC_NE_SPA_NH_31
       #Final Capture Cont.
 #   And I Approve Payment Appendix 
     And I Set Status as Final Pending QA
-    And I Start Final Capture
-    And I enter Contract Details in Final Capture
-    And I enter Provider Signatory
-    And I enter Our Signatory
-    And I enter Market Exception Grid in Final Capture
-    And I enter Market Exception Grid
-    And I select Provider Roster as None
-    And I enter retro code in Provider Roster 
-    And I acknowledge the warning
-    And I enter Group Summary
-    Then I Complete Wizard
+    And I complete final capture with Roaster as None
+#    And I Start Final Capture
+#    And I enter Contract Details in Final Capture
+#    And I enter Provider Signatory
+#    And I enter Our Signatory
+#    And I enter Market Exception Grid in Final Capture
+#    And I enter Market Exception Grid
+#    And I select Provider Roster as None
+#    And I enter retro code in Provider Roster
+#    And I acknowledge the warning
+#    And I enter Group Summary
+#    Then I Complete Wizard
 
     #Activate
     And I Set Status as Active

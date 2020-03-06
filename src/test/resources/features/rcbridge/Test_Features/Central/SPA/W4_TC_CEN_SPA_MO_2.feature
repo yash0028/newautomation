@@ -3,7 +3,7 @@
 @releaseUnknown
 @iterationUnknown
 Feature: W4_TC_CEN_SPA_MO_2
- @W4_TC_CEN_SPA_1
+ @W4_TC_CEN_SPA_MO_2
  @Manual
  @User_Interface
  @UAT_AUTO
