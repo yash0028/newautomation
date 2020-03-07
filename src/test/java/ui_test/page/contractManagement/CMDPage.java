@@ -87,8 +87,13 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     @FindBy(xpath = "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[1]")
     public WebElement sitetab;
 
+//    @FindBy(xpath = "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[contains(text(),'+')]")
+//    public WebElement sitetab;
+
+
     @FindBy(xpath = "//span[contains(@class, 'innerHeaderStyle')][1]")
     public WebElement productgrp;
+
 
     @FindBy(xpath = "//button[text()='Abort ']")
     public WebElement Abort;
@@ -104,6 +109,7 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
 
 
     String plusbt2= "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[1]";
+   // String plusbt2= "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[contains(text(),'+')]";
 
     String productgroup= "//span[contains(@class, 'innerHeaderStyle')][1]";
 
@@ -229,7 +235,8 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     public boolean enterContractNumber() {
         //  return sendKeys(searchTransactionsTextBox, getSharedString("contractNumber").orElse(""));
         System.out.println(ExariSteps.hmap.get("Contract Number"));
-        return sendKeys(searchTransactionsTextBox, ExariSteps.hmap.get("Contract Number").trim());
+       return sendKeys(searchTransactionsTextBox, ExariSteps.hmap.get("Contract Number").trim());
+       // return sendKeys(searchTransactionsTextBox,"93044970".trim());
     }
 
     public void searchContract() {
@@ -263,6 +270,7 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     public void CMDValidation() {
         //Verify Details
         String contract = ExariSteps.hmap.get("Contract Number");
+
         String status = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[7]/span")).getText();
         String requesttype = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[8]")).getText();
 
@@ -278,24 +286,35 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
             textFileWriter.writeCMDStatus(contractNumberCSVFile.toString(), ExariSteps.hmap);
         } else
         {
-            Assert.assertTrue(click("click resolve", Resolve));
-          pause(3);
-          Assert.assertTrue(click("click site", sitetab));
-         pause(5);
-                int plus=getDriver().findElements(By.xpath(productgroup)).size();
-                System.out.print(plus);
+            Assert.assertTrue(click("resolveButton", Resolve));
+
+          Assert.assertTrue(click("sitePlus", sitetab));
+          pause(10);
+
+          //  waitTillClickable(productgrp);
+            int plus=getDriver().findElements(By.xpath(productgroup)).size();
+                System.out.print("The Count is "+plus);
                 for(int j=0;j<plus;j++)
                 {
+                    if(getDriver().findElements(By.xpath(productgroup)).size()>0) {
 
-                    Assert.assertTrue(click("click productgroup", productgrp));
-                    Assert.assertTrue(click("click Abort", Abort));
-                    Assert.assertTrue(click("click Abortproduct", AbortProduct));
+                        if (productgrp.isDisplayed()) {
+
+
+                        Assert.assertTrue(click("productgroupPlus", productgrp));
+                        pause(10);
+                        Assert.assertTrue(click("Abortbutton", Abort));
+                        Assert.assertTrue(click("Abortproductbutton", AbortProduct));
+                        pause(10);
+                    }
+       }
                    if(getDriver().findElements(By.xpath(plusbt2)).size()>0)
                    {
 
                        if(sitetab.isDisplayed())
                        {
-                           Assert.assertTrue(click("click site", sitetab));
+                           Assert.assertTrue(click("sitePlus", sitetab));
+                           pause(10);
                        }
 
 
@@ -315,7 +334,7 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
             ValidateMessage();
         }
 
-        }
+       }
 
 
 
