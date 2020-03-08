@@ -115,5 +115,39 @@ public class CSVReader {
         body.append("====\r\n");
         return body.toString();
     }
+    public List readcsvFile_Cancel(String path ) {
+        String csvFile = path;
+        BufferedReader br = null;
+        String line = "";
+        String cvsSplitBy = ",";
+        List<String> contractNum = new ArrayList();
+        try {
+            int count=0;
+            br = new BufferedReader(new FileReader(csvFile));
+            log.info("Reading Test Data From {}", csvFile);
+            while ((line = br.readLine()) != null) 
+            {	if(count>0)
+            	{
+            		String cntrtNum  = line.split(cvsSplitBy)[1];  
+            		contractNum.add(cntrtNum);  
+            	}
+                count++;
+            }              
+           
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
 
+        }        
+        return contractNum;
+    }
 }

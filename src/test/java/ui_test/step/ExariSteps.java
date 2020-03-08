@@ -9,9 +9,18 @@ import exari_test.eif.flow.ContractFlow;
 import exari_test.eif.flow.IContractFlowLoader;
 import general_test.util.ISharedValuePoster;
 import io.cucumber.datatable.DataTable;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import io.restassured.specification.RequestSpecification;
+
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+
 import ui_test.page.exari.ProtoStep;
 import ui_test.page.exari.contract.ContractPage;
 import ui_test.pages.BasePage;
@@ -23,7 +32,10 @@ import util.file.IFileReader;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedValuePoster, IContractFlowLoader {
     private static final Logger log = LoggerFactory.getLogger(ExariSteps.class);
@@ -31,6 +43,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     String home = System.getProperty("user.dir");
     Path contractDetailsTextFile = Paths.get(home, "src", "test", "resources", "support", "hive", "textFiles", "contractDetails.txt");
     Path contractNumberCSVFile = Paths.get(home, "src", "test", "resources", "support", "hive", "csvFiles", "contractNumberFile.csv");
+    Path cancelcontractNumberCSVFile = Paths.get(home, "src", "test", "resources", "support", "hive", "csvFiles", "contractNumberFile_Cancel.csv");
     Path contractFlowPath = Paths.get(home, "src", "test", "resources", "support", "hive", "dataMap");
     private ProtoStep protoStep;
     private BasePage basePage;
@@ -1122,5 +1135,44 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         //Then I Complete Wizard
         basePage.getWizardComplete().completeWizard(hmap);
     } 
+    
+    @SuppressWarnings("unchecked")
+	@When("I Cancel contracts using API")
+    public void CancelContract() 
+    {
+    	try
+    	{
+    		
+    		RestAssured.baseURI = "http://cancel-cm-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
+ 			RequestSpecification request = RestAssured.given(); 			
+      	    request.header("Content-Type","application/json");  
+      	    
+      	    Path CSVpath = Paths.get(cancelcontractNumberCSVFile.toString());
+	      	CSVReader csvReader = new CSVReader();
+	        System.out.println(CSVpath);
+	        List<String> Contracts = new ArrayList<String>();
+	        Contracts = csvReader.readcsvFile_Cancel(CSVpath.toString());
+		    JSONParser parser = new JSONParser();
+		    
+			
+		    for (String item : Contracts) 
+		    {
+		   	   String contractnum = item.trim();
+		   	   String strcontr = "\""+contractnum+"\"";
+		   	   String payload ="{\"ContractIds\": [{\"ContractId\":"+strcontr+" }]}";
+		   	   JSONObject requestParams = (JSONObject) parser.parse(payload);
+		   	   request.body(requestParams.toJSONString());
+		   	   Response response = request.post("/v1.0/cancel/ndb-cosmos/contract-masters/contractIds/test");
+		   	   int statusCode = response.getStatusCode();							
+			   Object resmsg = response.jsonPath().get();			    
+			   System.out.println(statusCode+":"+ resmsg.toString());
+		    }
+	       
+    	}
+    	catch(Exception ex)
+    	{
+    		System.out.println("Error while cancel Contract: Please verify csv");
+    	}
+    }
     
 }
