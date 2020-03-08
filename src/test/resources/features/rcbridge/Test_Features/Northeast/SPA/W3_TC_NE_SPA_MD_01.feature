@@ -43,6 +43,7 @@ Feature: W3_TC_NE_SPA_MD_01
      #Final capture
     And I Start Workflow
     And I Start Process for Initial Transaction
+    And I Approve Payment Appendix
     And I Set Status as Final Pending QA
     And I complete final capture by add provider using TIN
 

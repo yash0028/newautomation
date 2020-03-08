@@ -964,7 +964,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
        
     	//And I enter Provider Signatory
     	basePage.getProviderSignatory().ProviderSignatory(hmap);
-    	
+
+    	//TODO Provider Roster   -> select retro code (is showing for PAT CEN)
         //And I enter Our Signatory
     	basePage.getOurSignatory().ourSignatoryDate(hmap);
 
@@ -1046,7 +1047,8 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
        
     	//And I enter Provider Signatory
     	basePage.getProviderSignatory().ProviderSignatory(hmap);
-    	
+
+    	//TODO Clause Language page is showing for MGA VA
         //And I enter Our Signatory
     	basePage.getOurSignatory().ourSignatoryDate(hmap);
 
