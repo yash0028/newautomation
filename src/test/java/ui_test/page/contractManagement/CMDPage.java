@@ -108,10 +108,10 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     public WebElement clickhome;
 
 
-    String plusbt2= "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[1]";
-   // String plusbt2= "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[contains(text(),'+')]";
+    String plusbt2 = "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[1]";
+    // String plusbt2= "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[contains(text(),'+')]";
 
-    String productgroup= "//span[contains(@class, 'innerHeaderStyle')][1]";
+    String productgroup = "//span[contains(@class, 'innerHeaderStyle')][1]";
 
 
     private WebDriver driver;
@@ -235,8 +235,8 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     public boolean enterContractNumber() {
         //  return sendKeys(searchTransactionsTextBox, getSharedString("contractNumber").orElse(""));
         System.out.println(ExariSteps.hmap.get("Contract Number"));
-       return sendKeys(searchTransactionsTextBox, ExariSteps.hmap.get("Contract Number").trim());
-       // return sendKeys(searchTransactionsTextBox,"93044970".trim());
+        return sendKeys(searchTransactionsTextBox, ExariSteps.hmap.get("Contract Number").trim());
+        // return sendKeys(searchTransactionsTextBox,"93044970".trim());
     }
 
     public void searchContract() {
@@ -248,24 +248,22 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     //   Assert.assertTrue(click("action required", actionRequiredLink));
     //}
 
-    public void ValidateMessage()
-    {
+    public void ValidateMessage() {
         String contract = ExariSteps.hmap.get("Contract Number");
         String status = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[7]/span")).getText();
         String requesttype = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[8]")).getText();
 
-        if (status.equals("SUCCESS") || (status.equals("FAILED")))
-        {
+//        if (status.equals("SUCCESS") || (status.equals("FAILED"))) {
             //Write in CSV file
 
-
+             ExariSteps.hmap.put("CMDStatus", status);
             IWebInteract.log.info("CMDStatus : {}", status);
             ExariSteps.hmap.put("RequestType", requesttype);
             IWebInteract.log.info("RequestType : {}", requesttype);
             TextFileWriter textFileWriter = new TextFileWriter();
             textFileWriter.writeCMDStatus(contractNumberCSVFile.toString(), ExariSteps.hmap);
         }
-    }
+//    }
 
     public void CMDValidation() {
         //Verify Details
@@ -274,68 +272,67 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
         String status = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[7]/span")).getText();
         String requesttype = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[8]")).getText();
 
-        if (status.equals("SUCCESS") || (status.equals("FAILED")))
-        {
+        if (status.equals("SUCCESS") || (status.equals("FAILED"))) {
             //Write in CSV file
 
-
+            ExariSteps.hmap.put("CMDStatus", status);
             IWebInteract.log.info("CMDStatus : {}", status);
             ExariSteps.hmap.put("RequestType", requesttype);
             IWebInteract.log.info("RequestType : {}", requesttype);
             TextFileWriter textFileWriter = new TextFileWriter();
             textFileWriter.writeCMDStatus(contractNumberCSVFile.toString(), ExariSteps.hmap);
-        } else
-        {
+        } else {
             Assert.assertTrue(click("resolveButton", Resolve));
+            pause(5);
+            String type2error = getDriver().findElement(By.xpath("//td[contains(text(),'')]/../td[contains(text(),'')]/../td[5]/span")).getText();
 
-          Assert.assertTrue(click("sitePlus", sitetab));
-          pause(10);
+            if (type2error.equals("TYPE-II-ACTION")) {
+                IWebInteract.log.info("Status : {}", type2error);
+            } else {
+                Assert.assertTrue(click("sitePlus", sitetab));
+                pause(10);
 
-          //  waitTillClickable(productgrp);
-            int plus=getDriver().findElements(By.xpath(productgroup)).size();
-                System.out.print("The Count is "+plus);
-                for(int j=0;j<plus;j++)
-                {
-                    if(getDriver().findElements(By.xpath(productgroup)).size()>0) {
+                //  waitTillClickable(productgrp);
+                int plus = getDriver().findElements(By.xpath(productgroup)).size();
+                System.out.print("The Count is " + plus);
+                for (int j = 0; j < plus; j++) {
+                    if (getDriver().findElements(By.xpath(productgroup)).size() > 0) {
 
                         if (productgrp.isDisplayed()) {
 
 
-                        Assert.assertTrue(click("productgroupPlus", productgrp));
-                        pause(10);
-                        Assert.assertTrue(click("Abortbutton", Abort));
-                        Assert.assertTrue(click("Abortproductbutton", AbortProduct));
-                        pause(10);
+                            Assert.assertTrue(click("productgroupPlus", productgrp));
+                            pause(10);
+                            Assert.assertTrue(click("Abortbutton", Abort));
+                            Assert.assertTrue(click("Abortproductbutton", AbortProduct));
+                            pause(10);
+                        }
                     }
-       }
-                   if(getDriver().findElements(By.xpath(plusbt2)).size()>0)
-                   {
+                    if (getDriver().findElements(By.xpath(plusbt2)).size() > 0) {
 
-                       if(sitetab.isDisplayed())
-                       {
-                           Assert.assertTrue(click("sitePlus", sitetab));
-                           pause(10);
-                       }
+                        if (sitetab.isDisplayed()) {
+                            Assert.assertTrue(click("sitePlus", sitetab));
+                            pause(10);
+                        }
 
+
+                    }
 
 
                 }
 
 
-
+                Assert.assertTrue(click("click load button", load));
+                Assert.assertTrue(click("click home", clickhome));
+                pause(30);
+                enterContractNumber();
+                Assert.assertTrue(clickSearchButton());
+                pause(5);
+                ValidateMessage();
             }
 
-
-            Assert.assertTrue(click("click load button", load));
-            Assert.assertTrue(click("click home", clickhome));
-            pause(30);
-            enterContractNumber();
-            Assert.assertTrue(clickSearchButton());
-            ValidateMessage();
         }
-
-       }
-
+    }
 
 
 
