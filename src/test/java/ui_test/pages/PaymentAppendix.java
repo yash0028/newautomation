@@ -677,6 +677,13 @@ public class PaymentAppendix extends GenericInputPage {
             Assert.assertTrue(waitForPageLoad());
         }
 
+        if(CommonMethods.isElementPresent(getDriver(),By.xpath(getQn("options to pay providers")))){
+            IWebInteract.log.info("Question : {}", "options to pay providers");
+            Assert.assertTrue(click("Entering Data to options to pay providers", getQnInputElem("options to pay providers", "Standard")));
+            Assert.assertTrue(clickNext());
+            waitForElementToDissapear(getDriver(), waitForElementToAppear(getDriver(), By.xpath(elements.message)));
+        }
+
         String[] RadioQuestions = {"standard payment methodology", "specific CPT codes", "% of CMS" , "standard 100% maximum allowable rate"};
         for (String Question : RadioQuestions) {
             if (CommonMethods.isElementPresent(getDriver(), By.xpath(getQn(Question)))) {
