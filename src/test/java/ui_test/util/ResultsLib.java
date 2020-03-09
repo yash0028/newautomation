@@ -96,11 +96,11 @@ public class ResultsLib implements IUiStep{
 		try {
 			
 			String header = "<html><head><title>TestReport</title></head><body link='orange'>"
-					+ "<table border='0' cellspacing='1' cellpadding='1' width='100%'><tr><td align='left'><img src='"
+					+ "<table border='0' cellspacing='0' cellpadding='1' width='100%'><tr><td align='left'><img src='"
 					+ System.getProperty("user.dir")
 					+ "/Optum.PNG' alt='Logo'height='50' width='100'/></td></tr><tr><td align='center'><h4 align='center'><font face='arial'  color='#153e7e' size='5'><b><center>Summary Report</center></b></font></h4></td></tr></table>"
-					+ "<table border='1' cellspacing='1' cellpadding='1' width='60%'><tr><td>Total Executed</td><td>Totalvalue</td></tr><tr><td>Total Pass</td><td>Totalpassvalue</td></tr><tr><td>Total Fail</td><td>Totalfailvalue</td></tr><tr><td>Total Skipped</td><td>Totalskipvalue</td></tr></table>"
-					+  "<br><table border='1' cellspacing='1' cellpadding='1' width='60%'><th>TestCase</th><th >Result</th><th >ContractNumber</th>";
+					+ "<table border='1' cellspacing='0' cellpadding='1' width='60%'><tr><td bgcolor='#00bfff' width='30%' align='center' valign='middle'>Total Executed</td><td>1</td></tr><tr><td bgcolor='#00b300' width='30%' align='center' valign='middle'>Total Pass</td><td>1</td></tr><tr><td bgcolor='#ff0040' width='30%' align='center' valign='middle'>Total Fail</td><td>0</td></tr><tr><td bgcolor='#ffff4c' width='30%' align='center' valign='middle'>Total Skipped</td><td>0</td></tr></table>"
+					+  "<br><table border='1' cellspacing='0' cellpadding='1' width='60%'><th bgcolor='#153e7e' width='30%' align='center' valign='middle' ><font color='#e0e0e0' size='2' face='Arial'>TestCase</th><th bgcolor='#153e7e' width='30%' align='center' valign='middle' ><font color='#e0e0e0' size='2' face='Arial'>TestCase</th>Result</th><th bgcolor='#153e7e' width='30%' align='center' valign='middle' ><font color='#e0e0e0' size='2' face='Arial'>ContractNumber</th>";
 			
 			String template;						
 			
