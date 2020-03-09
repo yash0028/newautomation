@@ -19,6 +19,7 @@ import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
@@ -49,6 +50,7 @@ import cucumber.api.java.AfterStep;
 import cucumber.api.java.Before;
 
 import ui_test.util.IUiStep;
+import util.configuration.IConfigurable;
 
 public class ResultsLib implements IUiStep{
 	
@@ -65,8 +67,10 @@ public class ResultsLib implements IUiStep{
 		try
 		{
 			String strpath = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(new Date());
-			Reportfolder = strpath;	
+			Reportfolder = strpath;
+			System.out.println(System.getenv("BUILD_NUMBER"));
 			System.out.println("Report folder"+Reportfolder);
+			
 			System.out.println(new File("TestReports").getAbsolutePath());
 			new File(System.getProperty("user.dir")+"/TestReports/"+Reportfolder+"/Screenshots" ).mkdirs();
 			File tempfile =  new File(System.getProperty("user.dir")+"/TestReports/temp.txt");
@@ -544,10 +548,11 @@ public class ResultsLib implements IUiStep{
       Properties props = System.getProperties();
       Session session = Session.getInstance(props, null);
       props.put("mail.smtp.host", smtpHostServer);
-      String header = "Hi Team,<br> Please Find the Automation Results As below <br><br>";
       
-      String repfolder = returnreportfolder();
+      String header = "Hi Team,<br> Please Find the Automation Results As below <br><br> Result link: "+"https://jenkins.optum.com/clmdevops/view/UAT%20Automation/job/UAT_Automation_InitialTransaction/"+System.getenv("BUILD_NUMBER")+"/artifact/build/TestReports/DetailedTestReport.html";
       
+      String repfolder = returnreportfolder();   
+     
       String fileName = System.getProperty("user.dir")+"/TestReports/"+repfolder+"/DetailedTestReport.html";
       
       File sourceDirectory =  new File(System.getProperty("user.dir")+"/TestReports/"+repfolder);
@@ -558,6 +563,7 @@ public class ResultsLib implements IUiStep{
 	  Path path = Paths.get(fileName);
 	  byte[] bytes = Files.readAllBytes(path);
 	  List<String> allLines = Files.readAllLines(path, StandardCharsets.UTF_8);
+	  
 	  String bodymsg= allLines.get(0).toString();
 //      
 //      String bodymsg = "<html><head><style>table,th,td{border: 1px solid black;background-color: #f1f1c1;border-collapse: collapse;}</style></head><body><br>"+header+"<table style='width:50%''><tbody><tr><td>TotalExecuted</td><td>"
@@ -566,7 +572,7 @@ public class ResultsLib implements IUiStep{
 //      				 				+ ifail+"</td></tr><tr><td>Skip</td><td>"
 //      				 						+ iskip+"</td></tr></tbody></body><br><br>Thanks,<br>AutomationTest</html>";
      
-      sendEmail(session, "vlnmurthy.tarigoppala@optum.com","Automation Execution Completed",bodymsg,"");
+      sendEmail(session, "vlnmurthy.tarigoppala@optum.com","Automation Execution Completed",header+bodymsg,"");
 
       
 
