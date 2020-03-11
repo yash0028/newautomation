@@ -236,10 +236,10 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
      */
     public boolean enterContractNumber() {
         //  return sendKeys(searchTransactionsTextBox, getSharedString("contractNumber").orElse(""));
-    	ExariSteps.hmap.put("Contract Number","37012005");
+    	//ExariSteps.hmap.put("Contract Number","37012005");
         System.out.println(ExariSteps.hmap.get("Contract Number"));
-        //return sendKeys(searchTransactionsTextBox, ExariSteps.hmap.get("Contract Number").trim());
-         return sendKeys(searchTransactionsTextBox,"37012005".trim());
+        return sendKeys(searchTransactionsTextBox, ExariSteps.hmap.get("Contract Number").trim());
+         //return sendKeys(searchTransactionsTextBox,"37012005".trim());
     }
 
     public void searchContract() {
