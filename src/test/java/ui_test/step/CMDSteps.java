@@ -22,6 +22,7 @@ import ui_test.page.cmd.transaction.action.modal.PCPReassignmentModal;
 import ui_test.page.contractManagement.CMDLoginSSOPage;
 import ui_test.page.contractManagement.CMDPage;
 import ui_test.page.exari.ProtoStepCMD;
+import ui_test.pages.csvReader.CSVReader;
 import ui_test.pages.textFileWriter.TextFileWriter;
 import ui_test.util.IUiStep;
 import ui_test.util.IWebInteract;
@@ -75,9 +76,32 @@ public class CMDSteps implements IRestStep, IUiStep {
         cmdPage.searchContract();
         TimeUnit.SECONDS.sleep(5);
         cmdPage.CMDValidation();
+        cmdPage.CMDValidation();
 
 
-
+    }
+    
+    @SuppressWarnings("unchecked")
+	@And("^I Cleanup CMD Data$")
+    public void CleanUpCMD() throws InterruptedException {
+    	CSVReader csvReader = new CSVReader();
+    	List<String> Contracts = new ArrayList<String>();
+    	Path cancelcontractNumberCSVFile = Paths.get(home, "src", "test", "resources", "support", "hive", "csvFiles", "contractNumberFile_Cancel.csv");
+    	Path CSVpath = Paths.get(cancelcontractNumberCSVFile.toString());
+        Contracts = csvReader.readcsvFile_Cancel(CSVpath.toString());
+        for (String item : Contracts) 
+	    {
+        	ExariSteps.hmap.put("Contract Number",item.trim());
+        	navigateToCMDdashboardUrl();
+            isDashboardPageDisplayed();
+            TimeUnit.SECONDS.sleep(5);
+            //Search Contract
+            cmdPage.searchContract();
+            TimeUnit.SECONDS.sleep(5);
+            cmdPage.CMDValidation();
+            cmdPage.CMDValidation();
+	    }
+        
     }
 
     @Given("^I am on the CMD dashboard$")
