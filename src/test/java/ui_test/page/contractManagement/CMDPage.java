@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
@@ -112,7 +113,8 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     // String plusbt2= "//table[@class='mat-table']//tr[1]/td[1]/div[1]/span[contains(text(),'+')]";
 
     String productgroup = "//span[contains(@class, 'innerHeaderStyle')][1]";
-
+    
+    String resolvemultiple = "(//button[contains(.,'Resolve Multiple')])[1]";
 
     private WebDriver driver;
 
@@ -234,9 +236,10 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
      */
     public boolean enterContractNumber() {
         //  return sendKeys(searchTransactionsTextBox, getSharedString("contractNumber").orElse(""));
+    	ExariSteps.hmap.put("Contract Number","37012005");
         System.out.println(ExariSteps.hmap.get("Contract Number"));
-        return sendKeys(searchTransactionsTextBox, ExariSteps.hmap.get("Contract Number").trim());
-        // return sendKeys(searchTransactionsTextBox,"93044970".trim());
+        //return sendKeys(searchTransactionsTextBox, ExariSteps.hmap.get("Contract Number").trim());
+         return sendKeys(searchTransactionsTextBox,"37012005".trim());
     }
 
     public void searchContract() {
@@ -256,7 +259,7 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
 //        if (status.equals("SUCCESS") || (status.equals("FAILED"))) {
             //Write in CSV file
 
-             ExariSteps.hmap.put("CMDStatus", status);
+            ExariSteps.hmap.put("CMDStatus", status);
             IWebInteract.log.info("CMDStatus : {}", status);
             ExariSteps.hmap.put("RequestType", requesttype);
             IWebInteract.log.info("RequestType : {}", requesttype);
@@ -266,6 +269,7 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
 //    }
 
     public void CMDValidation() {
+    	
         //Verify Details
         String contract = ExariSteps.hmap.get("Contract Number");
 
@@ -281,13 +285,64 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
             IWebInteract.log.info("RequestType : {}", requesttype);
             TextFileWriter textFileWriter = new TextFileWriter();
             textFileWriter.writeCMDStatus(contractNumberCSVFile.toString(), ExariSteps.hmap);
-        } else {
-            Assert.assertTrue(click("resolveButton", Resolve));
+        } else 
+        {
+        	Assert.assertTrue(click("resolveButton", Resolve));
             pause(5);
             String type2error = getDriver().findElement(By.xpath("//td[contains(text(),'')]/../td[contains(text(),'')]/../td[5]/span")).getText();
 
             if (type2error.equals("TYPE-II-ACTION")) {
                 IWebInteract.log.info("Status : {}", type2error);
+                Assert.assertTrue(click("sitePlus", sitetab));
+                pause(10);
+                //  waitTillClickable(productgrp);
+                int plus = getDriver().findElements(By.xpath(productgroup)).size();
+                System.out.print("The Count is " + plus);
+                for (int j = 0; j < plus; j++) {
+                    if (getDriver().findElements(By.xpath(productgroup)).size() > 0) {
+
+                        if (productgrp.isDisplayed()) {
+
+                        	//Resolve multiple	
+                        	Assert.assertTrue(click("resolve multiple", getDriver().findElement(By.xpath(resolvemultiple))));
+                            getDriver().findElement(By.xpath("//textarea[contains(@id,'mat-input')]")).sendKeys("Test");
+                            getDriver().findElement(By.xpath("//p[.='Resolution Type']/parent::form//mat-select")).click();
+                            
+                            if(getDriver().findElement(By.xpath("//mat-option[contains(.,'Manually Installed')]")).isDisplayed())
+                            {	
+                            	getDriver().findElement(By.xpath("//mat-option[contains(.,'Manually Installed')]")).click();
+                            	pause(4);
+                            }
+                            else
+                            {
+                            	getDriver().findElement(By.xpath("//mat-option[1]")).click();
+                            	pause(4);
+                            }	
+                            //click on checkbox                          
+                            getDriver().findElement(By.xpath("//mat-checkbox[@id='mat-checkbox-1']")).click();
+                            //click submit
+                            WebElement submitbtn =getDriver().findElement(By.xpath("//button[.='Submit']"));
+                            jseclick("Submit Button",submitbtn);
+                            
+                        }
+                    }
+                    if (getDriver().findElements(By.xpath(plusbt2)).size() > 0) {
+                        if (sitetab.isDisplayed()) {
+                            Assert.assertTrue(click("sitePlus", sitetab));
+                            pause(10);
+                        }
+
+                    }
+
+                }
+                Assert.assertTrue(click("click home", clickhome));
+               
+                pause(30);
+                enterContractNumber();
+                Assert.assertTrue(clickSearchButton());
+                pause(5);
+                ValidateMessage();
+                
             } else {
                 Assert.assertTrue(click("sitePlus", sitetab));
                 pause(10);
