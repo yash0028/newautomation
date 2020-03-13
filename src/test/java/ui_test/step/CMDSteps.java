@@ -84,6 +84,10 @@ public class CMDSteps implements IRestStep, IUiStep {
     @SuppressWarnings("unchecked")
 	@And("^I Cleanup CMD Data$")
     public void CleanUpCMD() throws InterruptedException {
+    	navigateToCMDdashboardUrl();
+        isDashboardPageDisplayed();
+        TimeUnit.SECONDS.sleep(5);
+        
     	CSVReader csvReader = new CSVReader();
     	List<String> Contracts = new ArrayList<String>();
     	Path cancelcontractNumberCSVFile = Paths.get(home, "src", "test", "resources", "support", "hive", "csvFiles", "contractNumberFile_Cancel.csv");
@@ -91,15 +95,20 @@ public class CMDSteps implements IRestStep, IUiStep {
         Contracts = csvReader.readcsvFile_Cancel(CSVpath.toString());
         for (String item : Contracts) 
 	    {
-        	ExariSteps.hmap.put("Contract Number",item.trim());
-        	navigateToCMDdashboardUrl();
-            isDashboardPageDisplayed();
-            TimeUnit.SECONDS.sleep(5);
-            //Search Contract
-            cmdPage.searchContract();
-            TimeUnit.SECONDS.sleep(5);
-            cmdPage.CMDValidation();
-            cmdPage.CMDValidation();
+        	try{
+        		cmdPage.clickcmdHome();
+        		ExariSteps.hmap.put("Contract Number",item.trim());
+            	//Search Contract
+                cmdPage.searchContract();
+                TimeUnit.SECONDS.sleep(5);
+                cmdPage.CMDValidation();
+                cmdPage.CMDValidation();
+        	}
+        	catch(Exception ex)
+        	{
+        		
+        	}
+        	
 	    }
         
     }

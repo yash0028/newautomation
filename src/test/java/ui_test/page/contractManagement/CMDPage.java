@@ -390,7 +390,10 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     }
 
 
-
+    public void clickcmdHome()
+    {
+    	Assert.assertTrue(click("click load button", clickhome));
+    }
 
     public void validateContractDetails(Map<String, String> params) {
         Assert.assertTrue("Contract Id value didn't match", contractId.getText().contains(getSharedString("contractNumber").orElse("")));
