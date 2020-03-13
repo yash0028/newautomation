@@ -75,7 +75,7 @@ Feature: W4_TC_CEN_SPA_MO_2
  @W4_TC_CEN_SPA_MO_2
  @Manual
  @User_Interface
- @UAT_AUTO_AMANDAMENT
+ @UAT_AUTO_AMENDMENT
  @SPA_AMENDMENT
  @UAT_AUTO_AMANDAMENT_W4
  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>

@@ -79,7 +79,7 @@ Feature: TC_CEN_SPA_IN_52
   @TC_CEN_SPA_IN_52
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
   @SPA_AMENDMENT
 
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>

@@ -76,7 +76,7 @@ Feature: TC_CEN_SPGA_IN_05
   @TC_CEN_SPGA_IN_05
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
   @SPGA_AMENDMENT
   @CEN_IN_AMANDMENT
   Scenario Outline: TC_CEN_SPGA_IN_05 - [RL0] Author SPGA contract in <site>

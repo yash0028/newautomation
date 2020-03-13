@@ -78,7 +78,7 @@ Feature: TC_NE_SPA_VA_19
 #  @Manual
 #  @User_Interface
 #  @UAT_AUTO
-#  @UAT_AUTO_AMANDAMENT
+#  @UAT_AUTO_AMENDMENT
 #  @SPA_AMENDMENT
 #
 #  Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>

@@ -64,7 +64,7 @@ Feature: TC_WEST_SMGA_OR_03
   @TC_WEST_SMGA_OR_03
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
   @SMGA_AMANDMENT
   Scenario Outline: TC_WEST_SMGA_OR_03 - [RL0] Amend SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

@@ -269,6 +269,8 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
 //    }
 
     public void CMDValidation() {
+    	try{
+    		
     	
         //Verify Details
         String contract = ExariSteps.hmap.get("Contract Number");
@@ -387,6 +389,11 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
             }
 
         }
+    	}
+    	catch(Exception ex)
+    	{
+    		
+    	}
     }
 
 

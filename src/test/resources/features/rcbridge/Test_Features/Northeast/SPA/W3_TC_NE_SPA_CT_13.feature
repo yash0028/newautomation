@@ -74,7 +74,7 @@ Feature: W3_TC_NE_SPA_CT_13
   @TC_NE_SPA_VA_70
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
   @SPA_AMENDMENT
   @WAVE3AMENDMENT
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>

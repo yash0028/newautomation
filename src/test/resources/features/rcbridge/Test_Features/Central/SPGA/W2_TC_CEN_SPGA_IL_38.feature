@@ -77,7 +77,7 @@ Feature: W2_TC_CEN_SPGA_IL_38
   @W2_TC_CEN_SPGA_IL_38
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
   @CEN_IN_AMANDMENT
   @SPGA_AMENDMENT
   Scenario Outline: W2_TC_CEN_SPGA_IL_38 - [RL0] Author SPGA contract in <site>

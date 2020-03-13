@@ -81,7 +81,7 @@ Feature: TC_WEST_SPA_OR_56
   @TC_WEST_SPGA_OR_56
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
   @SPGA_AMENDMENT
   @SPGA_RERUN
   @temp

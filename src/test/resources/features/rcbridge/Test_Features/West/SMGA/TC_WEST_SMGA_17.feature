@@ -63,7 +63,7 @@ Feature: TC_WEST_SMGA_OR_17
   @TC_WEST_SMGA_OR_17
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
   @SMGA_AMANDMENT
   @SMGA_RERUN
   Scenario Outline: TC_WEST_SMGA_OR_17 - [RL0] Amend SMGA contract in <site>

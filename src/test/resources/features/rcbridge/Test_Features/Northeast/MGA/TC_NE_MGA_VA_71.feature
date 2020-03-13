@@ -115,7 +115,7 @@ Feature: TC_NE_MGA_VA_71
   @Manual
   @User_Interface
   @UAT_AUTO_MAKE_A_CORRECTION
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
   @AMENDMENT_ALL_MGA
   Scenario Outline: TC_NE_MGA_VA_71 - [RL0] Amend <paperType> contract in <site>
 	

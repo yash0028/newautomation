@@ -100,7 +100,7 @@ public class CMDSteps implements IRestStep, IUiStep {
         		ExariSteps.hmap.put("Contract Number",item.trim());
             	//Search Contract
                 cmdPage.searchContract();
-                TimeUnit.SECONDS.sleep(5);
+                Thread.sleep(4);
                 cmdPage.CMDValidation();
                 cmdPage.CMDValidation();
         	}

@@ -61,7 +61,7 @@ Feature: TC_CEN_SMGA_IN_03
   @TC_CEN_SMGA_IN_03
   @Manual
   @User_Interface  
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
   @SMGA_AMANDMENT
   Scenario Outline: TC_CEN_SMGA_IN_03 - [RL0] Author SPGA contract in <site>
     Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"

@@ -71,7 +71,7 @@ Feature: TC_WEST_SPA_OR_18
   @TC_WEST_SPGA_OR_18
   @Manual
   @User_Interface  
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
   @SPGA_AMENDMENT
   @temp
    Scenario Outline: TC_WEST_SPGA_OR_18 - [RL0] Author SPGA contract in <site>

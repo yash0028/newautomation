@@ -73,7 +73,7 @@ Feature: TC_NE_SPGA_VA_18
      @TC_NE_SPGA_VA_18
       @Manual
       @User_Interface
-      @UAT_AUTO_AMANDAMENT
+      @UAT_AUTO_AMENDMENT
        Scenario Outline: TC_NE_SPGA_VA_18 - [RL0] Author SPGA contract in <site>
     	 Given I am logged into Exari Dev as a valid user and go to the "<site>" site
 

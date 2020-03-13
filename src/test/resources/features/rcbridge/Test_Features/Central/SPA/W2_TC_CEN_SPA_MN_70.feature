@@ -73,7 +73,7 @@ Feature: W2_TC_CEN_SPA_MN_70
   @W2_TC_CEN_SPA_MN_70
   @Manual
   @User_Interface
-  @UAT_AUTO_AMANDAMENT
+  @UAT_AUTO_AMENDMENT
   @SPA_AMENDMENT
   @SPA_RERUN
   Scenario Outline: <TCName> - [RL0] Author <paperType> contract in <site>

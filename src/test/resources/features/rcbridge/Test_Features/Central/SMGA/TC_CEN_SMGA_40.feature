@@ -59,7 +59,7 @@ Feature: TC_CEN_SMGA_IN_40
 	  @TC_CEN_SMGA_IN_40
 	  @Manual
 	  @User_Interface
-	  @UAT_AUTO_AMANDAMENT
+	  @UAT_AUTO_AMENDMENT
       @SMGA_AMANDMENT
       @SMGA_RERUN
 	   Scenario Outline: TC_CEN_SMGA_IN_40 - [RL0] Author SMGA contract in <site>
