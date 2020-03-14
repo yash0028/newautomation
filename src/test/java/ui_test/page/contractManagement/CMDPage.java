@@ -270,13 +270,14 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
 
     public void CMDValidation() {
     	try{
-    		
     	
+    	String status="";	
+    	String requesttype = "";
         //Verify Details
         String contract = ExariSteps.hmap.get("Contract Number");
-
-        String status = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[7]/span")).getText();
-        String requesttype = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[8]")).getText();
+        Thread.sleep(2000);
+        status = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[7]/span")).getText();
+        requesttype = getDriver().findElement(By.xpath("//td[contains(text(),'" + contract + "')]/../td[contains(text(),'')]/../td[8]")).getText();
 
         if (status.equals("SUCCESS") || (status.equals("FAILED"))) {
             //Write in CSV file
@@ -307,21 +308,22 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
 
                         	//Resolve multiple	
                         	Assert.assertTrue(click("resolve multiple", getDriver().findElement(By.xpath(resolvemultiple))));
+                        	pause(2);
                             getDriver().findElement(By.xpath("//textarea[contains(@id,'mat-input')]")).sendKeys("Test");
                             getDriver().findElement(By.xpath("//p[.='Resolution Type']/parent::form//mat-select")).click();
-                            
+                            pause(1);
                             if(getDriver().findElement(By.xpath("//mat-option[contains(.,'Manually Installed')]")).isDisplayed())
                             {	
                             	getDriver().findElement(By.xpath("//mat-option[contains(.,'Manually Installed')]")).click();
-                            	pause(4);
+                            	pause(2);
                             }
                             else
                             {
                             	getDriver().findElement(By.xpath("//mat-option[1]")).click();
-                            	pause(4);
+                            	pause(2);
                             }	
                             //click on checkbox                          
-                            getDriver().findElement(By.xpath("//mat-checkbox[@id='mat-checkbox-1']")).click();
+                            setCheckBox(getDriver().findElement(By.xpath("(//mat-checkbox[contains(@id,'mat-checkbox')])[1]")), true);
                             //click submit
                             WebElement submitbtn =getDriver().findElement(By.xpath("//button[.='Submit']"));
                             jseclick("Submit Button",submitbtn);
@@ -331,15 +333,16 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
                     if (getDriver().findElements(By.xpath(plusbt2)).size() > 0) {
                         if (sitetab.isDisplayed()) {
                             Assert.assertTrue(click("sitePlus", sitetab));
-                            pause(10);
+                            pause(2);
+                            waitForPageLoad(30);
                         }
 
                     }
 
                 }
                 Assert.assertTrue(click("click home", clickhome));
-               
-                pause(30);
+                waitForPageLoad(30);
+                //pause(10);
                 enterContractNumber();
                 Assert.assertTrue(clickSearchButton());
                 pause(5);
@@ -347,7 +350,7 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
                 
             } else {
                 Assert.assertTrue(click("sitePlus", sitetab));
-                pause(10);
+                pause(6);
 
                 //  waitTillClickable(productgrp);
                 int plus = getDriver().findElements(By.xpath(productgroup)).size();
@@ -359,17 +362,17 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
 
 
                             Assert.assertTrue(click("productgroupPlus", productgrp));
-                            pause(10);
+                            pause(5);
                             Assert.assertTrue(click("Abortbutton", Abort));
                             Assert.assertTrue(click("Abortproductbutton", AbortProduct));
-                            pause(10);
+                            pause(5);
                         }
                     }
                     if (getDriver().findElements(By.xpath(plusbt2)).size() > 0) {
 
                         if (sitetab.isDisplayed()) {
                             Assert.assertTrue(click("sitePlus", sitetab));
-                            pause(10);
+                            pause(5);
                         }
 
 
@@ -381,7 +384,8 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
 
                 Assert.assertTrue(click("click load button", load));
                 Assert.assertTrue(click("click home", clickhome));
-                pause(30);
+                //pause(10);
+                waitForPageLoad(30);
                 enterContractNumber();
                 Assert.assertTrue(clickSearchButton());
                 pause(5);
@@ -392,14 +396,17 @@ public class CMDPage implements IFactoryPage, IWebInteract, ISharedValueReader {
     	}
     	catch(Exception ex)
     	{
-    		
+    		System.out.println(ex.toString());
     	}
     }
 
 
     public void clickcmdHome()
     {
-    	Assert.assertTrue(click("click load button", clickhome));
+    	
+    		Assert.assertTrue(click("click home button", clickhome));
+    	
+    	
     }
 
     public void validateContractDetails(Map<String, String> params) {

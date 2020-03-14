@@ -106,7 +106,7 @@ public class CMDSteps implements IRestStep, IUiStep {
         	}
         	catch(Exception ex)
         	{
-        		
+        		navigateToCMDdashboardUrl();
         	}
         	
 	    }
