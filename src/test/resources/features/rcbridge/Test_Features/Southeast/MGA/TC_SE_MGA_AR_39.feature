@@ -62,25 +62,31 @@ Feature: TC_SE_MGA_AR_39
   @AMENDMENT_ALL_MGA
   @SE_MGA_AMT
   @UAT_AUTO_AMENDMENT_MIG1
-  Scenario Outline: TC_SE_MGA_AR_39 - [RL0] Author <paperType> contract in <site>
-	Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"	 
-	And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
-   
-    #Make Correction - Provider Roster (Add one or more providers to the roster)
+  Scenario Outline: <TCName> - [RL0] Make A Correction <paperType> contract in <site>
+
+#Begin Make A Correction
+    Given I am logged into Exari Dev as a valid user and launch contract using "<TCName>"
+    And I am using the "<TCName>" data from "<paperType>_SE.csv" of "<site>" and paper type "<paperType>"
     And I click Make Correction
     And I enter Market Exception Grid in Make Correction
     And I enter Market Exception Grid
-    #Select "Providers based on individual TIN, MPIN and NPI" not implemented***
+    #Begin Provider Roster (Add one or more providers to the roster)
     And I add provider using TIN
     And I select Providers
     And I enter Provider Start Date
     And I enter retro code in Provider Roster
+    #End Provider Roster
     And I acknowledge the warning
     And I enter Group Summary
     Then I Complete Wizard
+#End Make A Correction
 
-    #CMD Checking
+#Begin CMD Checking
     And I Verify CMD and Capture Status
+#End CMD Checking
+
+#Begin NDB Checking
+#End NDB Checking
 
     Examples:
       | site          | paperType     | TCName          |

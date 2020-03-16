@@ -988,7 +988,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         
         //And I enter Market Exception Grid
         basePage.getMarketExceptionGrid().previewMarketDetails(hmap);
-        
+
         //And I add provider using TIN
         basePage.getProviderRoaster().roasterAction("Add");
         basePage.getProviderRoaster().approachForProvider(hmap, "TIN", false);
@@ -1031,7 +1031,7 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
         
         //And I enter Market Exception Grid
         basePage.getMarketExceptionGrid().previewMarketDetails(hmap);
-        
+
         //And I enter retro code in Provider Roster 
         basePage.getProviderRoaster().roasterAction("NONE");
         
@@ -1138,24 +1138,24 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
     
     @SuppressWarnings("unchecked")
 	@When("I Cancel contracts using API")
-    public void CancelContract() 
+    public void CancelContract()
     {
     	try
     	{
-    		
+
     		RestAssured.baseURI = "http://cancel-cm-service-clm-dev.ocp-ctc-dmz-nonprod.optum.com/";
- 			RequestSpecification request = RestAssured.given(); 			
-      	    request.header("Content-Type","application/json");  
-      	    
+ 			RequestSpecification request = RestAssured.given();
+      	    request.header("Content-Type","application/json");
+
       	    Path CSVpath = Paths.get(cancelcontractNumberCSVFile.toString());
 	      	CSVReader csvReader = new CSVReader();
 	        System.out.println(CSVpath);
 	        List<String> Contracts = new ArrayList<String>();
 	        Contracts = csvReader.readcsvFile_Cancel(CSVpath.toString());
 		    JSONParser parser = new JSONParser();
-		    
-			
-		    for (String item : Contracts) 
+
+
+		    for (String item : Contracts)
 		    {
 		   	   String contractnum = item.trim();
 		   	   String strcontr = "\""+contractnum+"\"";
@@ -1163,11 +1163,11 @@ public class ExariSteps implements IUiStep, IFileReader, IConfigurable, ISharedV
 		   	   JSONObject requestParams = (JSONObject) parser.parse(payload);
 		   	   request.body(requestParams.toJSONString());
 		   	   Response response = request.post("/v1.0/cancel/ndb-cosmos/contract-masters/contractIds/test");
-		   	   int statusCode = response.getStatusCode();							
-			   Object resmsg = response.jsonPath().get();			    
+		   	   int statusCode = response.getStatusCode();
+			   Object resmsg = response.jsonPath().get();
 			   System.out.println(statusCode+":"+ resmsg.toString());
 		    }
-	       
+
     	}
     	catch(Exception ex)
     	{
