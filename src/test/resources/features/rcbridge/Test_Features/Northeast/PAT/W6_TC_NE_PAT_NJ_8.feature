@@ -116,33 +116,3 @@ Feature: W6_TC_NE_PAT_NJ_8
     Examples:
       | site          | paperType     | TCName            |
       | northeast uhn | PAT           | W6_TC_NE_PAT_NJ_8 |
-    
-    @W6_TC_NE_PAT_NJ_8
-    @Manual
-    @User_Interface
-    @UAT_AUTO_AMENDMENT
-    @UAT_AUTO_AMENDMENT_NORTHEAST
-    @UAT_AUTO_AMENDMENT_W6
-    @UAT_AUTO_AMENDMENT_ALL_PAT
-    @UAT_AUTO_AMENDMENT_ALL_PAT_W6
-    @UAT_AUTO_AMENDMENT_ALL_PAT_NE
-    @UAT_AUTO_AMENDMENT_ALL_PAT_NE_W6
-    
-    Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
-	
-    <AMT_boby></AMT_boby>
-    
-#Begin Activate
-    And I Set Status as Active in Amendment
-#End Activate
-
-#Begin CMD Checking
-    And I Verify CMD and Capture Status
-#End CMD Checking
-
-#Begin NDB Checking
-#End NDB Checking
-        
-    Examples:
-      | site          | paperType     | TCName            |
-      | northeast uhn | PAT           | W6_TC_NE_PAT_NJ_8 |

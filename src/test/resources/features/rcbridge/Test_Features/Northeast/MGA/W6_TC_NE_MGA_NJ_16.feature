@@ -121,33 +121,3 @@ Feature: W6_TC_NE_MGA_NJ_16
     Examples:
       | site          | paperType     | TCName            |
       | northeast uhn | MGA           | W6_TC_NE_MGA_NJ_16 |
-    
-    @W6_TC_NE_MGA_NJ_16
-    @Manual
-    @User_Interface
-    @UAT_AUTO_AMENDMENT
-    @UAT_AUTO_AMENDMENT_NORTHEAST
-    @UAT_AUTO_AMENDMENT_W6
-    @UAT_AUTO_AMENDMENT_ALL_MGA
-    @UAT_AUTO_AMENDMENT_ALL_MGA_W6
-    @UAT_AUTO_AMENDMENT_ALL_MGA_NE
-    @UAT_AUTO_AMENDMENT_ALL_MGA_NE_W6
-    
-    Scenario Outline: <TCName> - [RL0] Amend <paperType> contract in <site>
-	
-    <AMT_boby></AMT_boby>
-    
-#Begin Activate
-    And I Set Status as Active in Amendment
-#End Activate
-
-#Begin CMD Checking
-    And I Verify CMD and Capture Status
-#End CMD Checking
-
-#Begin NDB Checking
-#End NDB Checking
-        
-    Examples:
-      | site          | paperType     | TCName            |
-      | northeast uhn | MGA           | W6_TC_NE_MGA_NJ_16 |
