@@ -2,8 +2,6 @@ package programmes;
 
 import java.util.Scanner;
 
-import org.yaml.snakeyaml.Yaml;
-
 public class LeapYear {
 	
 		   public static void main(String[] args){
@@ -18,3 +16,8 @@ public class LeapYear {
 	         System.out.println("Specified year is not a leap year : " +year);
 	   }
 	}
+
+
+// Logical And(&&)-- Both conditions must be true-- T && T == T
+// Logical Or (||) -- Any one condition must be true -- T || F == T
+

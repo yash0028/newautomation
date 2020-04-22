@@ -3,6 +3,9 @@ import java.util.Scanner;
 
 public class Palindrome 
 {
+	
+	/*A Palindrome is a String/Integer which is equal to the reverse of itself, 
+	e.g., "Bob" is a palindrome because of the reverse of "Bob" is also "Bob."*/
 		public static void main (String[] args)
 		{
 		String original, reverse = "";
@@ -19,9 +22,12 @@ public class Palindrome
 		System.out.println("reverse is:" + reverse);
 
 		if (original.equals(reverse))
+		{
 			System.out.println("The number is palindrome");
+		}
 		else
+		{
 			System.out.println("The number is not a palindrome");
-
+		}
 		}
 	}

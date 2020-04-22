@@ -11,7 +11,7 @@ public class OpenAllLinks {
 
         public static void main(String[] args) {
      
-        	System.setProperty("webdriver.chrome.driver", "G:\\Folder Structure\\Installation Stuff\\Drivers\\chromedriver1.exe");
+        	System.setProperty("webdriver.chrome.driver", "C:\\Users\\gkuma222\\Downloads\\Drivers\\chromedriver1.exe");
         	WebDriver driver =new ChromeDriver();
         	
         	driver.get("https://www.gmail.com/");

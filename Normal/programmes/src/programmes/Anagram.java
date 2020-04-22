@@ -4,6 +4,10 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Anagram {
+	/*
+	a word, phrase, or name formed by rearranging the letters of another, 
+	such as cinema, formed from iceman.
+*/
 
     public static void main(String[] args)
     {
@@ -17,8 +21,10 @@ public class Anagram {
         String s2 = scanner.nextLine();
         
         if(checkAnagram(s1, s2))
+        {
             System.out.println(s1+" and "+s2+" are Anagrams");
-        else
+        }
+            else
             System.out.println(s1+" and "+s2+" are NOT Anagrams");
         
         scanner.close();
@@ -32,8 +38,10 @@ public class Anagram {
         
         // Check if both length matches
         if(s1.length() != s2.length())
+        {
             return false;
-        else
+        }
+            else
         {
             // Convert both Strings into lower case and into Character Array
             char[] arr1 = s1.toLowerCase().toCharArray();
