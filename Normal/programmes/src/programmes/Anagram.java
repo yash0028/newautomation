@@ -52,7 +52,8 @@ public class Anagram {
             Arrays.sort(arr2);
             
             // Check if both arrays are equal
-            return (Arrays.equals(arr1, arr2));
+            if(Arrays.equals(arr1, arr2));
+            return true;
         }
     }
 }

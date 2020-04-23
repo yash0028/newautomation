@@ -13,7 +13,7 @@ public class Fibonacci {
 		int c = 0;
 		for (int i = 1; i <= num; i++) {
 			c = a + b;
-			System.out.println(+c);
+			System.out.print(" "+a);
 			a = b;
 			b = c;
 		}
@@ -22,7 +22,7 @@ public class Fibonacci {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter Number :");
+		System.out.print("Enter Number :");
 		int num = sc.nextInt();
 		//Fibonacci f = new Fibonacci();
 		series(num);

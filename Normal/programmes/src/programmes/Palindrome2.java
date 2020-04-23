@@ -9,6 +9,8 @@ public class Palindrome2
 		str.append(Original);
 		str.reverse();
 		String Reverse=str.toString();
+		 System.out.println(Reverse);
+
 		for (int i=0; i<Original.length(); i++)
 		{
 			
