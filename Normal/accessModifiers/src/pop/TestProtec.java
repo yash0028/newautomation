@@ -31,10 +31,6 @@ Output:
 
 33*/
 
-
-
-
-
 public class TestProtec {
 
 }

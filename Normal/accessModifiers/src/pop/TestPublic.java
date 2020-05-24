@@ -1,6 +1,5 @@
 package pop;
 
-
 /*
 Lets take the same example that we have seen above(in protected extension) 
 but this time the method addTwoNumbers() has public modifier
@@ -31,10 +30,6 @@ class Test{
 Output:
 
 101
-
-
-
-
 
 */
 public class TestPublic {
