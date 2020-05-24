@@ -22,3 +22,20 @@ public class TestSet1
 		}  
 
 }
+ 
+/*1. Set is mainly used for search operations-- 
+using System.out.println(set.contains("Ajay"));//Search operation on object 
+  2. Insertion is not maintained. Hashcode is used to insert-- Hence only iterator is used to print.
+  3. Duplicates are not allowed.
+  4. Not synchronized.
+  5. Mainly used for search operations.
+  6. Allows NULL value.
+  7.
+   
+ Methods :
+ 1.set.addAll(set1);  //adding elements of set to set1
+ 2.set.removeAll(set1);
+ 3.set.clear();
+ 4.set.add();
+ 5.
+*/

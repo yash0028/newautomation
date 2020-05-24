@@ -13,7 +13,9 @@ public class TestLinHashSet1 {
 		               
 		  	           set.add("Raj");    
 		               set.add("Yash");    //adding duplicate elements
-		               set.add("Raj");   
+		               set.add("Raj"); 
+		               set.add("Four");  
+
 		               set.add("Four");  
 		               set.add("Yash");  
 		            	                	            	    
@@ -25,3 +27,6 @@ public class TestLinHashSet1 {
 		 }  
 
 }
+/*
+1.Follows insertion Order
+2.No duplicates*/

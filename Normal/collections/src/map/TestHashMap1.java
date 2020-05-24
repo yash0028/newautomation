@@ -1,9 +1,11 @@
 package map;
 import java.util.*;
+import java.util.HashMap;;
+
 public class TestHashMap1 {
 	public static void main(String[] args) {
    
-	HashMap<String, Integer> m=new HashMap<String, Integer>();
+HashMap<String, Integer> m=new HashMap<String, Integer>();
 		m.put("Chiranjeevi", 700);
 		m.put("Balaih", 800);
 		m.put("Venkatesh", 200);

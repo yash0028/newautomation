@@ -4,6 +4,7 @@ class Student1  {
 	int rollno;
 	String name;
 	int age;
+	
 	Student1(int r,String n,int a){
 		rollno=r;
 		name=n;

@@ -15,7 +15,7 @@ public class TestListFor5 {
 	 while(itr1.hasNext())
 	 {
 		 System.out.println(itr1.next());
-		// itr1.remove();
+		itr1.remove();
 		 
 	 }
 	 System.out.println(al);

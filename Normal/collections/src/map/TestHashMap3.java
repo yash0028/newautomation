@@ -1,5 +1,7 @@
 package map;
 import java.util.*;
+import java.util.HashMap;;
+
 public class TestHashMap3 {
 
 	public static void main(String args[]){  

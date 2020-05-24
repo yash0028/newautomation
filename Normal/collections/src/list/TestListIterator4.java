@@ -4,7 +4,7 @@ import java.util.*;  	//using both for each and iterator to print elements
 public class TestListIterator4 {
 public static void main(String args[]) {
 	
-	List<Integer> t1 = new ArrayList<Integer>();
+	ArrayList<Integer> t1 = new ArrayList<Integer>();
 	t1.add(85);
 	t1.add(86);
 	t1.add(87);
@@ -18,7 +18,7 @@ public static void main(String args[]) {
 
 	}
 	
-	List <String> t2=new ArrayList<String>();
+	ArrayList <String> t2=new ArrayList<String>();
 	t2.add("POP");
     t2.add("lol");
     t2.add("rty");
@@ -27,7 +27,7 @@ public static void main(String args[]) {
     Iterator<String> itr2=t2.iterator();
     while(itr2.hasNext()) {
        	System.out.println(itr2.next());
-    
+   
        	itr2.remove();
     }
     System.out.println(t2);    
