@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -18,7 +20,10 @@ public class LoginStepDefinition {
 		System.setProperty("webdriver.chrome.driver","G:\\Folder Structure\\Installation Stuff\\Drivers\\chromedriver76.exe");
  		driver=new ChromeDriver();
 		driver.get("https://www.facebook.com/");
-		}
+		
+	}
+	
+	
 	
 	@When("^Login page title is facebook$")
 	public void login_page_title_is_facebook() {

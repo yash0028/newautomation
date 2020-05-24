@@ -1,10 +1,9 @@
 package stepDefinition;
 
-public class MapStep {
-	
+
 	import java.util.Map;
 
-import org.junit.Assert;
+	import org.junit.Assert;
 	import org.openqa.selenium.By;
 	import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,8 +13,8 @@ import org.junit.Assert;
 	import cucumber.api.java.en.Then;
 	import cucumber.api.java.en.When;
 
-	public class DataStepDefinition {
-		WebDriver driver ;
+	public class MapStep {
+			WebDriver driver ;
 		private WebDriver data;
 		
 		@Given ( "^User is already on login page$" )  // ^$ special character.... so that cucumber can understand this statement.
