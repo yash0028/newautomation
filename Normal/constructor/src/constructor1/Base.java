@@ -5,22 +5,33 @@ package constructor1;
 	// other class using super() keyword 
 	public class Base 
 	{ 
-		String name; 
+		public static void main(String args[]) 
+		{ 
+			// calls parameterized constructor 4 
+			//Derived obj = new Derived("test"); 		//output: Calling parameterized constructor of base
+												//: Calling parameterized constructor of derived
 
+
+			// Calls No-argument constructor 
+			Derived obj = new Derived(); 
+			//Derived obj1 = new Derived("test");
+		 
+		} 
+		
+		
+		
 		// constructor 1 
 		Base() 
 		{ 
-			this(""); 
-			System.out.println("No-argument constructor of" + 
-											" base class"); 
+			 
+			System.out.println("No-argument constructor of" +" base class"); 
 		} 
 
 		// constructor 2 
 		Base(String name) 
 		{ 
-			this.name = name; 
-			System.out.println("Calling parameterized constructor"
-												+ " of base"); 
+			 
+			System.out.println("Calling parameterized constructor"+ " of base"); 
 		} 
 	} 
 
@@ -29,28 +40,18 @@ package constructor1;
 		// constructor 3 
 		Derived() 
 		{ 
-			System.out.println("No-argument constructor " + 
-							"of derived"); 
+			
+			System.out.println("No-argument constructor " + "of derived"); 
 		} 
 
 		// parameterized constructor 4 
-		Derived(String name) 
+	Derived(String name) 
 		{ 
 			// invokes base class constructor 2 
 			super(name); 
-			System.out.println("Calling parameterized " + 
-							"constructor of derived"); 
+			System.out.println("Calling parameterized " + "constructor of derived"); 
 		} 
 
-		public static void main(String args[]) 
-		{ 
-			// calls parameterized constructor 4 
-			Derived obj = new Derived("test"); 				//output: Calling parameterized constructor of base
-																									//: Calling parameterized constructor of derived
-
-
-			// Calls No-argument constructor 
-			// Derived obj = new Derived(); 
-		} 
+		
 	} 
 
