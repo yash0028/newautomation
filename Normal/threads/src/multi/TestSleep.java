@@ -6,9 +6,9 @@ package multi;
 		for (int i=0;i<10;i++)
 		{
 		try {
-			Thread.sleep(2000);}
+			Thread.sleep(1000);}
 		catch(InterruptedException e) {}
-		System.out.println("child thread");	
+		System.out.println(i);	
 		
 	}
 	}
@@ -19,6 +19,10 @@ package multi;
 			 MyThread7 t2=new MyThread7();  
 			   
 			  t1.start();  
-			  t2.start();  
+			  t2.start(); 
+			  for (int i=0;i<10;i++)
+			  {
+			  System.out.println("Main thread");
+			  }
 			 }  
 	}
