@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Parameterization]">
-  <test thread-count="5" name="Parameterisation(failed)">
-    <parameter name="Username" value="tabhresh@gmail.com"/>
-    <parameter name="Password" value="edureka123"/>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="module6.Parameterisation">
+      <class name="module9.TestCase.Hmap">
         <methods>
-          <include name="Logout"/>
+          <include name="test"/>
         </methods>
-      </class> <!-- module6.Parameterisation -->
+      </class> <!-- module9.TestCase.Hmap -->
     </classes>
-  </test> <!-- Parameterisation(failed) -->
-  <test thread-count="5" name="Parameterisation1(failed)">
-    <parameter name="Username" value="yashg0028@gmail.com"/>
-    <parameter name="Password" value="yash@494"/>
-    <classes>
-      <class name="module6.Parameterisation">
-        <methods>
-          <include name="Logout"/>
-        </methods>
-      </class> <!-- module6.Parameterisation -->
-    </classes>
-  </test> <!-- Parameterisation1(failed) -->
-</suite> <!-- Failed suite [Parameterization] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

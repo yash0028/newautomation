@@ -17,7 +17,7 @@ public class Cross_Parallel {
 		try {
 			if (browser.equalsIgnoreCase("Firefox")) {
 				System.setProperty("webdriver.gecko.driver", "G:\\Folder Structure\\Installation Stuff\\Drivers\\geckodriver.exe");
-						driver = new FirefoxDriver();
+				driver = new FirefoxDriver();
 
 			} else if (browser.equalsIgnoreCase("Chrome")) {
 				System.setProperty("webdriver.chrome.driver", "G:\\Folder Structure\\Installation Stuff\\Drivers\\chromedriver1.exe");

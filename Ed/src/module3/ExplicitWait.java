@@ -20,7 +20,16 @@ public class ExplicitWait {
 		WebDriverWait wait = new WebDriverWait(driver, 25);
   
 	wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LinkText-6"))).click();
-		
+	/*
+	wait.until(ExpectedConditions.alertIsPresent());
+	wait.until(ExpectedConditions.elementToBeClickable(null)());
+	wait.until(ExpectedConditions.presenceOfElementLocated(null)());
+	wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(null)());
+
+	
+*/
+	
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("LinkText-6"))).click();
+	
 	}
 }

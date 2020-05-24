@@ -6,8 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import module8.Page.GoogleHomePageObjects;
 import module8.Page.SeleniumHomePageObjects;
 
-public class GoogleSearch {
+public class GoogleSearchTC {
 
+	private static WebDriver  = null;
 	static WebDriver driver;
 	
 	public static void main(String[] args) throws InterruptedException {
@@ -30,7 +31,7 @@ public class GoogleSearch {
 		page.ClickSelLink();									//calling ClickSelLink Method using page instance
 				
 		SeleniumHomePageObjects page2 = new SeleniumHomePageObjects(driver); //using Selenium Page Object
-																				// Calling Selenium page class and using Selenium page methods.
+												// Calling Selenium page class and using Selenium page methods.
 		Thread.sleep(5000);
 		
 		page2.GotoDownload();		//calling GotoDownload Method using page2 instance

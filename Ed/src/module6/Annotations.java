@@ -1,5 +1,6 @@
 package module6;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -11,17 +12,47 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Annotations {
+	
+  /*@BeforeMethod
+	Test1()
+	@AfterMethod
+	
+	@BeforeMethod    // Compulsory pairs if multiple test cases are there.
+	Test2()
+	@AfterMethod
+	
+	@BeforeMethod
+	Test3()
+	@AfterMethod
+*/
 
-			@Test
-		public void Test1() {
-			System.out.println("This is the Test Case 1");
-		}	
 		
 		@BeforeMethod
 		public void beforeMethod() {
 			System.out.println("This will execute before every Method");
 		}
+		
+		@Test
+		public void Test1() {
+			System.out.println("This is the Test Case 1");
+		}	
+		
+		@Test
+		public void Test2() {
+			System.out.println("This is the Test Case 2");
+		}
+		
+		@Test
+		public void Test3() {
+			String actual = "This is the Test Case 3";
+			String expected = "This is the Test Case 3";
 
+			Assert.assertEquals(actual,expected);
+			System.out.println("Assert passed");
+			
+			
+		}
+		
 		@AfterMethod
 		public void afterMethod() {
 			System.out.println("This will execute after every Method");

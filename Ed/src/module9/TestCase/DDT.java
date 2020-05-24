@@ -43,8 +43,8 @@ public class DDT {
 	}
 	
 	@Test(dataProvider = "testDataFeeder")		//using test annotation and calling methods from object class to pass inputs
-																					//provide connectivity between data provider and @test annotation
-																					//by calling dataprovider =dataprovider method name.. so that @test considers datapro as input
+												//provide connectivity between data provider and @test annotation
+											//by calling dataprovider =dataprovider method name.. so that @test considers datapro as input
 	public void FormFill(String fName, String lName, String add) throws Exception {
 		
 		FormPage fp = new FormPage(driver);   //importing formpage class to test case
@@ -56,8 +56,8 @@ public class DDT {
 	
 	@DataProvider				//dataprovider annotation and array concepts
 	public Object[][] testDataFeeder() throws Exception{					//It is mandatory for a @DataProvider method to return the data 
-																														//in the form of double array of Object class (Object [][]).
-																														//The first array represents a data set where as the second array contains the parameter values.
+																	//in the form of double array of Object class (Object [][]).
+											//The first array represents a data set where as the second array contains the parameter values.
 		
 		//To import the Excel file and fetch the bytes from the file
 		FileInputStream fis = new FileInputStream("G:\\From Git hub\\Edureka_29th July\\Edureka_29thJuly\\src\\module9\\TestData\\TestData.xlsx");
@@ -69,7 +69,7 @@ public class DDT {
 		sh = wb.getSheet("Sheet1");
 		
 		//total of norows
-		norows = sh.getLastRowNum()+1; //getlastrowmethod is accessed from apache
+		norows = sh.getLastRowNum()+1; //getlastrownummethod is accessed from apache
 		System.out.println(norows);
 				
 		//total of nocols																		// norows:: 9+1: 10

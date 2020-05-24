@@ -21,7 +21,7 @@ public class SeleniumTC {
 			
 		page.GotoDownload();    //calling GotoDownload Method using page instance
 		
-													//DownloadHomePageObject page2 = new DownloadHomePageObject(driver);
+							//DownloadHomePageObject page2 = new DownloadHomePageObject(driver);
 
 	  page.GotoProjects();
 	  Thread.sleep(2000);

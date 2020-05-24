@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class FormPage {
-																			//1. webelement creation through a variable(Fname etc) and connecting(@FindBy) it to webelement address.
+							//1. webelement creation through a variable(Fname etc) and connecting(@FindBy) it to webelement address.
 	@FindBy(name = "ts_first_name")
 	WebElement FName;
 	
