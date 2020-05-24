@@ -10,10 +10,13 @@ public class AlphaNumeric {
 		{ 
 			StringBuffer alpha = new StringBuffer();
 			StringBuffer num = new StringBuffer();
+			StringBuffer space1 = new StringBuffer(); 
+
 			StringBuffer special = new StringBuffer(); 
 			int alcount=0;
 			int numcount=0;
 			int spcount=0;
+			int space=0;
 			
 			
 			for (int i=0; i<str.length(); i++) 
@@ -29,21 +32,29 @@ public class AlphaNumeric {
 					alpha.append(str.charAt(i)); 
 					alcount++;
 				}
-					else
-					special.append(str.charAt(i)); 
+				 else if(Character.isSpaceChar(str.charAt(i)))
+				 {
+					 space1.append(str.charAt(i)); 
+						space++ ;
+				 }	
+						
+				 else special.append(str.charAt(i)); 
 				    spcount++;
 			} 
+			
 		
 			System.out.println("Alpha Dups :" +alpha+" count :" +alcount); 
 			
 			System.out.println("Num Dups :" +num+" count :" +numcount); 
+			System.out.println("Space Dups :" +space1+" count :" +space); 
+
 			System.out.println("Spec Dups :" +special+" count :" +spcount); 
 		} 
 		
 		// Driver method 
 		public static void main(String args[]) 
 		{ 
-			String str = "geeks01$$for02geeks03!@!!"; 
+			String str = "geeks01$$ for02ge eks03!@!!"; 
 			splitString(str); 
 		} 
 	} 
