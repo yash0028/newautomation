@@ -14,7 +14,7 @@ public class StringSort {
 			// Display input un-sorted list.
 			System.out.println("-------Input List-------");
 			showList(inputList);
-
+			
 			// Call to sort the input list.
 			Arrays.sort(inputList);
 
@@ -28,6 +28,7 @@ public class StringSort {
 
 			// Display the sorted list.
 			showList(inputList);
+			
 		}
 
 		public static void showList(String[] inputList) 

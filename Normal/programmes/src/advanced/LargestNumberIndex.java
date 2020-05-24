@@ -15,7 +15,7 @@ public class LargestNumberIndex
 			if (a[i]> max) 
 			{
 				max = a[i];
-				index = i;
+			    index = i;
 			}
 		}
 

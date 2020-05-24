@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Factorial
 
-/*{  
+{  
 	 public static void main(String args[])
 	 {  
 	   int fact=1; 
@@ -18,8 +18,8 @@ public class Factorial
 	  }    
 	  System.out.println("Factorial of "+num+" is: "+fact);    
 	 }  
-	}  */
-
+	}  
+/*
 {
 	public static  int logic(int number){
         int fact = 1;
@@ -39,6 +39,6 @@ public class Factorial
 	 System.out.println(logic( number));
 		
 	}
-}
+}*/
 
 

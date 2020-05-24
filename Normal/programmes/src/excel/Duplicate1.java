@@ -12,7 +12,7 @@ public class Duplicate1 {
 		{
 			if( (a[i]== a[j]) && (i!=j))
 			{
-				System.out.print(a[j]+ " ");
+				System.out.print(a[j]+" ");
 			}
 			
 		}

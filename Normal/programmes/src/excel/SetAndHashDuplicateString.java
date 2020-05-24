@@ -15,10 +15,10 @@ public static void main  (String [] args) {
 	{
 		Integer count = m.get(a1);
 		if (count== null)
-		{
-			m.put(a1, 1);
-		}
-			else 
+			{
+				m.put(a1, 1);
+			}
+		else 
 			{
 				count=count+1;
 				m.put(a1, count);

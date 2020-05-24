@@ -20,6 +20,7 @@ public class ArrayListSort {
 	        strList.add("E");
 	        //using Collections.sort() to sort ArrayList
 	        Collections.sort(strList);
+	        System.out.println(strList);
 	        for(String str: strList) 
 	        System.out.print(" "+str);
 	    }

@@ -3,7 +3,7 @@ package numericpattern;
 public class Pattern1 
 {
 
-	/*public static void main(String[] args) 
+/*	public static void main(String[] args) 
 	{
     
       for (int i=1;i<=5;i++)
@@ -15,6 +15,13 @@ public class Pattern1
     	  System.out.println();
       }
 	}
+}*/
+
+/* 	1                        
+	2 2 
+	3 3 3 
+	4 4 4 4 
+	5 5 5 5 5 
 */
 	
 	
@@ -31,3 +38,10 @@ public class Pattern1
       }
 	}
 }
+
+/*	1 
+	1 2 
+	1 2 3 
+	1 2 3 4 
+	1 2 3 4 5*/ 
+

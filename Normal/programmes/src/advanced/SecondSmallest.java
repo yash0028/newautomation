@@ -5,26 +5,25 @@ public class SecondSmallest
 {
 	public static void main(String[] args) 
 	{
-		 int[] a = {-5, -4, 0, 2, 10, 30, -3};
-		    int smallest = 0;
-		    int secondSmallest = 0;
-		    for (int i = 0; i < a.length; i++) 
+		 int[] a = {10,3,1,43,56,99,2,-1};
+		    int s1 = a[0];
+		    int s2 =a[0];
+		    for (int i = 1; i < a.length; i++) 
 		    {
-		        if(a[i]==smallest)
+      
+		        if (a[i] < s1) 
 		        {
-		          secondSmallest=smallest;
+		            s2 = s1;
+		            s1 = a[i];
 		        } 
-		        else if (a[i] < smallest) 
+		        else if (a[i] < s2) 
 		        {
-		            secondSmallest = smallest;
-		            smallest = a[i];
-		        } 
-		        else if (a[i] < secondSmallest) 
-		        {
-		            secondSmallest = a[i];
+		            s2 = a[i];
 		        }
 
 		    }
-		    System.out.println(secondSmallest);
+		    System.out.println(s1);
+
+		    System.out.println(s2);
 	}
 }

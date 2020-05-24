@@ -1,6 +1,6 @@
 package number;
 
-public class Diagonal1 {
+public class A8Diagonal {
 
 	public static void main(String[] args) {
 
@@ -10,7 +10,7 @@ public class Diagonal1 {
 			{
 				if(i>=2 && j<=i-1)
 				{
-					System.out.print('-');
+					System.out.print("-");
 				}
 				else
 				{
@@ -26,3 +26,13 @@ public class Diagonal1 {
 
 	}
 }
+
+/*
+
+*
+-*
+--*
+---*
+----*
+
+*/

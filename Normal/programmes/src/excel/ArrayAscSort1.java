@@ -17,15 +17,18 @@ public class ArrayAscSort1 {
 	        arr.add(10);
 	        arr.add(11);
 	        arr.add(7);
-	        System.out.println("ArrayList : " +arr);
+	       
+	    	System.out.println("ArrayList : " +arr);
 	        
 	        Collections.sort(arr);
 	        System.out.println("Ascending Sort: " +arr);
 	        
-	        Collections.sort(arr,Collections.reverseOrder());	    
-	        System.out.println("Descending Sort :" );
+	        Collections.sort(arr,Collections.reverseOrder());
+	        System.out.println("Descending Sort: " +arr);
+	        
+	       /* System.out.println("Descending Sort :" );
 	        for(Integer str: arr) 
-	        System.out.print(" "+str);
+	        System.out.print(" "+str);*/
 	    }
 
 	}

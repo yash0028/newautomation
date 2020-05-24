@@ -22,7 +22,7 @@ public static void ReadData() throws IOException
 {
 	 // Import excel sheet from a webdriver directory which is inside c drive.
 	 //DataSource is the name of the excel
-	 File src=new File("D:\\Book1.xlsx");
+	 File src=new File("C:\\Users\\gkuma222\\Desktop");
 	// System.setProperty("webdriver.chrome.driver", "G:\\Folder Structure\\Installation Stuff\\Drivers\\chromedriver1.exe");
 	// WebDriver driver=new ChromeDriver();
 	 //This step is for loading the file. We have used FileInputStream as

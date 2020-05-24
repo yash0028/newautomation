@@ -11,23 +11,27 @@ public class Anagram {
 
     public static void main(String[] args)
     {
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
         
         // Getting the input string from the user
-        System.out.print("Enter the First String : ");
-        String s1 = scanner.nextLine();
-         
-        System.out.print("Enter the second String : ");
-        String s2 = scanner.nextLine();
-        
+        //System.out.print("Enter the First String : ");
+        //String s1 = scanner.nextLine();
+        String s1 = "Listen";
+
+
+        //System.out.print("Enter the second String : ");
+       // String s2 = scanner.nextLine();
+        String s2 = "Silent";
+
         if(checkAnagram(s1, s2))
         {
             System.out.println(s1+" and "+s2+" are Anagrams");
         }
-            else
+           
+        else
             System.out.println(s1+" and "+s2+" are NOT Anagrams");
         
-        scanner.close();
+       // scanner.close();
     }
     
     public static boolean checkAnagram(String s1, String s2)
@@ -49,7 +53,10 @@ public class Anagram {
             
             // Sort both Character Array
             Arrays.sort(arr1);
+            System.out.println(arr1);
             Arrays.sort(arr2);
+            System.out.println(arr1);
+
             
             // Check if both arrays are equal
             if(Arrays.equals(arr1, arr2));

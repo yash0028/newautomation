@@ -2,7 +2,7 @@ package excel;
 
 import java.util.Scanner;
 
-public class StringAtIndex {
+public class StringReverseFor {
 
 	public static void main(String[] args)
 	
@@ -16,11 +16,16 @@ public class StringAtIndex {
 		int length = original.length();
 		char c[]=original.toCharArray();
 		
+		System.out.println("Reverse order:");
 		for(int i=c.length-1; i>=0; i--) 
 		{
 			reverse = reverse + original.charAt(i);   //used inbuilt method charAt() to reverse the string
 		}
 		System.out.println(reverse);
+		
+		if (original==reverse);
+		System.out.println("Palidrome " +reverse);
+		
 	}
 
 }

@@ -3,7 +3,7 @@ package advanced;
 public class SmallestNumber 
 {
 	public static void main(String[] args) {
-		 int a[] = new int[]{12,44,23,56,9,23,78,13};
+		 int a[] = {7,44,23,56,9,23,78,13,81};
 	       int min = a[0];
 	       for(int i =1; i < a.length; i++)
 	       {

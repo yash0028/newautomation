@@ -1,6 +1,6 @@
 package number;
 
-public class Pyramid135 {
+public class A7Pyramid135 {
 
 	public static void main(String[] args) {
 		
@@ -25,3 +25,12 @@ public class Pyramid135 {
 	}
 
 }
+
+/*
+----*
+---***
+--*****
+-*******
+*********
+
+*/

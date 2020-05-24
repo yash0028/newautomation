@@ -25,8 +25,7 @@ public class ArrayListRev {
 
 			// Print the unsorted ArrayList 
 			System.out.println("Unsorted ArrayList: "	+ list); 
-	    
-			//  Collections.sort(list);
+	        Collections.sort(list);
 	        System.out.println("Sorted Array : " +list);
 
 			// Sorting ArrayList in descending Order 
