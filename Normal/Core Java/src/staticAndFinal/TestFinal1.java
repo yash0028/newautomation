@@ -17,3 +17,10 @@ public class TestFinal1 {
 	}  
 
 }
+ 
+
+
+/*final keyword stops :
+	1. Stops value change.
+	2. Stops method overridding.
+	3. Stops inheritance.*/

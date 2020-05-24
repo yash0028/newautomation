@@ -3,9 +3,9 @@ package oops;
 public class StaticMethod {  
 	     int rollno;  
 	     String name;
-	     static String college;
+	     static String college ="ITS";
 	     
-	     static void change(){
+	     static void change(){ // Static method can change the value of static variable
 	      college="BBDIT";
 	     }  
 	     					//constructor to initialize the variable  
@@ -21,7 +21,10 @@ public class StaticMethod {
   
 	
 	    public static void main(String args[]){  
-	    	StaticMethod.change();//calling change method  
+	    
+	    StaticMethod.change();//calling change method  
+	    
+	    
 	    StaticMethod s1 = new StaticMethod(111,"Karan");  
 	    StaticMethod s2 = new StaticMethod(222,"Aryan");  
 	    StaticMethod s3 = new StaticMethod(333,"Sonoo");  

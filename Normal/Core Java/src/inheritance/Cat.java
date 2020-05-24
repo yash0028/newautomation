@@ -16,26 +16,38 @@ public class Cat {
 		d.eat();
 		
 		System.out.println("******Run time polymorphism******");
-		Cat q = new Bog();
-		c.eat();
+		Cat p = new Bog();
+		p.eat();
 
-		}
+	}
 	
 
-	void eat(){
+	void eat()
+{
 		
 		System.out.println("eating...");
 		
-	}  
+}  
+}  
+		
+class Bog extends Cat
+{  
+		void bark()
+		{
+			System.out.println("barking...");
 		}  
-		
-class Bog extends Cat{  
-		void bark(){System.out.println("barking...");}  
-		} 
-class Cat1 extends Bog{  
-		void meow(){System.out.println("meowing...");}  
-		void bark(){System.out.println("barking1...");}  
+} 
+class Cat1 extends Bog
 
-
-		
+{  
+		void meow()
+		{
+			System.out.println("meowing...");
+		}  
+		void bark()
+		{
+			System.out.println("barking1...");
+			
+		}  
+	
 }

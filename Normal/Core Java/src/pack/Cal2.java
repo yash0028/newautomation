@@ -1,5 +1,6 @@
 package pack;
-import pack.Cal1;  //importing Cal1 class into Cal2.. Both classes are in same package 
+ 
+//importing Cal1 class into Cal2.. Both classes are in same package 
 public class Cal2 
 {
 public static void main(String args[]) {

@@ -7,6 +7,7 @@ public class MethodDeclartion {
 		 void insert(int r, String n){  
 		  rollno=r;  
 		  name=n;  
+		  System.out.println(rollno+" "+name);
 		  
 		 }  
 		 void display()
@@ -19,8 +20,8 @@ public class MethodDeclartion {
 			 MethodDeclartion s2=new MethodDeclartion();  
 		  s1.insert(111,"Karan");  //writing values to method
 		  s2.insert(222,"Aryan");  
-		  s1.display();  
-		  s2.display();  //printing values with  the help of method//
+		  /*s1.display();  
+		  s2.display();*/  //printing values with  the help of method//
 		 }  
 		}  
 

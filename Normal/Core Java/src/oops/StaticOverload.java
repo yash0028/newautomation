@@ -21,7 +21,7 @@ public class StaticOverload
 			StaticOverload.add(10,20);
 			StaticOverload.add(10,20,"raj");
 			StaticOverload t1=new StaticOverload();
-        t1.add(25, "qwe", 12);
+			t1.add(25, "qwe", 12);
 
 	}
 
