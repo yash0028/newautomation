@@ -61,7 +61,7 @@ public class GetAPITest extends TestBase{
 		//per_page:
 		String perPageValue = TestUtil.getValueByJPath(responseJson, "/per_page");
 		System.out.println("value of per page is-->"+ perPageValue);
-		Assert.assertEquals(Integer.parseInt(perPageValue), 3);
+		Assert.assertEquals(Integer.parseInt(perPageValue), 6);
 		
 		//total:
 		String totalValue = TestUtil.getValueByJPath(responseJson, "/total");
@@ -106,7 +106,7 @@ public class GetAPITest extends TestBase{
 
 		
 		closebaleHttpResponse = restClient.get(url,headerMap);
-		
+		System.out.println("*********************getAPITestWithHeaders**************************");
 		//a. Status Code:
 		int statusCode = closebaleHttpResponse.getStatusLine().getStatusCode();
 		System.out.println("Status Code--->"+ statusCode);
@@ -123,7 +123,7 @@ public class GetAPITest extends TestBase{
 		//per_page:
 		String perPageValue = TestUtil.getValueByJPath(responseJson, "/per_page");
 		System.out.println("value of per page is-->"+ perPageValue);
-		Assert.assertEquals(Integer.parseInt(perPageValue), 3);
+		Assert.assertEquals(Integer.parseInt(perPageValue), 6);
 		
 		//total:
 		String totalValue = TestUtil.getValueByJPath(responseJson, "/total");

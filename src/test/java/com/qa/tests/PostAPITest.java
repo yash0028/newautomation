@@ -47,7 +47,7 @@ public class PostAPITest extends TestBase{
 		
 		//jackson API:
 		ObjectMapper mapper = new ObjectMapper();
-		Users users = new Users("morpheus", "leader"); //expected users obejct
+		Users users = new Users("morpheus", "leader"); //expected users object
 		
 		//object to json file:
 		mapper.writeValue(new File("/Users/NaveenKhunteta/Documents/APIAutomationHTTPClient/APIAutomationUsingHTTPClient/src/main/java/com/qa/data/users.json"), users);

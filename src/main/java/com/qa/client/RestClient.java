@@ -34,7 +34,8 @@ public class RestClient {
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		HttpGet httpget = new HttpGet(url); //http get request
 		
-		for(Map.Entry<String,String> entry : headerMap.entrySet()){
+		for(Map.Entry<String,String> entry : headerMap.entrySet())
+		{
 			httpget.addHeader(entry.getKey(), entry.getValue());
 		}
 		CloseableHttpResponse closebaleHttpResponse =  httpClient.execute(httpget); //hit the GET URL
@@ -43,10 +44,10 @@ public class RestClient {
 		}
 	
 	//3. POST Method:
-		public CloseableHttpResponse post(String url, String entityString, HashMap<String, String> headerMap) throws ClientProtocolException, IOException{
+		public CloseableHttpResponse post(String url, String usersJsonString, HashMap<String, String> headerMap) throws ClientProtocolException, IOException{
 			CloseableHttpClient httpClient = HttpClients.createDefault();
 			HttpPost httppost = new HttpPost(url); //http post request
-			httppost.setEntity(new StringEntity(entityString)); //for payload
+			httppost.setEntity(new StringEntity(usersJsonString)); //for payload
 			
 			//for headers:
 			for(Map.Entry<String,String> entry : headerMap.entrySet()){
