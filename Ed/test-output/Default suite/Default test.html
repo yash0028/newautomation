@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/0/1</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon May 11 13:50:33 IST 2020</td>
+<td>Started on:</td><td>Sun May 24 12:22:05 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>1 seconds (1040 ms)</td>
+<tr><td>Total time:</td><td>0 seconds (749 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,22 +67,22 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-skipped'>
-<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='module9.TestCase.Hmap.test()'><b>test</b><br>Test class: module9.TestCase.Hmap</td>
-<td><div><pre>java.lang.RuntimeException: java.lang.NullPointerException
-	at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:49)
-	at org.testng.internal.MethodInvocationHelper.invokeDataProvider(MethodInvocationHelper.java:115)
-	at org.testng.internal.Parameters.handleParameters(Parameters.java:509)
-	at org.testng.internal.Invoker.handleParameters(Invoker.java:1308)
-	at org.testng.internal.Invoker.createParameters(Invoker.java:1036)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1126)
+<td title='module9.TestCase.HashMapdata.Test()'><b>Test</b><br>Test class: module9.TestCase.HashMapdata</td>
+<td><div><pre>org.testng.internal.reflect.MethodMatcherException: 
+Data provider mismatch
+Method: Test([Parameter{index=0, type=java.util.Map, declaredAnnotations=[]}])
+Arguments: [null,null,null]
+	at org.testng.internal.reflect.DataProviderMethodMatcher.getConformingArguments(DataProviderMethodMatcher.java:49)
+	at org.testng.internal.Invoker.injectParameters(Invoker.java:1293)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1187)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
 	at org.testng.TestRunner.privateRun(TestRunner.java:744)
@@ -100,24 +100,14 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-Caused by: java.lang.NullPointerException
-	at module9.TestCase.Hmap.dataprovider(Hmap.java:50)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:55)
-	at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:45)
-	... 22 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace11939193", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace11939193'><pre>java.lang.RuntimeException: java.lang.NullPointerException
-	at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:49)
-	at org.testng.internal.MethodInvocationHelper.invokeDataProvider(MethodInvocationHelper.java:115)
-	at org.testng.internal.Parameters.handleParameters(Parameters.java:509)
-	at org.testng.internal.Invoker.handleParameters(Invoker.java:1308)
-	at org.testng.internal.Invoker.createParameters(Invoker.java:1036)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1126)
+</pre></div><a href='#' onClick='toggleBox("stack-trace574268151", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace574268151'><pre>org.testng.internal.reflect.MethodMatcherException: 
+Data provider mismatch
+Method: Test([Parameter{index=0, type=java.util.Map, declaredAnnotations=[]}])
+Arguments: [null,null,null]
+	at org.testng.internal.reflect.DataProviderMethodMatcher.getConformingArguments(DataProviderMethodMatcher.java:49)
+	at org.testng.internal.Invoker.injectParameters(Invoker.java:1293)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1187)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
 	at org.testng.TestRunner.privateRun(TestRunner.java:744)
@@ -135,19 +125,9 @@ Caused by: java.lang.NullPointerException
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-Caused by: java.lang.NullPointerException
-	at module9.TestCase.Hmap.dataprovider(Hmap.java:50)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:55)
-	at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:45)
-	... 22 more
 </pre></div></td>
 <td>0</td>
-<td>module9.TestCase.Hmap@4f933fd1</td></tr>
+<td>module9.TestCase.HashMapdata@4f933fd1</td></tr>
 </table><p>
 </body>
 </html>

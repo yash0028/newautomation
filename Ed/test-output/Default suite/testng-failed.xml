@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="module9.TestCase.Hmap">
+      <class name="module9.TestCase.HashMapdata">
         <methods>
-          <include name="test"/>
+          <include name="Test"/>
         </methods>
-      </class> <!-- module9.TestCase.Hmap -->
+      </class> <!-- module9.TestCase.HashMapdata -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
