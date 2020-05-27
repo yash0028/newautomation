@@ -12,6 +12,8 @@ public class CountWords {
          
         System.out.print("Enter string: ");
         text=SC.nextLine();
+        int le = text.length();
+        System.out.println(le);
          
         //word count
         for(int i=0; i<text.length()-1; i++)
