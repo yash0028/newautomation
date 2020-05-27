@@ -10,7 +10,7 @@ public class stsplit {
 		String str = in.nextLine();
 	     in.close();
 		String[] token = str.split("");
-		System.out.print(token);
+		//System.out.print(token);
 		//used split method to print in reverse order
 		for(int i=token.length-1; i>=0; i--)
 		{
