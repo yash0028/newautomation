@@ -43,12 +43,12 @@ public class AlphaNumeric {
 			} 
 			
 		
-			System.out.println("Alpha Dups :" +alpha+" count :" +alcount); 
-			
-			System.out.println("Num Dups :" +num+" count :" +numcount); 
-			System.out.println("Space Dups :" +space1+" count :" +space); 
+		System.out.println("Alpha Dups :" + alpha + " count :" + alcount);
 
-			System.out.println("Spec Dups :" +special+" count :" +spcount); 
+		System.out.println("Num Dups :" + num + " count :" + numcount);
+		System.out.println("Space Dups :" + space1 + " count :" + space);
+
+		System.out.println("Spec Dups :" + special + " count :" + spcount);
 		} 
 		
 		// Driver method 
