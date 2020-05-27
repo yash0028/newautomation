@@ -18,9 +18,14 @@ public class Dupl
 	    {
 	     System.out.println(chr[j]);
 	     cnt++;
-	     break;
+	     
+	     //break;
+
 	    }
+
 	   }
 	  }
+	     System.out.println("Total no of duplicate are :" + cnt);
+
 	  
 }}
