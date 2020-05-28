@@ -1,29 +1,34 @@
 package programmes;
 
+import java.util.Scanner;
+
 public class Prime1to100 {
 	//which is divided by one and itself
 
 	public static void main(String[] args) {
 		
 		int temp=0;
-		for (int no=1;no<=100;no++)
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the number :");
+		int num = sc.nextInt();
+		for (int i=1;i<=num;i++)
 		{
-			for(int j=2;j<=no-1;j++)
+			for(int j=2;j<=i-1;j++)
 			{
-				if(no%j==0)
+				if(i%j==0)
 				{
 				temp=temp+1;	
 				}
 				
 			}
-			if (temp==0)
-			{
-				System.out.println(no);
-			}
-			else
-			{
-				temp=0;
-			}
+		if (temp==0)
+		{
+			System.out.println(i);
+		}
+		else
+		{
+			temp=0;
+		}
 		}
 
 	}

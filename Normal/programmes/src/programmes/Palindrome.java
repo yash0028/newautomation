@@ -9,13 +9,13 @@ public class Palindrome
 		public static void main (String[] args)
 		{
 		String original, reverse = "";
-		int length;
+		//int length;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the number or String");
 		original = sc.nextLine();
-		length = original.length();
+		//length = original.length();
 		char c[]=original.toCharArray();
-			for (int i = length - 1; i >= 0; i--)
+			for (int i = c.length - 1; i >= 0; i--)
 			{
 				reverse =reverse+ original.charAt(i);
 			}

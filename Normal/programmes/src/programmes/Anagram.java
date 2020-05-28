@@ -52,10 +52,12 @@ public class Anagram {
             char[] arr2 = s2.toLowerCase().toCharArray();
             
             // Sort both Character Array
+            System.out.println(arr1);
+            System.out.println(arr2);
             Arrays.sort(arr1);
             System.out.println(arr1);
             Arrays.sort(arr2);
-            System.out.println(arr1);
+            System.out.println(arr2);
 
             
             // Check if both arrays are equal
