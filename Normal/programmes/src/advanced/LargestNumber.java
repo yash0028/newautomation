@@ -10,6 +10,7 @@ public class LargestNumber
 			
 			Arrays.sort(a);
 			System.out.println(a[5]);
+			System.out.println(Arrays.toString(a));
 			/*int max = a[0];
 			
 			System.out.println("The Given Array Element is:");

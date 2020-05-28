@@ -7,9 +7,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class OpenAllLinks {
+public class OpenAllLinks 
+{
 
-        public static void main(String[] args) {
+        public static void main(String[] args) 
+        {
      
         	System.setProperty("webdriver.chrome.driver", "C:\\Users\\gkuma222\\Downloads\\Drivers\\chromedriver1.exe");
         	WebDriver driver =new ChromeDriver();
@@ -19,7 +21,7 @@ public class OpenAllLinks {
         	
         	List<WebElement> link = driver.findElements(By.tagName("a"));
         	 
-        	 System.out.println(link.size());
+        	System.out.println(link.size());
         	 
         	 for (WebElement link2: link)
         	 {

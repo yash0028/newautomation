@@ -17,6 +17,7 @@ public class Missing {
 		public static void main(String[] args) {
 			 
 			int[] arr1={7,5,6,1,4,2};
+			System.out.println(arr1.length);
 			System.out.println("Missing number from array arr1: "+missingNumber(arr1));
 			int[] arr2={5,3,1,2};
 			System.out.println("Missing number from array arr2: "+missingNumber(arr2));
