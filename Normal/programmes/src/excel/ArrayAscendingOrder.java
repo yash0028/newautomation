@@ -26,9 +26,9 @@ public class ArrayAscendingOrder {
 	            {
 	                if (a[i] > a[j]) 
 	                {												//swapping concept
-	                    temp = a[i];
-	                    a[i] = a[j];
-	                    a[j] = temp;
+	      temp=y;              temp = a[i];
+	        x=y;               a[i] = a[j];
+	      y=temp;              a[j] = temp;
 	                }
 	            }
 	        }*/

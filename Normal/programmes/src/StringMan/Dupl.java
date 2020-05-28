@@ -6,17 +6,18 @@ public class Dupl
 	 {
 
 	
-	String str = "w3schools";
+	String str = "programming";
 	  int cnt = 0;
 	  char[] chr = str.toCharArray();
 	  System.out.println("Duplicate Characters are:");
-	  for (int i = 0; i < str.length(); i++) 
+	  for (int i = 0; i < chr.length; i++) 
 	  {
-	   for (int j = i + 1; j < str.length(); j++)
+	   for (int j = i + 1; j < chr.length; j++)
 	   {
 	    if (chr[i] == chr[j]) 
 	    {
-	     System.out.println(chr[j]);
+	     System.out.print(chr[j]+" ");
+	    
 	     cnt++;
 	     
 	     //break;

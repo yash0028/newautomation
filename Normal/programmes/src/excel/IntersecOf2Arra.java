@@ -2,6 +2,7 @@ package excel;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class IntersecOf2Arra 
 {
@@ -12,7 +13,7 @@ public class IntersecOf2Arra
 		  
         String[] inputArray2 = {"THREE", "FOUR", "FIVE", "SIX", "SEVEN", "FOUR"};
   
-        HashSet<String> set = new HashSet<String>();
+       LinkedHashSet<String> set = new LinkedHashSet<String>();
   
         for (int i = 0; i < inputArray1.length; i++)
         {

@@ -20,6 +20,7 @@ public class StringSort {
 
 			// Display the sorted list.
 			System.out.println("\n-------Sorted List-------");
+			System.out.println(Arrays.toString(inputList));
 			showList(inputList);
 
 			// Call to sort the input list in case-sensitive order.
