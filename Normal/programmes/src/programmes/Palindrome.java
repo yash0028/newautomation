@@ -8,7 +8,7 @@ public class Palindrome
 	e.g., "Bob" is a palindrome because of the reverse of "Bob" is also "Bob."*/
 		public static void main (String[] args)
 		{
-		String original, reverse = "";
+		String original, reverse ="";
 		//int length;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the number or String");
