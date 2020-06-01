@@ -6,7 +6,7 @@ public class Factorial
 
 {  
 	 public static void main(String args[])
-	 {  
+ {  
 	   int fact=1; 
 	   Scanner sc = new Scanner(System.in);
 	   System.out.println("Enter the number : ");
@@ -19,11 +19,13 @@ public class Factorial
 	  System.out.println("Factorial of "+num+" is: "+fact);    
 	 }  
 	}  
+	 
 /*
-{
-	public static  int logic(int number){
+	public static  int logic(int number)
+	{
         int fact = 1;
-        while(number != 0){
+        while(number != 0)
+        {
             fact = fact*number;
             number--;
         }
@@ -39,6 +41,7 @@ public class Factorial
 	 System.out.println(logic( number));
 		
 	}
-}*/
+}
 
 
+*/
