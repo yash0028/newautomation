@@ -8,18 +8,21 @@ public class BubbleSort
 	public static void main(String[] args)
 	{
 		int a[]={4,2,1,5,3};
+		int temp=0;
 		System.out.println("Array Before Sorting : " +Arrays.toString(a));
-		for(int i=0;i<a.length-1;i++)
+		for(int i=0;i<a.length;i++)
 		{
-			for(int j=0;j<a.length-1;j++)
+			for(int j=i+1;j<a.length;j++)
 			{
-				if(a[j]>a[j+1])
+				if(a[i]>a[j]) // -->Ascending Sort -- if(a[i]<a[j])-->Descending Sort
 				{
-					int temp=a[j];
-					a[j]=a[j+1];
-					a[j+1]=temp;
+					temp=a[i];
+					a[i]=a[j];
+					a[j]=temp;
 				}
+
 			}
+		
 		}
 		
 		System.out.println("Arrays After Sorting : " +Arrays.toString(a));
