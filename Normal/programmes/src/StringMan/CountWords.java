@@ -2,7 +2,8 @@ package StringMan;
 
 import java.util.Scanner;
 
-public class CountWords {
+public class CountWords
+{
 	public static void main(String args[])
     {
         String text;

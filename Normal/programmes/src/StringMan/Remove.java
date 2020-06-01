@@ -1,6 +1,5 @@
 package StringMan;
 
-import javax.swing.plaf.synth.SynthSpinnerUI;
 
 public class Remove 
 {
