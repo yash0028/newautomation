@@ -23,7 +23,7 @@ public class LargestSmallest
 //	2.using For loop
 
 	int min = a[0]; //  assume first elements as smallest number
-		int max = a[0]; //  assume first elements as largest number
+	int max = a[0]; //  assume first elements as largest number
 
 		for (int i =1; i < a.length; i++)  // iterate for loop from arrays 1st index (second element)
 		{
