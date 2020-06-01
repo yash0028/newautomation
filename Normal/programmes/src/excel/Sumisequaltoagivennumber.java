@@ -5,21 +5,21 @@ import java.util.Arrays;
 public class Sumisequaltoagivennumber 
 {
 	
-	static void findThePairs(int inputArray[], int inputNumber)
+	static void findThePairs(int a[], int inputNumber)
     {
-        System.out.println("Input Array : "+Arrays.toString(inputArray));
+        System.out.println("Input Array : "+Arrays.toString(a));
          
         System.out.println("Input Number : "+inputNumber);
          
         System.out.println("Pairs of elements whose sum is "+inputNumber+" are : ");
   
-        for (int i = 0; i < inputArray.length; i++)
+        for (int i = 0; i < a.length; i++)
         {
-            for (int j = i+1; j < inputArray.length; j++)
+            for (int j = i+1; j < a.length; j++)
             {
-                if(inputArray[i]+inputArray[j] == inputNumber)
+                if(a[i]+a[j] == inputNumber)
                 {
-                    System.out.println(inputArray[i]+" + "+inputArray[j]+" = "+inputNumber);
+                    System.out.println(a[i]+" + "+a[j]+" = "+inputNumber);
                 }
             }
         }
@@ -29,7 +29,10 @@ public class Sumisequaltoagivennumber
   
     public static void main(String[] args)
     {
-        findThePairs(new int[] {4, 6, 5, -10, 8, 5, 20}, 10);
+        //findThePairs(new int[] {4, 6, 5, -10, 8, 5, 20}, 10);
+        int a[] = {4, 6, 5, -10, 8, 5, 20};
+        int inputNumber =10;
+        findThePairs(a, inputNumber);
   
        /* findThePairs(new int[] {4, -5, 9, 11, 25, 13, 12, 8}, 20);
   
