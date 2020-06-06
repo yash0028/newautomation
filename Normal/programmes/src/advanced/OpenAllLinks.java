@@ -13,10 +13,10 @@ public class OpenAllLinks
         public static void main(String[] args) 
         {
      
-        	System.setProperty("webdriver.chrome.driver", "C:\\Users\\gkuma222\\Downloads\\Drivers\\chromedriver1.exe");
+        	System.setProperty("webdriver.chrome.driver", "C:\\Users\\gkuma222\\Documents\\ppp\\Practice\\driver\\chromedriver.exe");
         	WebDriver driver =new ChromeDriver();
         	
-        	driver.get("https://www.gmail.com/");
+        	driver.get("https://www.facebook.com/");
         	driver.manage().window().maximize();
         	
         	List<WebElement> link = driver.findElements(By.tagName("a"));
