@@ -11,7 +11,7 @@ public class MouseHoverin {
 	public static void main(String[] args) {
 
 		// Open browser
-		System.setProperty("webdriver.chrome.driver", "G:\\Folder Structure\\Installation Stuff\\Drivers\\chromedriver1.exe" );
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\gkuma222\\Documents\\ppp\\Practice\\driver\\chromedriver.exe" );
 		WebDriver driver = new ChromeDriver();
 		//Open AUT
 		driver.get("https://www.myntra.com/");
