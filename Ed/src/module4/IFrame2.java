@@ -16,7 +16,7 @@ public class IFrame2 {
 
 		driver.get("https://seleniumautomationpractice.blogspot.com/2019/07/example-of-html-iframe-alternative.html");
 	
-		List	<WebElement> iframeElements = (List<WebElement>) driver.findElement(By.tagName("iframe"));
+		List	<WebElement> iframeElements = (List<WebElement>) driver.findElements(By.tagName("iframe"));
 		int numberoftags = iframeElements.size();
 		System.out.println(numberoftags);
 		
