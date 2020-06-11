@@ -21,10 +21,6 @@ public class InsertEle {
 		
 		
 		
-		
-		
-		
-		
 	}
 
 }
