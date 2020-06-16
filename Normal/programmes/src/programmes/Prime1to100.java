@@ -12,7 +12,7 @@ public class Prime1to100 {
 		System.out.println("enter the number :");
 		int num = sc.nextInt();
 		for (int i=1;i<=num;i++)
-		{
+	{
 			for(int j=2;j<=i-1;j++)
 			{
 				if(i%j==0)
@@ -21,15 +21,15 @@ public class Prime1to100 {
 				}
 				
 			}
-		if (temp==0)
-		{
-			System.out.println(i);
-		}
-		else
-		{
+		 if (temp==0)
+		 {
+		 	System.out.println(i);
+		 }
+		 else
+		 {
 			temp=0;
-		}
-		}
+		 }
+	}
 
 	}
 

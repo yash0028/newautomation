@@ -31,3 +31,5 @@ else
 			System.out.println("Not Prime : " +num);
 			
 		}}}
+	
+
