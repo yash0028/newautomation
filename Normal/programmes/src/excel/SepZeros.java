@@ -109,4 +109,5 @@ public static void main(String[] args)
     
 }
 }
+Output : [0,0,0,3,5,8,5,70]
 */	
