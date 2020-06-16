@@ -18,14 +18,15 @@ public class RemoveDup {
 				lhs.add(str.charAt(i)); 
 			}
 			// print string after deleting duplicate elements 
-			for(Character ch : lhs) 
-				System.out.print(ch); 
+			/*for(Character ch : lhs) 
+				System.out.print(ch); */
+			System.out.println(lhs);
 		} 
 		
 		/* Driver program to test removeDuplicates */
 		public static void main(String args[]) 
 		{ 
-			String str = "geeksforgeeks"; 
+			String str = "geeksaforgeeks"; 
 			RemoveDup r = new RemoveDup(); 
 			r.removeDuplicates(str); 
 		} 

@@ -5,7 +5,8 @@ public class Remove
 {
 	public static void main(String[] args)
 	{
-	/*	String str = "abcdDCBA123";
+/*	{
+		String str = "abcdDCBA123";
 
 		System.out.println("String after Removing 'a' = "+str.replace("a", ""));
 		
@@ -23,5 +24,5 @@ public class Remove
 	
 	
 }
-
 }
+
