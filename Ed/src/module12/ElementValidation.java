@@ -1,4 +1,4 @@
-package module12;
+/*package module12;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ public class ElementValidation {
 	public static void main(String[] args) {
 
 //Head less Browser using htmlunit
-		WebDriver driver =new  HtmlUnitDriver();
+	//	WebDriver driver =new  HtmlUnitDriver();
 
 		driver.get("https://seleniumautomationpractice.blogspot.com/2017/10/functionisogramigoogleanalyticsobjectri.html");
 		
@@ -23,3 +23,4 @@ public class ElementValidation {
 		System.out.println(Validation);
 	}
 }
+*/

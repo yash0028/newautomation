@@ -1,4 +1,4 @@
-package module12;
+/*package module12;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,3 +26,4 @@ public class ElementValidation2 {
 		System.out.println(Validation);
 	}
 }
+*/

@@ -1,4 +1,4 @@
-package module8.TestCase;
+/*package module8.TestCase;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,7 +8,7 @@ import module8.Page.SeleniumHomePageObjects;
 
 public class GoogleSearchTC {
 
-	static WebDriver driver;
+	public static WebDriver driver;
 	
 	public static void main(String[] args) throws InterruptedException {
 	
@@ -50,3 +50,4 @@ public class GoogleSearchTC {
 	}
 
 }
+*/

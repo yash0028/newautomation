@@ -1,7 +1,6 @@
 package module4;
 import java.util.List;
 
-import org.apache.http.impl.client.SystemDefaultCredentialsProvider;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
