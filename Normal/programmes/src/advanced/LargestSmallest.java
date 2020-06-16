@@ -31,7 +31,7 @@ public class LargestSmallest
 			{
 				max = a[i];
 			}
-			if (a[i] < min) 
+			else if(a[i] < min) 
 			{
 				min = a[i];
 			}
