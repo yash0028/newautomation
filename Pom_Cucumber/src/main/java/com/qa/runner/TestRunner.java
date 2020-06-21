@@ -10,9 +10,12 @@ import cucumber.api.testng.CucumberFeatureWrapper;
 import cucumber.api.testng.TestNGCucumberRunner;
 
 @CucumberOptions(
-        features = "src/main/java/Features",
-        glue = {"stepDefinitions"},
+        features = "C:\\Users\\User\\Desktop\\git\\newautomation-normal\\Pom_Cucumber\\src\\main\\java\\com\\qa\\feature\\login.feature",
+        glue = {"com\\qa\\StepDefinition"},
         tags = {"~@Ignore"},
+        monochrome =true,
+        strict = true, //it will check if any step is not defined in step definition file.
+   		dryRun=false, //to check the mapping is proper between feature file and step definition file.
         format = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",

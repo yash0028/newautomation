@@ -57,16 +57,21 @@ import com.qa.util.TestBase;
 		}
 		
 		public HomePage login(String un, String pwd) throws IOException{
-			
+			login.click();
 			userName.sendKeys(un);
 			password.sendKeys(pwd);
-			login.click();
-			
+		
 			return new HomePage();
+
+			
+			
+		}
+		
+			
+			
 		}
 		
 	
 		
 
-	}
-
+	

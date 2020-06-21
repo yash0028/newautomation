@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Pom_Cucumber]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Pom_Cucumber(failed)">
+    <classes>
+      <class name="com.qa.runner.TestRunner">
+        <methods>
+          <include name="feature" invocation-numbers="0"/>
+          <include name="setUpClass"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- com.qa.runner.TestRunner -->
+    </classes>
+  </test> <!-- Pom_Cucumber(failed) -->
+</suite> <!-- Failed suite [Pom_Cucumber] -->

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Pom_Cucumber">
+	<!-- <test thread-count="5" name="Test"> -->
+	<test name="Pom_Cucumber">
+		
+		<classes>
+			<class name="com.qa.runner.TestRunner" />
+		</classes>
+	</test>
+</suite>
