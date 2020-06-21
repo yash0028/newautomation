@@ -2,19 +2,19 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-06-21T10:47:58Z" name="Pom_Cucumber" finished-at="2020-06-21T10:48:08Z" duration-ms="10120">
+  <suite started-at="2020-06-21T15:17:50Z" name="Pom_Cucumber" finished-at="2020-06-21T15:18:02Z" duration-ms="11853">
     <groups>
       <group name="cucumber">
         <method signature="TestRunner.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.qa.runner.TestRunner@233fe9b6]" name="feature" class="com.qa.runner.TestRunner"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2020-06-21T10:47:58Z" name="Pom_Cucumber" finished-at="2020-06-21T10:48:08Z" duration-ms="10120">
+    <test started-at="2020-06-21T15:17:50Z" name="Pom_Cucumber" finished-at="2020-06-21T15:18:02Z" duration-ms="11853">
       <class name="com.qa.runner.TestRunner">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.qa.runner.TestRunner@233fe9b6]" started-at="2020-06-21T10:47:58Z" name="setUpClass" finished-at="2020-06-21T10:47:58Z" duration-ms="362" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.qa.runner.TestRunner@233fe9b6]" started-at="2020-06-21T15:17:50Z" name="setUpClass" finished-at="2020-06-21T15:17:51Z" duration-ms="423" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.qa.runner.TestRunner@233fe9b6]" started-at="2020-06-21T10:47:58Z" name="feature" description="Runs Cucumber Feature" data-provider="features" finished-at="2020-06-21T10:48:08Z" duration-ms="9560" status="FAIL">
+        <test-method signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.qa.runner.TestRunner@233fe9b6]" started-at="2020-06-21T15:17:51Z" name="feature" description="Runs Cucumber Feature" data-provider="features" finished-at="2020-06-21T15:18:02Z" duration-ms="11228" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -68,7 +68,7 @@ at ✽.Then Submit username and password(C:/Users/User/Desktop/git/newautomation
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.qa.runner.TestRunner@233fe9b6]" started-at="2020-06-21T10:48:08Z" name="tearDownClass" finished-at="2020-06-21T10:48:08Z" duration-ms="46" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.qa.runner.TestRunner@233fe9b6]" started-at="2020-06-21T15:18:02Z" name="tearDownClass" finished-at="2020-06-21T15:18:02Z" duration-ms="40" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
