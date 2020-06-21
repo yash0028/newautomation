@@ -30,7 +30,7 @@ import com.qa.util.TestBase;
 		}
 		
 		//driver.findElement(By.xpath(//*[@id='userLoginBlock']/a))
-		@FindBy(xpath = "//*[@id='signInBtn']")
+		@FindBy(xpath = "//*[@id='userLoginBlock']/a)")
 		WebElement login;
 		
 		@FindBy(xpath = "//*[@id='themeSnipe']/div/div/div[4]/div[1]/a/i")

@@ -46,9 +46,11 @@ home = login.login(prop.getProperty("username"), prop.getProperty("password"));
 }
 
 
+
 /*
- * @Then("^click Login$") public void click_Login() throws Throwable { home =
- * click_Login();
+ * @Then("^click Login$") public void click_Login() throws Throwable {
+ * 
+ * login.
  * 
  * }
  */
