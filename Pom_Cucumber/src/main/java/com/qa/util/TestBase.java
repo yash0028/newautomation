@@ -18,14 +18,14 @@ public class TestBase {
 		try{
 		
 		prop = new Properties();
-		FileInputStream fis=new FileInputStream("C:/Users/gkuma222/Desktop/Project/automation/Normal/Cucumber_Project1/src/main/java/com/qa/config/config.properties");
+		FileInputStream fis=new FileInputStream("C:/Users/User/Desktop/git/newautomation-normal/Pom_Cucumber/src/main/java/com/qa/config/config.properties");
 		prop.load(fis);
 		}catch(IOException e)
 		{
 			e.getMessage();
 		}
 	}
-	
+
 	 
 	public static void intialisation()
 	{
@@ -34,12 +34,12 @@ public class TestBase {
 		System.out.println(browser);
 		if(browser.equals("chrome"))
 		{
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\gkuma222\\Documents\\ppp\\Practice\\driver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\User\\Desktop\\Work\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
 		}
 		else if(browser.equals("firefox"))
 		{
-			System.setProperty("webdriver.gecko.driver", "C:\\Users\\gkuma222\\Documents\\ppp\\Practice\\driver\\chromedriver.exe");
+			System.setProperty("webdriver.gecko.driver", "C:\\Users\\User\\Desktop\\Work\\chromedriver_win32\\chromedriver.exe");
 			driver = new FirefoxDriver();
 		}
 
@@ -50,11 +50,4 @@ public class TestBase {
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT,TimeUnit.SECONDS);
 		driver.get(prop.getProperty("url"));
 	
-		}
-	
-	
-	
-	}
-	
-
-
+}}

@@ -1,4 +1,5 @@
 package com.qa.runner;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -8,13 +9,10 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.CucumberFeatureWrapper;
 import cucumber.api.testng.TestNGCucumberRunner;
 
-
-
 @CucumberOptions(
-        features = "/Cucumber_Project1/src/main/java/com/qa/feature/login.feature",
-        glue = {"/Cucumber_Project1/src/main/java/com/qa/stepDefinition"},
-       // tags = {"~@Ignore"},
-        dryRun = true,
+        features = "src/main/java/Features",
+        glue = {"stepDefinitions"},
+        tags = {"~@Ignore"},
         format = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",
