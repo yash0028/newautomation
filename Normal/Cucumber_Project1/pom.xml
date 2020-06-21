@@ -7,13 +7,15 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
+  
   <name>Cucumber_Project</name>
   <url>http://maven.apache.org</url>
 
-  <properties>
+   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  <dependencies>  
+  
+ <dependencies>  
 <dependency>
     <groupId>io.cucumber</groupId>
     <artifactId>cucumber-core</artifactId>
@@ -24,13 +26,13 @@
     <artifactId>cucumber-java</artifactId>
     <version>2.4.0</version>
 </dependency>
-<dependency>
+<!-- <dependency>
     <groupId>io.cucumber</groupId>
     <artifactId>cucumber-junit</artifactId>
     <version>2.4.0</version>
     <scope>test</scope>
-</dependency>
-<!-- <dependency>
+</dependency> -->
+<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-testng</artifactId>
 			<version>1.2.5</version>
@@ -41,7 +43,7 @@
 					<artifactId>junit</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency> -->
+		</dependency>
 
 
 <dependency>
@@ -50,6 +52,15 @@
     <version>1.0.6</version>
     <scope>provided</scope>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-jvm-deps -->
+<dependency>
+    <groupId>info.cukes</groupId>
+    <artifactId>cucumber-jvm-deps</artifactId>
+    <version>1.0.5</version>
+    <scope>provided</scope>
+</dependency>
+
 <dependency>
     <groupId>io.cucumber</groupId>
     <artifactId>gherkin</artifactId>
@@ -74,6 +85,7 @@
     <artifactId>selenium-java</artifactId>
     <version>4.0.0-alpha-1</version>
 </dependency>
+
 
   </dependencies>
 </project>
