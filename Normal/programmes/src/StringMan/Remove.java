@@ -23,7 +23,7 @@ public class Remove
 	System.out.println(s);
 	String s1 = "!@##$%^12344adfgfQWRER!@#@$#";
 
-	s1=s1.replaceAll("[^a-zA-Z0-9]","");
+    s1=s1.replaceAll("[^a-zA-Z0-9]","");
 	System.out.println(s1);
 
 	
