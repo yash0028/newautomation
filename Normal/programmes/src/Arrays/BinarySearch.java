@@ -3,6 +3,7 @@ package Arrays;
 import java.util.Arrays;
 
 public class BinarySearch 
+//Binary Search: Search a sorted array by repeatedly dividing the search interval in half.
 {
 
 	public static void main(String[] args)

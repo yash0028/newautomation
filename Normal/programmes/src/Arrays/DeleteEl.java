@@ -1,12 +1,16 @@
 package Arrays;
 
+import java.util.Arrays;
+
 public class DeleteEl {
 
 	public static void main(String[] args) {
 
 		int a[]={50,60,70,80,90};
 		int del = 70;
-		
+		System.out.println("Before Deleting Element : "+Arrays.toString(a));
+		System.out.println("After Deleting Element : ");
+
 		for(int i=0;i<a.length;i++)
 		{
 			if(del==a[i])
