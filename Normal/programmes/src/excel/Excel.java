@@ -4,11 +4,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,7 +19,7 @@ public class Excel{
 private static Object formData;
 
 @org.testng.annotations.Test
-public static void ReadData() throws IOException
+public static void ReadData() throws IOException, EncryptedDocumentException, InvalidFormatException
 {
 	 // Import excel sheet from a webdriver directory which is inside c drive.
 	 //DataSource is the name of the excel
@@ -60,7 +61,7 @@ public static void ReadData() throws IOException
 	 
  }
 
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) throws IOException, EncryptedDocumentException, InvalidFormatException {
 	   Excel.ReadData();
   }
 }
