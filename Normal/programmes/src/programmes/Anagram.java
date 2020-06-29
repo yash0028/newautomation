@@ -16,7 +16,7 @@ public class Anagram {
         // Getting the input string from the user
         //System.out.print("Enter the First String : ");
         //String s1 = scanner.nextLine();
-        String s1 = "Listen";
+        String  s1 = "Listen";
 
 
         //System.out.print("Enter the second String : ");
