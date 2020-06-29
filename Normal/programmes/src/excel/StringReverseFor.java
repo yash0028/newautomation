@@ -23,7 +23,7 @@ public class StringReverseFor {
 		}
 		System.out.println(reverse);
 		
-		if (original==reverse);
+		if (original.equals(reverse));
 		System.out.println("Palidrome " +reverse);
 		
 	}
