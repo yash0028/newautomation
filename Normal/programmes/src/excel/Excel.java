@@ -17,7 +17,7 @@ public class Excel{
 
 private static Object formData;
 
-@Test
+@org.testng.annotations.Test
 public static void ReadData() throws IOException
 {
 	 // Import excel sheet from a webdriver directory which is inside c drive.
