@@ -45,10 +45,14 @@ public class MergeArrays {
 		{
 			c[a.length+j]=b[j];
 		}
-		for(int i=0;i<c.length;i++)
-			System.out.print(c[i]+" ");
-		
-		
+		/*for(int i=0;i<c.length;i++)
+		{
+			System.out.println(c[i]+" ");
+		}*/
+		Arrays.sort(c);
+		System.out.println(Arrays.toString(c));
+	
 	}
+
 
 }

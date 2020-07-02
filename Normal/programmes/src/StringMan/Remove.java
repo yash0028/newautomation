@@ -5,7 +5,7 @@ public class Remove
 {
 	public static void main(String[] args)
 	{
-/*	{
+	/*{
 		String str = "abcdDCBA123";
 
 		System.out.println("String after Removing 'a' = "+str.replace("a", ""));
@@ -15,12 +15,18 @@ public class Remove
 		System.out.println("String after replacing all small letters = "+str.replaceAll("([a-z])", ""));
 	}
 
-}
-*/
+}*/
+
 	
 	String s = "!@##$%^12344adfgfQWRER!@#@$#";
-	s=s.replaceAll("[^a-zA-Z0-9]","");
+	s=s.replaceAll("[a-zA-Z0-9]","");
 	System.out.println(s);
+	String s1 = "!@##$%^12344adfgfQWRER!@#@$#";
+
+    s1=s1.replaceAll("[^a-zA-Z0-9]","");
+	System.out.println(s1);
+
+	
 	
 	
 }

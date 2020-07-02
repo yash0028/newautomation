@@ -25,8 +25,8 @@ public class ArraysRangeOf
 		System.out.println("bigger copy: " + Arrays.toString(bigger));
 		
 		// Now, let's copy a range of values from one array to another
-		// copying subarray from 2nd element to 5th element 
-		int[] range = Arrays.copyOfRange(original, 2, 5); 
+		// copying subarray from 2nd element to 4th element 
+		int[] range = Arrays.copyOfRange(original, 2,5); 
 		System.out.println("copying range of values 2 to 5: " + Arrays.toString(range));
 
 	}

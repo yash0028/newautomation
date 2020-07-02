@@ -19,11 +19,11 @@ public class StringReverseFor {
 		System.out.println("Reverse order:");
 		for(int i=c.length-1; i>=0; i--) 
 		{
-			reverse = reverse + original.charAt(i);   //used inbuilt method charAt() to reverse the string
+			reverse = reverse + c[i];  
 		}
 		System.out.println(reverse);
 		
-		if (original==reverse);
+		if (original.equals(reverse));
 		System.out.println("Palidrome " +reverse);
 		
 	}

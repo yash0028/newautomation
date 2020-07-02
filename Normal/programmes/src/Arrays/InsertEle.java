@@ -10,6 +10,7 @@ public class InsertEle {
 								 // insert new element in middle
 		int position = 4;
 		int element = 35;
+		System.out.println("Before adding element : "+Arrays.toString(a));
 		
 		for(int i=a.length-1; i>position-1 ; i--)
 		{
@@ -17,7 +18,7 @@ public class InsertEle {
 		}
 		a[position-1] = element;
 		
-		System.out.println(Arrays.toString(a));
+		System.out.println("After adding element : " +Arrays.toString(a));
 		
 		
 		
