@@ -21,7 +21,7 @@ public class OpenAllLinks
         	
         	List<WebElement> link = driver.findElements(By.tagName("a"));
         	 
-        	System.out.println(link.size());
+        	System.out.println("No of Webelements :" +link.size());
         	 
         	 for (WebElement link2: link)
         	 {
