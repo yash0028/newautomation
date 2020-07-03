@@ -15,9 +15,14 @@ public class StringSort1
 			      String str = sc.nextLine();
 			      char charArray[] = str.toCharArray();
 			      Arrays.sort(charArray);
+			      // In the form of Array
+			      
+			      System.out.println("In the form of Array : "+Arrays.toString(charArray));
+			      
+			      //In the form of String 
 			      String sorted = new String(charArray);
 
-			      System.out.println(sorted);
+			      System.out.println("In the form of String : "+sorted);
 			   }
 	
 }
