@@ -26,3 +26,20 @@ public class MergeArraysColl {
 	}
 
 }
+/* Arrays Methods : 
+ *  1.Arrays.copyOf();
+ *  2.Arryas.copyOfRange();
+ *  -->> System.arrayCopy();
+ *  3.Arrays.toString();
+ *  4.Arrays.asList();
+ *  5.Arrays.binarySearch();
+ *  6.Arrays.sort();
+ *  7.Arrays.equals();
+ *  
+ *
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
