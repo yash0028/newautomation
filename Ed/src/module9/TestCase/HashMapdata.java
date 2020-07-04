@@ -14,11 +14,15 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import sun.text.normalizer.Trie.DataManipulate;
+
 public class HashMapdata {
 	
 	@Test(dataProvider="testdata")
 	public void Test(Map mapdata)
 	{
+		
+		
 		System.out.println("-----TestStarted-----");
 		System.out.println(mapdata.get("UserName"));
 		System.out.println(mapdata.get("Password"));
@@ -27,10 +31,10 @@ public class HashMapdata {
 
 	}
 	
-	@DataProvider(name="testdata")
+	@DataProvider (name="testdata")
 	public Object[][] dataproviderMethod() throws  IOException{
 
-		String filepath = "C://Users//gkuma222//Desktop//Project//automation//Ed//src//module9//TestData//TestDate.xlsx";
+		String filepath = "C://Users//gkuma222//Desktop//Project//newautomation//Ed//src//module9//TestData//TestDate.xlsx";
 		
 		File file = new File (filepath);
 		FileInputStream fis = new FileInputStream(file);
@@ -47,10 +51,11 @@ public class HashMapdata {
 			Map<Object,Object> datamap= new HashMap<Object,Object>();
 			for (int j=0;j<nocol;j++)
 			{
-				datamap.put(sh.getRow(0).getCell(j), sh.getRow(i+1).getCell(j));
+				datamap.put(sh.getRow(0).getCell(j).toString(), sh.getRow(i+1).getCell(j).toString());
 				
 			}
 			
+			formData[i][0]=datamap;
 					
 		}
 
