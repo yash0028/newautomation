@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -32,7 +33,7 @@ public class HashMapdata {
 	}
 	
 	@DataProvider (name="testdata")
-	public Object[][] dataproviderMethod() throws  IOException{
+	public Object[][] dataproviderMethod() throws  IOException, EncryptedDocumentException, InvalidFormatException{
 
 		String filepath = "C://Users//gkuma222//Desktop//Project//newautomation//Ed//src//module9//TestData//TestDate.xlsx";
 		
