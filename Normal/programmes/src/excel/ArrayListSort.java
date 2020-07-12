@@ -22,7 +22,7 @@ public class ArrayListSort {
 	        Collections.sort(strList);
 	        System.out.println(strList);
 	        for(String str: strList) 
-	        System.out.print(" "+str);
+	        System.out.print(str+" ");
 	    }
 
 	}
