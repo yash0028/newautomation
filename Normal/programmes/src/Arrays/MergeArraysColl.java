@@ -15,7 +15,8 @@ public class MergeArraysColl {
 		
 		ls.addAll(Arrays.asList(b));
 		
-		Object[] str3 = ls.toArray();
+		Object[] str3 = ls.toArray(); // converting list collection to array
+		
 		Arrays.sort(str3);
 		System.out.println(Arrays.toString(str3));
 		//System.out.println(Arrays.asList(str3));
