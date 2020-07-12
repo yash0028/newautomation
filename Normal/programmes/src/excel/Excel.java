@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -19,7 +20,7 @@ public class Excel{
 private static Object formData;
 
 @Test
-public static void ReadData() throws IOException, EncryptedDocumentException
+public static void ReadData() throws IOException, EncryptedDocumentException, InvalidFormatException
 {
 	 // Import excel sheet from a webdriver directory which is inside c drive.
 	 //DataSource is the name of the excel
