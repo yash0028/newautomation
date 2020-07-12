@@ -14,12 +14,12 @@ public class DupinArray
 			{
 				if(s[i]==s[j])
 				{
-					System.out.println("Found Duplicate :"+s[j]);
+					System.out.print(s[j]+", ");
 					count++;
 				}
 			}
 		}
-		System.out.println("duplicates appeared "+count+"times");
+		System.out.println("\nduplicates appeared "+count+" times");
 
 		
 	}
