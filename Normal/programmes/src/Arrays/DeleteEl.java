@@ -14,7 +14,7 @@ public class DeleteEl {
 		{
 			if(del==a[i])
 			{
-				for(int j=i;j<a.length-1;j++)
+				for(int j=i;j<a.length-1;j++) // a.length -1 --> already one element has moved to lesser index
 				{
 					a[j]=a[j+1];
 					
