@@ -43,12 +43,12 @@ public class AlphaNumeric {
 			} 
 			
 		
-		System.out.println("Alphabets :" + alpha + " count :" + alcount);
+		System.out.println("Alphabets :" + alpha + " --> count :" + alcount);
 
-		System.out.println("Numbers :" + num + " count :" + numcount);
-		System.out.println("Space:" + space1 + " count :" + space);
+		System.out.println("Numbers :" + num + " --> count :" + numcount);
+		System.out.println("Space:" + space1 + " --> count :" + space);
 
-		System.out.println("Special  :" + special + " count :" + spcount);
+		System.out.println("Special  :" + special + " --> count :" + spcount);
 		} 
 		
 		// Driver method 
