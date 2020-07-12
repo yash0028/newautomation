@@ -8,10 +8,11 @@ public class LargestNumber
 		{
 			int[] a =  { 20, 30, 50, 49, 71, 100};
 			
-			Arrays.sort(a);
-			System.out.println(a[5]);
-			System.out.println(Arrays.toString(a));
-			/*int max = a[0];
+			/*
+			 * Arrays.sort(a); System.out.println(a[5]);
+			 * System.out.println(Arrays.toString(a));
+			 */		
+			int max = a[0];
 			
 			System.out.println("The Given Array Element is:");
 			for(int i = 0; i < a.length;i++)
@@ -27,8 +28,8 @@ public class LargestNumber
 			}
 			
 			System.out.println("From The Array Element Largest Number is:" + max);
-		}*/
-	}}
+		}
+	}
 	
 	
 
