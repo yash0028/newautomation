@@ -26,7 +26,7 @@ public class Dupl
 
 	   }
 	  }
-	     System.out.println("Total no of duplicate are :" + cnt);
+	     System.out.println("\nTotal no of duplicate are :" + cnt);
 
 	  
 }}
