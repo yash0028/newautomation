@@ -7,7 +7,7 @@ public class Countchar1 {
 	    public static void main(String[] args) {  
 	        String string = "The best of both worlds";  
 	        int count = 0;  
-	          
+	         System.out.println(string.length());  // including spaces
 	        //Counts each character except space  
 	        for(int i = 0; i < string.length(); i++)
 	        {  
