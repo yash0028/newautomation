@@ -33,4 +33,6 @@ public class VowelsCons
         System.out.println("Number of consonants: " + cCount);  
     } 
 	}
+  
+
 
