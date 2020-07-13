@@ -1,52 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1330" started-at="2020-07-04T08:16:37Z" finished-at="2020-07-04T08:16:38Z">
+  <suite started-at="2020-07-13T13:19:25 IST" name="Default suite" finished-at="2020-07-13T13:19:25 IST" duration-ms="86">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1330" started-at="2020-07-04T08:16:37Z" finished-at="2020-07-04T08:16:38Z">
-      <class name="module9.TestCase.HashMapdata">
-        <test-method status="FAIL" signature="Test(java.util.Map)[pri:0, instance:module9.TestCase.HashMapdata@4f933fd1]" name="Test" duration-ms="1299" started-at="2020-07-04T13:46:37Z" data-provider="testdata" finished-at="2020-07-04T13:46:38Z">
-          <exception class="org.testng.internal.reflect.MethodMatcherException">
-            <message>
-              <![CDATA[
-Data provider mismatch
-Method: Test([Parameter{index=0, type=java.util.Map, declaredAnnotations=[]}])
-Arguments: [(java.util.HashMap){UserName=user1, DoB=dob1, Password=pass1},null,null]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.internal.reflect.MethodMatcherException: 
-Data provider mismatch
-Method: Test([Parameter{index=0, type=java.util.Map, declaredAnnotations=[]}])
-Arguments: [(java.util.HashMap){UserName=user1, DoB=dob1, Password=pass1},null,null]
-	at org.testng.internal.reflect.DataProviderMethodMatcher.getConformingArguments(DataProviderMethodMatcher.java:49)
-	at org.testng.internal.Invoker.injectParameters(Invoker.java:1293)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1187)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.internal.reflect.MethodMatcherException -->
+    <test started-at="2020-07-13T13:19:25 IST" name="Default test" finished-at="2020-07-13T13:19:25 IST" duration-ms="86">
+      <class name="module6.Annotations">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="beforeSuite" finished-at="2020-07-13T13:19:25 IST" duration-ms="14" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test -->
-      </class> <!-- module9.TestCase.HashMapdata -->
+        </test-method> <!-- beforeSuite -->
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="beforeTest" finished-at="2020-07-13T13:19:25 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="beforeClass" finished-at="2020-07-13T13:19:25 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="beforeMethod" finished-at="2020-07-13T13:19:25 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="Test1()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="Test1" finished-at="2020-07-13T13:19:25 IST" duration-ms="8" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test1 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="afterMethod" finished-at="2020-07-13T13:19:25 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method signature="Test2()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="Test2" finished-at="2020-07-13T13:19:25 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test2 -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="beforeMethod" finished-at="2020-07-13T13:19:25 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="afterMethod" finished-at="2020-07-13T13:19:25 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method signature="Test3()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="Test3" finished-at="2020-07-13T13:19:25 IST" duration-ms="12" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test3 -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="beforeMethod" finished-at="2020-07-13T13:19:25 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="afterMethod" finished-at="2020-07-13T13:19:25 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="afterClass" finished-at="2020-07-13T13:19:25 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="afterTest" finished-at="2020-07-13T13:19:25 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="afterSuite" finished-at="2020-07-13T13:19:25 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- module6.Annotations -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
