@@ -79,5 +79,12 @@ public class JavaScriptExecutorClassDummy {
 		// to navigate to different page using Javascript?
 		// Navigate to new Page
 		js.executeScript("window.location = https://www.softwaretestingmaterial.com");
+		
+		//Find element by link text and store in variable "Element"        		
+        WebElement Element = driver.findElement(By.linkText("Linux"));
+
+        //This will scroll the page till the element is found		
+        js.executeScript("arguments[0].scrollIntoView();", Element);
+
 	}
 }
