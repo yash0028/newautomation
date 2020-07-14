@@ -18,7 +18,7 @@ public class MergeArrays {
 		System.out.println(Arrays.toString(result));
 		*/
 		/*
-		public static void arraycopy(Object source, int source_position,   
+		public static void arraycopy(Object source, i nt source_position,   
 				Object destination, int destination_position, int length)  
 		
 		Parameters -->>
