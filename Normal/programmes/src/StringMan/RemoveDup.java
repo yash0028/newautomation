@@ -20,7 +20,7 @@ public class RemoveDup {
 			// print string after deleting duplicate elements 
 			/*for(Character ch : lhs) 
 				System.out.print(ch); */
-			System.out.println(lhs);
+			
 		} 
 		
 		/* Driver program to test removeDuplicates */
