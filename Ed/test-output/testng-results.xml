@@ -2,68 +2,68 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-07-13T13:19:25 IST" name="Default suite" finished-at="2020-07-13T13:19:25 IST" duration-ms="86">
+  <suite started-at="2020-07-16T10:42:26 IST" name="Default suite" finished-at="2020-07-16T10:42:27 IST" duration-ms="93">
     <groups>
     </groups>
-    <test started-at="2020-07-13T13:19:25 IST" name="Default test" finished-at="2020-07-13T13:19:25 IST" duration-ms="86">
+    <test started-at="2020-07-16T10:42:26 IST" name="Default test" finished-at="2020-07-16T10:42:27 IST" duration-ms="93">
       <class name="module6.Annotations">
-        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="beforeSuite" finished-at="2020-07-13T13:19:25 IST" duration-ms="14" status="PASS">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:26 IST" name="beforeSuite" finished-at="2020-07-16T10:42:26 IST" duration-ms="12" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="beforeTest" finished-at="2020-07-13T13:19:25 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:26 IST" name="beforeTest" finished-at="2020-07-16T10:42:26 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="beforeClass" finished-at="2020-07-13T13:19:25 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:27 IST" name="beforeClass" finished-at="2020-07-16T10:42:27 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="beforeMethod" finished-at="2020-07-13T13:19:25 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:27 IST" name="beforeMethod" finished-at="2020-07-16T10:42:27 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="Test1()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="Test1" finished-at="2020-07-13T13:19:25 IST" duration-ms="8" status="PASS">
+        <test-method signature="Test1()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:27 IST" name="Test1" finished-at="2020-07-16T10:42:27 IST" duration-ms="10" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test1 -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="afterMethod" finished-at="2020-07-13T13:19:25 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:27 IST" name="afterMethod" finished-at="2020-07-16T10:42:27 IST" duration-ms="4" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="Test2()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="Test2" finished-at="2020-07-13T13:19:25 IST" duration-ms="2" status="PASS">
+        <test-method signature="Test2()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:27 IST" name="Test2" finished-at="2020-07-16T10:42:27 IST" duration-ms="9" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test2 -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="beforeMethod" finished-at="2020-07-13T13:19:25 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:27 IST" name="beforeMethod" finished-at="2020-07-16T10:42:27 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="afterMethod" finished-at="2020-07-13T13:19:25 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:27 IST" name="afterMethod" finished-at="2020-07-16T10:42:27 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="Test3()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="Test3" finished-at="2020-07-13T13:19:25 IST" duration-ms="12" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:27 IST" name="beforeMethod" finished-at="2020-07-16T10:42:27 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="Test3()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:27 IST" name="Test3" finished-at="2020-07-16T10:42:27 IST" duration-ms="7" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test3 -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="beforeMethod" finished-at="2020-07-13T13:19:25 IST" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="afterMethod" finished-at="2020-07-13T13:19:25 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:27 IST" name="afterMethod" finished-at="2020-07-16T10:42:27 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="afterClass" finished-at="2020-07-13T13:19:25 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:27 IST" name="afterClass" finished-at="2020-07-16T10:42:27 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="afterTest" finished-at="2020-07-13T13:19:25 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:27 IST" name="afterTest" finished-at="2020-07-16T10:42:27 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method is-config="true" signature="afterSuite()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-13T13:19:25 IST" name="afterSuite" finished-at="2020-07-13T13:19:25 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:module6.Annotations@28975c28]" started-at="2020-07-16T10:42:27 IST" name="afterSuite" finished-at="2020-07-16T10:42:27 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
