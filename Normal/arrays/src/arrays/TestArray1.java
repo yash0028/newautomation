@@ -11,6 +11,7 @@ public class TestArray1 {
 		arr[3]=25;
 		arr[4]=50;
 		//arr[5]=80;
+		
 
 		System.out.println("SIZE:"+arr.length);
 
