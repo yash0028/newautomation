@@ -19,30 +19,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/gkuma222/Downloads/selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
-	<classpathentry kind="lib" path="C:/Users/gkuma222/Downloads/selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/gkuma222/Downloads/selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
-	<classpathentry kind="lib" path="C:/Users/gkuma222/Downloads/selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/gkuma222/Downloads/selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/gkuma222/Downloads/selenium-java-3.141.59/client-combined-3.141.59.jar"/>
-	<classpathentry kind="lib" path="C:/Users/gkuma222/Downloads/selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/gkuma222/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/d24515dc253e77e54b73df97e1fb2eb7faf34fdd/testng-6.14.3.jar" sourcepath="C:/Users/gkuma222/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/bfd2538501a129a142fe8366169c48b91609dc0b/testng-6.14.3-sources.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="test"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/User/.m2/repository/info/cukes/cucumber-testng/1.2.5/cucumber-testng-1.2.5.jar" sourcepath="C:/Users/User/.m2/repository/info/cukes/cucumber-testng/1.2.5/cucumber-testng-1.2.5-sources.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="info.cukes"/>
-			<attribute name="maven.artifactId" value="cucumber-testng"/>
-			<attribute name="maven.version" value="1.2.5"/>
-			<attribute name="maven.scope" value="compile"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
