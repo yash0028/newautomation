@@ -80,7 +80,7 @@ public class HashMapMutlCol {
 		
 	}
 // Method to pass in TestScript -- 	
-	public void retrieveData(List<Map<String,String>> readAllData) {
+	public static void retrieveData(List<Map<String,String>> readAllData) {
 		for(Map<String, String> map : readAllData)
 		{
 			// driver.get(By.id("id")).sendKeys(map.get("Address2");

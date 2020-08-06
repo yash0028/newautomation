@@ -1,10 +1,11 @@
 package stepDefinition;
 
+import java.util.Map;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeMethod;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -50,10 +51,10 @@ public class LoginStepDefinition {
 	//******************************************************************************************//
 	
 	@Then("^User enters \"([^\"]*)\" and \"([^\"]*)\"$")   //with example keyword,,, while sending so many users details
-	public void user_enters_and(String username, String password) 
+	public void user_enters_and(String username, String password)
 	{
 	driver.findElement(By.id("email")).sendKeys(username);
-	driver.findElement(By.id("pass")).sendKeys(password);  
+	driver.findElement(By.id("pass")).sendKeys(password); 
 	}
 	//**********************************************************************************************//
 	@Then("^User clicks on login button$")
