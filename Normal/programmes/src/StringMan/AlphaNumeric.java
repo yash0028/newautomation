@@ -25,6 +25,7 @@ public class AlphaNumeric {
 				{
 					num.append(str.charAt(i)); 
 					numcount++;
+					
 				}
 					
 				else if(Character.isAlphabetic(str.charAt(i)))

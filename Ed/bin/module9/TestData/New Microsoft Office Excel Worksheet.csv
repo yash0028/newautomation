@@ -1,0 +1,10 @@
+TestcaseID,Currency,Gender,Day ,Month,Year,Name ,Last ,Email
+A--01,Rupee,M,1,Jan,2000,y1,l1,101
+A--02,Dollar,F,2,Feb,2001,y2,l2,102
+A--03,Euro,M,3,Mar,2002,y3,l3,103
+A--04,yuan,F,4,Apr,2003,y4,l4,104
+A--05,Yen,M,5,May,2004,y5,l5,105
+A--06,Yen1,F,6,Jun,2005,y6,l6,106
+A--07,Yen2,M,7,Jul,2006,y7,l7,107
+A--08,Yen3,F,8,Aug,2007,y8,l8,108
+A--09,Yen4,M,9,Sep,2008,y9,l9,109
